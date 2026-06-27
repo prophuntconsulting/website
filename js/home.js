@@ -64,7 +64,7 @@
             if (raf) cancelAnimationFrame(raf);
             raf = requestAnimationFrame(() => {
                 if (video.readyState >= 1) {
-                    video.currentTime = progress * video.duration;
+                    video.currentTime = Math.min(progress * video.duration, video.duration - 0.05);
                 }
             });
         }
