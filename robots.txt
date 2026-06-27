@@ -1,4 +1,20 @@
 User-agent: *
 Allow: /
+Disallow: /thank-you-page-mahindra-citadel/
+Disallow: /thank-you-page-treetopia/
+Disallow: /thank-you
+
+# AI crawlers — allow for GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
 
 Sitemap: https://prophuntllp.com/sitemap.xml
