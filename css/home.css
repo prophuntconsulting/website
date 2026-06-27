@@ -489,21 +489,16 @@
 .service-card p { font-size: .875rem; color: var(--gray-600); line-height: 1.65; }
 
 /* ── Testimonial Carousel ── */
-.testi-carousel { position: relative; }
+.testi-carousel { overflow: hidden; position: relative; }
 .testi-track {
     display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    gap: 1.5rem;
-    padding-bottom: 4px;
+    /* width and transform set by JS */
+    transition: transform .5s cubic-bezier(.4,0,.2,1);
 }
-.testi-track::-webkit-scrollbar { display: none; }
 .testi-card {
-    flex: 0 0 calc((100% - 3rem) / 3);
-    scroll-snap-align: start;
+    flex-shrink: 0;
+    /* width set by JS = container / visible count */
+    padding: 0 .75rem;
     box-sizing: border-box;
 }
 .testi-card-inner {
@@ -717,8 +712,6 @@
     /* Sections */
     .prop-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
-    /* Carousel: 2-up on tablet */
-    .testi-card { flex: 0 0 calc((100% - 1.5rem) / 2); }
     .cta-band { padding: 3rem 0; }
     .cta-band-inner { flex-direction: column; text-align: center; }
     .cta-band-actions { justify-content: center; width: 100%; }
@@ -742,6 +735,5 @@
     .hiw-card { padding: 1.75rem 1rem; }
     .service-card { padding: 1.5rem 1.25rem; }
 
-    /* Carousel: 1-up on mobile */
-    .testi-card { flex: 0 0 calc(100% - 1.5rem); }
+    /* carousel card width handled entirely by JS */
 }
