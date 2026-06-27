@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+<meta name="theme-color" content="#C8362B">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You | Shapoorji Pallonji Treetopia</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!-- ── Google Tag Manager ── -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- Replace GTM-XXXXXXX with your GTM Container ID -->
+<!-- ── End Google Tag Manager ── -->
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --primary: #2d6a2d;
+    --primary-dark: #1e4d1e;
+    --gold: #c9a84c;
+    --light: #f5f9f5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 60px 20px 40px;
+  }
+
+  /* ── Background pattern ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(45,106,45,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(45,106,45,0.12), 0 4px 20px rgba(0,0,0,0.06);
+    padding: 52px 48px 44px;
+    max-width: 540px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.6s ease-out both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Logo */
+  .logo {
+    height: 54px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 28px;
+  }
+
+  /* Check icon */
+  .check-circle {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), #3d8f3d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 8px 24px rgba(45,106,45,0.35);
+    animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.3s both;
+  }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .check-circle svg {
+    width: 40px;
+    height: 40px;
+    stroke: #fff;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Animated checkmark draw */
+  .check-circle svg path {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: drawCheck 0.4s ease-out 0.7s forwards;
+  }
+
+  @keyframes drawCheck {
+    to { stroke-dashoffset: 0; }
+  }
+
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .subtitle strong { color: var(--primary); }
+
+  /* Info box */
+  .info-box {
+    background: var(--light);
+    border: 1px solid #c8e0c8;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #d4e8d4;
+    font-size: 13.5px;
+    color: #333;
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-row .icon {
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 15px;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+    animation: pulseGlow 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(45,106,45,0.5); }
+    50%       { box-shadow: 0 0 0 10px rgba(45,106,45,0); }
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    animation: none;
+    box-shadow: 0 6px 20px rgba(45,106,45,0.35);
+  }
+
+  .btn-whatsapp {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-whatsapp:hover {
+    background: #1aab4e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+  }
+
+  .btn-whatsapp img { width: 20px; }
+
+  /* Redirect timer */
+  .redirect-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 8px;
+  }
+
+  .redirect-note span {
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  /* RERA */
+  .rera-strip {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #eee;
+    font-size: 11px;
+    color: #aaa;
+    line-height: 1.7;
+  }
+
+  /* Confetti particles */
+  .confetti-wrap {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .confetti-piece {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    top: -10px;
+    animation: confettiFall linear forwards;
+    opacity: 0;
+  }
+
+  @keyframes confettiFall {
+    0%   { opacity: 1; transform: translateY(0) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+  }
+
+  @media(max-width:480px){
+    .card { padding: 36px 24px 32px; }
+    body { padding: 40px 16px 32px; }
+    h1 { font-size: 22px; }
+    .btn-group { flex-direction: column; }
+    .btn-primary, .btn-whatsapp { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── GTM noscript ── -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- Confetti -->
+<div class="confetti-wrap" id="confettiWrap"></div>
+
+<!-- Thank You Card -->
+<div class="card">
+
+  <!-- Logo -->
+  <img
+    src="../images/landing-pages/treetopia/shapoorji-e1772528540937.png"
+    alt="Shapoorji Pallonji Treetopia"
+    class="logo"
+    onerror="this.style.display='none'">
+
+  <!-- Animated check -->
+  <div class="check-circle">
+    <svg viewBox="0 0 24 24">
+      <path d="M5 13l4 4L19 7"/>
+    </svg>
+  </div>
+
+  <h1>Thank You! 🎉</h1>
+
+  <p class="subtitle">
+    Your enquiry for <strong>Shapoorji Pallonji Treetopia</strong> has been received.<br>
+    Our property advisor will call you within <strong>30 minutes</strong>.
+  </p>
+
+  <!-- What happens next -->
+  <div class="info-box">
+    <div class="info-row">
+      <div class="icon">📞</div>
+      <span>Our advisor will call you back within <strong>30 minutes</strong></span>
+    </div>
+    <div class="info-row">
+      <div class="icon">🏡</div>
+      <span>We'll arrange a <strong>free site visit</strong> at your convenience</span>
+    </div>
+    <div class="info-row">
+      <div class="icon">📋</div>
+      <span>You'll receive the <strong>brochure &amp; pricing</strong> on WhatsApp</span>
+    </div>
+    <div class="info-row">
+      <div class="icon">✅</div>
+      <span>RERA Registered project — <strong>100% legal &amp; transparent</strong></span>
+    </div>
+  </div>
+
+  <!-- CTAs -->
+  <div class="btn-group">
+    <a href="../treetopia/" class="btn-primary">
+      ← Back to Project
+    </a>
+    <a
+      href="https://wa.me/917066880808?text=Hi%2C+I+just+enquired+about+Shapoorji+Pallonji+Treetopia.+Please+share+more+details."
+      target="_blank"
+      class="btn-whatsapp">
+      <img src="../images/landing-pages/treetopia/WhatsApp.svg" alt="WhatsApp">
+      Chat on WhatsApp
+    </a>
+  </div>
+
+  <p class="redirect-note">
+    Redirecting to homepage in <span id="countdown">10</span> seconds…
+  </p>
+
+  <!-- RERA -->
+  <div class="rera-strip">
+    RERA: PP1261012501803 &nbsp;|&nbsp; Agent: A52100037156 &nbsp;|&nbsp;
+    <a href="https://maharera.maharashtra.gov.in/" target="_blank" style="color:#aaa;">maharera.maharashtra.gov.in</a><br>
+    Prophunt — Authorised Channel Partner &nbsp;|&nbsp; +91 70668 80808
+  </div>
+
+</div>
+
+<script>
+/* ── GTM DataLayer — push conversion event ── */
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  event: 'form_submission',
+  event_category: 'Lead',
+  event_action: 'Thank You Page',
+  event_label: 'Treetopia Enquiry',
+  value: 1
+});
+
+/* ── Also push a dedicated conversion event for Bing/Meta ── */
+window.dataLayer.push({
+  event: 'conversion',
+  conversionType: 'lead',
+  projectName: 'Treetopia'
+});
+
+/* ── Confetti animation ── */
+const colors = ['#2d6a2d','#c9a84c','#fff','#3d8f3d','#f0c040','#a8d5a2'];
+const wrap = document.getElementById('confettiWrap');
+
+function spawnConfetti(){
+  for(let i = 0; i < 60; i++){
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    el.style.cssText = `
+      left: ${Math.random()*100}%;
+      background: ${colors[Math.floor(Math.random()*colors.length)]};
+      width: ${4 + Math.random()*8}px;
+      height: ${4 + Math.random()*8}px;
+      border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+      animation-duration: ${1.5 + Math.random()*2.5}s;
+      animation-delay: ${Math.random()*1.2}s;
+    `;
+    wrap.appendChild(el);
+    el.addEventListener('animationend', () => el.remove());
+  }
+}
+
+spawnConfetti();
+setTimeout(spawnConfetti, 1200);
+
+/* ── Countdown + auto redirect ── */
+let seconds = 10;
+const countEl = document.getElementById('countdown');
+
+const timer = setInterval(() => {
+  seconds--;
+  countEl.textContent = seconds;
+  if(seconds <= 0){
+    clearInterval(timer);
+    window.location.href = '../treetopia/';
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
+
+

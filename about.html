@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | PROPHUNT LLP "” Pune's Trusted Real Estate Partner</title>
+<meta name="description" content="Learn about PROPHUNT LLP "” Pune's trusted real estate channel partner. Our story, mission, values and advisory team. Curated homes. Trusted developers. Clear decisions.">
+<link rel="canonical" href="https://prophuntllp.com/about.html">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#C8362B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<style>
+.about-story { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.about-story-img { position:relative; }
+.about-story-img-main { border-radius:var(--radius-lg); overflow:hidden; height:480px; background:var(--gray-100); position:relative; }
+.about-story-img-main img { width:100%; height:100%; object-fit:cover; }
+.about-story-img-float { position:absolute; bottom:-2rem; right:-2rem; width:180px; height:180px; border-radius:var(--radius-md); overflow:hidden; border:4px solid var(--white); box-shadow:var(--shadow-lg); background:var(--black); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:.4rem; }
+.about-story-img-float .num { font-size:2.2rem; font-weight:800; font-family:var(--font-head); color:var(--white); line-height:1; }
+.about-story-img-float .lbl { font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.6); }
+.story-text .section-label { margin-bottom:.75rem; }
+.story-text h2 { margin-bottom:1.25rem; }
+.story-text p { margin-bottom:1rem; color:var(--gray-600); line-height:1.8; }
+.story-highlights { display:flex; flex-direction:column; gap:.75rem; margin-top:1.75rem; }
+.story-highlight { display:flex; align-items:flex-start; gap:.75rem; }
+.story-highlight i { color:var(--red); margin-top:.2rem; flex-shrink:0; }
+.story-highlight span { font-size:.9rem; color:var(--gray-700); line-height:1.55; }
+.mission-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.mission-card { text-align:center; padding:2.5rem 2rem; background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-md); transition:transform .3s var(--ease), box-shadow .3s, border-color .3s; }
+.mission-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:var(--red); }
+.mission-card-icon { width:64px; height:64px; background:var(--red-light); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--red); margin:0 auto 1.25rem; transition:background .3s,color .3s; }
+.mission-card:hover .mission-card-icon { background:var(--red); color:var(--white); }
+.mission-card h3 { margin-bottom:.6rem; }
+.mission-card p { font-size:.875rem; color:var(--gray-600); line-height:1.65; }
+.timeline { position:relative; padding-left:2.5rem; }
+.timeline::before { content:''; position:absolute; left:.85rem; top:0; bottom:0; width:2px; background:var(--gray-200); }
+.timeline-item { position:relative; margin-bottom:2.5rem; }
+.timeline-item::before { content:''; position:absolute; left:-2.5rem; top:.35rem; width:14px; height:14px; border-radius:50%; background:var(--red); border:3px solid var(--white); box-shadow:0 0 0 2px var(--red); }
+.timeline-year { font-size:.78rem; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:.1em; margin-bottom:.3rem; }
+.timeline-title { font-size:1rem; font-weight:700; color:var(--black); margin-bottom:.35rem; }
+.timeline-desc { font-size:.875rem; color:var(--gray-600); line-height:1.6; }
+.team-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.team-card { text-align:center; }
+.team-avatar { width:88px; height:88px; border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center; font-size:1.75rem; font-weight:700; color:var(--white); font-family:var(--font-head); margin:0 auto 1rem; border:3px solid var(--gray-200); transition:border-color .3s; }
+.team-card:hover .team-avatar { border-color:var(--red); }
+.team-name { font-size:1rem; font-weight:700; font-family:var(--font-head); margin-bottom:.2rem; }
+.team-role { font-size:.8rem; color:var(--red); font-weight:600; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.5rem; }
+.team-desc { font-size:.82rem; color:var(--gray-600); line-height:1.6; }
+@media(max-width:1024px){ .about-story{grid-template-columns:1fr;gap:2.5rem;} .mission-grid{grid-template-columns:1fr 1fr;} .team-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:600px){ .mission-grid{grid-template-columns:1fr;} .team-grid{grid-template-columns:1fr 1fr;} .about-story-img-float{display:none;} }
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo"><img src="images/logo-black.png" alt="PROPHUNT LLP" class="logo-black"></a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="projects.html" class="nav-link">Projects <i class="fas fa-chevron-down chevron"></i></a>
+        <div class="dropdown"><a href="projects.html" class="dropdown-link"><i class="fas fa-th"></i> All Projects</a><a href="projects.html?type=apartment" class="dropdown-link"><i class="fas fa-building"></i> Apartments</a><a href="projects.html?type=plot" class="dropdown-link"><i class="fas fa-map"></i> Plots</a><hr class="dropdown-divider"><a href="developers.html" class="dropdown-link"><i class="fas fa-sitemap"></i> Our Developers</a></div>
+      </li>
+      <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="about.html" class="nav-link active">About</a></li>
+      <li class="nav-item"><a href="blog/index.html" class="nav-link">Blog</a></li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a Site Visit</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="projects.html" class="mobile-nav-link">Projects</a><div class="mobile-sub"><a href="projects.html?type=apartment" class="mobile-sub-link">Apartments</a><a href="projects.html?type=plot" class="mobile-sub-link">Plots</a><a href="developers.html" class="mobile-sub-link">Our Developers</a></div></li>
+      <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+      <li><a href="about.html" class="mobile-nav-link active">About</a></li>
+      <li><a href="blog/index.html" class="mobile-nav-link">Blog</a></li>
+    </ul>
+    <div class="mobile-menu-footer"><a href="contact.html" class="btn btn-primary">Enquire Now</a><a href="tel:+917066880808" class="btn btn-ghost">Call Us</a><div class="mobile-contact-info"><a href="tel:+917066880808"><i class="fas fa-phone"></i> +91 70668 80808</a><a href="mailto:info@prophuntllp.com"><i class="fas fa-envelope"></i> info@prophuntllp.com</a><a href="https://wa.me/917066880808" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></div></div>
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">About Us</span></nav>
+    <span class="section-label"><i class="fas fa-landmark"></i> Our Story</span>
+    <h1>Your Property Partner<br>in Pune</h1>
+    <p>A clarity-led real estate channel partner firm based in Baner, Pune. We connect buyers and investors with trusted developer-backed projects "” with transparency at every step.</p>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item" data-reveal><span class="stat-number" data-count="18">0</span><span class="stat-label">Active Projects</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" data-reveal data-reveal-delay="100"><span class="stat-number" data-count="1500">0</span><span class="stat-label">Happy Clients</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" data-reveal data-reveal-delay="200"><span class="stat-number" data-count="9">0</span><span class="stat-label">Developer Partners</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" data-reveal data-reveal-delay="300"><span class="stat-number" data-count="500">0</span><span class="stat-label">Crores Transacted</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Story -->
+<section class="section">
+  <div class="container">
+    <div class="about-story">
+      <div class="about-story-img" data-reveal="left">
+        <div class="about-story-img-main" style="background:linear-gradient(135deg,#111 0%,#2d2d2d 100%); display:flex; align-items:center; justify-content:center;">
+          <div style="text-align:center;">
+            <img src="images/logo-black.png" alt="PROPHUNT LLP" style="height:72px;width:auto;margin:0 auto 1.5rem;filter:brightness(0) invert(1);">
+            <p style="color:rgba(255,255,255,.45);font-family:'Lora',serif;font-style:italic;font-size:1.1rem;">à¤­à¥‚à¤®à¤¿à¤‚ à¤®à¥ƒà¤—à¤¯à¤§à¥à¤µà¤®à¥</p>
+            <p style="color:rgba(255,255,255,.3);font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;margin-top:.4rem;">Hunt the Land</p>
+          </div>
+        </div>
+        <div class="about-story-img-float"><span class="num">18<span style="color:#C8362B;">+</span></span><span class="lbl">Live Projects</span></div>
+      </div>
+      <div class="story-text" data-reveal="right">
+        <span class="section-label"><i class="fas fa-history"></i> Who We Are</span>
+        <h2>More Than a Brokerage "” A Property Partner</h2>
+        <p>PROPHUNT LLP was founded with a clear purpose: to bring honesty and expertise into one of India's most important decisions "” buying a home. We saw an industry where clients were overwhelmed by choices, misled by inflated claims, and left without real guidance after the sale.</p>
+        <p>We built PROPHUNT differently. Our name is inspired by the ancient Sanskrit phrase <strong style="color:var(--black);">à¤­à¥‚à¤®à¤¿à¤‚ à¤®à¥ƒà¤—à¤¯à¤§à¥à¤µà¤®à¥</strong> "” "Hunt the Land" "” a declaration of relentless pursuit on behalf of our clients. We don't stop until we find what's right for you.</p>
+        <p>Based in Baner, Pune, we work exclusively with RERA-registered projects from developers we have personally evaluated. Every recommendation is made with your interest "” not commission "” at the centre.</p>
+        <div class="story-highlights">
+          <div class="story-highlight"><i class="fas fa-check-circle"></i><span><strong>RERA-verified only.</strong> We list and recommend only projects registered under Maharashtra RERA.</span></div>
+          <div class="story-highlight"><i class="fas fa-check-circle"></i><span><strong>Post-sale support.</strong> Our relationship with clients doesn't end at the agreement "” we assist through registration and possession.</span></div>
+          <div class="story-highlight"><i class="fas fa-check-circle"></i><span><strong>No hidden fees.</strong> Complete transparency in our service charges and developer pricing.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission / Vision / Values -->
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section-header centered" data-reveal>
+      <span class="section-label"><i class="fas fa-compass"></i> Our Foundation</span>
+      <h2>Mission, Vision &amp; Values</h2>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card" data-reveal data-reveal-delay="0">
+        <div class="mission-card-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Our Mission</h3>
+        <p>To simplify real estate in India by connecting serious buyers with the right properties through transparent advice, deep market knowledge, and genuine partnership.</p>
+      </div>
+      <div class="mission-card" data-reveal data-reveal-delay="150">
+        <div class="mission-card-icon"><i class="fas fa-eye"></i></div>
+        <h3>Our Vision</h3>
+        <p>To become Pune's most respected real estate advisory, known not for the number of transactions, but for the quality of decisions we help our clients make.</p>
+      </div>
+      <div class="mission-card" data-reveal data-reveal-delay="300">
+        <div class="mission-card-icon"><i class="fas fa-heart"></i></div>
+        <h3>Our Values</h3>
+        <p>Transparency in every interaction. Integrity above commission. Expertise without jargon. And relentless pursuit "” because finding the right property is a hunt worth winning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What makes us different -->
+<section class="section">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-label"><i class="fas fa-star"></i> Why PROPHUNT</span>
+      <h2>What Sets Us Apart</h2>
+      <p class="section-sub">We've built every process around one question: what would be best for our client?</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card" data-reveal data-reveal-delay="0">
+        <div class="value-card-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Verified Projects Only</h3>
+        <p>Every project in our portfolio has been independently evaluated "” site visits, RERA checks, developer credibility, and delivery track record.</p>
+      </div>
+      <div class="value-card" data-reveal data-reveal-delay="100">
+        <div class="value-card-icon"><i class="fas fa-hand-holding-usd"></i></div>
+        <h3>Transparent Pricing</h3>
+        <p>We publish indicative prices and never inflate them. Our advisors explain every cost component "” BSP, GST, registration, and maintenance "” upfront.</p>
+      </div>
+      <div class="value-card" data-reveal data-reveal-delay="200">
+        <div class="value-card-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>Dedicated Advisor</h3>
+        <p>You get one point of contact throughout your journey. No hand-offs, no call centres. Your advisor is accountable from first enquiry to possession.</p>
+      </div>
+      <div class="value-card" data-reveal data-reveal-delay="300">
+        <div class="value-card-icon"><i class="fas fa-globe-asia"></i></div>
+        <h3>NRI Expertise</h3>
+        <p>We have structured processes for NRI buyers "” power of attorney, repatriation, FEMA compliance, and virtual site visits with detailed video reports.</p>
+      </div>
+      <div class="value-card" data-reveal data-reveal-delay="400">
+        <div class="value-card-icon"><i class="fas fa-file-contract"></i></div>
+        <h3>Legal Support</h3>
+        <p>Our empanelled legal partners assist with title verification, agreement vetting, stamp duty calculation, and sub-registrar appointments.</p>
+      </div>
+      <div class="value-card" data-reveal data-reveal-delay="500">
+        <div class="value-card-icon"><i class="fas fa-chart-bar"></i></div>
+        <h3>Market Intelligence</h3>
+        <p>Access to real-time price data, micro-market trends, and investment return projections for every project we recommend.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section-header centered" data-reveal>
+      <span class="section-label"><i class="fas fa-users"></i> Our Team</span>
+      <h2>The People Behind PROPHUNT</h2>
+      <p class="section-sub">A team of experienced real estate professionals, market analysts, and legal advisors committed to your success.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card" data-reveal data-reveal-delay="0">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#C8362B,#A02A22);">PH</div>
+        <div class="team-name">Founder & CEO</div>
+        <div class="team-role">Leadership</div>
+        <p class="team-desc">Visionary behind PROPHUNT LLP. Deep expertise in Pune's real estate micro-markets and developer relationships.</p>
+      </div>
+      <div class="team-card" data-reveal data-reveal-delay="100">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#1A1A1A,#2d2d2d);">SA</div>
+        <div class="team-name">Head of Advisory</div>
+        <div class="team-role">Client Relations</div>
+        <p class="team-desc">Guides clients through every step of the purchase journey "” from shortlisting to registration.</p>
+      </div>
+      <div class="team-card" data-reveal data-reveal-delay="200">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#C9A96E,#a07a3e);">MR</div>
+        <div class="team-name">Legal Advisor</div>
+        <div class="team-role">Legal & Compliance</div>
+        <p class="team-desc">Ensures every transaction is legally sound "” RERA verification, title checks, and agreement review.</p>
+      </div>
+      <div class="team-card" data-reveal data-reveal-delay="300">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#2d6a2d,#1e4d1e);">NK</div>
+        <div class="team-name">NRI Desk</div>
+        <div class="team-role">NRI Services</div>
+        <p class="team-desc">Dedicated support for Non-Resident Indian buyers with expertise in FEMA compliance and repatriation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Milestones -->
+<section class="section">
+  <div class="container">
+    <div class="two-col-2-3" style="gap:3rem;">
+      <div data-reveal="left">
+        <span class="section-label"><i class="fas fa-flag"></i> Our Journey</span>
+        <h2>Milestones That Define Us</h2>
+        <p style="color:var(--gray-600);margin-top:.75rem;line-height:1.7;">From our first project listing to becoming Pune's go-to property advisory, every milestone reflects our commitment to clients.</p>
+        <div style="margin-top:2rem;">
+          <a href="contact.html" class="btn btn-primary">Start Your Journey <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="timeline" data-reveal="right">
+        <div class="timeline-item">
+          <div class="timeline-year">Founding</div>
+          <div class="timeline-title">PROPHUNT LLP Established</div>
+          <p class="timeline-desc">Founded in Baner, Pune with a clear mandate: bring transparency and genuine expertise to real estate advisory in the city.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Year 1</div>
+          <div class="timeline-title">First Developer Partnerships</div>
+          <p class="timeline-desc">Signed preferred channel partner agreements with Godrej Properties and Rohan Builders "” the foundation of our developer network.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Growth</div>
+          <div class="timeline-title">500+ Crores in Transactions</div>
+          <p class="timeline-desc">Crossed the â‚¹500 crore mark in total transacted value, serving over 1,500 satisfied clients across Pune's premium residential market.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Today</div>
+          <div class="timeline-title">18+ Active Projects, 9 Developers</div>
+          <p class="timeline-desc">Now representing 18 active projects across Pune from 9 of India's most reputable developers, with a dedicated NRI desk and legal advisory team.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-band-inner" data-reveal>
+      <div class="cta-band-text">
+        <h2>Ready to Work With Us?</h2>
+        <p>Our advisors are available Mon"“Sat, 9 AM to 7 PM. Let's find the right property for you.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a href="contact.html" class="btn btn-primary btn-lg">Get in Touch <i class="fas fa-arrow-right"></i></a>
+        <a href="projects.html" class="btn btn-ghost btn-lg">View Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="footer-logo"><img src="images/logo-black.png" alt="PROPHUNT LLP"></a><div class="footer-tagline"><span class="sanskrit">à¤­à¥‚à¤®à¤¿à¤‚ à¤®à¥ƒà¤—à¤¯à¤§à¥à¤µà¤®à¥</span><span class="translation">Hunt the Land</span></div><p class="footer-about-text">Pune's trusted real estate partner. We help you discover, evaluate, and acquire premium properties from India's finest developers.</p><div class="footer-social"><a href="https://www.facebook.com/PropHuntLLP" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/prophunt_llp/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/company/prophunt-llp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/917066880808" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
+      <div class="footer-col"><h5>Explore</h5><ul class="footer-links"><li><a href="index.html"><i class="fas fa-chevron-right"></i>Home</a></li><li><a href="projects.html"><i class="fas fa-chevron-right"></i>All Projects</a></li><li><a href="developers.html"><i class="fas fa-chevron-right"></i>Developers</a></li><li><a href="services.html"><i class="fas fa-chevron-right"></i>Services</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i>About Us</a></li><li><a href="blog/index.html"><i class="fas fa-chevron-right"></i>Blog</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i>Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Legal</h5><ul class="footer-links"><li><a href="rera-disclosure.html"><i class="fas fa-chevron-right"></i>RERA Disclosure</a></li><li><a href="privacy-policy.html"><i class="fas fa-chevron-right"></i>Privacy Policy</a></li><li><a href="terms.html"><i class="fas fa-chevron-right"></i>Terms &amp; Conditions</a></li><li><a href="mahindra-citadel/"><i class="fas fa-chevron-right"></i>Mahindra Citadel</a></li><li><a href="treetopia/"><i class="fas fa-chevron-right"></i>SP Treetopia</a></li><li><a href="projects.html?type=apartment"><i class="fas fa-chevron-right"></i>Apartments</a></li></ul></div>
+      <div class="footer-newsletter"><h5>Stay Updated</h5><p>Get the latest project launches, price updates, and market insights in your inbox.</p><form class="newsletter-form" id="newsletterForm" novalidate><input type="email" name="newsletterEmail" placeholder="Your email" aria-label="Email for newsletter" required><button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button></form></div>
+    </div>
+    <hr class="divider" style="border-color:rgba(255,255,255,.08);">
+    <div class="footer-rera" style="text-align:center;padding:.75rem 0;font-size:.78rem;color:rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:.85rem;">MahaRERA Agent Registration No. <a href="rera-disclosure.html" style="color:rgba(200,54,43,.7);font-weight:700;" onmouseover="this.style.color='#C8362B'" onmouseout="this.style.color='rgba(200,54,43,.7)'">A52100037156</a> &nbsp;|&nbsp; Registered under Real Estate (Regulation &amp; Development) Act, 2016 &nbsp;|&nbsp; <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener" style="color:rgba(255,255,255,.35);" onmouseover="this.style.color='rgba(255,255,255,.75)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">maharera.mahaonline.gov.in <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i></a></div>
+<div class="footer-bottom"><span>&copy; 2025 PROPHUNT LLP. All rights reserved.</span><span style="color:#C8362B;font-family:'Lora',serif;">à¤­à¥‚à¤®à¤¿à¤‚ à¤®à¥ƒà¤—à¤¯à¤§à¥à¤µà¤®à¥ | Hunt the Land</span><div class="footer-bottom-links"><a href="rera-disclosure.html">RERA</a><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+<a href="https://wa.me/917066880808" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<script src="js/nav.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,126 @@
+/**
+ * PROPHUNT LLP — Shared Navigation & Utility JS
+ * Runs on every page
+ */
+(function () {
+    'use strict';
+
+    /* ── Helpers ── */
+    const $ = (sel, ctx = document) => ctx.querySelector(sel);
+    const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+
+    /* ── Navbar scroll behaviour ── */
+    const navbar = $('#navbar');
+    if (navbar) {
+        const onScroll = () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 48);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
+
+    /* ── Active nav link (matches current page) ── */
+    const currentPath = window.location.pathname.replace(/\/$/, '') || '/index.html';
+    $$('.nav-link, .mobile-nav-link').forEach(link => {
+        const href = link.getAttribute('href') || '';
+        if (!href || href === '#') return;
+        const linkPath = href.replace(/\/$/, '');
+        if (currentPath.endsWith(linkPath) && linkPath !== '') {
+            link.classList.add('active');
+        }
+    });
+
+    /* ── Mobile menu ── */
+    const hamburger = $('#hamburger');
+    const mobileMenu = $('#mobileMenu');
+
+    function openMenu() {
+        hamburger?.classList.add('open');
+        mobileMenu?.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        hamburger?.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+        hamburger?.classList.remove('open');
+        mobileMenu?.classList.remove('open');
+        document.body.style.overflow = '';
+        hamburger?.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburger?.addEventListener('click', () => {
+        hamburger.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    // Close when a link is clicked
+    $$('.mobile-nav-link, .mobile-sub-link').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeMenu();
+    });
+
+    /* ── Scroll reveal (IntersectionObserver) ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const delay = el.dataset.revealDelay || 0;
+            setTimeout(() => el.classList.add('revealed'), Number(delay));
+            revealObserver.unobserve(el);
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    $$('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    /* ── Animated counters ── */
+    function animateCounter(el) {
+        const target = parseInt(el.dataset.count, 10);
+        if (isNaN(target)) return;
+        const duration = 1800;
+        const startTime = performance.now();
+        const update = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target).toLocaleString('en-IN') + (progress >= 1 ? '+' : '');
+            if (progress < 1) requestAnimationFrame(update);
+        };
+        requestAnimationFrame(update);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+        });
+    }, { threshold: 0.5 });
+
+    $$('[data-count]').forEach(el => counterObserver.observe(el));
+
+    /* ── Back to top ── */
+    const btt = $('#backToTop');
+    if (btt) {
+        window.addEventListener('scroll', () => {
+            btt.classList.toggle('visible', window.scrollY > 400);
+        }, { passive: true });
+        btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    /* ── Newsletter form (mailto fallback) ── */
+    const nlForm = $('#newsletterForm');
+    if (nlForm) {
+        nlForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const email = nlForm.elements.newsletterEmail?.value || '';
+            const btn = nlForm.querySelector('button');
+            window.location.href = `mailto:info@prophuntllp.com?subject=${encodeURIComponent('Newsletter subscription')}&body=${encodeURIComponent(`Please subscribe ${email} to PROPHUNT property updates.`)}`;
+            if (btn) {
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-arrow-right"></i>'; nlForm.reset(); }, 2500);
+            }
+        });
+    }
+
+})();
