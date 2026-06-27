@@ -111,7 +111,8 @@
     </div>
     <!-- Right: scroll-driven frame animation -->
     <div class="hero-right">
-      <video id="heroFrame" class="hero-frame" muted playsinline preload="auto" aria-hidden="true">
+      <video id="heroFrame" class="hero-frame" muted playsinline webkit-playsinline preload="auto" aria-hidden="true">
+        <source src="images/hero-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
         <source src="images/hero.mp4" type="video/mp4">
       </video>
       <div class="hero-frame-loader" id="heroLoader">

@@ -48,8 +48,10 @@
 
     if (video && heroWrapper) {
         let raf = null;
+        let lastSeekTime = 0;
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        const THROTTLE = isMobile ? 40 : 0; // ~25fps cap on mobile
 
-        // Hide the loader once video can play
         video.addEventListener('canplay', () => {
             if (loader) { loader.style.opacity = '0'; setTimeout(() => { loader.style.display = 'none'; }, 400); }
         }, { once: true });
@@ -63,14 +65,16 @@
 
             if (raf) cancelAnimationFrame(raf);
             raf = requestAnimationFrame(() => {
-                if (video.readyState >= 1) {
-                    video.currentTime = Math.min(progress * video.duration, video.duration - 0.05);
-                }
+                if (video.readyState < 1) return;
+                const now = performance.now();
+                if (now - lastSeekTime < THROTTLE) return;
+                if (video.seeking) return;
+                lastSeekTime = now;
+                video.currentTime = Math.min(progress * video.duration, video.duration - 0.05);
             });
         }
 
         window.addEventListener('scroll', onScroll, { passive: true });
-        // Set frame 0 once metadata is ready
         video.addEventListener('loadedmetadata', () => { video.currentTime = 0; });
     }
 
