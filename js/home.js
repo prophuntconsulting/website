@@ -114,6 +114,11 @@
         window.addEventListener('scroll', onScroll, { passive: true });
 
         // ── Frame loader ──
+        const KEYFRAMES = []; // every 3rd frame = 100 requests instead of 300
+        for (let i = 1; i <= TOTAL; i += 3) KEYFRAMES.push(i);
+        KEYFRAMES.push(TOTAL);
+        const KEY_TOTAL = KEYFRAMES.length;
+
         function loadFrame(n) {
             return new Promise(resolve => {
                 if (frames[n]) { resolve(); return; }
@@ -121,14 +126,14 @@
                 img.onload = () => {
                     frames[n] = img;
                     loaded++;
-                    if (loaderBar) loaderBar.style.width = Math.round((loaded / TOTAL) * 100) + '%';
-                    if (n === 1 && !drawn) draw(1);
-                    // unlock after first 30 frames loaded
-                    if (!ready && loaded >= 30) {
+                    if (loaderBar) loaderBar.style.width = Math.round((loaded / KEY_TOTAL) * 100) + '%';
+                    if (!drawn) draw(n); // draw first frame that arrives
+                    // unlock scroll after just 10 frames — much faster
+                    if (!ready && loaded >= 10) {
                         ready = true;
                         if (loader) {
                             loader.style.opacity = '0';
-                            setTimeout(() => { loader.style.display = 'none'; }, 500);
+                            setTimeout(() => { loader.style.display = 'none'; }, 400);
                         }
                     }
                     resolve();
@@ -138,26 +143,15 @@
             });
         }
 
-        async function loadBatch(indices, batchSize, delay) {
+        async function loadBatch(indices, batchSize) {
             for (let i = 0; i < indices.length; i += batchSize) {
                 await Promise.all(indices.slice(i, i + batchSize).map(loadFrame));
-                if (delay) await new Promise(r => setTimeout(r, delay));
             }
         }
 
         (async () => {
-            // Phase 1: every 5th frame — quick coverage
-            const keyframes = [];
-            for (let i = 1; i <= TOTAL; i += 5) keyframes.push(i);
-            keyframes.push(TOTAL);
-            await loadBatch(keyframes, 12, 0);
-
-            // Phase 2: fill all remaining frames
-            const remaining = [];
-            for (let i = 1; i <= TOTAL; i++) {
-                if (!frames[i]) remaining.push(i);
-            }
-            await loadBatch(remaining, 15, 8);
+            // Single phase: every 3rd frame (100 total) in large batches
+            await loadBatch(KEYFRAMES, 20);
         })();
     }
 
