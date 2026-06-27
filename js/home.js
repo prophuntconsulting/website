@@ -114,11 +114,6 @@
         window.addEventListener('scroll', onScroll, { passive: true });
 
         // ── Frame loader ──
-        const KEYFRAMES = []; // every 3rd frame = 100 requests instead of 300
-        for (let i = 1; i <= TOTAL; i += 3) KEYFRAMES.push(i);
-        KEYFRAMES.push(TOTAL);
-        const KEY_TOTAL = KEYFRAMES.length;
-
         function loadFrame(n) {
             return new Promise(resolve => {
                 if (frames[n]) { resolve(); return; }
@@ -126,9 +121,8 @@
                 img.onload = () => {
                     frames[n] = img;
                     loaded++;
-                    if (loaderBar) loaderBar.style.width = Math.round((loaded / KEY_TOTAL) * 100) + '%';
-                    if (!drawn) draw(n); // draw first frame that arrives
-                    // unlock scroll after just 10 frames — much faster
+                    if (loaderBar) loaderBar.style.width = Math.round((loaded / TOTAL) * 100) + '%';
+                    if (!drawn) draw(n);
                     if (!ready && loaded >= 10) {
                         ready = true;
                         if (loader) {
@@ -150,8 +144,20 @@
         }
 
         (async () => {
-            // Single phase: every 3rd frame (100 total) in large batches
-            await loadBatch(KEYFRAMES, 20);
+            // Phase 1: first 20 frames — show animation immediately
+            const first20 = Array.from({ length: 20 }, (_, i) => i + 1);
+            await loadBatch(first20, 20);
+
+            // Phase 2: every 5th frame for full coverage (60 frames)
+            const sparse = [];
+            for (let i = 21; i <= TOTAL; i += 5) sparse.push(i);
+            sparse.push(TOTAL);
+            await loadBatch(sparse, 20);
+
+            // Phase 3: fill all remaining frames in background
+            const remaining = [];
+            for (let i = 21; i <= TOTAL; i++) { if (!frames[i]) remaining.push(i); }
+            await loadBatch(remaining, 20);
         })();
     }
 
