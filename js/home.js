@@ -40,113 +40,38 @@
     }, { threshold: 0.5 });
     statNums.forEach(el => statObs.observe(el));
 
-    /* ── HERO SCROLL FRAME SEQUENCE — Canvas ── */
-    const canvas      = document.getElementById('heroFrame');
+    /* ── HERO SCROLL FRAME SEQUENCE — Video scrub ── */
+    const video       = document.getElementById('heroFrame');
     const heroWrapper = document.getElementById('heroWrapper');
     const heroScroll  = document.getElementById('heroScroll');
-    const loaderBar   = document.getElementById('heroLoaderBar');
     const loader      = document.getElementById('heroLoader');
 
-    if (canvas) {
-        const ctx     = canvas.getContext('2d');
-        const TOTAL   = 300;
-        const frames  = new Array(TOTAL + 1); // 1-indexed
-        const path    = n => `images/hero-frames/ezgif-frame-${String(n).padStart(3, '0')}.png`;
+    if (video && heroWrapper) {
+        let raf = null;
 
-        let drawn = 0;
-        let raf   = null;
-        let loaded = 0;
+        // Hide the loader once video can play
+        video.addEventListener('canplay', () => {
+            if (loader) { loader.style.opacity = '0'; setTimeout(() => { loader.style.display = 'none'; }, 400); }
+        }, { once: true });
 
-        // ── Canvas sizing ──
-        function resize() {
-            const dpr = window.devicePixelRatio || 1;
-            canvas.width  = canvas.offsetWidth  * dpr;
-            canvas.height = canvas.offsetHeight * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            if (drawn) draw(drawn);
-        }
-        resize();
-        window.addEventListener('resize', resize);
-
-        // ── Draw a frame (cover-fit) ──
-        function draw(n) {
-            const img = frames[n];
-            if (!img) return;
-            drawn = n;
-            const W = canvas.offsetWidth, H = canvas.offsetHeight;
-            const scale = Math.max(W / img.naturalWidth, H / img.naturalHeight);
-            const sw = img.naturalWidth * scale, sh = img.naturalHeight * scale;
-            ctx.clearRect(0, 0, W, H);
-            ctx.drawImage(img, (W - sw) / 2, (H - sh) / 2, sw, sh);
-        }
-
-        // ── Scroll handler — NO ready gate, always responds ──
         function onScroll() {
-            if (!heroWrapper) return;
             const into     = Math.max(0, window.scrollY - heroWrapper.offsetTop);
             const scrollH  = heroWrapper.offsetHeight - window.innerHeight;
             const progress = scrollH > 0 ? Math.min(into / scrollH, 1) : 0;
-            const target   = Math.round(1 + progress * (TOTAL - 1));
 
             if (heroScroll) heroScroll.style.opacity = into > 60 ? '0' : '1';
-            if (target === drawn) return;
+
             if (raf) cancelAnimationFrame(raf);
             raf = requestAnimationFrame(() => {
-                if (frames[target]) { draw(target); return; }
-                // nearest available frame in either direction
-                for (let d = 1; d < TOTAL; d++) {
-                    if (frames[target - d]) { draw(target - d); break; }
-                    if (frames[target + d]) { draw(target + d); break; }
+                if (video.readyState >= 1) {
+                    video.currentTime = progress * video.duration;
                 }
             });
         }
+
         window.addEventListener('scroll', onScroll, { passive: true });
-
-        // ── Frame loader ──
-        function loadFrame(n) {
-            return new Promise(resolve => {
-                if (frames[n]) { resolve(); return; }
-                const img = new Image();
-                img.onload = () => {
-                    frames[n] = img;
-                    loaded++;
-                    if (loaderBar) loaderBar.style.width = Math.round((loaded / TOTAL) * 100) + '%';
-                    if (!drawn) draw(n);
-                    // hide loader bar after first 10 frames
-                    if (loaded === 10 && loader) {
-                        loader.style.opacity = '0';
-                        setTimeout(() => { loader.style.display = 'none'; }, 400);
-                    }
-                    // re-draw current position as new frames arrive while user is scrolled
-                    if (drawn) onScroll();
-                    resolve();
-                };
-                img.onerror = resolve;
-                img.src = path(n);
-            });
-        }
-
-        async function loadBatch(indices, batchSize) {
-            for (let i = 0; i < indices.length; i += batchSize) {
-                await Promise.all(indices.slice(i, i + batchSize).map(loadFrame));
-            }
-        }
-
-        (async () => {
-            // Phase 1: first 20 frames — hero appears instantly
-            await loadBatch(Array.from({ length: 20 }, (_, i) => i + 1), 20);
-
-            // Phase 2: every 5th frame across all 300 — full scroll range usable
-            const sparse = [];
-            for (let i = 21; i <= TOTAL; i += 5) sparse.push(i);
-            sparse.push(TOTAL);
-            await loadBatch(sparse, 20);
-
-            // Phase 3: fill every remaining frame — full quality
-            const remaining = [];
-            for (let i = 21; i <= TOTAL; i++) { if (!frames[i]) remaining.push(i); }
-            await loadBatch(remaining, 20);
-        })();
+        // Set frame 0 once metadata is ready
+        video.addEventListener('loadedmetadata', () => { video.currentTime = 0; });
     }
 
     /* ── FEATURED PROJECTS GRID ── */

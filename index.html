@@ -15,10 +15,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <meta name="theme-color" content="#C8362B">
-<!-- Preload first hero frame so canvas shows instantly -->
-<link rel="preload" as="image" href="images/hero-frames/ezgif-frame-001.png">
-<link rel="preload" as="image" href="images/hero-frames/ezgif-frame-002.png">
-<link rel="preload" as="image" href="images/hero-frames/ezgif-frame-003.png">
+<link rel="preload" as="video" href="images/hero.mp4" type="video/mp4">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","name":"PROPHUNT LLP","url":"https://prophuntllp.com","telephone":"+91-70668-80808","email":"info@prophuntllp.com","address":{"@type":"PostalAddress","streetAddress":"Work Katta, 291/3, Pancard Club Rd, Baner Gaon","addressLocality":"Pune","addressRegion":"Maharashtra","postalCode":"411069","addressCountry":"IN"},"sameAs":["https://www.facebook.com/PropHuntLLP","https://www.instagram.com/prophunt_llp/","https://www.linkedin.com/company/prophunt-llp/"]}
 </script>
@@ -114,7 +111,9 @@
     </div>
     <!-- Right: scroll-driven frame animation -->
     <div class="hero-right">
-      <canvas id="heroFrame" class="hero-frame" aria-hidden="true"></canvas>
+      <video id="heroFrame" class="hero-frame" muted playsinline preload="auto" aria-hidden="true">
+        <source src="images/hero.mp4" type="video/mp4">
+      </video>
       <div class="hero-frame-loader" id="heroLoader">
         <div class="hero-frame-loader-bar" id="heroLoaderBar"></div>
       </div>
