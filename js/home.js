@@ -269,24 +269,16 @@
             );
         }
 
-        function layout() {
-            const W = carousel.offsetWidth;
-            if (!W) { setTimeout(layout, 30); return; } /* retry until rendered */
-            const vis = getVisible();
-            const cw  = W / vis;
-            cards.forEach(c => c.style.width = cw + 'px');
-            track.style.transition = 'none';
-            track.style.transform  = 'translateX(0)';
-            current = 0;
-            buildDots();
-            setTimeout(() => { track.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1)'; }, 30);
-        }
-
         function goTo(idx) {
             current = Math.max(0, Math.min(idx, pages() - 1));
-            /* each page = full carousel width */
             track.style.transform = `translateX(-${current * carousel.offsetWidth}px)`;
             updateDots();
+        }
+
+        function reset() {
+            current = 0;
+            track.style.transform = 'translateX(0)';
+            buildDots();
         }
 
         function startAuto() {
@@ -295,10 +287,10 @@
         }
         function resetAuto() { clearInterval(autoTimer); startAuto(); }
 
-        layout();
+        reset();
         startAuto();
 
-        window.addEventListener('resize', () => { layout(); resetAuto(); });
+        window.addEventListener('resize', () => { reset(); resetAuto(); });
 
         if (prev) prev.addEventListener('click', () => { goTo((current - 1 + pages()) % pages()); resetAuto(); });
         if (next) next.addEventListener('click', () => { goTo((current + 1) % pages()); resetAuto(); });

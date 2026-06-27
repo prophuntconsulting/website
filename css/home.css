@@ -491,16 +491,21 @@
 /* ── Testimonial Carousel ── */
 .testi-carousel { overflow: hidden; position: relative; }
 .testi-track {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% / 3); /* 3-up desktop; 100% = carousel width */
     transition: transform .5s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+}
+@media (max-width: 1023px) {
+    .testi-track { grid-auto-columns: calc(100% / 2); }
+}
+@media (max-width: 639px) {
+    .testi-track { grid-auto-columns: 100%; }
 }
 .testi-card {
-    flex: 0 0 auto; /* width driven entirely by JS */
     padding: 0 .75rem;
     box-sizing: border-box;
-    min-height: 1px; /* prevent collapse */
 }
 .testi-card-inner {
     background: var(--white);
