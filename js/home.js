@@ -240,16 +240,14 @@
     const next  = document.getElementById('testiNext');
 
     if (track) {
-        const carousel = track.parentElement;
-        const cards    = track.querySelectorAll('.testi-card');
-        const total    = cards.length;
-        let current    = 0;
+        const cards   = track.querySelectorAll('.testi-card');
+        const total   = cards.length;
+        let current   = 0;
         let autoTimer;
 
         function getVisible() {
             return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
         }
-
         function pages() { return Math.ceil(total / getVisible()); }
 
         function buildDots() {
@@ -264,23 +262,19 @@
             }
         }
 
-        function goTo(idx) {
-            current = Math.max(0, Math.min(idx, pages() - 1));
-            // Use pixel offset = page index × container width (not track width)
-            const containerW = carousel.offsetWidth;
-            track.style.transform = `translateX(-${current * containerW}px)`;
+        function updateDots() {
             document.querySelectorAll('.testi-dot').forEach((d, i) =>
                 d.classList.toggle('active', i === current)
             );
         }
 
-        function layout() {
-            const vis = getVisible();
-            const cardW = carousel.offsetWidth / vis;
-            cards.forEach(c => { c.style.width = cardW + 'px'; c.style.flexShrink = '0'; });
-            current = 0;
-            track.style.transform = 'translateX(0)';
-            buildDots();
+        function goTo(idx) {
+            current = Math.max(0, Math.min(idx, pages() - 1));
+            const cardW = cards[0].offsetWidth;
+            const gap   = parseFloat(getComputedStyle(track).gap) || 24;
+            const vis   = getVisible();
+            track.scrollLeft = current * (cardW + gap) * vis;
+            updateDots();
         }
 
         function startAuto() {
@@ -289,24 +283,20 @@
         }
         function resetAuto() { clearInterval(autoTimer); startAuto(); }
 
-        layout();
-        startAuto();
+        // Sync dot when user finger-scrolls
+        track.addEventListener('scroll', () => {
+            const cardW = cards[0].offsetWidth;
+            const gap   = parseFloat(getComputedStyle(track).gap) || 24;
+            const page  = Math.round(track.scrollLeft / ((cardW + gap) * getVisible()));
+            if (page !== current) { current = page; updateDots(); }
+        }, { passive: true });
 
-        window.addEventListener('resize', () => { layout(); resetAuto(); });
+        buildDots();
+        startAuto();
+        window.addEventListener('resize', () => { current = 0; track.scrollLeft = 0; buildDots(); resetAuto(); });
 
         if (prev) prev.addEventListener('click', () => { goTo((current - 1 + pages()) % pages()); resetAuto(); });
         if (next) next.addEventListener('click', () => { goTo((current + 1) % pages()); resetAuto(); });
-
-        // Touch swipe
-        let startX = 0;
-        track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-        track.addEventListener('touchend', e => {
-            const diff = startX - e.changedTouches[0].clientX;
-            if (Math.abs(diff) > 40) {
-                diff > 0 ? goTo((current + 1) % pages()) : goTo((current - 1 + pages()) % pages());
-                resetAuto();
-            }
-        }, { passive: true });
     }
 
     /* ── PROPERTY SEARCH ── */
