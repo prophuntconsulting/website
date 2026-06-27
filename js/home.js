@@ -270,28 +270,22 @@
         }
 
         function layout() {
-            const W   = carousel.offsetWidth;
+            const W = carousel.offsetWidth;
+            if (!W) { setTimeout(layout, 30); return; } /* retry until rendered */
             const vis = getVisible();
             const cw  = W / vis;
-            /* Set each card to exact pixel width so track = total * cw */
             cards.forEach(c => c.style.width = cw + 'px');
-            track.style.width = (total * cw) + 'px';
-            /* Snap back to page 0 without animation */
             track.style.transition = 'none';
             track.style.transform  = 'translateX(0)';
             current = 0;
             buildDots();
-            /* Re-enable animation next frame */
-            requestAnimationFrame(() => {
-                track.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1)';
-            });
+            setTimeout(() => { track.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1)'; }, 30);
         }
 
         function goTo(idx) {
             current = Math.max(0, Math.min(idx, pages() - 1));
-            /* Shift by N card-widths; each card = carousel.offsetWidth / visible */
-            const cw = carousel.offsetWidth / getVisible();
-            track.style.transform = `translateX(-${current * cw * getVisible()}px)`;
+            /* each page = full carousel width */
+            track.style.transform = `translateX(-${current * carousel.offsetWidth}px)`;
             updateDots();
         }
 
@@ -301,11 +295,8 @@
         }
         function resetAuto() { clearInterval(autoTimer); startAuto(); }
 
-        /* Wait for paint so offsetWidth is correct */
-        requestAnimationFrame(() => {
-            layout();
-            startAuto();
-        });
+        layout();
+        startAuto();
 
         window.addEventListener('resize', () => { layout(); resetAuto(); });
 
