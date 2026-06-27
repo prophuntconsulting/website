@@ -233,77 +233,55 @@
         });
     });
 
-    /* ── TESTIMONIAL CAROUSEL ── */
-    const track = document.getElementById('testiTrack');
+    /* ── TESTIMONIALS (fade slider) ── */
+    const stage = document.getElementById('testiStage');
     const dots  = document.getElementById('testiDots');
     const prev  = document.getElementById('testiPrev');
     const next  = document.getElementById('testiNext');
 
-    if (track) {
-        const carousel = track.parentElement; /* .testi-carousel */
-        const cards    = track.querySelectorAll('.testi-card');
-        const total    = cards.length;
-        let current    = 0;
+    if (stage) {
+        const slides = stage.querySelectorAll('.testi-slide');
+        const total  = slides.length;
+        let current  = 0;
         let autoTimer;
 
-        function getVisible() {
-            return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
-        }
-        function pages() { return Math.ceil(total / getVisible()); }
-
-        function buildDots() {
-            if (!dots) return;
-            dots.innerHTML = '';
-            for (let i = 0; i < pages(); i++) {
+        /* Build dots */
+        if (dots) {
+            for (let i = 0; i < total; i++) {
                 const d = document.createElement('button');
                 d.className = 'testi-dot' + (i === 0 ? ' active' : '');
-                d.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                d.setAttribute('aria-label', `Slide ${i + 1}`);
                 d.addEventListener('click', () => { goTo(i); resetAuto(); });
                 dots.appendChild(d);
             }
         }
 
-        function updateDots() {
+        function goTo(idx) {
+            slides[current].classList.remove('active');
+            current = (idx + total) % total;
+            slides[current].classList.add('active');
             document.querySelectorAll('.testi-dot').forEach((d, i) =>
                 d.classList.toggle('active', i === current)
             );
         }
 
-        function goTo(idx) {
-            current = Math.max(0, Math.min(idx, pages() - 1));
-            track.style.transform = `translateX(-${current * carousel.offsetWidth}px)`;
-            updateDots();
-        }
-
-        function reset() {
-            current = 0;
-            track.style.transform = 'translateX(0)';
-            buildDots();
-        }
-
         function startAuto() {
             clearInterval(autoTimer);
-            autoTimer = setInterval(() => goTo((current + 1) % pages()), 4500);
+            autoTimer = setInterval(() => goTo(current + 1), 4500);
         }
         function resetAuto() { clearInterval(autoTimer); startAuto(); }
 
-        reset();
         startAuto();
 
-        window.addEventListener('resize', () => { reset(); resetAuto(); });
-
-        if (prev) prev.addEventListener('click', () => { goTo((current - 1 + pages()) % pages()); resetAuto(); });
-        if (next) next.addEventListener('click', () => { goTo((current + 1) % pages()); resetAuto(); });
+        if (prev) prev.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+        if (next) next.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
 
         /* Touch swipe */
         let startX = 0;
-        track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-        track.addEventListener('touchend', e => {
+        stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+        stage.addEventListener('touchend', e => {
             const diff = startX - e.changedTouches[0].clientX;
-            if (Math.abs(diff) > 40) {
-                diff > 0 ? goTo((current + 1) % pages()) : goTo((current - 1 + pages()) % pages());
-                resetAuto();
-            }
+            if (Math.abs(diff) > 40) { diff > 0 ? goTo(current + 1) : goTo(current - 1); resetAuto(); }
         }, { passive: true });
     }
 

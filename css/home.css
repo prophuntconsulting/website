@@ -488,84 +488,83 @@
 .service-card h3 { font-size: 1.05rem; margin-bottom: .6rem; }
 .service-card p { font-size: .875rem; color: var(--gray-600); line-height: 1.65; }
 
-/* ── Testimonial Carousel ── */
-.testi-carousel { overflow: hidden; position: relative; }
-.testi-track {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: calc(100% / 3); /* 3-up desktop; 100% = carousel width */
-    transition: transform .5s cubic-bezier(.4,0,.2,1);
-    will-change: transform;
-}
-@media (max-width: 1023px) {
-    .testi-track { grid-auto-columns: calc(100% / 2); }
-}
-@media (max-width: 639px) {
-    .testi-track { grid-auto-columns: 100%; }
-}
-.testi-card {
-    padding: 0 .75rem;
-    box-sizing: border-box;
-}
-.testi-card-inner {
+/* ── Testimonials ── */
+.testi-widget { max-width: 720px; margin: 3rem auto 0; }
+
+.testi-stage { position: relative; min-height: 260px; }
+
+.testi-slide {
+    display: none;
     background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-md);
-    padding: 2rem;
-    height: 100%;
-    box-sizing: border-box;
-    transition: box-shadow .3s, border-color .3s;
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 3rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,.07);
+    border: 1px solid var(--gray-100);
+    animation: testiIn .4s ease;
 }
-.testi-card-inner:hover { box-shadow: var(--shadow-lg); border-color: var(--red); }
-.testi-stars { color: #F59E0B; margin-bottom: 1rem; font-size: .85rem; letter-spacing: .1em; }
-.testi-text { font-size: .92rem; color: var(--gray-700); line-height: 1.75; margin-bottom: 1.5rem; font-style: italic; }
-.testi-author { display: flex; align-items: center; gap: .85rem; }
+.testi-slide.active { display: block; }
+
+@keyframes testiIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.testi-quote-mark {
+    font-size: 5rem;
+    line-height: .6;
+    color: var(--red);
+    font-family: Georgia, serif;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: .25;
+}
+.testi-stars { color: #F59E0B; margin-bottom: 1.1rem; font-size: .9rem; letter-spacing: .1em; }
+.testi-body {
+    font-size: 1.05rem;
+    color: var(--gray-700);
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 1.75rem;
+}
+.testi-author { display: flex; align-items: center; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid var(--gray-100); }
 .testi-avatar {
-    width: 44px; height: 44px;
+    width: 48px; height: 48px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: .85rem;
-    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .9rem; font-weight: 700;
     color: var(--white);
     font-family: var(--font-head);
     flex-shrink: 0;
 }
-.testi-name { font-weight: 700; font-size: .9rem; color: var(--black); margin-bottom: .15rem; }
+.testi-name { font-weight: 700; font-size: .95rem; color: var(--black); margin-bottom: .2rem; }
 .testi-role { font-size: .78rem; color: var(--gray-500); }
 
 .testi-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; margin-top: 1.75rem;
 }
 .testi-btn {
-    width: 40px; height: 40px;
+    width: 42px; height: 42px;
     border-radius: 50%;
     border: 1.5px solid var(--gray-200);
     background: var(--white);
     color: var(--gray-600);
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     transition: all .2s;
+    flex-shrink: 0;
 }
 .testi-btn:hover { border-color: var(--red); color: var(--red); background: var(--red-light); }
-.testi-dots { display: flex; gap: .45rem; }
+.testi-dots { display: flex; gap: .5rem; }
 .testi-dot {
     width: 8px; height: 8px;
-    border-radius: 50%;
-    border: none;
+    border-radius: 50%; border: none;
     background: var(--gray-200);
     cursor: pointer;
     transition: background .2s, transform .2s;
     padding: 0;
 }
-.testi-dot.active { background: var(--red); transform: scale(1.3); }
+.testi-dot.active { background: var(--red); transform: scale(1.35); }
 
 /* ── How It Works ── */
 .hiw-section { background: var(--off-white); }
