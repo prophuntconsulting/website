@@ -7,9 +7,13 @@
   <title>PROPHUNT Blog — Admin</title>
 </head>
 <body>
-  <script>window.CMS_MANUAL_INIT = true;</script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
+  window.CMS_MANUAL_INIT = true;
+  </script>
+  <!-- Sveltia CMS: drop-in replacement for Decap CMS with proper GitHub PKCE auth -->
+  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+  <script type="module">
+  import CMS from 'https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js';
   CMS.init({
     config: {
       backend: {
@@ -71,14 +75,14 @@
               label: 'Short Excerpt',
               name: 'excerpt',
               widget: 'text',
-              hint: '1–2 sentence summary shown on blog listing. Under 160 characters.'
+              hint: '1-2 sentence summary shown on blog listing. Under 160 characters.'
             },
             {
               label: 'Cover Image',
               name: 'cover',
               widget: 'image',
               required: false,
-              hint: 'Upload a cover photo (recommended: 1200×630px)'
+              hint: 'Upload a cover photo (recommended: 1200x630px)'
             },
             {
               label: 'Content',

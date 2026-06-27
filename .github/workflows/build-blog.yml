@@ -1,0 +1,27 @@
+name: Rebuild Blog Index
+
+on:
+  push:
+    paths:
+      - 'blog/posts/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate posts.json
+        run: node scripts/build-blog.js
+
+      - name: Commit updated posts.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Build: update blog/posts.json"
+          file_pattern: blog/posts.json
