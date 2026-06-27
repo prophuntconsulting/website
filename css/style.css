@@ -389,12 +389,13 @@ p { color:var(--gray-800); }
    STATS STRIP
 ═══════════════════════════════════════════════ */
 .stats-strip { background:var(--black); padding:3rem 0; }
-.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; }
-.stat-item { text-align:center; }
+.stats-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0; align-items:center; }
+.stat-item { text-align:center; min-width:0; padding:0 1.5rem; border-left:1px solid rgba(255,255,255,.12); }
+.stat-item:first-child { border-left:0; }
 .stat-number { display:block; font-family:var(--font-head); font-size:clamp(2rem, 4vw, 3rem); font-weight:700; color:var(--white); line-height:1; margin-bottom:.35rem; }
 .stat-number span { color:var(--red); }
 .stat-label { font-size:.8rem; color:var(--gray-400); text-transform:uppercase; letter-spacing:.1em; font-weight:600; }
-.stat-divider { width:1px; background:rgba(255,255,255,.08); }
+.stat-divider { display:none; }
 
 /* ═══════════════════════════════════════════════
    DEVELOPER LOGO LOOP
@@ -476,7 +477,7 @@ textarea.form-control { resize:vertical; min-height:120px; }
 
 /* WhatsApp Float */
 .wa-float {
-    position:fixed; bottom:5.5rem; right:2rem; z-index:500;
+    position:fixed; bottom:5.5rem; left:2rem; right:auto; z-index:500;
     width:48px; height:48px; border-radius:50%;
     background:#25D366; color:#fff;
     display:flex; align-items:center; justify-content:center;
@@ -504,8 +505,8 @@ textarea.form-control { resize:vertical; min-height:120px; }
     .hamburger { display:flex; }
     .mobile-menu { display:block; }
     .footer-grid { grid-template-columns:1fr 1fr; }
-    .stats-grid { grid-template-columns:repeat(2,1fr); }
-    .stat-divider { display:none; }
+    .stats-grid { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:2rem; }
+    .stat-item:nth-of-type(5) { border-left:0; }
 }
 @media (max-width:768px) {
     :root { --gap:1.25rem; --nav-h:60px; }
@@ -523,9 +524,9 @@ textarea.form-control { resize:vertical; min-height:120px; }
     /* Stats — prevent label wrapping */
     .stat-label { font-size:.62rem; letter-spacing:.08em; }
     .stat-number { font-size:clamp(1.6rem, 6vw, 2.5rem); }
-    .stat-item { padding:0 .5rem; }
+    .stat-item { padding:0 .75rem; }
 }
 @media (max-width:480px) {
-    .stats-grid { grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .stats-grid { grid-template-columns:1fr 1fr; row-gap:1.5rem; }
     .stat-label { font-size:.6rem; letter-spacing:.05em; }
 }
