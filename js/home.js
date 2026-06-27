@@ -240,59 +240,70 @@
     const next  = document.getElementById('testiNext');
 
     if (track) {
-        const cards = track.querySelectorAll('.testi-card');
-        const total = cards.length;
-        let current = 0;
+        const carousel = track.parentElement;
+        const cards    = track.querySelectorAll('.testi-card');
+        const total    = cards.length;
+        let current    = 0;
         let autoTimer;
 
         function getVisible() {
             return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
         }
 
+        function pages() { return Math.ceil(total / getVisible()); }
+
         function buildDots() {
             if (!dots) return;
             dots.innerHTML = '';
-            const pages = Math.ceil(total / getVisible());
-            for (let i = 0; i < pages; i++) {
+            for (let i = 0; i < pages(); i++) {
                 const d = document.createElement('button');
                 d.className = 'testi-dot' + (i === 0 ? ' active' : '');
                 d.setAttribute('aria-label', `Go to slide ${i + 1}`);
-                d.addEventListener('click', () => goTo(i));
+                d.addEventListener('click', () => { goTo(i); resetAuto(); });
                 dots.appendChild(d);
             }
         }
 
         function goTo(idx) {
-            const pages = Math.ceil(total / getVisible());
-            current = Math.max(0, Math.min(idx, pages - 1));
-            track.style.transform = `translateX(-${current * 100}%)`;
-            document.querySelectorAll('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+            current = Math.max(0, Math.min(idx, pages() - 1));
+            // Use pixel offset = page index × container width (not track width)
+            const containerW = carousel.offsetWidth;
+            track.style.transform = `translateX(-${current * containerW}px)`;
+            document.querySelectorAll('.testi-dot').forEach((d, i) =>
+                d.classList.toggle('active', i === current)
+            );
         }
-
-        function startAuto() { autoTimer = setInterval(() => goTo((current + 1) % Math.ceil(total / getVisible())), 4500); }
-        function resetAuto() { clearInterval(autoTimer); startAuto(); }
 
         function layout() {
             const vis = getVisible();
-            cards.forEach(c => c.style.minWidth = `${100 / vis}%`);
+            const cardW = carousel.offsetWidth / vis;
+            cards.forEach(c => { c.style.width = cardW + 'px'; c.style.flexShrink = '0'; });
+            current = 0;
+            track.style.transform = 'translateX(0)';
             buildDots();
-            goTo(0);
         }
+
+        function startAuto() {
+            clearInterval(autoTimer);
+            autoTimer = setInterval(() => goTo((current + 1) % pages()), 4500);
+        }
+        function resetAuto() { clearInterval(autoTimer); startAuto(); }
 
         layout();
         startAuto();
+
         window.addEventListener('resize', () => { layout(); resetAuto(); });
 
-        if (prev) prev.addEventListener('click', () => { goTo((current - 1 + Math.ceil(total / getVisible())) % Math.ceil(total / getVisible())); resetAuto(); });
-        if (next) next.addEventListener('click', () => { goTo((current + 1) % Math.ceil(total / getVisible())); resetAuto(); });
+        if (prev) prev.addEventListener('click', () => { goTo((current - 1 + pages()) % pages()); resetAuto(); });
+        if (next) next.addEventListener('click', () => { goTo((current + 1) % pages()); resetAuto(); });
 
+        // Touch swipe
         let startX = 0;
         track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
         track.addEventListener('touchend', e => {
             const diff = startX - e.changedTouches[0].clientX;
-            if (Math.abs(diff) > 50) {
-                const pages = Math.ceil(total / getVisible());
-                diff > 0 ? goTo((current + 1) % pages) : goTo((current - 1 + pages) % pages);
+            if (Math.abs(diff) > 40) {
+                diff > 0 ? goTo((current + 1) % pages()) : goTo((current - 1 + pages()) % pages());
                 resetAuto();
             }
         }, { passive: true });
