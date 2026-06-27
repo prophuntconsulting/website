@@ -53,18 +53,15 @@
         const frames  = new Array(TOTAL + 1); // 1-indexed
         const path    = n => `images/hero-frames/ezgif-frame-${String(n).padStart(3, '0')}.png`;
 
-        let drawn      = 0;   // last drawn frame index
-        let raf        = null;
-        let loaded     = 0;
-        let ready      = false;
+        let drawn = 0;
+        let raf   = null;
+        let loaded = 0;
 
         // ── Canvas sizing ──
         function resize() {
-            const W = canvas.offsetWidth;
-            const H = canvas.offsetHeight;
             const dpr = window.devicePixelRatio || 1;
-            canvas.width  = W * dpr;
-            canvas.height = H * dpr;
+            canvas.width  = canvas.offsetWidth  * dpr;
+            canvas.height = canvas.offsetHeight * dpr;
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             if (drawn) draw(drawn);
         }
@@ -76,40 +73,32 @@
             const img = frames[n];
             if (!img) return;
             drawn = n;
-            const W = canvas.offsetWidth;
-            const H = canvas.offsetHeight;
-            const iw = img.naturalWidth;
-            const ih = img.naturalHeight;
-            const scale = Math.max(W / iw, H / ih);
-            const sw = iw * scale;
-            const sh = ih * scale;
+            const W = canvas.offsetWidth, H = canvas.offsetHeight;
+            const scale = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+            const sw = img.naturalWidth * scale, sh = img.naturalHeight * scale;
             ctx.clearRect(0, 0, W, H);
             ctx.drawImage(img, (W - sw) / 2, (H - sh) / 2, sw, sh);
         }
 
-        // ── Scroll handler ──
+        // ── Scroll handler — NO ready gate, always responds ──
         function onScroll() {
-            if (!heroWrapper || !ready) return;
+            if (!heroWrapper) return;
             const into     = Math.max(0, window.scrollY - heroWrapper.offsetTop);
-            const scrollable = heroWrapper.offsetHeight - window.innerHeight;
-            const progress = Math.min(Math.max(into / scrollable, 0), 1);
+            const scrollH  = heroWrapper.offsetHeight - window.innerHeight;
+            const progress = scrollH > 0 ? Math.min(into / scrollH, 1) : 0;
             const target   = Math.round(1 + progress * (TOTAL - 1));
 
+            if (heroScroll) heroScroll.style.opacity = into > 60 ? '0' : '1';
             if (target === drawn) return;
             if (raf) cancelAnimationFrame(raf);
             raf = requestAnimationFrame(() => {
-                if (frames[target]) {
-                    draw(target);
-                } else {
-                    // nearest loaded frame in direction of travel
-                    const dir = target > drawn ? -1 : 1;
-                    for (let f = target; f >= 1 && f <= TOTAL; f += dir) {
-                        if (frames[f]) { draw(f); break; }
-                    }
+                if (frames[target]) { draw(target); return; }
+                // nearest available frame in either direction
+                for (let d = 1; d < TOTAL; d++) {
+                    if (frames[target - d]) { draw(target - d); break; }
+                    if (frames[target + d]) { draw(target + d); break; }
                 }
             });
-
-            if (heroScroll) heroScroll.style.opacity = into > 60 ? '0' : '1';
         }
         window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -123,13 +112,13 @@
                     loaded++;
                     if (loaderBar) loaderBar.style.width = Math.round((loaded / TOTAL) * 100) + '%';
                     if (!drawn) draw(n);
-                    if (!ready && loaded >= 10) {
-                        ready = true;
-                        if (loader) {
-                            loader.style.opacity = '0';
-                            setTimeout(() => { loader.style.display = 'none'; }, 400);
-                        }
+                    // hide loader bar after first 10 frames
+                    if (loaded === 10 && loader) {
+                        loader.style.opacity = '0';
+                        setTimeout(() => { loader.style.display = 'none'; }, 400);
                     }
+                    // re-draw current position as new frames arrive while user is scrolled
+                    if (drawn) onScroll();
                     resolve();
                 };
                 img.onerror = resolve;
@@ -144,17 +133,16 @@
         }
 
         (async () => {
-            // Phase 1: first 20 frames — show animation immediately
-            const first20 = Array.from({ length: 20 }, (_, i) => i + 1);
-            await loadBatch(first20, 20);
+            // Phase 1: first 20 frames — hero appears instantly
+            await loadBatch(Array.from({ length: 20 }, (_, i) => i + 1), 20);
 
-            // Phase 2: every 5th frame for full coverage (60 frames)
+            // Phase 2: every 5th frame across all 300 — full scroll range usable
             const sparse = [];
             for (let i = 21; i <= TOTAL; i += 5) sparse.push(i);
             sparse.push(TOTAL);
             await loadBatch(sparse, 20);
 
-            // Phase 3: fill all remaining frames in background
+            // Phase 3: fill every remaining frame — full quality
             const remaining = [];
             for (let i = 21; i <= TOTAL; i++) { if (!frames[i]) remaining.push(i); }
             await loadBatch(remaining, 20);
