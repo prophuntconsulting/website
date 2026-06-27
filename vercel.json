@@ -1,5 +1,7 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "buildCommand": "node scripts/build-blog.js"
+  "buildCommand": "node scripts/build-blog.js",
+  "outputDirectory": ".",
+  "installCommand": "echo 'no install needed'"
 }
