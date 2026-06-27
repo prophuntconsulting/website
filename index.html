@@ -110,7 +110,10 @@
     </div>
     <!-- Right: scroll-driven frame animation -->
     <div class="hero-right">
-      <img src="images/hero-frames/ezgif-frame-001.png" alt="" class="hero-frame" id="heroFrame" aria-hidden="true">
+      <canvas id="heroFrame" class="hero-frame" aria-hidden="true"></canvas>
+      <div class="hero-frame-loader" id="heroLoader">
+        <div class="hero-frame-loader-bar" id="heroLoaderBar"></div>
+      </div>
     </div>
   </div>
   <div class="hero-scroll" id="heroScroll" aria-hidden="true">
