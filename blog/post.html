@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading… | PROPHUNT LLP Blog</title>
+<meta name="description" content="">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<meta name="theme-color" content="#C8362B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/pages.css">
+<style>
+.post-hero { background: var(--black); color: #fff; padding: calc(var(--nav-h) + 3rem) 0 3rem; }
+.post-hero-inner { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+.post-meta-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.post-cat { display: inline-flex; align-items: center; gap: .4rem; background: var(--red); color: #fff; font-size: .75rem; font-weight: 700; padding: .3rem .85rem; border-radius: 99px; text-transform: uppercase; letter-spacing: .06em; }
+.post-date, .post-author, .post-read { font-size: .82rem; color: rgba(255,255,255,.6); display: flex; align-items: center; gap: .35rem; }
+.post-title { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+.post-excerpt { font-size: 1.1rem; color: rgba(255,255,255,.7); line-height: 1.7; }
+.post-cover { width: 100%; max-height: 480px; object-fit: cover; display: block; }
+.post-cover-placeholder { width: 100%; height: 280px; background: linear-gradient(135deg, #1a1a1a, #2d1a1a); display: flex; align-items: center; justify-content: center; }
+.post-cover-placeholder i { font-size: 4rem; color: rgba(200,54,43,.3); }
+.post-body-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+.post-body h2 { font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 .9rem; color: var(--black); }
+.post-body h3 { font-size: 1.2rem; font-weight: 700; margin: 2rem 0 .7rem; color: var(--black); }
+.post-body p { font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); margin-bottom: 1.25rem; }
+.post-body ul, .post-body ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+.post-body li { font-size: 1.05rem; line-height: 1.8; color: var(--gray-700); margin-bottom: .4rem; }
+.post-body strong { color: var(--black); font-weight: 700; }
+.post-body a { color: var(--red); text-decoration: underline; }
+.post-body blockquote { border-left: 3px solid var(--red); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--gray-100); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-style: italic; color: var(--gray-600); }
+.post-body hr { border: none; border-top: 1px solid var(--gray-200); margin: 2.5rem 0; }
+.post-body img { max-width: 100%; border-radius: var(--radius-md); margin: 1.5rem 0; }
+.post-body pre { background: var(--black); color: #f8f8f2; padding: 1.5rem; border-radius: var(--radius-md); overflow-x: auto; font-size: .875rem; margin: 1.5rem 0; }
+.post-cta { background: linear-gradient(135deg, var(--red), #a02a22); border-radius: var(--radius-lg); padding: 2.5rem; text-align: center; margin-top: 3rem; color: #fff; }
+.post-cta h3 { color: #fff; margin-bottom: .5rem; font-size: 1.35rem; }
+.post-cta p { color: rgba(255,255,255,.8); margin-bottom: 1.5rem; }
+.post-back { display: inline-flex; align-items: center; gap: .5rem; font-size: .875rem; color: var(--gray-500); font-weight: 500; margin-bottom: 2.5rem; transition: color .2s; }
+.post-back:hover { color: var(--red); }
+.post-loading { text-align: center; padding: 6rem 0; color: var(--gray-400); }
+.post-loading i { font-size: 2rem; display: block; margin-bottom: 1rem; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.post-error { text-align: center; padding: 6rem 1.5rem; }
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="../index.html" class="nav-logo"><img src="../images/logo-black.png" alt="PROPHUNT LLP" class="logo-black"></a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="../projects.html" class="nav-link">Projects <i class="fas fa-chevron-down chevron"></i></a><div class="dropdown"><a href="../projects.html" class="dropdown-link"><i class="fas fa-th"></i> All Projects</a><a href="../projects.html?type=apartment" class="dropdown-link"><i class="fas fa-building"></i> Apartments</a><a href="../projects.html?type=plot" class="dropdown-link"><i class="fas fa-map"></i> Plots</a><hr class="dropdown-divider"><a href="../developers.html" class="dropdown-link"><i class="fas fa-sitemap"></i> Our Developers</a></div></li>
+      <li class="nav-item"><a href="../services.html" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="index.html" class="nav-link active">Blog</a></li>
+      <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="../contact.html" class="btn btn-primary btn-sm">Book a Site Visit</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="../projects.html" class="mobile-nav-link">Projects</a></li>
+      <li><a href="../services.html" class="mobile-nav-link">Services</a></li>
+      <li><a href="../about.html" class="mobile-nav-link">About</a></li>
+      <li><a href="index.html" class="mobile-nav-link active">Blog</a></li>
+      <li><a href="../contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-footer"><a href="../contact.html" class="btn btn-primary">Enquire Now</a></div>
+  </div>
+</div>
+
+<!-- Post content injected by JS -->
+<div id="postHero"></div>
+<div id="postCover"></div>
+
+<div class="post-body-wrap">
+  <a href="index.html" class="post-back"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+  <div id="postContent">
+    <div class="post-loading"><i class="fas fa-circle-notch"></i>Loading article…</div>
+  </div>
+  <div id="postCta" style="display:none" class="post-cta">
+    <h3>Interested in Investing in Pune?</h3>
+    <p>Talk to a PROPHUNT advisor — free, no pressure, just clarity.</p>
+    <a href="../contact.html" class="btn btn-ghost" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3);">Book a Free Consultation</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+(function () {
+  const CAT_LABELS = { market:'Market Report', buyer:'Buyer Guide', investment:'Investment', legal:'Legal & Docs', nri:'NRI Corner' };
+
+  function parseFrontmatter(text) {
+    const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+    if (!m) return { meta: {}, body: text };
+    const meta = {};
+    m[1].split('\n').forEach(line => {
+      const idx = line.indexOf(':');
+      if (idx < 0) return;
+      const key = line.slice(0, idx).trim();
+      const val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+      meta[key] = val;
+    });
+    return { meta, body: m[2] };
+  }
+
+  function formatDate(str) {
+    if (!str) return '';
+    const d = new Date(str);
+    return d.toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
+  }
+
+  function estimateRead(text) {
+    return Math.max(1, Math.round(text.split(/\s+/).length / 200));
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const slug   = params.get('slug');
+
+  if (!slug) {
+    document.getElementById('postContent').innerHTML =
+      '<div class="post-error"><h2>Post not found</h2><p>No article slug provided.</p><a href="index.html" class="btn btn-primary" style="margin-top:1rem">Back to Blog</a></div>';
+    return;
+  }
+
+  fetch('posts/' + slug + '.md')
+    .then(r => { if (!r.ok) throw new Error('not found'); return r.text(); })
+    .then(text => {
+      const { meta, body } = parseFrontmatter(text);
+
+      // Update page title + meta
+      document.title = (meta.title || 'Article') + ' | PROPHUNT LLP Blog';
+      document.querySelector('meta[name="description"]').setAttribute('content', meta.excerpt || '');
+
+      // Hero
+      document.getElementById('postHero').innerHTML = `
+        <div class="post-hero">
+          <div class="post-hero-inner">
+            <nav class="breadcrumb" style="--bc-color:rgba(255,255,255,.5);margin-bottom:1.5rem">
+              <a href="../index.html" style="color:rgba(255,255,255,.5)">Home</a>
+              <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
+              <a href="index.html" style="color:rgba(255,255,255,.5)">Blog</a>
+              <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
+              <span class="current" style="color:rgba(255,255,255,.7)">${meta.title || ''}</span>
+            </nav>
+            <div class="post-meta-row">
+              <span class="post-cat">${CAT_LABELS[meta.category] || meta.category || 'Article'}</span>
+              <span class="post-date"><i class="fas fa-calendar-alt"></i> ${formatDate(meta.date)}</span>
+              <span class="post-author"><i class="fas fa-user-circle"></i> ${meta.author || 'PROPHUNT Advisory Team'}</span>
+              <span class="post-read"><i class="fas fa-clock"></i> ${estimateRead(body)} min read</span>
+            </div>
+            <h1 class="post-title">${meta.title || ''}</h1>
+            ${meta.excerpt ? `<p class="post-excerpt">${meta.excerpt}</p>` : ''}
+          </div>
+        </div>`;
+
+      // Cover
+      document.getElementById('postCover').innerHTML = meta.cover
+        ? `<img src="${meta.cover}" alt="${meta.title}" class="post-cover">`
+        : `<div class="post-cover-placeholder"><i class="fas fa-chart-area"></i></div>`;
+
+      // Body
+      document.getElementById('postContent').innerHTML =
+        `<div class="post-body">${marked.parse(body)}</div>`;
+
+      // CTA
+      document.getElementById('postCta').style.display = 'block';
+
+      // Schema
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": meta.title,
+        "description": meta.excerpt,
+        "datePublished": meta.date,
+        "author": { "@type": "Organization", "name": meta.author || "PROPHUNT Advisory Team" },
+        "publisher": { "@type": "Organization", "name": "PROPHUNT LLP", "url": "https://prophuntllp.com", "logo": "https://prophuntllp.com/images/logo-black.png" },
+        "mainEntityOfPage": window.location.href,
+        ...(meta.cover ? { "image": meta.cover } : {})
+      };
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.textContent = JSON.stringify(schema);
+      document.head.appendChild(s);
+    })
+    .catch(() => {
+      document.getElementById('postContent').innerHTML =
+        '<div class="post-error"><h2>Article not found</h2><p>This post may have been moved or deleted.</p><a href="index.html" class="btn btn-primary" style="margin-top:1rem">Back to Blog</a></div>';
+    });
+})();
+</script>
+
+</body>
+</html>
