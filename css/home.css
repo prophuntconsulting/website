@@ -674,21 +674,65 @@
     }
     .search-bar-card { padding: 1.25rem 1.5rem; }
 }
+
 @media (max-width: 768px) {
-    .hero-title { font-size: 2.1rem; }
-    .hero-left { padding: calc(var(--nav-h) + 1.5rem) 1.5rem 1.5rem; }
-    .hero-cta { flex-direction: column; }
+    /* Hero */
+    .hero-title { font-size: 2rem; }
+    .hero-sub { font-size: .95rem; }
+    .hero-left { padding: calc(var(--nav-h) + 1.25rem) 1.25rem 1.25rem; }
+    .hero-cta { flex-direction: column; gap: .65rem; }
     .hero-cta .btn { width: 100%; justify-content: center; }
+
+    /* Search bar — compact horizontal layout on mobile */
+    .search-bar-section { margin-top: -1.5rem; }
+    .search-bar-card {
+        padding: 1rem 1.1rem;
+        gap: .75rem;
+        border-radius: var(--radius-md);
+    }
+    .search-bar-label { font-size: .7rem; }
+    .search-bar-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: .6rem;
+    }
+    .search-field label { display: none; } /* hide labels — placeholders carry context */
+    .search-field select {
+        padding: .6rem .75rem;
+        font-size: .82rem;
+        padding-right: 1.8rem;
+    }
+    .search-bar-btn {
+        grid-column: 1 / -1;
+        width: 100%;
+        justify-content: center;
+        padding: .65rem 1rem;
+    }
+
+    /* Sections */
     .prop-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
     .testi-card { min-width: 100% !important; }
+    .cta-band { padding: 3rem 0; }
     .cta-band-inner { flex-direction: column; text-align: center; }
-    .cta-band-actions { justify-content: center; }
-    .search-bar-fields { flex-direction: column; }
-    .search-bar-btn { width: 100%; justify-content: center; }
-    .stats-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .stat-divider { display: none; }
+    .cta-band-actions { justify-content: center; width: 100%; }
+    .cta-band-actions .btn { flex: 1; justify-content: center; }
+    .hiw-card { padding: 2rem 1.25rem; }
 }
+
 @media (max-width: 480px) {
-    .stats-grid { grid-template-columns: 1fr 1fr; }
+    /* Search bar — single column on very small screens */
+    .search-bar-fields { grid-template-columns: 1fr; gap: .5rem; }
+    .search-bar-card { padding: .9rem 1rem; }
+
+    /* Stats */
+    .stats-strip { padding: 2rem 0; }
+    .stat-item { padding: 0 .25rem; }
+    .stat-number { font-size: 1.8rem; }
+    .stat-label { font-size: .58rem; letter-spacing: .04em; }
+
+    /* Cards */
+    .prop-card-img { height: 190px; }
+    .hiw-card { padding: 1.75rem 1rem; }
+    .service-card { padding: 1.5rem 1.25rem; }
 }
