@@ -5,9 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
   <title>PROPHUNT Blog — Admin</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+  <script>window.CMS_MANUAL_INIT = true;</script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+  CMS.init({
+    config: {
+      backend: {
+        name: 'github',
+        repo: 'prophuntconsulting/website',
+        branch: 'main',
+        auth_type: 'pkce',
+        app_id: 'Ov23liY4KK8VkrVfV0Pk'
+      },
+      media_folder: 'images/blog',
+      public_folder: '/images/blog',
+      slug: {
+        encoding: 'ascii',
+        clean_accents: true,
+        sanitize_replacement: '-'
+      },
+      collections: [
+        {
+          name: 'blog',
+          label: 'Blog Posts',
+          label_singular: 'Blog Post',
+          folder: 'blog/posts',
+          create: true,
+          slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
+          fields: [
+            {
+              label: 'Title',
+              name: 'title',
+              widget: 'string',
+              hint: 'Keep under 70 characters for best SEO'
+            },
+            {
+              label: 'Date',
+              name: 'date',
+              widget: 'datetime',
+              format: 'YYYY-MM-DD',
+              date_format: 'DD MMM YYYY',
+              time_format: false
+            },
+            {
+              label: 'Author',
+              name: 'author',
+              widget: 'string',
+              default: 'PROPHUNT Advisory Team'
+            },
+            {
+              label: 'Category',
+              name: 'category',
+              widget: 'select',
+              options: [
+                { label: 'Market Reports', value: 'market' },
+                { label: 'Buyer Guides',   value: 'buyer' },
+                { label: 'Investment',     value: 'investment' },
+                { label: 'Legal & Docs',   value: 'legal' },
+                { label: 'NRI Corner',     value: 'nri' }
+              ]
+            },
+            {
+              label: 'Short Excerpt',
+              name: 'excerpt',
+              widget: 'text',
+              hint: '1–2 sentence summary shown on blog listing. Under 160 characters.'
+            },
+            {
+              label: 'Cover Image',
+              name: 'cover',
+              widget: 'image',
+              required: false,
+              hint: 'Upload a cover photo (recommended: 1200×630px)'
+            },
+            {
+              label: 'Content',
+              name: 'body',
+              widget: 'markdown',
+              hint: 'Write your full article here. Use headings, bullet points, bold freely.'
+            }
+          ]
+        }
+      ]
+    }
+  });
+  </script>
 </body>
 </html>
