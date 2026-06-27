@@ -3,7 +3,7 @@ backend:
   repo: prophuntconsulting/website
   branch: main
   auth_type: pkce
-  app_id: REPLACE_WITH_GITHUB_OAUTH_APP_CLIENT_ID
+  app_id: Ov23liY4KK8VkrVfV0Pk
 
 media_folder: "images/blog"
 public_folder: "/images/blog"
