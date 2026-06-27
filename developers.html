@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Developer Partners | PROPHUNT LLP "” Pune</title>
-<meta name="description" content="PROPHUNT LLP is an authorised channel partner for Godrej Properties, Mahindra Lifespaces, Shapoorji Pallonji, Rohan Builders, VTP Realty, Tejraj Group, Kohinoor, Tribeca, and DLF in Pune.">
+<title>Developer Partnerships | PROPHUNT LLP - Pune Project Sales</title>
+<meta name="description" content="Partner with PROPHUNT LLP for project marketing, qualified buyer leads, site visit coordination, channel sales, and launch support for real estate developments in Pune.">
 <link rel="canonical" href="https://prophuntllp.com/developers.html">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -16,16 +16,64 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/pages.css">
 <style>
-.dev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-.dev-card-header { background:var(--gray-50); }
-.dev-trust-strip { display:flex; align-items:center; justify-content:center; gap:3rem; flex-wrap:wrap; padding:2.5rem 0; background:var(--white); border-top:1px solid var(--gray-200); border-bottom:1px solid var(--gray-200); }
-.dev-trust-logo { display:flex; align-items:center; justify-content:center; }
-.dev-trust-logo img { height:36px; width:auto; object-fit:contain; filter:grayscale(1) opacity(.55); transition:filter .3s; }
-.dev-trust-logo img:hover { filter:grayscale(0) opacity(1); }
-.dev-intro { max-width:700px; }
-.dev-intro p { color:var(--gray-600); line-height:1.75; margin-bottom:.75rem; }
-@media(max-width:1024px){ .dev-grid{grid-template-columns:repeat(2,1fr);} }
-@media(max-width:600px){ .dev-grid{grid-template-columns:1fr;} .dev-trust-strip{gap:1.5rem;} }
+html, body { overflow-x:hidden; }
+.partner-hero-actions { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+.partner-hero-actions .btn-ghost { color:var(--white); border-color:rgba(255,255,255,.24); }
+.partner-hero-actions .btn-ghost:hover { border-color:var(--red); }
+.partner-stats { background:var(--black); padding:2.5rem 0; border-top:1px solid rgba(255,255,255,.08); }
+.partner-stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.partner-stat { border-left:1px solid rgba(255,255,255,.12); padding-left:1.35rem; }
+.partner-stat strong { display:block; color:var(--white); font-family:var(--font-head); font-size:2rem; line-height:1; margin-bottom:.45rem; }
+.partner-stat span { color:rgba(255,255,255,.55); font-size:.8rem; line-height:1.45; text-transform:uppercase; letter-spacing:.08em; font-weight:700; }
+.partner-intro { display:grid; grid-template-columns:1.05fr 1fr; gap:4rem; align-items:center; }
+.partner-intro-copy p { color:var(--gray-600); line-height:1.8; margin-bottom:1rem; }
+.partner-proof { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-md); }
+.partner-proof-row { display:flex; gap:1rem; padding:1.25rem 0; border-bottom:1px solid var(--gray-200); }
+.partner-proof-row:last-child { border-bottom:none; padding-bottom:0; }
+.partner-proof-icon { width:42px; height:42px; border-radius:50%; background:var(--red-light); color:var(--red); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.partner-proof-row h3 { font-size:1rem; margin-bottom:.25rem; }
+.partner-proof-row p { color:var(--gray-600); font-size:.875rem; line-height:1.55; margin:0; }
+.partner-services { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.partner-service-card { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-md); padding:1.75rem; transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease); }
+.partner-service-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:var(--red); }
+.partner-service-card i { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--red-light); color:var(--red); margin-bottom:1.1rem; }
+.partner-service-card h3 { font-size:1.05rem; margin-bottom:.65rem; }
+.partner-service-card p { color:var(--gray-600); font-size:.875rem; line-height:1.65; margin:0; }
+.capability-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
+.capability-card { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-md); padding:1.5rem; display:flex; gap:1rem; align-items:flex-start; }
+.capability-card i { color:var(--red); margin-top:.2rem; }
+.capability-card h3 { font-size:1rem; margin-bottom:.35rem; }
+.capability-card p { color:var(--gray-600); font-size:.86rem; line-height:1.6; margin:0; }
+.partner-form-layout { display:grid; grid-template-columns:.85fr 1.15fr; gap:3rem; align-items:start; }
+.partner-form-card { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:2.25rem; box-shadow:var(--shadow-md); }
+.partner-form-card h2 { font-size:1.5rem; margin-bottom:.45rem; }
+.partner-form-card > p { color:var(--gray-600); font-size:.9rem; line-height:1.65; margin-bottom:1.75rem; }
+.form-submit-btn { width:100%; justify-content:center; }
+.form-success { display:none; text-align:center; padding:1.5rem 0 .25rem; }
+.form-success.show { display:block; }
+.form-success i { color:#16a34a; font-size:2.5rem; display:block; margin-bottom:1rem; }
+.form-success h3 { margin-bottom:.4rem; }
+.form-success p { color:var(--gray-600); font-size:.9rem; line-height:1.6; }
+.copy-area { background:var(--gray-100); border-radius:var(--radius-sm); padding:1rem; text-align:left; margin:1rem 0; }
+.copy-area textarea { width:100%; background:none; border:none; outline:none; resize:none; color:var(--gray-600); font-family:var(--font-body); font-size:.8rem; }
+.partner-side-card { background:var(--black); color:var(--white); border-radius:var(--radius-lg); padding:2rem; position:sticky; top:calc(var(--nav-h) + 2rem); }
+.partner-side-card h3 { color:var(--white); margin-bottom:.75rem; }
+.partner-side-card p { color:rgba(255,255,255,.62); font-size:.9rem; line-height:1.7; margin-bottom:1.25rem; }
+.partner-side-list { display:flex; flex-direction:column; gap:.85rem; margin-top:1.25rem; }
+.partner-side-list li { list-style:none; display:flex; gap:.65rem; color:rgba(255,255,255,.78); font-size:.875rem; line-height:1.45; }
+.partner-side-list i { color:var(--red); margin-top:.16rem; }
+@media(max-width:1024px){
+  .partner-stats-grid,.partner-services { grid-template-columns:repeat(2,1fr); }
+  .partner-intro,.partner-form-layout { grid-template-columns:1fr; gap:2rem; }
+  .partner-side-card { position:static; }
+}
+@media(max-width:640px){
+  .partner-stats-grid,.partner-services,.capability-grid { grid-template-columns:1fr; }
+  .partner-stat { border-left:none; padding-left:0; border-bottom:1px solid rgba(255,255,255,.12); padding-bottom:1rem; }
+  .partner-stat:last-child { border-bottom:none; padding-bottom:0; }
+  .partner-hero-actions .btn { width:100%; justify-content:center; }
+  .partner-form-card { padding:1.5rem; }
+}
 </style>
 </head>
 <body>
@@ -35,7 +83,7 @@
     <a href="index.html" class="nav-logo"><img src="images/logo-black.png" alt="PROPHUNT LLP" class="logo-black"></a>
     <ul class="nav-links">
       <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-      <li class="nav-item"><a href="projects.html" class="nav-link active">Projects <i class="fas fa-chevron-down chevron"></i></a><div class="dropdown"><a href="projects.html" class="dropdown-link"><i class="fas fa-th"></i> All Projects</a><a href="projects.html?type=apartment" class="dropdown-link"><i class="fas fa-building"></i> Apartments</a><a href="projects.html?type=plot" class="dropdown-link"><i class="fas fa-map"></i> Plots</a><hr class="dropdown-divider"><a href="developers.html" class="dropdown-link"><i class="fas fa-sitemap"></i> Our Developers</a></div></li>
+      <li class="nav-item"><a href="projects.html" class="nav-link active">Projects <i class="fas fa-chevron-down chevron"></i></a><div class="dropdown"><a href="projects.html" class="dropdown-link"><i class="fas fa-th"></i> All Projects</a><a href="projects.html?type=apartment" class="dropdown-link"><i class="fas fa-building"></i> Apartments</a><a href="projects.html?type=plot" class="dropdown-link"><i class="fas fa-map"></i> Plots</a><hr class="dropdown-divider"><a href="developers.html" class="dropdown-link"><i class="fas fa-sitemap"></i> Developer Partnerships</a></div></li>
       <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
       <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
       <li class="nav-item"><a href="blog/index.html" class="nav-link">Blog</a></li>
@@ -51,172 +99,68 @@
   <div class="mobile-menu-inner">
     <ul class="mobile-nav-links">
       <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-      <li><a href="projects.html" class="mobile-nav-link">Projects</a><div class="mobile-sub"><a href="projects.html?type=apartment" class="mobile-sub-link">Apartments</a><a href="projects.html?type=plot" class="mobile-sub-link">Plots</a><a href="developers.html" class="mobile-sub-link">Our Developers</a></div></li>
+      <li><a href="projects.html" class="mobile-nav-link">Projects</a><div class="mobile-sub"><a href="projects.html?type=apartment" class="mobile-sub-link">Apartments</a><a href="projects.html?type=plot" class="mobile-sub-link">Plots</a><a href="developers.html" class="mobile-sub-link active">Developer Partnerships</a></div></li>
       <li><a href="services.html" class="mobile-nav-link">Services</a></li>
       <li><a href="about.html" class="mobile-nav-link">About</a></li>
       <li><a href="blog/index.html" class="mobile-nav-link">Blog</a></li>
     </ul>
     <div class="mobile-menu-footer"><a href="contact.html" class="btn btn-primary">Enquire Now</a><a href="tel:+917066880808" class="btn btn-ghost">Call Us</a><div class="mobile-contact-info"><a href="tel:+917066880808"><i class="fas fa-phone"></i> +91 70668 80808</a><a href="mailto:info@prophuntllp.com"><i class="fas fa-envelope"></i> info@prophuntllp.com</a><a href="https://wa.me/917066880808" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></div></div>
   </div>
-</nav>
+</div>
 
 <section class="page-hero">
   <div class="container page-hero-inner">
-    <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">Developer Partners</span></nav>
-    <span class="section-label"><i class="fas fa-sitemap"></i> Developer Network</span>
-    <h1>Our Developer Partners</h1>
-    <p>We are authorised channel partners for 9 of India's most reputable real estate developers "” each selected for their delivery record, quality standards, and RERA compliance.</p>
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">Developer Partnerships</span></nav>
+    <span class="section-label"><i class="fas fa-city"></i> For Builders &amp; Developers</span>
+    <h1>Sell Your Project Faster With a Pune-Focused Channel Partner</h1>
+    <p>PROPHUNT LLP helps developers position, market, and sell residential inventory through qualified buyer leads, site visit coordination, CRM follow-up, and closing support.</p>
     <div class="page-hero-meta">
-      <div class="page-hero-meta-item"><i class="fas fa-certificate"></i> Authorised Channel Partners</div>
-      <div class="page-hero-meta-item"><i class="fas fa-building"></i> 18+ Active Projects</div>
+      <div class="page-hero-meta-item"><i class="fas fa-certificate"></i> MahaRERA Agent A52100037156</div>
+      <div class="page-hero-meta-item"><i class="fas fa-map-marker-alt"></i> Pune Market Focus</div>
+      <div class="page-hero-meta-item"><i class="fas fa-handshake"></i> Channel Sales Support</div>
+    </div>
+    <div class="partner-hero-actions">
+      <a href="#partner-enquiry" class="btn btn-primary btn-lg">List Your Project <i class="fas fa-arrow-right"></i></a>
+      <a href="tel:+917066880808" class="btn btn-ghost btn-lg"><i class="fas fa-phone"></i> Talk to Partnerships</a>
     </div>
   </div>
 </section>
 
-<!-- Developer logos strip -->
-<div class="dev-trust-strip" data-reveal>
-  <div class="dev-trust-logo"><img src="images/developers/godrej-transparent.png" alt="Godrej Properties"></div>
-  <div class="dev-trust-logo"><img src="images/developers/mahindra-transparent.png" alt="Mahindra Lifespaces"></div>
-  <div class="dev-trust-logo"><img src="images/developers/shapoorji-transparent.png" alt="Shapoorji Pallonji"></div>
-  <div class="dev-trust-logo"><img src="images/developers/rohan-transparent.png" alt="Rohan Builders"></div>
-  <div class="dev-trust-logo"><img src="images/developers/vtp-transparent.png" alt="VTP Realty"></div>
-  <div class="dev-trust-logo"><img src="images/developers/tejraj-transparent.png" alt="Tejraj Group"></div>
-  <div class="dev-trust-logo"><img src="images/developers/kohinoor-transparent.png" alt="Kohinoor Group"></div>
-  <div class="dev-trust-logo"><img src="images/developers/tribeca-transparent.png" alt="Tribeca"></div>
-  <div class="dev-trust-logo"><img src="images/developers/dlf-transparent.png" alt="DLF"></div>
-</div>
+<section class="partner-stats">
+  <div class="container">
+    <div class="partner-stats-grid">
+      <div class="partner-stat" data-reveal><strong>18+</strong><span>Active project mandates and listings</span></div>
+      <div class="partner-stat" data-reveal data-reveal-delay="100"><strong>9</strong><span>Developer relationships across Pune</span></div>
+      <div class="partner-stat" data-reveal data-reveal-delay="200"><strong>2 hr</strong><span>Lead response target during working hours</span></div>
+      <div class="partner-stat" data-reveal data-reveal-delay="300"><strong>360</strong><span>Buyer journey support from lead to visit</span></div>
+    </div>
+  </div>
+</section>
 
-<!-- Developer cards -->
 <section class="section">
   <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-label"><i class="fas fa-info-circle"></i> About Each Developer</span>
-      <h2>Developers We Partner With</h2>
-    </div>
-    <div class="dev-grid">
-
-      <div class="dev-card" data-reveal data-reveal-delay="0">
-        <div class="dev-card-header">
-          <div class="dev-card-logo"><img src="images/developers/godrej-transparent.png" alt="Godrej Properties"></div>
-          <div><div class="dev-card-name">Godrej Properties</div><div class="dev-card-tagline">Excellence in Every Build Since 1990</div></div>
+    <div class="partner-intro">
+      <div class="partner-intro-copy" data-reveal="left">
+        <span class="section-label"><i class="fas fa-bullseye"></i> Partnership Approach</span>
+        <h2>We Work Like an Extension of Your Sales Team</h2>
+        <p>Developer sales need more than raw lead volume. The right partner should understand the project, qualify buyers before the site visit, explain the value proposition clearly, and keep follow-ups moving after the first interaction.</p>
+        <p>Our team supports launches, active inventory movement, premium unit positioning, and location-specific campaigns across Pune's residential micro-markets.</p>
+        <a href="#partner-enquiry" class="btn btn-outline">Start a Partnership Conversation</a>
+      </div>
+      <div class="partner-proof" data-reveal="right">
+        <div class="partner-proof-row">
+          <div class="partner-proof-icon"><i class="fas fa-user-check"></i></div>
+          <div><h3>Qualified Buyer Conversations</h3><p>We filter enquiries by budget, location preference, configuration, purchase timeline, and funding readiness before pushing for a visit.</p></div>
         </div>
-        <div class="dev-card-body">
-          <p>Part of the 125-year-old Godrej Group, Godrej Properties is one of India's largest listed real estate developers. Known for world-class design, consistent delivery, and a focus on sustainable development. Their Pune portfolio spans Baner, Hinjewadi, Kharadi, Pimpri, Keshav Nagar, and Mamurdi.</p>
-          <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-500);margin-bottom:.5rem;">Projects in Pune</div>
-          <div class="dev-card-projects">
-            <a href="projects.html?developer=Godrej+Properties">River Royale</a>
-            <a href="projects.html?developer=Godrej+Properties">Aqua Vista</a>
-            <a href="projects.html?developer=Godrej+Properties">Emerald Waters</a>
-            <a href="projects.html?developer=Godrej+Properties">Evergreen Square</a>
-            <a href="projects.html?developer=Godrej+Properties">Hillside</a>
-            <a href="projects.html?developer=Godrej+Properties">Park Springs</a>
-            <a href="projects.html?developer=Godrej+Properties">Aqua Retreat</a>
-            <a href="projects.html?developer=Godrej+Properties">Serene</a>
-          </div>
+        <div class="partner-proof-row">
+          <div class="partner-proof-icon"><i class="fas fa-chart-line"></i></div>
+          <div><h3>Project-Specific Campaigning</h3><p>Campaign messaging is built around the project, inventory, location strengths, developer credibility, and buyer objections.</p></div>
+        </div>
+        <div class="partner-proof-row">
+          <div class="partner-proof-icon"><i class="fas fa-headset"></i></div>
+          <div><h3>Follow-Up Discipline</h3><p>Our sales coordination covers callbacks, WhatsApp nudges, visit confirmations, rescheduling, and post-visit feedback loops.</p></div>
         </div>
       </div>
-
-      <div class="dev-card" data-reveal data-reveal-delay="100">
-        <div class="dev-card-header">
-          <div class="dev-card-logo"><img src="images/developers/mahindra-transparent.png" alt="Mahindra Lifespaces"></div>
-          <div><div class="dev-card-name">Mahindra Lifespaces</div><div class="dev-card-tagline">Mahindra Group's Real Estate Arm</div></div>
-        </div>
-        <div class="dev-card-body">
-          <p>Mahindra Lifespaces is the real estate and infrastructure development business of the USD 21 billion Mahindra Group. Known for responsible urbanisation, green-certified projects, and strong delivery commitments. Their Pune flagship is Mahindra Citadel in Pimpri-Chinchwad.</p>
-          <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-500);margin-bottom:.5rem;">Projects in Pune</div>
-          <div class="dev-card-projects"><a href="mahindra-citadel/">Mahindra Citadel</a></div>
-        </div>
-      </div>
-
-      <div class="dev-card" data-reveal data-reveal-delay="200">
-        <div class="dev-card-header">
-          <div class="dev-card-logo"><img src="images/developers/shapoorji-transparent.png" alt="Shapoorji Pallonji"></div>
-          <div><div class="dev-card-name">Shapoorji Pallonji</div><div class="dev-card-tagline">150+ Years of Building India</div></div>
-        </div>
-        <div class="dev-card-body">
-          <p>One of India's oldest and most respected construction conglomerates, with 150+ years of building legacy. SP Real Estate is known for meticulous construction quality, landmark projects, and timely delivery. Their Pune offering "” SP Treetopia "” brings NA-plot living to East Pune's green outskirts.</p>
-          <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-500);margin-bottom:.5rem;">Projects in Pune</div>
-          <div class="dev-card-projects"><a href="treetopia/">SP Treetopia</a></div>
-        </div>
-      </div>
-
-      <div class="dev-card" data-reveal data-reveal-delay="0">
-        <div class="dev-card-header">
-          <div class="dev-card-logo"><img src="images/developers/rohan-transparent.png" alt="Rohan Builders"></div>
-          <div><div class="dev-card-name">Rohan Builders</div><div class="dev-card-tagline">Building Pune Since 1993</div></div>
-        </div>
-        <div class="dev-card-body">
-          <p>A Pune-focused developer with over 30 years of experience and a deeply local understanding of the city's micro-markets. Rohan has delivered 60+ projects across Pune with a reputation for quality construction and responsive after-sales service. Particularly strong in the IT corridor and city suburbs.</p>
-          <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-500);margin-bottom:.5rem;">Projects in Pune</div>
-          <div class="dev-card-projects">
-            <a href="projects.html">Rohan Ekam</a>
-            <a href="projects.html">Rohan Harita</a>
-            <a href="projects.html">Rohan Nidita</a>
-            <a href="projects.html">Rohan Saroha</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="dev-card" data-reveal data-reveal-delay="100">
-        <div class="dev-card-header">
-          <div class="dev-card-logo"><img src="images/developers/vtp-transparent.png" alt="VTP Realty"></div>
-          <div><div class="dev-card-name">VTP Realty</div><div class="dev-card-tagline">Pune's Next-Generation Developer</div></div>
-        </div>
-        <div class="dev-card-body">
-          <p>VTP Realty is a fast-growing Pune-based developer known for innovative product design, large-format integrated townships, and a strong focus on the Baner"“Mahalunge corridor. Their flagship VTP Earth One project is redefining high-end residential living on the Baner Next outskirts.</p>
-          <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-500);margin-bottom:.5rem;">Projects in Pune</div>
-          <div class="dev-card-projects"><a href="projects.html">VTP Earth One</a></div>
-        </div>
-      </div>
-
-      <div class="dev-card" data-reveal data-reveal-delay="200">
-        <div class="dev-card-header">
-          <div class="dev-card-logo"><img src="images/developers/tejraj-transparent.png" alt="Tejraj Group"></div>
-          <div><div class="dev-card-name">Tejraj Group</div><div class="dev-card-tagline">Luxury Baner Residences</div></div>
-        </div>
-        <div class="dev-card-body">
-          <p>Tejraj Group has made a strong mark in Baner's premium residential segment with Tej Elevia "” one of the tallest residential towers in the area featuring a 125-metre sky deck. Known for bold architectural statements and premium amenity programming.</p>
-          <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-500);margin-bottom:.5rem;">Projects in Pune</div>
-          <div class="dev-card-projects"><a href="projects.html">Tej Elevia</a></div>
-        </div>
-      </div>
-
-      <div class="dev-card" data-reveal data-reveal-delay="0">
-        <div class="dev-card-header">
-          <div class="dev-card-logo"><img src="images/developers/kohinoor-transparent.png" alt="Kohinoor Group"></div>
-          <div><div class="dev-card-name">Kohinoor Group</div><div class="dev-card-tagline">40+ Years in Pune Real Estate</div></div>
-        </div>
-        <div class="dev-card-body">
-          <p>Kohinoor Group is a well-established Pune developer with 40+ years of presence and 70+ completed projects. Their Satori project in New Baner brings ultra-luxury 3, 4 and 4.5 BHK residences to one of Pune's most sought-after micro-markets, adjacent to the upcoming Balewadi Sports Hub.</p>
-          <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-500);margin-bottom:.5rem;">Projects in Pune</div>
-          <div class="dev-card-projects"><a href="projects.html">Satori</a></div>
-        </div>
-      </div>
-
-      <div class="dev-card" data-reveal data-reveal-delay="100">
-        <div class="dev-card-header">
-          <div class="dev-card-logo"><img src="images/developers/tribeca-transparent.png" alt="Tribeca"></div>
-          <div><div class="dev-card-name">Tribeca (Trump Towers)</div><div class="dev-card-tagline">Bringing Global Luxury to India</div></div>
-        </div>
-        <div class="dev-card-body">
-          <p>Tribeca Developers is the Indian licensed developer of Trump-branded residences. Their Lulla Nagar project in Pune brings globally-branded luxury living to the city's established central residential pocket. Known for exceptional amenity packages, concierge services, and premium finishes.</p>
-          <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-500);margin-bottom:.5rem;">Projects in Pune</div>
-          <div class="dev-card-projects"><a href="projects.html">Tribeca Lulla Nagar</a></div>
-        </div>
-      </div>
-
-      <div class="dev-card" data-reveal data-reveal-delay="200">
-        <div class="dev-card-header">
-          <div class="dev-card-logo"><img src="images/developers/dlf-transparent.png" alt="DLF"></div>
-          <div><div class="dev-card-name">DLF Limited</div><div class="dev-card-tagline">India's Largest Real Estate Company</div></div>
-        </div>
-        <div class="dev-card-body">
-          <p>DLF Limited is India's largest publicly listed real estate developer by revenues, with 75+ years of track record and presence across 15+ states. Known for creating landmark residential and commercial developments across India's major cities. Expanding footprint in Pune's premium segment.</p>
-          <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-500);margin-bottom:.5rem;">Enquire for Projects</div>
-          <div class="dev-card-projects"><a href="contact.html">Contact Us for DLF Projects</a></div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -224,24 +168,120 @@
 <section class="section section--tinted">
   <div class="container">
     <div class="section-header centered" data-reveal>
-      <span class="section-label"><i class="fas fa-question-circle"></i> Why This Matters</span>
-      <h2>Why We Only Work With These Developers</h2>
+      <span class="section-label"><i class="fas fa-layer-group"></i> What We Support</span>
+      <h2>Developer Sales Services</h2>
+      <p class="section-sub">Focused support for launches, active inventory, and buyer conversion workflows.</p>
     </div>
-    <div class="value-grid">
-      <div class="value-card" data-reveal>
-        <div class="value-card-icon"><i class="fas fa-id-badge"></i></div>
-        <h3>Authorised Channel Partners</h3>
-        <p>We are authorised by each developer "” meaning you get official developer pricing with no premium. We are not aggregators or lead generators.</p>
+    <div class="partner-services">
+      <div class="partner-service-card" data-reveal><i class="fas fa-bullhorn"></i><h3>Project Marketing</h3><p>Positioning, offer messaging, campaign angles, landing page coordination, and buyer-facing content for residential launches.</p></div>
+      <div class="partner-service-card" data-reveal data-reveal-delay="100"><i class="fas fa-filter"></i><h3>Lead Qualification</h3><p>Budget checks, configuration mapping, location fit, funding readiness, and purchase timeline filtering before sales handoff.</p></div>
+      <div class="partner-service-card" data-reveal data-reveal-delay="200"><i class="fas fa-calendar-check"></i><h3>Site Visit Coordination</h3><p>Visit scheduling, reminders, location sharing, rescheduling, and handoff to the project sales team.</p></div>
+      <div class="partner-service-card" data-reveal><i class="fas fa-phone-volume"></i><h3>CRM Follow-Up</h3><p>Structured call and WhatsApp follow-ups to reduce lead leakage after first enquiry and after the site visit.</p></div>
+      <div class="partner-service-card" data-reveal data-reveal-delay="100"><i class="fas fa-map-marked-alt"></i><h3>Market Feedback</h3><p>Buyer objections, pricing feedback, competing project references, and demand signals from active conversations.</p></div>
+      <div class="partner-service-card" data-reveal data-reveal-delay="200"><i class="fas fa-file-signature"></i><h3>Booking Support</h3><p>Shortlist nurturing, document checklist guidance, loan coordination referrals, and communication support until booking.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-label"><i class="fas fa-check-circle"></i> Why Developers Choose Us</span>
+      <h2>Built for Faster, Cleaner Sales Conversations</h2>
+    </div>
+    <div class="capability-grid">
+      <div class="capability-card" data-reveal><i class="fas fa-location-dot"></i><div><h3>Pune Micro-Market Understanding</h3><p>We work across Baner, Balewadi, Hinjewadi, Kharadi, PCMC, Keshav Nagar, Bhugaon, and emerging growth corridors.</p></div></div>
+      <div class="capability-card" data-reveal data-reveal-delay="100"><i class="fas fa-users"></i><div><h3>Buyer-First Advisory</h3><p>We do not push every project to every buyer. Better fit improves visit quality and improves trust at the sales desk.</p></div></div>
+      <div class="capability-card" data-reveal><i class="fas fa-gauge-high"></i><div><h3>Speed to Lead</h3><p>Incoming enquiries are acted on quickly during working hours, with structured follow-up across call and WhatsApp.</p></div></div>
+      <div class="capability-card" data-reveal data-reveal-delay="100"><i class="fas fa-table-list"></i><div><h3>Inventory-Aware Positioning</h3><p>We adapt messaging based on available units, ticket size, tower stage, payment plans, and active offers.</p></div></div>
+      <div class="capability-card" data-reveal><i class="fas fa-shield-alt"></i><div><h3>RERA-Aware Communication</h3><p>Project communication is kept clean, factual, and aligned with disclosed information and developer-approved details.</p></div></div>
+      <div class="capability-card" data-reveal data-reveal-delay="100"><i class="fas fa-chart-pie"></i><div><h3>Actionable Feedback</h3><p>We share what buyers ask, where they hesitate, and which competing projects are affecting decision-making.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section-header centered" data-reveal>
+      <span class="section-label"><i class="fas fa-route"></i> Partnership Process</span>
+      <h2>How We Onboard a Project</h2>
+      <p class="section-sub">A simple workflow from project briefing to qualified buyer visits.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step"><div class="process-num">01</div><h4>Project Brief</h4><p>You share project details, inventory, pricing, offers, location strengths, approvals, and sales priorities.</p></div>
+      <div class="process-step"><div class="process-num">02</div><h4>Market Mapping</h4><p>We study target buyers, competing projects, pricing corridors, objection points, and campaign positioning.</p></div>
+      <div class="process-step"><div class="process-num">03</div><h4>Campaign &amp; Outreach</h4><p>We launch buyer outreach, qualify enquiries, coordinate visits, and keep communication moving.</p></div>
+      <div class="process-step"><div class="process-num">04</div><h4>Review &amp; Improve</h4><p>We share feedback from conversations and tune targeting, messaging, and follow-up based on real demand.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="partner-enquiry">
+  <div class="container">
+    <div class="partner-form-layout">
+      <div class="partner-side-card" data-reveal="left">
+        <span class="section-label"><i class="fas fa-handshake"></i> Work With Us</span>
+        <h3>Share Your Project Details</h3>
+        <p>Tell us about your development, current inventory, and sales goals. Our partnerships team will review the brief and connect with you.</p>
+        <ul class="partner-side-list">
+          <li><i class="fas fa-check"></i><span>Launch and active inventory support</span></li>
+          <li><i class="fas fa-check"></i><span>Residential apartments, plotted developments, and premium projects</span></li>
+          <li><i class="fas fa-check"></i><span>Buyer lead generation and site visit coordination</span></li>
+          <li><i class="fas fa-check"></i><span>Pune-focused advisory and channel partner support</span></li>
+        </ul>
       </div>
-      <div class="value-card" data-reveal data-reveal-delay="100">
-        <div class="value-card-icon"><i class="fas fa-clock"></i></div>
-        <h3>Delivery Track Record</h3>
-        <p>Every developer in our network has been evaluated on their RERA filing accuracy, possession timeline adherence, and customer escalation track record.</p>
-      </div>
-      <div class="value-card" data-reveal data-reveal-delay="200">
-        <div class="value-card-icon"><i class="fas fa-shield-alt"></i></div>
-        <h3>RERA Compliance</h3>
-        <p>All listed projects are RERA registered under MahaRERA. We verify registrations quarterly and remove any project that lapses or updates its completion date significantly.</p>
+
+      <div class="partner-form-card" data-reveal="right">
+        <h2>Developer Enquiry</h2>
+        <p>Fill this form and we will open an email draft with your partnership details.</p>
+        <form id="developerForm" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label" for="companyName">Developer / Company *</label><input class="form-control" type="text" id="companyName" name="companyName" placeholder="Company name" required></div>
+            <div class="form-group"><label class="form-label" for="contactPerson">Contact Person *</label><input class="form-control" type="text" id="contactPerson" name="contactPerson" placeholder="Full name" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label" for="phone">Phone *</label><input class="form-control" type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required></div>
+            <div class="form-group"><label class="form-label" for="email">Email *</label><input class="form-control" type="email" id="email" name="email" placeholder="name@company.com" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label" for="projectName">Project Name</label><input class="form-control" type="text" id="projectName" name="projectName" placeholder="Project name"></div>
+            <div class="form-group"><label class="form-label" for="location">Project Location</label><input class="form-control" type="text" id="location" name="location" placeholder="Baner, Kharadi, Hinjewadi..."></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="propertyType">Property Type</label>
+              <select class="form-control" id="propertyType" name="propertyType">
+                <option value="">Select type</option>
+                <option value="Residential apartments">Residential apartments</option>
+                <option value="Villa / row house project">Villa / row house project</option>
+                <option value="Plotted development">Plotted development</option>
+                <option value="Commercial project">Commercial project</option>
+                <option value="Mixed-use project">Mixed-use project</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="supportNeeded">Support Needed</label>
+              <select class="form-control" id="supportNeeded" name="supportNeeded">
+                <option value="">Select support</option>
+                <option value="Project launch support">Project launch support</option>
+                <option value="Lead generation">Lead generation</option>
+                <option value="Site visit coordination">Site visit coordination</option>
+                <option value="Inventory movement">Inventory movement</option>
+                <option value="Channel partner mandate">Channel partner mandate</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message" placeholder="Share inventory size, ticket range, launch status, RERA status, or current sales priority." rows="4"></textarea></div>
+          <button type="submit" class="btn btn-primary btn-lg form-submit-btn"><span>Send Partnership Enquiry</span><i class="fas fa-paper-plane"></i></button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <i class="fas fa-check-circle"></i>
+          <h3>Enquiry Prepared</h3>
+          <p>Your email client has opened. If it did not, copy the message below and send it to <strong>info@prophuntllp.com</strong>.</p>
+          <div class="copy-area"><textarea id="copyText" rows="8" readonly></textarea></div>
+          <button class="btn btn-outline btn-sm" id="btnCopy"><i class="far fa-copy"></i> Copy Message</button>
+          <button class="btn btn-dark btn-sm" id="btnReset" style="margin-left:.5rem;">Send Another</button>
+        </div>
       </div>
     </div>
   </div>
@@ -250,10 +290,10 @@
 <section class="cta-band">
   <div class="container">
     <div class="cta-band-inner" data-reveal>
-      <div class="cta-band-text"><h2>Want to Know More About a Specific Project?</h2><p>Our advisors can arrange a direct conversation with the developer's team for any project you're interested in.</p></div>
+      <div class="cta-band-text"><h2>Have an Active Project in Pune?</h2><p>Speak with PROPHUNT LLP about buyer outreach, project positioning, and channel sales support.</p></div>
       <div class="cta-band-actions">
-        <a href="projects.html" class="btn btn-primary btn-lg">View All Projects <i class="fas fa-arrow-right"></i></a>
-        <a href="contact.html" class="btn btn-ghost btn-lg">Talk to an Advisor</a>
+        <a href="#partner-enquiry" class="btn btn-primary btn-lg">List Your Project <i class="fas fa-arrow-right"></i></a>
+        <a href="https://wa.me/917066880808?text=Hi%20PROPHUNT%20LLP%2C%20I%20want%20to%20discuss%20a%20developer%20partnership." class="btn btn-ghost btn-lg" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
       </div>
     </div>
   </div>
@@ -276,6 +316,51 @@
 <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 <a href="https://wa.me/917066880808" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <script src="js/nav.js"></script>
+<script>
+(function(){
+  const form = document.getElementById('developerForm');
+  const success = document.getElementById('formSuccess');
+  const copyText = document.getElementById('copyText');
+  const btnCopy = document.getElementById('btnCopy');
+  const btnReset = document.getElementById('btnReset');
+
+  form?.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+    const subject = `Developer Partnership Enquiry - ${data.companyName || 'New Project'}`;
+    const body = [
+      `Developer / Company: ${data.companyName || 'Not provided'}`,
+      `Contact Person: ${data.contactPerson || 'Not provided'}`,
+      `Phone: ${data.phone || 'Not provided'}`,
+      `Email: ${data.email || 'Not provided'}`,
+      `Project Name: ${data.projectName || 'Not provided'}`,
+      `Location: ${data.location || 'Not provided'}`,
+      `Property Type: ${data.propertyType || 'Not specified'}`,
+      `Support Needed: ${data.supportNeeded || 'Not specified'}`,
+      '',
+      data.message || 'Please contact me to discuss a developer partnership with PROPHUNT LLP.'
+    ].join('\n');
+    const fullText = `To: info@prophuntllp.com\nSubject: ${subject}\n\n${body}`;
+    if (copyText) copyText.value = fullText;
+    window.location.href = `mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    form.style.display = 'none';
+    success?.classList.add('show');
+  });
+
+  btnCopy?.addEventListener('click', function(){
+    copyText?.select();
+    navigator.clipboard?.writeText(copyText.value).then(function(){
+      btnCopy.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      setTimeout(function(){ btnCopy.innerHTML = '<i class="far fa-copy"></i> Copy Message'; }, 2000);
+    }).catch(function(){ alert('Please copy manually.'); });
+  });
+
+  btnReset?.addEventListener('click', function(){
+    success?.classList.remove('show');
+    form.style.display = '';
+    form.reset();
+  });
+})();
+</script>
 </body>
 </html>
-
