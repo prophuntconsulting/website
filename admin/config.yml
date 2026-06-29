@@ -2,8 +2,7 @@ backend:
   name: github
   repo: prophuntconsulting/website
   branch: main
-  auth_type: pkce
-  app_id: Ov23liY4KK8VkrVfV0Pk
+  base_url: https://prophuntllp.com/api
 
 media_folder: "images/blog"
 public_folder: "/images/blog"
