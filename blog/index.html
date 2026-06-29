@@ -294,7 +294,7 @@
   }
 
   // Load posts.json
-  fetch('posts.json')
+  fetch('/blog/posts.json')
     .then(r => r.ok ? r.json() : [])
     .catch(() => [])
     .then(posts => {
