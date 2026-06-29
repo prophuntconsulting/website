@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
 <style>
 /* ── RESET & TOKENS ──────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -40,28 +41,10 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button,select,input,textarea{font-family:inherit}
 
-/* ── NAVBAR ──────────────────────────────────────── */
-.ph-nav{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--gray-200);box-shadow:0 1px 8px rgba(0,0,0,.06)}
-.ph-nav-inner{max-width:1260px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.ph-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.ph-logo img{height:28px;width:auto}
-.ph-logo-text{font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.2px}
-.ph-logo-text span{color:var(--red)}
-.ph-nav-links{list-style:none;display:flex;align-items:center;gap:2px}
-.ph-nav-links a{font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-600);padding:8px 12px;border-radius:6px;transition:color .18s,background .18s}
-.ph-nav-links a:hover{color:var(--red);background:rgba(200,54,43,.06)}
-.ph-nav-cta{background:var(--red)!important;color:#fff!important;padding:10px 20px!important;border-radius:6px!important}
-.ph-nav-cta:hover{background:var(--red-dark)!important}
-.ph-hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--gray-800)}
-.ph-hamburger svg{width:22px;height:22px}
-.ph-mob-menu{display:none;position:fixed;inset:64px 0 0;background:#fff;z-index:9998;padding:24px;flex-direction:column;gap:4px;border-top:1px solid var(--gray-200)}
-.ph-mob-menu a{display:block;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;color:var(--gray-700);padding:14px 12px;border-radius:6px;transition:background .15s}
-.ph-mob-menu a:hover{background:var(--gray-100)}
-.ph-mob-menu .ph-nav-cta{background:var(--red)!important;color:#fff!important;text-align:center;margin-top:8px}
-@media(max-width:860px){.ph-nav-links{display:none}.ph-hamburger{display:block}}
+/* site navbar comes from /css/style.css */
 
 /* ── BREADCRUMB ──────────────────────────────────── */
-.ph-breadcrumb{margin-top:64px;background:var(--gray-100);border-bottom:1px solid var(--gray-200);padding:12px 0}
+.ph-breadcrumb{margin-top:var(--nav-h,72px);background:var(--gray-100);border-bottom:1px solid var(--gray-200);padding:12px 0}
 .ph-breadcrumb-inner{max-width:1260px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-400);flex-wrap:wrap}
 .ph-breadcrumb a{color:var(--gray-600);transition:color .15s}
 .ph-breadcrumb a:hover{color:var(--red)}
@@ -92,7 +75,7 @@ button,select,input,textarea{font-family:inherit}
 @media(max-width:600px){.ph-hero-meta{padding:0 20px;bottom:24px;flex-direction:column;align-items:flex-start}.ph-hero-price-chip{width:100%}}
 
 /* ── STICKY SUBNAV ───────────────────────────────── */
-.ph-subnav{background:#fff;border-bottom:2px solid var(--gray-200);position:sticky;top:64px;z-index:800;overflow-x:auto;scrollbar-width:none}
+.ph-subnav{background:#fff;border-bottom:2px solid var(--gray-200);position:sticky;top:var(--nav-h,72px);z-index:800;overflow-x:auto;scrollbar-width:none}
 .ph-subnav::-webkit-scrollbar{display:none}
 .ph-subnav-inner{max-width:1260px;margin:0 auto;padding:0 24px;display:flex;gap:0;white-space:nowrap}
 .ph-subnav a{display:inline-block;padding:14px 20px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;color:var(--gray-400);border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .18s,border-color .18s}
@@ -140,7 +123,7 @@ button,select,input,textarea{font-family:inherit}
 .ph-rera-box i{color:var(--red);font-size:18px}
 
 /* ── SIDEBAR ─────────────────────────────────────── */
-.ph-sidebar{display:flex;flex-direction:column;gap:24px;position:sticky;top:130px}
+.ph-sidebar{display:flex;flex-direction:column;gap:24px;position:sticky;top:calc(var(--nav-h,72px) + 50px)}
 @media(max-width:960px){.ph-sidebar{position:static}}
 
 /* Enquiry card */
@@ -234,33 +217,51 @@ button,select,input,textarea{font-family:inherit}
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="ph-nav" role="navigation">
-  <div class="ph-nav-inner">
-    <a href="/" class="ph-logo" aria-label="PROPHUNT LLP Home">
-      <img src="/images/prophunt-logo.png" alt="PROPHUNT LLP" onerror="this.style.display='none'">
-      <span class="ph-logo-text">PRO<span>PHUNT</span></span>
+<!-- NAVBAR — shared site component -->
+<nav class="navbar nav-white" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="/" class="nav-logo" aria-label="PROPHUNT LLP Home">
+      <img src="/images/logo-black.png" alt="PROPHUNT LLP" class="logo-black">
     </a>
-    <ul class="ph-nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/contact" class="ph-nav-cta">Enquire Now</a></li>
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="/projects" class="nav-link active">Projects <i class="fas fa-chevron-down chevron"></i></a>
+        <div class="dropdown" role="menu">
+          <a href="/projects" class="dropdown-link" role="menuitem"><i class="fas fa-th"></i> All Projects</a>
+          <a href="/projects?type=apartment" class="dropdown-link" role="menuitem"><i class="fas fa-building"></i> Apartments</a>
+          <a href="/projects?type=plot" class="dropdown-link" role="menuitem"><i class="fas fa-map"></i> Plots</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+      <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
     </ul>
-    <button class="ph-hamburger" id="phHamburger" aria-label="Menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
+    <div class="nav-actions">
+      <a href="tel:+917066880808" class="nav-phone" aria-label="Call us"><i class="fas fa-phone"></i> +91 70668 80808</a>
+      <a href="/contact" class="btn btn-primary btn-sm">Book a Site Visit</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
-<div class="ph-mob-menu" id="phMobMenu">
-  <a href="/">Home</a>
-  <a href="/projects">Projects</a>
-  <a href="/services">Services</a>
-  <a href="/about">About</a>
-  <a href="/blog">Blog</a>
-  <a href="/contact" class="ph-nav-cta">Enquire Now</a>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <div class="mobile-menu-inner">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Home</a></li>
+      <li><a href="/projects" class="mobile-nav-link active">Projects</a></li>
+      <li><a href="/services" class="mobile-nav-link">Services</a></li>
+      <li><a href="/about" class="mobile-nav-link">About</a></li>
+      <li><a href="/blog" class="mobile-nav-link">Blog</a></li>
+      <li><a href="/contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <a href="/contact" class="btn btn-primary">Enquire Now</a>
+      <a href="tel:+917066880808" class="btn btn-ghost">Call Us</a>
+    </div>
+  </div>
 </div>
 
 <!-- BREADCRUMB -->
@@ -697,11 +698,7 @@ function buildPage(prop, allProps) {
   handleForm(document.getElementById('phSideEnqForm'));
 }
 
-/* ── Mobile menu ── */
-document.getElementById('phHamburger').addEventListener('click', () => {
-  const m = document.getElementById('phMobMenu');
-  m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
-});
+/* nav.js handles hamburger */
 
 /* ── Load data ── */
 fetch('/properties/posts.json')
@@ -730,5 +727,6 @@ fetch('/properties/posts.json')
       </div>`;
   });
 </script>
+<script src="/js/nav.js"></script>
 </body>
 </html>
