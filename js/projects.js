@@ -36,18 +36,20 @@
     function renderCard(p) {
         const isExternal = /^https?:\/\//.test(p.url);
         const linkAttrs  = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
+        const linkLabel  = isExternal ? 'View Project' : 'View Details';
         const icon       = p.category === 'plot' ? 'map' : p.category === 'villa' ? 'home' : p.category === 'commercial' ? 'briefcase' : 'building';
         const statusBadge = p.status === 'coming-soon'
             ? '<span class="badge badge-gray" style="font-size:.68rem;padding:.2rem .55rem;">Coming Soon</span>'
             : p.status === 'sold-out'
             ? '<span class="badge badge-gray" style="font-size:.68rem;padding:.2rem .55rem;background:#6b7280">Sold Out</span>'
             : '';
+        const priceLabel = p.price_label || (p.price > 0 ? 'Rs ' + p.price + ' L*' : 'Price on Request');
         return `
         <article class="prop-card" data-category="${p.category}">
           <div class="prop-card-img">
             <div style="background-image:url('${p.cover || ''}');"></div>
             <div class="prop-card-badge"><span class="badge badge-red">${p.developer}</span>${statusBadge}</div>
-            <div class="prop-card-price">${p.price_label || 'Price on Request'}</div>
+            <div class="prop-card-price">${priceLabel}</div>
           </div>
           <div class="prop-card-body">
             <div class="prop-card-dev">${p.developer}</div>
@@ -58,8 +60,8 @@
               <span><i class="fas fa-ruler-combined"></i>${p.area}</span>
             </div>
             <div class="prop-card-footer">
-              <span class="prop-card-status">Official project page</span>
-              <a href="${p.url}" ${linkAttrs} class="prop-card-link">View Project <i class="fas fa-arrow-right"></i></a>
+              <span class="prop-card-status">${isExternal ? 'Official project page' : 'View on PROPHUNT'}</span>
+              <a href="${p.url}" ${linkAttrs} class="prop-card-link">${linkLabel} <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
         </article>`;

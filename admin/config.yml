@@ -4,8 +4,8 @@ backend:
   branch: main
   base_url: https://prophuntllp.com/api
 
-media_folder: "images/blog"
-public_folder: "/images/blog"
+media_folder: "images/projects"
+public_folder: "/images/projects"
 
 slug:
   encoding: "ascii"
@@ -20,6 +20,8 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+
+      # ── BASIC INFO ──────────────────────────────────────────
       - label: "Project Name"
         name: "title"
         widget: "string"
@@ -38,12 +40,12 @@ collections:
       - label: "Configuration"
         name: "config"
         widget: "string"
-        hint: "e.g. 2 & 3 BHK or NA Villa Plots"
+        hint: "e.g. 2 & 3 BHK or Villa Plots"
 
       - label: "Area"
         name: "area"
         widget: "string"
-        hint: "e.g. From 1,200 sqft or 7 acres open spaces"
+        hint: "e.g. From 1,200 sqft"
 
       - label: "Category"
         name: "category"
@@ -63,48 +65,190 @@ collections:
           - { label: "Sold Out", value: "sold-out" }
         default: "active"
 
-      - label: "Starting Price (₹ Lakhs)"
-        name: "price"
-        widget: "number"
-        value_type: "float"
-        hint: "Enter in Lakhs — e.g. 84 for ₹84L, 265 for ₹2.65Cr. Enter 0 for Price on Request."
-        default: 0
-
-      - label: "Price Display Label"
-        name: "price_label"
-        widget: "string"
-        hint: "e.g. Rs 84 L* or Price on Request"
-        default: "Price on Request"
-
-      - label: "Cover Image"
-        name: "cover"
-        widget: "image"
-        required: false
-        hint: "Upload project cover image (recommended: 800×600px)"
-        media_folder: "/images/projects"
-        public_folder: "/images/projects"
-
-      - label: "Project URL"
-        name: "url"
-        widget: "string"
-        hint: "Full URL for external projects (https://...) or /path/ for internal pages"
-
       - label: "RERA Number"
         name: "rera"
         widget: "string"
         required: false
-        hint: "MahaRERA project registration number (optional)"
+        hint: "MahaRERA project registration number"
 
-      - label: "Description"
-        name: "body"
-        widget: "markdown"
+      # ── HERO IMAGES (for detail page slideshow) ─────────────
+      - label: "Hero Image 1 (Main)"
+        name: "hero_1"
+        widget: "image"
+        hint: "Primary project photo — shown on both the listing card and the detail page hero"
+
+      - label: "Hero Image 2"
+        name: "hero_2"
+        widget: "image"
         required: false
-        hint: "Optional: highlights, amenities, or a detailed description"
+        hint: "Second slide in the hero slideshow"
+
+      - label: "Hero Image 3"
+        name: "hero_3"
+        widget: "image"
+        required: false
+        hint: "Third slide in the hero slideshow"
+
+      - label: "Hero Caption"
+        name: "hero_caption"
+        widget: "string"
+        required: false
+        hint: "Optional caption below the hero. Leave blank to auto-generate from project name."
+
+      # ── ALERT BAR ───────────────────────────────────────────
+      - label: "Alert Bar Text"
+        name: "tagline"
+        widget: "string"
+        required: false
+        hint: "Short announcement shown in the red bar, e.g. 'New Launch | Limited Units Available'"
+        default: "New Launch | Limited Units Available"
+
+      # ── OVERVIEW ────────────────────────────────────────────
+      - label: "Project Overview"
+        name: "overview"
+        widget: "text"
+        required: false
+        hint: "2–4 sentences describing the project. Shown in the overview section."
+
+      - label: "Stat 1 — Value"
+        name: "stat_1_value"
+        widget: "string"
+        required: false
+        hint: "e.g. 7 Acres"
+
+      - label: "Stat 1 — Label"
+        name: "stat_1_label"
+        widget: "string"
+        required: false
+        hint: "e.g. Project Area"
+
+      - label: "Stat 2 — Value"
+        name: "stat_2_value"
+        widget: "string"
+        required: false
+        hint: "e.g. 500+"
+
+      - label: "Stat 2 — Label"
+        name: "stat_2_label"
+        widget: "string"
+        required: false
+        hint: "e.g. Luxury Homes"
+
+      - label: "Stat 3 — Value"
+        name: "stat_3_value"
+        widget: "string"
+        required: false
+        hint: "e.g. 28+"
+
+      - label: "Stat 3 — Label"
+        name: "stat_3_label"
+        widget: "string"
+        required: false
+        hint: "e.g. Amenities"
+
+      - label: "Stat 4 — Value"
+        name: "stat_4_value"
+        widget: "string"
+        required: false
+        hint: "e.g. Q4 2026"
+
+      - label: "Stat 4 — Label"
+        name: "stat_4_label"
+        widget: "string"
+        required: false
+        hint: "e.g. Possession"
+
+      # ── PRICING CARDS ───────────────────────────────────────
+      - label: "Starting Price (₹ Lakhs)"
+        name: "price"
+        widget: "number"
+        value_type: "float"
+        hint: "Enter in Lakhs for filters — e.g. 84 for ₹84L, 265 for ₹2.65Cr. Enter 0 for Price on Request."
+        default: 0
+
+      - label: "Unit 1 — Type"
+        name: "unit_1_type"
+        widget: "string"
+        required: false
+        hint: "e.g. 2 BHK"
+
+      - label: "Unit 1 — Area"
+        name: "unit_1_area"
+        widget: "string"
+        required: false
+        hint: "e.g. 1,200 sqft"
+
+      - label: "Unit 1 — Price"
+        name: "unit_1_price"
+        widget: "string"
+        required: false
+        hint: "e.g. Rs 1.25 Cr* or Price on Request"
+
+      - label: "Unit 1 — Featured (highlight this card)"
+        name: "unit_1_featured"
+        widget: "boolean"
+        required: false
+        default: false
+
+      - label: "Unit 2 — Type"
+        name: "unit_2_type"
+        widget: "string"
+        required: false
+
+      - label: "Unit 2 — Area"
+        name: "unit_2_area"
+        widget: "string"
+        required: false
+
+      - label: "Unit 2 — Price"
+        name: "unit_2_price"
+        widget: "string"
+        required: false
+
+      - label: "Unit 2 — Featured"
+        name: "unit_2_featured"
+        widget: "boolean"
+        required: false
+        default: false
+
+      - label: "Unit 3 — Type"
+        name: "unit_3_type"
+        widget: "string"
+        required: false
+
+      - label: "Unit 3 — Area"
+        name: "unit_3_area"
+        widget: "string"
+        required: false
+
+      - label: "Unit 3 — Price"
+        name: "unit_3_price"
+        widget: "string"
+        required: false
+
+      - label: "Unit 3 — Featured"
+        name: "unit_3_featured"
+        widget: "boolean"
+        required: false
+        default: false
+
+      # ── AMENITIES ───────────────────────────────────────────
+      - label: "Amenities"
+        name: "amenities"
+        widget: "list"
+        required: false
+        hint: "Add one amenity per line — e.g. Swimming Pool, Gymnasium, Club House"
+        field:
+          label: "Amenity"
+          name: "amenity"
+          widget: "string"
 
   - name: "blog"
     label: "Blog Posts"
     label_singular: "Blog Post"
     folder: "blog/posts"
+    media_folder: "/images/blog"
+    public_folder: "/images/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     preview_path: "blog/post?slug={{slug}}"
@@ -150,4 +294,4 @@ collections:
       - label: "Content"
         name: "body"
         widget: "markdown"
-        hint: "Write your full article here. Use headings, bullet points, bold text freely."
+        hint: "Write your full article here."
