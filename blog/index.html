@@ -134,7 +134,7 @@
     <nav class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">Blog</span></nav>
     <span class="section-label"><i class="fas fa-newspaper"></i> Insights &amp; Updates</span>
     <h1>Pune Real Estate<br>Market Intelligence</h1>
-    <p>Expert analysis, buyer guides, investment research, and market updates "” straight from our advisory team.</p>
+    <p>Expert analysis, buyer guides, investment research, and market updates straight from our advisory team.</p>
     <div class="page-hero-meta">
       <div class="page-hero-meta-item"><i class="fas fa-pen"></i> Written by PROPHUNT Advisors</div>
       <div class="page-hero-meta-item"><i class="fas fa-sync-alt"></i> Updated regularly</div>
@@ -155,9 +155,9 @@
 
     <div class="blog-layout">
       <div>
-        <div class=”blog-grid” id=”blogGrid”>
-          <div style=”grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--gray-400);”>
-            <i class=”fas fa-circle-notch fa-spin” style=”font-size:1.5rem;display:block;margin-bottom:.75rem;”></i>
+        <div class="blog-grid" id="blogGrid">
+          <div style="grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--gray-400);">
+            <i class="fas fa-circle-notch fa-spin" style="font-size:1.5rem;display:block;margin-bottom:.75rem;"></i>
             Loading articles…
           </div>
         </div>
@@ -233,7 +233,7 @@
 <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 <a href="https://wa.me/917066880808" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
-<script src=”../js/nav.js”></script>
+<script src="../js/nav.js"></script>
 <script>
 (function () {
   const CAT_LABELS  = { market:'Market Report', buyer:'Buyer Guide', investment:'Investment', legal:'Legal & Docs', nri:'NRI Corner' };
@@ -251,21 +251,21 @@
 
   function renderCard(p, featured) {
     const coverHTML = p.cover
-      ? `<div class=”blog-card-img-inner” style=”background-image:url('${p.cover}');background-size:cover;background-position:center;”></div>`
-      : `<div class=”blog-card-img-inner” style=”background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;”><i class=”${CAT_ICONS[p.category] || 'fas fa-newspaper'}” style=”font-size:${featured?'4':'3'}rem;color:rgba(200,54,43,.35);”></i></div>`;
+      ? `<div class="blog-card-img-inner" style="background-image:url('${p.cover}');background-size:cover;background-position:center;"></div>`
+      : `<div class="blog-card-img-inner" style="background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;"><i class="${CAT_ICONS[p.category] || 'fas fa-newspaper'}" style="font-size:${featured?'4':'3'}rem;color:rgba(200,54,43,.35);"></i></div>`;
     return `
-      <article class=”blog-card” data-cat=”${p.category}”>
-        <div class=”blog-card-img”${featured?' style=”height:auto;”':''}>
+      <article class="blog-card" data-cat="${p.category}">
+        <div class="blog-card-img"${featured?' style="height:auto;"':''}>
           ${coverHTML}
-          <div class=”blog-card-cat”><span class=”badge ${CAT_COLORS[p.category]||'badge-dark'}”>${CAT_LABELS[p.category]||p.category}</span></div>
+          <div class="blog-card-cat"><span class="badge ${CAT_COLORS[p.category]||'badge-dark'}">${CAT_LABELS[p.category]||p.category}</span></div>
         </div>
-        <div class=”blog-card-body”>
-          <div class=”blog-card-date”><i class=”fas fa-calendar-alt”></i> ${formatDate(p.date)}</div>
-          <div class=”blog-card-title”><a href=”post?slug=${p.slug}”>${p.title}</a></div>
-          <p class=”blog-card-excerpt”>${p.excerpt}</p>
-          <div class=”blog-card-footer”>
-            <span class=”blog-card-author”><i class=”fas fa-user-circle”></i> ${p.author}</span>
-            <a href=”post?slug=${p.slug}” class=”blog-read-more”>Read Article <i class=”fas fa-arrow-right”></i></a>
+        <div class="blog-card-body">
+          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> ${formatDate(p.date)}</div>
+          <div class="blog-card-title"><a href="post?slug=${p.slug}">${p.title}</a></div>
+          <p class="blog-card-excerpt">${p.excerpt}</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author"><i class="fas fa-user-circle"></i> ${p.author}</span>
+            <a href="post?slug=${p.slug}" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </article>`;
@@ -275,7 +275,7 @@
     const grid = document.getElementById('blogGrid');
     const list = filter === 'all' ? allPosts : allPosts.filter(p => p.category === filter);
     if (!list.length) {
-      grid.innerHTML = `<div style=”grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--gray-400);”><i class=”fas fa-inbox” style=”font-size:2rem;display:block;margin-bottom:.75rem;”></i>No articles in this category yet.</div>`;
+      grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--gray-400);"><i class="fas fa-inbox" style="font-size:2rem;display:block;margin-bottom:.75rem;"></i>No articles in this category yet.</div>`;
       return;
     }
     grid.innerHTML = list.map((p, i) => renderCard(p, i === 0 && filter === 'all')).join('');
@@ -328,7 +328,7 @@
   // Newsletter
   document.getElementById('blogNewsletterForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
-    const em = this.querySelector('input[type=”email”]').value;
+    const em = this.querySelector('input[type="email"]').value;
     window.location.href = 'mailto:info@prophuntllp.com?subject=Blog Newsletter Subscription&body=Please add me to your newsletter list.%0A%0AEmail: ' + encodeURIComponent(em);
   });
 })();
