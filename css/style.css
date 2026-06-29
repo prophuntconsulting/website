@@ -308,6 +308,7 @@ p { color:var(--gray-800); }
 .footer-links a:hover { color:var(--white); }
 .footer-links a i { font-size:.7rem; color:var(--red); }
 
+.footer-newsletter h5 { font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--white); margin-bottom:1.25rem; font-family:var(--font-body); }
 .footer-newsletter p { font-size:.875rem; color:var(--gray-400); margin-bottom:1rem; line-height:1.6; }
 .newsletter-form { display:flex; gap:.5rem; }
 .newsletter-form input {
