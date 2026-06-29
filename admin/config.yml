@@ -13,6 +13,94 @@ slug:
   sanitize_replacement: "-"
 
 collections:
+  - name: "properties"
+    label: "Property Listings"
+    label_singular: "Property"
+    folder: "properties/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Project Name"
+        name: "title"
+        widget: "string"
+        hint: "e.g. Godrej River Royale"
+
+      - label: "Developer / Builder"
+        name: "developer"
+        widget: "string"
+        hint: "e.g. Godrej Properties"
+
+      - label: "Location"
+        name: "location"
+        widget: "string"
+        hint: "e.g. Baner–Hinjewadi Rd, Pune"
+
+      - label: "Configuration"
+        name: "config"
+        widget: "string"
+        hint: "e.g. 2 & 3 BHK or NA Villa Plots"
+
+      - label: "Area"
+        name: "area"
+        widget: "string"
+        hint: "e.g. From 1,200 sqft or 7 acres open spaces"
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Apartment", value: "apartment" }
+          - { label: "Plot", value: "plot" }
+          - { label: "Villa", value: "villa" }
+          - { label: "Commercial", value: "commercial" }
+
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Active / Ongoing", value: "active" }
+          - { label: "Coming Soon", value: "coming-soon" }
+          - { label: "Sold Out", value: "sold-out" }
+        default: "active"
+
+      - label: "Starting Price (₹ Lakhs)"
+        name: "price"
+        widget: "number"
+        value_type: "float"
+        hint: "Enter in Lakhs — e.g. 84 for ₹84L, 265 for ₹2.65Cr. Enter 0 for Price on Request."
+        default: 0
+
+      - label: "Price Display Label"
+        name: "price_label"
+        widget: "string"
+        hint: "e.g. Rs 84 L* or Price on Request"
+        default: "Price on Request"
+
+      - label: "Cover Image"
+        name: "cover"
+        widget: "image"
+        required: false
+        hint: "Upload project cover image (recommended: 800×600px)"
+        media_folder: "/images/projects"
+        public_folder: "/images/projects"
+
+      - label: "Project URL"
+        name: "url"
+        widget: "string"
+        hint: "Full URL for external projects (https://...) or /path/ for internal pages"
+
+      - label: "RERA Number"
+        name: "rera"
+        widget: "string"
+        required: false
+        hint: "MahaRERA project registration number (optional)"
+
+      - label: "Description"
+        name: "body"
+        widget: "markdown"
+        required: false
+        hint: "Optional: highlights, amenities, or a detailed description"
+
   - name: "blog"
     label: "Blog Posts"
     label_singular: "Blog Post"

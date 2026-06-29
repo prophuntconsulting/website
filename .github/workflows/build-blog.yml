@@ -1,9 +1,10 @@
-name: Rebuild Blog Index
+name: Rebuild Content Indexes
 
 on:
   push:
     paths:
       - 'blog/posts/**'
+      - 'properties/posts/**'
 
 jobs:
   build:
@@ -17,11 +18,14 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Generate posts.json
+      - name: Generate blog/posts.json
         run: node scripts/build-blog.js
 
-      - name: Commit updated posts.json
+      - name: Generate properties/posts.json
+        run: node scripts/build-properties.js
+
+      - name: Commit updated indexes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Build: update blog/posts.json"
-          file_pattern: blog/posts.json
+          commit_message: "Build: update content indexes"
+          file_pattern: "blog/posts.json properties/posts.json"
