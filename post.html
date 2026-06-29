@@ -20,10 +20,10 @@
       var match = posts.find(function (post) {
         return post.slug === slug || post.slug === cleanSlug;
       });
-      window.location.replace(match && match.url ? match.url : '/blog/' + encodeURIComponent(slug) + '/');
+      window.location.replace(match && match.url ? match.url : '/blog/' + encodeURIComponent(slug));
     })
     .catch(function () {
-      window.location.replace('/blog/' + encodeURIComponent(slug) + '/');
+      window.location.replace('/blog/' + encodeURIComponent(slug));
     });
 })();
 </script>

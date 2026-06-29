@@ -136,7 +136,7 @@ function formatDate(date) {
 function createPostHtml(post, body) {
   const title = escapeHtml(`${post.title} | PROPHUNT LLP Blog`);
   const description = escapeHtml(post.excerpt);
-  const canonical = `${SITE_URL}/blog/${post.slug}/`;
+  const canonical = `${SITE_URL}/blog/${post.slug}`;
   const cover = post.cover ? (post.cover.startsWith('http') ? post.cover : `${SITE_URL}${post.cover}`) : `${SITE_URL}/images/logo-black.png`;
   const category = escapeHtml(CAT_LABELS[post.category] || post.category || 'Article');
   const articleHtml = renderMarkdown(body);
@@ -308,7 +308,7 @@ function buildPosts() {
         excerpt,
         cover: meta.cover || '',
         readTime: estimateReadTime(body),
-        url: `/blog/${slug}/`,
+        url: `/blog/${slug}`,
       },
       body,
     };
@@ -330,7 +330,7 @@ function updateSitemap(posts) {
   const generated = [
     start,
     ...posts.map((post) => `  <url>
-    <loc>${SITE_URL}/blog/${post.slug}/</loc>
+    <loc>${SITE_URL}/blog/${post.slug}</loc>
     ${post.date ? `<lastmod>${post.date}</lastmod>` : ''}
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
