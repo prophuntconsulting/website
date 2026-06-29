@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loading… | PROPHUNT LLP Blog</title>
 <meta name="description" content="">
+<meta name="robots" content="noindex, follow">
+<script>
+(function () {
+  var slug = new URLSearchParams(window.location.search).get('slug');
+  if (!slug) return;
+  fetch('/blog/posts.json')
+    .then(function (response) { return response.ok ? response.json() : []; })
+    .then(function (posts) {
+      var cleanSlug = slug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+      var match = posts.find(function (post) {
+        return post.slug === slug || post.slug === cleanSlug;
+      });
+      if (match && match.url) window.location.replace(match.url);
+    });
+})();
+</script>
 <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
 <meta name="theme-color" content="#C8362B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
