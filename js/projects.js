@@ -10,6 +10,7 @@
     const filterBtns  = document.querySelectorAll('.proj-filter-btn');
     const devSelect   = document.getElementById('filterDeveloper');
     const budgetSelect= document.getElementById('filterBudget');
+    const sortSelect  = document.getElementById('projSort');
     const searchInput = document.getElementById('projSearch');
     const clearBtn    = document.getElementById('clearFilters');
     const emptyState  = document.getElementById('projEmpty');
@@ -19,6 +20,7 @@
     let activeDev     = '';
     let activeBudget  = '';
     let activeSearch  = '';
+    let activeSort    = 'default';
 
     function matchBudget(price, budget) {
         if (!budget) return true;
@@ -77,6 +79,14 @@
         });
     }
 
+    function sortList(arr) {
+        const list = [...arr];
+        if (activeSort === 'price-low')  list.sort((a, b) => (a.price || 0) - (b.price || 0));
+        if (activeSort === 'price-high') list.sort((a, b) => (b.price || 0) - (a.price || 0));
+        if (activeSort === 'az')         list.sort((a, b) => a.title.localeCompare(b.title));
+        return list;
+    }
+
     function applyFilters() {
         const search   = activeSearch.toLowerCase();
         const filtered = ALL_PROJECTS.filter(p => {
@@ -86,11 +96,12 @@
             const searchMatch = !search || `${p.title} ${p.developer} ${p.location} ${p.config}`.toLowerCase().includes(search);
             return typeMatch && devMatch && budgetMatch && searchMatch;
         });
+        const sorted = sortList(filtered);
 
-        if (grid) grid.innerHTML = filtered.length ? filtered.map(renderCard).join('') : '';
-        if (countEl) countEl.textContent = filtered.length;
-        if (emptyState) emptyState.hidden = filtered.length > 0;
-        if (clearBtn)   clearBtn.hidden   = !activeDev && !activeBudget && !activeSearch && activeType === 'all';
+        if (grid) grid.innerHTML = sorted.length ? sorted.map(renderCard).join('') : '';
+        if (countEl) countEl.textContent = sorted.length;
+        if (emptyState) emptyState.hidden = sorted.length > 0;
+        if (clearBtn)   clearBtn.hidden   = !activeDev && !activeBudget && !activeSearch && activeType === 'all' && activeSort === 'default';
     }
 
     function init() {
@@ -105,6 +116,7 @@
 
         devSelect?.addEventListener('change',    () => { activeDev    = devSelect.value;    applyFilters(); });
         budgetSelect?.addEventListener('change', () => { activeBudget = budgetSelect.value; applyFilters(); });
+        sortSelect?.addEventListener('change',   () => { activeSort   = sortSelect.value;   applyFilters(); });
 
         let searchTimer;
         searchInput?.addEventListener('input', () => {
@@ -113,10 +125,11 @@
         });
 
         clearBtn?.addEventListener('click', () => {
-            activeType = 'all'; activeDev = ''; activeBudget = ''; activeSearch = '';
+            activeType = 'all'; activeDev = ''; activeBudget = ''; activeSearch = ''; activeSort = 'default';
             filterBtns.forEach(b => b.classList.toggle('active', b.dataset.type === 'all'));
             if (devSelect)    devSelect.value    = '';
             if (budgetSelect) budgetSelect.value = '';
+            if (sortSelect)   sortSelect.value   = 'default';
             if (searchInput)  searchInput.value  = '';
             applyFilters();
         });

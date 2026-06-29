@@ -78,33 +78,39 @@
         video.addEventListener('loadedmetadata', () => { video.currentTime = 0; });
     }
 
-    /* ── FEATURED PROJECTS GRID ── */
-    const FEATURED = [
-        { developer:'Godrej Properties',   title:'Godrej River Royale',  location:'Baner–Hinjewadi Rd, Pune', config:'3 & 4.5 BHK',    area:'From 1,688 sqft',    price:'₹2.65 Cr*',       category:'apartment', img:'images/projects/godrej-river-royale.png',  url:'https://godrejpropertie.com/river-royale/', badge:'Premium' },
-        { developer:'Shapoorji Pallonji',  title:'SP Treetopia',          location:'Jadhavwadi, East Pune',   config:'NA Villa Plots',  area:'1,817–6,000 sqft',   price:'₹84 Lakh*',       category:'plot',      img:'images/projects/treetopia.webp',            url:'projects/treetopia/', badge:'New Launch' },
-        { developer:'Mahindra Lifespaces', title:'Mahindra Citadel',      location:'Pimpri-Chinchwad, Pune',  config:'2 & 3 BHK',       area:'7 acres open spaces',price:'Price on Request',  category:'apartment', img:'images/projects/mahindra-citadel.webp',     url:'projects/mahindra-citadel/', badge:'RERA Verified' },
-        { developer:'Godrej Properties',   title:'Godrej Aqua Vista',     location:'Keshav Nagar, Pune',      config:'2 & 3 BHK',       area:'From 727 sqft',      price:'₹96.99 L*',       category:'apartment', img:'images/projects/godrej-aqua-vista.jpg',     url:'https://godrejpropertie.com/aqua-vista/' },
-        { developer:'Kohinoor Group',      title:'Satori by Kohinoor',    location:'New Baner, Pune',         config:'3, 4 & 4.5 BHK',  area:'~3 acres amenities', price:'Price on Request',  category:'apartment', img:'images/projects/satori.jpg',                url:'https://satorinewbaner.com/' },
-        { developer:'Tejraj Group',        title:'Tej Elevia',            location:'Baner, Pune',             config:'3 BHK',           area:'125m Sky Deck',      price:'Price on Request',  category:'apartment', img:'images/projects/tej-elevia.webp',           url:'https://tejeleviabaner.com/' },
-    ];
-
-    const grid     = document.getElementById('featuredGrid');
-    const filtBtns = document.querySelectorAll('.filt-btn');
+    /* ── FEATURED PROJECTS GRID (loads from /properties/posts.json) ── */
+    const grid      = document.getElementById('featuredGrid');
+    const filtBtns  = document.querySelectorAll('.filt-btn');
+    const sortSel   = document.getElementById('featuredSort');
+    let ALL_PROPS   = [];
     let activeFilter = 'all';
+    let activeSort   = 'default';
     let animating    = false;
 
+    function sortedList(list) {
+        const arr = [...list];
+        if (activeSort === 'price-low')  arr.sort((a, b) => (a.price || 0) - (b.price || 0));
+        if (activeSort === 'price-high') arr.sort((a, b) => (b.price || 0) - (a.price || 0));
+        if (activeSort === 'az')         arr.sort((a, b) => a.title.localeCompare(b.title));
+        return arr;
+    }
+
     function renderCard(p) {
-        const external   = /^https?:\/\//.test(p.url);
-        const linkAttrs  = external ? 'target="_blank" rel="noopener noreferrer"' : '';
-        const badge      = p.badge ? `<div class="prop-card-tag">${p.badge}</div>` : '';
+        const external  = /^https?:\/\//.test(p.url);
+        const linkAttrs = external ? 'target="_blank" rel="noopener noreferrer"' : '';
+        const linkLabel = external ? 'View Project' : 'View Details';
+        const badge     = p.status === 'coming-soon' ? 'Coming Soon' : p.rera ? 'RERA Verified' : '';
+        const badgeHtml = badge ? `<div class="prop-card-tag">${badge}</div>` : '';
+        const priceLabel = p.price_label || (p.price > 0 ? '₹' + p.price + ' L*' : 'Price on Request');
+        const icon = p.category === 'plot' ? 'map' : p.category === 'villa' ? 'home' : 'building';
         return `
         <article class="prop-card" data-category="${p.category}">
           <div class="prop-card-img">
-            <div style="background-image:url('${p.img}');"></div>
-            ${badge}
-            <div class="prop-card-price">${p.price}</div>
+            <div style="background-image:url('${p.cover || ''}');"></div>
+            ${badgeHtml}
+            <div class="prop-card-price">${priceLabel}</div>
             <div class="prop-card-overlay">
-              <a href="${p.url}" ${linkAttrs} class="btn btn-primary btn-sm">View Project <i class="fas fa-arrow-right"></i></a>
+              <a href="${p.url}" ${linkAttrs} class="btn btn-primary btn-sm">${linkLabel} <i class="fas fa-arrow-right"></i></a>
               <a href="contact.html?project=${encodeURIComponent(p.title)}" class="btn btn-ghost btn-sm">Quick Enquire</a>
             </div>
           </div>
@@ -113,25 +119,27 @@
             <h3 class="prop-card-title">${p.title}</h3>
             <p class="prop-card-loc"><i class="fas fa-map-marker-alt"></i> ${p.location}</p>
             <div class="prop-card-specs">
-              <span><i class="fas fa-building"></i> ${p.config}</span>
+              <span><i class="fas fa-${icon}"></i> ${p.config}</span>
               <span><i class="fas fa-ruler-combined"></i> ${p.area}</span>
             </div>
             <div class="prop-card-footer">
               <a href="contact.html?project=${encodeURIComponent(p.title)}" class="prop-card-enquire"><i class="fas fa-phone"></i> Enquire</a>
-              <a href="${p.url}" ${linkAttrs} class="prop-card-link">View Project <i class="fas fa-arrow-right"></i></a>
+              <a href="${p.url}" ${linkAttrs} class="prop-card-link">${linkLabel} <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
         </article>`;
     }
 
-    function renderGrid(filter) {
+    function renderGrid() {
         if (!grid || animating) return;
         animating = true;
         grid.style.opacity = '0';
         grid.style.transform = 'translateY(12px)';
         setTimeout(() => {
-            const list = filter === 'all' ? FEATURED : FEATURED.filter(p => p.category === filter);
-            grid.innerHTML = list.map(renderCard).join('');
+            const filtered = activeFilter === 'all' ? ALL_PROPS : ALL_PROPS.filter(p => p.category === activeFilter);
+            const list = sortedList(filtered);
+            grid.innerHTML = list.length ? list.map(renderCard).join('') :
+                '<p style="text-align:center;color:var(--gray-400);padding:3rem;grid-column:1/-1">No properties in this category yet.</p>';
             grid.style.transition = 'opacity .35s ease, transform .35s ease';
             grid.style.opacity = '1';
             grid.style.transform = 'translateY(0)';
@@ -139,16 +147,27 @@
         }, 200);
     }
 
-    renderGrid('all');
+    fetch('/properties/posts.json')
+        .then(r => r.json())
+        .then(data => {
+            ALL_PROPS = data.filter(p => p.status !== 'sold-out');
+            renderGrid();
+        })
+        .catch(() => {
+            if (grid) grid.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:3rem;grid-column:1/-1">Unable to load projects.</p>';
+        });
+
     filtBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             if (btn.dataset.filter === activeFilter) return;
             filtBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             activeFilter = btn.dataset.filter;
-            renderGrid(activeFilter);
+            renderGrid();
         });
     });
+
+    sortSel?.addEventListener('change', () => { activeSort = sortSel.value; renderGrid(); });
 
     /* ── TESTIMONIALS (fade slider) ── */
     const stage = document.getElementById('testiStage');

@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs   = require('fs');
 const path = require('path');
 
 const postsDir = path.join(__dirname, '..', 'properties', 'posts');
@@ -6,14 +6,14 @@ const outFile  = path.join(__dirname, '..', 'properties', 'posts.json');
 
 function parseYaml(yaml) {
   const lines = yaml.split('\n');
-  const data = {};
+  const data  = {};
   let i = 0;
   while (i < lines.length) {
     const line = lines[i];
     if (!line.trim() || line.trim().startsWith('#')) { i++; continue; }
     const colonIdx = line.indexOf(':');
     if (colonIdx === -1) { i++; continue; }
-    const key = line.slice(0, colonIdx).trim();
+    const key  = line.slice(0, colonIdx).trim();
     const rest = line.slice(colonIdx + 1).trim();
     if (rest === '') {
       const items = [];
@@ -47,10 +47,30 @@ const properties = files.map(file => {
   const slug = file.replace(/\.md$/, '');
   const raw  = fs.readFileSync(path.join(postsDir, file), 'utf8');
   const { data, body } = parseFrontmatter(raw);
-  const url = data.url || `/projects/${slug}`;
+  const url   = data.url || `/projects/${slug}`;
   const cover = data.cover || data.hero_1 || '';
   return { slug, ...data, cover, url, body: body || '' };
 });
 
 fs.writeFileSync(outFile, JSON.stringify(properties, null, 2));
 console.log(`Built properties/posts.json — ${properties.length} properties`);
+
+// Generate a static detail page for each property at projects/{slug}/index.html
+const templatePath = path.join(__dirname, '..', 'property.html');
+if (fs.existsSync(templatePath)) {
+  const template = fs.readFileSync(templatePath, 'utf8');
+
+  properties.forEach(p => {
+    const outDir = path.join(__dirname, '..', 'projects', p.slug);
+    fs.mkdirSync(outDir, { recursive: true });
+
+    // Inject the slug so it doesn't have to parse it from the URL
+    const html = template.replace(
+      "const slug = window.location.pathname.split('/').filter(Boolean).pop() || '';",
+      `const slug = '${p.slug}';`
+    );
+
+    fs.writeFileSync(path.join(outDir, 'index.html'), html);
+    console.log(`  → projects/${p.slug}/index.html`);
+  });
+}

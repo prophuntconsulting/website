@@ -295,10 +295,13 @@
 /* ── Featured Projects ── */
 .featured-filter {
     display: flex;
-    gap: .5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
     margin-bottom: 2.5rem;
     flex-wrap: wrap;
 }
+.filt-tabs { display: flex; gap: .5rem; flex-wrap: wrap; }
 .filt-btn {
     padding: .55rem 1.4rem;
     border-radius: 99px;
@@ -312,6 +315,21 @@
 }
 .filt-btn:hover { border-color: var(--red); color: var(--red); }
 .filt-btn.active { background: var(--red); color: var(--white); border-color: var(--red); }
+.filt-sort {
+    padding: .52rem 2rem .52rem .9rem;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    font-size: .82rem;
+    color: var(--gray-800);
+    background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E") no-repeat right .7rem center;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: border-color .2s;
+    font-family: inherit;
+}
+.filt-sort:focus { border-color: var(--red); }
+@media(max-width:600px) { .featured-filter { flex-direction: column; align-items: flex-start; } }
 
 .prop-grid {
     display: grid;

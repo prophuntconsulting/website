@@ -390,13 +390,22 @@
       <p class="section-sub">Verified project information from our trusted developer network across Pune.</p>
     </div>
     <div class="featured-filter" data-reveal data-reveal-delay="100">
-      <button class="filt-btn active" data-filter="all">All</button>
-      <button class="filt-btn" data-filter="apartment">Apartments</button>
-      <button class="filt-btn" data-filter="plot">Plots</button>
+      <div class="filt-tabs">
+        <button class="filt-btn active" data-filter="all">All</button>
+        <button class="filt-btn" data-filter="apartment">Apartments</button>
+        <button class="filt-btn" data-filter="plot">Plots</button>
+        <button class="filt-btn" data-filter="villa">Villas</button>
+      </div>
+      <select class="filt-sort" id="featuredSort" aria-label="Sort projects">
+        <option value="default">Sort: Default</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="az">Name: A → Z</option>
+      </select>
     </div>
     <div class="prop-grid" id="featuredGrid"></div>
     <div class="section-cta" data-reveal>
-      <a href="projects.html" class="btn btn-outline btn-lg">View All 18+ Projects <i class="fas fa-arrow-right"></i></a>
+      <a href="projects.html" class="btn btn-outline btn-lg">View All Projects <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>

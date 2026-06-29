@@ -162,15 +162,21 @@
         <button class="proj-filter-btn" data-type="plot">Plots</button>
       </div>
       <div class="proj-toolbar-sep"></div>
-      <div class="proj-selects">
-        <select class="proj-select" id="filterDeveloper" aria-label="Filter by developer"><option value="">All Developers</option></select>
-        <select class="proj-select" id="filterBudget" aria-label="Filter by budget">
-          <option value="">Any Budget</option>
-          <option value="under50">Under â‚¹50 Lakh</option>
-          <option value="50-100">â‚¹50L "“ â‚¹1 Cr</option>
-          <option value="100-200">â‚¹1 Cr "“ â‚¹2 Cr</option>
-          <option value="200-500">â‚¹2 Cr "“ â‚¹5 Cr</option>
-          <option value="above500">Above â‚¹5 Cr</option>
+      <div class=”proj-selects”>
+        <select class=”proj-select” id=”filterDeveloper” aria-label=”Filter by developer”><option value=””>All Developers</option></select>
+        <select class=”proj-select” id=”filterBudget” aria-label=”Filter by budget”>
+          <option value=””>Any Budget</option>
+          <option value=”under50”>Under ₹50 Lakh</option>
+          <option value=”50-100”>₹50L – ₹1 Cr</option>
+          <option value=”100-200”>₹1 Cr – ₹2 Cr</option>
+          <option value=”200-500”>₹2 Cr – ₹5 Cr</option>
+          <option value=”above500”>Above ₹5 Cr</option>
+        </select>
+        <select class=”proj-select” id=”projSort” aria-label=”Sort projects”>
+          <option value=”default”>Sort: Default</option>
+          <option value=”price-low”>Price: Low to High</option>
+          <option value=”price-high”>Price: High to Low</option>
+          <option value=”az”>Name: A → Z</option>
         </select>
       </div>
       <input type="search" class="proj-search" id="projSearch" placeholder="Search by name, location, developer"¦" aria-label="Search projects">
