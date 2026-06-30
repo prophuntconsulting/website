@@ -261,11 +261,11 @@
         </div>
         <div class=”blog-card-body”>
           <div class=”blog-card-date”><i class=”fas fa-calendar-alt”></i> ${formatDate(p.date)}</div>
-          <div class=”blog-card-title”><a href=”post?slug=${p.slug}”>${p.title}</a></div>
+          <div class=”blog-card-title”><a href=”${p.url||'/blog/post?slug='+p.slug}”>${p.title}</a></div>
           <p class=”blog-card-excerpt”>${p.excerpt}</p>
           <div class=”blog-card-footer”>
             <span class=”blog-card-author”><i class=”fas fa-user-circle”></i> ${p.author}</span>
-            <a href=”post?slug=${p.slug}” class=”blog-read-more”>Read Article <i class=”fas fa-arrow-right”></i></a>
+            <a href=”${p.url||'/blog/post?slug='+p.slug}” class=”blog-read-more”>Read Article <i class=”fas fa-arrow-right”></i></a>
           </div>
         </div>
       </article>`;
