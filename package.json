@@ -1,5 +1,1 @@
-{
-  "scripts": {
-    "build": "node scripts/build-blog.js"
-  }
-}
+{"scripts":{"build":"node scripts/build-blog.js && node scripts/build-properties.js"}}
