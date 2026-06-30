@@ -17,4 +17,4 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-Sitemap: https://prophuntllp.com/sitemap.xml
+Sitemap: https://www.prophuntllp.com/sitemap.xml

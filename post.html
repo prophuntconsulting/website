@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>Redirecting to Blog | PROPHUNT LLP</title>
+<script>
+(function () {
+  var slug = new URLSearchParams(window.location.search).get('slug');
+  if (!slug) {
+    window.location.replace('/blog');
+    return;
+  }
+
+  fetch('/blog/posts.json')
+    .then(function (response) { return response.ok ? response.json() : []; })
+    .then(function (posts) {
+      var cleanSlug = slug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+      var match = posts.find(function (post) {
+        return post.slug === slug || post.slug === cleanSlug;
+      });
+      window.location.replace(match && match.url ? match.url : '/blog/' + encodeURIComponent(slug));
+    })
+    .catch(function () {
+      window.location.replace('/blog/' + encodeURIComponent(slug));
+    });
+})();
+</script>
+</head>
+<body>
+<p>Redirecting to the blog...</p>
+</body>
+</html>
