@@ -299,9 +299,25 @@
     const body=[`Name: ${f.firstName} ${f.lastName}`,`Email: ${f.email}`,`Phone: ${f.phone||'Not provided'}`,`Interest: ${f.interest||'Not specified'}`,`Budget: ${f.budget||'Not specified'}`,``,f.message||'Please contact me about available properties.'].join('\n');
     const fullText=`To: info@prophuntllp.com\nSubject: ${subject}\n\n${body}`;
     if(copyText) copyText.value=fullText;
-    window.location.href=`mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    form.style.display='none';
-    success.classList.add('show');
+    const submitBtn=form.querySelector('.btn-submit, [type=submit]');
+    if(submitBtn) submitBtn.disabled=true;
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({
+        access_key:'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9',
+        subject,
+        from_name:'PROPHUNT LLP website — Contact page',
+        source_page:window.location.pathname,
+        ...f
+      })
+    }).then(r=>{ if(!r.ok) throw new Error('submit failed'); })
+      .catch(()=>{ window.location.href=`mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; })
+      .finally(()=>{
+        if(submitBtn) submitBtn.disabled=false;
+        form.style.display='none';
+        success.classList.add('show');
+      });
   });
   btnCopy?.addEventListener('click',function(){
     copyText?.select();

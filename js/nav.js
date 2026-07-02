@@ -108,18 +108,31 @@
         btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
 
-    /* ── Newsletter form (mailto fallback) ── */
+    /* ── Newsletter form ── */
     const nlForm = $('#newsletterForm');
     if (nlForm) {
         nlForm.addEventListener('submit', e => {
             e.preventDefault();
             const email = nlForm.elements.newsletterEmail?.value || '';
             const btn = nlForm.querySelector('button');
-            window.location.href = `mailto:info@prophuntllp.com?subject=${encodeURIComponent('Newsletter subscription')}&body=${encodeURIComponent(`Please subscribe ${email} to PROPHUNT property updates.`)}`;
-            if (btn) {
-                btn.innerHTML = '<i class="fas fa-check"></i>';
-                setTimeout(() => { btn.innerHTML = '<i class="fas fa-arrow-right"></i>'; nlForm.reset(); }, 2500);
-            }
+            const originalIcon = btn ? btn.innerHTML : '';
+            if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>'; }
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify({
+                    access_key: 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9',
+                    subject: 'Newsletter subscription',
+                    from_name: 'PROPHUNT LLP website — Newsletter',
+                    email,
+                    source_page: window.location.pathname
+                })
+            }).then(r => r.ok).catch(() => false).then(ok => {
+                if (!btn) return;
+                btn.disabled = false;
+                btn.innerHTML = ok ? '<i class="fas fa-check"></i>' : '<i class="fas fa-exclamation-triangle"></i>';
+                setTimeout(() => { btn.innerHTML = originalIcon; if (ok) nlForm.reset(); }, 2500);
+            });
         });
     }
 
