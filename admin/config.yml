@@ -243,6 +243,15 @@ collections:
           name: "amenity"
           widget: "string"
 
+      # ── BROCHURE ─────────────────────────────────────────────
+      - label: "Brochure PDF"
+        name: "brochure"
+        widget: "file"
+        required: false
+        media_folder: "/images/projects/brochures"
+        public_folder: "/images/projects/brochures"
+        hint: "Upload the project brochure PDF. Leave blank to hide the download button."
+
   - name: "blog"
     label: "Blog Posts"
     label_singular: "Blog Post"

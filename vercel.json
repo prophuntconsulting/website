@@ -3,7 +3,11 @@
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/home/", "destination": "/", "permanent": true },
     { "source": "/index.php", "destination": "/", "permanent": true },
-    { "source": "/index.php/home", "destination": "/", "permanent": true }
+    { "source": "/index.php/home", "destination": "/", "permanent": true },
+    { "source": "/mahindra-citadel", "destination": "/projects/mahindra-citadel", "permanent": true },
+    { "source": "/mahindra-citadel/", "destination": "/projects/mahindra-citadel", "permanent": true },
+    { "source": "/treetopia", "destination": "/projects/treetopia", "permanent": true },
+    { "source": "/treetopia/", "destination": "/projects/treetopia", "permanent": true }
   ],
   "cleanUrls": true,
   "trailingSlash": false,

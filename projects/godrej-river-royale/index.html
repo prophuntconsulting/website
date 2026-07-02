@@ -122,6 +122,25 @@ button,select,input,textarea{font-family:inherit}
 .ph-rera-box{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px 20px;font-size:13px;color:var(--gray-600);display:flex;align-items:center;gap:12px}
 .ph-rera-box i{color:var(--red);font-size:18px}
 
+/* EMI calculator */
+.ph-emi-card{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:24px 26px;margin-top:24px}
+.ph-emi-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+@media(max-width:600px){.ph-emi-row{grid-template-columns:1fr}}
+.ph-emi-field label{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:var(--gray-600);margin-bottom:6px}
+.ph-emi-field label span{color:var(--ink);font-weight:700}
+.ph-emi-field input[type=range]{width:100%;accent-color:var(--red)}
+.ph-emi-result{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+@media(max-width:600px){.ph-emi-result{grid-template-columns:1fr}}
+.ph-emi-stat{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:14px 16px;text-align:center}
+.ph-emi-stat .val{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:var(--ink);display:block}
+.ph-emi-stat.primary .val{color:var(--red)}
+.ph-emi-stat .lbl{font-size:11px;color:var(--gray-400);margin-top:2px;text-transform:uppercase;letter-spacing:.4px}
+.ph-emi-note{font-size:11px;color:var(--gray-400);margin-top:12px;text-align:center}
+
+/* Brochure download */
+.ph-brochure-btn{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;background:var(--gold);color:var(--ink);transition:opacity .18s}
+.ph-brochure-btn:hover{opacity:.88}
+
 /* ── SIDEBAR ─────────────────────────────────────── */
 .ph-sidebar{display:flex;flex-direction:column;gap:24px;position:sticky;top:calc(var(--nav-h,72px) + 50px)}
 @media(max-width:960px){.ph-sidebar{position:static}}
@@ -441,6 +460,36 @@ function buildPage(prop, allProps) {
       </div>`
     : '';
 
+  /* ── EMI calculator ── */
+  const loanBase = prop.price > 0 ? prop.price * 100000 : 5000000;
+  const emiHtml = `<div id="emi" class="ph-section">
+      <div class="ph-section-label">Plan Your Finances</div>
+      <div class="ph-section-title">EMI Calculator</div>
+      <div class="ph-divider"></div>
+      <div class="ph-emi-card">
+        <div class="ph-emi-row">
+          <div class="ph-emi-field">
+            <label>Loan Amount <span id="emiAmountLabel"></span></label>
+            <input type="range" id="emiAmount" min="500000" max="50000000" step="100000" value="${loanBase}">
+          </div>
+          <div class="ph-emi-field">
+            <label>Interest Rate <span id="emiRateLabel"></span></label>
+            <input type="range" id="emiRate" min="6" max="14" step="0.1" value="8.5">
+          </div>
+        </div>
+        <div class="ph-emi-field" style="max-width:280px">
+          <label>Loan Tenure <span id="emiTenureLabel"></span></label>
+          <input type="range" id="emiTenure" min="1" max="30" step="1" value="20">
+        </div>
+        <div class="ph-emi-result">
+          <div class="ph-emi-stat primary"><span class="val" id="emiMonthly">-</span><span class="lbl">Monthly EMI</span></div>
+          <div class="ph-emi-stat"><span class="val" id="emiInterest">-</span><span class="lbl">Total Interest</span></div>
+          <div class="ph-emi-stat"><span class="val" id="emiTotal">-</span><span class="lbl">Total Payment</span></div>
+        </div>
+        <p class="ph-emi-note">Indicative only. Actual EMI depends on the lender's terms and your eligibility.</p>
+      </div>
+    </div>`;
+
   /* ── Amenities ── */
   const amenities = Array.isArray(prop.amenities) ? prop.amenities : [];
   const amenitiesHtml = amenities.length
@@ -556,6 +605,7 @@ function buildPage(prop, allProps) {
       <div class="ph-subnav-inner">
         <a href="#overview" class="active">Overview</a>
         ${units.length ? '<a href="#pricing">Pricing</a>' : ''}
+        <a href="#emi">EMI Calculator</a>
         ${amenities.length ? '<a href="#amenities">Amenities</a>' : ''}
         <a href="#enquiry">Enquire</a>
       </div>
@@ -574,6 +624,7 @@ function buildPage(prop, allProps) {
         </div>
 
         ${pricingHtml}
+        ${emiHtml}
         ${amenitiesHtml}
 
         <div id="enquiry" class="ph-section">
@@ -632,6 +683,9 @@ function buildPage(prop, allProps) {
           <a href="tel:+919370055850" class="ph-quick-btn ph-quick-call">
             <i class="fas fa-phone"></i> Call Now
           </a>
+          ${prop.brochure ? `<a href="${prop.brochure}" target="_blank" rel="noopener" class="ph-brochure-btn">
+            <i class="fas fa-file-pdf"></i> Download Brochure
+          </a>` : ''}
         </div>
 
         ${sidebarDevHtml}
@@ -668,7 +722,38 @@ function buildPage(prop, allProps) {
       }
     });
   }, { rootMargin: '-30% 0px -60% 0px' });
-  document.querySelectorAll('#overview,#pricing,#amenities,#enquiry').forEach(el => el && observer.observe(el));
+  document.querySelectorAll('#overview,#pricing,#emi,#amenities,#enquiry').forEach(el => el && observer.observe(el));
+
+  /* ── EMI calculator ── */
+  function formatINR(n) {
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+  }
+  function updateEMI() {
+    const amountEl = document.getElementById('emiAmount');
+    const rateEl = document.getElementById('emiRate');
+    const tenureEl = document.getElementById('emiTenure');
+    if (!amountEl || !rateEl || !tenureEl) return;
+    const amount = Number(amountEl.value);
+    const rate = Number(rateEl.value);
+    const years = Number(tenureEl.value);
+    const months = years * 12;
+    const monthlyRate = rate / 12 / 100;
+    const emi = monthlyRate === 0
+      ? amount / months
+      : (amount * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+    const totalPayment = emi * months;
+    const totalInterest = totalPayment - amount;
+    document.getElementById('emiAmountLabel').textContent = formatINR(amount);
+    document.getElementById('emiRateLabel').textContent = rate.toFixed(1) + '%';
+    document.getElementById('emiTenureLabel').textContent = years + ' yrs';
+    document.getElementById('emiMonthly').textContent = formatINR(emi);
+    document.getElementById('emiInterest').textContent = formatINR(totalInterest);
+    document.getElementById('emiTotal').textContent = formatINR(totalPayment);
+  }
+  ['emiAmount', 'emiRate', 'emiTenure'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', updateEMI);
+  });
+  updateEMI();
 
   /* ── Forms ── */
   function handleForm(form) {
