@@ -871,6 +871,7 @@ setTimeout(function(){document.getElementById('mc-popup').classList.add('mc-open
 (function(){var targets=document.querySelectorAll('.mc-lbl,.mc-title,.mc-sub,.mc-hr,.mc-stat,.mc-ami-card,.mc-plan-card,.mc-acc,.mc-gitem,.mc-finfo,.mc-eoi-alert,.mc-eoi-info');targets.forEach(function(el){el.classList.add('mc-reveal')});if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('mc-visible');obs.unobserve(e.target)}})},{threshold:0.12});targets.forEach(function(el){obs.observe(el)})}else{targets.forEach(function(el){el.classList.add('mc-visible')})}})();
 (function(){var groups=['.mc-plan-cards','.mc-ami-grid','.mc-stats'];groups.forEach(function(sel){var container=document.querySelector(sel);if(!container)return;var children=container.children;Array.prototype.forEach.call(children,function(child,i){child.style.transitionDelay=(i*0.10)+'s'})})})();
 </script>
+<script src="https://voice-production-2950.up.railway.app/widget.js" data-site-key="av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY" data-api-base="https://voice-production-2950.up.railway.app" data-position="bottom-right" data-label="Talk to us"></script>
 </body>
 </html>
 
