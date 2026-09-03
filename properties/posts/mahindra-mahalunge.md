@@ -1,0 +1,32 @@
+---
+title: "Mahindra Lifespaces Mahalunge"
+developer: "Mahindra Lifespaces"
+location: "Mahalunge, Baner Annex, Pune"
+config: "2, 3 & 4 BHK Apartments"
+area: "700 – 1,650 sqft"
+category: "apartment"
+status: "coming-soon"
+tagline: "Coming Soon | 13.5-Acre Township | 6 Towers | Mahalunge, West Pune"
+overview: "Mahindra Lifespaces presents its newest premium residential destination at Mahalunge, in the heart of Pune's first and largest Hi-Tech City Town Planning Scheme (TPS) — a 618+ acre planned development by PMRDA with a potential of 7 crore sq. ft., designed for 1.5 lakh+ residents and professionals within a 208-acre mixed-use township. Minutes from Hinjewadi, Baner and Balewadi, with connectivity via Metro, the Mumbai-Bengaluru Highway and the proposed Ring Road, Mahalunge has seen around 50% appreciation over the last four years. The 13.5-acre launch spans 6 towers and 1,240 premium residences, with a launch value of ₹1,500+ Crore."
+stat_1_value: "13.5 Acres"
+stat_1_label: "Premium Land Parcel"
+stat_2_value: "6"
+stat_2_label: "Iconic Towers"
+stat_3_value: "1,240"
+stat_3_label: "Premium Residences"
+stat_4_value: "₹1,500+ Cr"
+stat_4_label: "Launch Value"
+price: 90
+unit_1_type: "2 BHK Premium & Luxury"
+unit_1_area: "700 – 850 sqft"
+unit_1_price: "₹90 L Onwards*"
+unit_1_featured: true
+unit_2_type: "3 BHK Premium & Luxury"
+unit_2_area: "1,000 – 1,200 sqft"
+unit_2_price: "₹1.31 Cr Onwards*"
+unit_2_featured: false
+unit_3_type: "4 BHK Luxury"
+unit_3_area: "Around 1,650 sqft"
+unit_3_price: "₹2.17 Cr Onwards*"
+unit_3_featured: false
+---

@@ -84,7 +84,7 @@ console.log(`Built posts.json — ${posts.length} post(s)`);
 // Generate static blog/{cleanSlug}/index.html for each post
 if (fs.existsSync(TEMPLATE)) {
   const template = fs.readFileSync(TEMPLATE, 'utf-8');
-  const INJECT_MARKER = `const fileSlug = typeof __FILE_SLUG__ !== 'undefined'\n  ? __FILE_SLUG__\n  : (new URLSearchParams(location.search).get('slug') || '');`;
+  const INJECT_MARKER = /const fileSlug = typeof __FILE_SLUG__ !== 'undefined'\r?\n\s+\? __FILE_SLUG__\r?\n\s+: \(new URLSearchParams\(location\.search\)\.get\('slug'\) \|\| ''\);/;
 
   posts.forEach(p => {
     const outDir = path.join(__dirname, '..', 'blog', p.urlSlug);

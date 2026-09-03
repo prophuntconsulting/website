@@ -130,6 +130,26 @@ button,select,input,textarea{font-family:inherit}
 .ph-rera-box{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px 20px;font-size:13px;color:var(--gray-600);display:flex;align-items:center;gap:12px}
 .ph-rera-box i{color:var(--red);font-size:18px}
 
+/* Gallery */
+.ph-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.ph-gallery-item{position:relative;aspect-ratio:4/3;border:none;border-radius:var(--radius);background-size:cover;background-position:center;background-color:var(--gray-200);cursor:pointer;overflow:hidden;padding:0;transition:transform .2s}
+.ph-gallery-item:hover{transform:scale(1.02)}
+.ph-gallery-item .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;background:rgba(15,27,45,0);transition:background .18s,opacity .18s;opacity:0}
+.ph-gallery-item:hover .overlay{opacity:1;background:rgba(15,27,45,.35)}
+.ph-gallery-item.video .overlay{opacity:1;font-size:24px;background:rgba(15,27,45,.22)}
+.ph-gallery-item.video .overlay i{background:rgba(255,255,255,.92);color:var(--red);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;padding-left:3px}
+
+.ph-lightbox{position:fixed;inset:0;background:rgba(10,10,15,.94);z-index:2000;display:flex;align-items:center;justify-content:center;padding:56px 70px}
+.ph-lightbox[hidden]{display:none}
+.ph-lightbox-content{max-width:min(92vw,1100px);max-height:85vh;width:100%;display:flex}
+.ph-lightbox-content img,.ph-lightbox-content video{max-width:100%;max-height:85vh;margin:auto;border-radius:8px;display:block;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.ph-lightbox-close,.ph-lightbox-prev,.ph-lightbox-next{position:absolute;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s;z-index:1}
+.ph-lightbox-close:hover,.ph-lightbox-prev:hover,.ph-lightbox-next:hover{background:rgba(255,255,255,.25)}
+.ph-lightbox-close{top:18px;right:18px;width:42px;height:42px;font-size:16px}
+.ph-lightbox-prev{left:16px;top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:16px}
+.ph-lightbox-next{right:16px;top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:16px}
+@media(max-width:600px){.ph-lightbox{padding:60px 16px}.ph-lightbox-prev,.ph-lightbox-next{width:38px;height:38px}}
+
 /* EMI calculator */
 .ph-emi-card{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:24px 26px;margin-top:24px}
 .ph-emi-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
@@ -523,6 +543,27 @@ function buildPage(prop, allProps) {
         </div>
       </div>` : '';
 
+  /* ── Gallery (images + videos) ── */
+  const galleryImages = Array.isArray(prop.gallery_images) ? prop.gallery_images : [];
+  const galleryVideos = Array.isArray(prop.gallery_videos) ? prop.gallery_videos : [];
+  const galleryItems = [
+    ...galleryImages.map(src => ({ type: 'image', src })),
+    ...galleryVideos.map(src => ({ type: 'video', src, poster: src.replace(/\.mp4$/i, '-poster.jpg') })),
+  ];
+  const galleryHtml = galleryItems.length
+    ? `<div id="gallery" class="ph-section">
+        <div class="ph-section-label">Photos & Site Progress</div>
+        <div class="ph-section-title">Gallery</div>
+        <div class="ph-divider"></div>
+        <div class="ph-gallery-grid">
+          ${galleryItems.map((item, i) => `
+          <button type="button" class="ph-gallery-item${item.type === 'video' ? ' video' : ''}" data-idx="${i}" style="background-image:url('${item.type === 'video' ? item.poster : item.src}')" aria-label="${item.type === 'video' ? 'Play video' : 'View photo'} ${i + 1}">
+            <span class="overlay"><i class="fas fa-${item.type === 'video' ? 'play' : 'expand'}"></i></span>
+          </button>`).join('')}
+        </div>
+      </div>`
+    : '';
+
   /* ── RERA ── */
   const reraHtml = prop.rera
     ? `<div class="ph-rera-box"><i class="fas fa-shield-halved"></i>
@@ -639,6 +680,7 @@ function buildPage(prop, allProps) {
         ${units.length ? '<a href="#pricing">Pricing</a>' : ''}
         <a href="#emi">EMI Calculator</a>
         ${amenities.length ? '<a href="#amenities">Amenities</a>' : ''}
+        ${galleryItems.length ? '<a href="#gallery">Gallery</a>' : ''}
         <a href="#enquiry">Enquire</a>
       </div>
     </nav>
@@ -658,6 +700,7 @@ function buildPage(prop, allProps) {
         ${pricingHtml}
         ${emiHtml}
         ${amenitiesHtml}
+        ${galleryHtml}
 
         <div id="enquiry" class="ph-section">
           <div class="ph-section-label">Get In Touch</div>
@@ -715,6 +758,13 @@ function buildPage(prop, allProps) {
     </div>
 
     ${bottomRelHtml}
+
+    ${galleryItems.length ? `<div class="ph-lightbox" id="phLightbox" hidden>
+      <button type="button" class="ph-lightbox-close" id="phLightboxClose" aria-label="Close"><i class="fas fa-times"></i></button>
+      <button type="button" class="ph-lightbox-prev" id="phLightboxPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+      <button type="button" class="ph-lightbox-next" id="phLightboxNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      <div class="ph-lightbox-content" id="phLightboxContent"></div>
+    </div>` : ''}
   `;
 
   /* ── Slideshow ── */
@@ -744,7 +794,7 @@ function buildPage(prop, allProps) {
       }
     });
   }, { rootMargin: '-30% 0px -60% 0px' });
-  document.querySelectorAll('#overview,#pricing,#emi,#amenities,#enquiry').forEach(el => el && observer.observe(el));
+  document.querySelectorAll('#overview,#pricing,#emi,#amenities,#gallery,#enquiry').forEach(el => el && observer.observe(el));
 
   /* ── EMI calculator ── */
   function formatINR(n) {
@@ -803,6 +853,43 @@ function buildPage(prop, allProps) {
   }
   handleForm(document.getElementById('phEnqForm'));
   handleForm(document.getElementById('phSideEnqForm'));
+
+  /* ── Gallery lightbox ── */
+  if (galleryItems.length) {
+    const lightbox = document.getElementById('phLightbox');
+    const content  = document.getElementById('phLightboxContent');
+    let curIdx = 0;
+    function showItem(i) {
+      curIdx = (i + galleryItems.length) % galleryItems.length;
+      const item = galleryItems[curIdx];
+      content.innerHTML = item.type === 'image'
+        ? `<img src="${item.src}" alt="">`
+        : `<video src="${item.src}" controls autoplay playsinline></video>`;
+    }
+    function openLightbox(i) {
+      showItem(i);
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.hidden = true;
+      content.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.ph-gallery-item').forEach(btn => {
+      btn.addEventListener('click', () => openLightbox(+btn.dataset.idx));
+    });
+    document.getElementById('phLightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('phLightboxPrev').addEventListener('click', () => showItem(curIdx - 1));
+    document.getElementById('phLightboxNext').addEventListener('click', () => showItem(curIdx + 1));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (lightbox.hidden) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showItem(curIdx - 1);
+      if (e.key === 'ArrowRight') showItem(curIdx + 1);
+    });
+  }
 
   /* ── Custom dropdown (Select Configuration) ── */
   document.querySelectorAll('.ph-select').forEach(sel => {
