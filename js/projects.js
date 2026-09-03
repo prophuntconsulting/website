@@ -47,7 +47,7 @@
             : '';
         const priceLabel = p.price_label || (p.price > 0 ? 'Rs ' + p.price + ' L*' : 'Price on Request');
         return `
-        <article class="prop-card" data-category="${p.category}">
+        <a href="${p.url}" ${linkAttrs} class="prop-card" data-category="${p.category}" aria-label="${linkLabel}: ${p.title}">
           <div class="prop-card-img">
             <div style="background-image:url('${p.cover || ''}');"></div>
             <div class="prop-card-badge"><span class="badge badge-red">${p.developer}</span>${statusBadge}</div>
@@ -63,10 +63,10 @@
             </div>
             <div class="prop-card-footer">
               <span class="prop-card-status">${isExternal ? 'Official project page' : 'View on PROPHUNT'}</span>
-              <a href="${p.url}" ${linkAttrs} class="prop-card-link">${linkLabel} <i class="fas fa-arrow-right"></i></a>
+              <span class="prop-card-link">${linkLabel} <i class="fas fa-arrow-right"></i></span>
             </div>
           </div>
-        </article>`;
+        </a>`;
     }
 
     function populateDeveloperDropdown() {
