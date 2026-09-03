@@ -234,6 +234,7 @@
 <a href="https://wa.me/917066880808" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
 <script src="../js/nav.js"></script>
+<script src="../js/custom-select.js"></script>
 <script>
 (function () {
   const CAT_LABELS  = { market:'Market Report', buyer:'Buyer Guide', investment:'Investment', legal:'Legal & Docs', nri:'NRI Corner' };
@@ -259,13 +260,13 @@
           ${coverHTML}
           <div class="blog-card-cat"><span class="badge ${CAT_COLORS[p.category]||'badge-dark'}">${CAT_LABELS[p.category]||p.category}</span></div>
         </div>
-        <div class=”blog-card-body”>
-          <div class=”blog-card-date”><i class=”fas fa-calendar-alt”></i> ${formatDate(p.date)}</div>
-          <div class=”blog-card-title”><a href=”${p.url||'/blog/post?slug='+p.slug}”>${p.title}</a></div>
-          <p class=”blog-card-excerpt”>${p.excerpt}</p>
-          <div class=”blog-card-footer”>
-            <span class=”blog-card-author”><i class=”fas fa-user-circle”></i> ${p.author}</span>
-            <a href=”${p.url||'/blog/post?slug='+p.slug}” class=”blog-read-more”>Read Article <i class=”fas fa-arrow-right”></i></a>
+        <div class="blog-card-body">
+          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> ${formatDate(p.date)}</div>
+          <div class="blog-card-title"><a href="${p.url||'/blog/post?slug='+p.slug}">${p.title}</a></div>
+          <p class="blog-card-excerpt">${p.excerpt}</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author"><i class="fas fa-user-circle"></i> ${p.author}</span>
+            <a href="${p.url||'/blog/post?slug='+p.slug}" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </article>`;

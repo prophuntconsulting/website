@@ -231,7 +231,9 @@
 <script>
 // fileSlug is injected by build-blog.js for static pages.
 // For the template itself, fall back to the query param.
-const fileSlug = '2025-06-27-pune-real-estate-market-h1-2025';
+const fileSlug = typeof __FILE_SLUG__ !== 'undefined'
+  ? __FILE_SLUG__
+  : (new URLSearchParams(location.search).get('slug') || '');
 
 const CAT_LABELS = {
   market:'Market Report', buyer:'Buyer Guide', investment:'Investment',
@@ -481,6 +483,7 @@ if (!fileSlug) {
 }
 </script>
 <script src="/js/nav.js"></script>
+<script src="/js/custom-select.js"></script>
 <script src="https://voice-production-2950.up.railway.app/widget.js" data-site-key="av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY" data-api-base="https://voice-production-2950.up.railway.app" data-position="bottom-right" data-label="Talk to us"></script>
 </body>
 </html>

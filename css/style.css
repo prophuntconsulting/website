@@ -446,6 +446,27 @@ textarea.form-control { resize:vertical; min-height:120px; }
 .form-error { font-size:.78rem; color:var(--red); margin-top:.3rem; }
 
 /* ═══════════════════════════════════════════════
+   CUSTOM SELECT — progressive enhancement over native <select>
+   (js/custom-select.js wraps every <select> with this; the native
+   element stays in the DOM, hidden, so existing form/JS logic that
+   reads its .value or listens for "change" keeps working untouched)
+═══════════════════════════════════════════════ */
+.cs-select { position:relative; display:inline-block; }
+.cs-select.cs-block { display:block; width:100%; }
+.cs-native { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+.cs-trigger { width:100%; display:flex; align-items:center; justify-content:space-between; gap:.6rem; padding:.65rem .9rem; border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); background:var(--white); font-family:inherit; font-size:.85rem; color:var(--gray-800); cursor:pointer; transition:border-color .18s; text-align:left; }
+.cs-trigger-label { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.cs-trigger.cs-placeholder .cs-trigger-label { color:var(--gray-400); }
+.cs-trigger i { font-size:.65rem; color:var(--gray-400); transition:transform .18s; flex-shrink:0; }
+.cs-select.open .cs-trigger { border-color:var(--red); }
+.cs-select.open .cs-trigger i { transform:rotate(180deg); }
+.cs-panel { position:absolute; left:0; top:calc(100% + 6px); min-width:100%; background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-sm); box-shadow:0 14px 34px rgba(0,0,0,.14); z-index:1000; max-height:260px; overflow-y:auto; opacity:0; pointer-events:none; transform:translateY(-4px); transition:opacity .16s, transform .16s; white-space:nowrap; }
+.cs-select.open .cs-panel { opacity:1; pointer-events:auto; transform:translateY(0); }
+.cs-option { padding:.6rem .9rem; font-size:.85rem; color:var(--gray-800); cursor:pointer; transition:background .12s; }
+.cs-option:hover { background:var(--gray-100); }
+.cs-option.cs-selected { color:var(--red); font-weight:600; }
+
+/* ═══════════════════════════════════════════════
    ANIMATIONS
 ═══════════════════════════════════════════════ */
 [data-reveal] { opacity:0; transform:translateY(24px); transition:opacity .65s var(--ease), transform .65s var(--ease); }
