@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="ph-title">Property | PROPHUNT LLP</title>
+<meta id="ph-desc" name="description" content="Premium property listed by PROPHUNT LLP, Pune.">
+<link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/projects/">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<meta name="theme-color" content="#C8362B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+/* ── RESET & TOKENS ──────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#C8362B;--red-dark:#a52a20;
+  --navy:#0f1b2d;
+  --ink:#1a1a2e;
+  --white:#ffffff;
+  --off:#f8f7f5;
+  --gray-100:#f3f4f6;
+  --gray-200:#e5e7eb;
+  --gray-400:#9ca3af;
+  --gray-600:#4b5563;
+  --gray-800:#1f2937;
+  --gold:#d4a843;
+  --radius:8px;
+  --radius-lg:14px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.08);
+  --shadow:0 4px 16px rgba(0,0,0,.10);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.14);
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;color:var(--gray-800);background:var(--white);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,select,input,textarea{font-family:inherit}
+
+/* site navbar comes from /css/style.css */
+
+/* ── BREADCRUMB ──────────────────────────────────── */
+.ph-breadcrumb{margin-top:var(--nav-h,72px);background:var(--gray-100);border-bottom:1px solid var(--gray-200);padding:12px 0}
+.ph-breadcrumb-inner{max-width:1260px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-400);flex-wrap:wrap}
+.ph-breadcrumb a{color:var(--gray-600);transition:color .15s}
+.ph-breadcrumb a:hover{color:var(--red)}
+.ph-breadcrumb .sep{color:var(--gray-300)}
+.ph-breadcrumb .current{color:var(--gray-800);font-weight:500}
+
+/* ── HERO GALLERY ────────────────────────────────── */
+.ph-hero{background:var(--ink)}
+.ph-hero-inner{position:relative}
+.ph-slides{position:relative;height:520px;overflow:hidden}
+@media(max-width:768px){.ph-slides{height:320px}}
+.ph-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .6s var(--ease)}
+.ph-slide.active{opacity:1}
+.ph-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,27,45,.7) 0%,transparent 55%)}
+/* Desktop: meta overlays the bottom of the photo. Mobile: it becomes a normal block below the photo (see media query) — this is what keeps text from being clipped/cramped on small screens. */
+.ph-hero-meta{position:absolute;bottom:36px;left:0;right:0;padding:0 48px;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.ph-hero-title-block .ph-developer-tag{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:6px}
+.ph-hero-title-block h1{font-family:'Poppins',sans-serif;font-size:clamp(24px,4vw,42px);font-weight:700;line-height:1.15;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.ph-hero-title-block .ph-hero-loc{font-size:14px;color:rgba(255,255,255,.8);margin-top:6px;display:flex;align-items:center;gap:6px}
+.ph-hero-price-chip{background:var(--red);color:#fff;padding:14px 22px;border-radius:10px;text-align:center;flex-shrink:0}
+.ph-hero-price-chip .label{font-size:11px;text-transform:uppercase;letter-spacing:.8px;opacity:.85;margin-bottom:2px}
+.ph-hero-price-chip .value{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;white-space:nowrap}
+.ph-slide-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
+.ph-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:background .2s,transform .2s}
+.ph-dot.active{background:#fff;transform:scale(1.2)}
+.ph-slide-prev,.ph-slide-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.18);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s;z-index:3}
+.ph-slide-prev{left:20px}
+.ph-slide-next{right:20px}
+.ph-slide-prev:hover,.ph-slide-next:hover{background:rgba(255,255,255,.35)}
+@media(max-width:768px){
+  .ph-hero-meta{position:static;background:var(--ink);padding:18px 20px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .ph-hero-title-block h1{text-shadow:none}
+  .ph-hero-price-chip{width:auto;display:inline-flex;align-items:baseline;gap:7px;padding:9px 16px;text-align:left}
+  .ph-hero-price-chip .label{margin-bottom:0;font-size:10px}
+  .ph-hero-price-chip .value{font-size:15px}
+}
+
+/* ── STICKY SUBNAV ───────────────────────────────── */
+.ph-subnav{background:#fff;border-bottom:2px solid var(--gray-200);position:sticky;top:var(--nav-h,72px);z-index:800;overflow-x:auto;scrollbar-width:none}
+.ph-subnav::-webkit-scrollbar{display:none}
+.ph-subnav-inner{max-width:1260px;margin:0 auto;padding:0 24px;display:flex;gap:0;white-space:nowrap}
+.ph-subnav a{display:inline-block;padding:14px 20px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;color:var(--gray-400);border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .18s,border-color .18s}
+.ph-subnav a:hover,.ph-subnav a.active{color:var(--red);border-color:var(--red)}
+
+/* ── MAIN LAYOUT ─────────────────────────────────── */
+.ph-layout{max-width:1260px;margin:0 auto;padding:40px 24px 80px;display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start}
+@media(max-width:960px){.ph-layout{grid-template-columns:1fr;padding:28px 16px 60px}}
+
+/* ── MAIN COLUMN ─────────────────────────────────── */
+.ph-main{min-width:0}
+.ph-section{margin-bottom:40px;scroll-margin-top:130px}
+.ph-section-label{font-family:'Poppins',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.ph-section-title{font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.ph-divider{width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 20px}
+
+/* Overview */
+.ph-overview-text{color:var(--gray-600);line-height:1.8;font-size:14.5px}
+.ph-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+@media(max-width:600px){.ph-stats-row{grid-template-columns:repeat(2,1fr)}}
+.ph-stat{background:var(--gray-100);border-radius:var(--radius);padding:18px 16px;text-align:center;border:1px solid var(--gray-200)}
+.ph-stat .val{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;color:var(--ink);display:block}
+.ph-stat .lbl{font-size:11.5px;color:var(--gray-400);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
+
+/* Pricing */
+.ph-pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.ph-price-card{border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:22px 20px;background:#fff;transition:box-shadow .2s,border-color .2s;position:relative}
+.ph-price-card:hover{box-shadow:var(--shadow);border-color:var(--red)}
+.ph-price-card.featured{border-color:var(--red);background:linear-gradient(135deg,#fff8f7,#fff)}
+.ph-price-card.featured::before{content:'Most Popular';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 12px;border-radius:0 0 8px 8px;white-space:nowrap}
+.ph-price-card .unit-type{font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.ph-price-card .unit-area{font-size:12.5px;color:var(--gray-400);margin-bottom:12px}
+.ph-price-card .unit-price{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;color:var(--red)}
+.ph-price-card .unit-note{font-size:11px;color:var(--gray-400);margin-top:2px}
+.ph-enquire-btn{display:inline-block;margin-top:14px;width:100%;text-align:center;background:var(--red);color:#fff;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:11px;border-radius:6px;border:none;cursor:pointer;transition:background .18s}
+.ph-enquire-btn:hover{background:var(--red-dark)}
+
+/* Amenities */
+.ph-amenities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.ph-amenity{display:flex;align-items:center;gap:9px;padding:12px 14px;background:var(--gray-100);border-radius:var(--radius);border:1px solid var(--gray-200);font-size:13px;color:var(--gray-700);font-weight:500}
+.ph-amenity i{color:var(--red);font-size:15px;flex-shrink:0}
+
+/* RERA */
+.ph-rera-box{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px 20px;font-size:13px;color:var(--gray-600);display:flex;align-items:center;gap:12px}
+.ph-rera-box i{color:var(--red);font-size:18px}
+
+/* Gallery */
+.ph-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.ph-gallery-item{position:relative;aspect-ratio:4/3;border:none;border-radius:var(--radius);background-size:cover;background-position:center;background-color:var(--gray-200);cursor:pointer;overflow:hidden;padding:0;transition:transform .2s}
+.ph-gallery-item:hover{transform:scale(1.02)}
+.ph-gallery-item .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;background:rgba(15,27,45,0);transition:background .18s,opacity .18s;opacity:0}
+.ph-gallery-item:hover .overlay{opacity:1;background:rgba(15,27,45,.35)}
+.ph-gallery-item.video .overlay{opacity:1;font-size:24px;background:rgba(15,27,45,.22)}
+.ph-gallery-item.video .overlay i{background:rgba(255,255,255,.92);color:var(--red);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;padding-left:3px}
+
+.ph-lightbox{position:fixed;inset:0;background:rgba(10,10,15,.94);z-index:2000;display:flex;align-items:center;justify-content:center;padding:56px 70px}
+.ph-lightbox[hidden]{display:none}
+.ph-lightbox-content{max-width:min(92vw,1100px);max-height:85vh;width:100%;display:flex}
+.ph-lightbox-content img,.ph-lightbox-content video{max-width:100%;max-height:85vh;margin:auto;border-radius:8px;display:block;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.ph-lightbox-close,.ph-lightbox-prev,.ph-lightbox-next{position:absolute;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s;z-index:1}
+.ph-lightbox-close:hover,.ph-lightbox-prev:hover,.ph-lightbox-next:hover{background:rgba(255,255,255,.25)}
+.ph-lightbox-close{top:18px;right:18px;width:42px;height:42px;font-size:16px}
+.ph-lightbox-prev{left:16px;top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:16px}
+.ph-lightbox-next{right:16px;top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:16px}
+@media(max-width:600px){.ph-lightbox{padding:60px 16px}.ph-lightbox-prev,.ph-lightbox-next{width:38px;height:38px}}
+
+/* EMI calculator */
+.ph-emi-card{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:24px 26px;margin-top:24px}
+.ph-emi-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+@media(max-width:600px){.ph-emi-row{grid-template-columns:1fr}}
+.ph-emi-field label{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:var(--gray-600);margin-bottom:6px}
+.ph-emi-field label span{color:var(--ink);font-weight:700}
+.ph-emi-field input[type=range]{width:100%;accent-color:var(--red)}
+.ph-emi-result{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+@media(max-width:600px){.ph-emi-result{grid-template-columns:1fr}}
+.ph-emi-stat{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:14px 16px;text-align:center}
+.ph-emi-stat .val{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:var(--ink);display:block}
+.ph-emi-stat.primary .val{color:var(--red)}
+.ph-emi-stat .lbl{font-size:11px;color:var(--gray-400);margin-top:2px;text-transform:uppercase;letter-spacing:.4px}
+.ph-emi-note{font-size:11px;color:var(--gray-400);margin-top:12px;text-align:center}
+
+/* Brochure download */
+.ph-brochure-btn{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;background:var(--gold);color:var(--ink);transition:opacity .18s}
+.ph-brochure-btn:hover{opacity:.88}
+
+/* ── SIDEBAR ─────────────────────────────────────── */
+.ph-sidebar{display:flex;flex-direction:column;gap:24px;position:sticky;top:calc(var(--nav-h,72px) + 50px)}
+@media(max-width:960px){.ph-sidebar{position:static}}
+
+/* Enquiry card */
+.ph-enq-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden}
+.ph-enq-card-head{background:var(--ink);color:#fff;padding:20px 22px}
+.ph-enq-card-head h3{font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;margin-bottom:4px;color:#fff}
+.ph-enq-card-head p{font-size:12.5px;color:#fff;opacity:.75}
+.ph-enq-card-body{padding:20px 22px}
+.ph-form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.ph-form-row{grid-template-columns:1fr}}
+.ph-field{margin-bottom:10px}
+.ph-field input,.ph-field select,.ph-field textarea{width:100%;padding:10px 13px;border:1.5px solid var(--gray-200);border-radius:6px;font-size:13.5px;color:var(--gray-800);background:#fff;outline:none;transition:border-color .18s}
+.ph-field input:focus,.ph-field select:focus,.ph-field textarea:focus{border-color:var(--red)}
+.ph-field textarea{resize:none;height:72px}
+
+/* Custom dropdown (replaces native <select> so the open list matches site styling everywhere) */
+.ph-select{position:relative;margin-bottom:10px}
+.ph-select-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 13px;border:1.5px solid var(--gray-200);border-radius:6px;font-size:13.5px;color:var(--gray-800);background:#fff;cursor:pointer;transition:border-color .18s;text-align:left}
+.ph-select-trigger .txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ph-select-trigger.placeholder .txt{color:#8a8f98}
+.ph-select-trigger i{font-size:11px;color:var(--gray-400);transition:transform .18s;flex-shrink:0}
+.ph-select.open .ph-select-trigger{border-color:var(--red)}
+.ph-select.open .ph-select-trigger i{transform:rotate(180deg)}
+.ph-select-panel{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--gray-200);border-radius:8px;box-shadow:var(--shadow-lg);z-index:30;overflow-y:auto;max-height:220px;opacity:0;pointer-events:none;transform:translateY(-4px);transition:opacity .16s,transform .16s}
+.ph-select.open .ph-select-panel{opacity:1;pointer-events:auto;transform:translateY(0)}
+.ph-select-option{padding:11px 14px;font-size:13.5px;color:var(--gray-800);cursor:pointer;transition:background .12s}
+.ph-select-option:hover,.ph-select-option.active{background:var(--gray-100)}
+.ph-select-option.selected{color:var(--red);font-weight:600}
+.ph-enq-submit{width:100%;padding:13px;background:var(--red);color:#fff;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;transition:background .18s;margin-top:4px}
+.ph-enq-submit:hover{background:var(--red-dark)}
+.ph-enq-note{text-align:center;font-size:11.5px;color:var(--gray-400);margin-top:10px}
+
+/* Related properties */
+.ph-related-card-title{font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;margin-bottom:14px;color:var(--ink);display:flex;align-items:center;gap:8px}
+.ph-related-card-title i{color:var(--red);font-size:13px}
+.ph-rel-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--gray-100);align-items:flex-start}
+.ph-rel-item:last-child{border-bottom:none;padding-bottom:0}
+.ph-rel-img{width:72px;height:60px;border-radius:6px;background:var(--gray-200) center/cover no-repeat;flex-shrink:0}
+.ph-rel-info{min-width:0}
+.ph-rel-dev{font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--red);margin-bottom:2px}
+.ph-rel-name{font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph-rel-loc{font-size:11.5px;color:var(--gray-400);display:flex;align-items:center;gap:4px}
+.ph-rel-price{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;color:var(--gray-700);margin-top:3px}
+.ph-rel-link{display:block;font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--red);margin-top:3px}
+.ph-rel-link:hover{text-decoration:underline}
+.ph-view-all-link{display:block;text-align:center;margin-top:14px;padding:10px;border:1.5px solid var(--gray-200);border-radius:6px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--gray-600);transition:border-color .18s,color .18s}
+.ph-view-all-link:hover{border-color:var(--red);color:var(--red)}
+
+/* Contact quick links */
+.ph-quick-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.ph-quick-btn{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;transition:opacity .18s}
+.ph-quick-btn:hover{opacity:.88}
+.ph-quick-wa{background:#25D366;color:#fff}
+.ph-quick-call{background:var(--ink);color:#fff}
+
+/* ── FOOTER ──────────────────────────────────────── */
+.ph-footer{background:var(--ink);color:rgba(255,255,255,.7);font-size:13px;padding:28px 24px;text-align:center}
+.ph-footer a{color:rgba(255,255,255,.7);transition:color .15s}
+.ph-footer a:hover{color:#fff}
+.ph-footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+.ph-footer-copy{font-size:12px;opacity:.55}
+
+/* ── LOADING STATE ───────────────────────────────── */
+.ph-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px;color:var(--gray-400);gap:16px}
+.ph-loading-spinner{width:36px;height:36px;border:3px solid var(--gray-200);border-top-color:var(--red);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── 404 STATE ───────────────────────────────────── */
+.ph-404{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px;text-align:center;gap:12px}
+.ph-404 h2{font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:var(--ink)}
+.ph-404 p{color:var(--gray-400);max-width:360px}
+.ph-404 a{display:inline-block;margin-top:16px;padding:12px 28px;background:var(--red);color:#fff;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+
+/* ── TAGLINE BAR ─────────────────────────────────── */
+.ph-tagbar{background:var(--red);color:#fff;padding:11px 24px;text-align:center;font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.8px}
+.ph-tagbar span{opacity:.8;margin:0 12px}
+
+/* ── BOTTOM RELATED STRIP ────────────────────────── */
+.ph-bottom-related{background:var(--gray-100);border-top:1px solid var(--gray-200);padding:52px 0 60px}
+.ph-bottom-related-inner{max-width:1260px;margin:0 auto;padding:0 24px}
+.ph-bottom-label{font-family:'Poppins',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.ph-bottom-title{font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.ph-bottom-sub{font-size:13.5px;color:var(--gray-400);margin-bottom:28px}
+.ph-match-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(200,54,43,.08);border:1px solid rgba(200,54,43,.2);color:var(--red);font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 9px;border-radius:99px;margin-left:10px;vertical-align:middle}
+.ph-rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+@media(max-width:560px){.ph-rel-grid{grid-template-columns:1fr 1fr}}
+.ph-rel-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);overflow:hidden;transition:box-shadow .22s,transform .22s;display:flex;flex-direction:column}
+.ph-rel-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.ph-rel-card-img{height:160px;background:var(--gray-200) center/cover no-repeat;position:relative;flex-shrink:0}
+.ph-rel-card-price{position:absolute;bottom:10px;left:10px;background:rgba(15,27,45,.82);color:#fff;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;padding:4px 10px;border-radius:5px}
+.ph-rel-card-why{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;border-radius:4px}
+.ph-rel-card-body{padding:14px 16px;flex:1;display:flex;flex-direction:column}
+.ph-rel-card-dev{font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--red);margin-bottom:3px}
+.ph-rel-card-title{font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;line-height:1.3}
+.ph-rel-card-loc{font-size:12px;color:var(--gray-400);display:flex;align-items:center;gap:4px;margin-bottom:8px}
+.ph-rel-card-specs{display:flex;gap:10px;font-size:11.5px;color:var(--gray-600);margin-bottom:10px;flex-wrap:wrap}
+.ph-rel-card-specs span{display:flex;align-items:center;gap:4px}
+.ph-rel-card-link{margin-top:auto;display:block;text-align:center;padding:9px;background:var(--gray-100);border:1.5px solid var(--gray-200);border-radius:6px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;color:var(--gray-700);letter-spacing:.3px;transition:background .18s,border-color .18s,color .18s}
+.ph-rel-card-link:hover{background:var(--red);border-color:var(--red);color:#fff}
+.ph-rel-view-all{margin-top:28px;text-align:center}
+.ph-rel-view-all a{display:inline-flex;align-items:center;gap:8px;padding:13px 32px;border:2px solid var(--gray-800);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;color:var(--gray-800);letter-spacing:.3px;transition:background .18s,color .18s}
+.ph-rel-view-all a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR — shared site component -->
+<nav class="navbar nav-white" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="/" class="nav-logo" aria-label="PROPHUNT LLP Home">
+      <img src="/images/logo-black.png" alt="PROPHUNT LLP" class="logo-black">
+    </a>
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="/projects" class="nav-link active">Projects <i class="fas fa-chevron-down chevron"></i></a>
+        <div class="dropdown" role="menu">
+          <a href="/projects" class="dropdown-link" role="menuitem"><i class="fas fa-th"></i> All Projects</a>
+          <a href="/projects?type=apartment" class="dropdown-link" role="menuitem"><i class="fas fa-building"></i> Apartments</a>
+          <a href="/projects?type=plot" class="dropdown-link" role="menuitem"><i class="fas fa-map"></i> Plots</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+      <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:+917066880808" class="nav-phone" aria-label="Call us"><i class="fas fa-phone"></i> +91 70668 80808</a>
+      <a href="/contact" class="btn btn-primary btn-sm">Book a Site Visit</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <div class="mobile-menu-inner">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Home</a></li>
+      <li><a href="/projects" class="mobile-nav-link active">Projects</a></li>
+      <li><a href="/services" class="mobile-nav-link">Services</a></li>
+      <li><a href="/about" class="mobile-nav-link">About</a></li>
+      <li><a href="/blog" class="mobile-nav-link">Blog</a></li>
+      <li><a href="/contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <a href="/contact" class="btn btn-primary">Enquire Now</a>
+      <a href="tel:+917066880808" class="btn btn-ghost">Call Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="ph-breadcrumb">
+  <div class="ph-breadcrumb-inner">
+    <a href="/"><i class="fas fa-home" style="font-size:12px"></i></a>
+    <span class="sep">/</span>
+    <a href="/projects">Projects</a>
+    <span class="sep">/</span>
+    <span class="current" id="ph-crumb">Loading…</span>
+  </div>
+</div>
+
+<!-- PAGE WRAPPER -->
+<div id="ph-page">
+  <div class="ph-loading">
+    <div class="ph-loading-spinner"></div>
+    <p>Loading property details…</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="ph-footer">
+  <div class="ph-footer-links">
+    <a href="/projects">All Projects</a>
+    <a href="/services">Services</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy">Privacy Policy</a>
+  </div>
+  <div class="ph-footer-copy">© 2025 PROPHUNT LLP. All rights reserved. | MahaRERA Agent Registration No. <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">A52100037199</a></div>
+</footer>
+
+<script>
+const slug = 'the-arena-pimpri';
+
+const AMENITY_ICONS = {
+  'swimming pool':'water','gymnasium':'dumbbell','club house':'building-columns',
+  'clubhouse':'building-columns','children\'s play area':'child','play area':'child',
+  'indoor games':'gamepad','jogging track':'person-running','jogging':'person-running',
+  'yoga':'spa','meditation':'spa','garden':'leaf','landscaped garden':'leaf',
+  'terrace garden':'leaf','parking':'car','car parking':'car','amphitheatre':'masks-theater',
+  'amphitheater':'masks-theater','multipurpose hall':'people-group','banquet':'people-group',
+  'library':'book-open','reading room':'book-open','basketball':'basketball',
+  'cricket':'baseball','badminton':'table-tennis-paddle-ball','tennis':'tennis-ball',
+  'security':'shield-halved','24/7 security':'shield-halved','cctv':'video',
+  'power backup':'bolt','lift':'elevator','elevator':'elevator',
+  'senior citizen area':'user','wheelchair':'wheelchair-move',
+  'medical':'heart-pulse','gym':'dumbbell','spa':'spa','café':'mug-hot',
+  'cafe':'mug-hot','co-working':'laptop','coworking':'laptop',
+  'ev charging':'charging-station','solar':'sun','rainwater':'droplets',
+  'sewage':'recycle','skybridge':'bridge','party lawn':'tree',
+  'visitor parking':'car','open parking':'square-parking',
+  'cycling track':'bicycle','skating':'person-skating','pet zone':'paw',
+  'barbeque':'fire-burner','bbq':'fire-burner','gazebo':'sun',
+};
+function amenityIcon(name) {
+  const key = name.toLowerCase();
+  for (const [k,v] of Object.entries(AMENITY_ICONS)) { if (key.includes(k)) return v; }
+  return 'star';
+}
+
+function priceLabel(p) {
+  if (p.price_label) return p.price_label;
+  if (!p.price || p.price === 0) return 'Price on Request';
+  if (p.price >= 100) {
+    const cr = (p.price / 100).toFixed(2).replace(/\.?0+$/, '');
+    return '₹' + cr + ' Cr*';
+  }
+  return '₹' + p.price + ' L*';
+}
+
+function buildPage(prop, allProps) {
+  const images = [prop.hero_1, prop.hero_2, prop.hero_3].filter(Boolean);
+  if (!images.length) images.push('');
+  const price = priceLabel(prop);
+
+  /* ── Smart recommendations ── */
+  const others = allProps.filter(r => r.slug !== prop.slug && r.status !== 'sold-out');
+
+  function extractBHK(cfg) {
+    if (!cfg) return [];
+    return (cfg.match(/[\d.]+/g) || []).map(Number);
+  }
+  const myBHK = extractBHK(prop.config);
+
+  function scoreMatch(r) {
+    let score = 0;
+    if (r.category === prop.category) score += 3;
+    const rBHK = extractBHK(r.config);
+    if (myBHK.length && rBHK.length && myBHK.some(b => rBHK.includes(b))) score += 4;
+    if (prop.price > 0 && r.price > 0) {
+      const ratio = Math.min(prop.price, r.price) / Math.max(prop.price, r.price);
+      if (ratio > 0.6) score += 3;
+      else if (ratio > 0.4) score += 1;
+    }
+    const myArea = (prop.location || '').split(',')[0].toLowerCase();
+    const rArea  = (r.location   || '').split(',')[0].toLowerCase();
+    if (myArea && rArea && (myArea.includes(rArea) || rArea.includes(myArea))) score += 2;
+    return score;
+  }
+
+  function whyLabel(r) {
+    const rBHK = extractBHK(r.config);
+    if (myBHK.length && rBHK.length) {
+      const shared = myBHK.filter(b => rBHK.includes(b));
+      if (shared.length) return shared[0] + ' BHK Match';
+    }
+    if (r.category === prop.category) return prop.category.charAt(0).toUpperCase() + prop.category.slice(1);
+    return 'Similar Project';
+  }
+
+  // Sidebar: same developer, up to 3
+  const sameDevProjects = others.filter(r => r.developer === prop.developer).slice(0, 3);
+
+  // Bottom: smart-scored, up to 6
+  const smartMatched = others
+    .map(r => ({ ...r, _score: scoreMatch(r) }))
+    .sort((a, b) => b._score - a._score)
+    .slice(0, 6);
+
+  /* ── Meta ── */
+  document.title = (prop.title || 'Property') + ' | PROPHUNT LLP';
+  const desc = prop.overview
+    ? prop.overview.slice(0, 155)
+    : (prop.developer + ' – ' + prop.config + ' in ' + prop.location);
+  document.getElementById('ph-desc').setAttribute('content', desc);
+  document.getElementById('ph-canonical').setAttribute('href', 'https://www.prophuntllp.com/projects/' + prop.slug);
+  document.getElementById('ph-crumb').textContent = prop.title || prop.slug;
+
+  /* ── Tagbar ── */
+  const tagbar = prop.tagline
+    ? `<div class="ph-tagbar"><span>●</span>${prop.tagline}<span>●</span></div>` : '';
+
+  /* ── Hero slides ── */
+  const slidesHtml = images.map((src, i) =>
+    `<div class="ph-slide${i===0?' active':''}" style="background-image:url('${src}')"></div>`
+  ).join('');
+  const dotsHtml = images.length > 1
+    ? `<div class="ph-slide-dots">${images.map((_,i)=>`<button class="ph-dot${i===0?' active':''}" data-idx="${i}" aria-label="Slide ${i+1}"></button>`).join('')}</div>` : '';
+  const arrowsHtml = images.length > 1
+    ? `<button class="ph-slide-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+       <button class="ph-slide-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>` : '';
+
+  /* ── Stats ── */
+  const statsData = [
+    [prop.stat_1_value, prop.stat_1_label],
+    [prop.stat_2_value, prop.stat_2_label],
+    [prop.stat_3_value, prop.stat_3_label],
+    [prop.stat_4_value, prop.stat_4_label],
+  ].filter(([v]) => v);
+  const statsHtml = statsData.length
+    ? `<div class="ph-stats-row">${statsData.map(([v,l])=>`<div class="ph-stat"><span class="val">${v}</span><span class="lbl">${l||''}</span></div>`).join('')}</div>` : '';
+
+  /* ── Pricing cards ── */
+  const units = [
+    { type: prop.unit_1_type, area: prop.unit_1_area, price: prop.unit_1_price, featured: prop.unit_1_featured },
+    { type: prop.unit_2_type, area: prop.unit_2_area, price: prop.unit_2_price, featured: prop.unit_2_featured },
+    { type: prop.unit_3_type, area: prop.unit_3_area, price: prop.unit_3_price, featured: prop.unit_3_featured },
+  ].filter(u => u.type);
+  const pricingHtml = units.length
+    ? `<div id="pricing" class="ph-section">
+        <div class="ph-section-label">Unit Configurations & Pricing</div>
+        <div class="ph-section-title">Choose Your Home</div>
+        <div class="ph-divider"></div>
+        <div class="ph-pricing-grid">
+          ${units.map(u => `
+          <div class="ph-price-card${u.featured ? ' featured' : ''}">
+            <div class="unit-type">${u.type}</div>
+            ${u.area ? `<div class="unit-area"><i class="fas fa-ruler-combined" style="font-size:11px;color:var(--gray-400);margin-right:4px"></i>${u.area}</div>` : ''}
+            <div class="unit-price">${u.price || 'Price on Request'}</div>
+            <div class="unit-note">*Exclusive of taxes & charges</div>
+            <a href="#enquiry" class="ph-enquire-btn">Get Price Details</a>
+          </div>`).join('')}
+        </div>
+      </div>`
+    : '';
+
+  /* ── EMI calculator ── */
+  const loanBase = prop.price > 0 ? prop.price * 100000 : 5000000;
+  const emiHtml = `<div id="emi" class="ph-section">
+      <div class="ph-section-label">Plan Your Finances</div>
+      <div class="ph-section-title">EMI Calculator</div>
+      <div class="ph-divider"></div>
+      <div class="ph-emi-card">
+        <div class="ph-emi-row">
+          <div class="ph-emi-field">
+            <label>Loan Amount <span id="emiAmountLabel"></span></label>
+            <input type="range" id="emiAmount" min="500000" max="50000000" step="100000" value="${loanBase}">
+          </div>
+          <div class="ph-emi-field">
+            <label>Interest Rate <span id="emiRateLabel"></span></label>
+            <input type="range" id="emiRate" min="6" max="14" step="0.1" value="8.5">
+          </div>
+        </div>
+        <div class="ph-emi-field" style="max-width:280px">
+          <label>Loan Tenure <span id="emiTenureLabel"></span></label>
+          <input type="range" id="emiTenure" min="1" max="30" step="1" value="20">
+        </div>
+        <div class="ph-emi-result">
+          <div class="ph-emi-stat primary"><span class="val" id="emiMonthly">-</span><span class="lbl">Monthly EMI</span></div>
+          <div class="ph-emi-stat"><span class="val" id="emiInterest">-</span><span class="lbl">Total Interest</span></div>
+          <div class="ph-emi-stat"><span class="val" id="emiTotal">-</span><span class="lbl">Total Payment</span></div>
+        </div>
+        <p class="ph-emi-note">Indicative only. Actual EMI depends on the lender's terms and your eligibility.</p>
+      </div>
+    </div>`;
+
+  /* ── Amenities ── */
+  const amenities = Array.isArray(prop.amenities) ? prop.amenities : [];
+  const amenitiesHtml = amenities.length
+    ? `<div id="amenities" class="ph-section">
+        <div class="ph-section-label">Lifestyle Features</div>
+        <div class="ph-section-title">Amenities</div>
+        <div class="ph-divider"></div>
+        <div class="ph-amenities-grid">
+          ${amenities.map(a => `<div class="ph-amenity"><i class="fas fa-${amenityIcon(a)}"></i>${a}</div>`).join('')}
+        </div>
+      </div>` : '';
+
+  /* ── Gallery (images + videos) ── */
+  const galleryImages = Array.isArray(prop.gallery_images) ? prop.gallery_images : [];
+  const galleryVideos = Array.isArray(prop.gallery_videos) ? prop.gallery_videos : [];
+  const galleryItems = [
+    ...galleryImages.map(src => ({ type: 'image', src })),
+    ...galleryVideos.map(src => ({ type: 'video', src, poster: src.replace(/\.mp4$/i, '-poster.jpg') })),
+  ];
+  const galleryHtml = galleryItems.length
+    ? `<div id="gallery" class="ph-section">
+        <div class="ph-section-label">Photos & Site Progress</div>
+        <div class="ph-section-title">Gallery</div>
+        <div class="ph-divider"></div>
+        <div class="ph-gallery-grid">
+          ${galleryItems.map((item, i) => `
+          <button type="button" class="ph-gallery-item${item.type === 'video' ? ' video' : ''}" data-idx="${i}" style="background-image:url('${item.type === 'video' ? item.poster : item.src}')" aria-label="${item.type === 'video' ? 'Play video' : 'View photo'} ${i + 1}">
+            <span class="overlay"><i class="fas fa-${item.type === 'video' ? 'play' : 'expand'}"></i></span>
+          </button>`).join('')}
+        </div>
+      </div>`
+    : '';
+
+  /* ── RERA ── */
+  const reraHtml = prop.rera
+    ? `<div class="ph-rera-box"><i class="fas fa-shield-halved"></i>
+        <div><strong>MahaRERA Registered</strong><br>Registration No: ${prop.rera} — <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener" style="color:var(--red)">Verify on MahaRERA</a></div>
+      </div>` : '';
+
+  /* ── Sidebar: More by same developer ── */
+  const sidebarDevHtml = sameDevProjects.length
+    ? `<div style="background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:20px 22px;">
+        <div class="ph-related-card-title"><i class="fas fa-building"></i> More by ${prop.developer}</div>
+        ${sameDevProjects.map(r => {
+          const rPrice = priceLabel(r);
+          return `<div class="ph-rel-item">
+            <a href="${r.url}" class="ph-rel-img" style="background-image:url('${r.cover||''}')"></a>
+            <div class="ph-rel-info">
+              <div class="ph-rel-dev">${r.config}</div>
+              <div class="ph-rel-name">${r.title}</div>
+              <div class="ph-rel-loc"><i class="fas fa-map-marker-alt" style="font-size:10px"></i>${r.location}</div>
+              <div class="ph-rel-price">${rPrice}</div>
+              <a href="${r.url}" class="ph-rel-link">View Details →</a>
+            </div>
+          </div>`;
+        }).join('')}
+        <a href="/projects" class="ph-view-all-link">View All Projects</a>
+      </div>`
+    : `<div style="background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:20px 22px;">
+        <div class="ph-related-card-title"><i class="fas fa-layer-group"></i> All Projects</div>
+        <p style="font-size:13px;color:var(--gray-400);margin-bottom:14px">Browse our full portfolio of verified projects across Pune.</p>
+        <a href="/projects" class="ph-view-all-link">View All Projects</a>
+      </div>`;
+
+  /* ── Bottom smart-match strip ── */
+  function relCard(r) {
+    const rPrice = priceLabel(r);
+    const icon = r.category === 'plot' ? 'map' : r.category === 'villa' ? 'home' : 'building';
+    const why = whyLabel(r);
+    return `<a href="${r.url}" class="ph-rel-card">
+      <div class="ph-rel-card-img" style="background-image:url('${r.cover||''}')">
+        <div class="ph-rel-card-price">${rPrice}</div>
+        <div class="ph-rel-card-why">${why}</div>
+      </div>
+      <div class="ph-rel-card-body">
+        <div class="ph-rel-card-dev">${r.developer}</div>
+        <div class="ph-rel-card-title">${r.title}</div>
+        <div class="ph-rel-card-loc"><i class="fas fa-map-marker-alt" style="font-size:10px"></i>${r.location}</div>
+        <div class="ph-rel-card-specs">
+          <span><i class="fas fa-${icon}"></i>${r.config}</span>
+          <span><i class="fas fa-ruler-combined"></i>${r.area}</span>
+        </div>
+        <div class="ph-rel-card-link">View Details →</div>
+      </div>
+    </a>`;
+  }
+
+  // What the smart matching is based on — used as subtitle
+  const matchBasis = myBHK.length
+    ? `Based on your interest in ${myBHK.join(' & ')} BHK · ${prop.category} · ${(prop.location||'').split(',')[0]}`
+    : `Similar ${prop.category} projects in Pune`;
+
+  const bottomRelHtml = smartMatched.length
+    ? `<div class="ph-bottom-related">
+        <div class="ph-bottom-related-inner">
+          <div class="ph-bottom-label">You May Also Like</div>
+          <div class="ph-bottom-title">Recommended Projects</div>
+          <div class="ph-bottom-sub">${matchBasis}</div>
+          <div class="ph-rel-grid">${smartMatched.map(relCard).join('')}</div>
+          <div class="ph-rel-view-all"><a href="/projects">Browse All Projects <i class="fas fa-arrow-right"></i></a></div>
+        </div>
+      </div>` : '';
+
+  /* ── Config select for form (custom-styled, not a native <select>) ── */
+  const configLabels = units.length
+    ? units.map(u => u.type + (u.area ? ' – ' + u.area : ''))
+    : [prop.config || 'General Inquiry'];
+  function buildConfigSelect(id) {
+    return `<div class="ph-select" id="${id}">
+      <button type="button" class="ph-select-trigger placeholder"><span class="txt">Select Configuration</span><i class="fas fa-chevron-down"></i></button>
+      <div class="ph-select-panel" role="listbox">
+        ${configLabels.map(l => `<div class="ph-select-option" role="option" data-value="${l.replace(/"/g,'&quot;')}">${l}</div>`).join('')}
+      </div>
+      <input type="hidden" name="config">
+    </div>`;
+  }
+
+  /* ── Assemble ── */
+  document.getElementById('ph-page').innerHTML = `
+    ${tagbar}
+
+    <div class="ph-hero">
+      <div class="ph-hero-inner">
+        <div class="ph-slides">
+          ${slidesHtml}
+          <div class="ph-hero-overlay"></div>
+          ${dotsHtml}
+          ${arrowsHtml}
+        </div>
+        <div class="ph-hero-meta">
+          <div class="ph-hero-title-block">
+            <div class="ph-developer-tag">${prop.developer || ''}</div>
+            <h1>${prop.title || ''}</h1>
+            <div class="ph-hero-loc"><i class="fas fa-map-marker-alt"></i>${prop.location || ''}</div>
+          </div>
+          <div class="ph-hero-price-chip">
+            <div class="label">Starting From</div>
+            <div class="value">${price}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="ph-subnav" aria-label="Page sections">
+      <div class="ph-subnav-inner">
+        <a href="#overview" class="active">Overview</a>
+        ${units.length ? '<a href="#pricing">Pricing</a>' : ''}
+        <a href="#emi">EMI Calculator</a>
+        ${amenities.length ? '<a href="#amenities">Amenities</a>' : ''}
+        ${galleryItems.length ? '<a href="#gallery">Gallery</a>' : ''}
+        <a href="#enquiry">Enquire</a>
+      </div>
+    </nav>
+
+    <div class="ph-layout">
+      <main class="ph-main">
+
+        <div id="overview" class="ph-section">
+          <div class="ph-section-label">${prop.category ? prop.category.charAt(0).toUpperCase()+prop.category.slice(1) : 'Property'} · ${prop.config || ''}</div>
+          <div class="ph-section-title">${prop.title || ''}</div>
+          <div class="ph-divider"></div>
+          ${prop.overview ? `<p class="ph-overview-text">${prop.overview}</p>` : ''}
+          ${statsHtml}
+          ${reraHtml ? '<div style="margin-top:20px">'+reraHtml+'</div>' : ''}
+        </div>
+
+        ${pricingHtml}
+        ${emiHtml}
+        ${amenitiesHtml}
+        ${galleryHtml}
+
+        <div id="enquiry" class="ph-section">
+          <div class="ph-section-label">Get In Touch</div>
+          <div class="ph-section-title">Book a Free Site Visit</div>
+          <div class="ph-divider"></div>
+          <p style="font-size:13.5px;color:var(--gray-600);margin-bottom:20px">Get accurate pricing, floor plans & site visit details from our PROPHUNT advisor — no spam, no pressure.</p>
+          <form id="phEnqForm" style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:28px 28px">
+            <div class="ph-form-row">
+              <div class="ph-field"><input type="text" placeholder="Full Name *" required name="name" autocomplete="name"></div>
+              <div class="ph-field"><input type="tel" placeholder="Phone Number *" required name="phone" autocomplete="tel"></div>
+            </div>
+            <div class="ph-field"><input type="email" placeholder="Email Address (optional)" name="email" autocomplete="email"></div>
+            ${buildConfigSelect('phConfigMain')}
+            <div class="ph-field"><textarea name="message" placeholder="Any specific requirements or questions?"></textarea></div>
+            <button type="submit" class="ph-enq-submit" style="font-size:14px;padding:15px">Book Free Site Visit →</button>
+            <p style="text-align:center;font-size:12px;color:var(--gray-400);margin-top:10px"><i class="fas fa-lock" style="font-size:10px"></i> Your details are 100% private. We never share your information.</p>
+          </form>
+        </div>
+
+      </main>
+
+      <aside class="ph-sidebar">
+        <!-- Sidebar enquiry card -->
+        <div class="ph-enq-card">
+          <div class="ph-enq-card-head">
+            <h3>Get Pricing & Floor Plans</h3>
+            <p>Speak to a PROPHUNT advisor today</p>
+          </div>
+          <div class="ph-enq-card-body">
+            <form id="phSideEnqForm">
+              <div class="ph-field"><input type="text" placeholder="Your Name *" required name="name"></div>
+              <div class="ph-field"><input type="tel" placeholder="Phone Number *" required name="phone"></div>
+              ${buildConfigSelect('phConfigSide')}
+              <button type="submit" class="ph-enq-submit">Send Enquiry</button>
+            </form>
+            <p class="ph-enq-note"><i class="fas fa-lock" style="font-size:9px"></i> 100% private & no spam</p>
+          </div>
+        </div>
+
+        <!-- Quick contact -->
+        <div class="ph-quick-card">
+          <a href="https://wa.me/919370055850?text=Hi%2C%20I%27m%20interested%20in%20${encodeURIComponent(prop.title||'')}" target="_blank" rel="noopener" class="ph-quick-btn ph-quick-wa">
+            <i class="fab fa-whatsapp" style="font-size:18px"></i> WhatsApp Us
+          </a>
+          <a href="tel:+919370055850" class="ph-quick-btn ph-quick-call">
+            <i class="fas fa-phone"></i> Call Now
+          </a>
+          ${prop.brochure ? `<a href="${prop.brochure}" target="_blank" rel="noopener" class="ph-brochure-btn">
+            <i class="fas fa-file-pdf"></i> Download Brochure
+          </a>` : ''}
+        </div>
+
+        ${sidebarDevHtml}
+      </aside>
+    </div>
+
+    ${bottomRelHtml}
+
+    ${galleryItems.length ? `<div class="ph-lightbox" id="phLightbox" hidden>
+      <button type="button" class="ph-lightbox-close" id="phLightboxClose" aria-label="Close"><i class="fas fa-times"></i></button>
+      <button type="button" class="ph-lightbox-prev" id="phLightboxPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+      <button type="button" class="ph-lightbox-next" id="phLightboxNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      <div class="ph-lightbox-content" id="phLightboxContent"></div>
+    </div>` : ''}
+  `;
+
+  /* ── Slideshow ── */
+  if (images.length > 1) {
+    const slides = document.querySelectorAll('.ph-slide');
+    const dots   = document.querySelectorAll('.ph-dot');
+    let cur = 0, timer;
+    function goTo(n) {
+      slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
+      cur = (n + images.length) % images.length;
+      slides[cur].classList.add('active'); dots[cur].classList.add('active');
+      resetTimer();
+    }
+    function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo(cur+1), 4500); }
+    document.querySelector('.ph-slide-next')?.addEventListener('click', () => goTo(cur+1));
+    document.querySelector('.ph-slide-prev')?.addEventListener('click', () => goTo(cur-1));
+    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+    resetTimer();
+  }
+
+  /* ── Subnav active on scroll ── */
+  const sublinks = document.querySelectorAll('.ph-subnav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        sublinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+e.target.id));
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('#overview,#pricing,#emi,#amenities,#gallery,#enquiry').forEach(el => el && observer.observe(el));
+
+  /* ── EMI calculator ── */
+  function formatINR(n) {
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+  }
+  function updateEMI() {
+    const amountEl = document.getElementById('emiAmount');
+    const rateEl = document.getElementById('emiRate');
+    const tenureEl = document.getElementById('emiTenure');
+    if (!amountEl || !rateEl || !tenureEl) return;
+    const amount = Number(amountEl.value);
+    const rate = Number(rateEl.value);
+    const years = Number(tenureEl.value);
+    const months = years * 12;
+    const monthlyRate = rate / 12 / 100;
+    const emi = monthlyRate === 0
+      ? amount / months
+      : (amount * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+    const totalPayment = emi * months;
+    const totalInterest = totalPayment - amount;
+    document.getElementById('emiAmountLabel').textContent = formatINR(amount);
+    document.getElementById('emiRateLabel').textContent = rate.toFixed(1) + '%';
+    document.getElementById('emiTenureLabel').textContent = years + ' yrs';
+    document.getElementById('emiMonthly').textContent = formatINR(emi);
+    document.getElementById('emiInterest').textContent = formatINR(totalInterest);
+    document.getElementById('emiTotal').textContent = formatINR(totalPayment);
+  }
+  ['emiAmount', 'emiRate', 'emiTenure'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', updateEMI);
+  });
+  updateEMI();
+
+  /* ── Forms ── */
+  function handleForm(form) {
+    form?.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type=submit]');
+      const orig = btn.textContent;
+      btn.textContent = 'Sending…'; btn.disabled = true;
+      const data = Object.fromEntries(new FormData(form));
+      data.project = prop.title; data.slug = prop.slug;
+      fetch('https://formspree.io/f/xpwzkgyj', {
+        method:'POST', headers:{'Accept':'application/json'},
+        body: JSON.stringify(data)
+      }).then(r => {
+        if (r.ok) {
+          btn.textContent = '✓ Sent! We\'ll call you soon';
+          btn.style.background = '#16a34a';
+          form.reset();
+          setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 5000);
+        } else {
+          btn.textContent = 'Error — try again'; btn.disabled = false;
+        }
+      }).catch(() => { btn.textContent = 'Error — try again'; btn.disabled = false; });
+    });
+  }
+  handleForm(document.getElementById('phEnqForm'));
+  handleForm(document.getElementById('phSideEnqForm'));
+
+  /* ── Gallery lightbox ── */
+  if (galleryItems.length) {
+    const lightbox = document.getElementById('phLightbox');
+    const content  = document.getElementById('phLightboxContent');
+    let curIdx = 0;
+    function showItem(i) {
+      curIdx = (i + galleryItems.length) % galleryItems.length;
+      const item = galleryItems[curIdx];
+      content.innerHTML = item.type === 'image'
+        ? `<img src="${item.src}" alt="">`
+        : `<video src="${item.src}" controls autoplay playsinline></video>`;
+    }
+    function openLightbox(i) {
+      showItem(i);
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.hidden = true;
+      content.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.ph-gallery-item').forEach(btn => {
+      btn.addEventListener('click', () => openLightbox(+btn.dataset.idx));
+    });
+    document.getElementById('phLightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('phLightboxPrev').addEventListener('click', () => showItem(curIdx - 1));
+    document.getElementById('phLightboxNext').addEventListener('click', () => showItem(curIdx + 1));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (lightbox.hidden) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showItem(curIdx - 1);
+      if (e.key === 'ArrowRight') showItem(curIdx + 1);
+    });
+  }
+
+  /* ── Custom dropdown (Select Configuration) ── */
+  document.querySelectorAll('.ph-select').forEach(sel => {
+    const trigger = sel.querySelector('.ph-select-trigger');
+    const panel   = sel.querySelector('.ph-select-panel');
+    const hidden  = sel.querySelector('input[type=hidden]');
+    const txt     = trigger.querySelector('.txt');
+    trigger.addEventListener('click', e => {
+      e.stopPropagation();
+      document.querySelectorAll('.ph-select.open').forEach(s => { if (s !== sel) s.classList.remove('open'); });
+      sel.classList.toggle('open');
+    });
+    panel.querySelectorAll('.ph-select-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        hidden.value = opt.dataset.value;
+        txt.textContent = opt.dataset.value;
+        trigger.classList.remove('placeholder');
+        panel.querySelectorAll('.ph-select-option').forEach(o => o.classList.toggle('selected', o === opt));
+        sel.classList.remove('open');
+      });
+    });
+  });
+  document.addEventListener('click', () => document.querySelectorAll('.ph-select.open').forEach(s => s.classList.remove('open')));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.ph-select.open').forEach(s => s.classList.remove('open')); });
+}
+
+/* nav.js handles hamburger */
+
+/* ── Load data ── */
+fetch('/properties/posts.json')
+  .then(r => r.json())
+  .then(all => {
+    const prop = all.find(p => p.slug === slug);
+    if (!prop) {
+      document.getElementById('ph-page').innerHTML = `
+        <div class="ph-404">
+          <i class="fas fa-home" style="font-size:48px;color:var(--gray-200)"></i>
+          <h2>Property Not Found</h2>
+          <p>This property may have been removed or the URL is incorrect.</p>
+          <a href="/projects">Browse All Projects</a>
+        </div>`;
+      return;
+    }
+    buildPage(prop, all);
+  })
+  .catch(() => {
+    document.getElementById('ph-page').innerHTML = `
+      <div class="ph-404">
+        <i class="fas fa-wifi" style="font-size:48px;color:var(--gray-200)"></i>
+        <h2>Unable to Load</h2>
+        <p>Please check your connection and try again.</p>
+        <a href="/projects">Browse All Projects</a>
+      </div>`;
+  });
+</script>
+<script src="/js/nav.js"></script>
+<script src="https://voice-production-2950.up.railway.app/widget.js" data-site-key="av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY" data-api-base="https://voice-production-2950.up.railway.app" data-position="bottom-right" data-label="Talk to us"></script>
+</body>
+</html>
