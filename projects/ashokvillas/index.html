@@ -79,7 +79,10 @@ button,select,input,textarea{font-family:inherit}
 .ph-header-top h1{font-family:'Poppins',sans-serif;font-size:clamp(22px,3.2vw,30px);font-weight:700;line-height:1.25;color:var(--ink)}
 .ph-header-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:8px;font-size:13.5px;color:var(--gray-600)}
 .ph-header-meta-row .sep{color:var(--gray-400)}
-.ph-header-price strong{color:var(--ink);font-weight:700}
+.ph-header-price-row{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--gray-200)}
+.ph-header-price-label{font-size:13px;color:var(--gray-600)}
+.ph-header-price-value{font-family:'Poppins',sans-serif;font-size:clamp(20px,2.6vw,26px);font-weight:800;color:var(--red)}
+.ph-header-price-link{font-size:12.5px;font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:2px;margin-left:4px}
 .ph-share-btn{display:flex;align-items:center;gap:8px;padding:9px 16px;border:1.5px solid var(--gray-200);border-radius:8px;background:#fff;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s;flex-shrink:0}
 .ph-share-btn:hover{background:var(--gray-100);border-color:var(--gray-400)}
 
@@ -193,6 +196,30 @@ button,select,input,textarea{font-family:inherit}
 /* ── SIDEBAR ─────────────────────────────────────── */
 .ph-sidebar{display:flex;flex-direction:column;gap:24px;position:sticky;top:calc(var(--nav-h,72px) + 50px)}
 @media(max-width:960px){.ph-sidebar{position:static}}
+
+/* "Ready to learn more" jump section (replaces a second, duplicate enquiry form —
+   one form only, in the sidebar; this just gets you there) */
+.ph-enquiry-jump-actions{display:flex;flex-wrap:wrap;gap:12px}
+.ph-enquiry-jump-actions .btn{display:inline-flex;align-items:center;gap:8px}
+
+/* Mobile sticky bottom bar: price + one-tap jump to the enquiry form,
+   mirrors the reserve bar pattern on booking sites */
+.ph-mobile-cta{display:none}
+@media(max-width:960px){
+  .ph-mobile-cta{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    position:fixed;left:0;right:0;bottom:0;z-index:40;
+    background:#fff;border-top:1px solid var(--gray-200);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    box-shadow:0 -4px 16px rgba(0,0,0,.08);
+  }
+  .ph-mobile-cta-price{display:flex;flex-direction:column;line-height:1.2}
+  .ph-mobile-cta-price span{font-size:11px;color:var(--gray-600)}
+  .ph-mobile-cta-price strong{font-size:16px;color:var(--ink);font-weight:800}
+  .ph-mobile-cta .btn{flex-shrink:0}
+  /* keep content from hiding behind the fixed bar */
+  .ph-layout{padding-bottom:90px}
+}
 
 /* Enquiry card */
 .ph-enq-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden}
@@ -689,8 +716,12 @@ function buildPage(prop, allProps) {
     </div>`;
   }
 
-  /* ── Assemble ── */
+  /* ── Assemble (photo gallery first — Airbnb order: photos, then title/location/price) ── */
   document.getElementById('ph-page').innerHTML = `
+    <div class="ph-photo-grid">
+      ${buildPhotoGrid()}
+    </div>
+
     <div class="ph-header">
       <div class="ph-header-top">
         <div>
@@ -700,16 +731,15 @@ function buildPage(prop, allProps) {
             <span><i class="fas fa-map-marker-alt"></i> ${prop.location || ''}</span>
             <span class="sep">·</span>
             <span>${prop.developer || ''}</span>
-            <span class="sep">·</span>
-            <span class="ph-header-price">Starting from <strong>${price}</strong></span>
+          </div>
+          <div class="ph-header-price-row">
+            <span class="ph-header-price-label">Starting from</span>
+            <span class="ph-header-price-value">${price}</span>
+            ${units.length ? '<a href="#pricing" class="ph-header-price-link">View pricing ↓</a>' : ''}
           </div>
         </div>
         <button type="button" class="ph-share-btn" id="phShareBtn"><i class="fas fa-arrow-up-from-bracket"></i> Share</button>
       </div>
-    </div>
-
-    <div class="ph-photo-grid">
-      ${buildPhotoGrid()}
     </div>
 
     <nav class="ph-subnav" aria-label="Page sections">
@@ -727,41 +757,32 @@ function buildPage(prop, allProps) {
 
         <div id="overview" class="ph-section">
           <div class="ph-section-label">${prop.category ? prop.category.charAt(0).toUpperCase()+prop.category.slice(1) : 'Property'} · ${prop.config || ''}</div>
-          <div class="ph-section-title">${prop.title || ''}</div>
           <div class="ph-divider"></div>
           ${prop.overview ? `<p class="ph-overview-text">${prop.overview}</p>` : ''}
           ${statsHtml}
-          ${reraHtml ? '<div style="margin-top:20px">'+reraHtml+'</div>' : ''}
+          ${reraQrHtml ? '<div style="margin-top:20px">'+reraQrHtml+'</div>' : (reraHtml ? '<div style="margin-top:20px">'+reraHtml+'</div>' : '')}
         </div>
 
         ${pricingHtml}
         ${emiHtml}
         ${amenitiesHtml}
 
-        <div id="enquiry" class="ph-section">
-          ${reraQrHtml}
+        <div id="enquiry" class="ph-section ph-enquiry-jump">
           <div class="ph-section-label">Get In Touch</div>
-          <div class="ph-section-title">Book a Free Site Visit</div>
+          <div class="ph-section-title">Ready to Learn More?</div>
           <div class="ph-divider"></div>
-          <p style="font-size:13.5px;color:var(--gray-600);margin-bottom:20px">Get accurate pricing, floor plans & site visit details from our PROPHUNT advisor — no spam, no pressure.</p>
-          <form id="phEnqForm" style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:28px 28px">
-            <div class="ph-form-row">
-              <div class="ph-field"><input type="text" placeholder="Full Name *" required name="name" autocomplete="name"></div>
-              <div class="ph-field"><input type="tel" placeholder="Phone Number *" required name="phone" autocomplete="tel"></div>
-            </div>
-            <div class="ph-field"><input type="email" placeholder="Email Address (optional)" name="email" autocomplete="email"></div>
-            ${buildConfigSelect('phConfigMain')}
-            <div class="ph-field"><textarea name="message" placeholder="Any specific requirements or questions?"></textarea></div>
-            <button type="submit" class="ph-enq-submit" style="font-size:14px;padding:15px">Book Free Site Visit →</button>
-            <p style="text-align:center;font-size:12px;color:var(--gray-400);margin-top:10px"><i class="fas fa-lock" style="font-size:10px"></i> Your details are 100% private. We never share your information.</p>
-          </form>
+          <p style="font-size:13.5px;color:var(--gray-600);margin-bottom:18px">Use the form in the sidebar, or reach us directly — a PROPHUNT advisor will get back to you with pricing, floor plans and site visit details.</p>
+          <div class="ph-enquiry-jump-actions">
+            <a href="#phSideEnqCard" class="btn btn-primary" id="phJumpToForm"><i class="fas fa-arrow-up"></i> Fill the Enquiry Form</a>
+            <a href="https://wa.me/917447430431?text=${encodeURIComponent('Hi PROPHUNT LLP, I\'m interested in ' + (prop.title||'this project') + ' (' + (prop.location||'Pune') + '). Please share more details and pricing.')}" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+          </div>
         </div>
 
       </main>
 
       <aside class="ph-sidebar">
         <!-- Sidebar enquiry card -->
-        <div class="ph-enq-card">
+        <div class="ph-enq-card" id="phSideEnqCard">
           <div class="ph-enq-card-head">
             <h3>Get Pricing & Floor Plans</h3>
             <p>Speak to a PROPHUNT advisor today</p>
@@ -779,10 +800,10 @@ function buildPage(prop, allProps) {
 
         <!-- Quick contact -->
         <div class="ph-quick-card">
-          <a href="https://wa.me/919370055850?text=Hi%2C%20I%27m%20interested%20in%20${encodeURIComponent(prop.title||'')}" target="_blank" rel="noopener" class="ph-quick-btn ph-quick-wa">
+          <a href="https://wa.me/917447430431?text=${encodeURIComponent('Hi PROPHUNT LLP, I\'m interested in ' + (prop.title||'this project') + ' (' + (prop.location||'Pune') + '). Please share more details and pricing.')}" target="_blank" rel="noopener" class="ph-quick-btn ph-quick-wa">
             <i class="fab fa-whatsapp" style="font-size:18px"></i> WhatsApp Us
           </a>
-          <a href="tel:+919370055850" class="ph-quick-btn ph-quick-call">
+          <a href="tel:+917066880808" class="ph-quick-btn ph-quick-call">
             <i class="fas fa-phone"></i> Call Now
           </a>
           ${prop.brochure ? `<a href="${prop.brochure}" target="_blank" rel="noopener" class="ph-brochure-btn">
@@ -792,6 +813,11 @@ function buildPage(prop, allProps) {
 
         ${sidebarDevHtml}
       </aside>
+    </div>
+
+    <div class="ph-mobile-cta">
+      <div class="ph-mobile-cta-price"><span>Starting from</span><strong>${price}</strong></div>
+      <a href="#phSideEnqCard" class="btn btn-primary"><i class="fas fa-arrow-up"></i> Enquire Now</a>
     </div>
 
     ${bottomRelHtml}
@@ -846,31 +872,49 @@ function buildPage(prop, allProps) {
   });
   updateEMI();
 
-  /* ── Forms ── */
+  /* ── Forms (Web3Forms — same working integration as contact.html/developers.html,
+     with a mailto fallback so a failed request never dead-ends the lead) ── */
   function handleForm(form) {
     form?.addEventListener('submit', e => {
       e.preventDefault();
       const btn = form.querySelector('button[type=submit]');
       const orig = btn.textContent;
       btn.textContent = 'Sending…'; btn.disabled = true;
-      const data = Object.fromEntries(new FormData(form));
-      data.project = prop.title; data.slug = prop.slug;
-      fetch('https://formspree.io/f/xpwzkgyj', {
-        method:'POST', headers:{'Accept':'application/json'},
-        body: JSON.stringify(data)
-      }).then(r => {
-        if (r.ok) {
+      const f = Object.fromEntries(new FormData(form).entries());
+      const subject = `Site Visit Enquiry — ${prop.title || 'Project'} (${f.name || 'New Lead'})`;
+      const body = [
+        `Project: ${prop.title || ''}`,
+        `Name: ${f.name || 'Not provided'}`,
+        `Phone: ${f.phone || 'Not provided'}`,
+        `Email: ${f.email || 'Not provided'}`,
+        `Configuration: ${f.config || 'Not specified'}`,
+        '',
+        f.message || 'Please contact me about this project.'
+      ].join('\n');
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9',
+          subject,
+          from_name: `PROPHUNT LLP website — ${prop.title || 'Project'} page`,
+          source_page: window.location.pathname,
+          project: prop.title, slug: prop.slug,
+          ...f
+        })
+      }).then(r => { if (!r.ok) throw new Error('submit failed'); })
+        .then(() => {
           btn.textContent = '✓ Sent! We\'ll call you soon';
           btn.style.background = '#16a34a';
           form.reset();
           setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 5000);
-        } else {
-          btn.textContent = 'Error — try again'; btn.disabled = false;
-        }
-      }).catch(() => { btn.textContent = 'Error — try again'; btn.disabled = false; });
+        })
+        .catch(() => {
+          window.location.href = `mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          btn.textContent = orig; btn.disabled = false;
+        });
     });
   }
-  handleForm(document.getElementById('phEnqForm'));
   handleForm(document.getElementById('phSideEnqForm'));
 
   /* ── Photo lightbox (top grid + "show all photos" share one viewer over allMedia) ── */

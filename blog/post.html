@@ -445,22 +445,44 @@ function buildPost(meta, body, allPosts) {
   // Render markdown body
   document.getElementById('bp-body-content').innerHTML = marked.parse(body);
 
-  // Enquiry form
+  // Enquiry form (Web3Forms — same working integration as contact.html/developers.html,
+  // with a mailto fallback so a failed request never dead-ends the lead)
   document.getElementById('bpEnqForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
-    const btn = this.querySelector('button[type=submit]');
+    const form = this;
+    const btn = form.querySelector('button[type=submit]');
     const orig = btn.textContent;
     btn.textContent = 'Sending…'; btn.disabled = true;
-    const data = { ...Object.fromEntries(new FormData(this)), article: title };
-    fetch('https://formspree.io/f/xpwzkgyj', {
-      method:'POST', headers:{'Accept':'application/json'},
-      body: JSON.stringify(data)
-    }).then(r => {
-      btn.textContent = r.ok ? '✓ We\'ll call you soon!' : 'Error — try again';
-      if (r.ok) { btn.style.background='#16a34a'; this.reset(); }
-      btn.disabled = false;
-      setTimeout(()=>{ btn.textContent=orig; btn.style.background=''; }, 4000);
-    }).catch(()=>{ btn.textContent='Error — try again'; btn.disabled=false; });
+    const f = Object.fromEntries(new FormData(form).entries());
+    const subject = `Blog Enquiry — ${title} (${f.name || 'New Lead'})`;
+    const body = [
+      `Article: ${title}`,
+      `Name: ${f.name || 'Not provided'}`,
+      `Phone: ${f.phone || 'Not provided'}`,
+      `Interest: ${f.interest || 'Not specified'}`,
+    ].join('\n');
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9',
+        subject,
+        from_name: `PROPHUNT LLP website — Blog page`,
+        source_page: window.location.pathname,
+        article: title,
+        ...f
+      })
+    }).then(r => { if (!r.ok) throw new Error('submit failed'); })
+      .then(() => {
+        btn.textContent = '✓ We\'ll call you soon!';
+        btn.style.background = '#16a34a';
+        form.reset();
+        setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
+      })
+      .catch(() => {
+        window.location.href = `mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        btn.textContent = orig; btn.disabled = false;
+      });
   });
 }
 
