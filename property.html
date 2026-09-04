@@ -139,6 +139,15 @@ button,select,input,textarea{font-family:inherit}
 .ph-rera-box{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px 20px;font-size:13px;color:var(--gray-600);display:flex;align-items:center;gap:12px}
 .ph-rera-box i{color:var(--red);font-size:18px}
 
+.ph-rera-preform{display:flex;align-items:center;gap:18px;background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:18px}
+.ph-rera-qr{flex-shrink:0;width:88px;height:88px;background:#fff;border:1px solid var(--gray-200);border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ph-rera-qr img,.ph-rera-qr canvas{display:block}
+.ph-rera-preform-text{display:flex;flex-direction:column;gap:3px;font-size:13px;color:var(--gray-600)}
+.ph-rera-preform-text strong{font-size:14.5px;color:var(--gray-800);display:flex;align-items:center;gap:7px}
+.ph-rera-preform-text strong i{color:var(--red)}
+.ph-rera-preform-text a{color:var(--red);font-weight:600}
+@media(max-width:600px){.ph-rera-preform{flex-direction:column;text-align:center}.ph-rera-preform-text{align-items:center}.ph-rera-preform-text strong{justify-content:center}}
+
 .ph-lightbox{position:fixed;inset:0;background:rgba(10,10,15,.94);z-index:2000;display:flex;align-items:center;justify-content:center;padding:56px 70px}
 .ph-lightbox[hidden]{display:none}
 .ph-lightbox-content{max-width:min(92vw,1100px);max-height:85vh;width:100%;display:flex}
@@ -573,6 +582,18 @@ function buildPage(prop, allProps) {
         <div><strong>MahaRERA Registered</strong><br>Registration No: ${prop.rera} — <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener" style="color:var(--red)">Verify on MahaRERA</a></div>
       </div>` : '';
 
+  /* RERA + QR strip shown right before the enquiry form, so the verification
+     number is the last thing a visitor sees before handing over contact details. */
+  const reraQrHtml = prop.rera
+    ? `<div class="ph-rera-preform">
+        <div id="phReraQr" class="ph-rera-qr" aria-label="Scan to verify on MahaRERA"></div>
+        <div class="ph-rera-preform-text">
+          <strong><i class="fas fa-shield-halved"></i> MahaRERA Registered</strong>
+          <span>Registration No: ${prop.rera}</span>
+          <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">Scan or tap to verify on MahaRERA →</a>
+        </div>
+      </div>` : '';
+
   /* ── Sidebar: More by same developer ── */
   const sidebarDevHtml = sameDevProjects.length
     ? `<div style="background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:20px 22px;">
@@ -701,6 +722,7 @@ function buildPage(prop, allProps) {
         ${amenitiesHtml}
 
         <div id="enquiry" class="ph-section">
+          ${reraQrHtml}
           <div class="ph-section-label">Get In Touch</div>
           <div class="ph-section-title">Book a Free Site Visit</div>
           <div class="ph-divider"></div>
@@ -834,6 +856,20 @@ function buildPage(prop, allProps) {
   handleForm(document.getElementById('phEnqForm'));
   handleForm(document.getElementById('phSideEnqForm'));
 
+  /* ── RERA QR (generated client-side, links to the MahaRERA portal — no
+     copyrighted assets, just an encoded government verification link) ── */
+  if (prop.rera && window.QRCode) {
+    const qrEl = document.getElementById('phReraQr');
+    if (qrEl) {
+      new QRCode(qrEl, {
+        text: 'https://maharera.mahaonline.gov.in',
+        width: 80, height: 80,
+        colorDark: '#1f2937', colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    }
+  }
+
   /* ── Photo lightbox (top grid + "show all photos" share one viewer over allMedia) ── */
   if (allMedia.length && allMedia[0].src) {
     const lightbox = document.getElementById('phLightbox');
@@ -941,6 +977,7 @@ fetch('/properties/posts.json')
       </div>`;
   });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="/js/nav.js"></script>
 <script src="https://voice-production-2950.up.railway.app/widget.js" data-site-key="av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY" data-api-base="https://voice-production-2950.up.railway.app" data-position="bottom-right" data-label="Talk to us"></script>
 </body>
