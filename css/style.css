@@ -365,7 +365,8 @@ p { color:var(--gray-800); }
 .prop-card { background:var(--white); border-radius:var(--radius-md); border:1px solid var(--gray-200); overflow:hidden; transition:transform .3s var(--ease), box-shadow .3s var(--ease); display:flex; flex-direction:column; }
 .prop-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
 .prop-card-img { position:relative; padding-top:62%; overflow:hidden; background:var(--gray-100); }
-.prop-card-img > div:first-child { position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .5s var(--ease); }
+.prop-card-img > div:first-child { position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .5s var(--ease); display:flex; align-items:center; justify-content:center; }
+.prop-card-img-empty { font-size:1.8rem; color:var(--gray-400); }
 .prop-card:hover .prop-card-img > div:first-child { transform:scale(1.05); }
 .prop-card-badge { position:absolute; top:.75rem; left:.75rem; }
 .prop-card-price { position:absolute; bottom:.75rem; right:.75rem; background:var(--black); color:var(--white); font-size:.8rem; font-weight:700; padding:.3rem .75rem; border-radius:var(--radius-sm); }
