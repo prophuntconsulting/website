@@ -51,35 +51,32 @@ button,select,input,textarea{font-family:inherit}
 .ph-breadcrumb .sep{color:var(--gray-300)}
 .ph-breadcrumb .current{color:var(--gray-800);font-weight:500}
 
-/* ── HERO GALLERY ────────────────────────────────── */
-.ph-hero{background:var(--ink)}
-.ph-hero-inner{position:relative}
-.ph-slides{position:relative;height:520px;overflow:hidden}
-@media(max-width:768px){.ph-slides{height:320px}}
-.ph-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .6s var(--ease)}
-.ph-slide.active{opacity:1}
-.ph-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,27,45,.7) 0%,transparent 55%)}
-/* Desktop: meta overlays the bottom of the photo. Mobile: it becomes a normal block below the photo (see media query) — this is what keeps text from being clipped/cramped on small screens. */
-.ph-hero-meta{position:absolute;bottom:36px;left:0;right:0;padding:0 48px;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
-.ph-hero-title-block .ph-developer-tag{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:6px}
-.ph-hero-title-block h1{font-family:'Poppins',sans-serif;font-size:clamp(24px,4vw,42px);font-weight:700;line-height:1.15;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4)}
-.ph-hero-title-block .ph-hero-loc{font-size:14px;color:rgba(255,255,255,.8);margin-top:6px;display:flex;align-items:center;gap:6px}
-.ph-hero-price-chip{background:var(--red);color:#fff;padding:14px 22px;border-radius:10px;text-align:center;flex-shrink:0}
-.ph-hero-price-chip .label{font-size:11px;text-transform:uppercase;letter-spacing:.8px;opacity:.85;margin-bottom:2px}
-.ph-hero-price-chip .value{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;white-space:nowrap}
-.ph-slide-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
-.ph-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:background .2s,transform .2s}
-.ph-dot.active{background:#fff;transform:scale(1.2)}
-.ph-slide-prev,.ph-slide-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.18);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s;z-index:3}
-.ph-slide-prev{left:20px}
-.ph-slide-next{right:20px}
-.ph-slide-prev:hover,.ph-slide-next:hover{background:rgba(255,255,255,.35)}
+/* ── HEADER (title, location, tags — Airbnb-style: lives in normal flow, never on top of a photo) ── */
+.ph-header{max-width:1120px;margin:0 auto;padding:24px 24px 0}
+.ph-header-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.ph-tag-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.ph-tag-chip{background:rgba(200,54,43,.08);border:1px solid rgba(200,54,43,.18);color:var(--red);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:99px;letter-spacing:.15px}
+.ph-header-top h1{font-family:'Poppins',sans-serif;font-size:clamp(22px,3.2vw,30px);font-weight:700;line-height:1.25;color:var(--ink)}
+.ph-header-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:8px;font-size:13.5px;color:var(--gray-600)}
+.ph-header-meta-row .sep{color:var(--gray-400)}
+.ph-header-price strong{color:var(--ink);font-weight:700}
+.ph-share-btn{display:flex;align-items:center;gap:8px;padding:9px 16px;border:1.5px solid var(--gray-200);border-radius:8px;background:#fff;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s;flex-shrink:0}
+.ph-share-btn:hover{background:var(--gray-100);border-color:var(--gray-400)}
+
+/* ── PHOTO GRID (Airbnb-style: fixed row height so every tile shares one aspect ratio) ── */
+.ph-photo-grid{max-width:1120px;margin:16px auto 0;padding:0 24px}
+.ph-photo-grid-inner{display:grid;gap:8px;height:440px;border-radius:14px;overflow:hidden;position:relative}
+.ph-photo-cell{background-size:cover;background-position:center;background-color:var(--gray-200);cursor:pointer;border:none;padding:0;position:relative;transition:filter .18s}
+.ph-photo-cell:hover{filter:brightness(.92)}
+.ph-photo-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.ph-photo-play i{background:rgba(255,255,255,.92);color:var(--red);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;padding-left:3px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.ph-show-all-btn{position:absolute;bottom:16px;right:16px;background:#fff;border:1.5px solid var(--ink);padding:9px 16px;border-radius:8px;font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.15);transition:background .15s}
+.ph-show-all-btn:hover{background:var(--gray-100)}
 @media(max-width:768px){
-  .ph-hero-meta{position:static;background:var(--ink);padding:18px 20px 20px;flex-direction:column;align-items:flex-start;gap:12px}
-  .ph-hero-title-block h1{text-shadow:none}
-  .ph-hero-price-chip{width:auto;display:inline-flex;align-items:baseline;gap:7px;padding:9px 16px;text-align:left}
-  .ph-hero-price-chip .label{margin-bottom:0;font-size:10px}
-  .ph-hero-price-chip .value{font-size:15px}
+  .ph-photo-grid-inner{height:280px;border-radius:0}
+  .ph-photo-grid{padding:0}
+  .ph-show-all-btn span{display:none}
+  .ph-show-all-btn{padding:9px 12px}
 }
 
 /* ── STICKY SUBNAV ───────────────────────────────── */
@@ -129,15 +126,6 @@ button,select,input,textarea{font-family:inherit}
 /* RERA */
 .ph-rera-box{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px 20px;font-size:13px;color:var(--gray-600);display:flex;align-items:center;gap:12px}
 .ph-rera-box i{color:var(--red);font-size:18px}
-
-/* Gallery */
-.ph-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-.ph-gallery-item{position:relative;aspect-ratio:4/3;border:none;border-radius:var(--radius);background-size:cover;background-position:center;background-color:var(--gray-200);cursor:pointer;overflow:hidden;padding:0;transition:transform .2s}
-.ph-gallery-item:hover{transform:scale(1.02)}
-.ph-gallery-item .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;background:rgba(15,27,45,0);transition:background .18s,opacity .18s;opacity:0}
-.ph-gallery-item:hover .overlay{opacity:1;background:rgba(15,27,45,.35)}
-.ph-gallery-item.video .overlay{opacity:1;font-size:24px;background:rgba(15,27,45,.22)}
-.ph-gallery-item.video .overlay i{background:rgba(255,255,255,.92);color:var(--red);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;padding-left:3px}
 
 .ph-lightbox{position:fixed;inset:0;background:rgba(10,10,15,.94);z-index:2000;display:flex;align-items:center;justify-content:center;padding:56px 70px}
 .ph-lightbox[hidden]{display:none}
@@ -243,10 +231,6 @@ button,select,input,textarea{font-family:inherit}
 .ph-404 h2{font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:var(--ink)}
 .ph-404 p{color:var(--gray-400);max-width:360px}
 .ph-404 a{display:inline-block;margin-top:16px;padding:12px 28px;background:var(--red);color:#fff;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-
-/* ── TAGLINE BAR ─────────────────────────────────── */
-.ph-tagbar{background:var(--red);color:#fff;padding:11px 24px;text-align:center;font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.8px}
-.ph-tagbar span{opacity:.8;margin:0 12px}
 
 /* ── BOTTOM RELATED STRIP ────────────────────────── */
 .ph-bottom-related{background:var(--gray-100);border-top:1px solid var(--gray-200);padding:52px 0 60px}
@@ -396,9 +380,18 @@ function priceLabel(p) {
 }
 
 function buildPage(prop, allProps) {
-  const images = [prop.hero_1, prop.hero_2, prop.hero_3].filter(Boolean);
-  if (!images.length) images.push('');
   const price = priceLabel(prop);
+
+  /* ── Unified media (hero + gallery images/videos) for the photo grid + lightbox ── */
+  const heroImages = [prop.hero_1, prop.hero_2, prop.hero_3].filter(Boolean);
+  const galleryImages = Array.isArray(prop.gallery_images) ? prop.gallery_images : [];
+  const galleryVideos = Array.isArray(prop.gallery_videos) ? prop.gallery_videos : [];
+  const seenMedia = new Set();
+  const allMedia = [];
+  heroImages.forEach(src => { if (src && !seenMedia.has(src)) { seenMedia.add(src); allMedia.push({ type: 'image', src }); } });
+  galleryImages.forEach(src => { if (src && !seenMedia.has(src)) { seenMedia.add(src); allMedia.push({ type: 'image', src }); } });
+  galleryVideos.forEach(src => { if (src && !seenMedia.has(src)) { seenMedia.add(src); allMedia.push({ type: 'video', src, poster: src.replace(/\.mp4$/i, '-poster.jpg') }); } });
+  if (!allMedia.length) allMedia.push({ type: 'image', src: '' });
 
   /* ── Smart recommendations ── */
   const others = allProps.filter(r => r.slug !== prop.slug && r.status !== 'sold-out');
@@ -453,19 +446,35 @@ function buildPage(prop, allProps) {
   document.getElementById('ph-canonical').setAttribute('href', 'https://www.prophuntllp.com/projects/' + prop.slug);
   document.getElementById('ph-crumb').textContent = prop.title || prop.slug;
 
-  /* ── Tagbar ── */
-  const tagbar = prop.tagline
-    ? `<div class="ph-tagbar"><span>●</span>${prop.tagline}<span>●</span></div>` : '';
+  /* ── Header tag chips (tagline split into small pills instead of one loud banner) ── */
+  const tagChips = (prop.tagline || '').split('|').map(s => s.trim()).filter(Boolean);
+  const tagChipsHtml = tagChips.length
+    ? `<div class="ph-tag-chips">${tagChips.map(t => `<span class="ph-tag-chip">${t}</span>`).join('')}</div>` : '';
 
-  /* ── Hero slides ── */
-  const slidesHtml = images.map((src, i) =>
-    `<div class="ph-slide${i===0?' active':''}" style="background-image:url('${src}')"></div>`
-  ).join('');
-  const dotsHtml = images.length > 1
-    ? `<div class="ph-slide-dots">${images.map((_,i)=>`<button class="ph-dot${i===0?' active':''}" data-idx="${i}" aria-label="Slide ${i+1}"></button>`).join('')}</div>` : '';
-  const arrowsHtml = images.length > 1
-    ? `<button class="ph-slide-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-       <button class="ph-slide-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>` : '';
+  /* ── Photo grid (Airbnb-style: one big photo + up to 4 thumbs, all one row-height) ── */
+  function buildPhotoGrid() {
+    const shown = allMedia.slice(0, 5);
+    const n = shown.length;
+    let gridStyle;
+    if (n >= 5)       gridStyle = 'grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;';
+    else if (n === 4) gridStyle = 'grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr 1fr;';
+    else if (n === 3) gridStyle = 'grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;';
+    else if (n === 2) gridStyle = 'grid-template-columns:1fr 1fr;grid-template-rows:1fr;';
+    else              gridStyle = 'grid-template-columns:1fr;grid-template-rows:1fr;';
+    const mainSpan = n === 4 ? 'grid-column:1;grid-row:1/4;' : (n >= 2 ? 'grid-column:1;grid-row:1/3;' : '');
+    const hasRealPhotos = allMedia.some(m => m.src);
+    const photoWord = allMedia.length === 1 ? 'photo' : 'photos';
+
+    const cells = shown.map((item, i) => {
+      const isMain = i === 0 && n >= 2;
+      const bg = item.type === 'video' ? item.poster : item.src;
+      const showAll = (i === n - 1 && hasRealPhotos)
+        ? `<button type="button" class="ph-show-all-btn" id="phShowAllBtn"><i class="fas fa-grip"></i> <span>Show all ${allMedia.length} ${photoWord}</span></button>` : '';
+      return `<div class="ph-photo-cell" data-idx="${i}" style="background-image:url('${bg}');${isMain ? mainSpan : ''}">${item.type === 'video' ? '<span class="ph-photo-play"><i class="fas fa-play"></i></span>' : ''}${showAll}</div>`;
+    }).join('');
+
+    return `<div class="ph-photo-grid-inner" style="${gridStyle}">${cells}</div>`;
+  }
 
   /* ── Stats ── */
   const statsData = [
@@ -542,27 +551,6 @@ function buildPage(prop, allProps) {
           ${amenities.map(a => `<div class="ph-amenity"><i class="fas fa-${amenityIcon(a)}"></i>${a}</div>`).join('')}
         </div>
       </div>` : '';
-
-  /* ── Gallery (images + videos) ── */
-  const galleryImages = Array.isArray(prop.gallery_images) ? prop.gallery_images : [];
-  const galleryVideos = Array.isArray(prop.gallery_videos) ? prop.gallery_videos : [];
-  const galleryItems = [
-    ...galleryImages.map(src => ({ type: 'image', src })),
-    ...galleryVideos.map(src => ({ type: 'video', src, poster: src.replace(/\.mp4$/i, '-poster.jpg') })),
-  ];
-  const galleryHtml = galleryItems.length
-    ? `<div id="gallery" class="ph-section">
-        <div class="ph-section-label">Photos & Site Progress</div>
-        <div class="ph-section-title">Gallery</div>
-        <div class="ph-divider"></div>
-        <div class="ph-gallery-grid">
-          ${galleryItems.map((item, i) => `
-          <button type="button" class="ph-gallery-item${item.type === 'video' ? ' video' : ''}" data-idx="${i}" style="background-image:url('${item.type === 'video' ? item.poster : item.src}')" aria-label="${item.type === 'video' ? 'Play video' : 'View photo'} ${i + 1}">
-            <span class="overlay"><i class="fas fa-${item.type === 'video' ? 'play' : 'expand'}"></i></span>
-          </button>`).join('')}
-        </div>
-      </div>`
-    : '';
 
   /* ── RERA ── */
   const reraHtml = prop.rera
@@ -650,28 +638,25 @@ function buildPage(prop, allProps) {
 
   /* ── Assemble ── */
   document.getElementById('ph-page').innerHTML = `
-    ${tagbar}
-
-    <div class="ph-hero">
-      <div class="ph-hero-inner">
-        <div class="ph-slides">
-          ${slidesHtml}
-          <div class="ph-hero-overlay"></div>
-          ${dotsHtml}
-          ${arrowsHtml}
-        </div>
-        <div class="ph-hero-meta">
-          <div class="ph-hero-title-block">
-            <div class="ph-developer-tag">${prop.developer || ''}</div>
-            <h1>${prop.title || ''}</h1>
-            <div class="ph-hero-loc"><i class="fas fa-map-marker-alt"></i>${prop.location || ''}</div>
-          </div>
-          <div class="ph-hero-price-chip">
-            <div class="label">Starting From</div>
-            <div class="value">${price}</div>
+    <div class="ph-header">
+      <div class="ph-header-top">
+        <div>
+          ${tagChipsHtml}
+          <h1>${prop.title || ''}</h1>
+          <div class="ph-header-meta-row">
+            <span><i class="fas fa-map-marker-alt"></i> ${prop.location || ''}</span>
+            <span class="sep">·</span>
+            <span>${prop.developer || ''}</span>
+            <span class="sep">·</span>
+            <span class="ph-header-price">Starting from <strong>${price}</strong></span>
           </div>
         </div>
+        <button type="button" class="ph-share-btn" id="phShareBtn"><i class="fas fa-arrow-up-from-bracket"></i> Share</button>
       </div>
+    </div>
+
+    <div class="ph-photo-grid">
+      ${buildPhotoGrid()}
     </div>
 
     <nav class="ph-subnav" aria-label="Page sections">
@@ -680,7 +665,6 @@ function buildPage(prop, allProps) {
         ${units.length ? '<a href="#pricing">Pricing</a>' : ''}
         <a href="#emi">EMI Calculator</a>
         ${amenities.length ? '<a href="#amenities">Amenities</a>' : ''}
-        ${galleryItems.length ? '<a href="#gallery">Gallery</a>' : ''}
         <a href="#enquiry">Enquire</a>
       </div>
     </nav>
@@ -700,7 +684,6 @@ function buildPage(prop, allProps) {
         ${pricingHtml}
         ${emiHtml}
         ${amenitiesHtml}
-        ${galleryHtml}
 
         <div id="enquiry" class="ph-section">
           <div class="ph-section-label">Get In Touch</div>
@@ -759,31 +742,13 @@ function buildPage(prop, allProps) {
 
     ${bottomRelHtml}
 
-    ${galleryItems.length ? `<div class="ph-lightbox" id="phLightbox" hidden>
+    <div class="ph-lightbox" id="phLightbox" hidden>
       <button type="button" class="ph-lightbox-close" id="phLightboxClose" aria-label="Close"><i class="fas fa-times"></i></button>
       <button type="button" class="ph-lightbox-prev" id="phLightboxPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
       <button type="button" class="ph-lightbox-next" id="phLightboxNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
       <div class="ph-lightbox-content" id="phLightboxContent"></div>
-    </div>` : ''}
+    </div>
   `;
-
-  /* ── Slideshow ── */
-  if (images.length > 1) {
-    const slides = document.querySelectorAll('.ph-slide');
-    const dots   = document.querySelectorAll('.ph-dot');
-    let cur = 0, timer;
-    function goTo(n) {
-      slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
-      cur = (n + images.length) % images.length;
-      slides[cur].classList.add('active'); dots[cur].classList.add('active');
-      resetTimer();
-    }
-    function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo(cur+1), 4500); }
-    document.querySelector('.ph-slide-next')?.addEventListener('click', () => goTo(cur+1));
-    document.querySelector('.ph-slide-prev')?.addEventListener('click', () => goTo(cur-1));
-    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
-    resetTimer();
-  }
 
   /* ── Subnav active on scroll ── */
   const sublinks = document.querySelectorAll('.ph-subnav a');
@@ -794,7 +759,7 @@ function buildPage(prop, allProps) {
       }
     });
   }, { rootMargin: '-30% 0px -60% 0px' });
-  document.querySelectorAll('#overview,#pricing,#emi,#amenities,#gallery,#enquiry').forEach(el => el && observer.observe(el));
+  document.querySelectorAll('#overview,#pricing,#emi,#amenities,#enquiry').forEach(el => el && observer.observe(el));
 
   /* ── EMI calculator ── */
   function formatINR(n) {
@@ -854,14 +819,14 @@ function buildPage(prop, allProps) {
   handleForm(document.getElementById('phEnqForm'));
   handleForm(document.getElementById('phSideEnqForm'));
 
-  /* ── Gallery lightbox ── */
-  if (galleryItems.length) {
+  /* ── Photo lightbox (top grid + "show all photos" share one viewer over allMedia) ── */
+  if (allMedia.length && allMedia[0].src) {
     const lightbox = document.getElementById('phLightbox');
     const content  = document.getElementById('phLightboxContent');
     let curIdx = 0;
     function showItem(i) {
-      curIdx = (i + galleryItems.length) % galleryItems.length;
-      const item = galleryItems[curIdx];
+      curIdx = (i + allMedia.length) % allMedia.length;
+      const item = allMedia[curIdx];
       content.innerHTML = item.type === 'image'
         ? `<img src="${item.src}" alt="">`
         : `<video src="${item.src}" controls autoplay playsinline></video>`;
@@ -876,8 +841,8 @@ function buildPage(prop, allProps) {
       content.innerHTML = '';
       document.body.style.overflow = '';
     }
-    document.querySelectorAll('.ph-gallery-item').forEach(btn => {
-      btn.addEventListener('click', () => openLightbox(+btn.dataset.idx));
+    document.querySelectorAll('.ph-photo-cell').forEach(cell => {
+      cell.addEventListener('click', () => openLightbox(+cell.dataset.idx));
     });
     document.getElementById('phLightboxClose').addEventListener('click', closeLightbox);
     document.getElementById('phLightboxPrev').addEventListener('click', () => showItem(curIdx - 1));
@@ -890,6 +855,22 @@ function buildPage(prop, allProps) {
       if (e.key === 'ArrowRight') showItem(curIdx + 1);
     });
   }
+
+  /* ── Share button ── */
+  document.getElementById('phShareBtn')?.addEventListener('click', async () => {
+    const shareData = { title: prop.title || 'PROPHUNT LLP', text: `Check out ${prop.title || 'this property'} on PROPHUNT LLP`, url: window.location.href };
+    if (navigator.share) {
+      try { await navigator.share(shareData); } catch (e) { /* user cancelled */ }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        const btn = document.getElementById('phShareBtn');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Link copied';
+        setTimeout(() => { btn.innerHTML = orig; }, 2000);
+      } catch (e) { /* clipboard unavailable */ }
+    }
+  });
 
   /* ── Custom dropdown (Select Configuration) ── */
   document.querySelectorAll('.ph-select').forEach(sel => {
