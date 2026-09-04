@@ -74,6 +74,16 @@ html, body { overflow-x:hidden; }
   .partner-hero-actions .btn { width:100%; justify-content:center; }
   .partner-form-card { padding:1.5rem; }
 }
+.dev-loop { overflow:hidden; position:relative; margin-top:2.5rem; }
+.dev-loop::before,.dev-loop::after { content:''; position:absolute; top:0; bottom:0; width:80px; z-index:2; pointer-events:none; }
+.dev-loop::before { left:0; background:linear-gradient(to right,var(--off-white),transparent); }
+.dev-loop::after { right:0; background:linear-gradient(to left,var(--off-white),transparent); }
+.dev-loop-track { display:flex; width:max-content; animation:devLoopPartners 28s linear infinite; }
+.dev-loop-track:hover { animation-play-state:paused; }
+@keyframes devLoopPartners { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+.dev-logo-item { padding:1.5rem 2.5rem; display:flex; align-items:center; justify-content:center; }
+.dev-logo-item img { height:38px; width:auto; object-fit:contain; filter:grayscale(1) opacity(.5); transition:filter .3s; }
+.dev-loop-track:hover .dev-logo-item:hover img { filter:grayscale(0) opacity(1); }
 </style>
 </head>
 <body>
@@ -133,6 +143,39 @@ html, body { overflow-x:hidden; }
       <div class="partner-stat" data-reveal data-reveal-delay="100"><strong>9</strong><span>Developer relationships across Pune</span></div>
       <div class="partner-stat" data-reveal data-reveal-delay="200"><strong>Fast</strong><span>Lead response and follow-up discipline</span></div>
       <div class="partner-stat" data-reveal data-reveal-delay="300"><strong>360</strong><span>Buyer journey support from lead to visit</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted dev-section" aria-label="Developer partners">
+  <div class="container">
+    <div class="section-header centered" data-reveal>
+      <span class="section-label"><i class="fas fa-handshake"></i> Trusted Relationships</span>
+      <h2>Developers We Work With</h2>
+      <p class="section-sub">We partner with RERA-registered, reputable developers building across Pune's key growth corridors.</p>
+    </div>
+  </div>
+  <div class="dev-loop" aria-hidden="true">
+    <div class="dev-loop-track">
+      <div class="dev-logo-item"><img src="images/developers/godrej-transparent.png" alt="Godrej Properties"></div>
+      <div class="dev-logo-item"><img src="images/developers/mahindra-transparent.png" alt="Mahindra Lifespaces"></div>
+      <div class="dev-logo-item"><img src="images/developers/shapoorji-transparent.png" alt="Shapoorji Pallonji"></div>
+      <div class="dev-logo-item"><img src="images/developers/kohinoor-transparent.png" alt="Kohinoor Group"></div>
+      <div class="dev-logo-item"><img src="images/developers/dlf-transparent.png" alt="DLF"></div>
+      <div class="dev-logo-item"><img src="images/developers/rohan-transparent.png" alt="Rohan Builders"></div>
+      <div class="dev-logo-item"><img src="images/developers/vtp-transparent.png" alt="VTP Realty"></div>
+      <div class="dev-logo-item"><img src="images/developers/tejraj-transparent.png" alt="Tejraj Group"></div>
+      <div class="dev-logo-item"><img src="images/developers/tribeca-transparent.png" alt="Tribeca"></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="dev-logo-item"><img src="images/developers/godrej-transparent.png" alt="" aria-hidden="true"></div>
+      <div class="dev-logo-item"><img src="images/developers/mahindra-transparent.png" alt="" aria-hidden="true"></div>
+      <div class="dev-logo-item"><img src="images/developers/shapoorji-transparent.png" alt="" aria-hidden="true"></div>
+      <div class="dev-logo-item"><img src="images/developers/kohinoor-transparent.png" alt="" aria-hidden="true"></div>
+      <div class="dev-logo-item"><img src="images/developers/dlf-transparent.png" alt="" aria-hidden="true"></div>
+      <div class="dev-logo-item"><img src="images/developers/rohan-transparent.png" alt="" aria-hidden="true"></div>
+      <div class="dev-logo-item"><img src="images/developers/vtp-transparent.png" alt="" aria-hidden="true"></div>
+      <div class="dev-logo-item"><img src="images/developers/tejraj-transparent.png" alt="" aria-hidden="true"></div>
+      <div class="dev-logo-item"><img src="images/developers/tribeca-transparent.png" alt="" aria-hidden="true"></div>
     </div>
   </div>
 </section>
