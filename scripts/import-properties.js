@@ -16,7 +16,8 @@
  *   title, developer, location, config, area
  *   category        (apartment | plot | villa | commercial)
  *   status          (active | coming-soon | sold-out)
- *   rera, tagline, overview
+ *   rera, rera_qr (path to the OFFICIAL MahaRERA certificate QR — never
+ *       generate one), tagline, overview
  *   stat_1_value, stat_1_label ... stat_4_value, stat_4_label
  *   price           (number, ₹ Lakhs — 0 or blank for "Price on Request")
  *   unit_1_type, unit_1_area, unit_1_price, unit_1_featured (true/false) ... unit_3_*
@@ -91,6 +92,7 @@ function buildFrontmatter(row) {
   push('category', (row.category || 'apartment').toLowerCase());
   push('status', (row.status || 'active').toLowerCase());
   push('rera', row.rera);
+  push('rera_qr', row.rera_qr);
   if (row.hero_1) push('hero_1', row.hero_1);
   if (row.hero_2) push('hero_2', row.hero_2);
   if (row.hero_3) push('hero_3', row.hero_3);

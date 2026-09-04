@@ -71,6 +71,12 @@ collections:
         required: false
         hint: "MahaRERA project registration number"
 
+      - label: "RERA QR Code"
+        name: "rera_qr"
+        widget: "image"
+        required: false
+        hint: "Upload the OFFICIAL QR code image from the MahaRERA certificate — never a generated one. Leave blank to hide the QR (the registration number still shows without it)."
+
       # ── HERO IMAGES (for detail page slideshow) ─────────────
       - label: "Hero Image 1 (Main)"
         name: "hero_1"
