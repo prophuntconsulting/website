@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YR6CRE6BNN');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="ph-blog-title">Loading… | PROPHUNT LLP Blog</title>
 <meta id="ph-meta-desc" name="description" content="">
@@ -161,7 +169,7 @@
         <div class="dropdown" role="menu">
           <a href="/projects" class="dropdown-link"><i class="fas fa-th"></i> All Projects</a>
           <a href="/projects?type=apartment" class="dropdown-link"><i class="fas fa-building"></i> Apartments</a>
-          <a href="/projects?type=plot" class="dropdown-link"><i class="fas fa-map"></i> Plots</a>
+          <a href="/projects?type=plot" class="dropdown-link"><i class="fas fa-map"></i> Plots</a><a href="/projects?type=villa" class="dropdown-link"><i class="fas fa-home"></i> Villas</a>
         </div>
       </li>
       <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
@@ -343,19 +351,8 @@ function buildPost(meta, body, allPosts) {
     document.head.appendChild(kw);
   }
 
-  // Schema.org
-  const schema = {
-    "@context":"https://schema.org","@type":"BlogPosting",
-    "headline": title, "description": excerpt,
-    "datePublished": date, "dateModified": date,
-    "author":{"@type":"Organization","name":author},
-    "publisher":{"@type":"Organization","name":"PROPHUNT LLP","url":"https://prophuntllp.com","logo":"https://prophuntllp.com/images/logo-black.png"},
-    "mainEntityOfPage": location.href.split('?')[0],
-    ...(cover ? {"image":cover} : {})
-  };
-  const s = document.createElement('script');
-  s.type='application/ld+json'; s.textContent=JSON.stringify(schema);
-  document.head.appendChild(s);
+  // Schema.org BlogPosting JSON-LD is already server-injected by build-blog.js
+  // for each generated page — no need to duplicate it here.
 
   // Build page HTML
   document.getElementById('bp-page').innerHTML = `

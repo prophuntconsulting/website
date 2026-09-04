@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YR6CRE6BNN');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Developer Partnerships | PROPHUNT LLP - Pune Project Sales</title>
 <meta name="description" content="Partner with PROPHUNT LLP for project marketing, qualified buyer leads, site visit coordination, channel sales, and launch support for real estate developments in Pune.">
@@ -93,7 +101,7 @@ html, body { overflow-x:hidden; }
     <a href="index.html" class="nav-logo"><img src="images/logo-black.png" alt="PROPHUNT LLP" class="logo-black"></a>
     <ul class="nav-links">
       <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-      <li class="nav-item"><a href="projects.html" class="nav-link active">Projects <i class="fas fa-chevron-down chevron"></i></a><div class="dropdown"><a href="projects.html" class="dropdown-link"><i class="fas fa-th"></i> All Projects</a><a href="projects.html?type=apartment" class="dropdown-link"><i class="fas fa-building"></i> Apartments</a><a href="projects.html?type=plot" class="dropdown-link"><i class="fas fa-map"></i> Plots</a><hr class="dropdown-divider"><a href="developers.html" class="dropdown-link"><i class="fas fa-sitemap"></i> Developer Partnerships</a></div></li>
+      <li class="nav-item"><a href="projects.html" class="nav-link active">Projects <i class="fas fa-chevron-down chevron"></i></a><div class="dropdown"><a href="projects.html" class="dropdown-link"><i class="fas fa-th"></i> All Projects</a><a href="projects.html?type=apartment" class="dropdown-link"><i class="fas fa-building"></i> Apartments</a><a href="projects.html?type=plot" class="dropdown-link"><i class="fas fa-map"></i> Plots</a><a href="projects.html?type=villa" class="dropdown-link"><i class="fas fa-home"></i> Villas</a><hr class="dropdown-divider"><a href="developers.html" class="dropdown-link"><i class="fas fa-sitemap"></i> Developer Partnerships</a></div></li>
       <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
       <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
       <li class="nav-item"><a href="blog/index.html" class="nav-link">Blog</a></li>
@@ -109,7 +117,7 @@ html, body { overflow-x:hidden; }
   <div class="mobile-menu-inner">
     <ul class="mobile-nav-links">
       <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-      <li><a href="projects.html" class="mobile-nav-link">Projects</a><div class="mobile-sub"><a href="projects.html?type=apartment" class="mobile-sub-link">Apartments</a><a href="projects.html?type=plot" class="mobile-sub-link">Plots</a><a href="developers.html" class="mobile-sub-link active">Developer Partnerships</a></div></li>
+      <li><a href="projects.html" class="mobile-nav-link">Projects</a><div class="mobile-sub"><a href="projects.html?type=apartment" class="mobile-sub-link">Apartments</a><a href="projects.html?type=plot" class="mobile-sub-link">Plots</a><a href="projects.html?type=villa" class="mobile-sub-link">Villas</a><a href="developers.html" class="mobile-sub-link active">Developer Partnerships</a></div></li>
       <li><a href="services.html" class="mobile-nav-link">Services</a></li>
       <li><a href="about.html" class="mobile-nav-link">About</a></li>
       <li><a href="blog/index.html" class="mobile-nav-link">Blog</a></li>
@@ -139,7 +147,7 @@ html, body { overflow-x:hidden; }
 <section class="partner-stats">
   <div class="container">
     <div class="partner-stats-grid">
-      <div class="partner-stat" data-reveal><strong>18+</strong><span>Active project mandates and listings</span></div>
+      <div class="partner-stat" data-reveal><strong>10+</strong><span>Active project mandates and listings</span></div>
       <div class="partner-stat" data-reveal data-reveal-delay="100"><strong>9</strong><span>Developer relationships across Pune</span></div>
       <div class="partner-stat" data-reveal data-reveal-delay="200"><strong>Fast</strong><span>Lead response and follow-up discipline</span></div>
       <div class="partner-stat" data-reveal data-reveal-delay="300"><strong>360</strong><span>Buyer journey support from lead to visit</span></div>
@@ -275,9 +283,9 @@ html, body { overflow-x:hidden; }
       </div>
 
       <div class="partner-form-card" data-reveal="right">
-        <h2>Developer Enquiry</h2>
-        <p>Fill this form and we will open an email draft with your partnership details.</p>
-        <form id="developerForm" novalidate>
+        <h2>List Your Property</h2>
+        <p>Submit your project details below. Our team reviews every submission and, once approved, publishes it as a full listing on the site — usually within 2 business days.</p>
+        <form id="developerForm" novalidate enctype="multipart/form-data">
           <div class="form-row">
             <div class="form-group"><label class="form-label" for="companyName">Developer / Company *</label><input class="form-control" type="text" id="companyName" name="companyName" placeholder="Company name" required></div>
             <div class="form-group"><label class="form-label" for="contactPerson">Contact Person *</label><input class="form-control" type="text" id="contactPerson" name="contactPerson" placeholder="Full name" required></div>
@@ -287,21 +295,35 @@ html, body { overflow-x:hidden; }
             <div class="form-group"><label class="form-label" for="email">Email *</label><input class="form-control" type="email" id="email" name="email" placeholder="name@company.com" required></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label" for="projectName">Project Name</label><input class="form-control" type="text" id="projectName" name="projectName" placeholder="Project name"></div>
-            <div class="form-group"><label class="form-label" for="location">Project Location</label><input class="form-control" type="text" id="location" name="location" placeholder="Baner, Kharadi, Hinjewadi..."></div>
+            <div class="form-group"><label class="form-label" for="projectName">Project Name *</label><input class="form-control" type="text" id="projectName" name="projectName" placeholder="Project name" required></div>
+            <div class="form-group"><label class="form-label" for="location">Project Location *</label><input class="form-control" type="text" id="location" name="location" placeholder="Baner, Kharadi, Hinjewadi..." required></div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="propertyType">Property Type</label>
+              <label class="form-label" for="propertyType">Category</label>
               <select class="form-control" id="propertyType" name="propertyType">
-                <option value="">Select type</option>
-                <option value="Residential apartments">Residential apartments</option>
-                <option value="Villa / row house project">Villa / row house project</option>
-                <option value="Plotted development">Plotted development</option>
-                <option value="Commercial project">Commercial project</option>
-                <option value="Mixed-use project">Mixed-use project</option>
+                <option value="">Select category</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Villa">Villa / row house</option>
+                <option value="Plot">Plotted development</option>
+                <option value="Commercial">Commercial</option>
               </select>
             </div>
+            <div class="form-group">
+              <label class="form-label" for="status">Status</label>
+              <select class="form-control" id="status" name="status">
+                <option value="">Select status</option>
+                <option value="Active / Ongoing">Active / Ongoing</option>
+                <option value="Coming Soon">Coming Soon</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label" for="config">Configuration</label><input class="form-control" type="text" id="config" name="config" placeholder="e.g. 2 &amp; 3 BHK or Villa Plots"></div>
+            <div class="form-group"><label class="form-label" for="startingPrice">Starting Price (₹ Lakhs)</label><input class="form-control" type="number" id="startingPrice" name="startingPrice" placeholder="e.g. 84 for ₹84L, 265 for ₹2.65Cr"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label" for="rera">RERA Number</label><input class="form-control" type="text" id="rera" name="rera" placeholder="MahaRERA project registration number"></div>
             <div class="form-group">
               <label class="form-label" for="supportNeeded">Support Needed</label>
               <select class="form-control" id="supportNeeded" name="supportNeeded">
@@ -314,16 +336,17 @@ html, body { overflow-x:hidden; }
               </select>
             </div>
           </div>
-          <div class="form-group"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message" placeholder="Share inventory size, ticket range, launch status, RERA status, or current sales priority." rows="4"></textarea></div>
-          <button type="submit" class="btn btn-primary btn-lg form-submit-btn"><span>Send Partnership Enquiry</span><i class="fas fa-paper-plane"></i></button>
+          <div class="form-group"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message" placeholder="Share unit sizes, amenities, possession date, or current sales priority." rows="4"></textarea></div>
+          <div class="form-group"><label class="form-label" for="attachments">Project Images / Brochure</label><input class="form-control" type="file" id="attachments" name="attachments" accept=".pdf,.zip,.jpg,.jpeg,.png,.webp" multiple><small style="color:var(--gray-500);font-size:.78rem;display:block;margin-top:.35rem;">Optional — attach a brochure PDF or a few project photos (up to ~15MB total).</small></div>
+          <button type="submit" class="btn btn-primary btn-lg form-submit-btn"><span>Submit Property Listing</span><i class="fas fa-paper-plane"></i></button>
         </form>
         <div class="form-success" id="formSuccess">
           <i class="fas fa-check-circle"></i>
-          <h3>Enquiry Sent!</h3>
-          <p>We've received your partnership enquiry and our team will get back to you shortly. If something went wrong, copy the message below and email it to <strong>info@prophuntllp.com</strong>.</p>
+          <h3>Listing Submitted!</h3>
+          <p>We've received your property details and our team will review them shortly. Approved listings go live on the site within 2 business days. If something went wrong, copy the message below and email it to <strong>info@prophuntllp.com</strong>.</p>
           <div class="copy-area"><textarea id="copyText" rows="8" readonly></textarea></div>
           <button class="btn btn-outline btn-sm" id="btnCopy"><i class="far fa-copy"></i> Copy Message</button>
-          <button class="btn btn-dark btn-sm" id="btnReset" style="margin-left:.5rem;">Send Another</button>
+          <button class="btn btn-dark btn-sm" id="btnReset" style="margin-left:.5rem;">Submit Another</button>
         </div>
       </div>
     </div>
@@ -370,35 +393,38 @@ html, body { overflow-x:hidden; }
 
   form?.addEventListener('submit', function(e){
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(form).entries());
-    const subject = `Developer Partnership Enquiry - ${data.companyName || 'New Project'}`;
+    const raw = Object.fromEntries(new FormData(form).entries());
+    const subject = `Property Listing Submission - ${raw.projectName || raw.companyName || 'New Project'}`;
     const body = [
-      `Developer / Company: ${data.companyName || 'Not provided'}`,
-      `Contact Person: ${data.contactPerson || 'Not provided'}`,
-      `Phone: ${data.phone || 'Not provided'}`,
-      `Email: ${data.email || 'Not provided'}`,
-      `Project Name: ${data.projectName || 'Not provided'}`,
-      `Location: ${data.location || 'Not provided'}`,
-      `Property Type: ${data.propertyType || 'Not specified'}`,
-      `Support Needed: ${data.supportNeeded || 'Not specified'}`,
+      `Developer / Company: ${raw.companyName || 'Not provided'}`,
+      `Contact Person: ${raw.contactPerson || 'Not provided'}`,
+      `Phone: ${raw.phone || 'Not provided'}`,
+      `Email: ${raw.email || 'Not provided'}`,
+      `Project Name: ${raw.projectName || 'Not provided'}`,
+      `Location: ${raw.location || 'Not provided'}`,
+      `Category: ${raw.propertyType || 'Not specified'}`,
+      `Status: ${raw.status || 'Not specified'}`,
+      `Configuration: ${raw.config || 'Not specified'}`,
+      `Starting Price (₹ Lakhs): ${raw.startingPrice || 'Not specified'}`,
+      `RERA Number: ${raw.rera || 'Not provided'}`,
+      `Support Needed: ${raw.supportNeeded || 'Not specified'}`,
       '',
-      data.message || 'Please contact me to discuss a developer partnership with PROPHUNT LLP.'
+      raw.message || 'Please review and publish this property listing on PROPHUNT LLP.'
     ].join('\n');
     const fullText = `To: info@prophuntllp.com\nSubject: ${subject}\n\n${body}`;
     if (copyText) copyText.value = fullText;
     const submitBtn = form.querySelector('.form-submit-btn, [type=submit]');
     if (submitBtn) submitBtn.disabled = true;
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9',
-        subject,
-        from_name: 'PROPHUNT LLP website — Developer partnerships',
-        source_page: window.location.pathname,
-        ...data
-      })
-    }).then(r => { if (!r.ok) throw new Error('submit failed'); })
+
+    // Sent as multipart FormData (not JSON) so any attached brochure/photos ride along.
+    const fd = new FormData(form);
+    fd.append('access_key', 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9');
+    fd.append('subject', subject);
+    fd.append('from_name', 'PROPHUNT LLP website — Property listing submissions');
+    fd.append('source_page', window.location.pathname);
+
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
+      .then(r => { if (!r.ok) throw new Error('submit failed'); })
       .catch(() => { window.location.href = `mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; })
       .finally(() => {
         if (submitBtn) submitBtn.disabled = false;
