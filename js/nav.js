@@ -123,7 +123,7 @@
                 body: JSON.stringify({
                     access_key: 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9',
                     subject: 'Newsletter subscription',
-                    from_name: 'PROPHUNT LLP website — Newsletter',
+                    from_name: 'PROPHUNT LLP website - Newsletter',
                     email,
                     source_page: window.location.pathname
                 })

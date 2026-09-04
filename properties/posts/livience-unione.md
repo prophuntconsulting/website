@@ -6,8 +6,13 @@ config: "2+2, 3 & 4 BHK"
 category: "apartment"
 status: "active"
 rera: "PR1260002501582"
+rera_qr: "/images/landing-pages/livience-unione/rera-qr.webp"
+hero_1: "/images/landing-pages/livience-unione/photo-1.webp"
+hero_2: "/images/landing-pages/livience-unione/photo-2.webp"
+hero_3: "/images/landing-pages/livience-unione/photo-3.webp"
+hero_caption: "Livience Unione - Aundh-Baner Road, Pune"
 tagline: "Under Construction | Single 26-Storey Tower | Aundh-Baner Road"
-overview: "Livience Unione is a single 26-storey gated tower on Aundh-Baner Road, near Kapil Malhar, offering 2+2, 3 and 4 BHK homes across a 1.7-acre footprint, 350 metres from the nearest metro station. The rooftop level is built out as a full amenity floor — an infinity pool, a fusion hall, a sky cafe with a party deck, a mini theatre and co-working space — with mobile-controlled home automation and 3-tier security at the gate."
+overview: "Livience Unione is a single 26-storey gated tower on Aundh-Baner Road, near Kapil Malhar, offering 2+2, 3 and 4 BHK homes across a 1.7-acre footprint, 350 metres from the nearest metro station. The rooftop level is built out as a full amenity floor - an infinity pool, a fusion hall, a sky cafe with a party deck, a mini theatre and co-working space - with mobile-controlled home automation and 3-tier security at the gate."
 stat_1_value: "1.7 Acres"
 stat_1_label: "Project Area"
 stat_2_value: "26"
@@ -30,4 +35,11 @@ amenities:
   - Senior Citizen Area
   - Box Cricket Court
   - Home Automation
+gallery_images:
+  - "/images/landing-pages/livience-unione/photo-1.webp"
+  - "/images/landing-pages/livience-unione/photo-2.webp"
+  - "/images/landing-pages/livience-unione/photo-3.webp"
+  - "/images/landing-pages/livience-unione/photo-4.webp"
+  - "/images/landing-pages/livience-unione/photo-5.webp"
+  - "/images/landing-pages/livience-unione/photo-6.webp"
 ---

@@ -79,10 +79,13 @@ button,select,input,textarea{font-family:inherit}
 .ph-header-top h1{font-family:'Poppins',sans-serif;font-size:clamp(22px,3.2vw,30px);font-weight:700;line-height:1.25;color:var(--ink)}
 .ph-header-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:8px;font-size:13.5px;color:var(--gray-600)}
 .ph-header-meta-row .sep{color:var(--gray-400)}
-.ph-header-price-row{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--gray-200)}
+.ph-header-price-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px 12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--gray-200)}
 .ph-header-price-label{font-size:13px;color:var(--gray-600)}
-.ph-header-price-value{font-family:'Poppins',sans-serif;font-size:clamp(20px,2.6vw,26px);font-weight:800;color:var(--red)}
-.ph-header-price-link{font-size:12.5px;font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:2px;margin-left:4px}
+.ph-header-price-value{font-family:'Poppins',sans-serif;font-size:clamp(20px,2.6vw,26px);font-weight:800;color:var(--red);line-height:1}
+.ph-header-price-link{font-size:12.5px;font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.ph-price-pill{display:inline-flex;align-items:center;gap:10px;background:var(--gray-100);border:1px solid var(--gray-200);border-radius:99px;padding:9px 16px;font-size:13.5px;color:var(--gray-700);font-weight:600}
+.ph-price-pill i{color:var(--red)}
+.ph-price-pill a{color:var(--red);font-weight:700;text-decoration:underline;text-underline-offset:2px}
 .ph-share-btn{display:flex;align-items:center;gap:8px;padding:9px 16px;border:1.5px solid var(--gray-200);border-radius:8px;background:#fff;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s;flex-shrink:0}
 .ph-share-btn:hover{background:var(--gray-100);border-color:var(--gray-400)}
 
@@ -385,7 +388,7 @@ button,select,input,textarea{font-family:inherit}
     <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Kalpataru</div>
     <h1 style="font-family:'Poppins',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">Kalpataru Aria</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">Karjat, Maharashtra · 2 BHK Apartments, Plots &amp; 3 BHK Townhouses · Starting from ₹74 L*</p>
-    <p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">Kalpataru Aria is an 88-acre gated township at the foothills of the Sahyadris in Karjat, designed by Padma Bhushan architect Hafeez Contractor with landscaping by Green Space Alliance. The retreat-style address offers 2 BHK homes starting at ₹74.49 Lakhs, hill-view plots from 1,615 to 9,000 sqft starting at ₹88 Lakhs, and spacious 3 BHK luxury townhouses (1,700–1,800 sqft carpet) starting at ₹2.01 Cr. Residents get access to 30+ lifestyle amenities including a Grand Health Club, with excellent connectivity via the Mumbai–Pune Expressway, the upcoming Navi Mumbai International Airport, and Atal Setu — part of Karjat's fast-emerging Mumbai 3.0 growth corridor. Backed by Kalpataru's 53+ year legacy of over 110 landmark projects across Mumbai, Thane and Pune.</p>
+    <p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">Kalpataru Aria is an 88-acre gated township at the foothills of the Sahyadris in Karjat, designed by Padma Bhushan architect Hafeez Contractor with landscaping by Green Space Alliance. The retreat-style address offers 2 BHK homes starting at ₹74.49 Lakhs, hill-view plots from 1,615 to 9,000 sqft starting at ₹88 Lakhs, and spacious 3 BHK luxury townhouses (1,700–1,800 sqft carpet) starting at ₹2.01 Cr. Residents get access to 30+ lifestyle amenities including a Grand Health Club, with excellent connectivity via the Mumbai–Pune Expressway, the upcoming Navi Mumbai International Airport, and Atal Setu - part of Karjat's fast-emerging Mumbai 3.0 growth corridor. Backed by Kalpataru's 53+ year legacy of over 110 landmark projects across Mumbai, Thane and Pune.</p>
     <div class="ph-loading-spinner"></div>
   </div>
 </div>
@@ -621,7 +624,7 @@ function buildPage(prop, allProps) {
   /* ── RERA ── */
   const reraHtml = prop.rera
     ? `<div class="ph-rera-box"><i class="fas fa-shield-halved"></i>
-        <div><strong>MahaRERA Registered</strong><br>Registration No: ${prop.rera} — <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener" style="color:var(--red)">Verify on MahaRERA</a></div>
+        <div><strong>MahaRERA Registered</strong><br>Registration No: ${prop.rera} - <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener" style="color:var(--red)">Verify on MahaRERA</a></div>
       </div>` : '';
 
   /* RERA + QR strip shown right before the enquiry form, so the verification
@@ -702,10 +705,39 @@ function buildPage(prop, allProps) {
         </div>
       </div>` : '';
 
-  /* ── Config select for form (custom-styled, not a native <select>) ── */
-  const configLabels = units.length
-    ? units.map(u => u.type + (u.area ? ' – ' + u.area : ''))
-    : [prop.config || 'General Inquiry'];
+  /* ── Config select for form (custom-styled, not a native <select>) ──
+     When there's no per-unit pricing breakdown, prop.config is often a combined
+     string like "3 & 4 BHK Apartments" or "2, 3 & 4 BHK" — split that into
+     separate selectable options rather than offering it as one glob. */
+  function splitConfigLabel(configStr) {
+    const raw = (configStr || '').trim();
+    if (!raw) return ['General Inquiry'];
+    const parts = raw.split(/\s*(?:,|&)\s*/).map(s => s.trim()).filter(Boolean);
+    if (parts.length < 2) return [raw];
+
+    const numToken = /^[\d.]+(?:\+[\d.]+)?$/;
+
+    // Each part is already a complete, standalone label (e.g. "2 BHK Apartments, Plots & 3 BHK Townhouses")
+    if (parts.every(p => /[A-Za-z]/.test(p) && !numToken.test(p))) return parts;
+
+    // A numeric list sharing one trailing suffix (e.g. "3 & 4 BHK Apartments")
+    const last = parts[parts.length - 1];
+    const m = last.match(/^([\d.]+(?:\+[\d.]+)?)\s+(.+)$/);
+    const earlier = parts.slice(0, -1);
+    if (m && earlier.every(p => numToken.test(p))) {
+      const suffix = m[2].trim();
+      return [...earlier, m[1]].map(n => `${n} ${suffix}`);
+    }
+
+    return [raw]; // can't confidently split — keep as one option
+  }
+  // Multiple distinct priced units (each with its own area/price) are already
+  // meaningfully separated — keep those as-is. A single unit is often really a
+  // combined config string (e.g. unit_1_type "3, 3.5, 4 & 5 BHK") crammed into
+  // one pricing card for lack of per-config pricing data, so split that one too.
+  const configLabels = units.length > 1
+    ? units.map(u => u.type + (u.area ? ' - ' + u.area : ''))
+    : splitConfigLabel(prop.config);
   function buildConfigSelect(id) {
     return `<div class="ph-select" id="${id}">
       <button type="button" class="ph-select-trigger placeholder"><span class="txt">Select Configuration</span><i class="fas fa-chevron-down"></i></button>
@@ -733,9 +765,10 @@ function buildPage(prop, allProps) {
             <span>${prop.developer || ''}</span>
           </div>
           <div class="ph-header-price-row">
-            <span class="ph-header-price-label">Starting from</span>
-            <span class="ph-header-price-value">${price}</span>
-            ${units.length ? '<a href="#pricing" class="ph-header-price-link">View pricing ↓</a>' : ''}
+            ${prop.price > 0
+              ? `<span class="ph-header-price-label">Starting from</span><span class="ph-header-price-value">${price}</span>${units.length ? '<a href="#pricing" class="ph-header-price-link">View pricing ↓</a>' : ''}`
+              : `<span class="ph-price-pill"><i class="fas fa-tag"></i> Price on Request <a href="#phSideEnqCard">Get Pricing →</a></span>`
+            }
           </div>
         </div>
         <button type="button" class="ph-share-btn" id="phShareBtn"><i class="fas fa-arrow-up-from-bracket"></i> Share</button>
@@ -771,7 +804,7 @@ function buildPage(prop, allProps) {
           <div class="ph-section-label">Get In Touch</div>
           <div class="ph-section-title">Ready to Learn More?</div>
           <div class="ph-divider"></div>
-          <p style="font-size:13.5px;color:var(--gray-600);margin-bottom:18px">Use the form in the sidebar, or reach us directly — a PROPHUNT advisor will get back to you with pricing, floor plans and site visit details.</p>
+          <p style="font-size:13.5px;color:var(--gray-600);margin-bottom:18px">Use the form in the sidebar, or reach us directly - a PROPHUNT advisor will get back to you with pricing, floor plans and site visit details.</p>
           <div class="ph-enquiry-jump-actions">
             <a href="#phSideEnqCard" class="btn btn-primary" id="phJumpToForm"><i class="fas fa-arrow-up"></i> Fill the Enquiry Form</a>
             <a href="https://wa.me/917447430431?text=${encodeURIComponent('Hi PROPHUNT LLP, I\'m interested in ' + (prop.title||'this project') + ' (' + (prop.location||'Pune') + '). Please share more details and pricing.')}" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
@@ -791,6 +824,7 @@ function buildPage(prop, allProps) {
             <form id="phSideEnqForm">
               <div class="ph-field"><input type="text" placeholder="Your Name *" required name="name"></div>
               <div class="ph-field"><input type="tel" placeholder="Phone Number *" required name="phone"></div>
+              <div class="ph-field"><input type="email" placeholder="Email Address *" required name="email"></div>
               ${buildConfigSelect('phConfigSide')}
               <button type="submit" class="ph-enq-submit">Send Enquiry</button>
             </form>
@@ -816,7 +850,7 @@ function buildPage(prop, allProps) {
     </div>
 
     <div class="ph-mobile-cta">
-      <div class="ph-mobile-cta-price"><span>Starting from</span><strong>${price}</strong></div>
+      <div class="ph-mobile-cta-price">${prop.price > 0 ? `<span>Starting from</span><strong>${price}</strong>` : `<strong>Price on Request</strong>`}</div>
       <a href="#phSideEnqCard" class="btn btn-primary"><i class="fas fa-arrow-up"></i> Enquire Now</a>
     </div>
 
@@ -881,7 +915,7 @@ function buildPage(prop, allProps) {
       const orig = btn.textContent;
       btn.textContent = 'Sending…'; btn.disabled = true;
       const f = Object.fromEntries(new FormData(form).entries());
-      const subject = `Site Visit Enquiry — ${prop.title || 'Project'} (${f.name || 'New Lead'})`;
+      const subject = `Site Visit Enquiry - ${prop.title || 'Project'} (${f.name || 'New Lead'})`;
       const body = [
         `Project: ${prop.title || ''}`,
         `Name: ${f.name || 'Not provided'}`,
@@ -897,7 +931,7 @@ function buildPage(prop, allProps) {
         body: JSON.stringify({
           access_key: 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9',
           subject,
-          from_name: `PROPHUNT LLP website — ${prop.title || 'Project'} page`,
+          from_name: `PROPHUNT LLP website - ${prop.title || 'Project'} page`,
           source_page: window.location.pathname,
           project: prop.title, slug: prop.slug,
           ...f

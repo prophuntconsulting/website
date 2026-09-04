@@ -6,6 +6,11 @@ config: "4.5 BHK Sky Chalets & Penthouses"
 category: "apartment"
 status: "active"
 rera: "PR1260002501248"
+rera_qr: "/images/landing-pages/venkatesh-tresor/rera-qr.webp"
+hero_1: "/images/landing-pages/venkatesh-tresor/photo-1.webp"
+hero_2: "/images/landing-pages/venkatesh-tresor/photo-2.webp"
+hero_3: "/images/landing-pages/venkatesh-tresor/photo-3.webp"
+hero_caption: "Venkatesh Tresor - Pallod Farms, Baner, Pune"
 tagline: "New Launch | 64 Exclusive Residences | 33 Storeys"
 overview: "Venkatesh Tresor is a 33-storey tower at Pallod Farms, Baner, offering just 64 exclusive 4.5 BHK sky chalets and penthouses starting at Rs 3.2 Crore all-inclusive. Each floor holds a single residence in a 3-side-open wing layout, with 6 levels of parking, an indoor gym and games area, a party lawn with a stage, and a yoga and meditation hall."
 stat_1_value: "33"
@@ -27,4 +32,11 @@ amenities:
   - Party Lawn with Stage
   - Yoga & Meditation Hall
   - Kids' Play Area
+gallery_images:
+  - "/images/landing-pages/venkatesh-tresor/photo-1.webp"
+  - "/images/landing-pages/venkatesh-tresor/photo-2.webp"
+  - "/images/landing-pages/venkatesh-tresor/photo-3.webp"
+  - "/images/landing-pages/venkatesh-tresor/photo-4.webp"
+  - "/images/landing-pages/venkatesh-tresor/photo-5.webp"
+  - "/images/landing-pages/venkatesh-tresor/photo-6.webp"
 ---

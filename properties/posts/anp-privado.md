@@ -6,6 +6,11 @@ config: "3, 4 & 5 BHK"
 category: "apartment"
 status: "active"
 rera: "PR1260002500840"
+rera_qr: "/images/landing-pages/anp-privado/rera-qr.webp"
+hero_1: "/images/landing-pages/anp-privado/photo-1.webp"
+hero_2: "/images/landing-pages/anp-privado/photo-2.webp"
+hero_3: "/images/landing-pages/anp-privado/photo-3.webp"
+hero_caption: "ANP Privado - Pan Card Club Road, Baner, Pune"
 tagline: "New Launch | 9 Towers | 80% Open Space | Pan Card Club Road"
 overview: "ANP Privado is a resort-style residential development on Pan Card Club Road, Baner, spread across 10+ acres with 9 meditative towers offering 3, 4 and 5 BHK homes starting at Rs 2.65 Crore. The project keeps 80% of its land as open space and centres around a 50,000 sq ft clubhouse with 65+ amenities including a temperature-controlled pool with a lazy river, a private luxe theatre and a cricket simulator, with financing support from Tata Capital Housing Finance."
 stat_1_value: "10+ Acres"
@@ -30,4 +35,11 @@ amenities:
   - Children's Interactive Play Area
   - Canopy Walk
   - 50,000 sqft Clubhouse
+gallery_images:
+  - "/images/landing-pages/anp-privado/photo-1.webp"
+  - "/images/landing-pages/anp-privado/photo-2.webp"
+  - "/images/landing-pages/anp-privado/photo-3.webp"
+  - "/images/landing-pages/anp-privado/photo-4.webp"
+  - "/images/landing-pages/anp-privado/photo-5.webp"
+  - "/images/landing-pages/anp-privado/photo-6.webp"
 ---

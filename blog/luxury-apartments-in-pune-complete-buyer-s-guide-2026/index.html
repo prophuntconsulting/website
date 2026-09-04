@@ -388,7 +388,7 @@ function buildPost(meta, body, allPosts) {
         ${shareHtml}
         <div class="bp-article-cta">
           <h3>Looking to Buy a Home in Pune?</h3>
-          <p>Talk to a PROPHUNT advisor — free consultation, no pressure, just clarity on pricing &amp; best projects.</p>
+          <p>Talk to a PROPHUNT advisor - free consultation, no pressure, just clarity on pricing &amp; best projects.</p>
           <a href="/contact">Book a Free Consultation</a>
         </div>
       </article>
@@ -401,6 +401,7 @@ function buildPost(meta, body, allPosts) {
             <form id="bpEnqForm">
               <div class="bp-enq-field"><input type="text" name="name" placeholder="Your Name *" required></div>
               <div class="bp-enq-field"><input type="tel" name="phone" placeholder="Phone Number *" required></div>
+              <div class="bp-enq-field"><input type="email" name="email" placeholder="Email Address *" required></div>
               <div class="bp-enq-field">
                 <select name="interest">
                   <option value="" disabled selected>I'm interested in…</option>
@@ -441,7 +442,7 @@ function buildPost(meta, body, allPosts) {
           <div style="padding:20px 18px;text-align:center;color:#fff">
             <i class="fas fa-building" style="font-size:24px;color:#C8362B;margin-bottom:10px;display:block"></i>
             <div style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;margin-bottom:6px">Explore New Projects</div>
-            <p style="font-size:12.5px;color:rgba(255,255,255,.65);margin-bottom:14px">Verified listings across Pune — apartments, plots &amp; villas</p>
+            <p style="font-size:12.5px;color:rgba(255,255,255,.65);margin-bottom:14px">Verified listings across Pune, apartments, plots &amp; villas</p>
             <a href="/projects" style="display:block;padding:10px;background:#C8362B;color:#fff;border-radius:6px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-decoration:none">View All Projects</a>
           </div>
         </div>
@@ -460,11 +461,12 @@ function buildPost(meta, body, allPosts) {
     const orig = btn.textContent;
     btn.textContent = 'Sending…'; btn.disabled = true;
     const f = Object.fromEntries(new FormData(form).entries());
-    const subject = `Blog Enquiry — ${title} (${f.name || 'New Lead'})`;
+    const subject = `Blog Enquiry - ${title} (${f.name || 'New Lead'})`;
     const body = [
       `Article: ${title}`,
       `Name: ${f.name || 'Not provided'}`,
       `Phone: ${f.phone || 'Not provided'}`,
+      `Email: ${f.email || 'Not provided'}`,
       `Interest: ${f.interest || 'Not specified'}`,
     ].join('\n');
     fetch('https://api.web3forms.com/submit', {
@@ -473,7 +475,7 @@ function buildPost(meta, body, allPosts) {
       body: JSON.stringify({
         access_key: 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9',
         subject,
-        from_name: `PROPHUNT LLP website — Blog page`,
+        from_name: `PROPHUNT LLP website - Blog page`,
         source_page: window.location.pathname,
         article: title,
         ...f

@@ -7,7 +7,7 @@ area: "2,486 sqft (4.5 BHK)"
 category: "apartment"
 status: "active"
 tagline: "Under Construction | Ultra-Luxury 4.5 & 5.5 BHK | Baner"
-overview: "The Balmoral Hillside is an ultra-luxury residential address in Baner by Kasturi Housing, offering spacious 4.5 BHK (King) and 5.5 BHK homes starting from 2,486 sq ft. The development is built around an extensive club-style amenity set — an indoor badminton court, squash court, community centre with a banquet zone, a billiards room, an executive cafe-workspace, and a floodlit multisport court."
+overview: "The Balmoral Hillside is an ultra-luxury residential address in Baner by Kasturi Housing, offering spacious 4.5 BHK (King) and 5.5 BHK homes starting from 2,486 sq ft. The development is built around an extensive club-style amenity set - an indoor badminton court, squash court, community centre with a banquet zone, a billiards room, an executive cafe-workspace, and a floodlit multisport court."
 stat_1_value: "4.5 & 5.5"
 stat_1_label: "BHK Configurations"
 stat_2_value: "2,486 sqft"
@@ -33,4 +33,10 @@ amenities:
   - Executive Cafe & Workspace
   - Multisport Floodlit Court
   - Card Room
+gallery_images:
+  - "/images/landing-pages/the-balmoral-hillside/photo-1.webp"
+  - "/images/landing-pages/the-balmoral-hillside/photo-2.webp"
+  - "/images/landing-pages/the-balmoral-hillside/photo-3.webp"
+  - "/images/landing-pages/the-balmoral-hillside/photo-4.webp"
+  - "/images/landing-pages/the-balmoral-hillside/photo-5.webp"
 ---

@@ -6,6 +6,11 @@ config: "3 & 4 BHK+ Residences"
 category: "apartment"
 status: "active"
 rera: "P52100018143 (Bldg A, B), P52100050379 (Bldg C), PM1262022501416 (Bldg D)"
+rera_qr: "/images/landing-pages/tej-elevia/rera-qr.webp"
+hero_1: "/images/landing-pages/tej-elevia/photo-1.webp"
+hero_2: "/images/landing-pages/tej-elevia/photo-2.webp"
+hero_3: "/images/landing-pages/tej-elevia/photo-3.webp"
+hero_caption: "Tej Elevia - Pan Card Club Road, Baner, Pune"
 tagline: "Under Construction | 38-Storey Tower | IGBC Platinum Pre-Certified"
 overview: "Tej Elevia is a 38-storey, IGBC Platinum pre-certified residential tower on Pan Card Club Road, Baner, by Tejraj Group, offering 3 and 4 BHK+ residences across multiple buildings. The standout feature is a sky deck on the 38th floor with a lounge and cafe-bar, alongside a swimming pool, a pickleball court, a skating rink, and biometric-access security with panic buttons."
 stat_1_value: "38"
@@ -30,4 +35,11 @@ amenities:
   - Pickleball Court
   - Skating Rink
   - Biometric Access & Panic Buttons
+gallery_images:
+  - "/images/landing-pages/tej-elevia/photo-1.webp"
+  - "/images/landing-pages/tej-elevia/photo-2.webp"
+  - "/images/landing-pages/tej-elevia/photo-3.webp"
+  - "/images/landing-pages/tej-elevia/photo-4.webp"
+  - "/images/landing-pages/tej-elevia/photo-5.webp"
+  - "/images/landing-pages/tej-elevia/photo-6.webp"
 ---
