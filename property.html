@@ -163,7 +163,9 @@ button,select,input,textarea{font-family:inherit}
 .ph-lightbox-close{top:18px;right:18px;width:42px;height:42px;font-size:16px}
 .ph-lightbox-prev{left:16px;top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:16px}
 .ph-lightbox-next{right:16px;top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:16px}
-@media(max-width:600px){.ph-lightbox{padding:60px 16px}.ph-lightbox-prev,.ph-lightbox-next{width:38px;height:38px}}
+.ph-lightbox-caption{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:rgba(255,255,255,.85);font-size:13px;padding:0 70px}
+.ph-lightbox-caption strong{color:#fff;font-weight:700}
+@media(max-width:600px){.ph-lightbox{padding:60px 16px}.ph-lightbox-prev,.ph-lightbox-next{width:38px;height:38px}.ph-lightbox-caption{padding:0 16px;bottom:12px}}
 
 /* EMI calculator */
 .ph-emi-card{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:24px 26px;margin-top:24px}
@@ -411,8 +413,25 @@ const AMENITY_ICONS = {
   'ev charging':'charging-station','solar':'sun','rainwater':'droplets',
   'sewage':'recycle','skybridge':'bridge','party lawn':'tree',
   'visitor parking':'car','open parking':'square-parking',
-  'cycling track':'bicycle','skating':'person-skating','pet zone':'paw',
+  'cycling track':'bicycle','skating':'person-skating','pet zone':'paw','pets':'paw',
   'barbeque':'fire-burner','bbq':'fire-burner','gazebo':'sun',
+  // Added after a coverage pass across the 15 Baner-sheet projects' amenity lists
+  'pool':'water','sports club':'trophy','sports court':'table-tennis-paddle-ball',
+  'sports lawn':'leaf','padel':'table-tennis-paddle-ball','pickleball':'table-tennis-paddle-ball',
+  'squash':'table-tennis-paddle-ball','football':'futbol','turf':'futbol','lawn':'leaf',
+  'senior citizen':'user','theatre':'film','theater':'film','cinema':'film',
+  'creche':'child','crèche':'child','billiards':'gamepad','snooker':'gamepad',
+  'carrom':'gamepad','foosball':'gamepad','card room':'gamepad','games room':'gamepad',
+  'game room':'gamepad','multisport':'basketball','floodlit':'basketball',
+  'lobby':'door-open','rooftop':'building','podium':'building',
+  'rain water':'droplets','waste converter':'recycle','waste management':'recycle',
+  'door phone':'video','intercom':'video','panic':'shield-halved','biometric':'shield-halved',
+  'party deck':'tree','party lawn':'tree','canopy walk':'tree','walkway':'tree',
+  'lazy river':'water','infinity pool':'water','fitness':'dumbbell',
+  'club':'building-columns','digital lock':'bolt','smart lock':'bolt',
+  'home automation':'bolt','smart home':'bolt','lounge':'couch','meeting room':'people-group',
+  'multi-purpose':'people-group','multipurpose':'people-group','steam room':'spa',
+  'food':'utensils','plaza':'store',
 };
 function amenityIcon(name) {
   const key = name.toLowerCase();
@@ -481,6 +500,14 @@ function buildPage(prop, allProps) {
 
   // Sidebar: same developer, up to 3
   const sameDevProjects = others.filter(r => r.developer === prop.developer).slice(0, 3);
+
+  // Sidebar: similar price range (within +/-30%), different developer, only when there's a real price to compare
+  const similarPriceProjects = prop.price > 0
+    ? others
+        .filter(r => r.developer !== prop.developer && r.price > 0 && Math.abs(r.price - prop.price) / prop.price <= 0.3)
+        .sort((a, b) => Math.abs(a.price - prop.price) - Math.abs(b.price - prop.price))
+        .slice(0, 3)
+    : [];
 
   // Bottom: smart-scored, up to 6
   const smartMatched = others
@@ -564,9 +591,9 @@ function buildPage(prop, allProps) {
       </div>`
     : '';
 
-  /* ── EMI calculator ── */
+  /* ── EMI calculator (skipped for sold-out — nothing left to finance) ── */
   const loanBase = prop.price > 0 ? prop.price * 100000 : 5000000;
-  const emiHtml = `<div id="emi" class="ph-section">
+  const emiHtml = prop.status === 'sold-out' ? '' : `<div id="emi" class="ph-section">
       <div class="ph-section-label">Plan Your Finances</div>
       <div class="ph-section-title">EMI Calculator</div>
       <div class="ph-divider"></div>
@@ -651,6 +678,25 @@ function buildPage(prop, allProps) {
         <a href="/projects" class="ph-view-all-link">View All Projects</a>
       </div>`;
 
+  const sidebarPriceHtml = similarPriceProjects.length
+    ? `<div style="background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:20px 22px;">
+        <div class="ph-related-card-title"><i class="fas fa-scale-balanced"></i> Similar Price Range</div>
+        ${similarPriceProjects.map(r => {
+          const rPrice = priceLabel(r);
+          return `<div class="ph-rel-item">
+            <a href="${r.url}" class="ph-rel-img" style="background-image:url('${r.cover||''}')"></a>
+            <div class="ph-rel-info">
+              <div class="ph-rel-dev">${r.developer}</div>
+              <div class="ph-rel-name">${r.title}</div>
+              <div class="ph-rel-loc"><i class="fas fa-map-marker-alt" style="font-size:10px"></i>${r.location}</div>
+              <div class="ph-rel-price">${rPrice}</div>
+              <a href="${r.url}" class="ph-rel-link">View Details →</a>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>`
+    : '';
+
   /* ── Bottom smart-match strip ── */
   function relCard(r) {
     const rPrice = priceLabel(r);
@@ -680,7 +726,7 @@ function buildPage(prop, allProps) {
     : `Similar ${prop.category} projects in Pune`;
 
   const bottomRelHtml = smartMatched.length
-    ? `<div class="ph-bottom-related">
+    ? `<div class="ph-bottom-related" id="similar-projects">
         <div class="ph-bottom-related-inner">
           <div class="ph-bottom-label">You May Also Like</div>
           <div class="ph-bottom-title">Recommended Projects</div>
@@ -786,6 +832,15 @@ function buildPage(prop, allProps) {
         ${amenitiesHtml}
 
         <div id="enquiry" class="ph-section ph-enquiry-jump">
+          ${prop.status === 'sold-out' ? `
+          <div class="ph-section-label">Sold Out</div>
+          <div class="ph-section-title">This Project is Fully Sold</div>
+          <div class="ph-divider"></div>
+          <p style="font-size:13.5px;color:var(--gray-600);margin-bottom:18px">${prop.title || 'This project'} has no live inventory left. Our advisors can point you to similar, currently-available projects in the same area and price range instead.</p>
+          <div class="ph-enquiry-jump-actions">
+            ${smartMatched.length ? `<a href="#similar-projects" class="btn btn-primary"><i class="fas fa-arrow-down"></i> View Similar Projects</a>` : `<a href="/projects" class="btn btn-primary"><i class="fas fa-th"></i> Browse All Projects</a>`}
+            <a href="https://wa.me/917447430431?text=${encodeURIComponent('Hi PROPHUNT LLP, ' + (prop.title||'this project') + ' looks sold out - can you suggest similar projects in ' + (prop.location||'the same area') + '?')}" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-whatsapp"></i> Ask an Advisor</a>
+          </div>` : `
           <div class="ph-section-label">Get In Touch</div>
           <div class="ph-section-title">Ready to Learn More?</div>
           <div class="ph-divider"></div>
@@ -793,7 +848,7 @@ function buildPage(prop, allProps) {
           <div class="ph-enquiry-jump-actions">
             <a href="#phSideEnqCard" class="btn btn-primary" id="phJumpToForm"><i class="fas fa-arrow-up"></i> Fill the Enquiry Form</a>
             <a href="https://wa.me/917447430431?text=${encodeURIComponent('Hi PROPHUNT LLP, I\'m interested in ' + (prop.title||'this project') + ' (' + (prop.location||'Pune') + '). Please share more details and pricing.')}" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
-          </div>
+          </div>`}
         </div>
 
       </main>
@@ -802,8 +857,8 @@ function buildPage(prop, allProps) {
         <!-- Sidebar enquiry card -->
         <div class="ph-enq-card" id="phSideEnqCard">
           <div class="ph-enq-card-head">
-            <h3>Get Pricing & Floor Plans</h3>
-            <p>Speak to a PROPHUNT advisor today</p>
+            <h3>${prop.status === 'sold-out' ? 'Ask About Similar Projects' : 'Get Pricing & Floor Plans'}</h3>
+            <p>${prop.status === 'sold-out' ? 'This project is sold out - talk to a PROPHUNT advisor' : 'Speak to a PROPHUNT advisor today'}</p>
           </div>
           <div class="ph-enq-card-body">
             <form id="phSideEnqForm">
@@ -811,7 +866,7 @@ function buildPage(prop, allProps) {
               <div class="ph-field"><input type="tel" placeholder="Phone Number *" required name="phone"></div>
               <div class="ph-field"><input type="email" placeholder="Email Address *" required name="email"></div>
               ${buildConfigSelect('phConfigSide')}
-              <button type="submit" class="ph-enq-submit">Send Enquiry</button>
+              <button type="submit" class="ph-enq-submit">${prop.status === 'sold-out' ? 'Ask About Similar Projects' : 'Send Enquiry'}</button>
             </form>
             <p class="ph-enq-note"><i class="fas fa-lock" style="font-size:9px"></i> 100% private & no spam</p>
           </div>
@@ -831,12 +886,16 @@ function buildPage(prop, allProps) {
         </div>
 
         ${sidebarDevHtml}
+        ${sidebarPriceHtml}
       </aside>
     </div>
 
     <div class="ph-mobile-cta">
-      <div class="ph-mobile-cta-price">${prop.price > 0 ? `<span>Starting from</span><strong>${price}</strong>` : `<strong>Price on Request</strong>`}</div>
-      <a href="#phSideEnqCard" class="btn btn-primary"><i class="fas fa-arrow-up"></i> Enquire Now</a>
+      <div class="ph-mobile-cta-price">${prop.status === 'sold-out' ? '<strong>Sold Out</strong>' : (prop.price > 0 ? `<span>Starting from</span><strong>${price}</strong>` : `<strong>Price on Request</strong>`)}</div>
+      ${prop.status === 'sold-out'
+        ? (smartMatched.length ? `<a href="#similar-projects" class="btn btn-primary"><i class="fas fa-arrow-down"></i> Similar Projects</a>` : `<a href="/projects" class="btn btn-primary"><i class="fas fa-th"></i> Browse Projects</a>`)
+        : `<a href="#phSideEnqCard" class="btn btn-primary"><i class="fas fa-arrow-up"></i> Enquire Now</a>`
+      }
     </div>
 
     ${bottomRelHtml}
@@ -846,6 +905,7 @@ function buildPage(prop, allProps) {
       <button type="button" class="ph-lightbox-prev" id="phLightboxPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
       <button type="button" class="ph-lightbox-next" id="phLightboxNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
       <div class="ph-lightbox-content" id="phLightboxContent"></div>
+      <div class="ph-lightbox-caption" id="phLightboxCaption"></div>
     </div>
   `;
 
@@ -940,6 +1000,7 @@ function buildPage(prop, allProps) {
   if (allMedia.length && allMedia[0].src) {
     const lightbox = document.getElementById('phLightbox');
     const content  = document.getElementById('phLightboxContent');
+    const caption  = document.getElementById('phLightboxCaption');
     let curIdx = 0;
     function showItem(i) {
       curIdx = (i + allMedia.length) % allMedia.length;
@@ -947,6 +1008,7 @@ function buildPage(prop, allProps) {
       content.innerHTML = item.type === 'image'
         ? `<img src="${item.src}" alt="">`
         : `<video src="${item.src}" controls autoplay playsinline></video>`;
+      if (caption) caption.innerHTML = `<strong>${prop.title || ''}</strong> - Photo ${curIdx + 1} of ${allMedia.length}`;
     }
     function openLightbox(i) {
       showItem(i);
