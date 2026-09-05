@@ -424,7 +424,24 @@ const timer = setInterval(() => {
 }, 1000);
 </script>
 
-<script src="https://voice-production-2950.up.railway.app/widget.js" data-site-key="av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY" data-api-base="https://voice-production-2950.up.railway.app" data-position="bottom-right" data-label="Talk to us"></script>
+<script>
+(function(){
+  function loadVoiceWidget(){
+    var s = document.createElement('script');
+    s.src = 'https://voice-production-2950.up.railway.app/widget.js';
+    s.setAttribute('data-site-key','av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY');
+    s.setAttribute('data-api-base','https://voice-production-2950.up.railway.app');
+    s.setAttribute('data-position','bottom-right');
+    s.setAttribute('data-label','Talk to us');
+    document.body.appendChild(s);
+  }
+  // Load well after the initial render — this is a floating chat bubble,
+  // not needed for first paint, and was previously the single biggest
+  // item in the critical network path (config fetch alone took 1.5s+).
+  if (document.readyState === 'complete') { setTimeout(loadVoiceWidget, 2000); }
+  else { window.addEventListener('load', function(){ setTimeout(loadVoiceWidget, 2000); }); }
+})();
+</script>
 </body>
 </html>
 

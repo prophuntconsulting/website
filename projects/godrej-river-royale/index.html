@@ -18,14 +18,14 @@
 <meta property="og:url" content="https://www.prophuntllp.com/projects/godrej-river-royale">
 <meta property="og:title" content="Godrej River Royale | PROPHUNT LLP">
 <meta property="og:description" content="Godrej River Royale is a premium residential project by Godrej Properties located on the high-growth Baner–Hinjewadi corridor. Offering spacious 3 and 4.5">
-<meta property="og:image" content="https://www.prophuntllp.com/images/projects/godrej-river-royale.png">
+<meta property="og:image" content="https://www.prophuntllp.com/images/projects/godrej-river-royale.jpg">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Godrej River Royale | PROPHUNT LLP">
 <meta name="twitter:description" content="Godrej River Royale is a premium residential project by Godrej Properties located on the high-growth Baner–Hinjewadi corridor. Offering spacious 3 and 4.5">
-<meta name="twitter:image" content="https://www.prophuntllp.com/images/projects/godrej-river-royale.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"Godrej River Royale","item":"https://www.prophuntllp.com/projects/godrej-river-royale"}]},{"@type":"RealEstateListing","name":"Godrej River Royale","description":"Godrej River Royale is a premium residential project by Godrej Properties located on the high-growth Baner–Hinjewadi corridor. Offering spacious 3 and 4.5","url":"https://www.prophuntllp.com/projects/godrej-river-royale","image":"https://www.prophuntllp.com/images/projects/godrej-river-royale.png","provider":{"@type":"Organization","name":"Godrej Properties"},"address":{"@type":"PostalAddress","addressLocality":"Baner–Hinjewadi Rd, Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"offers":{"@type":"Offer","price":26500000,"priceCurrency":"INR","url":"https://www.prophuntllp.com/projects/godrej-river-royale","availability":"https://schema.org/InStock"}}]}</script>
+<meta name="twitter:image" content="https://www.prophuntllp.com/images/projects/godrej-river-royale.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"Godrej River Royale","item":"https://www.prophuntllp.com/projects/godrej-river-royale"}]},{"@type":"RealEstateListing","name":"Godrej River Royale","description":"Godrej River Royale is a premium residential project by Godrej Properties located on the high-growth Baner–Hinjewadi corridor. Offering spacious 3 and 4.5","url":"https://www.prophuntllp.com/projects/godrej-river-royale","image":"https://www.prophuntllp.com/images/projects/godrej-river-royale.jpg","provider":{"@type":"Organization","name":"Godrej Properties"},"address":{"@type":"PostalAddress","addressLocality":"Baner–Hinjewadi Rd, Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"offers":{"@type":"Offer","price":26500000,"priceCurrency":"INR","url":"https://www.prophuntllp.com/projects/godrej-river-royale","availability":"https://schema.org/InStock"}}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <meta name="theme-color" content="#C8362B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1121,6 +1121,23 @@ fetch('/properties/posts.json')
   });
 </script>
 <script src="/js/nav.js"></script>
-<script src="https://voice-production-2950.up.railway.app/widget.js" data-site-key="av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY" data-api-base="https://voice-production-2950.up.railway.app" data-position="bottom-right" data-label="Talk to us"></script>
+<script>
+(function(){
+  function loadVoiceWidget(){
+    var s = document.createElement('script');
+    s.src = 'https://voice-production-2950.up.railway.app/widget.js';
+    s.setAttribute('data-site-key','av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY');
+    s.setAttribute('data-api-base','https://voice-production-2950.up.railway.app');
+    s.setAttribute('data-position','bottom-right');
+    s.setAttribute('data-label','Talk to us');
+    document.body.appendChild(s);
+  }
+  // Load well after the initial render — this is a floating chat bubble,
+  // not needed for first paint, and was previously the single biggest
+  // item in the critical network path (config fetch alone took 1.5s+).
+  if (document.readyState === 'complete') { setTimeout(loadVoiceWidget, 2000); }
+  else { window.addEventListener('load', function(){ setTimeout(loadVoiceWidget, 2000); }); }
+})();
+</script>
 </body>
 </html>

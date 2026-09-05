@@ -230,7 +230,7 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100047823",
-    "hero_1": "/images/projects/godrej-river-royale.png",
+    "hero_1": "/images/projects/godrej-river-royale.jpg",
     "hero_2": "",
     "hero_3": "",
     "hero_caption": "Luxury residences on Baner–Hinjewadi Road",
@@ -275,7 +275,7 @@
       "Co-Working Space",
       "Café Lounge"
     ],
-    "cover": "/images/projects/godrej-river-royale.png",
+    "cover": "/images/projects/godrej-river-royale.jpg",
     "url": "/projects/godrej-river-royale",
     "body": ""
   },
