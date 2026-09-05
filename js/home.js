@@ -87,13 +87,25 @@
     let activeSort   = 'default';
     let animating    = false;
 
+    // New launches and under-construction projects rank above "ready to move" /
+    // established ones, so the homepage leads with what's actively being sold.
+    function statusWeight(p) {
+        if (p.status === 'coming-soon') return 0;
+        const tl = (p.tagline || '').toLowerCase();
+        if (tl.includes('ready') || tl.includes('oc received')) return 2;
+        return 1;
+    }
+
     function sortedList(list) {
         const arr = [...list];
-        if (activeSort === 'price-low')  arr.sort((a, b) => (a.price || 0) - (b.price || 0));
-        if (activeSort === 'price-high') arr.sort((a, b) => (b.price || 0) - (a.price || 0));
-        if (activeSort === 'az')         arr.sort((a, b) => a.title.localeCompare(b.title));
+        if (activeSort === 'price-low')       arr.sort((a, b) => (a.price || 0) - (b.price || 0));
+        else if (activeSort === 'price-high') arr.sort((a, b) => (b.price || 0) - (a.price || 0));
+        else if (activeSort === 'az')         arr.sort((a, b) => a.title.localeCompare(b.title));
+        else                                  arr.sort((a, b) => statusWeight(a) - statusWeight(b));
         return arr;
     }
+
+    const FEATURED_LIMIT = 12;
 
     function renderCard(p) {
         const external  = /^https?:\/\//.test(p.url);
@@ -137,7 +149,7 @@
         grid.style.transform = 'translateY(12px)';
         setTimeout(() => {
             const filtered = activeFilter === 'all' ? ALL_PROPS : ALL_PROPS.filter(p => p.category === activeFilter);
-            const list = sortedList(filtered);
+            const list = sortedList(filtered).slice(0, FEATURED_LIMIT);
             grid.innerHTML = list.length ? list.map(renderCard).join('') :
                 '<p style="text-align:center;color:var(--gray-400);padding:3rem;grid-column:1/-1">No properties in this category yet.</p>';
             grid.style.transition = 'opacity .35s ease, transform .35s ease';

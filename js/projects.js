@@ -79,11 +79,21 @@
         });
     }
 
+    // New launches and under-construction projects rank above "ready to move" /
+    // established ones, so the listing leads with what's actively being sold.
+    function statusWeight(p) {
+        if (p.status === 'coming-soon') return 0;
+        const tl = (p.tagline || '').toLowerCase();
+        if (tl.includes('ready') || tl.includes('oc received')) return 2;
+        return 1;
+    }
+
     function sortList(arr) {
         const list = [...arr];
-        if (activeSort === 'price-low')  list.sort((a, b) => (a.price || 0) - (b.price || 0));
-        if (activeSort === 'price-high') list.sort((a, b) => (b.price || 0) - (a.price || 0));
-        if (activeSort === 'az')         list.sort((a, b) => a.title.localeCompare(b.title));
+        if (activeSort === 'price-low')       list.sort((a, b) => (a.price || 0) - (b.price || 0));
+        else if (activeSort === 'price-high') list.sort((a, b) => (b.price || 0) - (a.price || 0));
+        else if (activeSort === 'az')         list.sort((a, b) => a.title.localeCompare(b.title));
+        else                                  list.sort((a, b) => statusWeight(a) - statusWeight(b));
         return list;
     }
 
