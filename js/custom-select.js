@@ -42,6 +42,7 @@
         const panel = document.createElement('div');
         panel.className = 'cs-panel';
         panel.setAttribute('role', 'listbox');
+        panel.setAttribute('aria-label', select.getAttribute('aria-label') || select.name || select.id || 'Options');
         wrap.appendChild(panel);
 
         function syncLabel() {
