@@ -3,7 +3,13 @@
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/home/", "destination": "/", "permanent": true },
     { "source": "/index.php", "destination": "/", "permanent": true },
-    { "source": "/index.php/home", "destination": "/", "permanent": true }
+    { "source": "/index.php/home", "destination": "/", "permanent": true },
+    { "source": "/treetopia-jadhavwadi", "destination": "/projects/treetopia", "permanent": true },
+    { "source": "/treetopia-jadhavwadi/", "destination": "/projects/treetopia", "permanent": true },
+    { "source": "/treetopia-jadhavwadi-plots", "destination": "/projects/treetopia", "permanent": true },
+    { "source": "/treetopia-jadhavwadi-plots/", "destination": "/projects/treetopia", "permanent": true },
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/about-us/", "destination": "/about", "permanent": true }
   ],
   "cleanUrls": true,
   "trailingSlash": false,
