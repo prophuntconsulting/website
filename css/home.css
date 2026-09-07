@@ -159,97 +159,6 @@
     100% { transform: translateY(10px); opacity: 0; }
 }
 
-/* ── Property Search Bar ── */
-.search-bar-section {
-    padding: 0;
-    position: relative;
-    z-index: 10;
-    margin-top: -2.5rem;
-}
-.search-bar-card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 8px 40px rgba(0,0,0,.14);
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-.search-bar-label {
-    font-size: .78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    color: var(--red);
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-.search-bar-fields {
-    display: flex;
-    gap: 1rem;
-    flex: 1;
-    flex-wrap: wrap;
-    align-items: flex-end;
-}
-.search-field {
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-    flex: 1;
-    min-width: 140px;
-}
-.search-field label {
-    font-size: .72rem;
-    font-weight: 600;
-    color: var(--gray-600);
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    display: flex;
-    align-items: center;
-    gap: .35rem;
-}
-.search-field label i { color: var(--red); font-size: .7rem; }
-.search-field select {
-    padding: .65rem .9rem;
-    border: 1.5px solid var(--gray-200);
-    border-radius: var(--radius-sm);
-    font-size: .88rem;
-    color: var(--black);
-    background: var(--gray-100);
-    font-family: var(--font-body);
-    cursor: pointer;
-    transition: border-color .2s;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236E6A67' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right .75rem center;
-    padding-right: 2.2rem;
-}
-.search-field select:focus { outline: none; border-color: var(--red); }
-.search-bar-btn {
-    padding: .72rem 1.75rem;
-    background: var(--red);
-    color: var(--white);
-    border: none;
-    border-radius: var(--radius-sm);
-    font-size: .9rem;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    transition: background .2s, transform .15s, box-shadow .2s;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-.search-bar-btn:hover { background: #a82822; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(200,54,43,.35); }
-.search-bar-btn.pulse { animation: btnPulse .5s ease; }
-@keyframes btnPulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.06); }
-}
-
 /* ── Stats Strip ── */
 .stats-strip {
     background: var(--black);
@@ -700,7 +609,6 @@
         background: linear-gradient(to right,rgba(0,0,0,.75) 0%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.2) 80%,transparent 100%);
         padding: calc(var(--nav-h) + 2rem) 2rem 2rem;
     }
-    .search-bar-card { padding: 1.25rem 1.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -710,32 +618,6 @@
     .hero-left { padding: calc(var(--nav-h) + 1.25rem) 1.25rem 1.25rem; }
     .hero-cta { flex-direction: column; gap: .65rem; }
     .hero-cta .btn { width: 100%; justify-content: center; }
-
-    /* Search bar — compact horizontal layout on mobile */
-    .search-bar-section { margin-top: -1.5rem; }
-    .search-bar-card {
-        padding: 1rem 1.1rem;
-        gap: .75rem;
-        border-radius: var(--radius-md);
-    }
-    .search-bar-label { font-size: .7rem; }
-    .search-bar-fields {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: .6rem;
-    }
-    .search-field label { display: none; } /* hide labels — placeholders carry context */
-    .search-field select {
-        padding: .6rem .75rem;
-        font-size: .82rem;
-        padding-right: 1.8rem;
-    }
-    .search-bar-btn {
-        grid-column: 1 / -1;
-        width: 100%;
-        justify-content: center;
-        padding: .65rem 1rem;
-    }
 
     /* Sections */
     .stats-grid {
@@ -753,10 +635,6 @@
 }
 
 @media (max-width: 480px) {
-    /* Search bar — single column on very small screens */
-    .search-bar-fields { grid-template-columns: 1fr; gap: .5rem; }
-    .search-bar-card { padding: .9rem 1rem; }
-
     /* Stats */
     .stats-strip { padding: 2rem 0; }
     .stats-grid { row-gap: 1.5rem; }

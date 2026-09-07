@@ -7,16 +7,19 @@
 
     const grid        = document.getElementById('projectsGrid');
     const countEl     = document.getElementById('projectCount');
-    const filterBtns  = document.querySelectorAll('.proj-filter-btn');
+    const typeSelect  = document.getElementById('filterType');
+    const locSelect   = document.getElementById('filterLocation');
     const devSelect   = document.getElementById('filterDeveloper');
     const budgetSelect= document.getElementById('filterBudget');
     const sortSelect  = document.getElementById('projSort');
     const searchInput = document.getElementById('projSearch');
     const clearBtn    = document.getElementById('clearFilters');
+    const searchBtn   = document.getElementById('projFinderBtn');
     const emptyState  = document.getElementById('projEmpty');
 
     let ALL_PROJECTS  = [];
     let activeType    = 'all';
+    let activeLocation= '';
     let activeDev     = '';
     let activeBudget  = '';
     let activeSearch  = '';
@@ -33,6 +36,30 @@
             'above500': p => p > 500
         };
         return map[budget] ? map[budget](price) : true;
+    }
+
+    // Maps a project's free-text location string to one of the curated
+    // micro-market buckets used in the Location filter. Order matters —
+    // more specific areas are checked before broader ones (e.g. Mahalunge
+    // before Baner, since "Mahalunge, Baner Annex" contains both words).
+    const MICRO_MARKETS = [
+        ['mahalunge',       'mahalunge'],
+        ['karjat',          'karjat'],
+        ['khopoli',         'khopoli'],
+        ['wakad',           'wakad'],
+        ['pimpri',          'pimpri-chinchwad'],
+        ['ravet',           'ravet-gahunje'],
+        ['gahunje',         'ravet-gahunje'],
+        ['sinhagad',        'sinhagad-road'],
+        ['hadapsar',        'hadapsar'],
+        ['baner',           'baner'],
+    ];
+    function getMicroMarket(location) {
+        const loc = (location || '').toLowerCase();
+        for (const [needle, bucket] of MICRO_MARKETS) {
+            if (loc.includes(needle)) return bucket;
+        }
+        return '';
     }
 
     function renderCard(p) {
@@ -100,30 +127,25 @@
     function applyFilters() {
         const search   = activeSearch.toLowerCase();
         const filtered = ALL_PROJECTS.filter(p => {
-            const typeMatch   = activeType === 'all' || p.category === activeType;
-            const devMatch    = !activeDev   || p.developer === activeDev;
-            const budgetMatch = matchBudget(p.price, activeBudget);
-            const searchMatch = !search || `${p.title} ${p.developer} ${p.location} ${p.config}`.toLowerCase().includes(search);
-            return typeMatch && devMatch && budgetMatch && searchMatch;
+            const typeMatch     = activeType === 'all' || p.category === activeType;
+            const locationMatch = !activeLocation || getMicroMarket(p.location) === activeLocation;
+            const devMatch      = !activeDev   || p.developer === activeDev;
+            const budgetMatch   = matchBudget(p.price, activeBudget);
+            const searchMatch   = !search || `${p.title} ${p.developer} ${p.location} ${p.config}`.toLowerCase().includes(search);
+            return typeMatch && locationMatch && devMatch && budgetMatch && searchMatch;
         });
         const sorted = sortList(filtered);
 
         if (grid) grid.innerHTML = sorted.length ? sorted.map(renderCard).join('') : '';
         if (countEl) countEl.textContent = sorted.length;
         if (emptyState) emptyState.hidden = sorted.length > 0;
-        if (clearBtn)   clearBtn.hidden   = !activeDev && !activeBudget && !activeSearch && activeType === 'all' && activeSort === 'default';
+        if (clearBtn) clearBtn.hidden = !activeLocation && !activeDev && !activeBudget && !activeSearch
+            && activeType === 'all' && activeSort === 'default';
     }
 
     function init() {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                activeType = btn.dataset.type || 'all';
-                applyFilters();
-            });
-        });
-
+        typeSelect?.addEventListener('change', () => { activeType = typeSelect.value || 'all'; applyFilters(); });
+        locSelect?.addEventListener('change',    () => { activeLocation = locSelect.value;    applyFilters(); });
         devSelect?.addEventListener('change',    () => { activeDev    = devSelect.value;    applyFilters(); });
         budgetSelect?.addEventListener('change', () => { activeBudget = budgetSelect.value; applyFilters(); });
         sortSelect?.addEventListener('change',   () => { activeSort   = sortSelect.value;   applyFilters(); });
@@ -134,9 +156,15 @@
             searchTimer = setTimeout(() => { activeSearch = searchInput.value; applyFilters(); }, 280);
         });
 
+        searchBtn?.addEventListener('click', () => {
+            applyFilters();
+            grid?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
         clearBtn?.addEventListener('click', () => {
-            activeType = 'all'; activeDev = ''; activeBudget = ''; activeSearch = ''; activeSort = 'default';
-            filterBtns.forEach(b => b.classList.toggle('active', b.dataset.type === 'all'));
+            activeType = 'all'; activeLocation = ''; activeDev = ''; activeBudget = ''; activeSearch = ''; activeSort = 'default';
+            if (typeSelect)   typeSelect.value   = 'all';
+            if (locSelect)    locSelect.value    = '';
             if (devSelect)    devSelect.value    = '';
             if (budgetSelect) budgetSelect.value = '';
             if (sortSelect)   sortSelect.value   = 'default';
@@ -144,12 +172,14 @@
             applyFilters();
         });
 
-        const params    = new URLSearchParams(window.location.search);
-        const typeParam = params.get('type');
-        if (typeParam) {
-            const matchBtn = document.querySelector(`.proj-filter-btn[data-type="${typeParam}"]`);
-            if (matchBtn) { matchBtn.click(); return; }
-        }
+        // Support links into this page like /projects?type=apartment&location=wakad&budget=100-200
+        const params = new URLSearchParams(window.location.search);
+        const typeParam     = params.get('type');
+        const locationParam = params.get('location');
+        const budgetParam   = params.get('budget');
+        if (typeParam && typeSelect)     { typeSelect.value = typeParam;     activeType = typeParam; }
+        if (locationParam && locSelect)  { locSelect.value = locationParam;  activeLocation = locationParam; }
+        if (budgetParam && budgetSelect) { budgetSelect.value = budgetParam; activeBudget = budgetParam; }
 
         applyFilters();
     }

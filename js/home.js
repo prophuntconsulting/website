@@ -235,28 +235,6 @@
         }, { passive: true });
     }
 
-    /* ── PROPERTY SEARCH ── */
-    window.doSearch = function () {
-        const type     = document.getElementById('searchType')?.value || '';
-        const location = document.getElementById('searchLocation')?.value || '';
-        const budget   = document.getElementById('searchBudget')?.value || '';
-        const params   = new URLSearchParams();
-        if (type)     params.set('type', type);
-        if (location) params.set('location', location);
-        if (budget)   params.set('budget', budget);
-        window.location.href = 'projects.html' + (params.toString() ? '?' + params.toString() : '');
-    };
-
-    document.getElementById('searchBtn')?.addEventListener('click', window.doSearch);
-
-    document.querySelectorAll('.search-field select').forEach(sel => {
-        sel.addEventListener('change', () => {
-            const btn = document.getElementById('searchBtn');
-            btn?.classList.add('pulse');
-            setTimeout(() => btn?.classList.remove('pulse'), 600);
-        });
-    });
-
     /* ── SERVICE CARD ICON BOUNCE ── */
     document.querySelectorAll('.service-card').forEach(card => {
         card.addEventListener('mouseenter', () => card.querySelector('.service-icon')?.classList.add('bounce'));

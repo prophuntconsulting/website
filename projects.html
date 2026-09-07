@@ -80,19 +80,23 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/pages.css">
 <style>
-.proj-toolbar { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-md); }
-.proj-filter-tabs { display:flex; gap:.4rem; flex-wrap:wrap; }
-.proj-filter-btn { padding:.5rem 1.1rem; border-radius:99px; font-size:.82rem; font-weight:600; color:var(--gray-600); border:1.5px solid var(--gray-200); background:var(--white); cursor:pointer; transition:all .2s; }
-.proj-filter-btn:hover { border-color:var(--red); color:var(--red); }
-.proj-filter-btn.active { background:var(--red); color:var(--white); border-color:var(--red); }
-.proj-toolbar-sep { width:1px; background:var(--gray-200); align-self:stretch; flex-shrink:0; }
-.proj-selects { display:flex; gap:.75rem; flex-wrap:wrap; }
+.proj-finder-card { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-lg); box-shadow:0 8px 40px rgba(0,0,0,.08); padding:1.5rem 2rem; margin-bottom:2rem; }
+.proj-finder-label { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--red); margin-bottom:1rem; }
+.proj-finder-fields { display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-end; }
+.proj-finder-field { display:flex; flex-direction:column; gap:.3rem; flex:1; min-width:150px; }
+.proj-finder-field label { font-size:.72rem; font-weight:600; color:var(--gray-600); text-transform:uppercase; letter-spacing:.06em; display:flex; align-items:center; gap:.35rem; }
+.proj-finder-field label i { color:var(--red); font-size:.7rem; }
+.proj-finder-btn { padding:.72rem 1.75rem; background:var(--red); color:var(--white); border:none; border-radius:var(--radius-sm); font-size:.9rem; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:.5rem; transition:background .2s, transform .15s, box-shadow .2s; white-space:nowrap; flex-shrink:0; }
+.proj-finder-btn:hover { background:#a82822; transform:translateY(-1px); box-shadow:0 4px 16px rgba(200,54,43,.35); }
+.proj-finder-sub { display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid var(--gray-200); }
 .proj-select { padding:.5rem .9rem; border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); font-size:.82rem; color:var(--gray-800); background:var(--white); outline:none; cursor:pointer; transition:border-color .2s; }
-.proj-select:focus { border-color:var(--red); }
+.proj-select:focus, .proj-finder-field select:focus { border-color:var(--red); }
+.proj-finder-field select { padding:.65rem .9rem; border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); font-size:.88rem; color:var(--black); background:var(--gray-100); cursor:pointer; transition:border-color .2s; }
 .proj-search { flex:1; min-width:180px; padding:.52rem 1rem; border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); font-size:.85rem; outline:none; transition:border-color .2s; }
 .proj-search:focus { border-color:var(--red); }
 .proj-count { margin-left:auto; font-size:.82rem; color:var(--gray-600); white-space:nowrap; font-weight:500; }
 .proj-count strong { color:var(--black); }
+@media(max-width:700px){ .proj-finder-card{padding:1.1rem 1.25rem;} .proj-finder-fields{flex-direction:column; align-items:stretch;} .proj-finder-btn{width:100%; justify-content:center;} .proj-finder-sub{flex-direction:column; align-items:stretch;} .proj-count{margin-left:0; text-align:center;} }
 .btn-clear { font-size:.8rem; color:var(--red); font-weight:600; background:none; border:none; cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:.3rem; }
 .btn-clear[hidden] { display:none; }
 .proj-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
@@ -101,7 +105,7 @@
 .proj-empty h3 { font-size:1.15rem; color:var(--gray-600); margin-bottom:.5rem; }
 .proj-empty p { font-size:.875rem; color:var(--gray-400); }
 @media(max-width:1024px){ .proj-grid{grid-template-columns:repeat(2,1fr);} }
-@media(max-width:600px){ .proj-grid{grid-template-columns:1fr;} .proj-toolbar{flex-direction:column; align-items:stretch;} .proj-search{min-width:0;} }
+@media(max-width:600px){ .proj-grid{grid-template-columns:1fr;} .proj-search{min-width:0;} }
 </style>
 </head>
 <body>
@@ -170,24 +174,53 @@
 
 <section class="section">
   <div class="container">
-    <div class="proj-toolbar" data-reveal>
-      <div class="proj-filter-tabs">
-        <button class="proj-filter-btn active" data-type="all">All Projects</button>
-        <button class="proj-filter-btn" data-type="apartment">Apartments</button>
-        <button class="proj-filter-btn" data-type="plot">Plots</button>
-        <button class="proj-filter-btn" data-type="villa">Villas</button>
+    <div class="proj-finder-card" data-reveal>
+      <div class="proj-finder-label">Find Your Property</div>
+      <div class="proj-finder-fields">
+        <div class="proj-finder-field">
+          <label for="filterType"><i class="fas fa-home"></i> Property Type</label>
+          <select class="proj-select" id="filterType" aria-label="Filter by property type">
+            <option value="all">All Types</option>
+            <option value="apartment">Apartment</option>
+            <option value="plot">Plot</option>
+            <option value="villa">Villa</option>
+            <option value="commercial">Commercial</option>
+          </select>
+        </div>
+        <div class="proj-finder-field">
+          <label for="filterLocation"><i class="fas fa-map-marker-alt"></i> Location</label>
+          <select class="proj-select" id="filterLocation" aria-label="Filter by location">
+            <option value="">All Locations</option>
+            <option value="baner">Baner</option>
+            <option value="wakad">Wakad</option>
+            <option value="mahalunge">Mahalunge</option>
+            <option value="pimpri-chinchwad">Pimpri-Chinchwad</option>
+            <option value="ravet-gahunje">Ravet - Gahunje</option>
+            <option value="sinhagad-road">Sinhagad Road</option>
+            <option value="hadapsar">Hadapsar</option>
+            <option value="karjat">Karjat</option>
+            <option value="khopoli">Khopoli</option>
+          </select>
+        </div>
+        <div class="proj-finder-field">
+          <label for="filterDeveloper"><i class="fas fa-building"></i> Developer</label>
+          <select class="proj-select" id="filterDeveloper" aria-label="Filter by developer"><option value="">All Developers</option></select>
+        </div>
+        <div class="proj-finder-field">
+          <label for="filterBudget"><i class="fas fa-rupee-sign"></i> Budget</label>
+          <select class="proj-select" id="filterBudget" aria-label="Filter by budget">
+            <option value="">Any Budget</option>
+            <option value="under50">Under ₹50 Lakh</option>
+            <option value="50-100">₹50L – ₹1 Cr</option>
+            <option value="100-200">₹1 Cr – ₹2 Cr</option>
+            <option value="200-500">₹2 Cr – ₹5 Cr</option>
+            <option value="above500">Above ₹5 Cr</option>
+          </select>
+        </div>
+        <button class="proj-finder-btn" id="projFinderBtn" type="button"><i class="fas fa-search"></i> Search</button>
       </div>
-      <div class="proj-toolbar-sep"></div>
-      <div class="proj-selects">
-        <select class="proj-select" id="filterDeveloper" aria-label="Filter by developer"><option value="">All Developers</option></select>
-        <select class="proj-select" id="filterBudget" aria-label="Filter by budget">
-          <option value="">Any Budget</option>
-          <option value="under50">Under ₹50 Lakh</option>
-          <option value="50-100">₹50L – ₹1 Cr</option>
-          <option value="100-200">₹1 Cr – ₹2 Cr</option>
-          <option value="200-500">₹2 Cr – ₹5 Cr</option>
-          <option value="above500">Above ₹5 Cr</option>
-        </select>
+      <div class="proj-finder-sub">
+        <input type="search" class="proj-search" id="projSearch" placeholder="Search by name, location, developer…" aria-label="Search projects">
         <select class="proj-select" id="projSort" aria-label="Sort projects">
           <option value="default">Sort: Default</option>
           <option value="newest">Newest First</option>
@@ -196,10 +229,9 @@
           <option value="price-high">Price: High to Low</option>
           <option value="az">Name: A → Z</option>
         </select>
+        <span class="proj-count"><strong id="projectCount">46</strong> projects</span>
+        <button class="btn-clear" id="clearFilters" hidden><i class="fas fa-times"></i> Clear</button>
       </div>
-      <input type="search" class="proj-search" id="projSearch" placeholder="Search by name, location, developer…" aria-label="Search projects">
-      <span class="proj-count"><strong id="projectCount">18</strong> projects</span>
-      <button class="btn-clear" id="clearFilters" hidden><i class="fas fa-times"></i> Clear</button>
     </div>
 
     <div class="proj-grid" id="projectsGrid" data-reveal></div>
