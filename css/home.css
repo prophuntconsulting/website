@@ -163,7 +163,12 @@
 .stats-strip {
     background: var(--black);
     padding: 3.5rem 0;
-    margin-top: 2.5rem;
+}
+/* The section right after the stats strip already gets 3.5rem of
+   breathing room from the strip's own bottom padding, so trim its
+   default 5rem top padding to avoid an oversized double gap. */
+.stats-strip + .section {
+    padding-top: 2.5rem;
 }
 .stats-grid {
     display: grid;
