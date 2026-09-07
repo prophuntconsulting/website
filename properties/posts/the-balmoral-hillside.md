@@ -1,4 +1,5 @@
 ---
+date_added: "2026-09-04"
 title: "The Balmoral Hillside"
 developer: "Kasturi Housing"
 location: "Baner, Pune"

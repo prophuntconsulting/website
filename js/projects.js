@@ -40,9 +40,7 @@
         const linkAttrs  = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
         const linkLabel  = isExternal ? 'View Project' : 'View Details';
         const icon       = p.category === 'plot' ? 'map' : p.category === 'villa' ? 'home' : p.category === 'commercial' ? 'briefcase' : 'building';
-        const statusBadge = p.status === 'coming-soon'
-            ? '<span class="badge badge-gray" style="font-size:.68rem;padding:.2rem .55rem;">Coming Soon</span>'
-            : p.status === 'sold-out'
+        const statusBadge = p.status === 'sold-out'
             ? '<span class="badge badge-gray" style="font-size:.68rem;padding:.2rem .55rem;background:#6b7280">Sold Out</span>'
             : '';
         const priceLabel = p.price_label || (p.price > 0 ? 'Rs ' + p.price + ' L*' : 'Price on Request');
@@ -93,6 +91,8 @@
         if (activeSort === 'price-low')       list.sort((a, b) => (a.price || 0) - (b.price || 0));
         else if (activeSort === 'price-high') list.sort((a, b) => (b.price || 0) - (a.price || 0));
         else if (activeSort === 'az')         list.sort((a, b) => a.title.localeCompare(b.title));
+        else if (activeSort === 'newest')     list.sort((a, b) => (b.date_added || '').localeCompare(a.date_added || ''));
+        else if (activeSort === 'oldest')     list.sort((a, b) => (a.date_added || '').localeCompare(b.date_added || ''));
         else                                  list.sort((a, b) => statusWeight(a) - statusWeight(b));
         return list;
     }

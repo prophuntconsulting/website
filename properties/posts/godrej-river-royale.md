@@ -1,4 +1,5 @@
 ---
+date_added: "2026-06-29"
 title: "Godrej River Royale"
 developer: "Godrej Properties"
 location: "Baner–Hinjewadi Rd, Pune"

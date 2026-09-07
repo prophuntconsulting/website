@@ -94,6 +94,7 @@
 .proj-count { margin-left:auto; font-size:.82rem; color:var(--gray-600); white-space:nowrap; font-weight:500; }
 .proj-count strong { color:var(--black); }
 .btn-clear { font-size:.8rem; color:var(--red); font-weight:600; background:none; border:none; cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:.3rem; }
+.btn-clear[hidden] { display:none; }
 .proj-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
 .proj-empty { text-align:center; padding:5rem 1rem; }
 .proj-empty i { font-size:3rem; color:var(--gray-200); margin-bottom:1rem; display:block; }
@@ -189,6 +190,8 @@
         </select>
         <select class="proj-select" id="projSort" aria-label="Sort projects">
           <option value="default">Sort: Default</option>
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
           <option value="price-low">Price: Low to High</option>
           <option value="price-high">Price: High to Low</option>
           <option value="az">Name: A → Z</option>

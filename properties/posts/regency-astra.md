@@ -1,4 +1,5 @@
 ---
+date_added: "2026-09-04"
 title: "Regency Astra"
 developer: "Regency Group"
 location: "Baner, Pune"

@@ -84,6 +84,7 @@ function buildFrontmatter(row) {
     lines.push(`${key}: ${quote ? yamlStr(val) : val}`);
   };
 
+  push('date_added', row.date_added || new Date().toISOString().slice(0, 10));
   push('title', row.title);
   push('developer', row.developer);
   push('location', row.location);

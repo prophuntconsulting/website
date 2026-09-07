@@ -1,4 +1,5 @@
 ---
+date_added: "2026-09-04"
 title: "Majestique Elements"
 developer: "Majestique Landmarks"
 location: "Pan Card Road, Baner, Pune"

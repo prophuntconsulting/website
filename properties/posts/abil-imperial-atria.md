@@ -1,4 +1,5 @@
 ---
+date_added: "2026-09-04"
 title: "ABIL Imperial Atria"
 developer: "ABIL Group"
 location: "Pan Card Club Road, Baner, Pune"

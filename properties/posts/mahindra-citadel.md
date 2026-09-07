@@ -1,4 +1,5 @@
 ---
+date_added: "2026-07-02"
 title: "Mahindra Citadel"
 developer: "Mahindra Lifespaces"
 location: "Pimpri-Chinchwad, Pune"

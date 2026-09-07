@@ -1,6 +1,7 @@
 [
   {
     "slug": "24k-altura",
+    "date_added": "2026-09-04",
     "title": "24K Altura",
     "developer": "Kolte-Patil Developers",
     "location": "Baner, Pune",
@@ -53,6 +54,7 @@
   },
   {
     "slug": "abil-imperial-atria",
+    "date_added": "2026-09-04",
     "title": "ABIL Imperial Atria",
     "developer": "ABIL Group",
     "location": "Pan Card Club Road, Baner, Pune",
@@ -108,6 +110,7 @@
   },
   {
     "slug": "anp-privado",
+    "date_added": "2026-09-04",
     "title": "ANP Privado",
     "developer": "ANP Corp",
     "location": "Pan Card Club Road, Baner, Pune",
@@ -159,6 +162,7 @@
   },
   {
     "slug": "ashokvillas",
+    "date_added": "2026-09-03",
     "title": "AshokVillas",
     "developer": "Peninsula Land",
     "location": "Ravet - Gahunje, Pune",
@@ -222,6 +226,7 @@
   },
   {
     "slug": "godrej-river-royale",
+    "date_added": "2026-06-29",
     "title": "Godrej River Royale",
     "developer": "Godrej Properties",
     "location": "Baner–Hinjewadi Rd, Pune",
@@ -281,6 +286,7 @@
   },
   {
     "slug": "kalpataru-aria",
+    "date_added": "2026-09-03",
     "title": "Kalpataru Aria",
     "developer": "Kalpataru",
     "location": "Karjat, Maharashtra",
@@ -341,6 +347,7 @@
   },
   {
     "slug": "kalpataru-blossoms",
+    "date_added": "2026-09-03",
     "title": "Kalpataru Blossoms",
     "developer": "Kalpataru",
     "location": "Sinhagad Road, Pune",
@@ -403,6 +410,7 @@
   },
   {
     "slug": "khopoli",
+    "date_added": "2026-09-03",
     "title": "Shapoorji Pallonji Khopoli",
     "developer": "Shapoorji Pallonji",
     "location": "Near Khopoli, Maharashtra",
@@ -455,6 +463,7 @@
   },
   {
     "slug": "kings-county-wakad",
+    "date_added": "2026-09-05",
     "title": "Kings County",
     "developer": "Kings Marque Group",
     "location": "Wakad, Pune",
@@ -503,6 +512,7 @@
   },
   {
     "slug": "kumar-panache",
+    "date_added": "2026-09-04",
     "title": "Kumar Panache",
     "developer": "Kumar Corp",
     "location": "Baner, Pune",
@@ -553,6 +563,7 @@
   },
   {
     "slug": "kumar-parth-towers",
+    "date_added": "2026-09-04",
     "title": "Kumar Parth Towers",
     "developer": "Kumar Properties",
     "location": "Baner, Pune",
@@ -606,6 +617,7 @@
   },
   {
     "slug": "livience-unione",
+    "date_added": "2026-09-04",
     "title": "Livience Unione",
     "developer": "Livience Lifespaces",
     "location": "Aundh-Baner Road, Pune",
@@ -657,6 +669,7 @@
   },
   {
     "slug": "lodha-massimo",
+    "date_added": "2026-09-04",
     "title": "Lodha Massimo",
     "developer": "Lodha",
     "location": "Pan Card Club Road, Baner Hills, Pune",
@@ -706,6 +719,7 @@
   },
   {
     "slug": "mahindra-citadel",
+    "date_added": "2026-07-02",
     "title": "Mahindra Citadel",
     "developer": "Mahindra Lifespaces",
     "location": "Pimpri-Chinchwad, Pune",
@@ -757,6 +771,7 @@
   },
   {
     "slug": "mahindra-mahalunge",
+    "date_added": "2026-09-03",
     "title": "Mahindra Lifespaces Mahalunge",
     "developer": "Mahindra Lifespaces",
     "location": "Mahalunge, Baner Annex, Pune",
@@ -766,7 +781,7 @@
     "status": "coming-soon",
     "hero_1": "/images/landing-pages/mahindra-mahalunge/banner.jpg",
     "hero_caption": "Mahindra Lifespaces Mahalunge - Mahalunge, Baner Annex, Pune",
-    "tagline": "Coming Soon | 13.5-Acre Township | 6 Towers | Mahalunge, West Pune",
+    "tagline": "Pre-Launch Opportunity | 13.5-Acre Township | 6 Towers | Mahalunge, West Pune",
     "overview": "Mahindra Lifespaces presents its newest premium residential destination at Mahalunge, in the heart of Pune's first and largest Hi-Tech City Town Planning Scheme (TPS) - a 618+ acre planned development by PMRDA with a potential of 7 crore sq. ft., designed for 1.5 lakh+ residents and professionals within a 208-acre mixed-use township. Minutes from Hinjewadi, Baner and Balewadi, with connectivity via Metro, the Mumbai-Bengaluru Highway and the proposed Ring Road, Mahalunge has seen around 50% appreciation over the last four years. The 13.5-acre launch spans 6 towers and 1,240 premium residences, with a launch value of ₹1,500+ Crore.",
     "stat_1_value": "13.5 Acres",
     "stat_1_label": "Premium Land Parcel",
@@ -795,6 +810,7 @@
   },
   {
     "slug": "majestique-elements",
+    "date_added": "2026-09-04",
     "title": "Majestique Elements",
     "developer": "Majestique Landmarks",
     "location": "Pan Card Road, Baner, Pune",
@@ -847,6 +863,7 @@
   },
   {
     "slug": "merlin-ventana",
+    "date_added": "2026-09-04",
     "title": "Merlin Ventana",
     "developer": "Merlin Group",
     "location": "Baner, Pune",
@@ -904,6 +921,7 @@
   },
   {
     "slug": "neoliv-grand-forest-prive",
+    "date_added": "2026-09-03",
     "title": "Neoliv Grand Forest Privé",
     "developer": "Neoliv",
     "location": "Khopoli, Maharashtra",
@@ -962,6 +980,7 @@
   },
   {
     "slug": "nyati-emerald",
+    "date_added": "2026-09-04",
     "title": "Nyati Emerald",
     "developer": "Nyati Group",
     "location": "Baner, Pune West",
@@ -1018,6 +1037,7 @@
   },
   {
     "slug": "regency-astra",
+    "date_added": "2026-09-04",
     "title": "Regency Astra",
     "developer": "Regency Group",
     "location": "Baner, Pune",
@@ -1067,6 +1087,7 @@
   },
   {
     "slug": "supreme-estia",
+    "date_added": "2026-09-04",
     "title": "Supreme Estia",
     "developer": "Supreme Universal",
     "location": "Off Pancard Club Road, Baner, Pune",
@@ -1114,6 +1135,7 @@
   },
   {
     "slug": "tej-elevia",
+    "date_added": "2026-09-04",
     "title": "Tej Elevia",
     "developer": "Tejraj Group",
     "location": "Pan Card Club Road, Baner, Pune",
@@ -1165,6 +1187,7 @@
   },
   {
     "slug": "the-arena-pimpri",
+    "date_added": "2026-09-04",
     "title": "The Arena Pimpri",
     "developer": "Mahalaxmi Group",
     "location": "Kalewadi Road, Pimpri, Pune",
@@ -1220,6 +1243,7 @@
   },
   {
     "slug": "the-balmoral-hillside",
+    "date_added": "2026-09-04",
     "title": "The Balmoral Hillside",
     "developer": "Kasturi Housing",
     "location": "Baner, Pune",
@@ -1273,6 +1297,7 @@
   },
   {
     "slug": "the-ornate-baner",
+    "date_added": "2026-09-04",
     "title": "The Ornate",
     "developer": "Majestique Landmarks",
     "location": "Pan Card Road, Baner, Pune",
@@ -1324,6 +1349,7 @@
   },
   {
     "slug": "treetopia",
+    "date_added": "2026-07-02",
     "title": "Shapoorji Pallonji Treetopia",
     "developer": "Shapoorji Pallonji",
     "location": "Jadhavwadi, Hadapsar–Saswad Rd, Pune",
@@ -1377,6 +1403,7 @@
   },
   {
     "slug": "venkatesh-tresor",
+    "date_added": "2026-09-04",
     "title": "Venkatesh Tresor",
     "developer": "Venkatesh Buildcon",
     "location": "Pallod Farms, Baner, Pune",

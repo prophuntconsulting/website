@@ -22,6 +22,15 @@ collections:
     fields:
 
       # ── BASIC INFO ──────────────────────────────────────────
+      - label: "Date Added"
+        name: "date_added"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        default: "{{now}}"
+        hint: "Used to sort listings by Newest/Oldest — defaults to today, leave as-is unless backdating."
+
       - label: "Project Name"
         name: "title"
         widget: "string"

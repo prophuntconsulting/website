@@ -1,4 +1,5 @@
 ---
+date_added: "2026-09-03"
 title: "Kalpataru Aria"
 developer: "Kalpataru"
 location: "Karjat, Maharashtra"

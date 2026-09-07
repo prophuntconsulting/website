@@ -101,6 +101,8 @@
         if (activeSort === 'price-low')       arr.sort((a, b) => (a.price || 0) - (b.price || 0));
         else if (activeSort === 'price-high') arr.sort((a, b) => (b.price || 0) - (a.price || 0));
         else if (activeSort === 'az')         arr.sort((a, b) => a.title.localeCompare(b.title));
+        else if (activeSort === 'newest')     arr.sort((a, b) => (b.date_added || '').localeCompare(a.date_added || ''));
+        else if (activeSort === 'oldest')     arr.sort((a, b) => (a.date_added || '').localeCompare(b.date_added || ''));
         else                                  arr.sort((a, b) => statusWeight(a) - statusWeight(b));
         return arr;
     }
@@ -111,7 +113,7 @@
         const external  = /^https?:\/\//.test(p.url);
         const linkAttrs = external ? 'target="_blank" rel="noopener noreferrer"' : '';
         const linkLabel = external ? 'View Project' : 'View Details';
-        const badge     = p.status === 'coming-soon' ? 'Coming Soon' : p.rera ? 'RERA Verified' : '';
+        const badge     = p.rera ? 'RERA Verified' : '';
         const badgeHtml = badge ? `<div class="prop-card-tag">${badge}</div>` : '';
         const priceLabel = p.price_label || (p.price > 0 ? '₹' + p.price + ' L*' : 'Price on Request');
         const icon = p.category === 'plot' ? 'map' : p.category === 'villa' ? 'home' : 'building';
