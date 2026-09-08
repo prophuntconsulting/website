@@ -22,7 +22,7 @@
 /* ── Hero Split Scrollytelling ── */
 .hero-scroll-wrapper {
     position: relative;
-    height: 140vh;
+    height: 180vh;
 }
 .hero-sticky {
     position: sticky;
@@ -647,7 +647,7 @@
 
 @media (max-width: 768px) {
     /* Hero */
-    .hero-scroll-wrapper { height: 115vh; }
+    .hero-scroll-wrapper { height: 135vh; }
     .hero-title { font-size: 2rem; }
     .hero-sub { font-size: .95rem; }
     .hero-left { padding: calc(var(--nav-h) + 1.25rem) 1.25rem 1.25rem; }
