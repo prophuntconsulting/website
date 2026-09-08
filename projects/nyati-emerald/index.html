@@ -350,6 +350,9 @@ button,select,input,textarea{font-family:inherit}
 .ph-nearby-card-actions a:hover{opacity:.88}
 .ph-nearby-card-enquire{background:var(--red);color:#fff}
 .ph-nearby-card-brochure{background:var(--gray-100);color:var(--gray-700);border:1px solid var(--gray-200)}
+.ph-nearby-empty{text-align:center;padding:40px 24px;background:var(--gray-100);border:1px dashed var(--gray-200);border-radius:var(--radius-lg)}
+.ph-nearby-empty i{font-size:26px;color:var(--gray-400);margin-bottom:12px;display:block}
+.ph-nearby-empty p{font-size:13.5px;color:var(--gray-600);margin-bottom:16px}
 
 /* ── FAQ ACCORDION ───────────────────────────────── */
 .ph-faq-list{max-width:820px}
@@ -568,11 +571,11 @@ function buildPage(prop, allProps) {
         .slice(0, 3)
     : [];
 
-  // Bottom: smart-scored, up to 6
+  // Bottom: smart-scored, up to 9 (carousel, 3 visible at a time)
   const smartMatched = others
     .map(r => ({ ...r, _score: scoreMatch(r) }))
     .sort((a, b) => b._score - a._score)
-    .slice(0, 6);
+    .slice(0, 9);
 
   /* ── Meta ── */
   document.title = (prop.title || 'Property') + ' | PROPHUNT LLP';
@@ -790,37 +793,26 @@ function buildPage(prop, allProps) {
           <div class="ph-bottom-label">You May Also Like</div>
           <div class="ph-bottom-title">Recommended Projects</div>
           <div class="ph-bottom-sub">${matchBasis}</div>
-          <div class="ph-rel-grid">${smartMatched.map(relCard).join('')}</div>
+          <div class="ph-carousel-wrap">
+            <button type="button" class="ph-carousel-arrow prev" id="phRecPrev" hidden aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+            <div class="ph-carousel-viewport">
+              <div class="ph-carousel-track" id="phRecTrack">${smartMatched.map(relCard).join('')}</div>
+            </div>
+            <button type="button" class="ph-carousel-arrow next" id="phRecNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+          </div>
           <div class="ph-rel-view-all"><a href="/projects">Browse All Projects <i class="fas fa-arrow-right"></i></a></div>
         </div>
       </div>` : '';
 
   /* ── Discover Nearby Projects (same micro-market, i.e. same real-world
      locality) — a distinct signal from the price/BHK "smart match" above:
-     this one is purely about geography. Shown 3-at-a-time in a sliding
-     carousel rather than a static grid.
-     Some micro-markets only have 1-2 other listings today — too few to
-     read as a carousel at all — so when that happens we top up with
-     same-category projects from anywhere else, rather than showing a
-     lonely single card in a 3-wide row. ── */
-  let nearbyProjects = prop.micro_market
+     this one is purely about geography, and only ever genuine same-area
+     matches. If there's nothing real to show, say so — padding it out
+     with unrelated projects elsewhere in Pune would be misleading. ── */
+  const nearbyProjects = (prop.micro_market
     ? others.filter(r => r.micro_market === prop.micro_market)
-    : [];
-  let nearbyBroadened = false;
-  if (nearbyProjects.length < 3) {
-    const have = new Set(nearbyProjects.map(r => r.slug));
-    const topUp = others.filter(r => r.category === prop.category && !have.has(r.slug));
-    if (topUp.length) { nearbyProjects = nearbyProjects.concat(topUp); nearbyBroadened = true; }
-  }
-  if (nearbyProjects.length < 3) {
-    // Still thin (e.g. villas, of which we only list one) — rather than
-    // ship a lonely 1-2 card row, fill out to a real carousel with any
-    // other active listing.
-    const have = new Set(nearbyProjects.map(r => r.slug));
-    const topUp = others.filter(r => !have.has(r.slug));
-    if (topUp.length) { nearbyProjects = nearbyProjects.concat(topUp); nearbyBroadened = true; }
-  }
-  nearbyProjects = nearbyProjects.slice(0, 9);
+    : []
+  ).slice(0, 9);
 
   function nearbyCard(r) {
     const rPrice = priceLabel(r);
@@ -848,19 +840,25 @@ function buildPage(prop, allProps) {
     </div>`;
   }
 
-  const nearbyCarouselHtml = nearbyProjects.length
-    ? `<div id="nearby-projects" class="ph-section">
-        <div class="ph-section-label">${nearbyBroadened ? 'More To Consider' : `Around ${prop.locality_name || (prop.location||'').split(',')[0]}`}</div>
+  const nearbyLocalityLabel = prop.locality_name || (prop.location||'').split(',')[0] || 'This Area';
+  const nearbyCarouselHtml = `<div id="nearby-projects" class="ph-section">
+        <div class="ph-section-label">Around ${nearbyLocalityLabel}</div>
         <div class="ph-section-title">Discover Nearby Projects</div>
         <div class="ph-divider"></div>
+        ${nearbyProjects.length ? `
         <div class="ph-carousel-wrap">
           <button type="button" class="ph-carousel-arrow prev" id="phNearbyPrev" hidden aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
           <div class="ph-carousel-viewport">
             <div class="ph-carousel-track" id="phNearbyTrack">${nearbyProjects.map(nearbyCard).join('')}</div>
           </div>
           <button type="button" class="ph-carousel-arrow next" id="phNearbyNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-      </div>` : '';
+        </div>` : `
+        <div class="ph-nearby-empty">
+          <i class="fas fa-map-location-dot"></i>
+          <p>More projects in ${nearbyLocalityLabel} are coming soon.</p>
+          <a href="/projects" class="btn btn-outline btn-sm">Browse All Projects</a>
+        </div>`}
+      </div>`;
 
   /* ── FAQs — project-specific + shared locality FAQs, same content the
      FAQPage JSON-LD in the page <head> already carries (see
@@ -984,7 +982,7 @@ function buildPage(prop, allProps) {
         <a href="#emi">EMI Calculator</a>
         ${amenities.length ? '<a href="#amenities">Amenities</a>' : ''}
         <a href="#enquiry">Enquire</a>
-        ${nearbyProjects.length ? '<a href="#nearby-projects">Nearby</a>' : ''}
+        <a href="#nearby-projects">Nearby</a>
         ${(projectFaqs.length || localityFaqs.length) ? '<a href="#faqs">FAQs</a>' : ''}
       </div>
     </nav>
@@ -1097,11 +1095,12 @@ function buildPage(prop, allProps) {
   }, { rootMargin: '-30% 0px -60% 0px' });
   document.querySelectorAll('#overview,#pricing,#emi,#amenities,#enquiry,#nearby-projects,#faqs').forEach(el => el && observer.observe(el));
 
-  /* ── Nearby projects carousel (3 visible on desktop, 2 tablet, 1 mobile) ── */
-  (function initNearbyCarousel() {
-    const track = document.getElementById('phNearbyTrack');
-    const prevBtn = document.getElementById('phNearbyPrev');
-    const nextBtn = document.getElementById('phNearbyNext');
+  /* ── Sliding carousel (3 visible on desktop, 2 tablet, 1 mobile) — used
+     for both "Discover Nearby Projects" and "Recommended Projects" ── */
+  function initCarousel(trackId, prevId, nextId) {
+    const track = document.getElementById(trackId);
+    const prevBtn = document.getElementById(prevId);
+    const nextBtn = document.getElementById(nextId);
     if (!track || !prevBtn || !nextBtn) return;
     const cardCount = track.children.length;
     let index = 0;
@@ -1121,7 +1120,9 @@ function buildPage(prop, allProps) {
     prevBtn.addEventListener('click', () => { index--; update(); });
     window.addEventListener('resize', update);
     update();
-  })();
+  }
+  initCarousel('phNearbyTrack', 'phNearbyPrev', 'phNearbyNext');
+  initCarousel('phRecTrack', 'phRecPrev', 'phRecNext');
 
   /* ── FAQ accordion ── */
   document.querySelectorAll('.ph-faq-q').forEach(btn => {
