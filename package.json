@@ -1,1 +1,1 @@
-{"scripts":{"build":"node scripts/build-blog.js && node scripts/build-properties.js && node scripts/build-sitemap.js"}}
+{"scripts":{"build":"node scripts/build-blog.js && node scripts/build-properties.js && node scripts/build-locality-pages.js && node scripts/build-sitemap.js"}}

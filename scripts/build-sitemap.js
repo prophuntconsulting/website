@@ -36,8 +36,9 @@ function loadJson(relPath) {
   try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return []; }
 }
 
-const properties = loadJson('properties/posts.json');
-const posts      = loadJson('blog/posts.json');
+const properties    = loadJson('properties/posts.json');
+const posts         = loadJson('blog/posts.json');
+const localityUrls  = loadJson('scripts/.locality-pages.json');
 
 const urls = [];
 
@@ -63,6 +64,10 @@ posts.forEach(p => {
   });
 });
 
+localityUrls.forEach(u => {
+  urls.push({ loc: `${SITE}${u}`, lastmod: today(), changefreq: 'weekly', priority: '0.7' });
+});
+
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -77,4 +82,4 @@ ${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ''}    <changefreq>${u.c
 `;
 
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), xml);
-console.log(`Built sitemap.xml — ${urls.length} URLs (${STATIC_PAGES.length} static, ${properties.length} projects, ${posts.length} blog posts)`);
+console.log(`Built sitemap.xml — ${urls.length} URLs (${STATIC_PAGES.length} static, ${properties.length} projects, ${posts.length} blog posts, ${localityUrls.length} locality pages)`);

@@ -119,6 +119,8 @@ button,select,input,textarea{font-family:inherit}
 
 /* Overview */
 .ph-overview-text{color:var(--gray-600);line-height:1.8;font-size:14.5px}
+.ph-browse-link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:13px;font-weight:600;color:var(--red)}
+.ph-browse-link:hover{text-decoration:underline}
 .ph-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
 @media(max-width:600px){.ph-stats-row{grid-template-columns:repeat(2,1fr)}}
 .ph-stat{background:var(--gray-100);border-radius:var(--radius);padding:18px 16px;text-align:center;border:1px solid var(--gray-200)}
@@ -500,6 +502,10 @@ function amenityIcon(name) {
   for (const [k,v] of Object.entries(AMENITY_ICONS)) { if (key.includes(k)) return v; }
   return 'star';
 }
+
+// Matches scripts/build-locality-pages.js's CATEGORY_META.slug — keep in sync.
+const CATEGORY_SLUGS  = { apartment: 'apartments', plot: 'plots', villa: 'villas', commercial: 'commercial-properties' };
+const CATEGORY_LABELS = { apartment: 'Apartments', plot: 'Plots', villa: 'Villas', commercial: 'Commercial Properties' };
 
 function priceLabel(p) {
   if (p.price_label) return p.price_label;
@@ -994,6 +1000,7 @@ function buildPage(prop, allProps) {
           <div class="ph-section-label">${prop.category ? prop.category.charAt(0).toUpperCase()+prop.category.slice(1) : 'Property'} · ${prop.config || ''}</div>
           <div class="ph-divider"></div>
           ${prop.overview ? `<p class="ph-overview-text">${prop.overview}</p>` : ''}
+          ${CATEGORY_SLUGS[prop.category] && prop.micro_market ? `<a href="/${CATEGORY_SLUGS[prop.category]}-in-${prop.micro_market}" class="ph-browse-link"><i class="fas fa-layer-group"></i> Browse all ${CATEGORY_LABELS[prop.category]} in ${prop.locality_name || prop.micro_market} →</a>` : ''}
           ${statsHtml}
           ${reraQrHtml ? '<div style="margin-top:20px">'+reraQrHtml+'</div>' : (reraHtml ? '<div style="margin-top:20px">'+reraHtml+'</div>' : '')}
         </div>
