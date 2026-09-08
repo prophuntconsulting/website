@@ -17,29 +17,6 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObs.observe(el));
 
-    /* ── STAT COUNTER ANIMATION ── */
-    const statNums = document.querySelectorAll('.stat-number[data-count]');
-    function animateCount(el) {
-        const target = parseInt(el.dataset.count);
-        const duration = 1800;
-        const step = 16;
-        const increment = target / (duration / step);
-        let current = 0;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) { current = target; clearInterval(timer); }
-            el.textContent = Math.round(current).toLocaleString('en-IN') + '+';
-        }, step);
-    }
-    const statObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            animateCount(entry.target);
-            statObs.unobserve(entry.target);
-        });
-    }, { threshold: 0.5 });
-    statNums.forEach(el => statObs.observe(el));
-
     /* ── HERO SCROLL FRAME SEQUENCE — Video scrub ── */
     const video       = document.getElementById('heroFrame');
     const heroWrapper = document.getElementById('heroWrapper');

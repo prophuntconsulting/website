@@ -158,53 +158,6 @@
     100% { transform: translateY(10px); opacity: 0; }
 }
 
-/* ── Stats Strip ── */
-.stats-strip {
-    background: var(--black);
-    padding: 3.5rem 0;
-}
-/* The section right after the stats strip already gets 3.5rem of
-   breathing room from the strip's own bottom padding, so trim its
-   default 5rem top padding to avoid an oversized double gap. */
-.stats-strip + .section {
-    padding-top: 2.5rem;
-}
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    align-items: center;
-    gap: 0;
-}
-.stat-item {
-    text-align: center;
-    padding: 0 1.5rem;
-    min-width: 0;
-    border-left: 1px solid rgba(255,255,255,.12);
-}
-.stat-item:first-child { border-left: 0; }
-.stat-number {
-    display: block;
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    font-weight: 800;
-    color: var(--white);
-    font-family: var(--font-head);
-    line-height: 1;
-    margin-bottom: .4rem;
-    transition: color .3s;
-}
-.stat-item:hover .stat-number { color: var(--red); }
-.stat-label {
-    display: block;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.45);
-}
-.stat-divider {
-    display: none;
-}
-
 /* ── Featured Projects ── */
 .featured-filter {
     display: flex;
@@ -624,11 +577,6 @@
     .hero-cta .btn { width: 100%; justify-content: center; }
 
     /* Sections */
-    .stats-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        row-gap: 2rem;
-    }
-    .stat-item:nth-of-type(5) { border-left: 0; }
     .prop-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
     .cta-band { padding: 3rem 0; }
@@ -639,13 +587,6 @@
 }
 
 @media (max-width: 480px) {
-    /* Stats */
-    .stats-strip { padding: 2rem 0; }
-    .stats-grid { row-gap: 1.5rem; }
-    .stat-item { padding: 0 .75rem; }
-    .stat-number { font-size: 1.8rem; }
-    .stat-label { font-size: .58rem; letter-spacing: .04em; }
-
     /* Cards */
     .prop-card-img { height: 190px; }
     .hiw-card { padding: 1.75rem 1rem; }
