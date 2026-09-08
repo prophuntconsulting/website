@@ -1,5 +1,6 @@
 const fs   = require('fs');
 const path = require('path');
+const { getMicroMarket, LOCALITY_CONTENT } = require('./locality-content');
 
 const SITE = 'https://www.prophuntllp.com';
 
@@ -63,20 +64,98 @@ function absUrl(src) {
   return src.startsWith('http') ? src : `${SITE}${src}`;
 }
 
-// Same truncation rule the client JS uses for the meta description
-function metaDescription(p) {
-  if (p.overview) return p.overview.slice(0, 155).trim();
-  return `${p.developer || ''} – ${p.config || ''} in ${p.location || ''}`.trim();
+// One sentence, derived only from fields we actually have — never a guess.
+function possessionSentence(p, title) {
+  if (p.status === 'sold-out') return `${title} is sold out and has no live inventory.`;
+  const tl = (p.tagline || '').toLowerCase();
+  if (tl.includes('ready to move') || tl.includes('ready for possession') || tl.includes('oc received')) {
+    return `${title} is ready to move in.`;
+  }
+  if (tl.includes('under construction')) return `${title} is currently under construction.`;
+  if (p.status === 'coming-soon' || tl.includes('new launch') || tl.includes('coming soon')) {
+    return `${title} is a new launch.`;
+  }
+  return '';
 }
 
-// Head tags: real title/description/canonical + OG/Twitter + JSON-LD (BreadcrumbList + RealEstateListing)
-// so search engines and AI crawlers see genuine, page-specific signals without running JS.
+// Fact-dense, auto-generated from frontmatter — same formula for every
+// property, present or future, so no listing ever ships without real SEO
+// copy. Falls back to the hand-written overview when one exists, since
+// that's usually better-written than the template for projects an editor
+// took the time to describe.
+function metaDescription(p) {
+  const title = p.title || 'This project';
+  const bits = [];
+  bits.push(`${title}${p.location ? ` in ${p.location}` : ''}${p.developer ? ` by ${p.developer}` : ''} offers ${p.config || 'premium homes'}${p.category ? ` (${p.category})` : ''}.`);
+  const status = possessionSentence(p, title);
+  if (status) bits.push(status);
+  bits.push('Explore amenities, pricing, floor plans and RERA details on PROPHUNT LLP.');
+  const generated = bits.join(' ');
+  return (p.overview ? p.overview.slice(0, 155).trim() : generated).slice(0, 300);
+}
+
+// Project-specific FAQ content, generated only from fields that are
+// actually filled in — a property added tomorrow with the standard
+// frontmatter gets the same quality of FAQ as one added today.
+function generateProjectFAQs(p) {
+  const title = p.title || 'This project';
+  const faqs = [];
+
+  if (p.rera) {
+    faqs.push({
+      q: `What is the RERA registration number of ${title}?`,
+      a: `${title} is registered under MahaRERA with registration number ${p.rera}. You can verify this directly on the official MahaRERA website.`,
+    });
+  }
+
+  if (p.config) {
+    faqs.push({
+      q: `What configurations are available at ${title}?`,
+      a: `${title} offers ${p.config}${p.area ? `, with sizes ${p.area}` : ''}.`,
+    });
+  }
+
+  faqs.push({
+    q: `What is the price of homes at ${title}?`,
+    a: p.price > 0
+      ? `${title} is priced ${priceLabel(p)} onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans.`
+      : `Pricing for ${title} is available on request — contact PROPHUNT LLP's advisory team for the latest rates.`,
+  });
+
+  if (p.location) {
+    faqs.push({
+      q: `Where is ${title} located?`,
+      a: `${title} is located at ${p.location}${p.developer ? `, developed by ${p.developer}` : ''}.`,
+    });
+  }
+
+  if (p.developer) {
+    faqs.push({
+      q: `Who is the developer of ${title}?`,
+      a: `${title} is developed by ${p.developer}.`,
+    });
+  }
+
+  const status = possessionSentence(p, title);
+  if (status) {
+    faqs.push({ q: `Is ${title} ready to move in or under construction?`, a: status });
+  }
+
+  return faqs;
+}
+
+// Head tags: real title/description/canonical + OG/Twitter + JSON-LD
+// (BreadcrumbList + RealEstateListing + FAQPage) so search engines and AI
+// crawlers see genuine, page-specific signals without running JS. The
+// FAQPage entity combines this project's own FAQs with the shared
+// locality FAQs for its micro-market — the same content rendered visibly
+// on the page by property.html.
 function buildHeadBlock(p) {
   const title = `${p.title || 'Property'} | PROPHUNT LLP`;
   const desc  = metaDescription(p);
   const url   = `${SITE}${p.url}`;
   const image = absUrl(p.cover);
-  const price = priceLabel(p);
+  const allFaqs = [...(p.project_faqs || []), ...(p.locality_faqs || [])];
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -99,6 +178,14 @@ function buildHeadBlock(p) {
         ...(p.location ? { address: { '@type': 'PostalAddress', addressLocality: p.location, addressRegion: 'Maharashtra', addressCountry: 'IN' } } : {}),
         ...(p.price ? { offers: { '@type': 'Offer', price: p.price * 100000, priceCurrency: 'INR', url, availability: p.status === 'sold-out' ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock' } } : {}),
       },
+      ...(allFaqs.length ? [{
+        '@type': 'FAQPage',
+        mainEntity: allFaqs.map(f => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }] : []),
     ],
   };
 
@@ -129,8 +216,8 @@ function buildPrerenderBlock(p) {
     .filter(Boolean).join(' · ');
 
   return `<div class="ph-prerender" style="max-width:900px;margin:0 auto;padding:32px 24px 24px">
-    <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">${escapeHtml(p.developer)}</div>
-    <h1 style="font-family:'Poppins',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">${escapeHtml(p.title)}</h1>
+    <div style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">${escapeHtml(p.developer)}</div>
+    <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">${escapeHtml(p.title)}</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">${escapeHtml(metaLine)}</p>
     ${p.overview ? `<p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">${escapeHtml(p.overview)}</p>` : ''}
     <div class="ph-loading-spinner"></div>
@@ -145,7 +232,19 @@ const properties = files.map(file => {
   const { data, body } = parseFrontmatter(raw);
   const url   = data.url || `/projects/${slug}`;
   const cover = data.cover || data.hero_1 || '';
-  return { slug, ...data, cover, url, body: body || '' };
+  const merged = { slug, ...data, cover, url, body: body || '' };
+
+  const micro_market = getMicroMarket(data.location);
+  const locality = LOCALITY_CONTENT[micro_market] || null;
+
+  return {
+    ...merged,
+    micro_market,
+    locality_name: locality ? locality.name : '',
+    project_faqs: generateProjectFAQs(merged),
+    locality_faqs: locality ? locality.faqs : [],
+    nearby_landmarks: locality ? locality.landmarks : {},
+  };
 });
 
 fs.writeFileSync(outFile, JSON.stringify(properties, null, 2));

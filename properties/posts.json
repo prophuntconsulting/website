@@ -50,7 +50,74 @@
     ],
     "cover": "/images/landing-pages/24k-altura/photo-1.webp",
     "url": "/projects/24k-altura",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of 24K Altura?",
+        "a": "24K Altura is registered under MahaRERA with registration number P52100051316 (Tower A/B), P52100077098 (Tower C), P52100078592 (Tower D). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at 24K Altura?",
+        "a": "24K Altura offers 4 BHK Luxury Residences."
+      },
+      {
+        "q": "What is the price of homes at 24K Altura?",
+        "a": "Pricing for 24K Altura is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is 24K Altura located?",
+        "a": "24K Altura is located at Baner, Pune, developed by Kolte-Patil Developers."
+      },
+      {
+        "q": "Who is the developer of 24K Altura?",
+        "a": "24K Altura is developed by Kolte-Patil Developers."
+      },
+      {
+        "q": "Is 24K Altura ready to move in or under construction?",
+        "a": "24K Altura is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "abil-imperial-atria",
@@ -106,7 +173,74 @@
     ],
     "cover": "/images/landing-pages/abil-imperial-atria/photo-1.webp",
     "url": "/projects/abil-imperial-atria",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of ABIL Imperial Atria?",
+        "a": "ABIL Imperial Atria is registered under MahaRERA with registration number P52100016407. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at ABIL Imperial Atria?",
+        "a": "ABIL Imperial Atria offers 3 & 4 BHK Duplex, with sizes 2,210 – 2,529 sqft."
+      },
+      {
+        "q": "What is the price of homes at ABIL Imperial Atria?",
+        "a": "Pricing for ABIL Imperial Atria is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is ABIL Imperial Atria located?",
+        "a": "ABIL Imperial Atria is located at Pan Card Club Road, Baner, Pune, developed by ABIL Group."
+      },
+      {
+        "q": "Who is the developer of ABIL Imperial Atria?",
+        "a": "ABIL Imperial Atria is developed by ABIL Group."
+      },
+      {
+        "q": "Is ABIL Imperial Atria ready to move in or under construction?",
+        "a": "ABIL Imperial Atria is ready to move in."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "anp-bizsquare",
@@ -157,7 +291,73 @@
     ],
     "cover": "/images/landing-pages/anp-bizsquare/photo-1.jpg",
     "url": "/projects/anp-bizsquare",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of ANP Bizsquare?",
+        "a": "ANP Bizsquare is registered under MahaRERA with registration number P52100055995. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at ANP Bizsquare?",
+        "a": "ANP Bizsquare offers Showroom & Office Spaces, with sizes 306 - 3,150 sqft."
+      },
+      {
+        "q": "What is the price of homes at ANP Bizsquare?",
+        "a": "Pricing for ANP Bizsquare is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is ANP Bizsquare located?",
+        "a": "ANP Bizsquare is located at Bhumkar Chowk, Wakad, Pune, developed by ANP Corp."
+      },
+      {
+        "q": "Who is the developer of ANP Bizsquare?",
+        "a": "ANP Bizsquare is developed by ANP Corp."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "anp-landmark",
@@ -207,7 +407,73 @@
     ],
     "cover": "/images/landing-pages/anp-landmark/photo-1.jpg",
     "url": "/projects/anp-landmark",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of ANP Landmark?",
+        "a": "ANP Landmark is registered under MahaRERA with registration number P52100023061. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at ANP Landmark?",
+        "a": "ANP Landmark offers Retail Shops & Office Spaces, with sizes 360 - 1,229 sqft."
+      },
+      {
+        "q": "What is the price of homes at ANP Landmark?",
+        "a": "Pricing for ANP Landmark is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is ANP Landmark located?",
+        "a": "ANP Landmark is located at Bhumkar Chowk, Wakad, Pune, developed by ANP Corp."
+      },
+      {
+        "q": "Who is the developer of ANP Landmark?",
+        "a": "ANP Landmark is developed by ANP Corp."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "anp-memento",
@@ -261,7 +527,77 @@
     ],
     "cover": "/images/landing-pages/anp-memento/photo-1.jpg",
     "url": "/projects/anp-memento",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of ANP Memento?",
+        "a": "ANP Memento is registered under MahaRERA with registration number P52100026219. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at ANP Memento?",
+        "a": "ANP Memento offers 2, 2.5, 3 & 3.5 BHK Apartments, with sizes 749 - 1,201 sqft."
+      },
+      {
+        "q": "What is the price of homes at ANP Memento?",
+        "a": "Pricing for ANP Memento is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is ANP Memento located?",
+        "a": "ANP Memento is located at Bhumkar Chowk, Wakad, Pune, developed by ANP Corp."
+      },
+      {
+        "q": "Who is the developer of ANP Memento?",
+        "a": "ANP Memento is developed by ANP Corp."
+      },
+      {
+        "q": "Is ANP Memento ready to move in or under construction?",
+        "a": "ANP Memento is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "anp-privado",
@@ -313,7 +649,74 @@
     ],
     "cover": "/images/landing-pages/anp-privado/photo-1.webp",
     "url": "/projects/anp-privado",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of ANP Privado?",
+        "a": "ANP Privado is registered under MahaRERA with registration number PR1260002500840. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at ANP Privado?",
+        "a": "ANP Privado offers 3, 4 & 5 BHK."
+      },
+      {
+        "q": "What is the price of homes at ANP Privado?",
+        "a": "ANP Privado is priced ₹2.65 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is ANP Privado located?",
+        "a": "ANP Privado is located at Pan Card Club Road, Baner, Pune, developed by ANP Corp."
+      },
+      {
+        "q": "Who is the developer of ANP Privado?",
+        "a": "ANP Privado is developed by ANP Corp."
+      },
+      {
+        "q": "Is ANP Privado ready to move in or under construction?",
+        "a": "ANP Privado is a new launch."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "anp-retreat",
@@ -367,7 +770,77 @@
     ],
     "cover": "/images/landing-pages/anp-retreat/photo-1.jpg",
     "url": "/projects/anp-retreat",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of ANP Retreat?",
+        "a": "ANP Retreat is registered under MahaRERA with registration number P52100034557. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at ANP Retreat?",
+        "a": "ANP Retreat offers 1 BHK Apartments, with sizes 492 sqft."
+      },
+      {
+        "q": "What is the price of homes at ANP Retreat?",
+        "a": "Pricing for ANP Retreat is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is ANP Retreat located?",
+        "a": "ANP Retreat is located at Bhumkar Chowk, Wakad, Pune, developed by ANP Corp."
+      },
+      {
+        "q": "Who is the developer of ANP Retreat?",
+        "a": "ANP Retreat is developed by ANP Corp."
+      },
+      {
+        "q": "Is ANP Retreat ready to move in or under construction?",
+        "a": "ANP Retreat is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "anp-ultimus",
@@ -420,7 +893,77 @@
     ],
     "cover": "/images/landing-pages/anp-ultimus/photo-1.jpg",
     "url": "/projects/anp-ultimus",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of ANP Ultimus?",
+        "a": "ANP Ultimus is registered under MahaRERA with registration number P52100047835. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at ANP Ultimus?",
+        "a": "ANP Ultimus offers 2, 2.5, 3 & 3.5 BHK Apartments, with sizes 841 - 1,233 sqft."
+      },
+      {
+        "q": "What is the price of homes at ANP Ultimus?",
+        "a": "Pricing for ANP Ultimus is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is ANP Ultimus located?",
+        "a": "ANP Ultimus is located at Wakad, Pune, developed by ANP Corp."
+      },
+      {
+        "q": "Who is the developer of ANP Ultimus?",
+        "a": "ANP Ultimus is developed by ANP Corp."
+      },
+      {
+        "q": "Is ANP Ultimus ready to move in or under construction?",
+        "a": "ANP Ultimus is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "ashokvillas",
@@ -484,7 +1027,57 @@
     ],
     "cover": "/images/landing-pages/ashok-villas/row-villas-exterior.jpg",
     "url": "/projects/ashokvillas",
-    "body": ""
+    "body": "",
+    "micro_market": "ravet-gahunje",
+    "locality_name": "Ravet-Gahunje",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of AshokVillas?",
+        "a": "AshokVillas is registered under MahaRERA with registration number Ashok Villas Imperial: PR1260002600608, Ashok Villas Grande: PR1260002600614. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at AshokVillas?",
+        "a": "AshokVillas offers 3 BHK Row Villas, with sizes 3,350 sqft onwards (Total Usable Area)."
+      },
+      {
+        "q": "What is the price of homes at AshokVillas?",
+        "a": "AshokVillas is priced ₹2.99 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is AshokVillas located?",
+        "a": "AshokVillas is located at Ravet - Gahunje, Pune, developed by Peninsula Land."
+      },
+      {
+        "q": "Who is the developer of AshokVillas?",
+        "a": "AshokVillas is developed by Peninsula Land."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Ravet-Gahunje located?",
+        "a": "Ravet and Gahunje sit along the Old Mumbai-Pune Highway on the northern edge of Pimpri-Chinchwad, within reach of Wakad and Hinjewadi."
+      },
+      {
+        "q": "What is Gahunje known for?",
+        "a": "Gahunje is home to the Maharashtra Cricket Association Stadium, and the broader Ravet-Gahunje belt has seen growing residential development along the highway corridor."
+      },
+      {
+        "q": "How connected is this area to the IT corridor?",
+        "a": "The Ravet flyover and Old Mumbai-Pune Highway connect the area to Wakad and onward to Hinjewadi’s IT parks, making it a relevant option for buyers priced out of the core corridor."
+      }
+    ],
+    "nearby_landmarks": {
+      "business": [
+        "Hinjewadi IT Park (via Wakad)"
+      ],
+      "transit": [
+        "Ravet flyover",
+        "Old Mumbai-Pune Highway"
+      ],
+      "lifestyle": [
+        "Maharashtra Cricket Association Stadium, Gahunje"
+      ]
+    }
   },
   {
     "slug": "city-avenue-wakad",
@@ -531,7 +1124,77 @@
     ],
     "cover": "/images/landing-pages/city-avenue-wakad/photo-1.webp",
     "url": "/projects/city-avenue-wakad",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of City Avenue?",
+        "a": "City Avenue is registered under MahaRERA with registration number P52100003760. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at City Avenue?",
+        "a": "City Avenue offers Retail Shops & Office Spaces."
+      },
+      {
+        "q": "What is the price of homes at City Avenue?",
+        "a": "Pricing for City Avenue is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is City Avenue located?",
+        "a": "City Avenue is located at Wakad, Pune, developed by Kolte-Patil Developers."
+      },
+      {
+        "q": "Who is the developer of City Avenue?",
+        "a": "City Avenue is developed by Kolte-Patil Developers."
+      },
+      {
+        "q": "Is City Avenue ready to move in or under construction?",
+        "a": "City Avenue is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "eon-west-2",
@@ -554,7 +1217,69 @@
     "price": 0,
     "cover": "/images/landing-pages/eon-west-2/photo-1.webp",
     "url": "/projects/eon-west-2",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What configurations are available at EON West II?",
+        "a": "EON West II offers IT / Office Space, with sizes 1.2 million sqft."
+      },
+      {
+        "q": "What is the price of homes at EON West II?",
+        "a": "Pricing for EON West II is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is EON West II located?",
+        "a": "EON West II is located at Wakad, Pune, developed by Panchshil Realty."
+      },
+      {
+        "q": "Who is the developer of EON West II?",
+        "a": "EON West II is developed by Panchshil Realty."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "godrej-river-royale",
@@ -614,7 +1339,74 @@
     ],
     "cover": "/images/projects/godrej-river-royale.jpg",
     "url": "/projects/godrej-river-royale",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Godrej River Royale?",
+        "a": "Godrej River Royale is registered under MahaRERA with registration number P52100047823. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Godrej River Royale?",
+        "a": "Godrej River Royale offers 3 & 4.5 BHK, with sizes From 1,688 sqft."
+      },
+      {
+        "q": "What is the price of homes at Godrej River Royale?",
+        "a": "Godrej River Royale is priced ₹2.65 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Godrej River Royale located?",
+        "a": "Godrej River Royale is located at Baner–Hinjewadi Rd, Pune, developed by Godrej Properties."
+      },
+      {
+        "q": "Who is the developer of Godrej River Royale?",
+        "a": "Godrej River Royale is developed by Godrej Properties."
+      },
+      {
+        "q": "Is Godrej River Royale ready to move in or under construction?",
+        "a": "Godrej River Royale is a new launch."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "greenfinity-wakad",
@@ -667,7 +1459,77 @@
     ],
     "cover": "/images/landing-pages/greenfinity-wakad/photo-1.webp",
     "url": "/projects/greenfinity-wakad",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Greenfinity?",
+        "a": "Greenfinity is registered under MahaRERA with registration number PM1260002502262. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Greenfinity?",
+        "a": "Greenfinity offers 2 & 3 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Greenfinity?",
+        "a": "Pricing for Greenfinity is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Greenfinity located?",
+        "a": "Greenfinity is located at Wakad, Pune, developed by Goel Ganga Group."
+      },
+      {
+        "q": "Who is the developer of Greenfinity?",
+        "a": "Greenfinity is developed by Goel Ganga Group."
+      },
+      {
+        "q": "Is Greenfinity ready to move in or under construction?",
+        "a": "Greenfinity is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "kalpataru-aria",
@@ -728,7 +1590,55 @@
     ],
     "cover": "/images/landing-pages/kalpataru-aria/masterplan-aerial.jpg",
     "url": "/projects/kalpataru-aria",
-    "body": ""
+    "body": "",
+    "micro_market": "karjat",
+    "locality_name": "Karjat",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Kalpataru Aria?",
+        "a": "Kalpataru Aria is registered under MahaRERA with registration number P52000047146 (Phase A), P52000050704 (Phase B), P52000051573 (Phase C). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Kalpataru Aria?",
+        "a": "Kalpataru Aria offers 2 BHK Apartments, Plots & 3 BHK Townhouses, with sizes 1,615 – 9,000 sqft (Plots) · 1,700 – 1,800 sqft (Townhouses)."
+      },
+      {
+        "q": "What is the price of homes at Kalpataru Aria?",
+        "a": "Kalpataru Aria is priced ₹74 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Kalpataru Aria located?",
+        "a": "Kalpataru Aria is located at Karjat, Maharashtra, developed by Kalpataru."
+      },
+      {
+        "q": "Who is the developer of Kalpataru Aria?",
+        "a": "Kalpataru Aria is developed by Kalpataru."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Karjat and why do buyers consider it?",
+        "a": "Karjat is a scenic town on the Mumbai-Pune corridor at the base of the Sahyadri hills, popular for weekend homes, farmhouse plots and second-home investments thanks to its greenery and proximity to both Mumbai and Pune."
+      },
+      {
+        "q": "Is Karjat suitable as an investment for a second home?",
+        "a": "Karjat’s appeal for plotted developments comes from its natural surroundings and weekend-getaway demand from both Mumbai and Pune, distinct from the end-user apartment demand seen in the city’s IT corridors."
+      },
+      {
+        "q": "How is Karjat connected to Mumbai and Pune?",
+        "a": "Karjat sits along the Mumbai-Pune rail line and old highway, making it accessible as a weekend destination from both cities."
+      }
+    ],
+    "nearby_landmarks": {
+      "lifestyle": [
+        "Sahyadri hill surroundings",
+        "Popular weekend-getaway destination"
+      ],
+      "transit": [
+        "Mumbai-Pune rail corridor",
+        "Old Mumbai-Pune Highway"
+      ]
+    }
   },
   {
     "slug": "kalpataru-blossoms",
@@ -791,7 +1701,46 @@
     ],
     "cover": "/images/landing-pages/kalpataru-blossoms/tower-dusk-view.jpg",
     "url": "/projects/kalpataru-blossoms",
-    "body": ""
+    "body": "",
+    "micro_market": "sinhagad-road",
+    "locality_name": "Sinhagad Road",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Kalpataru Blossoms?",
+        "a": "Kalpataru Blossoms is registered under MahaRERA with registration number P52100077659 (Tower 1), P52100077649 (Tower 2), P52100077750 (Tower 3). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Kalpataru Blossoms?",
+        "a": "Kalpataru Blossoms offers 2, 3, 3.5, 4 & 4.5 BHK Apartments, with sizes Configurations across 3 towers."
+      },
+      {
+        "q": "What is the price of homes at Kalpataru Blossoms?",
+        "a": "Kalpataru Blossoms is priced ₹1.75 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Kalpataru Blossoms located?",
+        "a": "Kalpataru Blossoms is located at Sinhagad Road, Pune, developed by Kalpataru."
+      },
+      {
+        "q": "Who is the developer of Kalpataru Blossoms?",
+        "a": "Kalpataru Blossoms is developed by Kalpataru."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Sinhagad Road located?",
+        "a": "Sinhagad Road is an established residential corridor in south Pune, leading towards the historic Sinhagad Fort, and is popular with buyers who work in south and central Pune rather than the western IT belt."
+      },
+      {
+        "q": "What makes Sinhagad Road attractive to homebuyers?",
+        "a": "The area offers a more settled, established residential character with reasonable pricing relative to the western corridor, along with proximity to south Pune’s commercial and educational institutions."
+      }
+    ],
+    "nearby_landmarks": {
+      "lifestyle": [
+        "Sinhagad Fort (weekend recreation)"
+      ]
+    }
   },
   {
     "slug": "khopoli",
@@ -844,7 +1793,55 @@
     ],
     "cover": "/images/landing-pages/khopoli/hero-vision.jpg",
     "url": "/projects/khopoli",
-    "body": ""
+    "body": "",
+    "micro_market": "khopoli",
+    "locality_name": "Khopoli",
+    "project_faqs": [
+      {
+        "q": "What configurations are available at Shapoorji Pallonji Khopoli?",
+        "a": "Shapoorji Pallonji Khopoli offers Residential Plots & Private Hamlets, with sizes 1,700 – 6,000 sqft."
+      },
+      {
+        "q": "What is the price of homes at Shapoorji Pallonji Khopoli?",
+        "a": "Shapoorji Pallonji Khopoli is priced ₹80 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Shapoorji Pallonji Khopoli located?",
+        "a": "Shapoorji Pallonji Khopoli is located at Near Khopoli, Maharashtra, developed by Shapoorji Pallonji."
+      },
+      {
+        "q": "Who is the developer of Shapoorji Pallonji Khopoli?",
+        "a": "Shapoorji Pallonji Khopoli is developed by Shapoorji Pallonji."
+      },
+      {
+        "q": "Is Shapoorji Pallonji Khopoli ready to move in or under construction?",
+        "a": "Shapoorji Pallonji Khopoli is a new launch."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Khopoli located?",
+        "a": "Khopoli is a town at the base of the Western Ghats along the old Mumbai-Pune highway, and serves as a gateway towards hill stations such as Matheran and Lonavala."
+      },
+      {
+        "q": "Why do buyers look at plots or villas in Khopoli?",
+        "a": "Khopoli attracts buyers seeking weekend homes and villa plots for its natural surroundings and relative affordability compared to core Pune and Mumbai, alongside some established industrial activity in the belt."
+      },
+      {
+        "q": "How is Khopoli connected to Mumbai and Pune?",
+        "a": "Khopoli lies on the Mumbai-Pune expressway/NH48 corridor and the Mumbai-Pune rail line, giving reasonable access to both cities."
+      }
+    ],
+    "nearby_landmarks": {
+      "lifestyle": [
+        "Gateway to Matheran and Lonavala",
+        "Western Ghats surroundings"
+      ],
+      "transit": [
+        "Mumbai-Pune Expressway (NH48)",
+        "Mumbai-Pune rail corridor"
+      ]
+    }
   },
   {
     "slug": "kings-county-wakad",
@@ -904,7 +1901,77 @@
     ],
     "cover": "/images/landing-pages/kings-county-wakad/photo-1.webp",
     "url": "/projects/kings-county-wakad",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Kings County?",
+        "a": "Kings County is registered under MahaRERA with registration number P52100055635. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Kings County?",
+        "a": "Kings County offers 3 & 4 BHK Apartments, with sizes 1,093 - 1,540 sqft."
+      },
+      {
+        "q": "What is the price of homes at Kings County?",
+        "a": "Kings County is priced ₹1.45 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Kings County located?",
+        "a": "Kings County is located at Wakad, Pune, developed by Kings Marque Group."
+      },
+      {
+        "q": "Who is the developer of Kings County?",
+        "a": "Kings County is developed by Kings Marque Group."
+      },
+      {
+        "q": "Is Kings County ready to move in or under construction?",
+        "a": "Kings County is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "kohinoor-avantara",
@@ -958,7 +2025,73 @@
     ],
     "cover": "/images/landing-pages/kohinoor-avantara/photo-1.webp",
     "url": "/projects/kohinoor-avantara",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Kohinoor Avantara?",
+        "a": "Kohinoor Avantara is registered under MahaRERA with registration number PR1260002501984. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Kohinoor Avantara?",
+        "a": "Kohinoor Avantara offers 2 & 3 BHK Apartments, with sizes 704 - 1,087 sqft."
+      },
+      {
+        "q": "What is the price of homes at Kohinoor Avantara?",
+        "a": "Pricing for Kohinoor Avantara is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Kohinoor Avantara located?",
+        "a": "Kohinoor Avantara is located at Downtown Wakad, Pune, developed by Kohinoor Group."
+      },
+      {
+        "q": "Who is the developer of Kohinoor Avantara?",
+        "a": "Kohinoor Avantara is developed by Kohinoor Group."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "kohinoor-regalia-towers",
@@ -1009,7 +2142,77 @@
     ],
     "cover": "/images/landing-pages/kohinoor-regalia-towers/photo-1.webp",
     "url": "/projects/kohinoor-regalia-towers",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Kohinoor Regalia Towers?",
+        "a": "Kohinoor Regalia Towers is registered under MahaRERA with registration number PR1260002500271. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Kohinoor Regalia Towers?",
+        "a": "Kohinoor Regalia Towers offers 2 & 3 BHK Apartments, with sizes 740 - 1,076 sqft."
+      },
+      {
+        "q": "What is the price of homes at Kohinoor Regalia Towers?",
+        "a": "Pricing for Kohinoor Regalia Towers is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Kohinoor Regalia Towers located?",
+        "a": "Kohinoor Regalia Towers is located at Downtown Wakad, Pune, developed by Kohinoor Group."
+      },
+      {
+        "q": "Who is the developer of Kohinoor Regalia Towers?",
+        "a": "Kohinoor Regalia Towers is developed by Kohinoor Group."
+      },
+      {
+        "q": "Is Kohinoor Regalia Towers ready to move in or under construction?",
+        "a": "Kohinoor Regalia Towers is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "kohinoor-westview-reserve",
@@ -1067,7 +2270,77 @@
     ],
     "cover": "/images/landing-pages/kohinoor-westview-reserve/photo-1.webp",
     "url": "/projects/kohinoor-westview-reserve",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Kohinoor Westview Reserve?",
+        "a": "Kohinoor Westview Reserve is registered under MahaRERA with registration number P52100048589, P52100050739. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Kohinoor Westview Reserve?",
+        "a": "Kohinoor Westview Reserve offers 2 & 3 BHK Apartments, with sizes 798 - 1,244 sqft."
+      },
+      {
+        "q": "What is the price of homes at Kohinoor Westview Reserve?",
+        "a": "Pricing for Kohinoor Westview Reserve is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Kohinoor Westview Reserve located?",
+        "a": "Kohinoor Westview Reserve is located at New Wakad, Pune, developed by Kohinoor Group."
+      },
+      {
+        "q": "Who is the developer of Kohinoor Westview Reserve?",
+        "a": "Kohinoor Westview Reserve is developed by Kohinoor Group."
+      },
+      {
+        "q": "Is Kohinoor Westview Reserve ready to move in or under construction?",
+        "a": "Kohinoor Westview Reserve is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "kumar-panache",
@@ -1118,7 +2391,74 @@
     ],
     "cover": "/images/landing-pages/kumar-panache/photo-1.webp",
     "url": "/projects/kumar-panache",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Kumar Panache?",
+        "a": "Kumar Panache is registered under MahaRERA with registration number P52100077734. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Kumar Panache?",
+        "a": "Kumar Panache offers 2 & 3 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Kumar Panache?",
+        "a": "Kumar Panache is priced ₹1.15 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Kumar Panache located?",
+        "a": "Kumar Panache is located at Baner, Pune, developed by Kumar Corp."
+      },
+      {
+        "q": "Who is the developer of Kumar Panache?",
+        "a": "Kumar Panache is developed by Kumar Corp."
+      },
+      {
+        "q": "Is Kumar Panache ready to move in or under construction?",
+        "a": "Kumar Panache is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "kumar-parth-towers",
@@ -1172,7 +2512,70 @@
     ],
     "cover": "/images/landing-pages/kumar-parth-towers/photo-1.webp",
     "url": "/projects/kumar-parth-towers",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Kumar Parth Towers?",
+        "a": "Kumar Parth Towers is registered under MahaRERA with registration number P52100047987 (C1), P52100052945 (C2), PR1260002500333 (C3). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Kumar Parth Towers?",
+        "a": "Kumar Parth Towers offers 2, 3 & 4 BHK Apartments, with sizes 749 – 1,073 sqft."
+      },
+      {
+        "q": "What is the price of homes at Kumar Parth Towers?",
+        "a": "Pricing for Kumar Parth Towers is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Kumar Parth Towers located?",
+        "a": "Kumar Parth Towers is located at Baner, Pune, developed by Kumar Properties."
+      },
+      {
+        "q": "Who is the developer of Kumar Parth Towers?",
+        "a": "Kumar Parth Towers is developed by Kumar Properties."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "livience-unione",
@@ -1224,7 +2627,74 @@
     ],
     "cover": "/images/landing-pages/livience-unione/photo-1.webp",
     "url": "/projects/livience-unione",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Livience Unione?",
+        "a": "Livience Unione is registered under MahaRERA with registration number PR1260002501582. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Livience Unione?",
+        "a": "Livience Unione offers 2+2, 3 & 4 BHK."
+      },
+      {
+        "q": "What is the price of homes at Livience Unione?",
+        "a": "Pricing for Livience Unione is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Livience Unione located?",
+        "a": "Livience Unione is located at Aundh-Baner Road, Pune, developed by Livience Lifespaces."
+      },
+      {
+        "q": "Who is the developer of Livience Unione?",
+        "a": "Livience Unione is developed by Livience Lifespaces."
+      },
+      {
+        "q": "Is Livience Unione ready to move in or under construction?",
+        "a": "Livience Unione is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "lodha-altero",
@@ -1278,7 +2748,73 @@
     ],
     "cover": "/images/landing-pages/lodha-altero/photo-1.webp",
     "url": "/projects/lodha-altero",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Lodha Altero?",
+        "a": "Lodha Altero is registered under MahaRERA with registration number P52100079692. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Lodha Altero?",
+        "a": "Lodha Altero offers 3 & 4 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Lodha Altero?",
+        "a": "Pricing for Lodha Altero is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Lodha Altero located?",
+        "a": "Lodha Altero is located at Wakad, Pune, developed by Lodha."
+      },
+      {
+        "q": "Who is the developer of Lodha Altero?",
+        "a": "Lodha Altero is developed by Lodha."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "lodha-massimo",
@@ -1328,7 +2864,74 @@
     ],
     "cover": "/images/landing-pages/lodha-massimo/entrance-night-view.webp",
     "url": "/projects/lodha-massimo",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Lodha Massimo?",
+        "a": "Lodha Massimo is registered under MahaRERA with registration number PR1261012400049. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Lodha Massimo?",
+        "a": "Lodha Massimo offers 3 & 4 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Lodha Massimo?",
+        "a": "Pricing for Lodha Massimo is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Lodha Massimo located?",
+        "a": "Lodha Massimo is located at Pan Card Club Road, Baner Hills, Pune, developed by Lodha."
+      },
+      {
+        "q": "Who is the developer of Lodha Massimo?",
+        "a": "Lodha Massimo is developed by Lodha."
+      },
+      {
+        "q": "Is Lodha Massimo ready to move in or under construction?",
+        "a": "Lodha Massimo is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "mahindra-citadel",
@@ -1380,7 +2983,65 @@
     ],
     "cover": "/images/landing-pages/mahindra-citadel/hero-tower.jpg",
     "url": "/projects/mahindra-citadel",
-    "body": ""
+    "body": "",
+    "micro_market": "pimpri-chinchwad",
+    "locality_name": "Pimpri-Chinchwad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Mahindra Citadel?",
+        "a": "Mahindra Citadel is registered under MahaRERA with registration number PPI261012501803. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Mahindra Citadel?",
+        "a": "Mahindra Citadel offers 2 & 3 BHK, with sizes From 743 sqft."
+      },
+      {
+        "q": "What is the price of homes at Mahindra Citadel?",
+        "a": "Mahindra Citadel is priced ₹1.09 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Mahindra Citadel located?",
+        "a": "Mahindra Citadel is located at Pimpri-Chinchwad, Pune, developed by Mahindra Lifespaces."
+      },
+      {
+        "q": "Who is the developer of Mahindra Citadel?",
+        "a": "Mahindra Citadel is developed by Mahindra Lifespaces."
+      },
+      {
+        "q": "Is Mahindra Citadel ready to move in or under construction?",
+        "a": "Mahindra Citadel is a new launch."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "What kind of area is Pimpri-Chinchwad?",
+        "a": "Pimpri-Chinchwad is one of Pune’s established twin-city industrial and residential belts, governed by its own municipal corporation (PCMC), with a long-standing manufacturing and automotive industry base alongside growing residential demand."
+      },
+      {
+        "q": "How is Pimpri-Chinchwad connected to the rest of Pune?",
+        "a": "The area is served by the Pune Metro’s PCMC-Swargate corridor and sits along the Mumbai-Pune Expressway and Old Mumbai-Pune Highway, giving direct access to Wakad, Hinjewadi and central Pune."
+      },
+      {
+        "q": "Is Pimpri-Chinchwad a good option for value-conscious buyers?",
+        "a": "Pimpri-Chinchwad is generally viewed as a comparatively more accessible entry point than the core western IT corridor, while still offering established civic infrastructure through the PCMC."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Established PCMC-area schools and colleges"
+      ],
+      "business": [
+        "Pimpri-Chinchwad industrial belt",
+        "PCMC commercial zones"
+      ],
+      "transit": [
+        "Pune Metro (PCMC-Swargate corridor)",
+        "Mumbai-Pune Expressway access"
+      ],
+      "lifestyle": [
+        "PCMC civic gardens and sports facilities"
+      ]
+    }
   },
   {
     "slug": "mahindra-mahalunge",
@@ -1419,7 +3080,60 @@
     "unit_3_featured": false,
     "cover": "/images/landing-pages/mahindra-mahalunge/banner.jpg",
     "url": "/projects/mahindra-mahalunge",
-    "body": ""
+    "body": "",
+    "micro_market": "mahalunge",
+    "locality_name": "Mahalunge",
+    "project_faqs": [
+      {
+        "q": "What configurations are available at Mahindra Lifespaces Mahalunge?",
+        "a": "Mahindra Lifespaces Mahalunge offers 2, 3 & 4 BHK Apartments, with sizes 700 – 1,650 sqft."
+      },
+      {
+        "q": "What is the price of homes at Mahindra Lifespaces Mahalunge?",
+        "a": "Mahindra Lifespaces Mahalunge is priced ₹90 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Mahindra Lifespaces Mahalunge located?",
+        "a": "Mahindra Lifespaces Mahalunge is located at Mahalunge, Baner Annex, Pune, developed by Mahindra Lifespaces."
+      },
+      {
+        "q": "Who is the developer of Mahindra Lifespaces Mahalunge?",
+        "a": "Mahindra Lifespaces Mahalunge is developed by Mahindra Lifespaces."
+      },
+      {
+        "q": "Is Mahindra Lifespaces Mahalunge ready to move in or under construction?",
+        "a": "Mahindra Lifespaces Mahalunge is a new launch."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Mahalunge and how does it relate to Baner?",
+        "a": "Mahalunge is an emerging locality adjoining Baner in west Pune, often marketed as the next growth corridor as Baner itself matures and land availability there tightens."
+      },
+      {
+        "q": "Why are developers launching projects in Mahalunge?",
+        "a": "Mahalunge offers relatively larger parcels of land close to the established Baner-Balewadi belt and within reach of Hinjewadi Phase 3, letting developers offer larger-format homes at comparatively accessible pricing versus core Baner."
+      },
+      {
+        "q": "What is the connectivity like in Mahalunge?",
+        "a": "Mahalunge benefits from its proximity to the Baner-Pashan Link Road and the Mumbai-Pune Expressway, with onward access to Hinjewadi’s IT parks."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Schools and colleges of the Baner-Balewadi belt (short drive)"
+      ],
+      "business": [
+        "Hinjewadi Phase 3 IT Park",
+        "Baner-Pashan IT corridor"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street (short drive)"
+      ]
+    }
   },
   {
     "slug": "majestique-elements",
@@ -1472,7 +3186,74 @@
     ],
     "cover": "/images/landing-pages/majestique-elements/photo-1.webp",
     "url": "/projects/majestique-elements",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Majestique Elements?",
+        "a": "Majestique Elements is registered under MahaRERA with registration number PR1260002502240. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Majestique Elements?",
+        "a": "Majestique Elements offers 4 BHK Signature Residences."
+      },
+      {
+        "q": "What is the price of homes at Majestique Elements?",
+        "a": "Pricing for Majestique Elements is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Majestique Elements located?",
+        "a": "Majestique Elements is located at Pan Card Road, Baner, Pune, developed by Majestique Landmarks."
+      },
+      {
+        "q": "Who is the developer of Majestique Elements?",
+        "a": "Majestique Elements is developed by Majestique Landmarks."
+      },
+      {
+        "q": "Is Majestique Elements ready to move in or under construction?",
+        "a": "Majestique Elements is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "merlin-ventana",
@@ -1530,7 +3311,74 @@
     ],
     "cover": "/images/landing-pages/merlin-ventana/photo-1.webp",
     "url": "/projects/merlin-ventana",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Merlin Ventana?",
+        "a": "Merlin Ventana is registered under MahaRERA with registration number P52100053687. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Merlin Ventana?",
+        "a": "Merlin Ventana offers 3 & 4 BHK, with sizes 1,072 – 1,481 sqft."
+      },
+      {
+        "q": "What is the price of homes at Merlin Ventana?",
+        "a": "Pricing for Merlin Ventana is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Merlin Ventana located?",
+        "a": "Merlin Ventana is located at Baner, Pune, developed by Merlin Group."
+      },
+      {
+        "q": "Who is the developer of Merlin Ventana?",
+        "a": "Merlin Ventana is developed by Merlin Group."
+      },
+      {
+        "q": "Is Merlin Ventana ready to move in or under construction?",
+        "a": "Merlin Ventana is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "millennium-towers-wakad",
@@ -1581,7 +3429,69 @@
     ],
     "cover": "/images/landing-pages/millennium-towers-wakad/photo-1.webp",
     "url": "/projects/millennium-towers-wakad",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What configurations are available at Millennium Towers?",
+        "a": "Millennium Towers offers Grade A+ Office Space, with sizes 10,000 - 70,000 sqft floor plates."
+      },
+      {
+        "q": "What is the price of homes at Millennium Towers?",
+        "a": "Pricing for Millennium Towers is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Millennium Towers located?",
+        "a": "Millennium Towers is located at Wakad-Balewadi Corridor, Pune, developed by The Phoenix Mills Ltd.."
+      },
+      {
+        "q": "Who is the developer of Millennium Towers?",
+        "a": "Millennium Towers is developed by The Phoenix Mills Ltd.."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "neoliv-grand-forest-prive",
@@ -1640,7 +3550,55 @@
     ],
     "cover": "/images/landing-pages/neoliv-grand-forest-prive/site-progress-1.jpg",
     "url": "/projects/neoliv-grand-forest-prive",
-    "body": ""
+    "body": "",
+    "micro_market": "khopoli",
+    "locality_name": "Khopoli",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Neoliv Grand Forest Privé?",
+        "a": "Neoliv Grand Forest Privé is registered under MahaRERA with registration number PP1270002502553, PP1270002502551, PP1270002502087. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Neoliv Grand Forest Privé?",
+        "a": "Neoliv Grand Forest Privé offers NA Residential Plots, with sizes 1,800 – 2,500 sqft."
+      },
+      {
+        "q": "What is the price of homes at Neoliv Grand Forest Privé?",
+        "a": "Neoliv Grand Forest Privé is priced ₹95 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Neoliv Grand Forest Privé located?",
+        "a": "Neoliv Grand Forest Privé is located at Khopoli, Maharashtra, developed by Neoliv."
+      },
+      {
+        "q": "Who is the developer of Neoliv Grand Forest Privé?",
+        "a": "Neoliv Grand Forest Privé is developed by Neoliv."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Khopoli located?",
+        "a": "Khopoli is a town at the base of the Western Ghats along the old Mumbai-Pune highway, and serves as a gateway towards hill stations such as Matheran and Lonavala."
+      },
+      {
+        "q": "Why do buyers look at plots or villas in Khopoli?",
+        "a": "Khopoli attracts buyers seeking weekend homes and villa plots for its natural surroundings and relative affordability compared to core Pune and Mumbai, alongside some established industrial activity in the belt."
+      },
+      {
+        "q": "How is Khopoli connected to Mumbai and Pune?",
+        "a": "Khopoli lies on the Mumbai-Pune expressway/NH48 corridor and the Mumbai-Pune rail line, giving reasonable access to both cities."
+      }
+    ],
+    "nearby_landmarks": {
+      "lifestyle": [
+        "Gateway to Matheran and Lonavala",
+        "Western Ghats surroundings"
+      ],
+      "transit": [
+        "Mumbai-Pune Expressway (NH48)",
+        "Mumbai-Pune rail corridor"
+      ]
+    }
   },
   {
     "slug": "nyati-emerald",
@@ -1697,7 +3655,70 @@
     ],
     "cover": "/images/landing-pages/nyati-emerald/photo-1.webp",
     "url": "/projects/nyati-emerald",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Nyati Emerald?",
+        "a": "Nyati Emerald is registered under MahaRERA with registration number P52100051235 (Phase I), P52100054857 (Phase II), P52100055066 (Phase III). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Nyati Emerald?",
+        "a": "Nyati Emerald offers 2 & 3 BHK Residences, with sizes 838 – 1,213 sqft."
+      },
+      {
+        "q": "What is the price of homes at Nyati Emerald?",
+        "a": "Nyati Emerald is priced ₹1.25 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Nyati Emerald located?",
+        "a": "Nyati Emerald is located at Baner, Pune West, developed by Nyati Group."
+      },
+      {
+        "q": "Who is the developer of Nyati Emerald?",
+        "a": "Nyati Emerald is developed by Nyati Group."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "regency-astra",
@@ -1747,7 +3768,70 @@
     ],
     "cover": "/images/landing-pages/regency-astra/photo-1.webp",
     "url": "/projects/regency-astra",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Regency Astra?",
+        "a": "Regency Astra is registered under MahaRERA with registration number P52100032177 (A1), P52100046664 (A2), P52100053943 (B1). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Regency Astra?",
+        "a": "Regency Astra offers 2 & 3 BHK Homes."
+      },
+      {
+        "q": "What is the price of homes at Regency Astra?",
+        "a": "Pricing for Regency Astra is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Regency Astra located?",
+        "a": "Regency Astra is located at Baner, Pune, developed by Regency Group."
+      },
+      {
+        "q": "Who is the developer of Regency Astra?",
+        "a": "Regency Astra is developed by Regency Group."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "rohan-viti",
@@ -1795,7 +3879,77 @@
     ],
     "cover": "/images/landing-pages/rohan-viti/photo-1.webp",
     "url": "/projects/rohan-viti",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Rohan Viti?",
+        "a": "Rohan Viti is registered under MahaRERA with registration number P52100046719. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Rohan Viti?",
+        "a": "Rohan Viti offers 2 & 3 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Rohan Viti?",
+        "a": "Pricing for Rohan Viti is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Rohan Viti located?",
+        "a": "Rohan Viti is located at Wakad, Pune, developed by Rohan Builders."
+      },
+      {
+        "q": "Who is the developer of Rohan Viti?",
+        "a": "Rohan Viti is developed by Rohan Builders."
+      },
+      {
+        "q": "Is Rohan Viti ready to move in or under construction?",
+        "a": "Rohan Viti is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "supreme-estia",
@@ -1843,7 +3997,74 @@
     ],
     "cover": "/images/landing-pages/supreme-estia/photo-1.webp",
     "url": "/projects/supreme-estia",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Supreme Estia?",
+        "a": "Supreme Estia is registered under MahaRERA with registration number P52100024783 (Phase 1), PS2100030247 (Phase 2), P52100030231 (Phase 3). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Supreme Estia?",
+        "a": "Supreme Estia offers 2, 3 & 4 BHK (Sold Out), with sizes From 730 sqft (2 BHK)."
+      },
+      {
+        "q": "What is the price of homes at Supreme Estia?",
+        "a": "Pricing for Supreme Estia is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Supreme Estia located?",
+        "a": "Supreme Estia is located at Off Pancard Club Road, Baner, Pune, developed by Supreme Universal."
+      },
+      {
+        "q": "Who is the developer of Supreme Estia?",
+        "a": "Supreme Estia is developed by Supreme Universal."
+      },
+      {
+        "q": "Is Supreme Estia ready to move in or under construction?",
+        "a": "Supreme Estia is sold out and has no live inventory."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "tej-elevia",
@@ -1895,7 +4116,74 @@
     ],
     "cover": "/images/landing-pages/tej-elevia/photo-1.webp",
     "url": "/projects/tej-elevia",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Tej Elevia?",
+        "a": "Tej Elevia is registered under MahaRERA with registration number P52100018143 (Bldg A, B), P52100050379 (Bldg C), PM1262022501416 (Bldg D). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Tej Elevia?",
+        "a": "Tej Elevia offers 3 & 4 BHK+ Residences."
+      },
+      {
+        "q": "What is the price of homes at Tej Elevia?",
+        "a": "Pricing for Tej Elevia is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Tej Elevia located?",
+        "a": "Tej Elevia is located at Pan Card Club Road, Baner, Pune, developed by Tejraj Group."
+      },
+      {
+        "q": "Who is the developer of Tej Elevia?",
+        "a": "Tej Elevia is developed by Tejraj Group."
+      },
+      {
+        "q": "Is Tej Elevia ready to move in or under construction?",
+        "a": "Tej Elevia is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "the-arena-pimpri",
@@ -1951,7 +4239,61 @@
     ],
     "cover": "/images/landing-pages/the-arena-pimpri/tower-view-1.jpg",
     "url": "/projects/the-arena-pimpri",
-    "body": ""
+    "body": "",
+    "micro_market": "pimpri-chinchwad",
+    "locality_name": "Pimpri-Chinchwad",
+    "project_faqs": [
+      {
+        "q": "What configurations are available at The Arena Pimpri?",
+        "a": "The Arena Pimpri offers 2, 3 & 4 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at The Arena Pimpri?",
+        "a": "Pricing for The Arena Pimpri is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is The Arena Pimpri located?",
+        "a": "The Arena Pimpri is located at Kalewadi Road, Pimpri, Pune, developed by Mahalaxmi Group."
+      },
+      {
+        "q": "Who is the developer of The Arena Pimpri?",
+        "a": "The Arena Pimpri is developed by Mahalaxmi Group."
+      },
+      {
+        "q": "Is The Arena Pimpri ready to move in or under construction?",
+        "a": "The Arena Pimpri is a new launch."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "What kind of area is Pimpri-Chinchwad?",
+        "a": "Pimpri-Chinchwad is one of Pune’s established twin-city industrial and residential belts, governed by its own municipal corporation (PCMC), with a long-standing manufacturing and automotive industry base alongside growing residential demand."
+      },
+      {
+        "q": "How is Pimpri-Chinchwad connected to the rest of Pune?",
+        "a": "The area is served by the Pune Metro’s PCMC-Swargate corridor and sits along the Mumbai-Pune Expressway and Old Mumbai-Pune Highway, giving direct access to Wakad, Hinjewadi and central Pune."
+      },
+      {
+        "q": "Is Pimpri-Chinchwad a good option for value-conscious buyers?",
+        "a": "Pimpri-Chinchwad is generally viewed as a comparatively more accessible entry point than the core western IT corridor, while still offering established civic infrastructure through the PCMC."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Established PCMC-area schools and colleges"
+      ],
+      "business": [
+        "Pimpri-Chinchwad industrial belt",
+        "PCMC commercial zones"
+      ],
+      "transit": [
+        "Pune Metro (PCMC-Swargate corridor)",
+        "Mumbai-Pune Expressway access"
+      ],
+      "lifestyle": [
+        "PCMC civic gardens and sports facilities"
+      ]
+    }
   },
   {
     "slug": "the-balmoral-hillside",
@@ -2005,7 +4347,70 @@
     ],
     "cover": "/images/landing-pages/the-balmoral-hillside/photo-1.webp",
     "url": "/projects/the-balmoral-hillside",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What configurations are available at The Balmoral Hillside?",
+        "a": "The Balmoral Hillside offers 4.5 & 5.5 BHK, with sizes 2,486 sqft (4.5 BHK)."
+      },
+      {
+        "q": "What is the price of homes at The Balmoral Hillside?",
+        "a": "The Balmoral Hillside is priced ₹5.64 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is The Balmoral Hillside located?",
+        "a": "The Balmoral Hillside is located at Baner, Pune, developed by Kasturi Housing."
+      },
+      {
+        "q": "Who is the developer of The Balmoral Hillside?",
+        "a": "The Balmoral Hillside is developed by Kasturi Housing."
+      },
+      {
+        "q": "Is The Balmoral Hillside ready to move in or under construction?",
+        "a": "The Balmoral Hillside is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "the-ornate-baner",
@@ -2057,7 +4462,74 @@
     ],
     "cover": "/images/landing-pages/the-ornate-baner/photo-1.webp",
     "url": "/projects/the-ornate-baner",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of The Ornate?",
+        "a": "The Ornate is registered under MahaRERA with registration number P52100046463. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at The Ornate?",
+        "a": "The Ornate offers 3, 3.5, 4 & 5 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at The Ornate?",
+        "a": "Pricing for The Ornate is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is The Ornate located?",
+        "a": "The Ornate is located at Pan Card Road, Baner, Pune, developed by Majestique Landmarks."
+      },
+      {
+        "q": "Who is the developer of The Ornate?",
+        "a": "The Ornate is developed by Majestique Landmarks."
+      },
+      {
+        "q": "Is The Ornate ready to move in or under construction?",
+        "a": "The Ornate is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "treetopia",
@@ -2111,7 +4583,59 @@
     ],
     "cover": "/images/landing-pages/treetopia/Untitled-design-10.png",
     "url": "/projects/treetopia",
-    "body": ""
+    "body": "",
+    "micro_market": "hadapsar",
+    "locality_name": "Hadapsar",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Shapoorji Pallonji Treetopia?",
+        "a": "Shapoorji Pallonji Treetopia is registered under MahaRERA with registration number PP1261012501803. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Shapoorji Pallonji Treetopia?",
+        "a": "Shapoorji Pallonji Treetopia offers NA Residential Plots, with sizes 2,000 – 6,000 sqft."
+      },
+      {
+        "q": "What is the price of homes at Shapoorji Pallonji Treetopia?",
+        "a": "Shapoorji Pallonji Treetopia is priced ₹84 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Shapoorji Pallonji Treetopia located?",
+        "a": "Shapoorji Pallonji Treetopia is located at Jadhavwadi, Hadapsar–Saswad Rd, Pune, developed by Shapoorji Pallonji."
+      },
+      {
+        "q": "Who is the developer of Shapoorji Pallonji Treetopia?",
+        "a": "Shapoorji Pallonji Treetopia is developed by Shapoorji Pallonji."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Why is Hadapsar an important location in Pune?",
+        "a": "Hadapsar in east Pune is a major established IT and business hub, anchored by Magarpatta City and the EON IT Park, hosting several large domestic and multinational offices."
+      },
+      {
+        "q": "What social infrastructure does Hadapsar offer?",
+        "a": "Hadapsar has well-developed social infrastructure including malls such as Seasons Mall and Phoenix Marketcity nearby, along with established schools and hospitals."
+      },
+      {
+        "q": "How connected is Hadapsar to the rest of Pune?",
+        "a": "Hadapsar lies along the Solapur Highway and is comparatively closer to Pune Railway Station than the western suburbs, with good road connectivity to central Pune and the airport."
+      }
+    ],
+    "nearby_landmarks": {
+      "business": [
+        "Magarpatta City",
+        "EON IT Park"
+      ],
+      "lifestyle": [
+        "Seasons Mall",
+        "Phoenix Marketcity (nearby)"
+      ],
+      "transit": [
+        "Solapur Highway",
+        "Pune Railway Station (comparatively closer)"
+      ]
+    }
   },
   {
     "slug": "venkatesh-tresor",
@@ -2160,7 +4684,74 @@
     ],
     "cover": "/images/landing-pages/venkatesh-tresor/photo-1.webp",
     "url": "/projects/venkatesh-tresor",
-    "body": ""
+    "body": "",
+    "micro_market": "baner",
+    "locality_name": "Baner",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Venkatesh Tresor?",
+        "a": "Venkatesh Tresor is registered under MahaRERA with registration number PR1260002501248. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Venkatesh Tresor?",
+        "a": "Venkatesh Tresor offers 4.5 BHK Sky Chalets & Penthouses."
+      },
+      {
+        "q": "What is the price of homes at Venkatesh Tresor?",
+        "a": "Venkatesh Tresor is priced ₹3.2 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Venkatesh Tresor located?",
+        "a": "Venkatesh Tresor is located at Pallod Farms, Baner, Pune, developed by Venkatesh Buildcon."
+      },
+      {
+        "q": "Who is the developer of Venkatesh Tresor?",
+        "a": "Venkatesh Tresor is developed by Venkatesh Buildcon."
+      },
+      {
+        "q": "Is Venkatesh Tresor ready to move in or under construction?",
+        "a": "Venkatesh Tresor is a new launch."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Baner located and why is it popular with homebuyers?",
+        "a": "Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."
+      },
+      {
+        "q": "How well connected is Baner to the rest of Pune?",
+        "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+      },
+      {
+        "q": "What is the investment case for buying property in Baner?",
+        "a": "Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."
+      },
+      {
+        "q": "What lifestyle and social infrastructure does Baner offer?",
+        "a": "Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "Symbiosis International University",
+        "Vishwakarma Institute of Technology",
+        "Orchids International School"
+      ],
+      "business": [
+        "Baner-Pashan Link Road IT corridor",
+        "Panchshil Business Park (Balewadi)",
+        "World Trade Center, Kharadi (short drive)"
+      ],
+      "hospital": [
+        "Sahyadri Super Speciality Hospital, Baner",
+        "Ruby Hall Clinic, Pimple Saudagar (nearby)"
+      ],
+      "lifestyle": [
+        "Balewadi High Street",
+        "Balewadi Sports Complex",
+        "Baner-Pashan Link Road restaurants & cafes"
+      ]
+    }
   },
   {
     "slug": "vtp-altitude",
@@ -2209,7 +4800,77 @@
     ],
     "cover": "/images/landing-pages/vtp-altitude/photo-1.webp",
     "url": "/projects/vtp-altitude",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of VTP Altitude?",
+        "a": "VTP Altitude is registered under MahaRERA with registration number P52100024885. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at VTP Altitude?",
+        "a": "VTP Altitude offers Offices, Shops & Showrooms, with sizes 480 - 3,000 sqft."
+      },
+      {
+        "q": "What is the price of homes at VTP Altitude?",
+        "a": "Pricing for VTP Altitude is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is VTP Altitude located?",
+        "a": "VTP Altitude is located at Wakad, Pune, developed by VTP Realty."
+      },
+      {
+        "q": "Who is the developer of VTP Altitude?",
+        "a": "VTP Altitude is developed by VTP Realty."
+      },
+      {
+        "q": "Is VTP Altitude ready to move in or under construction?",
+        "a": "VTP Altitude is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "western-avenue-wakad",
@@ -2261,7 +4922,77 @@
     ],
     "cover": "/images/landing-pages/western-avenue-wakad/photo-1.webp",
     "url": "/projects/western-avenue-wakad",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Western Avenue?",
+        "a": "Western Avenue is registered under MahaRERA with registration number P52100000917. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Western Avenue?",
+        "a": "Western Avenue offers 2 & 3 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Western Avenue?",
+        "a": "Pricing for Western Avenue is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Western Avenue located?",
+        "a": "Western Avenue is located at Wakad, Pune, developed by Kolte-Patil Developers."
+      },
+      {
+        "q": "Who is the developer of Western Avenue?",
+        "a": "Western Avenue is developed by Kolte-Patil Developers."
+      },
+      {
+        "q": "Is Western Avenue ready to move in or under construction?",
+        "a": "Western Avenue is ready to move in."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   },
   {
     "slug": "yashwin-urbo-centro",
@@ -2314,6 +5045,76 @@
     ],
     "cover": "/images/landing-pages/yashwin-urbo-centro/photo-1.webp",
     "url": "/projects/yashwin-urbo-centro",
-    "body": ""
+    "body": "",
+    "micro_market": "wakad",
+    "locality_name": "Wakad",
+    "project_faqs": [
+      {
+        "q": "What is the RERA registration number of Yashwin Urbo Centro?",
+        "a": "Yashwin Urbo Centro is registered under MahaRERA with registration number P52100053194. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Yashwin Urbo Centro?",
+        "a": "Yashwin Urbo Centro offers 2, 3 & 4 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Yashwin Urbo Centro?",
+        "a": "Yashwin Urbo Centro is priced ₹80 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Yashwin Urbo Centro located?",
+        "a": "Yashwin Urbo Centro is located at Wakad, Pune, developed by Vilas Javdekar Developers."
+      },
+      {
+        "q": "Who is the developer of Yashwin Urbo Centro?",
+        "a": "Yashwin Urbo Centro is developed by Vilas Javdekar Developers."
+      },
+      {
+        "q": "Is Yashwin Urbo Centro ready to move in or under construction?",
+        "a": "Yashwin Urbo Centro is currently under construction."
+      }
+    ],
+    "locality_faqs": [
+      {
+        "q": "Where is Wakad located and what are its key advantages?",
+        "a": "Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."
+      },
+      {
+        "q": "How is the connectivity and public transport in Wakad?",
+        "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+      },
+      {
+        "q": "What kind of lifestyle does Wakad offer residents?",
+        "a": "Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."
+      },
+      {
+        "q": "Are there prominent developers active in Wakad?",
+        "a": "Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."
+      }
+    ],
+    "nearby_landmarks": {
+      "education": [
+        "A.P.J. College of Science and Commerce",
+        "IBMR College",
+        "Indira College of Commerce & Science"
+      ],
+      "business": [
+        "Hinjewadi IT Park (Rajiv Gandhi Infotech Park)",
+        "EON West Tech Park"
+      ],
+      "hospital": [
+        "Lifepoint Multispeciality Hospital",
+        "Aditya Birla Memorial Hospital (nearby)"
+      ],
+      "transit": [
+        "Wakad Bus Stand",
+        "Hinjewadi Bus Stand",
+        "Bhujbal Chowk (upcoming Metro corridor)"
+      ],
+      "lifestyle": [
+        "Xion Mall, Hinjewadi",
+        "Pimpri-Chinchwad Municipal Corporation Garden"
+      ]
+    }
   }
 ]
