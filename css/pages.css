@@ -26,8 +26,6 @@
 }
 .page-hero-inner { position: relative; }
 .page-hero .section-label {
-    background: rgba(200,54,43,.12);
-    border-color: rgba(200,54,43,.3);
     color: rgba(255,255,255,.85);
 }
 .page-hero .section-label i { color: var(--red); }
@@ -152,7 +150,7 @@
 .dev-card-projects { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
 .dev-card-projects a {
     font-size: .75rem; font-weight: 600; padding: .3rem .75rem;
-    border-radius: 99px; border: 1px solid var(--gray-200);
+    border-radius: 5px; border: 1px solid var(--gray-200);
     color: var(--gray-800); transition: all .2s;
 }
 .dev-card-projects a:hover { background: var(--red); color: var(--white); border-color: var(--red); }

@@ -82,10 +82,9 @@
     align-items: center;
     gap: .6rem;
     margin-bottom: 1.5rem;
-    background: rgba(200,54,43,.15);
-    border: 1px solid rgba(200,54,43,.35);
-    padding: .45rem 1.1rem;
-    border-radius: 99px;
+    background: rgba(0,0,0,.28);
+    border-left: 2px solid var(--red);
+    padding: .5rem 1rem;
     backdrop-filter: blur(8px);
 }
 .hero-tagline .sanskrit {
@@ -218,7 +217,7 @@
 .filt-tabs { display: flex; gap: .5rem; flex-wrap: wrap; }
 .filt-btn {
     padding: .55rem 1.4rem;
-    border-radius: 99px;
+    border-radius: var(--radius-sm);
     font-size: .82rem;
     font-weight: 600;
     color: var(--gray-600);
@@ -533,7 +532,7 @@
     font-weight: 800;
     letter-spacing: .08em;
     padding: .3rem .75rem;
-    border-radius: 99px;
+    border-radius: 3px;
 }
 .hiw-icon {
     width: 64px; height: 64px;

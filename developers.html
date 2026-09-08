@@ -19,8 +19,8 @@
 <meta name="theme-color" content="#C8362B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 <link rel="stylesheet" href="css/style.css">
@@ -286,7 +286,7 @@ html, body { overflow-x:hidden; }
 
       <div class="partner-form-card" data-reveal="right">
         <h2>List Your Property</h2>
-        <p>Submit your project details below. Our team reviews every submission and, once approved, publishes it as a full listing on the site — usually within 2 business days.</p>
+        <p>Submit your project details below. Our team reviews every submission and, once approved, publishes it as a full listing on the site, usually within 2 business days.</p>
         <form id="developerForm" novalidate enctype="multipart/form-data">
           <div class="form-row">
             <div class="form-group"><label class="form-label" for="companyName">Developer / Company *</label><input class="form-control" type="text" id="companyName" name="companyName" placeholder="Company name" required></div>
@@ -339,7 +339,7 @@ html, body { overflow-x:hidden; }
             </div>
           </div>
           <div class="form-group"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message" placeholder="Share unit sizes, amenities, possession date, or current sales priority." rows="4"></textarea></div>
-          <div class="form-group"><label class="form-label" for="attachments">Project Images / Brochure</label><input class="form-control" type="file" id="attachments" name="attachments" accept=".pdf,.zip,.jpg,.jpeg,.png,.webp" multiple><small style="color:var(--gray-500);font-size:.78rem;display:block;margin-top:.35rem;">Optional — attach a brochure PDF or a few project photos (up to ~15MB total).</small></div>
+          <div class="form-group"><label class="form-label" for="attachments">Project Images / Brochure</label><input class="form-control" type="file" id="attachments" name="attachments" accept=".pdf,.zip,.jpg,.jpeg,.png,.webp" multiple><small style="color:var(--gray-500);font-size:.78rem;display:block;margin-top:.35rem;">Optional: attach a brochure PDF or a few project photos (up to ~15MB total).</small></div>
           <button type="submit" class="btn btn-primary btn-lg form-submit-btn"><span>Submit Property Listing</span><i class="fas fa-paper-plane"></i></button>
         </form>
         <div class="form-success" id="formSuccess">
@@ -422,7 +422,7 @@ html, body { overflow-x:hidden; }
     const fd = new FormData(form);
     fd.append('access_key', 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9');
     fd.append('subject', subject);
-    fd.append('from_name', 'PROPHUNT LLP website — Property listing submissions');
+    fd.append('from_name', 'PROPHUNT LLP website (Property listing submissions)');
     fd.append('source_page', window.location.pathname);
 
     fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })

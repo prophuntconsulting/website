@@ -11,7 +11,7 @@ cover: ""
 
 The first half of 2025 has reinforced Pune's position as one of India's most resilient residential real estate markets. Demand remained strong across the city's western corridor, driven by continued IT sector hiring, infrastructure upgrades, and a growing preference for developer-backed projects with RERA compliance.
 
-## Key Highlights — H1 2025
+## Key Highlights: H1 2025
 
 - **8–12% YoY price appreciation** across Baner, Hinjewadi Road, and Balewadi
 - **3 BHK configurations** remain the most in-demand, accounting for 58% of new bookings in premium projects
@@ -31,7 +31,7 @@ Budget-friendly corridor seeing developer attention. Godrej Aqua Vista at Keshav
 
 ## What Should Buyers Do?
 
-If you have been waiting to buy, waiting further is unlikely to benefit you — prices in the western corridor have a clear upward bias, and inventory in RERA-verified projects from branded developers tends to tighten quickly after launch pricing.
+If you have been waiting to buy, waiting further is unlikely to benefit you: prices in the western corridor have a clear upward bias, and inventory in RERA-verified projects from branded developers tends to tighten quickly after launch pricing.
 
 Our recommendation: **shortlist now, visit within 30 days**. The pre-launch window for several upcoming Baner projects closes in Q3 2025.
 

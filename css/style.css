@@ -23,8 +23,8 @@
     --gray-800:       #3D3A38;
     --gold:           #C9A96E;
 
-    --font-head:      'Lora', Georgia, serif;
-    --font-body:      'Inter', system-ui, sans-serif;
+    --font-head:      'Open Sans', Arial, sans-serif;
+    --font-body:      'Rubik', system-ui, sans-serif;
 
     --radius-sm:      6px;
     --radius-md:      12px;
@@ -71,8 +71,8 @@ p { color:var(--gray-800); }
 .section-label {
     display:inline-flex; align-items:center; gap:.5rem;
     font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
-    color:var(--red); background:var(--red-light); border:1px solid rgba(200,54,43,.2);
-    padding:.35rem .85rem; border-radius:99px; margin-bottom:1rem;
+    color:var(--red-deeper); border-left:2px solid var(--red);
+    padding-left:.7rem; margin-bottom:1rem;
 }
 .section-title { margin-bottom:.75rem; }
 .section-sub { color:var(--gray-600); font-size:1.05rem; max-width:580px; }
@@ -126,7 +126,7 @@ p { color:var(--gray-800); }
 .badge {
     display:inline-block; font-size:.72rem; font-weight:700;
     letter-spacing:.06em; text-transform:uppercase;
-    padding:.28rem .75rem; border-radius:99px;
+    padding:.28rem .7rem; border-radius:3px;
 }
 .badge-red { background:var(--red); color:#fff; }
 .badge-black { background:var(--black); color:#fff; }
@@ -351,7 +351,7 @@ p { color:var(--gray-800); }
     pointer-events:none;
 }
 .page-hero-inner { position:relative; }
-.page-hero .section-label { background:rgba(200,54,43,.15); border-color:rgba(200,54,43,.3); }
+.page-hero .section-label { color:rgba(255,255,255,.85); }
 .page-hero h1 { color:var(--white); margin-bottom:.75rem; }
 .page-hero p { color:rgba(255,255,255,.7); font-size:1.1rem; max-width:580px; }
 .breadcrumb { display:flex; align-items:center; gap:.4rem; font-size:.8rem; color:rgba(255,255,255,.45); margin-bottom:1.5rem; flex-wrap:wrap; }
