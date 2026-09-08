@@ -22,7 +22,7 @@
 /* ── Hero Split Scrollytelling ── */
 .hero-scroll-wrapper {
     position: relative;
-    height: 400vh;
+    height: 140vh;
 }
 .hero-sticky {
     position: sticky;
@@ -117,6 +117,17 @@
     margin-bottom: 2.25rem;
 }
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem 1rem;
+    margin-top: 1.5rem;
+    color: rgba(255,255,255,.72);
+    font-size: .75rem;
+    font-weight: 600;
+}
+.hero-trust span { display: inline-flex; align-items: center; gap: .4rem; }
+.hero-trust i { color: #ef655b; }
 
 .hero-scroll {
     position: absolute;
@@ -157,6 +168,70 @@
     0% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(10px); opacity: 0; }
 }
+
+/* ── Property Finder ── */
+.home-finder-wrap {
+    position: relative;
+    z-index: 4;
+    padding-top: 2.25rem;
+    background: var(--white);
+}
+.home-finder {
+    padding: 1.5rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+}
+.home-finder-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.15rem;
+}
+.home-finder-heading .section-label { margin-bottom: 0; }
+.home-finder-heading h2 { font-size: 1.2rem; }
+.home-finder-fields {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+    gap: .75rem;
+    align-items: end;
+}
+.home-finder-field label {
+    display: block;
+    margin-bottom: .35rem;
+    color: var(--gray-600);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+.home-finder-field select {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 .85rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    color: var(--black);
+    background: var(--white);
+}
+.home-finder-field .cs-select,
+.home-finder-field .cs-trigger { width: 100%; }
+.home-finder-field .cs-trigger { min-height: 46px; }
+.home-finder-submit {
+    min-height: 46px;
+    padding: 0 1.25rem;
+    border-radius: var(--radius-sm);
+    background: var(--red);
+    color: var(--white);
+    font-size: .82rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: var(--shadow-brand);
+    transition: background .2s, transform .2s;
+}
+.home-finder-submit:hover { background: var(--red-dark); transform: translateY(-1px); }
 
 /* ── Featured Projects ── */
 .featured-filter {
@@ -557,6 +632,8 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
+    .home-finder-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .home-finder-submit { width: 100%; }
     .prop-grid { grid-template-columns: repeat(2, 1fr); }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .hiw-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -570,11 +647,21 @@
 
 @media (max-width: 768px) {
     /* Hero */
+    .hero-scroll-wrapper { height: 115vh; }
     .hero-title { font-size: 2rem; }
     .hero-sub { font-size: .95rem; }
     .hero-left { padding: calc(var(--nav-h) + 1.25rem) 1.25rem 1.25rem; }
     .hero-cta { flex-direction: column; gap: .65rem; }
     .hero-cta .btn { width: 100%; justify-content: center; }
+    .hero-trust { gap: .45rem; margin-top: 1rem; font-size: .68rem; }
+    .hero-trust span { width: 100%; }
+
+    .home-finder-wrap { padding-top: 1.25rem; }
+    .home-finder { padding: 1.1rem; }
+    .home-finder-heading { display: block; }
+    .home-finder-heading .section-label { margin-bottom: .45rem; }
+    .home-finder-fields { grid-template-columns: 1fr 1fr; }
+    .home-finder-submit { grid-column: 1 / -1; }
 
     /* Sections */
     .prop-grid { grid-template-columns: 1fr; }
@@ -587,6 +674,9 @@
 }
 
 @media (max-width: 480px) {
+    .home-finder-fields { grid-template-columns: 1fr; }
+    .home-finder-submit { grid-column: auto; }
+
     /* Cards */
     .prop-card-img { height: 190px; }
     .hiw-card { padding: 1.75rem 1rem; }

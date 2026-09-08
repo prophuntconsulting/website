@@ -27,7 +27,7 @@
 
     function matchBudget(price, budget) {
         if (!budget) return true;
-        if (!price || price === 0) return true;
+        if (!price || price === 0) return false;
         const map = {
             'under50':  p => p < 50,
             '50-100':   p => p >= 50 && p <= 100,
@@ -70,7 +70,8 @@
         const statusBadge = p.status === 'sold-out'
             ? '<span class="badge badge-gray" style="font-size:.68rem;padding:.2rem .55rem;background:#6b7280">Sold Out</span>'
             : '';
-        const priceLabel = p.price_label || (p.price > 0 ? 'Rs ' + p.price + ' L*' : 'Price on Request');
+        const priceLabel = p.price_label || (p.price > 0 ? '₹' + p.price + ' L*' : 'Price on request');
+        const areaSpec = p.area ? `<span><i class="fas fa-ruler-combined"></i>${p.area}</span>` : '';
         return `
         <a href="${p.url}" ${linkAttrs} class="prop-card" data-category="${p.category}" aria-label="${linkLabel}: ${p.title}">
           <div class="prop-card-img">
@@ -84,7 +85,7 @@
             <p class="prop-card-loc"><i class="fas fa-map-marker-alt"></i>${p.location}</p>
             <div class="prop-card-specs">
               <span><i class="fas fa-${icon}"></i>${p.config}</span>
-              <span><i class="fas fa-ruler-combined"></i>${p.area}</span>
+              ${areaSpec}
             </div>
             <div class="prop-card-footer">
               <span class="prop-card-status">${isExternal ? 'Official project page' : 'View on PROPHUNT'}</span>
@@ -115,7 +116,7 @@
 
     function sortList(arr) {
         const list = [...arr];
-        if (activeSort === 'price-low')       list.sort((a, b) => (a.price || 0) - (b.price || 0));
+        if (activeSort === 'price-low')       list.sort((a, b) => (a.price || Number.POSITIVE_INFINITY) - (b.price || Number.POSITIVE_INFINITY));
         else if (activeSort === 'price-high') list.sort((a, b) => (b.price || 0) - (a.price || 0));
         else if (activeSort === 'az')         list.sort((a, b) => a.title.localeCompare(b.title));
         else if (activeSort === 'newest')     list.sort((a, b) => (b.date_added || '').localeCompare(a.date_added || ''));
@@ -177,9 +178,11 @@
         const typeParam     = params.get('type');
         const locationParam = params.get('location');
         const budgetParam   = params.get('budget');
+        const searchParam   = params.get('search');
         if (typeParam && typeSelect)     { typeSelect.value = typeParam;     activeType = typeParam; }
         if (locationParam && locSelect)  { locSelect.value = locationParam;  activeLocation = locationParam; }
         if (budgetParam && budgetSelect) { budgetSelect.value = budgetParam; activeBudget = budgetParam; }
+        if (searchParam && searchInput)   { searchInput.value = searchParam;   activeSearch = searchParam; }
 
         applyFilters();
     }
@@ -187,7 +190,7 @@
     fetch('/properties/posts.json')
         .then(r => r.json())
         .then(data => {
-            ALL_PROJECTS = data.filter(p => p.status !== 'sold-out' || activeType === 'all');
+            ALL_PROJECTS = data.filter(p => p.status !== 'sold-out');
             populateDeveloperDropdown();
             init();
         })

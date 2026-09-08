@@ -75,7 +75,7 @@
 
     function sortedList(list) {
         const arr = [...list];
-        if (activeSort === 'price-low')       arr.sort((a, b) => (a.price || 0) - (b.price || 0));
+        if (activeSort === 'price-low')       arr.sort((a, b) => (a.price || Number.POSITIVE_INFINITY) - (b.price || Number.POSITIVE_INFINITY));
         else if (activeSort === 'price-high') arr.sort((a, b) => (b.price || 0) - (a.price || 0));
         else if (activeSort === 'az')         arr.sort((a, b) => a.title.localeCompare(b.title));
         else if (activeSort === 'newest')     arr.sort((a, b) => (b.date_added || '').localeCompare(a.date_added || ''));
@@ -84,7 +84,7 @@
         return arr;
     }
 
-    const FEATURED_LIMIT = 12;
+    const FEATURED_LIMIT = 6;
 
     function renderCard(p) {
         const external  = /^https?:\/\//.test(p.url);
@@ -92,7 +92,8 @@
         const linkLabel = external ? 'View Project' : 'View Details';
         const badge     = p.rera ? 'RERA Verified' : '';
         const badgeHtml = badge ? `<div class="prop-card-tag">${badge}</div>` : '';
-        const priceLabel = p.price_label || (p.price > 0 ? '₹' + p.price + ' L*' : 'Price on Request');
+        const priceLabel = p.price_label || (p.price > 0 ? '₹' + p.price + ' L*' : 'Price on request');
+        const areaSpec = p.area ? `<span><i class="fas fa-ruler-combined"></i> ${p.area}</span>` : '';
         const icon = p.category === 'plot' ? 'map' : p.category === 'villa' ? 'home' : 'building';
         return `
         <article class="prop-card" data-category="${p.category}">
@@ -111,7 +112,7 @@
             <p class="prop-card-loc"><i class="fas fa-map-marker-alt"></i> ${p.location}</p>
             <div class="prop-card-specs">
               <span><i class="fas fa-${icon}"></i> ${p.config}</span>
-              <span><i class="fas fa-ruler-combined"></i> ${p.area}</span>
+              ${areaSpec}
             </div>
             <div class="prop-card-footer">
               <a href="contact.html?project=${encodeURIComponent(p.title)}" class="prop-card-enquire"><i class="fas fa-phone"></i> Enquire</a>

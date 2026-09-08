@@ -287,10 +287,15 @@
           <span class="translation">Hunt the Land</span>
         </div>
         <h1 class="hero-title">Curated Homes.<br><em>Trusted Developers.</em><br>Clear Decisions.</h1>
-        <p class="hero-sub">Your property partner in Pune. We connect homebuyers and investors with developer-backed projects, guided with clarity from first enquiry to booking.</p>
+        <p class="hero-sub">Compare RERA-registered homes across Pune with local advisors who help you shortlist, visit and negotiate &mdash; at no cost to buyers.</p>
         <div class="hero-cta">
           <a href="projects.html" class="btn btn-primary btn-lg"><span>Explore Projects</span> <i class="fas fa-arrow-right"></i></a>
           <a href="contact.html" class="btn btn-ghost btn-lg"><i class="fas fa-phone"></i> <span>Talk to an Advisor</span></a>
+        </div>
+        <div class="hero-trust" aria-label="Buyer assurances">
+          <span><i class="fas fa-shield-alt"></i> MahaRERA A52100037156</span>
+          <span><i class="fas fa-tag"></i> No buyer advisory fee</span>
+          <span><i class="fas fa-map-marker-alt"></i> Pune-based specialists</span>
         </div>
       </div>
     </div>
@@ -311,13 +316,73 @@
   </div>
 </div>
 
+<section class="home-finder-wrap" aria-labelledby="homeFinderTitle">
+  <div class="container">
+    <form class="home-finder" action="projects.html" method="get">
+      <div class="home-finder-heading">
+        <span class="section-label"><i class="fas fa-search"></i> Property Finder</span>
+        <h2 id="homeFinderTitle">Start with what matters to you</h2>
+      </div>
+      <div class="home-finder-fields">
+        <div class="home-finder-field">
+          <label for="homeType">Property type</label>
+          <select id="homeType" name="type" aria-label="Choose property type">
+            <option value="all">All types</option>
+            <option value="apartment">Apartment</option>
+            <option value="plot">Plot</option>
+            <option value="villa">Villa</option>
+            <option value="commercial">Commercial</option>
+          </select>
+        </div>
+        <div class="home-finder-field">
+          <label for="homeLocation">Location</label>
+          <select id="homeLocation" name="location" aria-label="Choose location">
+            <option value="">All Pune locations</option>
+            <option value="baner">Baner</option>
+            <option value="wakad">Wakad</option>
+            <option value="mahalunge">Mahalunge</option>
+            <option value="pimpri-chinchwad">Pimpri-Chinchwad</option>
+            <option value="ravet-gahunje">Ravet - Gahunje</option>
+            <option value="sinhagad-road">Sinhagad Road</option>
+            <option value="hadapsar">Hadapsar</option>
+            <option value="karjat">Karjat</option>
+            <option value="khopoli">Khopoli</option>
+          </select>
+        </div>
+        <div class="home-finder-field">
+          <label for="homeBudget">Budget</label>
+          <select id="homeBudget" name="budget" aria-label="Choose budget">
+            <option value="">Any budget</option>
+            <option value="under50">Under ₹50 Lakh</option>
+            <option value="50-100">₹50L – ₹1 Cr</option>
+            <option value="100-200">₹1 Cr – ₹2 Cr</option>
+            <option value="200-500">₹2 Cr – ₹5 Cr</option>
+            <option value="above500">Above ₹5 Cr</option>
+          </select>
+        </div>
+        <div class="home-finder-field">
+          <label for="homeConfig">Configuration</label>
+          <select id="homeConfig" name="search" aria-label="Choose configuration">
+            <option value="">Any configuration</option>
+            <option value="1 BHK">1 BHK</option>
+            <option value="2 BHK">2 BHK</option>
+            <option value="3 BHK">3 BHK</option>
+            <option value="4 BHK">4 BHK</option>
+          </select>
+        </div>
+        <button class="home-finder-submit" type="submit">Show matching projects <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </form>
+  </div>
+</section>
+
 <!-- â•â•â• FEATURED PROJECTS â•â•â• -->
 <section class="section" id="projects">
   <div class="container">
     <div class="section-header" data-reveal>
       <span class="section-label"><i class="fas fa-star"></i> Featured Projects</span>
       <h2 class="section-title">Handpicked Properties<br>For Serious Buyers</h2>
-      <p class="section-sub">Verified project information from our trusted developer network across Pune.</p>
+      <p class="section-sub">A focused shortlist of active Pune opportunities, with the details buyers need to compare confidently.</p>
     </div>
     <div class="featured-filter" data-reveal data-reveal-delay="100">
       <div class="filt-tabs">
@@ -347,8 +412,8 @@
   <div class="container">
     <div class="section-header centered" data-reveal>
       <span class="section-label"><i class="fas fa-handshake"></i> Developer Network</span>
-      <h2 class="section-title">Trusted Projects from<br>Leading Developers</h2>
-      <p class="section-sub">We partner exclusively with RERA-registered, reputable developers.</p>
+      <h2 class="section-title">Projects from Pune&rsquo;s<br>Established Developers</h2>
+      <p class="section-sub">Explore launches from developer partners selected for track record, delivery and regulatory compliance.</p>
     </div>
   </div>
   <div class="dev-loop" aria-hidden="true">
@@ -384,14 +449,14 @@
   <div class="container">
     <div class="section-header centered" data-reveal>
       <span class="section-label"><i class="fas fa-shield-alt"></i> Why PROPHUNT</span>
-      <h2 class="section-title">Real Estate Guidance<br>Built Around Clarity</h2>
-      <p class="section-sub">We simplify property decisions by connecting buyers and investors with trusted developer-backed projects across Pune.</p>
+      <h2 class="section-title">Expert Support from<br>Shortlist to Registration</h2>
+      <p class="section-sub">One local advisor helps you compare options, plan visits and handle the paperwork from start to finish.</p>
     </div>
     <div class="services-grid">
       <div class="service-card" data-reveal data-reveal-delay="0">
         <div class="service-icon"><i class="fas fa-search-location"></i></div>
         <h3>Property Discovery</h3>
-        <p>Curated options across 10+ developer-backed projects. Filtered by budget, location and configuration, before you waste a single site visit.</p>
+        <p>Options filtered by budget, location and configuration before you spend time on a site visit.</p>
       </div>
       <div class="service-card" data-reveal data-reveal-delay="100">
         <div class="service-icon"><i class="fas fa-handshake"></i></div>
@@ -611,7 +676,7 @@
       MahaRERA Agent Registration No. <a href="rera-disclosure.html" style="color:rgba(200,54,43,.7);font-weight:700;transition:color .2s;" onmouseover="this.style.color='#C8362B'" onmouseout="this.style.color='rgba(200,54,43,.7)'">A52100037156</a> &nbsp;|&nbsp; Registered under Real Estate (Regulation &amp; Development) Act, 2016 &nbsp;|&nbsp; <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener" style="color:rgba(255,255,255,.35);transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.75)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">maharera.mahaonline.gov.in <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i></a>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2025 PROPHUNT LLP. All rights reserved.</span>
+      <span>&copy; 2026 PROPHUNT LLP. All rights reserved.</span>
       <span style="color:#C8362B;font-family:'Lora',serif;">भूमिं मृगयध्वम् | Hunt the Land</span>
       <div class="footer-bottom-links">
         <a href="rera-disclosure.html">RERA</a>

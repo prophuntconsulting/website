@@ -5,6 +5,39 @@
 (function () {
     'use strict';
 
+    /* Keep floating conversion tools useful without covering page content. */
+    function tuneVoiceWidget() {
+        const host = document.getElementById('vistrow-voice-widget-host');
+        if (!host) return false;
+
+        host.style.display = window.matchMedia('(max-width: 768px)').matches ? 'none' : '';
+        const root = host.shadowRoot;
+        if (root && !root.getElementById('prophunt-widget-tuning')) {
+            const style = document.createElement('style');
+            style.id = 'prophunt-widget-tuning';
+            style.textContent = '.av-greeting,.av-proof-pill{display:none!important}';
+            root.appendChild(style);
+        }
+        return true;
+    }
+
+    if (!tuneVoiceWidget()) {
+        const widgetObserver = new MutationObserver(() => {
+            if (tuneVoiceWidget()) widgetObserver.disconnect();
+        });
+        widgetObserver.observe(document.documentElement, { childList: true, subtree: true });
+    }
+    window.addEventListener('resize', tuneVoiceWidget, { passive: true });
+
+    /* Keep the visible copyright year current across all static pages. */
+    document.querySelectorAll('.footer-bottom span').forEach(el => {
+        el.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE && /©\s*\d{4}/.test(node.textContent)) {
+                node.textContent = node.textContent.replace(/©\s*\d{4}/, `© ${new Date().getFullYear()}`);
+            }
+        });
+    });
+
     /* ── Helpers ── */
     const $ = (sel, ctx = document) => ctx.querySelector(sel);
     const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
