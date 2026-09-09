@@ -247,8 +247,28 @@ const properties = files.map(file => {
   };
 });
 
-fs.writeFileSync(outFile, JSON.stringify(properties, null, 2));
+// properties/posts.json is fetched by every page that needs the property
+// list — the projects listing page and the homepage's featured grid
+// included, neither of which uses project_faqs/locality_faqs/
+// nearby_landmarks. Shipping those to every visitor of those pages more
+// than doubled the payload (104KB -> 235KB) for content only the
+// individual property detail page (property.html) actually renders.
+// Keep this file lean; the FAQ/landmark content ships separately below.
+const leanProperties = properties.map(({ project_faqs, locality_faqs, nearby_landmarks, ...rest }) => rest);
+fs.writeFileSync(outFile, JSON.stringify(leanProperties, null, 2));
 console.log(`Built properties/posts.json — ${properties.length} properties`);
+
+// Separate, de-duplicated SEO content for property.html only: locality
+// FAQs/landmarks are identical for every property in the same
+// micro-market, so they're shipped once per locality (9 entries) instead
+// of once per property (44 duplicated copies) — the bulk of the savings
+// above. Project FAQs are genuinely per-project and stay keyed by slug.
+const seoContent = {
+  locality: LOCALITY_CONTENT,
+  projects: Object.fromEntries(properties.map(p => [p.slug, p.project_faqs])),
+};
+fs.writeFileSync(path.join(__dirname, '..', 'properties', 'seo-content.json'), JSON.stringify(seoContent, null, 2));
+console.log(`Built properties/seo-content.json — ${Object.keys(seoContent.locality).length} localities, ${properties.length} project FAQ sets`);
 
 // Generate a static detail page for each property at projects/{slug}/index.html
 const templatePath = path.join(__dirname, '..', 'property.html');

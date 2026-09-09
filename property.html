@@ -1300,10 +1300,16 @@ function buildPage(prop, allProps) {
 
 /* nav.js handles hamburger */
 
-/* ── Load data ── */
-fetch('/properties/posts.json')
-  .then(r => r.json())
-  .then(all => {
+/* ── Load data ──
+   Two files: the lean properties/posts.json every page fetches, and
+   properties/seo-content.json — the FAQ/landmark content that's only
+   needed here (property.html), fetched separately so the listing page
+   and homepage don't pay for it. See scripts/build-properties.js. */
+Promise.all([
+  fetch('/properties/posts.json').then(r => r.json()),
+  fetch('/properties/seo-content.json').then(r => r.json()).catch(() => ({ locality: {}, projects: {} })),
+])
+  .then(([all, seo]) => {
     const prop = all.find(p => p.slug === slug);
     if (!prop) {
       document.getElementById('ph-page').innerHTML = `
@@ -1315,6 +1321,10 @@ fetch('/properties/posts.json')
         </div>`;
       return;
     }
+    const localitySeo = seo.locality?.[prop.micro_market] || {};
+    prop.project_faqs     = seo.projects?.[prop.slug] || [];
+    prop.locality_faqs    = localitySeo.faqs || [];
+    prop.nearby_landmarks = localitySeo.landmarks || {};
     buildPage(prop, all);
   })
   .catch(() => {
