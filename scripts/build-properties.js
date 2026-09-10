@@ -83,6 +83,14 @@ function possessionSentence(p, title) {
 // copy. Falls back to the hand-written overview when one exists, since
 // that's usually better-written than the template for projects an editor
 // took the time to describe.
+function clampAtWord(s, max) {
+  s = s.trim();
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s.,;:–-]+$/, '') + '…';
+}
+
 function metaDescription(p) {
   const title = p.title || 'This project';
   const bits = [];
@@ -91,7 +99,8 @@ function metaDescription(p) {
   if (status) bits.push(status);
   bits.push('Explore amenities, pricing, floor plans and RERA details on PROPHUNT LLP.');
   const generated = bits.join(' ');
-  return (p.overview ? p.overview.slice(0, 155).trim() : generated).slice(0, 300);
+  // Prefer the editor's overview when present, but never cut it mid-word.
+  return clampAtWord(p.overview ? p.overview : generated, 160);
 }
 
 // Project-specific FAQ content, generated only from fields that are
@@ -273,7 +282,13 @@ console.log(`Built properties/seo-content.json — ${Object.keys(seoContent.loca
 // Generate a static detail page for each property at projects/{slug}/index.html
 const templatePath = path.join(__dirname, '..', 'property.html');
 if (fs.existsSync(templatePath)) {
-  const template = fs.readFileSync(templatePath, 'utf8');
+  // Normalise to LF. The HEAD_MARKER / LOADING_MARKER template literals below are
+  // LF at runtime (the JS spec normalises CRLF in template literals to \n), but
+  // property.html is checked out with CRLF endings on Windows — so the raw
+  // fs.readFileSync text would never match the markers and every .replace() here
+  // silently no-op'd, shipping every project page with a generic <title>, no
+  // canonical, no OG tags, no JSON-LD and no prerender block.
+  const template = fs.readFileSync(templatePath, 'utf8').replace(/\r\n/g, '\n');
 
   const HEAD_MARKER = `<title id="ph-title">Property | PROPHUNT LLP</title>
 <meta id="ph-desc" name="description" content="Premium property listed by PROPHUNT LLP, Pune.">
