@@ -601,6 +601,64 @@
   </div>
 </section>
 
+<style>
+/* Homepage FAQ — native <details> accordion, zero-JS. The Q&A text here is
+   the visible counterpart of the FAQPage JSON-LD in <head>; keep the two
+   in sync (Google requires FAQ rich results to match on-page content). */
+.faq-section .faq-list{max-width:820px;margin:2.5rem auto 0}
+.faq-item{border-bottom:1px solid var(--gray-200,#e5e7eb)}
+.faq-item summary{list-style:none;cursor:pointer;padding:1.15rem 2.5rem 1.15rem 0;position:relative;font-weight:600;font-size:1rem;color:var(--ink,#1a1a2e);line-height:1.5}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"\f078";font-family:"Font Awesome 6 Free";font-weight:900;font-size:.8rem;color:var(--red,#c8362b);position:absolute;right:.25rem;top:1.25rem;transition:transform .2s}
+.faq-item[open] summary::after{transform:rotate(180deg)}
+.faq-item .faq-answer{padding:0 2.5rem 1.25rem 0;color:var(--gray-600,#4b5563);line-height:1.75;font-size:.94rem}
+.faq-item:not([open]) .faq-answer{display:none}
+.faq-item summary:focus-visible{outline:2px solid var(--red,#c8362b);outline-offset:2px}
+</style>
+<section class="section faq-section" id="faq" aria-labelledby="faqTitle">
+  <div class="container">
+    <div class="section-header centered" data-reveal>
+      <span class="section-label"><i class="fas fa-circle-question"></i> Common Questions</span>
+      <h2 class="section-title" id="faqTitle">Questions Buyers Ask Us</h2>
+      <p class="section-sub">Straight answers on how PROPHUNT LLP works, what it costs, and where we operate.</p>
+    </div>
+    <div class="faq-list" data-reveal>
+      <details class="faq-item">
+        <summary>What is PROPHUNT LLP?</summary>
+        <div class="faq-answer">PROPHUNT LLP is a RERA-registered real estate channel partner based in Baner, Pune. We help homebuyers and investors discover, evaluate, and purchase premium residential properties from trusted developers like Godrej Properties, Mahindra Lifespaces, and Shapoorji Pallonji across Pune.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Which areas in Pune does PROPHUNT LLP cover?</summary>
+        <div class="faq-answer">PROPHUNT LLP covers all major real estate micro-markets in Pune including Baner, Balewadi, Hinjewadi, Wakad, Keshav Nagar, Pimpri-Chinchwad, Baner-Hinjewadi Road, and East Pune. We specialise in premium residential apartments and villa plots.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is PROPHUNT LLP a RERA registered agent?</summary>
+        <div class="faq-answer">Yes, PROPHUNT LLP is a RERA-registered real estate agent operating under the Maharashtra Real Estate Regulatory Authority (MahaRERA). All projects we recommend are RERA-verified for buyer protection and transparency.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What developers does PROPHUNT LLP partner with?</summary>
+        <div class="faq-answer">PROPHUNT LLP is an authorised channel partner for Godrej Properties, Mahindra Lifespaces, Shapoorji Pallonji, Kohinoor Group, Tejraj Group, VTP Realty, Rohan Builders, and other reputed developers in Pune.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does PROPHUNT LLP charge buyers any fee?</summary>
+        <div class="faq-answer">No. PROPHUNT LLP's advisory services are completely free for homebuyers. We are compensated by developers as their authorised channel partner. Buyers pay the same price whether they come directly or through us, but with added advisory, negotiation, and documentation support.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can NRIs invest in Pune property through PROPHUNT LLP?</summary>
+        <div class="faq-answer">Yes. PROPHUNT LLP offers dedicated NRI property investment services for Indians residing abroad. We handle end-to-end coordination including virtual site tours, legal documentation, home loan guidance through NRI-friendly banks, and post-purchase support, all handled remotely.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I book a site visit through PROPHUNT LLP?</summary>
+        <div class="faq-answer">You can book a free site visit through PROPHUNT LLP by calling +91-70668-80808, emailing info@prophuntllp.com, or clicking 'Book a Site Visit' on our website. Our advisor will schedule a visit at your convenience and accompany you to the project site.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What is the price range of properties listed by PROPHUNT LLP?</summary>
+        <div class="faq-answer">PROPHUNT LLP lists properties across a wide budget range: from ₹84 Lakh for villa plots (SP Treetopia, East Pune) to ₹2.65 Crore+ for premium 3 &amp; 4.5 BHK apartments (Godrej River Royale, Baner). We cater to first-time buyers, upgraders, and investors.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="cta-band" aria-label="Call to action">
   <div class="container">
     <div class="cta-band-inner" data-reveal>
