@@ -64,6 +64,54 @@ function absUrl(src) {
   return src.startsWith('http') ? src : `${SITE}${src}`;
 }
 
+// New launches and under-construction projects rank above "ready to move" /
+// established ones — mirrors js/projects.js's statusWeight() so the
+// prerendered /projects grid (below) matches the order the client JS
+// produces with default (no filter, no sort) settings.
+function statusWeight(p) {
+  if (p.status === 'coming-soon') return 0;
+  const tl = (p.tagline || '').toLowerCase();
+  if (tl.includes('ready') || tl.includes('oc received')) return 2;
+  return 1;
+}
+
+// Mirrors js/projects.js's renderCard() exactly (same markup/classes, same
+// lack of escaping — this data comes from our own frontmatter, not user
+// input) so the server-rendered grid and the client-hydrated one are
+// pixel-identical and there's no flash of different content on load.
+function renderProjectCard(p) {
+  const isExternal = /^https?:\/\//.test(p.url);
+  const linkAttrs  = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
+  const linkLabel  = isExternal ? 'View Project' : 'View Details';
+  const icon       = p.category === 'plot' ? 'map' : p.category === 'villa' ? 'home' : p.category === 'commercial' ? 'briefcase' : 'building';
+  const statusBadge = p.status === 'sold-out'
+    ? '<span class="badge badge-gray" style="font-size:.68rem;padding:.2rem .55rem;background:#6b7280">Sold Out</span>'
+    : '';
+  const priceLbl = p.price_label || (p.price > 0 ? '₹' + p.price + ' L*' : 'Price on request');
+  const areaSpec = p.area ? `<span><i class="fas fa-ruler-combined"></i>${p.area}</span>` : '';
+  return `
+        <a href="${p.url}" ${linkAttrs} class="prop-card" data-category="${p.category}" aria-label="${linkLabel}: ${p.title}">
+          <div class="prop-card-img">
+            <div style="background-image:url('${p.cover || ''}');">${p.cover ? '' : `<span class="prop-card-img-empty"><i class="fas fa-${icon}"></i></span>`}</div>
+            <div class="prop-card-badge"><span class="badge badge-red">${p.developer}</span>${statusBadge}</div>
+            <div class="prop-card-price">${priceLbl}</div>
+          </div>
+          <div class="prop-card-body">
+            <div class="prop-card-dev">${p.developer}</div>
+            <h3 class="prop-card-title">${p.title}</h3>
+            <p class="prop-card-loc"><i class="fas fa-map-marker-alt"></i>${p.location}</p>
+            <div class="prop-card-specs">
+              <span><i class="fas fa-${icon}"></i>${p.config}</span>
+              ${areaSpec}
+            </div>
+            <div class="prop-card-footer">
+              <span class="prop-card-status">${isExternal ? 'Official project page' : 'View on PROPHUNT'}</span>
+              <span class="prop-card-link">${linkLabel} <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>`;
+}
+
 // One sentence, derived only from fields we actually have — never a guess.
 function possessionSentence(p, title) {
   if (p.status === 'sold-out') return `${title} is sold out and has no live inventory.`;
@@ -313,6 +361,56 @@ if (fs.existsSync(templatePath)) {
     fs.writeFileSync(path.join(outDir, 'index.html'), html);
     console.log(`  → projects/${p.slug}/index.html`);
   });
+}
+
+// Prerender the /projects listing grid itself. Previously #projectsGrid was
+// an empty <div> filled only by js/projects.js after a fetch — a crawler
+// (or anything reading the raw HTML) saw zero project links on the page
+// that's supposed to be the hub for all of them. js/projects.js's
+// applyFilters() still overwrites this on load with the exact same markup
+// (default filters = no filter), so real visitors see no visual change.
+const projectsPagePath = path.join(__dirname, '..', 'projects.html');
+if (fs.existsSync(projectsPagePath)) {
+  const listed = properties.filter(p => p.status !== 'sold-out');
+  const sorted = [...listed].sort((a, b) => statusWeight(a) - statusWeight(b));
+  const cardsHtml = sorted.map(renderProjectCard).join('');
+
+  let html = fs.readFileSync(projectsPagePath, 'utf8').replace(/\r\n/g, '\n');
+
+  const GRID_MARKER = `<div class="proj-grid" id="projectsGrid" data-reveal></div>`;
+  html = html.replace(GRID_MARKER, `<div class="proj-grid" id="projectsGrid" data-reveal>${cardsHtml}</div>`);
+
+  html = html.replace(
+    `<strong id="projectCount">0</strong>`,
+    `<strong id="projectCount">${sorted.length}</strong>`
+  );
+
+  // Replace the stale hand-written ItemList (10 hardcoded slugs, some no
+  // longer representative) with the real, complete list so the structured
+  // data matches what's actually on the page.
+  const listingJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Projects', item: `${SITE}/projects` },
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        name: 'Premium Real Estate Projects in Pune',
+        description: "RERA-verified residential projects in Pune by India's top developers",
+        numberOfItems: sorted.length,
+        itemListElement: sorted.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, item: `${SITE}${p.url}` })),
+      },
+    ],
+  };
+  html = html.replace(/<script type="application\/ld\+json">\n\{[\s\S]*?\n\}\n<\/script>/, `<script type="application/ld+json">\n${JSON.stringify(listingJsonLd, null, 2)}\n</script>`);
+
+  fs.writeFileSync(projectsPagePath, html);
+  console.log(`Prerendered projects.html — ${sorted.length} project cards`);
 }
 
 module.exports = { properties };

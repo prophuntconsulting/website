@@ -42,8 +42,18 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},
-        {"@type":"ListItem","position":2,"name":"Blog","item":"https://www.prophuntllp.com/blog"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.prophuntllp.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.prophuntllp.com/blog"
+        }
       ]
     },
     {
@@ -58,6 +68,31 @@
         "logo": "https://www.prophuntllp.com/images/logo-black.png"
       },
       "inLanguage": "en-IN"
+    },
+    {
+      "@type": "ItemList",
+      "name": "PROPHUNT LLP Blog Articles",
+      "numberOfItems": 3,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Luxury Apartments in Pune: Complete Buyer's Guide 2026",
+          "item": "https://www.prophuntllp.com/blog/luxury-apartments-in-pune-complete-buyer-s-guide-2026"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?",
+          "item": "https://www.prophuntllp.com/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Pune Residential Market H1 2025: Price Trends, Top Micro-Markets & Outlook",
+          "item": "https://www.prophuntllp.com/blog/pune-real-estate-market-h1-2025"
+        }
+      ]
     }
   ]
 }
@@ -166,11 +201,51 @@
     <div class="blog-layout">
       <div>
         <div class="blog-grid" id="blogGrid">
-          <div style="grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--gray-400);">
-            <i class="fas fa-circle-notch fa-spin" style="font-size:1.5rem;display:block;margin-bottom:.75rem;"></i>
-            Loading articles…
+      <article class="blog-card" data-cat="buyer">
+        <div class="blog-card-img" style="height:auto;">
+          <div class="blog-card-img-inner" style="background-image:url('/images/blog/luxury-apartments-in-pune-buyers-guide.png');background-size:cover;background-position:center;"></div>
+          <div class="blog-card-cat"><span class="badge badge-dark">Buyer Guide</span></div>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> 29 June 2026</div>
+          <div class="blog-card-title"><a href="/blog/luxury-apartments-in-pune-complete-buyer-s-guide-2026">Luxury Apartments in Pune: Complete Buyer's Guide 2026</a></div>
+          <p class="blog-card-excerpt">Explore luxury apartments in Pune with expert insights on top locations, prices, amenities, investment potential, and smart buying tips from PropHunt LLP.</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author"><i class="fas fa-user-circle"></i> PROPHUNT Advisory Team</span>
+            <a href="/blog/luxury-apartments-in-pune-complete-buyer-s-guide-2026" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
+      </article>
+      <article class="blog-card" data-cat="buyer">
+        <div class="blog-card-img">
+          <div class="blog-card-img-inner" style="background-image:url('/images/blog/baner-wakad-hinjewadi-tathawade-property-comparison-2026.png');background-size:cover;background-position:center;"></div>
+          <div class="blog-card-cat"><span class="badge badge-dark">Buyer Guide</span></div>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> 8 September 2026</div>
+          <div class="blog-card-title"><a href="/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026">Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?</a></div>
+          <p class="blog-card-excerpt">Compare Baner, Wakad, Hinjewadi and Tathawade for connectivity, lifestyle, projects and buyer fit before choosing your West Pune location.</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author"><i class="fas fa-user-circle"></i> PROPHUNT Advisory Team</span>
+            <a href="/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+      <article class="blog-card" data-cat="market">
+        <div class="blog-card-img">
+          <div class="blog-card-img-inner" style="background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;"><i class="fas fa-chart-bar" style="font-size:3rem;color:rgba(200,54,43,.35);"></i></div>
+          <div class="blog-card-cat"><span class="badge badge-red">Market Report</span></div>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> 27 June 2025</div>
+          <div class="blog-card-title"><a href="/blog/pune-real-estate-market-h1-2025">Pune Residential Market H1 2025: Price Trends, Top Micro-Markets & Outlook</a></div>
+          <p class="blog-card-excerpt">Baner, Hinjewadi and Balewadi recorded 8–12% year-on-year price appreciation in H1 2025. Here is what the data says and where value lies today.</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author"><i class="fas fa-user-circle"></i> PROPHUNT Advisory Team</span>
+            <a href="/blog/pune-real-estate-market-h1-2025" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article></div>
 
         <div class="coming-soon-banner" data-reveal>
           <i class="fas fa-pen-nib"></i>
@@ -187,31 +262,31 @@
       <aside class="blog-sidebar">
         <div class="sidebar-box">
           <div class="sidebar-box-title">Categories</div>
-          <div class="sidebar-cats">
-            <button class="sidebar-cat-btn active" data-cat="all"><span><i class="fas fa-th" style="width:16px;color:var(--red);"></i> All Articles</span><span class="cat-count">0</span></button>
-            <button class="sidebar-cat-btn" data-cat="market"><span><i class="fas fa-chart-bar" style="width:16px;color:var(--red);"></i> Market Reports</span><span class="cat-count">0</span></button>
-            <button class="sidebar-cat-btn" data-cat="buyer"><span><i class="fas fa-home" style="width:16px;color:var(--red);"></i> Buyer Guides</span><span class="cat-count">0</span></button>
+                    <div class="sidebar-cats">
+            <button class="sidebar-cat-btn active" data-cat="all"><span><i class="fas fa-th" style="width:16px;color:var(--red);"></i> All Articles</span><span class="cat-count">3</span></button>
+            <button class="sidebar-cat-btn" data-cat="market"><span><i class="fas fa-chart-bar" style="width:16px;color:var(--red);"></i> Market Reports</span><span class="cat-count">1</span></button>
+            <button class="sidebar-cat-btn" data-cat="buyer"><span><i class="fas fa-home" style="width:16px;color:var(--red);"></i> Buyer Guides</span><span class="cat-count">2</span></button>
             <button class="sidebar-cat-btn" data-cat="investment"><span><i class="fas fa-rupee-sign" style="width:16px;color:var(--red);"></i> Investment</span><span class="cat-count">0</span></button>
-            <button class="sidebar-cat-btn" data-cat="legal"><span><i class="fas fa-file-contract" style="width:16px;color:var(--red);"></i> Legal &amp; Docs</span><span class="cat-count">0</span></button>
+            <button class="sidebar-cat-btn" data-cat="legal"><span><i class="fas fa-file-contract" style="width:16px;color:var(--red);"></i> Legal & Docs</span><span class="cat-count">0</span></button>
             <button class="sidebar-cat-btn" data-cat="nri"><span><i class="fas fa-globe-asia" style="width:16px;color:var(--red);"></i> NRI Corner</span><span class="cat-count">0</span></button>
           </div>
         </div>
 
         <div class="sidebar-box">
-          <div class="sidebar-box-title">Popular This Month</div>
+          <div class="sidebar-box-title">Popular Guides</div>
           <div>
-            <div class="blog-item-mini">
+            <a href="/blog/luxury-apartments-in-pune-complete-buyer-s-guide-2026" class="blog-item-mini">
+              <div class="blog-mini-img"><div style="background-image:url('/images/blog/luxury-apartments-in-pune-buyers-guide.png');background-size:cover;background-position:center;"></div></div>
+              <div><div class="blog-mini-title">Luxury Apartments in Pune: Complete Buyer's Guide 2026</div><div class="blog-mini-date">29 June 2026</div></div>
+            </a>
+            <a href="/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026" class="blog-item-mini">
+              <div class="blog-mini-img"><div style="background-image:url('/images/blog/baner-wakad-hinjewadi-tathawade-property-comparison-2026.png');background-size:cover;background-position:center;"></div></div>
+              <div><div class="blog-mini-title">Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?</div><div class="blog-mini-date">8 September 2026</div></div>
+            </a>
+            <a href="/blog/pune-real-estate-market-h1-2025" class="blog-item-mini">
               <div class="blog-mini-img"><div style="background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;"><i class="fas fa-chart-area" style="color:rgba(200,54,43,.5);font-size:1.2rem;"></i></div></div>
-              <div><div class="blog-mini-title">Pune Market H1 2025 Report</div><div class="blog-mini-date">June 2025</div></div>
-            </div>
-            <div class="blog-item-mini">
-              <div class="blog-mini-img"><div style="background:linear-gradient(135deg,#1a2a1a,#0f1a0f);display:flex;align-items:center;justify-content:center;"><i class="fas fa-home" style="color:rgba(100,200,100,.4);font-size:1.2rem;"></i></div></div>
-              <div><div class="blog-mini-title">First-Time Buyer's Complete Guide</div><div class="blog-mini-date">May 2025</div></div>
-            </div>
-            <div class="blog-item-mini">
-              <div class="blog-mini-img"><div style="background:linear-gradient(135deg,#0a1a2d,#051020);display:flex;align-items:center;justify-content:center;"><i class="fas fa-rupee-sign" style="color:rgba(50,150,250,.4);font-size:1.2rem;"></i></div></div>
-              <div><div class="blog-mini-title">Hinjewadi vs. Baner: Where to Invest</div><div class="blog-mini-date">April 2025</div></div>
-            </div>
+              <div><div class="blog-mini-title">Pune Residential Market H1 2025: Price Trends, Top Micro-Markets &amp; Outlook</div><div class="blog-mini-date">27 June 2025</div></div>
+            </a>
           </div>
         </div>
 

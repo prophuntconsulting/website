@@ -84,6 +84,68 @@ function buildPrerenderBlock(p) {
   </div>`;
 }
 
+// Mirrors the renderCard() embedded in blog/index.html exactly, so the
+// prerendered grid (below) and the client-hydrated one are identical.
+function renderListingCard(p, featured) {
+  const coverHTML = p.cover
+    ? `<div class="blog-card-img-inner" style="background-image:url('${p.cover}');background-size:cover;background-position:center;"></div>`
+    : `<div class="blog-card-img-inner" style="background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;"><i class="${LISTING_CAT_ICONS[p.category] || 'fas fa-newspaper'}" style="font-size:${featured ? '4' : '3'}rem;color:rgba(200,54,43,.35);"></i></div>`;
+  return `
+      <article class="blog-card" data-cat="${p.category}">
+        <div class="blog-card-img"${featured ? ' style="height:auto;"' : ''}>
+          ${coverHTML}
+          <div class="blog-card-cat"><span class="badge ${LISTING_CAT_COLORS[p.category] || 'badge-dark'}">${LISTING_CAT_LABELS[p.category] || p.category}</span></div>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> ${fmtDate(p.date)}</div>
+          <div class="blog-card-title"><a href="${p.url}">${p.title}</a></div>
+          <p class="blog-card-excerpt">${p.excerpt}</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author"><i class="fas fa-user-circle"></i> ${p.author}</span>
+            <a href="${p.url}" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>`;
+}
+
+// Matches the category pills / sidebar filter buttons in blog/index.html.
+const LISTING_CATS = [
+  { key: 'all',        label: 'All Articles',   icon: 'fas fa-th' },
+  { key: 'market',     label: 'Market Reports', icon: 'fas fa-chart-bar' },
+  { key: 'buyer',      label: 'Buyer Guides',   icon: 'fas fa-home' },
+  { key: 'investment', label: 'Investment',     icon: 'fas fa-rupee-sign' },
+  { key: 'legal',      label: 'Legal & Docs',   icon: 'fas fa-file-contract' },
+  { key: 'nri',        label: 'NRI Corner',     icon: 'fas fa-globe-asia' },
+];
+const LISTING_CAT_ICONS  = { market: 'fas fa-chart-bar', buyer: 'fas fa-home', investment: 'fas fa-rupee-sign', legal: 'fas fa-file-contract', nri: 'fas fa-globe-asia' };
+const LISTING_CAT_COLORS = { market: 'badge-red', buyer: 'badge-dark', investment: 'badge-red', legal: 'badge-dark', nri: 'badge-dark' };
+const LISTING_CAT_LABELS = { market: 'Market Report', buyer: 'Buyer Guide', investment: 'Investment', legal: 'Legal & Docs', nri: 'NRI Corner' };
+
+function buildSidebarCatsBlock(posts) {
+  const counts = {};
+  posts.forEach(p => { counts[p.category] = (counts[p.category] || 0) + 1; });
+  const buttons = LISTING_CATS.map(c => {
+    const count = c.key === 'all' ? posts.length : (counts[c.key] || 0);
+    return `            <button class="sidebar-cat-btn${c.key === 'all' ? ' active' : ''}" data-cat="${c.key}"><span><i class="${c.icon}" style="width:16px;color:var(--red);"></i> ${c.label}</span><span class="cat-count">${count}</span></button>`;
+  }).join('\n');
+  return `          <div class="sidebar-cats">\n${buttons}\n          </div>`;
+}
+
+// The most recent posts, real and linked — replaces a hand-written "Popular
+// This Month" list that named 3 articles that don't exist on the site
+// (stale content the audit flagged as a freshness/trust risk).
+function renderMini(p) {
+  const icon = { market: 'fa-chart-area', buyer: 'fa-home', investment: 'fa-rupee-sign', legal: 'fa-file-contract', nri: 'fa-globe-asia' }[p.category] || 'fa-newspaper';
+  const bg = p.cover
+    ? `background-image:url('${p.cover}');background-size:cover;background-position:center;`
+    : `background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;`;
+  const inner = p.cover ? '' : `<i class="fas ${icon}" style="color:rgba(200,54,43,.5);font-size:1.2rem;"></i>`;
+  return `            <a href="${p.url}" class="blog-item-mini">
+              <div class="blog-mini-img"><div style="${bg}">${inner}</div></div>
+              <div><div class="blog-mini-title">${escapeHtml(p.title)}</div><div class="blog-mini-date">${fmtDate(p.date)}</div></div>
+            </a>`;
+}
+
 // Strip leading YYYY-MM-DD- date prefix from filename slug
 function toUrlSlug(fileSlug) {
   return fileSlug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
@@ -156,7 +218,11 @@ console.log(`Built posts.json — ${posts.length} post(s)`);
 
 // Generate static blog/{cleanSlug}/index.html for each post
 if (fs.existsSync(TEMPLATE)) {
-  const template = fs.readFileSync(TEMPLATE, 'utf-8');
+  // Normalise to LF — see scripts/build-properties.js for why: the marker
+  // template literals below are LF at runtime regardless of how this file
+  // is saved, so a CRLF template file would make every .replace() below
+  // silently no-op.
+  const template = fs.readFileSync(TEMPLATE, 'utf-8').replace(/\r\n/g, '\n');
   const INJECT_MARKER = /const fileSlug = typeof __FILE_SLUG__ !== 'undefined'\r?\n\s+\? __FILE_SLUG__\r?\n\s+: \(new URLSearchParams\(location\.search\)\.get\('slug'\) \|\| ''\);/;
 
   const HEAD_MARKER = `<title id="ph-blog-title">Loading… | PROPHUNT LLP Blog</title>
@@ -187,4 +253,95 @@ if (fs.existsSync(TEMPLATE)) {
   });
 } else {
   console.warn('  ⚠ blog/post.html template not found — skipping static page generation');
+}
+
+// Prerender the /blog listing page. #blogGrid previously shipped as the
+// literal text "Loading articles…", filled in only by the inline <script>
+// after a fetch — a crawler saw zero article links on the page that's
+// supposed to be the hub for all of them. That same inline script still
+// overwrites this on load with identical markup, so real visitors see no
+// change; it also replaces the sidebar's hardcoded "0" category counts and
+// a "Popular This Month" list that named 3 articles which don't exist
+// anywhere on the site (a fabricated-content / freshness risk the audit
+// flagged) with the site's real, most recent posts.
+const listingPagePath = path.join(__dirname, '..', 'blog', 'index.html');
+if (fs.existsSync(listingPagePath)) {
+  let html = fs.readFileSync(listingPagePath, 'utf8').replace(/\r\n/g, '\n');
+
+  const GRID_MARKER = `<div class="blog-grid" id="blogGrid">
+          <div style="grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--gray-400);">
+            <i class="fas fa-circle-notch fa-spin" style="font-size:1.5rem;display:block;margin-bottom:.75rem;"></i>
+            Loading articles…
+          </div>
+        </div>`;
+  const cardsHtml = posts.map((p, i) => renderListingCard(p, i === 0)).join('');
+  html = html.replace(GRID_MARKER, `<div class="blog-grid" id="blogGrid">${cardsHtml}</div>`);
+
+  const SIDEBAR_CATS_MARKER = `<div class="sidebar-cats">
+            <button class="sidebar-cat-btn active" data-cat="all"><span><i class="fas fa-th" style="width:16px;color:var(--red);"></i> All Articles</span><span class="cat-count">0</span></button>
+            <button class="sidebar-cat-btn" data-cat="market"><span><i class="fas fa-chart-bar" style="width:16px;color:var(--red);"></i> Market Reports</span><span class="cat-count">0</span></button>
+            <button class="sidebar-cat-btn" data-cat="buyer"><span><i class="fas fa-home" style="width:16px;color:var(--red);"></i> Buyer Guides</span><span class="cat-count">0</span></button>
+            <button class="sidebar-cat-btn" data-cat="investment"><span><i class="fas fa-rupee-sign" style="width:16px;color:var(--red);"></i> Investment</span><span class="cat-count">0</span></button>
+            <button class="sidebar-cat-btn" data-cat="legal"><span><i class="fas fa-file-contract" style="width:16px;color:var(--red);"></i> Legal &amp; Docs</span><span class="cat-count">0</span></button>
+            <button class="sidebar-cat-btn" data-cat="nri"><span><i class="fas fa-globe-asia" style="width:16px;color:var(--red);"></i> NRI Corner</span><span class="cat-count">0</span></button>
+          </div>`;
+  html = html.replace(SIDEBAR_CATS_MARKER, buildSidebarCatsBlock(posts));
+
+  const POPULAR_MARKER = `<div class="sidebar-box">
+          <div class="sidebar-box-title">Popular This Month</div>
+          <div>
+            <div class="blog-item-mini">
+              <div class="blog-mini-img"><div style="background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;"><i class="fas fa-chart-area" style="color:rgba(200,54,43,.5);font-size:1.2rem;"></i></div></div>
+              <div><div class="blog-mini-title">Pune Market H1 2025 Report</div><div class="blog-mini-date">June 2025</div></div>
+            </div>
+            <div class="blog-item-mini">
+              <div class="blog-mini-img"><div style="background:linear-gradient(135deg,#1a2a1a,#0f1a0f);display:flex;align-items:center;justify-content:center;"><i class="fas fa-home" style="color:rgba(100,200,100,.4);font-size:1.2rem;"></i></div></div>
+              <div><div class="blog-mini-title">First-Time Buyer's Complete Guide</div><div class="blog-mini-date">May 2025</div></div>
+            </div>
+            <div class="blog-item-mini">
+              <div class="blog-mini-img"><div style="background:linear-gradient(135deg,#0a1a2d,#051020);display:flex;align-items:center;justify-content:center;"><i class="fas fa-rupee-sign" style="color:rgba(50,150,250,.4);font-size:1.2rem;"></i></div></div>
+              <div><div class="blog-mini-title">Hinjewadi vs. Baner: Where to Invest</div><div class="blog-mini-date">April 2025</div></div>
+            </div>
+          </div>
+        </div>`;
+  const popularHtml = `<div class="sidebar-box">
+          <div class="sidebar-box-title">Popular Guides</div>
+          <div>
+${posts.slice(0, 3).map(renderMini).join('\n')}
+          </div>
+        </div>`;
+  html = html.replace(POPULAR_MARKER, popularHtml);
+
+  // Real Blog + ItemList structured data instead of just a bare Blog stub —
+  // gives crawlers an indexable list of every published article.
+  const listingJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog` },
+        ],
+      },
+      {
+        '@type': 'Blog',
+        name: 'PROPHUNT LLP Real Estate Blog',
+        url: `${SITE}/blog`,
+        description: 'Pune real estate market insights, buyer guides, investment analysis and property updates from PROPHUNT LLP.',
+        publisher: { '@type': 'Organization', name: 'PROPHUNT LLP', url: SITE, logo: `${SITE}/images/logo-black.png` },
+        inLanguage: 'en-IN',
+      },
+      {
+        '@type': 'ItemList',
+        name: 'PROPHUNT LLP Blog Articles',
+        numberOfItems: posts.length,
+        itemListElement: posts.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, item: `${SITE}${p.url}` })),
+      },
+    ],
+  };
+  html = html.replace(/<script type="application\/ld\+json">\n\{[\s\S]*?\n\}\n<\/script>/, `<script type="application/ld+json">\n${JSON.stringify(listingJsonLd, null, 2)}\n</script>`);
+
+  fs.writeFileSync(listingPagePath, html);
+  console.log(`Prerendered blog/index.html — ${posts.length} article cards`);
 }
