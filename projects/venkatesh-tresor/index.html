@@ -11,18 +11,18 @@
   gtag('config', 'G-YR6CRE6BNN');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="ph-title">Venkatesh Tresor | PROPHUNT LLP</title>
+<title id="ph-title">Venkatesh Tresor, Baner | 4.5 BHK Sky Chalets &amp; Penthouses | PROPHUNT LLP</title>
 <meta id="ph-desc" name="description" content="Venkatesh Tresor is a 33-storey tower at Pallod Farms, Baner, offering just 64 exclusive 4.5 BHK sky chalets and penthouses starting at Rs 3.2 Crore…">
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/projects/venkatesh-tresor">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.prophuntllp.com/projects/venkatesh-tresor">
-<meta property="og:title" content="Venkatesh Tresor | PROPHUNT LLP">
+<meta property="og:title" content="Venkatesh Tresor, Baner | 4.5 BHK Sky Chalets &amp; Penthouses | PROPHUNT LLP">
 <meta property="og:description" content="Venkatesh Tresor is a 33-storey tower at Pallod Farms, Baner, offering just 64 exclusive 4.5 BHK sky chalets and penthouses starting at Rs 3.2 Crore…">
 <meta property="og:image" content="https://www.prophuntllp.com/images/landing-pages/venkatesh-tresor/photo-1.webp">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Venkatesh Tresor | PROPHUNT LLP">
+<meta name="twitter:title" content="Venkatesh Tresor, Baner | 4.5 BHK Sky Chalets &amp; Penthouses | PROPHUNT LLP">
 <meta name="twitter:description" content="Venkatesh Tresor is a 33-storey tower at Pallod Farms, Baner, offering just 64 exclusive 4.5 BHK sky chalets and penthouses starting at Rs 3.2 Crore…">
 <meta name="twitter:image" content="https://www.prophuntllp.com/images/landing-pages/venkatesh-tresor/photo-1.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"Venkatesh Tresor","item":"https://www.prophuntllp.com/projects/venkatesh-tresor"}]},{"@type":"RealEstateListing","name":"Venkatesh Tresor","description":"Venkatesh Tresor is a 33-storey tower at Pallod Farms, Baner, offering just 64 exclusive 4.5 BHK sky chalets and penthouses starting at Rs 3.2 Crore…","url":"https://www.prophuntllp.com/projects/venkatesh-tresor","image":"https://www.prophuntllp.com/images/landing-pages/venkatesh-tresor/photo-1.webp","provider":{"@type":"Organization","name":"Venkatesh Buildcon"},"address":{"@type":"PostalAddress","addressLocality":"Pallod Farms, Baner, Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"offers":{"@type":"Offer","price":32000000,"priceCurrency":"INR","url":"https://www.prophuntllp.com/projects/venkatesh-tresor","availability":"https://schema.org/InStock"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the RERA registration number of Venkatesh Tresor?","acceptedAnswer":{"@type":"Answer","text":"Venkatesh Tresor is registered under MahaRERA with registration number PR1260002501248. You can verify this directly on the official MahaRERA website."}},{"@type":"Question","name":"What configurations are available at Venkatesh Tresor?","acceptedAnswer":{"@type":"Answer","text":"Venkatesh Tresor offers 4.5 BHK Sky Chalets & Penthouses."}},{"@type":"Question","name":"What is the price of homes at Venkatesh Tresor?","acceptedAnswer":{"@type":"Answer","text":"Venkatesh Tresor is priced ₹3.2 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."}},{"@type":"Question","name":"Where is Venkatesh Tresor located?","acceptedAnswer":{"@type":"Answer","text":"Venkatesh Tresor is located at Pallod Farms, Baner, Pune, developed by Venkatesh Buildcon."}},{"@type":"Question","name":"Who is the developer of Venkatesh Tresor?","acceptedAnswer":{"@type":"Answer","text":"Venkatesh Tresor is developed by Venkatesh Buildcon."}},{"@type":"Question","name":"Is Venkatesh Tresor ready to move in or under construction?","acceptedAnswer":{"@type":"Answer","text":"Venkatesh Tresor is a new launch."}},{"@type":"Question","name":"Where is Baner located and why is it popular with homebuyers?","acceptedAnswer":{"@type":"Answer","text":"Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."}},{"@type":"Question","name":"How well connected is Baner to the rest of Pune?","acceptedAnswer":{"@type":"Answer","text":"Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."}},{"@type":"Question","name":"What is the investment case for buying property in Baner?","acceptedAnswer":{"@type":"Answer","text":"Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."}},{"@type":"Question","name":"What lifestyle and social infrastructure does Baner offer?","acceptedAnswer":{"@type":"Answer","text":"Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."}}]}]}</script>
@@ -599,10 +599,36 @@ function buildPage(prop, allProps) {
     .sort((a, b) => b._score - a._score)
     .slice(0, 9);
 
-  /* ── Meta ── */
-  document.title = (prop.title || 'Property') + ' | PROPHUNT LLP';
+  /* ── Meta ──
+     Mirrors pageTitle()/shortLocation()/clampAtWord() in
+     scripts/build-properties.js — this only runs after the client JS
+     hydrates, but should still land on the same title/description the
+     server already prerendered, not silently regress to a shorter one. */
+  function shortLocation(p) {
+    if (p.locality_name) return p.locality_name;
+    const parts = (p.location || '').split(',').map(s => s.trim()).filter(Boolean);
+    if (!parts.length) return '';
+    return parts.length >= 2 ? parts[parts.length - 2] : parts[0];
+  }
+  function pageTitle(p) {
+    const name = p.title || 'Property';
+    const bits = [name];
+    const loc = shortLocation(p);
+    if (loc && !name.toLowerCase().includes(loc.toLowerCase())) bits[0] += `, ${loc}`;
+    if (p.config) bits.push(p.config);
+    bits.push('PROPHUNT LLP');
+    return bits.join(' | ');
+  }
+  function clampAtWord(s, max) {
+    s = s.trim();
+    if (s.length <= max) return s;
+    const cut = s.slice(0, max);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s.,;:–-]+$/, '') + '…';
+  }
+  document.title = pageTitle(prop);
   const desc = prop.overview
-    ? prop.overview.slice(0, 155)
+    ? clampAtWord(prop.overview, 160)
     : (prop.developer + ' – ' + prop.config + ' in ' + prop.location);
   document.getElementById('ph-desc').setAttribute('content', desc);
   document.getElementById('ph-canonical').setAttribute('href', 'https://www.prophuntllp.com/projects/' + prop.slug);

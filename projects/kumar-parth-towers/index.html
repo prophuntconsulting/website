@@ -11,18 +11,18 @@
   gtag('config', 'G-YR6CRE6BNN');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="ph-title">Kumar Parth Towers | PROPHUNT LLP</title>
+<title id="ph-title">Kumar Parth Towers, Baner | 2, 3 &amp; 4 BHK Apartments | PROPHUNT LLP</title>
 <meta id="ph-desc" name="description" content="Kumar Parth Towers is a 2-acre, 3-tower high-rise development in Baner by Kumar Properties, offering 2, 3 and 4 BHK apartments from 749 to 1,073 sq ft…">
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/projects/kumar-parth-towers">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.prophuntllp.com/projects/kumar-parth-towers">
-<meta property="og:title" content="Kumar Parth Towers | PROPHUNT LLP">
+<meta property="og:title" content="Kumar Parth Towers, Baner | 2, 3 &amp; 4 BHK Apartments | PROPHUNT LLP">
 <meta property="og:description" content="Kumar Parth Towers is a 2-acre, 3-tower high-rise development in Baner by Kumar Properties, offering 2, 3 and 4 BHK apartments from 749 to 1,073 sq ft…">
 <meta property="og:image" content="https://www.prophuntllp.com/images/landing-pages/kumar-parth-towers/photo-1.webp">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kumar Parth Towers | PROPHUNT LLP">
+<meta name="twitter:title" content="Kumar Parth Towers, Baner | 2, 3 &amp; 4 BHK Apartments | PROPHUNT LLP">
 <meta name="twitter:description" content="Kumar Parth Towers is a 2-acre, 3-tower high-rise development in Baner by Kumar Properties, offering 2, 3 and 4 BHK apartments from 749 to 1,073 sq ft…">
 <meta name="twitter:image" content="https://www.prophuntllp.com/images/landing-pages/kumar-parth-towers/photo-1.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"Kumar Parth Towers","item":"https://www.prophuntllp.com/projects/kumar-parth-towers"}]},{"@type":"RealEstateListing","name":"Kumar Parth Towers","description":"Kumar Parth Towers is a 2-acre, 3-tower high-rise development in Baner by Kumar Properties, offering 2, 3 and 4 BHK apartments from 749 to 1,073 sq ft…","url":"https://www.prophuntllp.com/projects/kumar-parth-towers","image":"https://www.prophuntllp.com/images/landing-pages/kumar-parth-towers/photo-1.webp","provider":{"@type":"Organization","name":"Kumar Properties"},"address":{"@type":"PostalAddress","addressLocality":"Baner, Pune","addressRegion":"Maharashtra","addressCountry":"IN"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the RERA registration number of Kumar Parth Towers?","acceptedAnswer":{"@type":"Answer","text":"Kumar Parth Towers is registered under MahaRERA with registration number P52100047987 (C1), P52100052945 (C2), PR1260002500333 (C3). You can verify this directly on the official MahaRERA website."}},{"@type":"Question","name":"What configurations are available at Kumar Parth Towers?","acceptedAnswer":{"@type":"Answer","text":"Kumar Parth Towers offers 2, 3 & 4 BHK Apartments, with sizes 749 – 1,073 sqft."}},{"@type":"Question","name":"What is the price of homes at Kumar Parth Towers?","acceptedAnswer":{"@type":"Answer","text":"Pricing for Kumar Parth Towers is available on request — contact PROPHUNT LLP's advisory team for the latest rates."}},{"@type":"Question","name":"Where is Kumar Parth Towers located?","acceptedAnswer":{"@type":"Answer","text":"Kumar Parth Towers is located at Baner, Pune, developed by Kumar Properties."}},{"@type":"Question","name":"Who is the developer of Kumar Parth Towers?","acceptedAnswer":{"@type":"Answer","text":"Kumar Parth Towers is developed by Kumar Properties."}},{"@type":"Question","name":"Where is Baner located and why is it popular with homebuyers?","acceptedAnswer":{"@type":"Answer","text":"Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."}},{"@type":"Question","name":"How well connected is Baner to the rest of Pune?","acceptedAnswer":{"@type":"Answer","text":"Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."}},{"@type":"Question","name":"What is the investment case for buying property in Baner?","acceptedAnswer":{"@type":"Answer","text":"Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."}},{"@type":"Question","name":"What lifestyle and social infrastructure does Baner offer?","acceptedAnswer":{"@type":"Answer","text":"Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."}}]}]}</script>
@@ -599,10 +599,36 @@ function buildPage(prop, allProps) {
     .sort((a, b) => b._score - a._score)
     .slice(0, 9);
 
-  /* ── Meta ── */
-  document.title = (prop.title || 'Property') + ' | PROPHUNT LLP';
+  /* ── Meta ──
+     Mirrors pageTitle()/shortLocation()/clampAtWord() in
+     scripts/build-properties.js — this only runs after the client JS
+     hydrates, but should still land on the same title/description the
+     server already prerendered, not silently regress to a shorter one. */
+  function shortLocation(p) {
+    if (p.locality_name) return p.locality_name;
+    const parts = (p.location || '').split(',').map(s => s.trim()).filter(Boolean);
+    if (!parts.length) return '';
+    return parts.length >= 2 ? parts[parts.length - 2] : parts[0];
+  }
+  function pageTitle(p) {
+    const name = p.title || 'Property';
+    const bits = [name];
+    const loc = shortLocation(p);
+    if (loc && !name.toLowerCase().includes(loc.toLowerCase())) bits[0] += `, ${loc}`;
+    if (p.config) bits.push(p.config);
+    bits.push('PROPHUNT LLP');
+    return bits.join(' | ');
+  }
+  function clampAtWord(s, max) {
+    s = s.trim();
+    if (s.length <= max) return s;
+    const cut = s.slice(0, max);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s.,;:–-]+$/, '') + '…';
+  }
+  document.title = pageTitle(prop);
   const desc = prop.overview
-    ? prop.overview.slice(0, 155)
+    ? clampAtWord(prop.overview, 160)
     : (prop.developer + ' – ' + prop.config + ' in ' + prop.location);
   document.getElementById('ph-desc').setAttribute('content', desc);
   document.getElementById('ph-canonical').setAttribute('href', 'https://www.prophuntllp.com/projects/' + prop.slug);

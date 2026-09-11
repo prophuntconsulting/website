@@ -11,18 +11,18 @@
   gtag('config', 'G-YR6CRE6BNN');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="ph-title">Kohinoor Regalia Towers | PROPHUNT LLP</title>
+<title id="ph-title">Kohinoor Regalia Towers, Wakad | 2 &amp; 3 BHK Apartments | PROPHUNT LLP</title>
 <meta id="ph-desc" name="description" content="Kohinoor Regalia Towers is a 3.5-acre twin-tower residential project by Kohinoor Group in Downtown Wakad, Pune, distinguished by a curvilinear architectural…">
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/projects/kohinoor-regalia-towers">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.prophuntllp.com/projects/kohinoor-regalia-towers">
-<meta property="og:title" content="Kohinoor Regalia Towers | PROPHUNT LLP">
+<meta property="og:title" content="Kohinoor Regalia Towers, Wakad | 2 &amp; 3 BHK Apartments | PROPHUNT LLP">
 <meta property="og:description" content="Kohinoor Regalia Towers is a 3.5-acre twin-tower residential project by Kohinoor Group in Downtown Wakad, Pune, distinguished by a curvilinear architectural…">
 <meta property="og:image" content="https://www.prophuntllp.com/images/landing-pages/kohinoor-regalia-towers/photo-1.webp">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kohinoor Regalia Towers | PROPHUNT LLP">
+<meta name="twitter:title" content="Kohinoor Regalia Towers, Wakad | 2 &amp; 3 BHK Apartments | PROPHUNT LLP">
 <meta name="twitter:description" content="Kohinoor Regalia Towers is a 3.5-acre twin-tower residential project by Kohinoor Group in Downtown Wakad, Pune, distinguished by a curvilinear architectural…">
 <meta name="twitter:image" content="https://www.prophuntllp.com/images/landing-pages/kohinoor-regalia-towers/photo-1.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"Kohinoor Regalia Towers","item":"https://www.prophuntllp.com/projects/kohinoor-regalia-towers"}]},{"@type":"RealEstateListing","name":"Kohinoor Regalia Towers","description":"Kohinoor Regalia Towers is a 3.5-acre twin-tower residential project by Kohinoor Group in Downtown Wakad, Pune, distinguished by a curvilinear architectural…","url":"https://www.prophuntllp.com/projects/kohinoor-regalia-towers","image":"https://www.prophuntllp.com/images/landing-pages/kohinoor-regalia-towers/photo-1.webp","provider":{"@type":"Organization","name":"Kohinoor Group"},"address":{"@type":"PostalAddress","addressLocality":"Downtown Wakad, Pune","addressRegion":"Maharashtra","addressCountry":"IN"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the RERA registration number of Kohinoor Regalia Towers?","acceptedAnswer":{"@type":"Answer","text":"Kohinoor Regalia Towers is registered under MahaRERA with registration number PR1260002500271. You can verify this directly on the official MahaRERA website."}},{"@type":"Question","name":"What configurations are available at Kohinoor Regalia Towers?","acceptedAnswer":{"@type":"Answer","text":"Kohinoor Regalia Towers offers 2 & 3 BHK Apartments, with sizes 740 - 1,076 sqft."}},{"@type":"Question","name":"What is the price of homes at Kohinoor Regalia Towers?","acceptedAnswer":{"@type":"Answer","text":"Pricing for Kohinoor Regalia Towers is available on request — contact PROPHUNT LLP's advisory team for the latest rates."}},{"@type":"Question","name":"Where is Kohinoor Regalia Towers located?","acceptedAnswer":{"@type":"Answer","text":"Kohinoor Regalia Towers is located at Downtown Wakad, Pune, developed by Kohinoor Group."}},{"@type":"Question","name":"Who is the developer of Kohinoor Regalia Towers?","acceptedAnswer":{"@type":"Answer","text":"Kohinoor Regalia Towers is developed by Kohinoor Group."}},{"@type":"Question","name":"Is Kohinoor Regalia Towers ready to move in or under construction?","acceptedAnswer":{"@type":"Answer","text":"Kohinoor Regalia Towers is currently under construction."}},{"@type":"Question","name":"Where is Wakad located and what are its key advantages?","acceptedAnswer":{"@type":"Answer","text":"Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."}},{"@type":"Question","name":"How is the connectivity and public transport in Wakad?","acceptedAnswer":{"@type":"Answer","text":"Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."}},{"@type":"Question","name":"What kind of lifestyle does Wakad offer residents?","acceptedAnswer":{"@type":"Answer","text":"Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."}},{"@type":"Question","name":"Are there prominent developers active in Wakad?","acceptedAnswer":{"@type":"Answer","text":"Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."}}]}]}</script>
@@ -599,10 +599,36 @@ function buildPage(prop, allProps) {
     .sort((a, b) => b._score - a._score)
     .slice(0, 9);
 
-  /* ── Meta ── */
-  document.title = (prop.title || 'Property') + ' | PROPHUNT LLP';
+  /* ── Meta ──
+     Mirrors pageTitle()/shortLocation()/clampAtWord() in
+     scripts/build-properties.js — this only runs after the client JS
+     hydrates, but should still land on the same title/description the
+     server already prerendered, not silently regress to a shorter one. */
+  function shortLocation(p) {
+    if (p.locality_name) return p.locality_name;
+    const parts = (p.location || '').split(',').map(s => s.trim()).filter(Boolean);
+    if (!parts.length) return '';
+    return parts.length >= 2 ? parts[parts.length - 2] : parts[0];
+  }
+  function pageTitle(p) {
+    const name = p.title || 'Property';
+    const bits = [name];
+    const loc = shortLocation(p);
+    if (loc && !name.toLowerCase().includes(loc.toLowerCase())) bits[0] += `, ${loc}`;
+    if (p.config) bits.push(p.config);
+    bits.push('PROPHUNT LLP');
+    return bits.join(' | ');
+  }
+  function clampAtWord(s, max) {
+    s = s.trim();
+    if (s.length <= max) return s;
+    const cut = s.slice(0, max);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s.,;:–-]+$/, '') + '…';
+  }
+  document.title = pageTitle(prop);
   const desc = prop.overview
-    ? prop.overview.slice(0, 155)
+    ? clampAtWord(prop.overview, 160)
     : (prop.developer + ' – ' + prop.config + ' in ' + prop.location);
   document.getElementById('ph-desc').setAttribute('content', desc);
   document.getElementById('ph-canonical').setAttribute('href', 'https://www.prophuntllp.com/projects/' + prop.slug);

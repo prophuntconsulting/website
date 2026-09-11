@@ -11,18 +11,18 @@
   gtag('config', 'G-YR6CRE6BNN');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="ph-title">Godrej River Royale | PROPHUNT LLP</title>
+<title id="ph-title">Godrej River Royale, Baner | 3 &amp; 4.5 BHK | PROPHUNT LLP</title>
 <meta id="ph-desc" name="description" content="Godrej River Royale is a premium residential project by Godrej Properties located on the high-growth Baner–Hinjewadi corridor. Offering spacious 3 and 4.5 BHK…">
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/projects/godrej-river-royale">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.prophuntllp.com/projects/godrej-river-royale">
-<meta property="og:title" content="Godrej River Royale | PROPHUNT LLP">
+<meta property="og:title" content="Godrej River Royale, Baner | 3 &amp; 4.5 BHK | PROPHUNT LLP">
 <meta property="og:description" content="Godrej River Royale is a premium residential project by Godrej Properties located on the high-growth Baner–Hinjewadi corridor. Offering spacious 3 and 4.5 BHK…">
 <meta property="og:image" content="https://www.prophuntllp.com/images/projects/godrej-river-royale.jpg">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Godrej River Royale | PROPHUNT LLP">
+<meta name="twitter:title" content="Godrej River Royale, Baner | 3 &amp; 4.5 BHK | PROPHUNT LLP">
 <meta name="twitter:description" content="Godrej River Royale is a premium residential project by Godrej Properties located on the high-growth Baner–Hinjewadi corridor. Offering spacious 3 and 4.5 BHK…">
 <meta name="twitter:image" content="https://www.prophuntllp.com/images/projects/godrej-river-royale.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"Godrej River Royale","item":"https://www.prophuntllp.com/projects/godrej-river-royale"}]},{"@type":"RealEstateListing","name":"Godrej River Royale","description":"Godrej River Royale is a premium residential project by Godrej Properties located on the high-growth Baner–Hinjewadi corridor. Offering spacious 3 and 4.5 BHK…","url":"https://www.prophuntllp.com/projects/godrej-river-royale","image":"https://www.prophuntllp.com/images/projects/godrej-river-royale.jpg","provider":{"@type":"Organization","name":"Godrej Properties"},"address":{"@type":"PostalAddress","addressLocality":"Baner–Hinjewadi Rd, Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"offers":{"@type":"Offer","price":26500000,"priceCurrency":"INR","url":"https://www.prophuntllp.com/projects/godrej-river-royale","availability":"https://schema.org/InStock"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the RERA registration number of Godrej River Royale?","acceptedAnswer":{"@type":"Answer","text":"Godrej River Royale is registered under MahaRERA with registration number P52100047823. You can verify this directly on the official MahaRERA website."}},{"@type":"Question","name":"What configurations are available at Godrej River Royale?","acceptedAnswer":{"@type":"Answer","text":"Godrej River Royale offers 3 & 4.5 BHK, with sizes From 1,688 sqft."}},{"@type":"Question","name":"What is the price of homes at Godrej River Royale?","acceptedAnswer":{"@type":"Answer","text":"Godrej River Royale is priced ₹2.65 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."}},{"@type":"Question","name":"Where is Godrej River Royale located?","acceptedAnswer":{"@type":"Answer","text":"Godrej River Royale is located at Baner–Hinjewadi Rd, Pune, developed by Godrej Properties."}},{"@type":"Question","name":"Who is the developer of Godrej River Royale?","acceptedAnswer":{"@type":"Answer","text":"Godrej River Royale is developed by Godrej Properties."}},{"@type":"Question","name":"Is Godrej River Royale ready to move in or under construction?","acceptedAnswer":{"@type":"Answer","text":"Godrej River Royale is a new launch."}},{"@type":"Question","name":"Where is Baner located and why is it popular with homebuyers?","acceptedAnswer":{"@type":"Answer","text":"Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families."}},{"@type":"Question","name":"How well connected is Baner to the rest of Pune?","acceptedAnswer":{"@type":"Answer","text":"Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."}},{"@type":"Question","name":"What is the investment case for buying property in Baner?","acceptedAnswer":{"@type":"Answer","text":"Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor."}},{"@type":"Question","name":"What lifestyle and social infrastructure does Baner offer?","acceptedAnswer":{"@type":"Answer","text":"Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity."}}]}]}</script>
@@ -599,10 +599,36 @@ function buildPage(prop, allProps) {
     .sort((a, b) => b._score - a._score)
     .slice(0, 9);
 
-  /* ── Meta ── */
-  document.title = (prop.title || 'Property') + ' | PROPHUNT LLP';
+  /* ── Meta ──
+     Mirrors pageTitle()/shortLocation()/clampAtWord() in
+     scripts/build-properties.js — this only runs after the client JS
+     hydrates, but should still land on the same title/description the
+     server already prerendered, not silently regress to a shorter one. */
+  function shortLocation(p) {
+    if (p.locality_name) return p.locality_name;
+    const parts = (p.location || '').split(',').map(s => s.trim()).filter(Boolean);
+    if (!parts.length) return '';
+    return parts.length >= 2 ? parts[parts.length - 2] : parts[0];
+  }
+  function pageTitle(p) {
+    const name = p.title || 'Property';
+    const bits = [name];
+    const loc = shortLocation(p);
+    if (loc && !name.toLowerCase().includes(loc.toLowerCase())) bits[0] += `, ${loc}`;
+    if (p.config) bits.push(p.config);
+    bits.push('PROPHUNT LLP');
+    return bits.join(' | ');
+  }
+  function clampAtWord(s, max) {
+    s = s.trim();
+    if (s.length <= max) return s;
+    const cut = s.slice(0, max);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s.,;:–-]+$/, '') + '…';
+  }
+  document.title = pageTitle(prop);
   const desc = prop.overview
-    ? prop.overview.slice(0, 155)
+    ? clampAtWord(prop.overview, 160)
     : (prop.developer + ' – ' + prop.config + ' in ' + prop.location);
   document.getElementById('ph-desc').setAttribute('content', desc);
   document.getElementById('ph-canonical').setAttribute('href', 'https://www.prophuntllp.com/projects/' + prop.slug);

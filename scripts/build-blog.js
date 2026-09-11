@@ -232,7 +232,7 @@ if (fs.existsSync(TEMPLATE)) {
 <meta id="ph-og-img"   property="og:image" content="">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="PROPHUNT LLP">
-<link rel="canonical" id="ph-canonical" href="https://prophuntllp.com/blog">`;
+<link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/blog">`;
 
   const LOADING_MARKER = `<div class="bp-loading">
     <div class="bp-loading-spinner"></div>

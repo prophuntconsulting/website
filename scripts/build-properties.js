@@ -201,6 +201,35 @@ function generateProjectFAQs(p) {
   return faqs;
 }
 
+// "Wakad" out of "Bhumkar Chowk, Wakad, Pune" or "Baner" out of "Baner, Pune" —
+// the locality bucket name when we have one (curated, so it also matches the
+// area used in the FAQs/landmarks), otherwise the second-to-last comma
+// segment of the freeform location string.
+function shortLocation(p) {
+  if (p.locality_name) return p.locality_name;
+  const parts = (p.location || '').split(',').map(s => s.trim()).filter(Boolean);
+  if (!parts.length) return '';
+  return parts.length >= 2 ? parts[parts.length - 2] : parts[0];
+}
+
+// [Name], [Locality] | [Configurations] | PROPHUNT LLP — richer than a bare
+// "Property | PROPHUNT LLP" and more specific than the audit's suggested
+// "...Configurations, Price, RERA & Details..." formula, which runs 90-100+
+// characters for longer project names and would just get truncated in the
+// SERP snippet anyway. Locality + configuration are the two things buyers
+// actually search on ("2 BHK in Wakad"), so those are what earn the space.
+function pageTitle(p) {
+  const name = p.title || 'Property';
+  const bits = [name];
+  const loc = shortLocation(p);
+  // Skip appending the locality when the project name already names it
+  // (e.g. "Mahindra Lifespaces Mahalunge") — avoids "Mahalunge, Mahalunge".
+  if (loc && !name.toLowerCase().includes(loc.toLowerCase())) bits[0] += `, ${loc}`;
+  if (p.config) bits.push(p.config);
+  bits.push('PROPHUNT LLP');
+  return bits.join(' | ');
+}
+
 // Head tags: real title/description/canonical + OG/Twitter + JSON-LD
 // (BreadcrumbList + RealEstateListing + FAQPage) so search engines and AI
 // crawlers see genuine, page-specific signals without running JS. The
@@ -208,7 +237,7 @@ function generateProjectFAQs(p) {
 // locality FAQs for its micro-market — the same content rendered visibly
 // on the page by property.html.
 function buildHeadBlock(p) {
-  const title = `${p.title || 'Property'} | PROPHUNT LLP`;
+  const title = pageTitle(p);
   const desc  = metaDescription(p);
   const url   = `${SITE}${p.url}`;
   const image = absUrl(p.cover);

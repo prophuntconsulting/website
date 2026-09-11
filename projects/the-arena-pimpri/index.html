@@ -11,18 +11,18 @@
   gtag('config', 'G-YR6CRE6BNN');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="ph-title">The Arena Pimpri | PROPHUNT LLP</title>
+<title id="ph-title">The Arena Pimpri, Pimpri-Chinchwad | 2, 3 &amp; 4 BHK Apartments | PROPHUNT LLP</title>
 <meta id="ph-desc" name="description" content="The Arena Pimpri is a sports-first residential township in the heart of Pimpri, a joint venture between Mahalaxmi Group, Kohinoor Group and Agarwal Sukhwani…">
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/projects/the-arena-pimpri">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.prophuntllp.com/projects/the-arena-pimpri">
-<meta property="og:title" content="The Arena Pimpri | PROPHUNT LLP">
+<meta property="og:title" content="The Arena Pimpri, Pimpri-Chinchwad | 2, 3 &amp; 4 BHK Apartments | PROPHUNT LLP">
 <meta property="og:description" content="The Arena Pimpri is a sports-first residential township in the heart of Pimpri, a joint venture between Mahalaxmi Group, Kohinoor Group and Agarwal Sukhwani…">
 <meta property="og:image" content="https://www.prophuntllp.com/images/landing-pages/the-arena-pimpri/tower-view-1.jpg">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Arena Pimpri | PROPHUNT LLP">
+<meta name="twitter:title" content="The Arena Pimpri, Pimpri-Chinchwad | 2, 3 &amp; 4 BHK Apartments | PROPHUNT LLP">
 <meta name="twitter:description" content="The Arena Pimpri is a sports-first residential township in the heart of Pimpri, a joint venture between Mahalaxmi Group, Kohinoor Group and Agarwal Sukhwani…">
 <meta name="twitter:image" content="https://www.prophuntllp.com/images/landing-pages/the-arena-pimpri/tower-view-1.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"The Arena Pimpri","item":"https://www.prophuntllp.com/projects/the-arena-pimpri"}]},{"@type":"RealEstateListing","name":"The Arena Pimpri","description":"The Arena Pimpri is a sports-first residential township in the heart of Pimpri, a joint venture between Mahalaxmi Group, Kohinoor Group and Agarwal Sukhwani…","url":"https://www.prophuntllp.com/projects/the-arena-pimpri","image":"https://www.prophuntllp.com/images/landing-pages/the-arena-pimpri/tower-view-1.jpg","provider":{"@type":"Organization","name":"Mahalaxmi Group"},"address":{"@type":"PostalAddress","addressLocality":"Kalewadi Road, Pimpri, Pune","addressRegion":"Maharashtra","addressCountry":"IN"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What configurations are available at The Arena Pimpri?","acceptedAnswer":{"@type":"Answer","text":"The Arena Pimpri offers 2, 3 & 4 BHK Apartments."}},{"@type":"Question","name":"What is the price of homes at The Arena Pimpri?","acceptedAnswer":{"@type":"Answer","text":"Pricing for The Arena Pimpri is available on request — contact PROPHUNT LLP's advisory team for the latest rates."}},{"@type":"Question","name":"Where is The Arena Pimpri located?","acceptedAnswer":{"@type":"Answer","text":"The Arena Pimpri is located at Kalewadi Road, Pimpri, Pune, developed by Mahalaxmi Group."}},{"@type":"Question","name":"Who is the developer of The Arena Pimpri?","acceptedAnswer":{"@type":"Answer","text":"The Arena Pimpri is developed by Mahalaxmi Group."}},{"@type":"Question","name":"Is The Arena Pimpri ready to move in or under construction?","acceptedAnswer":{"@type":"Answer","text":"The Arena Pimpri is a new launch."}},{"@type":"Question","name":"What kind of area is Pimpri-Chinchwad?","acceptedAnswer":{"@type":"Answer","text":"Pimpri-Chinchwad is one of Pune’s established twin-city industrial and residential belts, governed by its own municipal corporation (PCMC), with a long-standing manufacturing and automotive industry base alongside growing residential demand."}},{"@type":"Question","name":"How is Pimpri-Chinchwad connected to the rest of Pune?","acceptedAnswer":{"@type":"Answer","text":"The area is served by the Pune Metro’s PCMC-Swargate corridor and sits along the Mumbai-Pune Expressway and Old Mumbai-Pune Highway, giving direct access to Wakad, Hinjewadi and central Pune."}},{"@type":"Question","name":"Is Pimpri-Chinchwad a good option for value-conscious buyers?","acceptedAnswer":{"@type":"Answer","text":"Pimpri-Chinchwad is generally viewed as a comparatively more accessible entry point than the core western IT corridor, while still offering established civic infrastructure through the PCMC."}}]}]}</script>
@@ -599,10 +599,36 @@ function buildPage(prop, allProps) {
     .sort((a, b) => b._score - a._score)
     .slice(0, 9);
 
-  /* ── Meta ── */
-  document.title = (prop.title || 'Property') + ' | PROPHUNT LLP';
+  /* ── Meta ──
+     Mirrors pageTitle()/shortLocation()/clampAtWord() in
+     scripts/build-properties.js — this only runs after the client JS
+     hydrates, but should still land on the same title/description the
+     server already prerendered, not silently regress to a shorter one. */
+  function shortLocation(p) {
+    if (p.locality_name) return p.locality_name;
+    const parts = (p.location || '').split(',').map(s => s.trim()).filter(Boolean);
+    if (!parts.length) return '';
+    return parts.length >= 2 ? parts[parts.length - 2] : parts[0];
+  }
+  function pageTitle(p) {
+    const name = p.title || 'Property';
+    const bits = [name];
+    const loc = shortLocation(p);
+    if (loc && !name.toLowerCase().includes(loc.toLowerCase())) bits[0] += `, ${loc}`;
+    if (p.config) bits.push(p.config);
+    bits.push('PROPHUNT LLP');
+    return bits.join(' | ');
+  }
+  function clampAtWord(s, max) {
+    s = s.trim();
+    if (s.length <= max) return s;
+    const cut = s.slice(0, max);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s.,;:–-]+$/, '') + '…';
+  }
+  document.title = pageTitle(prop);
   const desc = prop.overview
-    ? prop.overview.slice(0, 155)
+    ? clampAtWord(prop.overview, 160)
     : (prop.developer + ' – ' + prop.config + ' in ' + prop.location);
   document.getElementById('ph-desc').setAttribute('content', desc);
   document.getElementById('ph-canonical').setAttribute('href', 'https://www.prophuntllp.com/projects/' + prop.slug);

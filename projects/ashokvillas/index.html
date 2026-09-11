@@ -11,18 +11,18 @@
   gtag('config', 'G-YR6CRE6BNN');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="ph-title">AshokVillas | PROPHUNT LLP</title>
+<title id="ph-title">AshokVillas, Ravet-Gahunje | 3 BHK Row Villas | PROPHUNT LLP</title>
 <meta id="ph-desc" name="description" content="AshokVillas by Peninsula Land Limited is an ultra-limited collection of just 19 exclusive 3 BHK row villas near Ravet-Gahunje, directly connected to the…">
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/projects/ashokvillas">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.prophuntllp.com/projects/ashokvillas">
-<meta property="og:title" content="AshokVillas | PROPHUNT LLP">
+<meta property="og:title" content="AshokVillas, Ravet-Gahunje | 3 BHK Row Villas | PROPHUNT LLP">
 <meta property="og:description" content="AshokVillas by Peninsula Land Limited is an ultra-limited collection of just 19 exclusive 3 BHK row villas near Ravet-Gahunje, directly connected to the…">
 <meta property="og:image" content="https://www.prophuntllp.com/images/landing-pages/ashok-villas/row-villas-exterior.jpg">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AshokVillas | PROPHUNT LLP">
+<meta name="twitter:title" content="AshokVillas, Ravet-Gahunje | 3 BHK Row Villas | PROPHUNT LLP">
 <meta name="twitter:description" content="AshokVillas by Peninsula Land Limited is an ultra-limited collection of just 19 exclusive 3 BHK row villas near Ravet-Gahunje, directly connected to the…">
 <meta name="twitter:image" content="https://www.prophuntllp.com/images/landing-pages/ashok-villas/row-villas-exterior.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"AshokVillas","item":"https://www.prophuntllp.com/projects/ashokvillas"}]},{"@type":"RealEstateListing","name":"AshokVillas","description":"AshokVillas by Peninsula Land Limited is an ultra-limited collection of just 19 exclusive 3 BHK row villas near Ravet-Gahunje, directly connected to the…","url":"https://www.prophuntllp.com/projects/ashokvillas","image":"https://www.prophuntllp.com/images/landing-pages/ashok-villas/row-villas-exterior.jpg","provider":{"@type":"Organization","name":"Peninsula Land"},"address":{"@type":"PostalAddress","addressLocality":"Ravet - Gahunje, Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"offers":{"@type":"Offer","price":29900000,"priceCurrency":"INR","url":"https://www.prophuntllp.com/projects/ashokvillas","availability":"https://schema.org/InStock"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the RERA registration number of AshokVillas?","acceptedAnswer":{"@type":"Answer","text":"AshokVillas is registered under MahaRERA with registration number Ashok Villas Imperial: PR1260002600608, Ashok Villas Grande: PR1260002600614. You can verify this directly on the official MahaRERA website."}},{"@type":"Question","name":"What configurations are available at AshokVillas?","acceptedAnswer":{"@type":"Answer","text":"AshokVillas offers 3 BHK Row Villas, with sizes 3,350 sqft onwards (Total Usable Area)."}},{"@type":"Question","name":"What is the price of homes at AshokVillas?","acceptedAnswer":{"@type":"Answer","text":"AshokVillas is priced ₹2.99 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."}},{"@type":"Question","name":"Where is AshokVillas located?","acceptedAnswer":{"@type":"Answer","text":"AshokVillas is located at Ravet - Gahunje, Pune, developed by Peninsula Land."}},{"@type":"Question","name":"Who is the developer of AshokVillas?","acceptedAnswer":{"@type":"Answer","text":"AshokVillas is developed by Peninsula Land."}},{"@type":"Question","name":"Where is Ravet-Gahunje located?","acceptedAnswer":{"@type":"Answer","text":"Ravet and Gahunje sit along the Old Mumbai-Pune Highway on the northern edge of Pimpri-Chinchwad, within reach of Wakad and Hinjewadi."}},{"@type":"Question","name":"What is Gahunje known for?","acceptedAnswer":{"@type":"Answer","text":"Gahunje is home to the Maharashtra Cricket Association Stadium, and the broader Ravet-Gahunje belt has seen growing residential development along the highway corridor."}},{"@type":"Question","name":"How connected is this area to the IT corridor?","acceptedAnswer":{"@type":"Answer","text":"The Ravet flyover and Old Mumbai-Pune Highway connect the area to Wakad and onward to Hinjewadi’s IT parks, making it a relevant option for buyers priced out of the core corridor."}}]}]}</script>
@@ -599,10 +599,36 @@ function buildPage(prop, allProps) {
     .sort((a, b) => b._score - a._score)
     .slice(0, 9);
 
-  /* ── Meta ── */
-  document.title = (prop.title || 'Property') + ' | PROPHUNT LLP';
+  /* ── Meta ──
+     Mirrors pageTitle()/shortLocation()/clampAtWord() in
+     scripts/build-properties.js — this only runs after the client JS
+     hydrates, but should still land on the same title/description the
+     server already prerendered, not silently regress to a shorter one. */
+  function shortLocation(p) {
+    if (p.locality_name) return p.locality_name;
+    const parts = (p.location || '').split(',').map(s => s.trim()).filter(Boolean);
+    if (!parts.length) return '';
+    return parts.length >= 2 ? parts[parts.length - 2] : parts[0];
+  }
+  function pageTitle(p) {
+    const name = p.title || 'Property';
+    const bits = [name];
+    const loc = shortLocation(p);
+    if (loc && !name.toLowerCase().includes(loc.toLowerCase())) bits[0] += `, ${loc}`;
+    if (p.config) bits.push(p.config);
+    bits.push('PROPHUNT LLP');
+    return bits.join(' | ');
+  }
+  function clampAtWord(s, max) {
+    s = s.trim();
+    if (s.length <= max) return s;
+    const cut = s.slice(0, max);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s.,;:–-]+$/, '') + '…';
+  }
+  document.title = pageTitle(prop);
   const desc = prop.overview
-    ? prop.overview.slice(0, 155)
+    ? clampAtWord(prop.overview, 160)
     : (prop.developer + ' – ' + prop.config + ' in ' + prop.location);
   document.getElementById('ph-desc').setAttribute('content', desc);
   document.getElementById('ph-canonical').setAttribute('href', 'https://www.prophuntllp.com/projects/' + prop.slug);

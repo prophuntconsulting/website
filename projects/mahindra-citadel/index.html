@@ -11,18 +11,18 @@
   gtag('config', 'G-YR6CRE6BNN');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="ph-title">Mahindra Citadel | PROPHUNT LLP</title>
+<title id="ph-title">Mahindra Citadel, Pimpri-Chinchwad | 2 &amp; 3 BHK | PROPHUNT LLP</title>
 <meta id="ph-desc" name="description" content="Mahindra Citadel is a residential project by Mahindra Lifespaces in Pimpri-Chinchwad, one of Pune's fastest-growing suburbs. Offering 2 and 3 BHK homes with…">
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/projects/mahindra-citadel">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.prophuntllp.com/projects/mahindra-citadel">
-<meta property="og:title" content="Mahindra Citadel | PROPHUNT LLP">
+<meta property="og:title" content="Mahindra Citadel, Pimpri-Chinchwad | 2 &amp; 3 BHK | PROPHUNT LLP">
 <meta property="og:description" content="Mahindra Citadel is a residential project by Mahindra Lifespaces in Pimpri-Chinchwad, one of Pune's fastest-growing suburbs. Offering 2 and 3 BHK homes with…">
 <meta property="og:image" content="https://www.prophuntllp.com/images/landing-pages/mahindra-citadel/hero-tower.jpg">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mahindra Citadel | PROPHUNT LLP">
+<meta name="twitter:title" content="Mahindra Citadel, Pimpri-Chinchwad | 2 &amp; 3 BHK | PROPHUNT LLP">
 <meta name="twitter:description" content="Mahindra Citadel is a residential project by Mahindra Lifespaces in Pimpri-Chinchwad, one of Pune's fastest-growing suburbs. Offering 2 and 3 BHK homes with…">
 <meta name="twitter:image" content="https://www.prophuntllp.com/images/landing-pages/mahindra-citadel/hero-tower.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"Mahindra Citadel","item":"https://www.prophuntllp.com/projects/mahindra-citadel"}]},{"@type":"RealEstateListing","name":"Mahindra Citadel","description":"Mahindra Citadel is a residential project by Mahindra Lifespaces in Pimpri-Chinchwad, one of Pune's fastest-growing suburbs. Offering 2 and 3 BHK homes with…","url":"https://www.prophuntllp.com/projects/mahindra-citadel","image":"https://www.prophuntllp.com/images/landing-pages/mahindra-citadel/hero-tower.jpg","provider":{"@type":"Organization","name":"Mahindra Lifespaces"},"address":{"@type":"PostalAddress","addressLocality":"Pimpri-Chinchwad, Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"offers":{"@type":"Offer","price":10900000,"priceCurrency":"INR","url":"https://www.prophuntllp.com/projects/mahindra-citadel","availability":"https://schema.org/InStock"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the RERA registration number of Mahindra Citadel?","acceptedAnswer":{"@type":"Answer","text":"Mahindra Citadel is registered under MahaRERA with registration number PPI261012501803. You can verify this directly on the official MahaRERA website."}},{"@type":"Question","name":"What configurations are available at Mahindra Citadel?","acceptedAnswer":{"@type":"Answer","text":"Mahindra Citadel offers 2 & 3 BHK, with sizes From 743 sqft."}},{"@type":"Question","name":"What is the price of homes at Mahindra Citadel?","acceptedAnswer":{"@type":"Answer","text":"Mahindra Citadel is priced ₹1.09 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."}},{"@type":"Question","name":"Where is Mahindra Citadel located?","acceptedAnswer":{"@type":"Answer","text":"Mahindra Citadel is located at Pimpri-Chinchwad, Pune, developed by Mahindra Lifespaces."}},{"@type":"Question","name":"Who is the developer of Mahindra Citadel?","acceptedAnswer":{"@type":"Answer","text":"Mahindra Citadel is developed by Mahindra Lifespaces."}},{"@type":"Question","name":"Is Mahindra Citadel ready to move in or under construction?","acceptedAnswer":{"@type":"Answer","text":"Mahindra Citadel is a new launch."}},{"@type":"Question","name":"What kind of area is Pimpri-Chinchwad?","acceptedAnswer":{"@type":"Answer","text":"Pimpri-Chinchwad is one of Pune’s established twin-city industrial and residential belts, governed by its own municipal corporation (PCMC), with a long-standing manufacturing and automotive industry base alongside growing residential demand."}},{"@type":"Question","name":"How is Pimpri-Chinchwad connected to the rest of Pune?","acceptedAnswer":{"@type":"Answer","text":"The area is served by the Pune Metro’s PCMC-Swargate corridor and sits along the Mumbai-Pune Expressway and Old Mumbai-Pune Highway, giving direct access to Wakad, Hinjewadi and central Pune."}},{"@type":"Question","name":"Is Pimpri-Chinchwad a good option for value-conscious buyers?","acceptedAnswer":{"@type":"Answer","text":"Pimpri-Chinchwad is generally viewed as a comparatively more accessible entry point than the core western IT corridor, while still offering established civic infrastructure through the PCMC."}}]}]}</script>
@@ -599,10 +599,36 @@ function buildPage(prop, allProps) {
     .sort((a, b) => b._score - a._score)
     .slice(0, 9);
 
-  /* ── Meta ── */
-  document.title = (prop.title || 'Property') + ' | PROPHUNT LLP';
+  /* ── Meta ──
+     Mirrors pageTitle()/shortLocation()/clampAtWord() in
+     scripts/build-properties.js — this only runs after the client JS
+     hydrates, but should still land on the same title/description the
+     server already prerendered, not silently regress to a shorter one. */
+  function shortLocation(p) {
+    if (p.locality_name) return p.locality_name;
+    const parts = (p.location || '').split(',').map(s => s.trim()).filter(Boolean);
+    if (!parts.length) return '';
+    return parts.length >= 2 ? parts[parts.length - 2] : parts[0];
+  }
+  function pageTitle(p) {
+    const name = p.title || 'Property';
+    const bits = [name];
+    const loc = shortLocation(p);
+    if (loc && !name.toLowerCase().includes(loc.toLowerCase())) bits[0] += `, ${loc}`;
+    if (p.config) bits.push(p.config);
+    bits.push('PROPHUNT LLP');
+    return bits.join(' | ');
+  }
+  function clampAtWord(s, max) {
+    s = s.trim();
+    if (s.length <= max) return s;
+    const cut = s.slice(0, max);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s.,;:–-]+$/, '') + '…';
+  }
+  document.title = pageTitle(prop);
   const desc = prop.overview
-    ? prop.overview.slice(0, 155)
+    ? clampAtWord(prop.overview, 160)
     : (prop.developer + ' – ' + prop.config + ' in ' + prop.location);
   document.getElementById('ph-desc').setAttribute('content', desc);
   document.getElementById('ph-canonical').setAttribute('href', 'https://www.prophuntllp.com/projects/' + prop.slug);
