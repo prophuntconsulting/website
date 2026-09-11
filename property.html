@@ -874,10 +874,13 @@ function buildPage(prop, allProps) {
   }
 
   const nearbyLocalityLabel = prop.locality_name || (prop.location||'').split(',')[0] || 'This Area';
+  const nearbyHubLink = prop.micro_market
+    ? `<a href="/location/${prop.micro_market}" class="ph-browse-link">View all properties in ${nearbyLocalityLabel} <i class="fas fa-arrow-right"></i></a>` : '';
   const nearbyCarouselHtml = `<div id="nearby-projects" class="ph-section">
         <div class="ph-section-label">Around ${nearbyLocalityLabel}</div>
         <div class="ph-section-title">Discover Nearby Projects</div>
         <div class="ph-divider"></div>
+        ${nearbyHubLink}
         ${nearbyProjects.length ? `
         <div class="ph-carousel-wrap">
           <button type="button" class="ph-carousel-arrow prev" id="phNearbyPrev" hidden aria-label="Previous"><i class="fas fa-chevron-left"></i></button>

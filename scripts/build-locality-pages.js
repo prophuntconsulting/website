@@ -275,6 +275,7 @@ function buildPage({ slug, url, meta, locality, bucket, matches }) {
     <span class="section-label"><i class="fas fa-${meta.icon}"></i> ${escapeHtml(meta.label)} · ${escapeHtml(locality.name)}</span>
     <h1>${escapeHtml(title)}</h1>
     <p>${escapeHtml(countLabel(matches.length, meta))} from ${escapeHtml(developersText(matches))}. Prices ${escapeHtml(priceRangeText(matches))}.</p>
+    <p style="margin-top:.5rem"><a href="/location/${bucket}" style="color:rgba(255,255,255,.75);font-size:.9rem;font-weight:600;text-decoration:underline;text-underline-offset:2px">View all properties in ${escapeHtml(locality.name)} <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a></p>
     <div class="page-hero-meta">
       <div class="page-hero-meta-item"><i class="fas fa-check-circle"></i> RERA Verified</div>
       <div class="page-hero-meta-item"><i class="fas fa-${meta.icon}"></i> ${matches.length} Listed</div>

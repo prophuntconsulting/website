@@ -268,49 +268,33 @@ const listingPagePath = path.join(__dirname, '..', 'blog', 'index.html');
 if (fs.existsSync(listingPagePath)) {
   let html = fs.readFileSync(listingPagePath, 'utf8').replace(/\r\n/g, '\n');
 
-  const GRID_MARKER = `<div class="blog-grid" id="blogGrid">
-          <div style="grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--gray-400);">
-            <i class="fas fa-circle-notch fa-spin" style="font-size:1.5rem;display:block;margin-bottom:.75rem;"></i>
-            Loading articles…
-          </div>
-        </div>`;
+  // All three replacements below are anchored on a stable opening tag /
+  // sibling boundary rather than an exact match on the pristine
+  // placeholder content — an exact match only ever fires once; every
+  // rebuild after the first would silently leave these sections holding
+  // whatever they held at that first build forever (see the identical fix
+  // for projects.html's grid in build-properties.js).
   const cardsHtml = posts.map((p, i) => renderListingCard(p, i === 0)).join('');
-  html = html.replace(GRID_MARKER, `<div class="blog-grid" id="blogGrid">${cardsHtml}</div>`);
+  html = html.replace(
+    /<div class="blog-grid" id="blogGrid">[\s\S]*?(?=<div class="coming-soon-banner")/,
+    `<div class="blog-grid" id="blogGrid">${cardsHtml}</div>\n\n        `
+  );
 
-  const SIDEBAR_CATS_MARKER = `<div class="sidebar-cats">
-            <button class="sidebar-cat-btn active" data-cat="all"><span><i class="fas fa-th" style="width:16px;color:var(--red);"></i> All Articles</span><span class="cat-count">0</span></button>
-            <button class="sidebar-cat-btn" data-cat="market"><span><i class="fas fa-chart-bar" style="width:16px;color:var(--red);"></i> Market Reports</span><span class="cat-count">0</span></button>
-            <button class="sidebar-cat-btn" data-cat="buyer"><span><i class="fas fa-home" style="width:16px;color:var(--red);"></i> Buyer Guides</span><span class="cat-count">0</span></button>
-            <button class="sidebar-cat-btn" data-cat="investment"><span><i class="fas fa-rupee-sign" style="width:16px;color:var(--red);"></i> Investment</span><span class="cat-count">0</span></button>
-            <button class="sidebar-cat-btn" data-cat="legal"><span><i class="fas fa-file-contract" style="width:16px;color:var(--red);"></i> Legal &amp; Docs</span><span class="cat-count">0</span></button>
-            <button class="sidebar-cat-btn" data-cat="nri"><span><i class="fas fa-globe-asia" style="width:16px;color:var(--red);"></i> NRI Corner</span><span class="cat-count">0</span></button>
-          </div>`;
-  html = html.replace(SIDEBAR_CATS_MARKER, buildSidebarCatsBlock(posts));
+  html = html.replace(
+    /[ \t]*<div class="sidebar-cats">[\s\S]*?<\/div>/,
+    buildSidebarCatsBlock(posts)
+  );
 
-  const POPULAR_MARKER = `<div class="sidebar-box">
-          <div class="sidebar-box-title">Popular This Month</div>
-          <div>
-            <div class="blog-item-mini">
-              <div class="blog-mini-img"><div style="background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;"><i class="fas fa-chart-area" style="color:rgba(200,54,43,.5);font-size:1.2rem;"></i></div></div>
-              <div><div class="blog-mini-title">Pune Market H1 2025 Report</div><div class="blog-mini-date">June 2025</div></div>
-            </div>
-            <div class="blog-item-mini">
-              <div class="blog-mini-img"><div style="background:linear-gradient(135deg,#1a2a1a,#0f1a0f);display:flex;align-items:center;justify-content:center;"><i class="fas fa-home" style="color:rgba(100,200,100,.4);font-size:1.2rem;"></i></div></div>
-              <div><div class="blog-mini-title">First-Time Buyer's Complete Guide</div><div class="blog-mini-date">May 2025</div></div>
-            </div>
-            <div class="blog-item-mini">
-              <div class="blog-mini-img"><div style="background:linear-gradient(135deg,#0a1a2d,#051020);display:flex;align-items:center;justify-content:center;"><i class="fas fa-rupee-sign" style="color:rgba(50,150,250,.4);font-size:1.2rem;"></i></div></div>
-              <div><div class="blog-mini-title">Hinjewadi vs. Baner: Where to Invest</div><div class="blog-mini-date">April 2025</div></div>
-            </div>
-          </div>
-        </div>`;
   const popularHtml = `<div class="sidebar-box">
           <div class="sidebar-box-title">Popular Guides</div>
           <div>
 ${posts.slice(0, 3).map(renderMini).join('\n')}
           </div>
         </div>`;
-  html = html.replace(POPULAR_MARKER, popularHtml);
+  html = html.replace(
+    /<div class="sidebar-box">\s*<div class="sidebar-box-title">Popular[\s\S]*?(?=<div class="sidebar-box" style="background:var\(--black\))/,
+    `${popularHtml}\n\n        `
+  );
 
   // Real Blog + ItemList structured data instead of just a bare Blog stub —
   // gives crawlers an indexable list of every published article.

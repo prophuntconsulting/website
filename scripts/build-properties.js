@@ -406,8 +406,15 @@ if (fs.existsSync(projectsPagePath)) {
 
   let html = fs.readFileSync(projectsPagePath, 'utf8').replace(/\r\n/g, '\n');
 
-  const GRID_MARKER = `<div class="proj-grid" id="projectsGrid" data-reveal></div>`;
-  html = html.replace(GRID_MARKER, `<div class="proj-grid" id="projectsGrid" data-reveal>${cardsHtml}</div>`);
+  // Anchored on the opening tag through to the next stable sibling
+  // (#projEmpty, always immediately after in the template) rather than an
+  // exact-match on the pristine empty <div> — that would only ever match
+  // once; every rebuild after the first would silently leave the grid
+  // holding whatever cards happened to exist at that first build forever.
+  html = html.replace(
+    /<div class="proj-grid" id="projectsGrid" data-reveal>[\s\S]*?(?=<div class="proj-empty" id="projEmpty")/,
+    `<div class="proj-grid" id="projectsGrid" data-reveal>${cardsHtml}</div>\n\n    `
+  );
 
   html = html.replace(
     `<strong id="projectCount">0</strong>`,
