@@ -32,6 +32,112 @@ function fmtDate(str) {
   return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
+function renderInline(text) {
+  return escapeHtml(text)
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+|\/[^)\s]+)\)/g, '<a href="$2">$1</a>');
+}
+
+function flushList(lines, ordered) {
+  if (!lines.length) return '';
+  const tag = ordered ? 'ol' : 'ul';
+  const html = `<${tag}>${lines.map(line => `<li>${renderInline(line)}</li>`).join('')}</${tag}>`;
+  lines.length = 0;
+  return html;
+}
+
+function renderTable(lines) {
+  const rows = lines
+    .map(line => line.trim().replace(/^\||\|$/g, '').split('|').map(cell => cell.trim()))
+    .filter(row => row.length > 1);
+  if (rows.length < 2) return lines.map(line => `<p>${renderInline(line)}</p>`).join('\n');
+  const [head, separator, ...body] = rows;
+  if (!separator.every(cell => /^:?-{3,}:?$/.test(cell))) {
+    return lines.map(line => `<p>${renderInline(line)}</p>`).join('\n');
+  }
+  return `<div class="bp-table-wrap"><table>
+    <thead><tr>${head.map(cell => `<th>${renderInline(cell)}</th>`).join('')}</tr></thead>
+    <tbody>${body.map(row => `<tr>${row.map(cell => `<td>${renderInline(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
+  </table></div>`;
+}
+
+function markdownToHtml(markdown) {
+  const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
+  const out = [];
+  let paragraph = [];
+  let list = [];
+  let ordered = false;
+  let table = [];
+
+  function flushParagraph() {
+    if (!paragraph.length) return;
+    out.push(`<p>${renderInline(paragraph.join(' '))}</p>`);
+    paragraph = [];
+  }
+
+  function flushTable() {
+    if (!table.length) return;
+    out.push(renderTable(table));
+    table = [];
+  }
+
+  function flushAll() {
+    flushParagraph();
+    flushTable();
+    if (list.length) out.push(flushList(list, ordered));
+  }
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) {
+      flushAll();
+      continue;
+    }
+    if (/^\*\*\*$|^---$/.test(line)) {
+      flushAll();
+      out.push('<hr>');
+      continue;
+    }
+    if (/^\|.+\|$/.test(line)) {
+      flushParagraph();
+      if (list.length) out.push(flushList(list, ordered));
+      table.push(line);
+      continue;
+    }
+    flushTable();
+    const heading = line.match(/^(#{1,6})\s+(.+)$/);
+    if (heading) {
+      flushParagraph();
+      if (list.length) out.push(flushList(list, ordered));
+      const level = Math.min(6, Math.max(2, heading[1].length));
+      out.push(`<h${level}>${renderInline(heading[2])}</h${level}>`);
+      continue;
+    }
+    const ul = line.match(/^[-*]\s+(.+)$/);
+    const ol = line.match(/^\d+\.\s+(.+)$/);
+    if (ul || ol) {
+      flushParagraph();
+      const isOrdered = Boolean(ol);
+      if (list.length && ordered !== isOrdered) out.push(flushList(list, ordered));
+      ordered = isOrdered;
+      list.push((ul || ol)[1]);
+      continue;
+    }
+    if (/^>\s+/.test(line)) {
+      flushAll();
+      out.push(`<blockquote>${renderInline(line.replace(/^>\s+/, ''))}</blockquote>`);
+      continue;
+    }
+    if (list.length) out.push(flushList(list, ordered));
+    paragraph.push(line);
+  }
+
+  flushAll();
+  return out.join('\n');
+}
+
 // Head tags: real title/description/canonical + OG/Twitter + JSON-LD (BlogPosting)
 // so search engines and AI crawlers see genuine, article-specific signals without
 // running JS.
@@ -70,17 +176,39 @@ function buildHeadBlock(p) {
 <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`;
 }
 
-// Lightweight server-rendered summary shown before the client JS hydrates the
-// full article — gives non-JS crawlers real indexable text (title, category,
-// date, author, excerpt) instead of a bare loading spinner. The client JS
-// replaces #bp-page's innerHTML anyway, so this has no visual cost for readers.
+// Full server-rendered article shown before the client JS hydrates the page.
+// Google should not have to execute JavaScript to see the CMS article body.
 function buildPrerenderBlock(p) {
   const catLabel = CAT_LABELS[p.category] || p.category || 'Article';
+  const mins = p.readTime || estimateReadTime(p.body || '');
+  const bodyHtml = markdownToHtml(p.body || '');
+  const tagsHtml = p.tags && p.tags.length
+    ? `<div class="bp-tags"><span style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#6b7280;margin-right:6px;align-self:center">Tags:</span>${p.tags.map(t => `<span class="bp-tag"><i class="fas fa-tag" style="font-size:9px"></i>${escapeHtml(t)}</span>`).join('')}</div>`
+    : '';
+
   return `<div class="bp-prerender" style="max-width:820px;margin:0 auto;padding:40px 24px 24px">
-    <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#C8362B;margin-bottom:10px">${escapeHtml(catLabel)} · ${escapeHtml(fmtDate(p.date))} · ${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</div>
-    <h1 style="font-family:'Poppins',sans-serif;font-size:clamp(22px,4vw,38px);font-weight:800;line-height:1.18;color:#0f1b2d;margin-bottom:14px;letter-spacing:-.3px">${escapeHtml(p.title)}</h1>
-    ${p.excerpt ? `<p style="font-family:'Lora',serif;font-size:17px;color:#4b5563;line-height:1.7;margin-bottom:20px">${escapeHtml(p.excerpt)}</p>` : ''}
-    <div class="bp-loading-spinner"></div>
+    <div class="bp-header" style="padding:0;background:none">
+      <div class="bp-header-inner" style="padding:0">
+        <div class="bp-meta-row">
+          <span class="bp-cat-badge">${escapeHtml(catLabel)}</span>
+          <span class="bp-meta-item">${escapeHtml(fmtDate(p.date))}</span>
+          <span class="bp-meta-item">${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</span>
+          <span class="bp-meta-item">${mins} min read</span>
+        </div>
+        <h1 class="bp-title">${escapeHtml(p.title)}</h1>
+        ${p.excerpt ? `<p class="bp-excerpt">${escapeHtml(p.excerpt)}</p>` : ''}
+      </div>
+    </div>
+    ${p.cover ? `<div class="bp-cover-wrap" style="margin:24px 0"><img src="${escapeHtml(p.cover)}" alt="${escapeHtml(p.title)}" loading="eager"></div>` : ''}
+    <article class="bp-article" style="box-shadow:none;border:0;padding:0">
+      <div class="bp-body">${bodyHtml}</div>
+      ${tagsHtml}
+      <div class="bp-article-cta">
+        <h3>Looking to Buy a Home in Pune?</h3>
+        <p>Talk to a PROPHUNT advisor - free consultation, no pressure, just clarity on pricing and suitable projects.</p>
+        <a href="/contact">Book a Free Consultation</a>
+      </div>
+    </article>
   </div>`;
 }
 
@@ -210,10 +338,12 @@ const posts = files.map(filename => {
     seo_title:       meta.seo_title       || '',
     seo_description: meta.seo_description || '',
     readTime: estimateReadTime(body),
+    body,
   };
 });
 
-fs.writeFileSync(OUT_FILE, JSON.stringify(posts, null, 2));
+const publicPosts = posts.map(({ body, ...post }) => post);
+fs.writeFileSync(OUT_FILE, JSON.stringify(publicPosts, null, 2));
 console.log(`Built posts.json — ${posts.length} post(s)`);
 
 // Generate static blog/{cleanSlug}/index.html for each post
@@ -248,7 +378,7 @@ if (fs.existsSync(TEMPLATE)) {
     html = html.replace(LOADING_MARKER, buildPrerenderBlock(p));
     html = html.replace('Loading…</span>', `${escapeHtml(p.title)}</span>`);
 
-    fs.writeFileSync(path.join(outDir, 'index.html'), html);
+    fs.writeFileSync(path.join(outDir, 'index.html'), html.replace(/[ \t]+$/gm, ''));
     console.log(`  → blog/${p.urlSlug}/index.html`);
   });
 } else {

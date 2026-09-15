@@ -437,7 +437,7 @@ if (fs.existsSync(projectsPagePath)) {
       {
         '@type': 'ItemList',
         name: 'Premium Real Estate Projects in Pune',
-        description: "RERA-verified residential projects in Pune by India's top developers",
+        description: "RERA-verified apartments, villas, plots and commercial properties in Pune by leading developers",
         numberOfItems: sorted.length,
         itemListElement: sorted.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, item: `${SITE}${p.url}` })),
       },
