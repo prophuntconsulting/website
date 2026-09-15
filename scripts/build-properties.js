@@ -412,8 +412,8 @@ if (fs.existsSync(projectsPagePath)) {
   // once; every rebuild after the first would silently leave the grid
   // holding whatever cards happened to exist at that first build forever.
   html = html.replace(
-    /<div class="proj-grid" id="projectsGrid" data-reveal>[\s\S]*?(?=<div class="proj-empty" id="projEmpty")/,
-    `<div class="proj-grid" id="projectsGrid" data-reveal>${cardsHtml}</div>\n\n    `
+    /<div class="proj-grid" id="projectsGrid"(?: data-reveal)?>[\s\S]*?(?=<div class="proj-empty" id="projEmpty")/,
+    `<div class="proj-grid" id="projectsGrid">${cardsHtml}</div>\n\n    `
   );
 
   html = html.replace(
