@@ -470,6 +470,7 @@ button,select,input,textarea{font-family:inherit}
     <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">Millennium Towers</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">Wakad-Balewadi Corridor, Pune · Grade A+ Office Space</p>
     <p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">Millennium Towers is a Grade A+ commercial office development by The Phoenix Mills Ltd. in the Wakad-Balewadi corridor, 300 metres off the Mumbai-Bengaluru highway, comprising 3 towers with roughly 1.3 million sq ft of leasable office space. Floor plates range from around 10,000 to 70,000 sq ft, with amenities including The Great Hall for business events, the Millennium Club for fitness and wellness, business lounges, cafes and a creche. It is co-located with Phoenix Mall of the Millennium, spanning over 1.2 million sq ft of retail.</p>
+    
     <div id="snapshot" class="ph-section"><div class="ph-section-label">Project Snapshot</div>
     <table class="ph-snapshot"><tbody><tr><th scope="row">Developer</th><td>The Phoenix Mills Ltd.</td></tr><tr><th scope="row">Location</th><td>Wakad-Balewadi Corridor, Pune</td></tr><tr><th scope="row">Category</th><td>Commercial</td></tr><tr><th scope="row">Configuration</th><td>Grade A+ Office Space</td></tr><tr><th scope="row">Sizes</th><td>10,000 - 70,000 sqft floor plates</td></tr><tr><th scope="row">Starting price</th><td>Price on request</td></tr><tr><th scope="row">Status</th><td>Ready to move</td></tr></tbody></table></div>
     <div id="pricing" class="ph-section"><div class="ph-section-label">Unit Configurations &amp; Pricing</div>
@@ -1148,6 +1149,7 @@ function buildPage(prop, allProps) {
           <div class="ph-divider"></div>
           ${prop.overview ? `<p class="ph-overview-text">${prop.overview}</p>` : ''}
           ${CATEGORY_SLUGS[prop.category] && prop.micro_market ? `<a href="/${CATEGORY_SLUGS[prop.category]}-in-${prop.micro_market}" class="ph-browse-link"><i class="fas fa-layer-group"></i> Browse all ${CATEGORY_LABELS[prop.category]} in ${prop.locality_name || prop.micro_market} →</a>` : ''}
+          ${prop.developer_hub ? `<a href="${prop.developer_hub}" class="ph-browse-link"><i class="fas fa-building"></i> All ${prop.developer} projects →</a>` : ''}
           ${statsHtml}
           ${snapshotHtml}
           ${reraQrHtml ? '<div style="margin-top:20px">'+reraQrHtml+'</div>' : (reraHtml ? '<div style="margin-top:20px">'+reraHtml+'</div>' : '')}

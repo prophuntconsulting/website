@@ -470,6 +470,7 @@ button,select,input,textarea{font-family:inherit}
     <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">ANP Landmark</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">Bhumkar Chowk, Wakad, Pune · Retail Shops &amp; Office Spaces</p>
     <p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">ANP Landmark is a ready-to-possess commercial development by ANP Corp at Bhumkar Chowk, Wakad, Pune, offering retail shops (386-1,229 sq ft) and office spaces (360-975 sq ft) with 60-metre road frontage. The building includes a glass facade, a decorative entrance lobby with generator-backed lifts, and is 5 minutes from Hinjewadi and 40 minutes from Pune Railway Station.</p>
+    <p><a href="/developer/anp-corp" class="ph-browse-link">All ANP Corp projects →</a></p>
     <div id="snapshot" class="ph-section"><div class="ph-section-label">Project Snapshot</div>
     <table class="ph-snapshot"><tbody><tr><th scope="row">Developer</th><td>ANP Corp</td></tr><tr><th scope="row">Location</th><td>Bhumkar Chowk, Wakad, Pune</td></tr><tr><th scope="row">Category</th><td>Commercial</td></tr><tr><th scope="row">Configuration</th><td>Retail Shops &amp; Office Spaces</td></tr><tr><th scope="row">Sizes</th><td>360 - 1,229 sqft</td></tr><tr><th scope="row">Starting price</th><td>Price on request</td></tr><tr><th scope="row">Status</th><td>Ready to move</td></tr><tr><th scope="row">Possession</th><td>Ready</td></tr><tr><th scope="row">MahaRERA project no.</th><td>P52100023061 · <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">Verify on MahaRERA</a></td></tr></tbody></table></div>
     <div id="pricing" class="ph-section"><div class="ph-section-label">Unit Configurations &amp; Pricing</div>
@@ -1148,6 +1149,7 @@ function buildPage(prop, allProps) {
           <div class="ph-divider"></div>
           ${prop.overview ? `<p class="ph-overview-text">${prop.overview}</p>` : ''}
           ${CATEGORY_SLUGS[prop.category] && prop.micro_market ? `<a href="/${CATEGORY_SLUGS[prop.category]}-in-${prop.micro_market}" class="ph-browse-link"><i class="fas fa-layer-group"></i> Browse all ${CATEGORY_LABELS[prop.category]} in ${prop.locality_name || prop.micro_market} →</a>` : ''}
+          ${prop.developer_hub ? `<a href="${prop.developer_hub}" class="ph-browse-link"><i class="fas fa-building"></i> All ${prop.developer} projects →</a>` : ''}
           ${statsHtml}
           ${snapshotHtml}
           ${reraQrHtml ? '<div style="margin-top:20px">'+reraQrHtml+'</div>' : (reraHtml ? '<div style="margin-top:20px">'+reraHtml+'</div>' : '')}

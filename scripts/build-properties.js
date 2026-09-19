@@ -1,6 +1,7 @@
 const fs   = require('fs');
 const path = require('path');
 const { getMicroMarket, LOCALITY_CONTENT } = require('./locality-content');
+const { DEV_HUB_MIN, developerSlug } = require('./hub-shared');
 
 const SITE = 'https://www.prophuntllp.com';
 
@@ -433,6 +434,7 @@ function buildPrerenderBlock(p, all) {
     <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">${escapeHtml(p.title)}</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">${escapeHtml(metaLine)}</p>
     ${p.overview ? `<p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">${escapeHtml(p.overview)}</p>` : ''}
+    ${p.developer_hub ? `<p><a href="${escapeHtml(p.developer_hub)}" class="ph-browse-link">All ${escapeHtml(p.developer)} projects →</a></p>` : ''}
     ${snapshotHtml(p)}
     ${sections.join('\n    ')}
   </div>`;
@@ -460,6 +462,12 @@ const properties = files.map(file => {
     nearby_landmarks: locality ? locality.landmarks : {},
   };
 });
+
+// Tag each project with its developer hub URL when that developer has one
+// (same threshold/slug as scripts/build-developer-hubs.js).
+const devCount = {};
+properties.forEach(p => { if (p.status !== 'sold-out' && p.developer) devCount[p.developer] = (devCount[p.developer] || 0) + 1; });
+properties.forEach(p => { if (p.status !== 'sold-out' && devCount[p.developer] >= DEV_HUB_MIN) p.developer_hub = `/developer/${developerSlug(p.developer)}`; });
 
 // properties/posts.json is fetched by every page that needs the property
 // list — the projects listing page and the homepage's featured grid
