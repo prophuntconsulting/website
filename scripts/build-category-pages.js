@@ -19,7 +19,7 @@ const CATEGORY_META = {
     lower: 'apartments',
     singular: 'apartment',
     icon: 'building',
-    intro: 'Compare verified apartment projects across Pune micro-markets including Baner, Wakad, Mahalunge, Pimpri-Chinchwad and Sinhagad Road.',
+    intro: 'Compare curated apartment projects across Pune micro-markets including Baner, Wakad, Mahalunge, Pimpri-Chinchwad and Sinhagad Road.',
   },
   villa: {
     slug: 'villas',
@@ -131,12 +131,12 @@ function buildPage(category, matches) {
   const url = `/projects/${meta.slug}`;
   const canonical = `${SITE}${url}`;
   const title = `${meta.label} in Pune | PROPHUNT LLP`;
-  const desc = `Browse ${sorted.length} verified ${meta.lower} in Pune from ${developersText(sorted)}. Prices ${priceRangeText(sorted)} with RERA-aware advisory from PROPHUNT LLP.`;
+  const desc = `Browse ${sorted.length} curated ${meta.lower} in Pune from ${developersText(sorted)}. Prices ${priceRangeText(sorted)} with RERA-aware advisory from PROPHUNT LLP.`;
   const ogImage = sorted[0] && sorted[0].cover ? (sorted[0].cover.startsWith('http') ? sorted[0].cover : SITE + sorted[0].cover) : SITE + '/images/og-home.jpg';
   const faqs = [
     {
       q: `How many ${meta.lower} does PROPHUNT LLP list in Pune?`,
-      a: `PROPHUNT LLP currently lists ${sorted.length} verified ${sorted.length === 1 ? meta.singular : meta.lower} in this category. Availability and pricing can change, so confirm the latest status before shortlisting.`,
+      a: `PROPHUNT LLP currently lists ${sorted.length} curated ${sorted.length === 1 ? meta.singular : meta.lower} in this category. Availability and pricing can change, so confirm the latest status before shortlisting.`,
     },
     {
       q: `What is the price range for ${meta.lower} in Pune?`,
@@ -256,7 +256,7 @@ function buildPage(category, matches) {
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><a href="/projects">Projects</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">${escapeHtml(meta.label)}</span></nav>
     <span class="section-label"><i class="fas fa-${meta.icon}"></i> Project Category</span>
     <h1>${escapeHtml(meta.label)} in Pune</h1>
-    <p>${sorted.length} verified ${sorted.length === 1 ? meta.singular : meta.lower} from ${escapeHtml(developersText(sorted))}. Prices ${escapeHtml(priceRangeText(sorted))}.</p>
+    <p>${sorted.length} curated ${sorted.length === 1 ? meta.singular : meta.lower} from ${escapeHtml(developersText(sorted))}. Prices ${escapeHtml(priceRangeText(sorted))}.</p>
   </div>
 </section>
 

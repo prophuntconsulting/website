@@ -80,6 +80,12 @@ collections:
         required: false
         hint: "MahaRERA project registration number"
 
+      - label: "Last Verified Date"
+        name: "last_verified"
+        widget: "string"
+        required: false
+        hint: "Date (YYYY-MM-DD) you last checked this project's price, inventory and possession with the developer. Shown publicly as 'Last verified' — only fill it in when you have actually re-checked."
+
       - label: "RERA QR Code"
         name: "rera_qr"
         widget: "image"

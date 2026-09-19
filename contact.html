@@ -201,11 +201,11 @@
             <div class="form-group"><label class="form-label" for="firstName">First Name *</label><input class="form-control" type="text" id="firstName" name="firstName" placeholder="Rahul" required></div>
             <div class="form-group"><label class="form-label" for="lastName">Last Name *</label><input class="form-control" type="text" id="lastName" name="lastName" placeholder="Sharma" required></div>
           </div>
-          <div class="form-group"><label class="form-label" for="email">Email Address *</label><input class="form-control" type="email" id="email" name="email" placeholder="rahul@example.com" required></div>
-          <div class="form-group"><label class="form-label" for="phone">Phone Number</label><input class="form-control" type="tel" id="phone" name="phone" placeholder="+91 98765 43210"></div>
+          <div class="form-group"><label class="form-label" for="phone">Phone / WhatsApp *</label><input class="form-control" type="tel" id="phone" name="phone" placeholder="+91 98765 43210" inputmode="tel" autocomplete="tel" required></div>
+          <div class="form-group"><label class="form-label" for="email">Email Address <span style="font-weight:400;color:var(--gray-500,#777)">(optional — for brochures &amp; documents)</span></label><input class="form-control" type="email" id="email" name="email" placeholder="rahul@example.com" autocomplete="email"></div>
           <div class="form-group">
-            <label class="form-label" for="interest">I am interested in</label>
-            <select class="form-control" id="interest" name="interest">
+            <label class="form-label" for="interest">I am interested in *</label>
+            <select class="form-control" id="interest" name="interest" required>
               <option value="">Select an option</option>
               <option value="Buying a residential property">Buying a residential property</option>
               <option value="Buying a plot">Buying a plot</option>
@@ -216,8 +216,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label" for="budget">Approximate Budget</label>
-            <select class="form-control" id="budget" name="budget">
+            <label class="form-label" for="budget">Budget range *</label>
+            <select class="form-control" id="budget" name="budget" required>
               <option value="">Select range</option>
               <option value="Under 50 Lakh">Under ₹50 Lakh</option>
               <option value="50 Lakh - 1 Crore">₹50L - ₹1 Crore</option>
@@ -226,7 +226,48 @@
               <option value="Above 5 Crore">Above ₹5 Crore</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message" placeholder="Tell us about your requirements: location preferences, configurations, timeline…" rows="4"></textarea></div>
+          <div class="form-group">
+            <label class="form-label" for="location">Preferred location *</label>
+            <select class="form-control" id="location" name="location" required>
+              <option value="">Select a location</option>
+              <option value="Baner">Baner</option>
+              <option value="Wakad">Wakad</option>
+              <option value="Mahalunge">Mahalunge</option>
+              <option value="Pimpri-Chinchwad">Pimpri-Chinchwad</option>
+              <option value="Ravet / Gahunje">Ravet / Gahunje</option>
+              <option value="Sinhagad Road">Sinhagad Road</option>
+              <option value="Hadapsar">Hadapsar</option>
+              <option value="Karjat">Karjat</option>
+              <option value="Khopoli">Khopoli</option>
+              <option value="Other / not sure yet">Other / not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="configuration">Configuration *</label>
+            <select class="form-control" id="configuration" name="configuration" required>
+              <option value="">Select configuration</option>
+              <option value="1 BHK">1 BHK</option>
+              <option value="2 BHK">2 BHK</option>
+              <option value="3 BHK">3 BHK</option>
+              <option value="4 BHK or larger">4 BHK or larger</option>
+              <option value="Villa / row house">Villa / row house</option>
+              <option value="Plot">Plot</option>
+              <option value="Office / shop / showroom">Office / shop / showroom</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="timeline">Purchase timeline *</label>
+            <select class="form-control" id="timeline" name="timeline" required>
+              <option value="">Select timeline</option>
+              <option value="Within 3 months">Within 3 months</option>
+              <option value="3 - 6 months">3 - 6 months</option>
+              <option value="6 - 12 months">6 - 12 months</option>
+              <option value="Just exploring">Just exploring</option>
+            </select>
+          </div>
+          <div class="form-group"><label class="form-label" for="message">Message <span style="font-weight:400;color:var(--gray-500,#777)">(optional)</span></label><textarea class="form-control" id="message" name="message" placeholder="Tell us about your requirements: location preferences, configurations, timeline…" rows="4"></textarea></div>
+          <p id="formError" role="alert" style="display:none;color:#c8362b;font-size:.88rem;margin:0 0 .75rem"></p>
           <button type="submit" class="btn btn-primary btn-lg form-submit-btn"><span>Send Enquiry</span><i class="fas fa-paper-plane"></i></button>
         </form>
         <div class="form-success" id="formSuccess">
@@ -277,6 +318,30 @@
   </div>
 </section>
 
+<section class="section faq-section" id="faq" aria-labelledby="faqTitle">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label"><i class="fas fa-circle-question"></i> Common Questions</span>
+      <h2 class="section-title" id="faqTitle">Frequently Asked Questions</h2>
+      <p class="section-sub">Where to find us, when we are available and how to book a site visit.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Where is PROPHUNT LLP's office in Pune?</summary>
+        <div class="faq-answer">PROPHUNT LLP's office is at Work Katta, 291/3, Pancard Club Road, Baner Gaon, Pune, 411045. It is easily accessible from Baner, Balewadi and Hinjewadi.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What are PROPHUNT LLP's office hours?</summary>
+        <div class="faq-answer">PROPHUNT LLP is open Monday to Saturday, 10:00 AM to 7:00 PM IST. You can also reach us via WhatsApp on +91-70668-80808 at any time.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I book a site visit with PROPHUNT LLP?</summary>
+        <div class="faq-answer">You can book a free site visit by calling +91-70668-80808, emailing info@prophuntllp.com, or using the 'Book a Site Visit' button on prophuntllp.com. Our advisor will confirm the visit within a few hours.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -305,9 +370,18 @@
   const btnReset=document.getElementById('btnReset');
   form.addEventListener('submit',function(e){
     e.preventDefault();
+    const errEl=document.getElementById('formError');
+    const fail=(msg,el)=>{ if(errEl){errEl.textContent=msg;errEl.style.display='block';} if(el){el.focus({preventScroll:false});} };
+    const emptyReq=[...form.querySelectorAll('[required]')].find(el=>!String(el.value||'').trim());
+    if(emptyReq){ return fail('Please fill in the required fields marked *.',emptyReq); }
+    const phoneEl=form.elements.phone;
+    if(!/^\+?[\d\s()-]{8,18}$/.test(phoneEl.value.trim()) || phoneEl.value.replace(/\D/g,'').length<8){ return fail('Please enter a valid phone / WhatsApp number.',phoneEl); }
+    const emailEl=form.elements.email;
+    if(emailEl.value.trim() && !emailEl.checkValidity()){ return fail('That email address looks incorrect — or leave it blank.',emailEl); }
+    if(errEl) errEl.style.display='none';
     const f=Object.fromEntries(new FormData(form).entries());
     const subject=`Property Enquiry from ${f.firstName} ${f.lastName}`;
-    const body=[`Name: ${f.firstName} ${f.lastName}`,`Email: ${f.email}`,`Phone: ${f.phone||'Not provided'}`,`Interest: ${f.interest||'Not specified'}`,`Budget: ${f.budget||'Not specified'}`,``,f.message||'Please contact me about available properties.'].join('\n');
+    const body=[`Name: ${f.firstName} ${f.lastName}`,`Phone / WhatsApp: ${f.phone}`,`Email: ${f.email||'Not provided'}`,`Interest: ${f.interest||'Not specified'}`,`Preferred location: ${f.location||'Not specified'}`,`Configuration: ${f.configuration||'Not specified'}`,`Budget: ${f.budget||'Not specified'}`,`Timeline: ${f.timeline||'Not specified'}`,``,f.message||'Please contact me about available properties.'].join('\n');
     const fullText=`To: info@prophuntllp.com\nSubject: ${subject}\n\n${body}`;
     if(copyText) copyText.value=fullText;
     const submitBtn=form.querySelector('.btn-submit, [type=submit]');

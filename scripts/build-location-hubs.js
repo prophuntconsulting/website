@@ -290,7 +290,7 @@ ${NAV_HTML}
 function buildHubPage({ bucket, locality, matches, todayLabel }) {
   const title = `Properties in ${locality.name}, Pune | PROPHUNT LLP`;
   const canonical = `${SITE}/location/${bucket}`;
-  const desc = `${matches.length} verified projects in ${locality.name}, Pune from ${developersText(matches)}. Prices ${priceRangeText(matches)}. RERA-verified listings curated by PROPHUNT LLP.`;
+  const desc = `${matches.length} curated projects in ${locality.name}, Pune from ${developersText(matches)}. Prices ${priceRangeText(matches)}. Curated listings with MahaRERA details, by PROPHUNT LLP.`;
   const aboutBlurb = locality.faqs && locality.faqs[0] ? locality.faqs[0].a : '';
   const cats = categoryBreakdown(bucket, matches);
   const sorted = [...matches].sort((a, b) => lifecycle(a).weight - lifecycle(b).weight);
@@ -331,9 +331,9 @@ function buildHubPage({ bucket, locality, matches, todayLabel }) {
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><a href="/location">Locations</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">${escapeHtml(locality.name)}</span></nav>
     <span class="section-label"><i class="fas fa-location-dot"></i> Location Guide</span>
     <h1>Properties in ${escapeHtml(locality.name)}, Pune</h1>
-    <p>${matches.length} verified projects from ${escapeHtml(developersText(matches))}. Prices ${escapeHtml(priceRangeText(matches))}.</p>
+    <p>${matches.length} curated projects from ${escapeHtml(developersText(matches))}. Prices ${escapeHtml(priceRangeText(matches))}.</p>
     <div class="page-hero-meta">
-      <div class="page-hero-meta-item"><i class="fas fa-check-circle"></i> RERA Verified</div>
+      <div class="page-hero-meta-item"><i class="fas fa-check-circle"></i> MahaRERA details listed</div>
       <div class="page-hero-meta-item"><i class="fas fa-building"></i> ${matches.length} Listed</div>
       <div class="page-hero-meta-item"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(locality.name)}, Pune</div>
     </div>
@@ -399,7 +399,7 @@ ${locality.landmarks && Object.keys(locality.landmarks).length ? `
 function buildIndexPage(buckets) {
   const title = 'Properties by Location in Pune | PROPHUNT LLP';
   const canonical = `${SITE}/location`;
-  const desc = `Browse PROPHUNT LLP's verified real estate listings across ${buckets.length} Pune micro-markets — Baner, Wakad, Mahalunge and more — with local FAQs, connectivity and pricing.`;
+  const desc = `Browse PROPHUNT LLP's curated real estate listings across ${buckets.length} Pune micro-markets — Baner, Wakad, Mahalunge and more — with local FAQs, connectivity and pricing.`;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -436,7 +436,7 @@ function buildIndexPage(buckets) {
       ${buckets.map(({ bucket, locality, matches }) => `
       <a href="/location/${bucket}" class="loc-hub-card">
         <h3>${escapeHtml(locality.name)}</h3>
-        <p>${matches.length} verified project${matches.length === 1 ? '' : 's'} · Prices ${escapeHtml(priceRangeText(matches))}</p>
+        <p>${matches.length} curated project${matches.length === 1 ? '' : 's'} · Prices ${escapeHtml(priceRangeText(matches))}</p>
       </a>`).join('')}
     </div>
   </div>

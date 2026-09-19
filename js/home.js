@@ -105,7 +105,7 @@
         const external  = /^https?:\/\//.test(p.url);
         const linkAttrs = external ? 'target="_blank" rel="noopener noreferrer"' : '';
         const linkLabel = external ? 'View Project' : 'View Details';
-        const badge     = p.rera ? 'RERA Verified' : '';
+        const badge     = p.rera ? 'RERA Registered' : '';
         const badgeHtml = badge ? `<div class="prop-card-tag">${badge}</div>` : '';
         const priceLabel = p.price_label || (p.price > 0 ? '₹' + p.price + ' L*' : 'Price on request');
         const areaSpec = p.area ? `<span><i class="fas fa-ruler-combined"></i> ${p.area}</span>` : '';

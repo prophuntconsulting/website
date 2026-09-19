@@ -41,7 +41,7 @@ const CATEGORY_META = {
 };
 
 function countLabel(n, meta) {
-  return `${n} verified ${n === 1 ? meta.singular : meta.lower}`;
+  return `${n} curated ${n === 1 ? meta.singular : meta.lower}`;
 }
 
 function escapeHtml(s) {
@@ -134,7 +134,7 @@ function faqAccordion(faqs) {
 function buildPage({ slug, url, meta, locality, bucket, matches }) {
   const title = `${meta.label} in ${locality.name}, Pune`;
   const fullTitle = `${title} | PROPHUNT LLP`;
-  const desc = `Explore ${countLabel(matches.length, meta)} in ${locality.name}, Pune from ${developersText(matches)}. Prices ${priceRangeText(matches)}. RERA-verified listings curated by PROPHUNT LLP.`;
+  const desc = `Explore ${countLabel(matches.length, meta)} in ${locality.name}, Pune from ${developersText(matches)}. Prices ${priceRangeText(matches)}. Curated listings with MahaRERA details, by PROPHUNT LLP.`;
   const canonical = `${SITE}${url}`;
   const aboutBlurb = locality.faqs && locality.faqs[0] ? locality.faqs[0].a : '';
   const faqs = categoryFaqs(meta, locality, matches);
@@ -277,7 +277,7 @@ function buildPage({ slug, url, meta, locality, bucket, matches }) {
     <p>${escapeHtml(countLabel(matches.length, meta))} from ${escapeHtml(developersText(matches))}. Prices ${escapeHtml(priceRangeText(matches))}.</p>
     <p style="margin-top:.5rem"><a href="/location/${bucket}" style="color:rgba(255,255,255,.75);font-size:.9rem;font-weight:600;text-decoration:underline;text-underline-offset:2px">View all properties in ${escapeHtml(locality.name)} <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a></p>
     <div class="page-hero-meta">
-      <div class="page-hero-meta-item"><i class="fas fa-check-circle"></i> RERA Verified</div>
+      <div class="page-hero-meta-item"><i class="fas fa-check-circle"></i> MahaRERA details listed</div>
       <div class="page-hero-meta-item"><i class="fas fa-${meta.icon}"></i> ${matches.length} Listed</div>
       <div class="page-hero-meta-item"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(locality.name)}, Pune</div>
     </div>

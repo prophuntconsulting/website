@@ -127,6 +127,21 @@ button,select,input,textarea{font-family:inherit}
 .ph-section{margin-bottom:40px;scroll-margin-top:130px}
 .ph-section-label{font-family:'Open Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
 .ph-section-title{font-family:'Open Sans',sans-serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.ph-snapshot{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden}
+.ph-snapshot th,.ph-snapshot td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--gray-200);vertical-align:top;line-height:1.5}
+.ph-snapshot tr:last-child th,.ph-snapshot tr:last-child td{border-bottom:0}
+.ph-snapshot tbody th{width:36%;color:var(--gray-600);font-weight:600;background:var(--gray-100)}
+.ph-snapshot thead th{background:var(--gray-100);color:var(--gray-600);font-size:12px;letter-spacing:.5px;text-transform:uppercase}
+.ph-snapshot td a{color:var(--red);font-weight:600}
+.ph-verify{margin:12px 0 0;padding-left:20px;font-size:14px;line-height:1.75;color:var(--gray-600)}
+.ph-verify li{margin-bottom:6px}
+.ph-verify.ph-cols{columns:2;column-gap:32px}
+@media(max-width:600px){.ph-verify.ph-cols{columns:1}.ph-snapshot tbody th{width:42%}}
+.ph-disclaimer{margin-top:14px;font-size:12.5px;line-height:1.6;color:var(--gray-500,#777)}
+.ph-disclaimer a{color:var(--red)}
+.ph-landmarks-line{font-size:14px;line-height:1.7;color:var(--gray-600);margin:8px 0}
+.ph-faq-q{font-size:15.5px;font-weight:700;color:var(--ink);margin:18px 0 4px}
+.ph-faq-a{font-size:14px;line-height:1.7;color:var(--gray-600)}
 .ph-divider{width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 20px}
 
 /* Overview */
@@ -455,7 +470,33 @@ button,select,input,textarea{font-family:inherit}
     <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">Mahindra Citadel</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">Pimpri-Chinchwad, Pune · 2 &amp; 3 BHK · Starting from ₹1.09 Cr*</p>
     <p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">Mahindra Citadel is a residential project by Mahindra Lifespaces in Pimpri-Chinchwad, one of Pune's fastest-growing suburbs. Offering 2 and 3 BHK homes with modern amenities and strong connectivity to nearby industrial and IT hubs, the project is developed in phases under MahaRERA registration. Mahindra Lifespaces has delivered 8 completed projects and has 4 ongoing developments, backed by the Mahindra Group's real estate track record since 1994.</p>
-    <div class="ph-loading-spinner"></div>
+    <div id="snapshot" class="ph-section"><div class="ph-section-label">Project Snapshot</div>
+    <table class="ph-snapshot"><tbody><tr><th scope="row">Developer</th><td>Mahindra Lifespaces</td></tr><tr><th scope="row">Location</th><td>Pimpri-Chinchwad, Pune</td></tr><tr><th scope="row">Category</th><td>Apartment</td></tr><tr><th scope="row">Configuration</th><td>2 &amp; 3 BHK</td></tr><tr><th scope="row">Sizes</th><td>From 743 sqft</td></tr><tr><th scope="row">Starting price</th><td>₹1.09 Cr* onwards</td></tr><tr><th scope="row">Status</th><td>New launch</td></tr><tr><th scope="row">Possession</th><td>2029</td></tr><tr><th scope="row">MahaRERA project no.</th><td>PPI261012501803 · <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">Verify on MahaRERA</a></td></tr></tbody></table></div>
+    <div id="pricing" class="ph-section"><div class="ph-section-label">Unit Configurations &amp; Pricing</div>
+      <table class="ph-snapshot"><thead><tr><th>Configuration</th><th>Area</th><th>Price</th></tr></thead><tbody><tr><td>2 BHK Compact</td><td>743 sqft</td><td>₹1.09 Cr*</td></tr><tr><td>2 BHK Premium</td><td>836 sqft</td><td>₹1.29 Cr*</td></tr><tr><td>3 BHK Spacious</td><td>1,080 sqft</td><td>₹1.59 Cr*</td></tr></tbody></table>
+      <p class="ph-disclaimer">*Indicative, exclusive of taxes and other charges. Contact PROPHUNT LLP for the current cost sheet.</p></div>
+    <div class="ph-section"><div class="ph-section-label">Key Facts</div>
+      <ul class="ph-verify"><li><strong>8</strong> — Completed Projects</li><li><strong>4</strong> — Ongoing Projects</li><li><strong>4000+</strong> — Happy Families</li><li><strong>2029</strong> — Possession (Bastion J &amp; K)</li></ul></div>
+    <div id="amenities" class="ph-section"><div class="ph-section-label">Amenities</div>
+      <ul class="ph-verify ph-cols"><li>Swimming Pool</li><li>Badminton Court</li><li>Multipurpose Sports Court</li><li>Cricket Net</li><li>Clubhouse Gym</li><li>Indoor Community Hall</li><li>Yoga &amp; Meditation Deck</li><li>Pet Park</li></ul></div>
+    <div id="nearby-landmarks" class="ph-section"><div class="ph-section-label">Location &amp; Connectivity</div>
+      <div class="ph-section-title">Around Pimpri-Chinchwad</div>
+      <p class="ph-landmarks-line"><strong>Education:</strong> Established PCMC-area schools and colleges</p><p class="ph-landmarks-line"><strong>Business & IT:</strong> Pimpri-Chinchwad industrial belt · PCMC commercial zones</p><p class="ph-landmarks-line"><strong>Transit:</strong> Pune Metro (PCMC-Swargate corridor) · Mumbai-Pune Expressway access</p><p class="ph-landmarks-line"><strong>Lifestyle:</strong> PCMC civic gardens and sports facilities</p>
+      <p><a href="/location/pimpri-chinchwad" class="ph-browse-link">All properties in Pimpri-Chinchwad →</a></p></div>
+    <div id="before-you-book" class="ph-section"><div class="ph-section-label">Before You Book</div>
+    <div class="ph-section-title">Things to verify for Mahindra Citadel</div>
+    <ul class="ph-verify">
+      <li>Search MahaRERA for <strong>PPI261012501803</strong> and confirm the registration is active, the promoter name matches, and the completion date filed there.</li>
+      <li>Ask for the full cost sheet in writing — base price, floor rise, parking, GST, stamp duty, registration, maintenance deposit and society charges are usually quoted separately.</li>
+      <li>Compare the RERA carpet area with the built-up or saleable area used in brochures, so you know the price per carpet sq ft you're actually paying.</li>
+      <li>Confirm offers, payment plans and possession timelines in writing — they change, and marketing material may be out of date.</li>
+      <li>Have the sale agreement and title documents reviewed by a qualified legal professional before signing.</li>
+    </ul>
+    <p class="ph-disclaimer">Project details, prices, inventory, offers, possession timelines and RERA information are subject to developer disclosure and buyer verification. Buyers should independently verify applicable project details on <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">MahaRERA</a> before purchase.</p></div>
+    <div id="faqs" class="ph-section"><div class="ph-section-label">Frequently Asked Questions</div>
+      <h3 class="ph-faq-q">What is the RERA registration number of Mahindra Citadel?</h3><p class="ph-faq-a">Mahindra Citadel is registered under MahaRERA with registration number PPI261012501803. You can verify this directly on the official MahaRERA website.</p><h3 class="ph-faq-q">What configurations are available at Mahindra Citadel?</h3><p class="ph-faq-a">Mahindra Citadel offers 2 &amp; 3 BHK, with sizes From 743 sqft.</p><h3 class="ph-faq-q">What is the price of homes at Mahindra Citadel?</h3><p class="ph-faq-a">Mahindra Citadel is priced ₹1.09 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans.</p><h3 class="ph-faq-q">Where is Mahindra Citadel located?</h3><p class="ph-faq-a">Mahindra Citadel is located at Pimpri-Chinchwad, Pune, developed by Mahindra Lifespaces.</p><h3 class="ph-faq-q">Who is the developer of Mahindra Citadel?</h3><p class="ph-faq-a">Mahindra Citadel is developed by Mahindra Lifespaces.</p><h3 class="ph-faq-q">Is Mahindra Citadel ready to move in or under construction?</h3><p class="ph-faq-a">Mahindra Citadel is a new launch.</p><h3 class="ph-faq-q">What kind of area is Pimpri-Chinchwad?</h3><p class="ph-faq-a">Pimpri-Chinchwad is one of Pune’s established twin-city industrial and residential belts, governed by its own municipal corporation (PCMC), with a long-standing manufacturing and automotive industry base alongside growing residential demand.</p><h3 class="ph-faq-q">How is Pimpri-Chinchwad connected to the rest of Pune?</h3><p class="ph-faq-a">The area is served by the Pune Metro’s PCMC-Swargate corridor and sits along the Mumbai-Pune Expressway and Old Mumbai-Pune Highway, giving direct access to Wakad, Hinjewadi and central Pune.</p><h3 class="ph-faq-q">Is Pimpri-Chinchwad a good option for value-conscious buyers?</h3><p class="ph-faq-a">Pimpri-Chinchwad is generally viewed as a comparatively more accessible entry point than the core western IT corridor, while still offering established civic infrastructure through the PCMC.</p></div>
+    <div class="ph-section"><div class="ph-section-label">Similar Projects in Pimpri-Chinchwad</div>
+      <ul class="ph-verify ph-cols"><li><a href="/projects/the-arena-pimpri">The Arena Pimpri</a> — 2, 3 &amp; 4 BHK Apartments</li></ul></div>
   </div>
 </div>
 
@@ -677,6 +718,66 @@ function buildPage(prop, allProps) {
   const statsHtml = statsData.length
     ? `<div class="ph-stats-row">${statsData.map(([v,l])=>`<div class="ph-stat"><span class="val">${v}</span><span class="lbl">${l||''}</span></div>`).join('')}</div>` : '';
 
+  /* ── Snapshot + "before you book" — markup mirrors scripts/build-properties.js ── */
+  const MAHARERA_URL = 'https://maharera.mahaonline.gov.in';
+  const MONTH_IDX = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+  function possessionInfo() {
+    for (let i = 1; i <= 4; i++) {
+      if (!/possession/i.test(prop['stat_' + i + '_label'] || '')) continue;
+      const value = String(prop['stat_' + i + '_value'] || '').trim();
+      if (!value) return null;
+      const m = value.match(/(?:([A-Za-z]{3})[a-z]*\.?\s+)?(20\d\d)/);
+      let passed = false;
+      if (m) {
+        const mo = m[1] ? MONTH_IDX[m[1].toLowerCase()] : 11;
+        if (mo !== undefined) passed = new Date(+m[2], mo + 1, 0) < new Date();
+      }
+      return { value, passed };
+    }
+    return null;
+  }
+  function statusLabel() {
+    if (prop.status === 'sold-out') return 'Sold out';
+    const tl = (prop.tagline || '').toLowerCase();
+    if (tl.includes('ready') || tl.includes('oc received')) return 'Ready to move';
+    if (tl.includes('under construction') || tl.includes('nearing')) return 'Under construction';
+    if (prop.status === 'coming-soon' || tl.includes('new launch') || tl.includes('coming soon')) return 'New launch';
+    return '';
+  }
+  function formatVerified(d) {
+    const m = String(d || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return '';
+    return (+m[3]) + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m[2] - 1] + ' ' + m[1];
+  }
+  const snapPoss = possessionInfo();
+  const snapPrice = prop.price > 0 ? price : '';
+  const snapshotRows = [
+    ['Developer', prop.developer],
+    ['Location', prop.location],
+    ['Category', { apartment:'Apartment', villa:'Villa', plot:'Plot', commercial:'Commercial' }[prop.category] || ''],
+    ['Configuration', prop.config],
+    ['Sizes', prop.area],
+    ['Starting price', snapPrice ? snapPrice + ' onwards' : 'Price on request'],
+    ['Status', statusLabel()],
+    ['Possession', snapPoss ? snapPoss.value + (snapPoss.passed ? ' — this date has passed; please confirm the current timeline' : '') : ''],
+    ['MahaRERA project no.', prop.rera ? prop.rera + ' · <a href="' + MAHARERA_URL + '" target="_blank" rel="noopener">Verify on MahaRERA</a>' : ''],
+    ['Last verified', formatVerified(prop.last_verified)],
+  ].filter(([, v]) => v);
+  const snapshotHtml = `<div id="snapshot" class="ph-section" style="margin-top:24px"><div class="ph-section-label">Project Snapshot</div>
+    <table class="ph-snapshot"><tbody>${snapshotRows.map(([k, v]) => `<tr><th scope="row">${k}</th><td>${v}</td></tr>`).join('')}</tbody></table></div>`;
+  const verifyHtml = `<div id="before-you-book" class="ph-section"><div class="ph-section-label">Before You Book</div>
+    <div class="ph-section-title">Things to verify for ${prop.title || 'this project'}</div>
+    <ul class="ph-verify">
+      <li>${prop.rera
+        ? 'Search MahaRERA for <strong>' + prop.rera + '</strong> and confirm the registration is active, the promoter name matches, and the completion date filed there.'
+        : "A MahaRERA project registration number isn't listed for " + (prop.title || 'this project') + ' on this page yet. Ask PROPHUNT LLP for it, or search the project name on the MahaRERA portal, before you pay any booking amount.'}</li>
+      <li>Ask for the full cost sheet in writing — base price, floor rise, parking, GST, stamp duty, registration, maintenance deposit and society charges are usually quoted separately.</li>
+      <li>Compare the RERA carpet area with the built-up or saleable area used in brochures, so you know the price per carpet sq ft you're actually paying.</li>
+      <li>Confirm offers, payment plans and possession timelines in writing — they change, and marketing material may be out of date.</li>
+      <li>Have the sale agreement and title documents reviewed by a qualified legal professional before signing.</li>
+    </ul>
+    <p class="ph-disclaimer">Project details, prices, inventory, offers, possession timelines and RERA information are subject to developer disclosure and buyer verification. Buyers should independently verify applicable project details on <a href="${MAHARERA_URL}" target="_blank" rel="noopener">MahaRERA</a> before purchase.</p></div>`;
+
   /* ── Pricing cards ── */
   const units = [
     { type: prop.unit_1_type, area: prop.unit_1_area, price: prop.unit_1_price, featured: prop.unit_1_featured },
@@ -784,7 +885,7 @@ function buildPage(prop, allProps) {
       </div>`
     : `<div style="background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:20px 22px;">
         <div class="ph-related-card-title"><i class="fas fa-layer-group"></i> All Projects</div>
-        <p style="font-size:13px;color:var(--gray-400);margin-bottom:14px">Browse our full portfolio of verified projects across Pune.</p>
+        <p style="font-size:13px;color:var(--gray-400);margin-bottom:14px">Browse our full portfolio of curated projects across Pune and select growth markets.</p>
         <a href="/projects" class="ph-view-all-link">View All Projects</a>
       </div>`;
 
@@ -1034,6 +1135,7 @@ function buildPage(prop, allProps) {
         ${amenities.length ? '<a href="#amenities">Amenities</a>' : ''}
         <a href="#enquiry">Enquire</a>
         <a href="#nearby-projects">Nearby</a>
+        <a href="#before-you-book">Before You Book</a>
         ${(projectFaqs.length || localityFaqs.length) ? '<a href="#faqs">FAQs</a>' : ''}
       </div>
     </nav>
@@ -1047,6 +1149,7 @@ function buildPage(prop, allProps) {
           ${prop.overview ? `<p class="ph-overview-text">${prop.overview}</p>` : ''}
           ${CATEGORY_SLUGS[prop.category] && prop.micro_market ? `<a href="/${CATEGORY_SLUGS[prop.category]}-in-${prop.micro_market}" class="ph-browse-link"><i class="fas fa-layer-group"></i> Browse all ${CATEGORY_LABELS[prop.category]} in ${prop.locality_name || prop.micro_market} →</a>` : ''}
           ${statsHtml}
+          ${snapshotHtml}
           ${reraQrHtml ? '<div style="margin-top:20px">'+reraQrHtml+'</div>' : (reraHtml ? '<div style="margin-top:20px">'+reraHtml+'</div>' : '')}
         </div>
 
@@ -1075,8 +1178,9 @@ function buildPage(prop, allProps) {
         </div>
 
         ${nearbyCarouselHtml}
-        ${faqHtml}
         ${landmarksHtml}
+        ${verifyHtml}
+        ${faqHtml}
 
       </main>
 
@@ -1090,8 +1194,8 @@ function buildPage(prop, allProps) {
           <div class="ph-enq-card-body">
             <form id="phSideEnqForm">
               <div class="ph-field"><input type="text" placeholder="Your Name *" required name="name"></div>
-              <div class="ph-field"><input type="tel" placeholder="Phone Number *" required name="phone"></div>
-              <div class="ph-field"><input type="email" placeholder="Email Address *" required name="email"></div>
+              <div class="ph-field"><input type="tel" placeholder="Phone / WhatsApp *" required name="phone" inputmode="tel" autocomplete="tel"></div>
+              <div class="ph-field"><input type="email" placeholder="Email (optional)" name="email" autocomplete="email"></div>
               ${buildConfigSelect('phConfigSide')}
               <button type="submit" class="ph-enq-submit">${prop.status === 'sold-out' ? 'Ask About Similar Projects' : 'Send Enquiry'}</button>
             </form>

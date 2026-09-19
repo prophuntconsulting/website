@@ -296,17 +296,145 @@ function buildHeadBlock(p) {
 // page — gives non-JS crawlers (and the first pass of any crawler) real indexable
 // text instead of a bare loading spinner. The client JS replaces #ph-page's
 // innerHTML anyway, so this has no visual cost for real visitors.
-function buildPrerenderBlock(p) {
+const MONTH_IDX = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+
+// The "Possession" stat tile, plus whether the date it names has already gone
+// by — a passed date on a project still marked under-construction is stale data
+// and should be re-confirmed with the developer, not presented as current.
+function possessionInfo(p) {
+  for (let i = 1; i <= 4; i++) {
+    if (!/possession/i.test(p[`stat_${i}_label`] || '')) continue;
+    const value = String(p[`stat_${i}_value`] || '').trim();
+    if (!value) return null;
+    const m = value.match(/(?:([A-Za-z]{3})[a-z]*\.?\s+)?(20\d\d)/);
+    let passed = false;
+    if (m) {
+      const mo = m[1] ? MONTH_IDX[m[1].toLowerCase()] : 11;
+      if (mo !== undefined) passed = new Date(+m[2], mo + 1, 0) < new Date();
+    }
+    return { value, passed };
+  }
+  return null;
+}
+
+function statusLabel(p) {
+  if (p.status === 'sold-out') return 'Sold out';
+  const tl = (p.tagline || '').toLowerCase();
+  if (tl.includes('ready') || tl.includes('oc received')) return 'Ready to move';
+  if (tl.includes('under construction') || tl.includes('nearing')) return 'Under construction';
+  if (p.status === 'coming-soon' || tl.includes('new launch') || tl.includes('coming soon')) return 'New launch';
+  return '';
+}
+
+function formatVerified(d) {
+  const m = String(d || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) return '';
+  const names = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${+m[3]} ${names[+m[2] - 1]} ${m[1]}`;
+}
+
+const MAHARERA_URL = 'https://maharera.mahaonline.gov.in';
+const CAT_LABEL = { apartment: 'Apartment', villa: 'Villa', plot: 'Plot', commercial: 'Commercial' };
+
+// Snapshot + "before you book" markup is shared, class-for-class, with the
+// client renderer in property.html so hydration doesn't change what a visitor
+// (or crawler) sees. Keep the two in sync.
+function snapshotHtml(p) {
+  const price = priceLabel(p);
+  const poss = possessionInfo(p);
+  const rows = [
+    ['Developer', p.developer],
+    ['Location', p.location],
+    ['Category', CAT_LABEL[p.category] || ''],
+    ['Configuration', p.config],
+    ['Sizes', p.area],
+    ['Starting price', price !== 'Price on Request' ? `${price} onwards` : 'Price on request'],
+    ['Status', statusLabel(p)],
+    ['Possession', poss ? poss.value + (poss.passed ? ' — this date has passed; please confirm the current timeline' : '') : ''],
+    ['MahaRERA project no.', p.rera ? `${escapeHtml(p.rera)} · <a href="${MAHARERA_URL}" target="_blank" rel="noopener">Verify on MahaRERA</a>` : ''],
+    ['Last verified', formatVerified(p.last_verified)],
+  ].filter(([, v]) => v);
+  return `<div id="snapshot" class="ph-section"><div class="ph-section-label">Project Snapshot</div>
+    <table class="ph-snapshot"><tbody>${rows.map(([k, v]) => `<tr><th scope="row">${k}</th><td>${/<a /.test(v) ? v : escapeHtml(v)}</td></tr>`).join('')}</tbody></table></div>`;
+}
+
+function verifyHtml(p) {
+  const title = escapeHtml(p.title || 'this project');
+  const reraLine = p.rera
+    ? `Search MahaRERA for <strong>${escapeHtml(p.rera)}</strong> and confirm the registration is active, the promoter name matches, and the completion date filed there.`
+    : `A MahaRERA project registration number isn't listed for ${title} on this page yet. Ask PROPHUNT LLP for it, or search the project name on the MahaRERA portal, before you pay any booking amount.`;
+  return `<div id="before-you-book" class="ph-section"><div class="ph-section-label">Before You Book</div>
+    <div class="ph-section-title">Things to verify for ${title}</div>
+    <ul class="ph-verify">
+      <li>${reraLine}</li>
+      <li>Ask for the full cost sheet in writing — base price, floor rise, parking, GST, stamp duty, registration, maintenance deposit and society charges are usually quoted separately.</li>
+      <li>Compare the RERA carpet area with the built-up or saleable area used in brochures, so you know the price per carpet sq ft you're actually paying.</li>
+      <li>Confirm offers, payment plans and possession timelines in writing — they change, and marketing material may be out of date.</li>
+      <li>Have the sale agreement and title documents reviewed by a qualified legal professional before signing.</li>
+    </ul>
+    <p class="ph-disclaimer">Project details, prices, inventory, offers, possession timelines and RERA information are subject to developer disclosure and buyer verification. Buyers should independently verify applicable project details on <a href="${MAHARERA_URL}" target="_blank" rel="noopener">MahaRERA</a> before purchase.</p></div>`;
+}
+
+const LANDMARK_LABELS = [['education', 'Education'], ['business', 'Business & IT'], ['hospital', 'Healthcare'], ['transit', 'Transit'], ['lifestyle', 'Lifestyle']];
+
+// Server-rendered mirror of everything property.html builds client-side
+// (overview, snapshot, pricing, amenities, connectivity, FAQs, related
+// projects), so the raw HTML a crawler receives is a full landing page, not a
+// header and one paragraph. Real visitors get the same content re-rendered by
+// the client with the full design. Every value comes from the project's own
+// frontmatter / the curated locality content — nothing is invented.
+function buildPrerenderBlock(p, all) {
   const price = priceLabel(p);
   const metaLine = [p.location, p.config, price !== 'Price on Request' ? `Starting from ${price}` : '']
     .filter(Boolean).join(' · ');
+  const loc = LOCALITY_CONTENT[p.micro_market] || null;
+
+  const units = [1, 2, 3].map(i => ({ t: p[`unit_${i}_type`], a: p[`unit_${i}_area`], pr: p[`unit_${i}_price`] })).filter(u => u.t);
+  const stats = [1, 2, 3, 4].map(i => [p[`stat_${i}_value`], p[`stat_${i}_label`]]).filter(([v]) => v);
+  const amenities = Array.isArray(p.amenities) ? p.amenities : [];
+  const faqs = [...(p.project_faqs || []), ...(loc ? loc.faqs : [])];
+  const similar = all.filter(o => o.slug !== p.slug && o.micro_market === p.micro_market && o.status !== 'sold-out')
+    .sort((a, b) => (b.category === p.category) - (a.category === p.category)).slice(0, 6);
+
+  const sections = [];
+  if (units.length) {
+    sections.push(`<div id="pricing" class="ph-section"><div class="ph-section-label">Unit Configurations &amp; Pricing</div>
+      <table class="ph-snapshot"><thead><tr><th>Configuration</th><th>Area</th><th>Price</th></tr></thead><tbody>${units.map(u =>
+        `<tr><td>${escapeHtml(u.t)}</td><td>${escapeHtml(u.a || '—')}</td><td>${escapeHtml(u.pr || 'Price on request')}</td></tr>`).join('')}</tbody></table>
+      <p class="ph-disclaimer">*Indicative, exclusive of taxes and other charges. Contact PROPHUNT LLP for the current cost sheet.</p></div>`);
+  }
+  if (stats.length) {
+    sections.push(`<div class="ph-section"><div class="ph-section-label">Key Facts</div>
+      <ul class="ph-verify">${stats.map(([v, l]) => `<li><strong>${escapeHtml(v)}</strong>${l ? ` — ${escapeHtml(l)}` : ''}</li>`).join('')}</ul></div>`);
+  }
+  if (amenities.length) {
+    sections.push(`<div id="amenities" class="ph-section"><div class="ph-section-label">Amenities</div>
+      <ul class="ph-verify ph-cols">${amenities.map(a => `<li>${escapeHtml(a)}</li>`).join('')}</ul></div>`);
+  }
+  if (loc && LANDMARK_LABELS.some(([k]) => (loc.landmarks[k] || []).length)) {
+    sections.push(`<div id="nearby-landmarks" class="ph-section"><div class="ph-section-label">Location &amp; Connectivity</div>
+      <div class="ph-section-title">Around ${escapeHtml(loc.name)}</div>
+      ${LANDMARK_LABELS.map(([k, label]) => (loc.landmarks[k] || []).length
+        ? `<p class="ph-landmarks-line"><strong>${label}:</strong> ${loc.landmarks[k].map(escapeHtml).join(' · ')}</p>` : '').join('')}
+      <p><a href="/location/${escapeHtml(p.micro_market)}" class="ph-browse-link">All properties in ${escapeHtml(loc.name)} →</a></p></div>`);
+  }
+  sections.push(verifyHtml(p));
+  if (faqs.length) {
+    sections.push(`<div id="faqs" class="ph-section"><div class="ph-section-label">Frequently Asked Questions</div>
+      ${faqs.map(f => `<h3 class="ph-faq-q">${escapeHtml(f.q)}</h3><p class="ph-faq-a">${escapeHtml(f.a)}</p>`).join('')}</div>`);
+  }
+  if (similar.length) {
+    sections.push(`<div class="ph-section"><div class="ph-section-label">Similar Projects${loc ? ` in ${escapeHtml(loc.name)}` : ''}</div>
+      <ul class="ph-verify ph-cols">${similar.map(o => `<li><a href="${escapeHtml(o.url)}">${escapeHtml(o.title)}</a>${o.config ? ` — ${escapeHtml(o.config)}` : ''}</li>`).join('')}</ul></div>`);
+  }
 
   return `<div class="ph-prerender" style="max-width:900px;margin:0 auto;padding:32px 24px 24px">
     <div style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">${escapeHtml(p.developer)}</div>
     <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">${escapeHtml(p.title)}</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">${escapeHtml(metaLine)}</p>
     ${p.overview ? `<p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">${escapeHtml(p.overview)}</p>` : ''}
-    <div class="ph-loading-spinner"></div>
+    ${snapshotHtml(p)}
+    ${sections.join('\n    ')}
   </div>`;
 }
 
@@ -385,7 +513,7 @@ if (fs.existsSync(templatePath)) {
       `const slug = '${p.slug}';`
     );
     html = html.replace(HEAD_MARKER, buildHeadBlock(p));
-    html = html.replace(LOADING_MARKER, buildPrerenderBlock(p));
+    html = html.replace(LOADING_MARKER, buildPrerenderBlock(p, properties));
 
     fs.writeFileSync(path.join(outDir, 'index.html'), html);
     console.log(`  → projects/${p.slug}/index.html`);
@@ -437,7 +565,7 @@ if (fs.existsSync(projectsPagePath)) {
       {
         '@type': 'ItemList',
         name: 'Premium Real Estate Projects in Pune',
-        description: "RERA-verified apartments, villas, plots and commercial properties in Pune by leading developers",
+        description: "RERA-registered apartments, villas, plots and commercial properties in Pune and select Maharashtra growth markets",
         numberOfItems: sorted.length,
         itemListElement: sorted.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, item: `${SITE}${p.url}` })),
       },

@@ -127,6 +127,21 @@ button,select,input,textarea{font-family:inherit}
 .ph-section{margin-bottom:40px;scroll-margin-top:130px}
 .ph-section-label{font-family:'Open Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
 .ph-section-title{font-family:'Open Sans',sans-serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.ph-snapshot{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden}
+.ph-snapshot th,.ph-snapshot td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--gray-200);vertical-align:top;line-height:1.5}
+.ph-snapshot tr:last-child th,.ph-snapshot tr:last-child td{border-bottom:0}
+.ph-snapshot tbody th{width:36%;color:var(--gray-600);font-weight:600;background:var(--gray-100)}
+.ph-snapshot thead th{background:var(--gray-100);color:var(--gray-600);font-size:12px;letter-spacing:.5px;text-transform:uppercase}
+.ph-snapshot td a{color:var(--red);font-weight:600}
+.ph-verify{margin:12px 0 0;padding-left:20px;font-size:14px;line-height:1.75;color:var(--gray-600)}
+.ph-verify li{margin-bottom:6px}
+.ph-verify.ph-cols{columns:2;column-gap:32px}
+@media(max-width:600px){.ph-verify.ph-cols{columns:1}.ph-snapshot tbody th{width:42%}}
+.ph-disclaimer{margin-top:14px;font-size:12.5px;line-height:1.6;color:var(--gray-500,#777)}
+.ph-disclaimer a{color:var(--red)}
+.ph-landmarks-line{font-size:14px;line-height:1.7;color:var(--gray-600);margin:8px 0}
+.ph-faq-q{font-size:15.5px;font-weight:700;color:var(--ink);margin:18px 0 4px}
+.ph-faq-a{font-size:14px;line-height:1.7;color:var(--gray-600)}
 .ph-divider{width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 20px}
 
 /* Overview */
@@ -455,7 +470,33 @@ button,select,input,textarea{font-family:inherit}
     <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">ANP Memento</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">Bhumkar Chowk, Wakad, Pune · 2, 2.5, 3 &amp; 3.5 BHK Apartments</p>
     <p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">ANP Memento is a 4-tower residential development by ANP Corp at Bhumkar Chowk, Wakad, Pune, offering 2, 2.5, 3 and 3.5 BHK homes from 749 to 1,201 sq ft carpet area across G+3P+23 storeys. Amenities include an infinity swimming pool, a co-working space, a multipurpose court and a reading library, built with an earthquake-resistant RCC structure and biometric locks.</p>
-    <div class="ph-loading-spinner"></div>
+    <div id="snapshot" class="ph-section"><div class="ph-section-label">Project Snapshot</div>
+    <table class="ph-snapshot"><tbody><tr><th scope="row">Developer</th><td>ANP Corp</td></tr><tr><th scope="row">Location</th><td>Bhumkar Chowk, Wakad, Pune</td></tr><tr><th scope="row">Category</th><td>Apartment</td></tr><tr><th scope="row">Configuration</th><td>2, 2.5, 3 &amp; 3.5 BHK Apartments</td></tr><tr><th scope="row">Sizes</th><td>749 - 1,201 sqft</td></tr><tr><th scope="row">Starting price</th><td>Price on request</td></tr><tr><th scope="row">Status</th><td>Under construction</td></tr><tr><th scope="row">MahaRERA project no.</th><td>P52100026219 · <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">Verify on MahaRERA</a></td></tr></tbody></table></div>
+    <div id="pricing" class="ph-section"><div class="ph-section-label">Unit Configurations &amp; Pricing</div>
+      <table class="ph-snapshot"><thead><tr><th>Configuration</th><th>Area</th><th>Price</th></tr></thead><tbody><tr><td>2, 2.5, 3 &amp; 3.5 BHK</td><td>749 - 1,201 sqft</td><td>Price on Request</td></tr></tbody></table>
+      <p class="ph-disclaimer">*Indicative, exclusive of taxes and other charges. Contact PROPHUNT LLP for the current cost sheet.</p></div>
+    <div class="ph-section"><div class="ph-section-label">Key Facts</div>
+      <ul class="ph-verify"><li><strong>4</strong> — Towers</li><li><strong>749-1,201</strong> — Sqft Range</li><li><strong>G+3P+23</strong> — Storeys</li><li><strong>1.25 Acres</strong> — Podium Space</li></ul></div>
+    <div id="amenities" class="ph-section"><div class="ph-section-label">Amenities</div>
+      <ul class="ph-verify ph-cols"><li>Infinity Swimming Pool</li><li>Gymnasium</li><li>Creche</li><li>Co-Working Space</li><li>Multi-Purpose Hall</li><li>Indoor Games Room</li><li>Yoga Room</li><li>Jogging Track</li><li>Reading Library</li><li>Multipurpose Court</li></ul></div>
+    <div id="nearby-landmarks" class="ph-section"><div class="ph-section-label">Location &amp; Connectivity</div>
+      <div class="ph-section-title">Around Wakad</div>
+      <p class="ph-landmarks-line"><strong>Education:</strong> A.P.J. College of Science and Commerce · IBMR College · Indira College of Commerce &amp; Science</p><p class="ph-landmarks-line"><strong>Business & IT:</strong> Hinjewadi IT Park (Rajiv Gandhi Infotech Park) · EON West Tech Park</p><p class="ph-landmarks-line"><strong>Healthcare:</strong> Lifepoint Multispeciality Hospital · Aditya Birla Memorial Hospital (nearby)</p><p class="ph-landmarks-line"><strong>Transit:</strong> Wakad Bus Stand · Hinjewadi Bus Stand · Bhujbal Chowk (upcoming Metro corridor)</p><p class="ph-landmarks-line"><strong>Lifestyle:</strong> Xion Mall, Hinjewadi · Pimpri-Chinchwad Municipal Corporation Garden</p>
+      <p><a href="/location/wakad" class="ph-browse-link">All properties in Wakad →</a></p></div>
+    <div id="before-you-book" class="ph-section"><div class="ph-section-label">Before You Book</div>
+    <div class="ph-section-title">Things to verify for ANP Memento</div>
+    <ul class="ph-verify">
+      <li>Search MahaRERA for <strong>P52100026219</strong> and confirm the registration is active, the promoter name matches, and the completion date filed there.</li>
+      <li>Ask for the full cost sheet in writing — base price, floor rise, parking, GST, stamp duty, registration, maintenance deposit and society charges are usually quoted separately.</li>
+      <li>Compare the RERA carpet area with the built-up or saleable area used in brochures, so you know the price per carpet sq ft you're actually paying.</li>
+      <li>Confirm offers, payment plans and possession timelines in writing — they change, and marketing material may be out of date.</li>
+      <li>Have the sale agreement and title documents reviewed by a qualified legal professional before signing.</li>
+    </ul>
+    <p class="ph-disclaimer">Project details, prices, inventory, offers, possession timelines and RERA information are subject to developer disclosure and buyer verification. Buyers should independently verify applicable project details on <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">MahaRERA</a> before purchase.</p></div>
+    <div id="faqs" class="ph-section"><div class="ph-section-label">Frequently Asked Questions</div>
+      <h3 class="ph-faq-q">What is the RERA registration number of ANP Memento?</h3><p class="ph-faq-a">ANP Memento is registered under MahaRERA with registration number P52100026219. You can verify this directly on the official MahaRERA website.</p><h3 class="ph-faq-q">What configurations are available at ANP Memento?</h3><p class="ph-faq-a">ANP Memento offers 2, 2.5, 3 &amp; 3.5 BHK Apartments, with sizes 749 - 1,201 sqft.</p><h3 class="ph-faq-q">What is the price of homes at ANP Memento?</h3><p class="ph-faq-a">Pricing for ANP Memento is available on request — contact PROPHUNT LLP's advisory team for the latest rates.</p><h3 class="ph-faq-q">Where is ANP Memento located?</h3><p class="ph-faq-a">ANP Memento is located at Bhumkar Chowk, Wakad, Pune, developed by ANP Corp.</p><h3 class="ph-faq-q">Who is the developer of ANP Memento?</h3><p class="ph-faq-a">ANP Memento is developed by ANP Corp.</p><h3 class="ph-faq-q">Is ANP Memento ready to move in or under construction?</h3><p class="ph-faq-a">ANP Memento is currently under construction.</p><h3 class="ph-faq-q">Where is Wakad located and what are its key advantages?</h3><p class="ph-faq-a">Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well.</p><h3 class="ph-faq-q">How is the connectivity and public transport in Wakad?</h3><p class="ph-faq-a">Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune.</p><h3 class="ph-faq-q">What kind of lifestyle does Wakad offer residents?</h3><p class="ph-faq-a">Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families.</p><h3 class="ph-faq-q">Are there prominent developers active in Wakad?</h3><p class="ph-faq-a">Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand.</p></div>
+    <div class="ph-section"><div class="ph-section-label">Similar Projects in Wakad</div>
+      <ul class="ph-verify ph-cols"><li><a href="/projects/anp-retreat">ANP Retreat</a> — 1 BHK Apartments</li><li><a href="/projects/anp-ultimus">ANP Ultimus</a> — 2, 2.5, 3 &amp; 3.5 BHK Apartments</li><li><a href="/projects/greenfinity-wakad">Greenfinity</a> — 2 &amp; 3 BHK Apartments</li><li><a href="/projects/kings-county-wakad">Kings County</a> — 3 &amp; 4 BHK Apartments</li><li><a href="/projects/kohinoor-avantara">Kohinoor Avantara</a> — 2 &amp; 3 BHK Apartments</li><li><a href="/projects/kohinoor-regalia-towers">Kohinoor Regalia Towers</a> — 2 &amp; 3 BHK Apartments</li></ul></div>
   </div>
 </div>
 
@@ -677,6 +718,66 @@ function buildPage(prop, allProps) {
   const statsHtml = statsData.length
     ? `<div class="ph-stats-row">${statsData.map(([v,l])=>`<div class="ph-stat"><span class="val">${v}</span><span class="lbl">${l||''}</span></div>`).join('')}</div>` : '';
 
+  /* ── Snapshot + "before you book" — markup mirrors scripts/build-properties.js ── */
+  const MAHARERA_URL = 'https://maharera.mahaonline.gov.in';
+  const MONTH_IDX = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+  function possessionInfo() {
+    for (let i = 1; i <= 4; i++) {
+      if (!/possession/i.test(prop['stat_' + i + '_label'] || '')) continue;
+      const value = String(prop['stat_' + i + '_value'] || '').trim();
+      if (!value) return null;
+      const m = value.match(/(?:([A-Za-z]{3})[a-z]*\.?\s+)?(20\d\d)/);
+      let passed = false;
+      if (m) {
+        const mo = m[1] ? MONTH_IDX[m[1].toLowerCase()] : 11;
+        if (mo !== undefined) passed = new Date(+m[2], mo + 1, 0) < new Date();
+      }
+      return { value, passed };
+    }
+    return null;
+  }
+  function statusLabel() {
+    if (prop.status === 'sold-out') return 'Sold out';
+    const tl = (prop.tagline || '').toLowerCase();
+    if (tl.includes('ready') || tl.includes('oc received')) return 'Ready to move';
+    if (tl.includes('under construction') || tl.includes('nearing')) return 'Under construction';
+    if (prop.status === 'coming-soon' || tl.includes('new launch') || tl.includes('coming soon')) return 'New launch';
+    return '';
+  }
+  function formatVerified(d) {
+    const m = String(d || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return '';
+    return (+m[3]) + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m[2] - 1] + ' ' + m[1];
+  }
+  const snapPoss = possessionInfo();
+  const snapPrice = prop.price > 0 ? price : '';
+  const snapshotRows = [
+    ['Developer', prop.developer],
+    ['Location', prop.location],
+    ['Category', { apartment:'Apartment', villa:'Villa', plot:'Plot', commercial:'Commercial' }[prop.category] || ''],
+    ['Configuration', prop.config],
+    ['Sizes', prop.area],
+    ['Starting price', snapPrice ? snapPrice + ' onwards' : 'Price on request'],
+    ['Status', statusLabel()],
+    ['Possession', snapPoss ? snapPoss.value + (snapPoss.passed ? ' — this date has passed; please confirm the current timeline' : '') : ''],
+    ['MahaRERA project no.', prop.rera ? prop.rera + ' · <a href="' + MAHARERA_URL + '" target="_blank" rel="noopener">Verify on MahaRERA</a>' : ''],
+    ['Last verified', formatVerified(prop.last_verified)],
+  ].filter(([, v]) => v);
+  const snapshotHtml = `<div id="snapshot" class="ph-section" style="margin-top:24px"><div class="ph-section-label">Project Snapshot</div>
+    <table class="ph-snapshot"><tbody>${snapshotRows.map(([k, v]) => `<tr><th scope="row">${k}</th><td>${v}</td></tr>`).join('')}</tbody></table></div>`;
+  const verifyHtml = `<div id="before-you-book" class="ph-section"><div class="ph-section-label">Before You Book</div>
+    <div class="ph-section-title">Things to verify for ${prop.title || 'this project'}</div>
+    <ul class="ph-verify">
+      <li>${prop.rera
+        ? 'Search MahaRERA for <strong>' + prop.rera + '</strong> and confirm the registration is active, the promoter name matches, and the completion date filed there.'
+        : "A MahaRERA project registration number isn't listed for " + (prop.title || 'this project') + ' on this page yet. Ask PROPHUNT LLP for it, or search the project name on the MahaRERA portal, before you pay any booking amount.'}</li>
+      <li>Ask for the full cost sheet in writing — base price, floor rise, parking, GST, stamp duty, registration, maintenance deposit and society charges are usually quoted separately.</li>
+      <li>Compare the RERA carpet area with the built-up or saleable area used in brochures, so you know the price per carpet sq ft you're actually paying.</li>
+      <li>Confirm offers, payment plans and possession timelines in writing — they change, and marketing material may be out of date.</li>
+      <li>Have the sale agreement and title documents reviewed by a qualified legal professional before signing.</li>
+    </ul>
+    <p class="ph-disclaimer">Project details, prices, inventory, offers, possession timelines and RERA information are subject to developer disclosure and buyer verification. Buyers should independently verify applicable project details on <a href="${MAHARERA_URL}" target="_blank" rel="noopener">MahaRERA</a> before purchase.</p></div>`;
+
   /* ── Pricing cards ── */
   const units = [
     { type: prop.unit_1_type, area: prop.unit_1_area, price: prop.unit_1_price, featured: prop.unit_1_featured },
@@ -784,7 +885,7 @@ function buildPage(prop, allProps) {
       </div>`
     : `<div style="background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:20px 22px;">
         <div class="ph-related-card-title"><i class="fas fa-layer-group"></i> All Projects</div>
-        <p style="font-size:13px;color:var(--gray-400);margin-bottom:14px">Browse our full portfolio of verified projects across Pune.</p>
+        <p style="font-size:13px;color:var(--gray-400);margin-bottom:14px">Browse our full portfolio of curated projects across Pune and select growth markets.</p>
         <a href="/projects" class="ph-view-all-link">View All Projects</a>
       </div>`;
 
@@ -1034,6 +1135,7 @@ function buildPage(prop, allProps) {
         ${amenities.length ? '<a href="#amenities">Amenities</a>' : ''}
         <a href="#enquiry">Enquire</a>
         <a href="#nearby-projects">Nearby</a>
+        <a href="#before-you-book">Before You Book</a>
         ${(projectFaqs.length || localityFaqs.length) ? '<a href="#faqs">FAQs</a>' : ''}
       </div>
     </nav>
@@ -1047,6 +1149,7 @@ function buildPage(prop, allProps) {
           ${prop.overview ? `<p class="ph-overview-text">${prop.overview}</p>` : ''}
           ${CATEGORY_SLUGS[prop.category] && prop.micro_market ? `<a href="/${CATEGORY_SLUGS[prop.category]}-in-${prop.micro_market}" class="ph-browse-link"><i class="fas fa-layer-group"></i> Browse all ${CATEGORY_LABELS[prop.category]} in ${prop.locality_name || prop.micro_market} →</a>` : ''}
           ${statsHtml}
+          ${snapshotHtml}
           ${reraQrHtml ? '<div style="margin-top:20px">'+reraQrHtml+'</div>' : (reraHtml ? '<div style="margin-top:20px">'+reraHtml+'</div>' : '')}
         </div>
 
@@ -1075,8 +1178,9 @@ function buildPage(prop, allProps) {
         </div>
 
         ${nearbyCarouselHtml}
-        ${faqHtml}
         ${landmarksHtml}
+        ${verifyHtml}
+        ${faqHtml}
 
       </main>
 
@@ -1090,8 +1194,8 @@ function buildPage(prop, allProps) {
           <div class="ph-enq-card-body">
             <form id="phSideEnqForm">
               <div class="ph-field"><input type="text" placeholder="Your Name *" required name="name"></div>
-              <div class="ph-field"><input type="tel" placeholder="Phone Number *" required name="phone"></div>
-              <div class="ph-field"><input type="email" placeholder="Email Address *" required name="email"></div>
+              <div class="ph-field"><input type="tel" placeholder="Phone / WhatsApp *" required name="phone" inputmode="tel" autocomplete="tel"></div>
+              <div class="ph-field"><input type="email" placeholder="Email (optional)" name="email" autocomplete="email"></div>
               ${buildConfigSelect('phConfigSide')}
               <button type="submit" class="ph-enq-submit">${prop.status === 'sold-out' ? 'Ask About Similar Projects' : 'Send Enquiry'}</button>
             </form>
