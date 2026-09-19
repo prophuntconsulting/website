@@ -97,7 +97,7 @@ function renderProjectCard(p) {
   return `
     <a href="${escapeHtml(p.url)}" class="prop-card" aria-label="View Details: ${escapeHtml(p.title)}">
       <div class="prop-card-img">
-        <div style="background-image:url('${escapeHtml(p.cover || '')}');">${p.cover ? '' : `<span class="prop-card-img-empty"><i class="fas fa-${meta.icon}"></i></span>`}</div>
+        <div>${p.cover ? `<img src="${escapeHtml(p.cover)}" alt="${escapeHtml(p.title || '')}" width="600" height="372" loading="lazy" decoding="async">` : `<span class="prop-card-img-empty"><i class="fas fa-${meta.icon}"></i></span>`}</div>
         <div class="prop-card-badge"><span class="badge badge-red">${escapeHtml(p.developer || '')}</span>${statusBadge}</div>
         <div class="prop-card-price">${escapeHtml(priceLabel(p))}</div>
       </div>

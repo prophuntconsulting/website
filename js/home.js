@@ -53,6 +53,21 @@
 
         window.addEventListener('scroll', onScroll, { passive: true });
         video.addEventListener('loadedmetadata', () => { video.currentTime = 0; });
+
+        // Attach the source only after the page has loaded, so a multi-MB video
+        // can't starve the critical CSS/font/image requests on slow connections.
+        // Data-saver and 2G visitors keep the poster frame and skip the download.
+        const conn = navigator.connection || {};
+        const skipVideo = conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '');
+        const attachVideo = () => {
+            if (skipVideo || video.getAttribute('src')) return;
+            video.src = (isMobile && video.dataset.srcMobile) || video.dataset.src;
+            video.preload = 'auto';
+            video.load();
+        };
+        if (skipVideo && loader) loader.style.display = 'none';
+        if (document.readyState === 'complete') attachVideo();
+        else window.addEventListener('load', attachVideo, { once: true });
     }
 
     /* ── FEATURED PROJECTS GRID (loads from /properties/posts.json) ── */
@@ -98,7 +113,7 @@
         return `
         <article class="prop-card" data-category="${p.category}">
           <div class="prop-card-img">
-            <div style="background-image:url('${p.cover || ''}');"></div>
+            <div>${p.cover ? `<img src="${p.cover}" alt="${(p.title || '').replace(/"/g, '&quot;')}" width="600" height="372" loading="lazy" decoding="async">` : ''}</div>
             ${badgeHtml}
             <div class="prop-card-price">${priceLabel}</div>
             <div class="prop-card-overlay">

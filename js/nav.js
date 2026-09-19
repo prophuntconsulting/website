@@ -169,4 +169,9 @@
         });
     }
 
+    /* Keep the footer copyright year current without a yearly edit. */
+    document.querySelectorAll('.footer-bottom > span:first-child').forEach(el => {
+        el.innerHTML = el.innerHTML.replace(/(&copy;|©)\s*20\d\d/, '$1 ' + new Date().getFullYear());
+    });
+
 })();

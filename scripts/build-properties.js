@@ -92,7 +92,7 @@ function renderProjectCard(p) {
   return `
         <a href="${p.url}" ${linkAttrs} class="prop-card" data-category="${p.category}" aria-label="${linkLabel}: ${p.title}">
           <div class="prop-card-img">
-            <div style="background-image:url('${p.cover || ''}');">${p.cover ? '' : `<span class="prop-card-img-empty"><i class="fas fa-${icon}"></i></span>`}</div>
+            <div>${p.cover ? `<img src="${escapeHtml(p.cover)}" alt="${escapeHtml(p.title || '')}" width="600" height="372" loading="lazy" decoding="async">` : `<span class="prop-card-img-empty"><i class="fas fa-${icon}"></i></span>`}</div>
             <div class="prop-card-badge"><span class="badge badge-red">${p.developer}</span>${statusBadge}</div>
             <div class="prop-card-price">${priceLbl}</div>
           </div>

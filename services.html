@@ -410,7 +410,7 @@
     </div>
     <hr class="divider" style="border-color:rgba(255,255,255,.08);">
     <div class="footer-rera" style="text-align:center;padding:.75rem 0;font-size:.78rem;color:rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:.85rem;">MahaRERA Agent Registration No. <a href="rera-disclosure.html" style="color:rgba(200,54,43,.7);font-weight:700;" onmouseover="this.style.color='#C8362B'" onmouseout="this.style.color='rgba(200,54,43,.7)'">A52100037156</a> &nbsp;|&nbsp; Registered under Real Estate (Regulation &amp; Development) Act, 2016 &nbsp;|&nbsp; <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener" style="color:rgba(255,255,255,.35);" onmouseover="this.style.color='rgba(255,255,255,.75)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">maharera.mahaonline.gov.in <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i></a></div>
-<div class="footer-bottom"><span>&copy; 2025 PROPHUNT LLP. All rights reserved.</span><span style="color:#C8362B;font-family:'Lora',serif;">भूमिं मृगयध्वम् | Hunt the Land</span><div class="footer-bottom-links"><a href="rera-disclosure.html">RERA</a><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+<div class="footer-bottom"><span>&copy; 2026 PROPHUNT LLP. All rights reserved.</span><span style="color:#C8362B;font-family:'Lora',serif;">भूमिं मृगयध्वम् | Hunt the Land</span><div class="footer-bottom-links"><a href="rera-disclosure.html">RERA</a><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
   </div>
 </footer>
 
@@ -428,11 +428,19 @@
     s.setAttribute('data-label','Talk to us');
     document.body.appendChild(s);
   }
-  // Load well after the initial render — this is a floating chat bubble,
-  // not needed for first paint, and was previously the single biggest
-  // item in the critical network path (config fetch alone took 1.5s+).
-  if (document.readyState === 'complete') { setTimeout(loadVoiceWidget, 2000); }
-  else { window.addEventListener('load', function(){ setTimeout(loadVoiceWidget, 2000); }); }
+  // Floating chat bubble — not needed for first paint, and was previously the
+  // single biggest item in the critical network path (config fetch alone took 1.5s+).
+  // Now deferred until the visitor first interacts (or 20s of idle). The
+  // widget ships a ~10MB orb video, so loading it on every page view cost
+  // ~10MB of bandwidth on mobile before anyone had asked to talk to us.
+  var voiceLoaded = false;
+  function loadOnce(){
+    if (voiceLoaded) return; voiceLoaded = true;
+    ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.removeEventListener(e, loadOnce); });
+    loadVoiceWidget();
+  }
+  ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.addEventListener(e, loadOnce, {passive:true, once:true}); });
+  window.addEventListener('load', function(){ setTimeout(loadOnce, 20000); });
 })();
 </script>
 </body>

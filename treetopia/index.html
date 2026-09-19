@@ -1425,7 +1425,7 @@ footer.sec3 .rera-info a{color:var(--gold);text-decoration:none;}
     </p>
   </div>
 </footer>
-<section id="footer-links"><div class="container"><p>All Rights Reserved. © 2025 Prophunt</p></div></section>
+<section id="footer-links"><div class="container"><p>All Rights Reserved. © 2026 Prophunt</p></div></section>
 
 </main><!-- /left-section -->
 
@@ -1787,11 +1787,19 @@ window.addEventListener('resize',()=>{
     s.setAttribute('data-label','Talk to us');
     document.body.appendChild(s);
   }
-  // Load well after the initial render — this is a floating chat bubble,
-  // not needed for first paint, and was previously the single biggest
-  // item in the critical network path (config fetch alone took 1.5s+).
-  if (document.readyState === 'complete') { setTimeout(loadVoiceWidget, 2000); }
-  else { window.addEventListener('load', function(){ setTimeout(loadVoiceWidget, 2000); }); }
+  // Floating chat bubble — not needed for first paint, and was previously the
+  // single biggest item in the critical network path (config fetch alone took 1.5s+).
+  // Now deferred until the visitor first interacts (or 20s of idle). The
+  // widget ships a ~10MB orb video, so loading it on every page view cost
+  // ~10MB of bandwidth on mobile before anyone had asked to talk to us.
+  var voiceLoaded = false;
+  function loadOnce(){
+    if (voiceLoaded) return; voiceLoaded = true;
+    ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.removeEventListener(e, loadOnce); });
+    loadVoiceWidget();
+  }
+  ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.addEventListener(e, loadOnce, {passive:true, once:true}); });
+  window.addEventListener('load', function(){ setTimeout(loadOnce, 20000); });
 })();
 </script>
 </body>

@@ -342,6 +342,11 @@ const posts = files.map(filename => {
   };
 });
 
+// Filenames aren't reliably date-prefixed (only the oldest post is), so a
+// filename sort can't be trusted for "newest first" — order by the actual
+// publish date. Stable tiebreak on filename keeps the output deterministic.
+posts.sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.slug.localeCompare(a.slug));
+
 const publicPosts = posts.map(({ body, ...post }) => post);
 fs.writeFileSync(OUT_FILE, JSON.stringify(publicPosts, null, 2));
 console.log(`Built posts.json — ${posts.length} post(s)`);

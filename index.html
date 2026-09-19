@@ -301,10 +301,10 @@
     </div>
     <!-- Right: scroll-driven frame animation -->
     <div class="hero-right">
-      <video id="heroFrame" class="hero-frame" muted playsinline webkit-playsinline preload="auto" aria-hidden="true">
-        <source src="images/hero-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
-        <source src="images/hero.mp4" type="video/mp4">
-      </video>
+      <!-- Source is attached by js/home.js after page load (mobile gets the small file), so the
+           video never competes with CSS/fonts for bandwidth. Poster shows immediately. -->
+      <video id="heroFrame" class="hero-frame" muted playsinline webkit-playsinline preload="none" poster="images/hero-poster.jpg" aria-hidden="true"
+             data-src="images/hero.mp4" data-src-mobile="images/hero-mobile.mp4"></video>
       <div class="hero-frame-loader" id="heroLoader">
         <div class="hero-frame-loader-bar" id="heroLoaderBar"></div>
       </div>
@@ -418,25 +418,25 @@
   </div>
   <div class="dev-loop" aria-hidden="true">
     <div class="dev-loop-track">
-      <div class="dev-logo-item"><img src="images/developers/godrej-transparent.png" alt="Godrej Properties"></div>
-      <div class="dev-logo-item"><img src="images/developers/mahindra-transparent.png" alt="Mahindra Lifespaces"></div>
-      <div class="dev-logo-item"><img src="images/developers/shapoorji-transparent.png" alt="Shapoorji Pallonji"></div>
-      <div class="dev-logo-item"><img src="images/developers/kohinoor-transparent.png" alt="Kohinoor Group"></div>
-      <div class="dev-logo-item"><img src="images/developers/dlf-transparent.png" alt="DLF"></div>
-      <div class="dev-logo-item"><img src="images/developers/rohan-transparent.png" alt="Rohan Builders"></div>
-      <div class="dev-logo-item"><img src="images/developers/vtp-transparent.png" alt="VTP Realty"></div>
-      <div class="dev-logo-item"><img src="images/developers/tejraj-transparent.png" alt="Tejraj Group"></div>
-      <div class="dev-logo-item"><img src="images/developers/tribeca-transparent.png" alt="Tribeca"></div>
+      <div class="dev-logo-item"><img src="images/developers/godrej-transparent.png" alt="Godrej Properties" width="415" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/mahindra-transparent.png" alt="Mahindra Lifespaces" width="331" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/shapoorji-transparent.png" alt="Shapoorji Pallonji" width="180" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/kohinoor-transparent.png" alt="Kohinoor Group" width="138" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/dlf-transparent.png" alt="DLF" width="221" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/rohan-transparent.png" alt="Rohan Builders" width="346" height="80" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/vtp-transparent.png" alt="VTP Realty" width="96" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/tejraj-transparent.png" alt="Tejraj Group" width="263" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/tribeca-transparent.png" alt="Tribeca" width="100" height="100" loading="lazy" decoding="async"></div>
       <!-- Duplicate for seamless loop -->
-      <div class="dev-logo-item"><img src="images/developers/godrej-transparent.png" alt=""></div>
-      <div class="dev-logo-item"><img src="images/developers/mahindra-transparent.png" alt=""></div>
-      <div class="dev-logo-item"><img src="images/developers/shapoorji-transparent.png" alt=""></div>
-      <div class="dev-logo-item"><img src="images/developers/kohinoor-transparent.png" alt=""></div>
-      <div class="dev-logo-item"><img src="images/developers/dlf-transparent.png" alt=""></div>
-      <div class="dev-logo-item"><img src="images/developers/rohan-transparent.png" alt=""></div>
-      <div class="dev-logo-item"><img src="images/developers/vtp-transparent.png" alt=""></div>
-      <div class="dev-logo-item"><img src="images/developers/tejraj-transparent.png" alt=""></div>
-      <div class="dev-logo-item"><img src="images/developers/tribeca-transparent.png" alt=""></div>
+      <div class="dev-logo-item"><img src="images/developers/godrej-transparent.png" alt="" width="415" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/mahindra-transparent.png" alt="" width="331" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/shapoorji-transparent.png" alt="" width="180" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/kohinoor-transparent.png" alt="" width="138" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/dlf-transparent.png" alt="" width="221" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/rohan-transparent.png" alt="" width="346" height="80" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/vtp-transparent.png" alt="" width="96" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/tejraj-transparent.png" alt="" width="263" height="100" loading="lazy" decoding="async"></div>
+      <div class="dev-logo-item"><img src="images/developers/tribeca-transparent.png" alt="" width="100" height="100" loading="lazy" decoding="async"></div>
     </div>
   </div>
   <div class="container" style="text-align:center;margin-top:2rem;" data-reveal>
@@ -762,11 +762,19 @@
     s.setAttribute('data-label','Talk to us');
     document.body.appendChild(s);
   }
-  // Load well after the initial render — this is a floating chat bubble,
-  // not needed for first paint, and was previously the single biggest
-  // item in the critical network path (config fetch alone took 1.5s+).
-  if (document.readyState === 'complete') { setTimeout(loadVoiceWidget, 2000); }
-  else { window.addEventListener('load', function(){ setTimeout(loadVoiceWidget, 2000); }); }
+  // Floating chat bubble — not needed for first paint, and was previously the
+  // single biggest item in the critical network path (config fetch alone took 1.5s+).
+  // Now deferred until the visitor first interacts (or 20s of idle). The
+  // widget ships a ~10MB orb video, so loading it on every page view cost
+  // ~10MB of bandwidth on mobile before anyone had asked to talk to us.
+  var voiceLoaded = false;
+  function loadOnce(){
+    if (voiceLoaded) return; voiceLoaded = true;
+    ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.removeEventListener(e, loadOnce); });
+    loadVoiceWidget();
+  }
+  ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.addEventListener(e, loadOnce, {passive:true, once:true}); });
+  window.addEventListener('load', function(){ setTimeout(loadOnce, 20000); });
 })();
 </script>
 </body>
