@@ -384,6 +384,17 @@ const LANDMARK_LABELS = [['education', 'Education'], ['business', 'Business & IT
 // header and one paragraph. Real visitors get the same content re-rendered by
 // the client with the full design. Every value comes from the project's own
 // frontmatter / the curated locality content — nothing is invented.
+const CATEGORY_PAGE = { apartment: ['apartments', 'Apartments'], plot: ['plots', 'Plots'], villa: ['villas', 'Villas'], commercial: ['commercial-properties', 'Commercial Properties'] };
+
+// Same target the client renders ("Browse all Apartments in Baner"), so the raw
+// HTML gives every category+locality page a crawlable inbound link from its projects.
+function categoryLink(p) {
+  const c = CATEGORY_PAGE[p.category];
+  if (!c || !p.micro_market || p.status === 'sold-out') return '';
+  const loc = LOCALITY_CONTENT[p.micro_market];
+  return `<p><a href="/${c[0]}-in-${escapeHtml(p.micro_market)}" class="ph-browse-link">Browse all ${c[1]} in ${escapeHtml(loc ? loc.name : p.micro_market)} →</a></p>`;
+}
+
 function buildPrerenderBlock(p, all) {
   const price = priceLabel(p);
   const metaLine = [p.location, p.config, price !== 'Price on Request' ? `Starting from ${price}` : '']
@@ -435,6 +446,7 @@ function buildPrerenderBlock(p, all) {
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">${escapeHtml(metaLine)}</p>
     ${p.overview ? `<p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">${escapeHtml(p.overview)}</p>` : ''}
     ${p.developer_hub ? `<p><a href="${escapeHtml(p.developer_hub)}" class="ph-browse-link">All ${escapeHtml(p.developer)} projects →</a></p>` : ''}
+    ${categoryLink(p)}
     ${snapshotHtml(p)}
     ${sections.join('\n    ')}
   </div>`;

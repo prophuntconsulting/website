@@ -78,7 +78,9 @@ const urls = [];
 STATIC_PAGES.forEach(p => urls.push({ loc: `${SITE}${p.loc}`, lastmod: lastmodFor(p.loc), changefreq: p.changefreq, priority: p.priority }));
 
 properties.forEach(p => {
-  if (!p.url) return;
+  // Sold-out pages stay live (with links to similar projects) but aren't listed:
+  // no inventory, and nothing links to them, so they'd be sitemap-only orphans.
+  if (!p.url || p.status === 'sold-out') return;
   urls.push({
     loc: `${SITE}${p.url}`,
     lastmod: lastmodFor(p.url),

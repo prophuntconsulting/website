@@ -29,6 +29,15 @@ const {
 
 const ROOT = path.join(__dirname, '..');
 
+// Blog posts that actually mention this locality (title, excerpt or tags) —
+// linked from the hub so articles and hubs reinforce each other.
+let BLOG_POSTS = [];
+try { BLOG_POSTS = JSON.parse(fs.readFileSync(path.join(ROOT, 'blog', 'posts.json'), 'utf8')); } catch { /* no blog index yet */ }
+function relatedPosts(locality) {
+  const needle = new RegExp('\\b' + locality.name.replace(/[^a-z0-9 ]/gi, '') + '\\b', 'i');
+  return BLOG_POSTS.filter(p => needle.test([p.title, p.excerpt, (p.tags || []).join(' ')].join(' ')));
+}
+
 function extractBHK(cfg) {
   if (!cfg) return [];
   return (cfg.match(/[\d.]+/g) || []).map(Number);
@@ -147,6 +156,16 @@ ${locality.landmarks && Object.keys(locality.landmarks).length ? `
     <div class="loc-faq-list">${faqAccordion(locality.faqs || [])}</div>
   </div>
 </section>
+
+${relatedPosts(locality).length ? `
+<section class="section">
+  <div class="container">
+    <span class="section-label"><i class="fas fa-book-open"></i> Related Reading</span>
+    <h2 class="section-title">Guides Mentioning ${escapeHtml(locality.name)}</h2>
+    <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>
+    <ul class="loc-guide-list">${relatedPosts(locality).map(p => `<li><a href="${escapeHtml(p.url)}">${escapeHtml(p.title)}</a></li>`).join('')}</ul>
+  </div>
+</section>` : ''}
 
 <section class="section">
   <div class="container">

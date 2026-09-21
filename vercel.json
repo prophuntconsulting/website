@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/blog/2025-06-27-pune-real-estate-market-h1-2025", "destination": "/blog/pune-real-estate-market-h1-2025", "permanent": true },
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/home/", "destination": "/", "permanent": true },
     { "source": "/index.php", "destination": "/", "permanent": true },
