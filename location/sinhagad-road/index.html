@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YR6CRE6BNN');
+  // gtag.js (~170KB) loads after the page has finished loading so it can't compete with
+  // first paint; the calls above queue in dataLayer and are sent when it arrives.
+  (function(){
+    var load = function(){ var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN'; document.head.appendChild(s); };
+    if (document.readyState === 'complete') setTimeout(load, 1500);
+    else window.addEventListener('load', function(){ setTimeout(load, 1500); });
+  })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Properties in Sinhagad Road, Pune | PROPHUNT LLP</title>
@@ -27,12 +33,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Locations","item":"https://www.prophuntllp.com/location"},{"@type":"ListItem","position":3,"name":"Sinhagad Road","item":"https://www.prophuntllp.com/location/sinhagad-road"}]},{"@type":"ItemList","name":"Properties in Sinhagad Road, Pune | PROPHUNT LLP","description":"1 curated projects in Sinhagad Road, Pune from Kalpataru. Prices around ₹1.75 Cr. Curated listings with MahaRERA details, by PROPHUNT LLP.","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"name":"Kalpataru Blossoms","item":"https://www.prophuntllp.com/projects/kalpataru-blossoms"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is Sinhagad Road located?","acceptedAnswer":{"@type":"Answer","text":"Sinhagad Road is an established residential corridor in south Pune, leading towards the historic Sinhagad Fort, and is popular with buyers who work in south and central Pune rather than the western IT belt."}},{"@type":"Question","name":"What makes Sinhagad Road attractive to homebuyers?","acceptedAnswer":{"@type":"Answer","text":"The area offers a more settled, established residential character with reasonable pricing relative to the western corridor, along with proximity to south Pune’s commercial and educational institutions."}}]}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <meta name="theme-color" content="#C8362B">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+<link rel="stylesheet" href="/css/vendor.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/pages.css">
 <style>
@@ -146,7 +147,7 @@
     <div class="loc-grid">
     <a href="/projects/kalpataru-blossoms" class="prop-card" aria-label="View Details: Kalpataru Blossoms">
       <div class="prop-card-img">
-        <div><img src="/images/landing-pages/kalpataru-blossoms/tower-dusk-view.jpg" alt="Kalpataru Blossoms" width="600" height="372" loading="lazy" decoding="async"></div>
+        <div><img src="/images/thumbs/kalpataru-blossoms.webp" alt="Kalpataru Blossoms" width="600" height="372" loading="lazy" decoding="async"></div>
         <div class="prop-card-badge"><span class="badge badge-red">Kalpataru</span><span class="badge badge-outline" style="font-size:.68rem;padding:.2rem .55rem;background:rgba(255,255,255,.92)">Under Construction</span></div>
         <div class="prop-card-price">₹1.75 Cr*</div>
       </div>

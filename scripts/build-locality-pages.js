@@ -102,7 +102,7 @@ function renderProjectCard(p) {
   return `
     <a href="${p.url}" class="prop-card" aria-label="View Details: ${escapeHtml(p.title)}">
       <div class="prop-card-img">
-        <div>${p.cover ? `<img src="${escapeHtml(p.cover)}" alt="${escapeHtml(p.title || '')}" width="600" height="372" loading="lazy" decoding="async">` : `<span class="prop-card-img-empty"><i class="fas fa-${icon}"></i></span>`}</div>
+        <div>${p.cover ? `<img src="${escapeHtml(p.thumb || p.cover)}" alt="${escapeHtml(p.title || '')}" width="600" height="372" loading="lazy" decoding="async">` : `<span class="prop-card-img-empty"><i class="fas fa-${icon}"></i></span>`}</div>
         <div class="prop-card-badge"><span class="badge badge-red">${escapeHtml(p.developer || '')}</span>${statusBadge}</div>
         <div class="prop-card-price">${priceLabel(p)}</div>
       </div>
@@ -172,12 +172,18 @@ function buildPage({ slug, url, meta, locality, bucket, matches }) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YR6CRE6BNN');
+  // gtag.js (~170KB) loads after the page has finished loading so it can't compete with
+  // first paint; the calls above queue in dataLayer and are sent when it arrives.
+  (function(){
+    var load = function(){ var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN'; document.head.appendChild(s); };
+    if (document.readyState === 'complete') setTimeout(load, 1500);
+    else window.addEventListener('load', function(){ setTimeout(load, 1500); });
+  })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(fullTitle)}</title>
@@ -197,12 +203,7 @@ function buildPage({ slug, url, meta, locality, bucket, matches }) {
 <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <meta name="theme-color" content="#C8362B">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+<link rel="stylesheet" href="/css/vendor.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/pages.css">
 <style>

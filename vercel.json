@@ -1,24 +1,112 @@
 {
   "redirects": [
-    { "source": "/blog/2025-06-27-pune-real-estate-market-h1-2025", "destination": "/blog/pune-real-estate-market-h1-2025", "permanent": true },
-    { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/home/", "destination": "/", "permanent": true },
-    { "source": "/index.php", "destination": "/", "permanent": true },
-    { "source": "/index.php/home", "destination": "/", "permanent": true },
-    { "source": "/treetopia-jadhavwadi", "destination": "/projects/treetopia", "permanent": true },
-    { "source": "/treetopia-jadhavwadi/", "destination": "/projects/treetopia", "permanent": true },
-    { "source": "/treetopia-jadhavwadi-plots", "destination": "/projects/treetopia", "permanent": true },
-    { "source": "/treetopia-jadhavwadi-plots/", "destination": "/projects/treetopia", "permanent": true },
-    { "source": "/about-us", "destination": "/about", "permanent": true },
-    { "source": "/about-us/", "destination": "/about", "permanent": true },
-    { "source": "/blog-1", "destination": "/blog", "permanent": true },
-    { "source": "/blog-1/", "destination": "/blog", "permanent": true },
-    { "source": "/property-details", "destination": "/projects", "permanent": true },
-    { "source": "/property-details/", "destination": "/projects", "permanent": true },
-    { "source": "/treetopia-thank-you", "destination": "/projects/treetopia", "permanent": true },
-    { "source": "/treetopia-thank-you/", "destination": "/projects/treetopia", "permanent": true }
+    {
+      "source": "/blog/2025-06-27-pune-real-estate-market-h1-2025",
+      "destination": "/blog/pune-real-estate-market-h1-2025",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/treetopia-jadhavwadi",
+      "destination": "/projects/treetopia",
+      "permanent": true
+    },
+    {
+      "source": "/treetopia-jadhavwadi/",
+      "destination": "/projects/treetopia",
+      "permanent": true
+    },
+    {
+      "source": "/treetopia-jadhavwadi-plots",
+      "destination": "/projects/treetopia",
+      "permanent": true
+    },
+    {
+      "source": "/treetopia-jadhavwadi-plots/",
+      "destination": "/projects/treetopia",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/blog-1",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog-1/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/property-details",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/property-details/",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/treetopia-thank-you",
+      "destination": "/projects/treetopia",
+      "permanent": true
+    },
+    {
+      "source": "/treetopia-thank-you/",
+      "destination": "/projects/treetopia",
+      "permanent": true
+    }
   ],
   "cleanUrls": true,
   "trailingSlash": false,
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
+  ]
 }

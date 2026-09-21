@@ -13,12 +13,18 @@
 <meta name="theme-color" content="#C8362B">
 <meta charset="utf-8">
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YR6CRE6BNN');
+  // gtag.js (~170KB) loads after the page has finished loading so it can't compete with
+  // first paint; the calls above queue in dataLayer and are sent when it arrives.
+  (function(){
+    var load = function(){ var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN'; document.head.appendChild(s); };
+    if (document.readyState === 'complete') setTimeout(load, 1500);
+    else window.addEventListener('load', function(){ setTimeout(load, 1500); });
+  })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mahindra Citadel | 2 & 3 BHK Homes in Pimpri, Pune</title>

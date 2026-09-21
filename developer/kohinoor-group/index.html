@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YR6CRE6BNN');
+  // gtag.js (~170KB) loads after the page has finished loading so it can't compete with
+  // first paint; the calls above queue in dataLayer and are sent when it arrives.
+  (function(){
+    var load = function(){ var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN'; document.head.appendChild(s); };
+    if (document.readyState === 'complete') setTimeout(load, 1500);
+    else window.addEventListener('load', function(){ setTimeout(load, 1500); });
+  })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kohinoor Group Projects in Pune | PROPHUNT LLP</title>
@@ -27,12 +33,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Developers","item":"https://www.prophuntllp.com/developer"},{"@type":"ListItem","position":3,"name":"Kohinoor Group","item":"https://www.prophuntllp.com/developer/kohinoor-group"}]},{"@type":"ItemList","name":"Kohinoor Group Projects in Pune | PROPHUNT LLP","numberOfItems":3,"itemListElement":[{"@type":"ListItem","position":1,"name":"Kohinoor Avantara","item":"https://www.prophuntllp.com/projects/kohinoor-avantara"},{"@type":"ListItem","position":2,"name":"Kohinoor Regalia Towers","item":"https://www.prophuntllp.com/projects/kohinoor-regalia-towers"},{"@type":"ListItem","position":3,"name":"Kohinoor Westview Reserve","item":"https://www.prophuntllp.com/projects/kohinoor-westview-reserve"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many Kohinoor Group projects does PROPHUNT LLP list?","acceptedAnswer":{"@type":"Answer","text":"PROPHUNT LLP currently lists 3 live Kohinoor Group projects: Kohinoor Avantara, Kohinoor Regalia Towers, Kohinoor Westview Reserve. Availability changes, so confirm the latest inventory with our advisory team."}},{"@type":"Question","name":"Where are the Kohinoor Group projects PROPHUNT LLP lists?","acceptedAnswer":{"@type":"Answer","text":"The Kohinoor Group projects listed on PROPHUNT LLP are in Wakad."}},{"@type":"Question","name":"Are Kohinoor Group projects registered under MahaRERA?","acceptedAnswer":{"@type":"Answer","text":"A MahaRERA project registration number is listed on PROPHUNT LLP for all 3 Kohinoor Group projects shown here. Verify each one independently on the official MahaRERA portal before booking."}},{"@type":"Question","name":"Do I pay PROPHUNT LLP to view or buy Kohinoor Group projects?","acceptedAnswer":{"@type":"Answer","text":"PROPHUNT LLP's property discovery, project comparison and site-visit advisory is available at no direct cost to buyers. Optional third-party legal or specialist services may involve separately disclosed fees."}}]}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <meta name="theme-color" content="#C8362B">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+<link rel="stylesheet" href="/css/vendor.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/pages.css">
 <style>
@@ -142,7 +143,7 @@
     <div class="loc-grid">
     <a href="/projects/kohinoor-avantara" class="prop-card" aria-label="View Details: Kohinoor Avantara">
       <div class="prop-card-img">
-        <div><img src="/images/landing-pages/kohinoor-avantara/photo-1.webp" alt="Kohinoor Avantara" width="600" height="372" loading="lazy" decoding="async"></div>
+        <div><img src="/images/thumbs/kohinoor-avantara.webp" alt="Kohinoor Avantara" width="600" height="372" loading="lazy" decoding="async"></div>
         <div class="prop-card-badge"><span class="badge badge-red">Kohinoor Group</span><span class="badge badge-outline" style="font-size:.68rem;padding:.2rem .55rem;background:rgba(255,255,255,.92)">Under Construction</span></div>
         <div class="prop-card-price">Price on Request</div>
       </div>
@@ -162,7 +163,7 @@
     </a>
     <a href="/projects/kohinoor-regalia-towers" class="prop-card" aria-label="View Details: Kohinoor Regalia Towers">
       <div class="prop-card-img">
-        <div><img src="/images/landing-pages/kohinoor-regalia-towers/photo-1.webp" alt="Kohinoor Regalia Towers" width="600" height="372" loading="lazy" decoding="async"></div>
+        <div><img src="/images/thumbs/kohinoor-regalia-towers.webp" alt="Kohinoor Regalia Towers" width="600" height="372" loading="lazy" decoding="async"></div>
         <div class="prop-card-badge"><span class="badge badge-red">Kohinoor Group</span><span class="badge badge-outline" style="font-size:.68rem;padding:.2rem .55rem;background:rgba(255,255,255,.92)">Under Construction</span></div>
         <div class="prop-card-price">Price on Request</div>
       </div>
@@ -182,7 +183,7 @@
     </a>
     <a href="/projects/kohinoor-westview-reserve" class="prop-card" aria-label="View Details: Kohinoor Westview Reserve">
       <div class="prop-card-img">
-        <div><img src="/images/landing-pages/kohinoor-westview-reserve/photo-1.webp" alt="Kohinoor Westview Reserve" width="600" height="372" loading="lazy" decoding="async"></div>
+        <div><img src="/images/thumbs/kohinoor-westview-reserve.webp" alt="Kohinoor Westview Reserve" width="600" height="372" loading="lazy" decoding="async"></div>
         <div class="prop-card-badge"><span class="badge badge-red">Kohinoor Group</span><span class="badge badge-outline" style="font-size:.68rem;padding:.2rem .55rem;background:rgba(255,255,255,.92)">Under Construction</span></div>
         <div class="prop-card-price">Price on Request</div>
       </div>

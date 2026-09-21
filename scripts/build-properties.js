@@ -93,7 +93,7 @@ function renderProjectCard(p) {
   return `
         <a href="${p.url}" ${linkAttrs} class="prop-card" data-category="${p.category}" aria-label="${linkLabel}: ${p.title}">
           <div class="prop-card-img">
-            <div>${p.cover ? `<img src="${escapeHtml(p.cover)}" alt="${escapeHtml(p.title || '')}" width="600" height="372" loading="lazy" decoding="async">` : `<span class="prop-card-img-empty"><i class="fas fa-${icon}"></i></span>`}</div>
+            <div>${p.cover ? `<img src="${escapeHtml(p.thumb || p.cover)}" alt="${escapeHtml(p.title || '')}" width="600" height="372" loading="lazy" decoding="async">` : `<span class="prop-card-img-empty"><i class="fas fa-${icon}"></i></span>`}</div>
             <div class="prop-card-badge"><span class="badge badge-red">${p.developer}</span>${statusBadge}</div>
             <div class="prop-card-price">${priceLbl}</div>
           </div>
@@ -460,7 +460,11 @@ const properties = files.map(file => {
   const { data, body } = parseFrontmatter(raw);
   const url   = data.url || `/projects/${slug}`;
   const cover = data.cover || data.hero_1 || '';
-  const merged = { slug, ...data, cover, url, body: body || '' };
+  // Card thumbnail (640w WebP) when one exists in images/thumbs/ — cards use it instead of
+  // the full-size cover (which is 1-2MB-class for a ~400px slot). Full cover stays for the
+  // project page hero and og:image.
+  const thumb = fs.existsSync(path.join(__dirname, '..', 'images', 'thumbs', `${slug}.webp`)) ? `/images/thumbs/${slug}.webp` : '';
+  const merged = { slug, ...data, cover, thumb, url, body: body || '' };
 
   const micro_market = getMicroMarket(data.location);
   const locality = LOCALITY_CONTENT[micro_market] || null;

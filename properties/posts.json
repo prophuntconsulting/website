@@ -49,6 +49,7 @@
       "/images/landing-pages/24k-altura/photo-4.webp"
     ],
     "cover": "/images/landing-pages/24k-altura/photo-1.webp",
+    "thumb": "/images/thumbs/24k-altura.webp",
     "url": "/projects/24k-altura",
     "body": "",
     "micro_market": "baner",
@@ -108,6 +109,7 @@
       "/images/landing-pages/abil-imperial-atria/photo-6.webp"
     ],
     "cover": "/images/landing-pages/abil-imperial-atria/photo-1.webp",
+    "thumb": "/images/thumbs/abil-imperial-atria.webp",
     "url": "/projects/abil-imperial-atria",
     "body": "",
     "micro_market": "baner",
@@ -161,6 +163,7 @@
       "/images/landing-pages/anp-bizsquare/photo-5.jpg"
     ],
     "cover": "/images/landing-pages/anp-bizsquare/photo-1.jpg",
+    "thumb": "/images/thumbs/anp-bizsquare.webp",
     "url": "/projects/anp-bizsquare",
     "body": "",
     "micro_market": "wakad",
@@ -214,6 +217,7 @@
       "/images/landing-pages/anp-landmark/photo-5.jpg"
     ],
     "cover": "/images/landing-pages/anp-landmark/photo-1.jpg",
+    "thumb": "/images/thumbs/anp-landmark.webp",
     "url": "/projects/anp-landmark",
     "body": "",
     "micro_market": "wakad",
@@ -271,6 +275,7 @@
       "/images/landing-pages/anp-memento/photo-5.jpg"
     ],
     "cover": "/images/landing-pages/anp-memento/photo-1.jpg",
+    "thumb": "/images/thumbs/anp-memento.webp",
     "url": "/projects/anp-memento",
     "body": "",
     "micro_market": "wakad",
@@ -326,6 +331,7 @@
       "/images/landing-pages/anp-privado/photo-6.webp"
     ],
     "cover": "/images/landing-pages/anp-privado/photo-1.webp",
+    "thumb": "/images/thumbs/anp-privado.webp",
     "url": "/projects/anp-privado",
     "body": "",
     "micro_market": "baner",
@@ -383,6 +389,7 @@
       "/images/landing-pages/anp-retreat/photo-6.jpg"
     ],
     "cover": "/images/landing-pages/anp-retreat/photo-1.jpg",
+    "thumb": "/images/thumbs/anp-retreat.webp",
     "url": "/projects/anp-retreat",
     "body": "",
     "micro_market": "wakad",
@@ -439,6 +446,7 @@
       "/images/landing-pages/anp-ultimus/photo-5.jpg"
     ],
     "cover": "/images/landing-pages/anp-ultimus/photo-1.jpg",
+    "thumb": "/images/thumbs/anp-ultimus.webp",
     "url": "/projects/anp-ultimus",
     "body": "",
     "micro_market": "wakad",
@@ -506,6 +514,7 @@
       "/images/landing-pages/ashok-villas/site-walkthrough.mp4"
     ],
     "cover": "/images/landing-pages/ashok-villas/row-villas-exterior.jpg",
+    "thumb": "/images/thumbs/ashokvillas.webp",
     "url": "/projects/ashokvillas",
     "body": "",
     "micro_market": "ravet-gahunje",
@@ -555,6 +564,7 @@
       "/images/landing-pages/city-avenue-wakad/photo-3.webp"
     ],
     "cover": "/images/landing-pages/city-avenue-wakad/photo-1.webp",
+    "thumb": "/images/thumbs/city-avenue-wakad.webp",
     "url": "/projects/city-avenue-wakad",
     "body": "",
     "micro_market": "wakad",
@@ -581,6 +591,7 @@
     "stat_2_label": "Micro-Market",
     "price": 0,
     "cover": "/images/landing-pages/eon-west-2/photo-1.webp",
+    "thumb": "/images/thumbs/eon-west-2.webp",
     "url": "/projects/eon-west-2",
     "body": "",
     "micro_market": "wakad",
@@ -643,6 +654,7 @@
       "Café Lounge"
     ],
     "cover": "/images/projects/godrej-river-royale.jpg",
+    "thumb": "/images/thumbs/godrej-river-royale.webp",
     "url": "/projects/godrej-river-royale",
     "body": "",
     "micro_market": "baner",
@@ -698,6 +710,7 @@
       "/images/landing-pages/greenfinity-wakad/photo-6.webp"
     ],
     "cover": "/images/landing-pages/greenfinity-wakad/photo-1.webp",
+    "thumb": "/images/thumbs/greenfinity-wakad.webp",
     "url": "/projects/greenfinity-wakad",
     "body": "",
     "micro_market": "wakad",
@@ -761,6 +774,7 @@
       "/images/landing-pages/kalpataru-aria/fitness-park.jpg"
     ],
     "cover": "/images/landing-pages/kalpataru-aria/masterplan-aerial.jpg",
+    "thumb": "/images/thumbs/kalpataru-aria.webp",
     "url": "/projects/kalpataru-aria",
     "body": "",
     "micro_market": "karjat",
@@ -827,6 +841,7 @@
       "/images/landing-pages/kalpataru-blossoms/living-dining.jpg"
     ],
     "cover": "/images/landing-pages/kalpataru-blossoms/tower-dusk-view.jpg",
+    "thumb": "/images/thumbs/kalpataru-blossoms.webp",
     "url": "/projects/kalpataru-blossoms",
     "body": "",
     "micro_market": "sinhagad-road",
@@ -883,6 +898,7 @@
       "Row Houses & Education Spaces"
     ],
     "cover": "/images/landing-pages/khopoli/hero-vision.jpg",
+    "thumb": "/images/thumbs/khopoli.webp",
     "url": "/projects/khopoli",
     "body": "",
     "micro_market": "khopoli",
@@ -946,6 +962,7 @@
       "/images/landing-pages/kings-county-wakad/photo-8.webp"
     ],
     "cover": "/images/landing-pages/kings-county-wakad/photo-1.webp",
+    "thumb": "/images/thumbs/kings-county-wakad.webp",
     "url": "/projects/kings-county-wakad",
     "body": "",
     "micro_market": "wakad",
@@ -1002,6 +1019,7 @@
       "/images/landing-pages/kohinoor-avantara/photo-4.webp"
     ],
     "cover": "/images/landing-pages/kohinoor-avantara/photo-1.webp",
+    "thumb": "/images/thumbs/kohinoor-avantara.webp",
     "url": "/projects/kohinoor-avantara",
     "body": "",
     "micro_market": "wakad",
@@ -1056,6 +1074,7 @@
       "/images/landing-pages/kohinoor-regalia-towers/photo-7.webp"
     ],
     "cover": "/images/landing-pages/kohinoor-regalia-towers/photo-1.webp",
+    "thumb": "/images/thumbs/kohinoor-regalia-towers.webp",
     "url": "/projects/kohinoor-regalia-towers",
     "body": "",
     "micro_market": "wakad",
@@ -1117,6 +1136,7 @@
       "/images/landing-pages/kohinoor-westview-reserve/photo-6.webp"
     ],
     "cover": "/images/landing-pages/kohinoor-westview-reserve/photo-1.webp",
+    "thumb": "/images/thumbs/kohinoor-westview-reserve.webp",
     "url": "/projects/kohinoor-westview-reserve",
     "body": "",
     "micro_market": "wakad",
@@ -1171,6 +1191,7 @@
       "/images/landing-pages/kumar-panache/photo-6.webp"
     ],
     "cover": "/images/landing-pages/kumar-panache/photo-1.webp",
+    "thumb": "/images/thumbs/kumar-panache.webp",
     "url": "/projects/kumar-panache",
     "body": "",
     "micro_market": "baner",
@@ -1227,6 +1248,7 @@
       "/images/landing-pages/kumar-parth-towers/photo-6.webp"
     ],
     "cover": "/images/landing-pages/kumar-parth-towers/photo-1.webp",
+    "thumb": "/images/thumbs/kumar-parth-towers.webp",
     "url": "/projects/kumar-parth-towers",
     "body": "",
     "micro_market": "baner",
@@ -1281,6 +1303,7 @@
       "/images/landing-pages/livience-unione/photo-6.webp"
     ],
     "cover": "/images/landing-pages/livience-unione/photo-1.webp",
+    "thumb": "/images/thumbs/livience-unione.webp",
     "url": "/projects/livience-unione",
     "body": "",
     "micro_market": "baner",
@@ -1337,6 +1360,7 @@
       "/images/landing-pages/lodha-altero/photo-6.webp"
     ],
     "cover": "/images/landing-pages/lodha-altero/photo-1.webp",
+    "thumb": "/images/thumbs/lodha-altero.webp",
     "url": "/projects/lodha-altero",
     "body": "",
     "micro_market": "wakad",
@@ -1390,6 +1414,7 @@
       "/images/landing-pages/lodha-massimo/entrance-close-up.webp"
     ],
     "cover": "/images/landing-pages/lodha-massimo/entrance-night-view.webp",
+    "thumb": "/images/thumbs/lodha-massimo.webp",
     "url": "/projects/lodha-massimo",
     "body": "",
     "micro_market": "baner",
@@ -1445,6 +1470,7 @@
       "Pet Park"
     ],
     "cover": "/images/landing-pages/mahindra-citadel/hero-tower.jpg",
+    "thumb": "/images/thumbs/mahindra-citadel.webp",
     "url": "/projects/mahindra-citadel",
     "body": "",
     "micro_market": "pimpri-chinchwad",
@@ -1487,6 +1513,7 @@
     "unit_3_price": "₹2.17 Cr Onwards*",
     "unit_3_featured": false,
     "cover": "/images/landing-pages/mahindra-mahalunge/banner.jpg",
+    "thumb": "/images/thumbs/mahindra-mahalunge.webp",
     "url": "/projects/mahindra-mahalunge",
     "body": "",
     "micro_market": "mahalunge",
@@ -1543,6 +1570,7 @@
       "/images/landing-pages/majestique-elements/photo-6.webp"
     ],
     "cover": "/images/landing-pages/majestique-elements/photo-1.webp",
+    "thumb": "/images/thumbs/majestique-elements.webp",
     "url": "/projects/majestique-elements",
     "body": "",
     "micro_market": "baner",
@@ -1604,6 +1632,7 @@
       "/images/landing-pages/merlin-ventana/photo-6.webp"
     ],
     "cover": "/images/landing-pages/merlin-ventana/photo-1.webp",
+    "thumb": "/images/thumbs/merlin-ventana.webp",
     "url": "/projects/merlin-ventana",
     "body": "",
     "micro_market": "baner",
@@ -1657,6 +1686,7 @@
       "/images/landing-pages/millennium-towers-wakad/photo-6.webp"
     ],
     "cover": "/images/landing-pages/millennium-towers-wakad/photo-1.webp",
+    "thumb": "/images/thumbs/millennium-towers-wakad.webp",
     "url": "/projects/millennium-towers-wakad",
     "body": "",
     "micro_market": "wakad",
@@ -1718,6 +1748,7 @@
       "/images/landing-pages/neoliv-grand-forest-prive/site-walkthrough-2.mp4"
     ],
     "cover": "/images/landing-pages/neoliv-grand-forest-prive/site-progress-1.jpg",
+    "thumb": "/images/thumbs/neoliv-grand-forest-prive.webp",
     "url": "/projects/neoliv-grand-forest-prive",
     "body": "",
     "micro_market": "khopoli",
@@ -1777,6 +1808,7 @@
       "/images/landing-pages/nyati-emerald/photo-6.webp"
     ],
     "cover": "/images/landing-pages/nyati-emerald/photo-1.webp",
+    "thumb": "/images/thumbs/nyati-emerald.webp",
     "url": "/projects/nyati-emerald",
     "body": "",
     "micro_market": "baner",
@@ -1829,6 +1861,7 @@
       "/images/landing-pages/regency-astra/photo-6.webp"
     ],
     "cover": "/images/landing-pages/regency-astra/photo-1.webp",
+    "thumb": "/images/thumbs/regency-astra.webp",
     "url": "/projects/regency-astra",
     "body": "",
     "micro_market": "baner",
@@ -1879,6 +1912,7 @@
       "/images/landing-pages/rohan-viti/photo-6.webp"
     ],
     "cover": "/images/landing-pages/rohan-viti/photo-1.webp",
+    "thumb": "/images/thumbs/rohan-viti.webp",
     "url": "/projects/rohan-viti",
     "body": "",
     "micro_market": "wakad",
@@ -1929,6 +1963,7 @@
       "/images/landing-pages/supreme-estia/photo-6.webp"
     ],
     "cover": "/images/landing-pages/supreme-estia/photo-1.webp",
+    "thumb": "/images/thumbs/supreme-estia.webp",
     "url": "/projects/supreme-estia",
     "body": "",
     "micro_market": "baner",
@@ -1983,6 +2018,7 @@
       "/images/landing-pages/tej-elevia/photo-6.webp"
     ],
     "cover": "/images/landing-pages/tej-elevia/photo-1.webp",
+    "thumb": "/images/thumbs/tej-elevia.webp",
     "url": "/projects/tej-elevia",
     "body": "",
     "micro_market": "baner",
@@ -2041,6 +2077,7 @@
       "/images/landing-pages/the-arena-pimpri/teaser.mp4"
     ],
     "cover": "/images/landing-pages/the-arena-pimpri/tower-view-1.jpg",
+    "thumb": "/images/thumbs/the-arena-pimpri.webp",
     "url": "/projects/the-arena-pimpri",
     "body": "",
     "micro_market": "pimpri-chinchwad",
@@ -2097,6 +2134,7 @@
       "/images/landing-pages/the-balmoral-hillside/photo-5.webp"
     ],
     "cover": "/images/landing-pages/the-balmoral-hillside/photo-1.webp",
+    "thumb": "/images/thumbs/the-balmoral-hillside.webp",
     "url": "/projects/the-balmoral-hillside",
     "body": "",
     "micro_market": "baner",
@@ -2151,6 +2189,7 @@
       "/images/landing-pages/the-ornate-baner/photo-6.webp"
     ],
     "cover": "/images/landing-pages/the-ornate-baner/photo-1.webp",
+    "thumb": "/images/thumbs/the-ornate-baner.webp",
     "url": "/projects/the-ornate-baner",
     "body": "",
     "micro_market": "baner",
@@ -2208,6 +2247,7 @@
       "Landscaped Greenery"
     ],
     "cover": "/images/landing-pages/treetopia/Untitled-design-10.png",
+    "thumb": "/images/thumbs/treetopia.webp",
     "url": "/projects/treetopia",
     "body": "",
     "micro_market": "hadapsar",
@@ -2260,6 +2300,7 @@
       "/images/landing-pages/venkatesh-tresor/photo-6.webp"
     ],
     "cover": "/images/landing-pages/venkatesh-tresor/photo-1.webp",
+    "thumb": "/images/thumbs/venkatesh-tresor.webp",
     "url": "/projects/venkatesh-tresor",
     "body": "",
     "micro_market": "baner",
@@ -2311,6 +2352,7 @@
       "/images/landing-pages/vtp-altitude/photo-3.avif"
     ],
     "cover": "/images/landing-pages/vtp-altitude/photo-1.webp",
+    "thumb": "/images/thumbs/vtp-altitude.webp",
     "url": "/projects/vtp-altitude",
     "body": "",
     "micro_market": "wakad",
@@ -2365,6 +2407,7 @@
       "/images/landing-pages/western-avenue-wakad/photo-6.webp"
     ],
     "cover": "/images/landing-pages/western-avenue-wakad/photo-1.webp",
+    "thumb": "/images/thumbs/western-avenue-wakad.webp",
     "url": "/projects/western-avenue-wakad",
     "body": "",
     "micro_market": "wakad",
@@ -2421,6 +2464,7 @@
       "/images/landing-pages/yashwin-urbo-centro/photo-4.webp"
     ],
     "cover": "/images/landing-pages/yashwin-urbo-centro/photo-1.webp",
+    "thumb": "/images/thumbs/yashwin-urbo-centro.webp",
     "url": "/projects/yashwin-urbo-centro",
     "body": "",
     "micro_market": "wakad",

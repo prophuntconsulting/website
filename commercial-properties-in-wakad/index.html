@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YR6CRE6BNN');
+  // gtag.js (~170KB) loads after the page has finished loading so it can't compete with
+  // first paint; the calls above queue in dataLayer and are sent when it arrives.
+  (function(){
+    var load = function(){ var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN'; document.head.appendChild(s); };
+    if (document.readyState === 'complete') setTimeout(load, 1500);
+    else window.addEventListener('load', function(){ setTimeout(load, 1500); });
+  })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Commercial Properties in Wakad, Pune | PROPHUNT LLP</title>
@@ -27,12 +33,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"Commercial Properties in Wakad, Pune","item":"https://www.prophuntllp.com/commercial-properties-in-wakad"}]},{"@type":"ItemList","name":"Commercial Properties in Wakad, Pune","description":"Explore 6 curated commercial properties in Wakad, Pune from ANP Corp, Kolte-Patil Developers, Panchshil Realty and more. Prices available on request. Curated listings with MahaRERA details, by PROPHUNT LLP.","numberOfItems":6,"itemListElement":[{"@type":"ListItem","position":1,"name":"ANP Bizsquare","item":"https://www.prophuntllp.com/projects/anp-bizsquare"},{"@type":"ListItem","position":2,"name":"ANP Landmark","item":"https://www.prophuntllp.com/projects/anp-landmark"},{"@type":"ListItem","position":3,"name":"City Avenue","item":"https://www.prophuntllp.com/projects/city-avenue-wakad"},{"@type":"ListItem","position":4,"name":"EON West II","item":"https://www.prophuntllp.com/projects/eon-west-2"},{"@type":"ListItem","position":5,"name":"Millennium Towers","item":"https://www.prophuntllp.com/projects/millennium-towers-wakad"},{"@type":"ListItem","position":6,"name":"VTP Altitude","item":"https://www.prophuntllp.com/projects/vtp-altitude"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many commercial properties are available in Wakad?","acceptedAnswer":{"@type":"Answer","text":"PROPHUNT LLP currently lists 6 curated commercial properties in Wakad, Pune."}},{"@type":"Question","name":"What is the price range for commercial properties in Wakad?","acceptedAnswer":{"@type":"Answer","text":"Commercial Properties in Wakad are priced available on request. Contact PROPHUNT LLP for the latest pricing and payment plans."}},{"@type":"Question","name":"Which developers are building commercial properties in Wakad?","acceptedAnswer":{"@type":"Answer","text":"Commercial Properties in Wakad are being developed by ANP Corp, Kolte-Patil Developers, Panchshil Realty and more."}}]}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <meta name="theme-color" content="#C8362B">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+<link rel="stylesheet" href="/css/vendor.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/pages.css">
 <style>
@@ -121,7 +122,7 @@
     <div class="loc-grid">
     <a href="/projects/anp-bizsquare" class="prop-card" aria-label="View Details: ANP Bizsquare">
       <div class="prop-card-img">
-        <div><img src="/images/landing-pages/anp-bizsquare/photo-1.jpg" alt="ANP Bizsquare" width="600" height="372" loading="lazy" decoding="async"></div>
+        <div><img src="/images/thumbs/anp-bizsquare.webp" alt="ANP Bizsquare" width="600" height="372" loading="lazy" decoding="async"></div>
         <div class="prop-card-badge"><span class="badge badge-red">ANP Corp</span></div>
         <div class="prop-card-price">Price on Request</div>
       </div>
@@ -141,7 +142,7 @@
     </a>
     <a href="/projects/anp-landmark" class="prop-card" aria-label="View Details: ANP Landmark">
       <div class="prop-card-img">
-        <div><img src="/images/landing-pages/anp-landmark/photo-1.jpg" alt="ANP Landmark" width="600" height="372" loading="lazy" decoding="async"></div>
+        <div><img src="/images/thumbs/anp-landmark.webp" alt="ANP Landmark" width="600" height="372" loading="lazy" decoding="async"></div>
         <div class="prop-card-badge"><span class="badge badge-red">ANP Corp</span></div>
         <div class="prop-card-price">Price on Request</div>
       </div>
@@ -161,7 +162,7 @@
     </a>
     <a href="/projects/city-avenue-wakad" class="prop-card" aria-label="View Details: City Avenue">
       <div class="prop-card-img">
-        <div><img src="/images/landing-pages/city-avenue-wakad/photo-1.webp" alt="City Avenue" width="600" height="372" loading="lazy" decoding="async"></div>
+        <div><img src="/images/thumbs/city-avenue-wakad.webp" alt="City Avenue" width="600" height="372" loading="lazy" decoding="async"></div>
         <div class="prop-card-badge"><span class="badge badge-red">Kolte-Patil Developers</span></div>
         <div class="prop-card-price">Price on Request</div>
       </div>
@@ -181,7 +182,7 @@
     </a>
     <a href="/projects/eon-west-2" class="prop-card" aria-label="View Details: EON West II">
       <div class="prop-card-img">
-        <div><img src="/images/landing-pages/eon-west-2/photo-1.webp" alt="EON West II" width="600" height="372" loading="lazy" decoding="async"></div>
+        <div><img src="/images/thumbs/eon-west-2.webp" alt="EON West II" width="600" height="372" loading="lazy" decoding="async"></div>
         <div class="prop-card-badge"><span class="badge badge-red">Panchshil Realty</span></div>
         <div class="prop-card-price">Price on Request</div>
       </div>
@@ -201,7 +202,7 @@
     </a>
     <a href="/projects/millennium-towers-wakad" class="prop-card" aria-label="View Details: Millennium Towers">
       <div class="prop-card-img">
-        <div><img src="/images/landing-pages/millennium-towers-wakad/photo-1.webp" alt="Millennium Towers" width="600" height="372" loading="lazy" decoding="async"></div>
+        <div><img src="/images/thumbs/millennium-towers-wakad.webp" alt="Millennium Towers" width="600" height="372" loading="lazy" decoding="async"></div>
         <div class="prop-card-badge"><span class="badge badge-red">The Phoenix Mills Ltd.</span></div>
         <div class="prop-card-price">Price on Request</div>
       </div>
@@ -221,7 +222,7 @@
     </a>
     <a href="/projects/vtp-altitude" class="prop-card" aria-label="View Details: VTP Altitude">
       <div class="prop-card-img">
-        <div><img src="/images/landing-pages/vtp-altitude/photo-1.webp" alt="VTP Altitude" width="600" height="372" loading="lazy" decoding="async"></div>
+        <div><img src="/images/thumbs/vtp-altitude.webp" alt="VTP Altitude" width="600" height="372" loading="lazy" decoding="async"></div>
         <div class="prop-card-badge"><span class="badge badge-red">VTP Realty</span></div>
         <div class="prop-card-price">Price on Request</div>
       </div>

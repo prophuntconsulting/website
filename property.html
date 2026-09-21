@@ -3,12 +3,18 @@
 <head>
 <meta charset="utf-8">
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YR6CRE6BNN');
+  // gtag.js (~170KB) loads after the page has finished loading so it can't compete with
+  // first paint; the calls above queue in dataLayer and are sent when it arrives.
+  (function(){
+    var load = function(){ var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN'; document.head.appendChild(s); };
+    if (document.readyState === 'complete') setTimeout(load, 1500);
+    else window.addEventListener('load', function(){ setTimeout(load, 1500); });
+  })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="ph-title">Property | PROPHUNT LLP</title>
@@ -16,12 +22,7 @@
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/projects/">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <meta name="theme-color" content="#C8362B">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+<link rel="stylesheet" href="/css/vendor.css">
 <link rel="stylesheet" href="/css/style.css">
 <style>
 /* ── RESET & TOKENS ──────────────────────────────── */
@@ -832,7 +833,7 @@ function buildPage(prop, allProps) {
         ${sameDevProjects.map(r => {
           const rPrice = priceLabel(r);
           return `<div class="ph-rel-item">
-            <a href="${r.url}" class="ph-rel-img" style="background-image:url('${r.cover||''}')"></a>
+            <a href="${r.url}" class="ph-rel-img" style="background-image:url('${r.thumb||r.cover||''}')"></a>
             <div class="ph-rel-info">
               <div class="ph-rel-dev">${r.config}</div>
               <div class="ph-rel-name">${r.title}</div>
@@ -856,7 +857,7 @@ function buildPage(prop, allProps) {
         ${similarPriceProjects.map(r => {
           const rPrice = priceLabel(r);
           return `<div class="ph-rel-item">
-            <a href="${r.url}" class="ph-rel-img" style="background-image:url('${r.cover||''}')"></a>
+            <a href="${r.url}" class="ph-rel-img" style="background-image:url('${r.thumb||r.cover||''}')"></a>
             <div class="ph-rel-info">
               <div class="ph-rel-dev">${r.developer}</div>
               <div class="ph-rel-name">${r.title}</div>
@@ -875,7 +876,7 @@ function buildPage(prop, allProps) {
     const icon = r.category === 'plot' ? 'map' : r.category === 'villa' ? 'home' : 'building';
     const why = whyLabel(r);
     return `<a href="${r.url}" class="ph-rel-card">
-      <div class="ph-rel-card-img" style="background-image:url('${r.cover||''}')">
+      <div class="ph-rel-card-img" style="background-image:url('${r.thumb||r.cover||''}')">
         <div class="ph-rel-card-price">${rPrice}</div>
         <div class="ph-rel-card-why">${why}</div>
       </div>
@@ -930,7 +931,7 @@ function buildPage(prop, allProps) {
     const icon = r.category === 'plot' ? 'map' : r.category === 'villa' ? 'home' : 'building';
     const waMsg = encodeURIComponent(`Hi PROPHUNT LLP, I'm interested in ${r.title||'this project'} (${r.location||'Pune'}). Please share more details and pricing.`);
     return `<div class="ph-nearby-card">
-      <a href="${r.url}" class="ph-nearby-card-img" style="background-image:url('${r.cover||''}')">
+      <a href="${r.url}" class="ph-nearby-card-img" style="background-image:url('${r.thumb||r.cover||''}')">
         <span class="ph-nearby-card-cat">${catLabel}</span>
       </a>
       <div class="ph-nearby-card-body">

@@ -3,12 +3,18 @@
 <head>
 <meta charset="utf-8">
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YR6CRE6BNN');
+  // gtag.js (~170KB) loads after the page has finished loading so it can't compete with
+  // first paint; the calls above queue in dataLayer and are sent when it arrives.
+  (function(){
+    var load = function(){ var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN'; document.head.appendChild(s); };
+    if (document.readyState === 'complete') setTimeout(load, 1500);
+    else window.addEventListener('load', function(){ setTimeout(load, 1500); });
+  })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="ph-title">City Avenue, Wakad | Retail Shops &amp; Office Spaces | PROPHUNT LLP</title>
@@ -28,12 +34,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.prophuntllp.com/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://www.prophuntllp.com/projects"},{"@type":"ListItem","position":3,"name":"City Avenue","item":"https://www.prophuntllp.com/projects/city-avenue-wakad"}]},{"@type":"RealEstateListing","name":"City Avenue","description":"City Avenue is a commercial development by Kolte-Patil Developers on the Mumbai-Bangalore Highway in Wakad, Pune, offering retail shops, office spaces and…","url":"https://www.prophuntllp.com/projects/city-avenue-wakad","image":"https://www.prophuntllp.com/images/landing-pages/city-avenue-wakad/photo-1.webp","provider":{"@type":"Organization","name":"Kolte-Patil Developers"},"address":{"@type":"PostalAddress","addressLocality":"Wakad, Pune","addressRegion":"Maharashtra","addressCountry":"IN"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the RERA registration number of City Avenue?","acceptedAnswer":{"@type":"Answer","text":"City Avenue is registered under MahaRERA with registration number P52100003760. You can verify this directly on the official MahaRERA website."}},{"@type":"Question","name":"What configurations are available at City Avenue?","acceptedAnswer":{"@type":"Answer","text":"City Avenue offers Retail Shops & Office Spaces."}},{"@type":"Question","name":"What is the price of homes at City Avenue?","acceptedAnswer":{"@type":"Answer","text":"Pricing for City Avenue is available on request — contact PROPHUNT LLP's advisory team for the latest rates."}},{"@type":"Question","name":"Where is City Avenue located?","acceptedAnswer":{"@type":"Answer","text":"City Avenue is located at Wakad, Pune, developed by Kolte-Patil Developers."}},{"@type":"Question","name":"Who is the developer of City Avenue?","acceptedAnswer":{"@type":"Answer","text":"City Avenue is developed by Kolte-Patil Developers."}},{"@type":"Question","name":"Is City Avenue ready to move in or under construction?","acceptedAnswer":{"@type":"Answer","text":"City Avenue is currently under construction."}},{"@type":"Question","name":"Where is Wakad located and what are its key advantages?","acceptedAnswer":{"@type":"Answer","text":"Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well."}},{"@type":"Question","name":"How is the connectivity and public transport in Wakad?","acceptedAnswer":{"@type":"Answer","text":"Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."}},{"@type":"Question","name":"What kind of lifestyle does Wakad offer residents?","acceptedAnswer":{"@type":"Answer","text":"Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families."}},{"@type":"Question","name":"Are there prominent developers active in Wakad?","acceptedAnswer":{"@type":"Answer","text":"Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand."}}]}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <meta name="theme-color" content="#C8362B">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+<link rel="stylesheet" href="/css/vendor.css">
 <link rel="stylesheet" href="/css/style.css">
 <style>
 /* ── RESET & TOKENS ──────────────────────────────── */
@@ -875,7 +876,7 @@ function buildPage(prop, allProps) {
         ${sameDevProjects.map(r => {
           const rPrice = priceLabel(r);
           return `<div class="ph-rel-item">
-            <a href="${r.url}" class="ph-rel-img" style="background-image:url('${r.cover||''}')"></a>
+            <a href="${r.url}" class="ph-rel-img" style="background-image:url('${r.thumb||r.cover||''}')"></a>
             <div class="ph-rel-info">
               <div class="ph-rel-dev">${r.config}</div>
               <div class="ph-rel-name">${r.title}</div>
@@ -899,7 +900,7 @@ function buildPage(prop, allProps) {
         ${similarPriceProjects.map(r => {
           const rPrice = priceLabel(r);
           return `<div class="ph-rel-item">
-            <a href="${r.url}" class="ph-rel-img" style="background-image:url('${r.cover||''}')"></a>
+            <a href="${r.url}" class="ph-rel-img" style="background-image:url('${r.thumb||r.cover||''}')"></a>
             <div class="ph-rel-info">
               <div class="ph-rel-dev">${r.developer}</div>
               <div class="ph-rel-name">${r.title}</div>
@@ -918,7 +919,7 @@ function buildPage(prop, allProps) {
     const icon = r.category === 'plot' ? 'map' : r.category === 'villa' ? 'home' : 'building';
     const why = whyLabel(r);
     return `<a href="${r.url}" class="ph-rel-card">
-      <div class="ph-rel-card-img" style="background-image:url('${r.cover||''}')">
+      <div class="ph-rel-card-img" style="background-image:url('${r.thumb||r.cover||''}')">
         <div class="ph-rel-card-price">${rPrice}</div>
         <div class="ph-rel-card-why">${why}</div>
       </div>
@@ -973,7 +974,7 @@ function buildPage(prop, allProps) {
     const icon = r.category === 'plot' ? 'map' : r.category === 'villa' ? 'home' : 'building';
     const waMsg = encodeURIComponent(`Hi PROPHUNT LLP, I'm interested in ${r.title||'this project'} (${r.location||'Pune'}). Please share more details and pricing.`);
     return `<div class="ph-nearby-card">
-      <a href="${r.url}" class="ph-nearby-card-img" style="background-image:url('${r.cover||''}')">
+      <a href="${r.url}" class="ph-nearby-card-img" style="background-image:url('${r.thumb||r.cover||''}')">
         <span class="ph-nearby-card-cat">${catLabel}</span>
       </a>
       <div class="ph-nearby-card-body">

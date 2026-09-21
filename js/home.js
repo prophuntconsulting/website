@@ -66,8 +66,11 @@
             video.load();
         };
         if (skipVideo && loader) loader.style.display = 'none';
-        if (document.readyState === 'complete') attachVideo();
-        else window.addEventListener('load', attachVideo, { once: true });
+        // Wait for load, then a further beat, so the multi-hundred-KB video never
+        // competes with first paint / LCP (the poster frame covers the gap).
+        const attachLater = () => setTimeout(attachVideo, 2000);
+        if (document.readyState === 'complete') attachLater();
+        else window.addEventListener('load', attachLater, { once: true });
     }
 
     /* ── FEATURED PROJECTS GRID (loads from /properties/posts.json) ── */
@@ -113,7 +116,7 @@
         return `
         <article class="prop-card" data-category="${p.category}">
           <div class="prop-card-img">
-            <div>${p.cover ? `<img src="${p.cover}" alt="${(p.title || '').replace(/"/g, '&quot;')}" width="600" height="372" loading="lazy" decoding="async">` : ''}</div>
+            <div>${p.cover ? `<img src="${p.thumb || p.cover}" alt="${(p.title || '').replace(/"/g, '&quot;')}" width="600" height="372" loading="lazy" decoding="async">` : ''}</div>
             ${badgeHtml}
             <div class="prop-card-price">${priceLabel}</div>
             <div class="prop-card-overlay">
