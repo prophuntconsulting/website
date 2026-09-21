@@ -10,7 +10,13 @@
     { "source": "/treetopia-jadhavwadi-plots", "destination": "/projects/treetopia", "permanent": true },
     { "source": "/treetopia-jadhavwadi-plots/", "destination": "/projects/treetopia", "permanent": true },
     { "source": "/about-us", "destination": "/about", "permanent": true },
-    { "source": "/about-us/", "destination": "/about", "permanent": true }
+    { "source": "/about-us/", "destination": "/about", "permanent": true },
+    { "source": "/blog-1", "destination": "/blog", "permanent": true },
+    { "source": "/blog-1/", "destination": "/blog", "permanent": true },
+    { "source": "/property-details", "destination": "/projects", "permanent": true },
+    { "source": "/property-details/", "destination": "/projects", "permanent": true },
+    { "source": "/treetopia-thank-you", "destination": "/projects/treetopia", "permanent": true },
+    { "source": "/treetopia-thank-you/", "destination": "/projects/treetopia", "permanent": true }
   ],
   "cleanUrls": true,
   "trailingSlash": false,
