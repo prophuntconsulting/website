@@ -5,6 +5,9 @@ on:
     paths:
       - 'blog/posts/**'
       - 'properties/posts/**'
+      - 'scripts/**'
+      - 'property.html'
+      - 'blog/post.html'
 
 jobs:
   build:
@@ -18,14 +21,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Generate blog/posts.json
-        run: node scripts/build-blog.js
-
-      - name: Generate properties/posts.json
-        run: node scripts/build-properties.js
+      # Full build: blog + project pages, locality/location/developer/category hubs and
+      # sitemap.xml. Running only part of it left the sitemap and hubs stale after a CMS edit.
+      - name: Build all generated pages
+        run: npm run build
 
       - name: Commit updated indexes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Build: update content indexes"
-          file_pattern: "blog/posts.json blog/**/index.html properties/posts.json projects/**"
+          commit_message: "Build: update generated pages and sitemap"

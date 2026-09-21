@@ -118,7 +118,7 @@
             <div class="prop-card-price">${priceLabel}</div>
             <div class="prop-card-overlay">
               <a href="${p.url}" ${linkAttrs} class="btn btn-primary btn-sm">${linkLabel} <i class="fas fa-arrow-right"></i></a>
-              <a href="contact.html?project=${encodeURIComponent(p.title)}" class="btn btn-ghost btn-sm">Quick Enquire</a>
+              <a href="/contact?project=${encodeURIComponent(p.title)}" class="btn btn-ghost btn-sm">Quick Enquire</a>
             </div>
           </div>
           <div class="prop-card-body">
@@ -130,7 +130,7 @@
               ${areaSpec}
             </div>
             <div class="prop-card-footer">
-              <a href="contact.html?project=${encodeURIComponent(p.title)}" class="prop-card-enquire"><i class="fas fa-phone"></i> Enquire</a>
+              <a href="/contact?project=${encodeURIComponent(p.title)}" class="prop-card-enquire"><i class="fas fa-phone"></i> Enquire</a>
               <a href="${p.url}" ${linkAttrs} class="prop-card-link">${linkLabel} <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
