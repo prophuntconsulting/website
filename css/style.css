@@ -583,3 +583,10 @@ textarea.form-control { resize:vertical; min-height:120px; }
     .newsletter-form { flex-direction:column; }
     .newsletter-form button { width:100%; justify-content:center; }
 }
+
+/* Footer text on the near-black background: keep >= 4.5:1 contrast (WCAG AA). */
+.footer .footer-rera { color:#a9a6a3 !important; }
+.footer .footer-rera a { color:#ef7a70 !important; text-decoration:underline; }
+.footer-bottom, .footer-bottom > span, .footer-bottom-links a { color:#a9a6a3; }
+.footer-bottom > span[style] { color:#ef7a70 !important; }
+.footer-bottom-links a:hover { color:var(--white); }

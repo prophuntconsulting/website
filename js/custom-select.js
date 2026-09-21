@@ -48,6 +48,8 @@
         function syncLabel() {
             const opt = select.options[select.selectedIndex];
             label.textContent = opt ? opt.textContent : '';
+            // Accessible name must contain the visible text (WCAG 2.5.3 label-in-name).
+            if (select.id) trigger.setAttribute('aria-label', (select.getAttribute('aria-label') || select.id) + ': ' + label.textContent);
             trigger.classList.toggle('cs-placeholder', !!(opt && opt.disabled));
             panel.querySelectorAll('.cs-option').forEach(o => {
                 o.classList.toggle('cs-selected', o.dataset.value === select.value);
