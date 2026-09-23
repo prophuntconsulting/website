@@ -440,7 +440,13 @@ function buildPrerenderBlock(p, all) {
       <ul class="ph-verify ph-cols">${similar.map(o => `<li><a href="${escapeHtml(o.url)}">${escapeHtml(o.title)}</a>${o.config ? ` — ${escapeHtml(o.config)}` : ''}</li>`).join('')}</ul></div>`);
   }
 
+  const prerenderBadges = [
+    CAT_LABEL[p.category] ? `<span class="ph-tag-chip"><i class="fas fa-layer-group"></i>${CAT_LABEL[p.category]}</span>` : '',
+    p.rera ? `<span class="ph-tag-chip rera"><i class="fas fa-shield-halved"></i>RERA Registered</span>` : '',
+  ].filter(Boolean).join('');
+
   return `<div class="ph-prerender" style="max-width:900px;margin:0 auto;padding:32px 24px 24px">
+    ${prerenderBadges ? `<div class="ph-tag-chips" style="margin-bottom:12px">${prerenderBadges}</div>` : ''}
     <div style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">${escapeHtml(p.developer)}</div>
     <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">${escapeHtml(p.title)}</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">${escapeHtml(metaLine)}</p>
