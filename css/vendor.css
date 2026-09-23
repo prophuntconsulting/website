@@ -92,7 +92,7 @@
 .fa-8:before{content:"\38"}
 .fa-9:before{content:"\39"}
 .fa-message:before{content:"\f27a"}
-.fa-calendar-alt:before{content:"\f073"}
+.fa-calendar-alt:before,.fa-calendar-days:before{content:"\f073"}
 .fa-door-open:before{content:"\f52b"}
 .fa-search-location:before{content:"\f689"}
 .fa-football:before{content:"\f44e"}
@@ -138,7 +138,7 @@
 .fa-train:before{content:"\f238"}
 .fa-image:before{content:"\f03e"}
 .fa-handshake:before{content:"\f2b5"}
-.fa-check-circle:before{content:"\f058"}
+.fa-check-circle:before,.fa-circle-check:before{content:"\f058"}
 .fa-user-tie:before{content:"\f508"}
 .fa-certificate:before{content:"\f0a3"}
 .fa-person-skating:before,.fa-skating:before{content:"\f7c5"}

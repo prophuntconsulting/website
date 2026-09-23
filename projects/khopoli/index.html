@@ -78,7 +78,9 @@ button,select,input,textarea{font-family:inherit}
 .ph-header{max-width:1400px;margin:0 auto;padding:24px 24px 0}
 .ph-header-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
 .ph-tag-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.ph-tag-chip{background:rgba(200,54,43,.08);border:1px solid rgba(200,54,43,.18);color:var(--red);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:3px;letter-spacing:.15px}
+.ph-tag-chip{background:rgba(200,54,43,.08);color:var(--red);font-size:12px;font-weight:600;padding:6px 13px;border-radius:99px}
+.ph-tag-chip.rera{background:rgba(22,163,74,.1);color:#15803d}
+.ph-tag-chip i{margin-right:5px}
 .ph-header-top h1{font-family:'Open Sans',sans-serif;font-size:clamp(22px,3.2vw,30px);font-weight:700;line-height:1.25;color:var(--ink)}
 .ph-header-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:8px;font-size:13.5px;color:var(--gray-600)}
 .ph-header-meta-row .sep{color:var(--gray-400)}
@@ -149,29 +151,42 @@ button,select,input,textarea{font-family:inherit}
 .ph-overview-text{color:var(--gray-600);line-height:1.8;font-size:14.5px}
 .ph-browse-link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:13px;font-weight:600;color:var(--red)}
 .ph-browse-link:hover{text-decoration:underline}
-.ph-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+.ph-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
 @media(max-width:600px){.ph-stats-row{grid-template-columns:repeat(2,1fr)}}
-.ph-stat{background:var(--gray-100);border-radius:var(--radius);padding:18px 16px;text-align:center;border:1px solid var(--gray-200)}
-.ph-stat .val{font-family:'Open Sans',sans-serif;font-size:20px;font-weight:700;color:var(--ink);display:block}
-.ph-stat .lbl{font-size:11.5px;color:var(--gray-400);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
+.ph-stat{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:14px 16px}
+.ph-stat-ic{width:36px;height:36px;border-radius:10px;background:rgba(200,54,43,.08);color:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.ph-stat .val{font-family:'Open Sans',sans-serif;font-size:15px;font-weight:700;color:var(--ink);display:block;line-height:1.3}
+.ph-stat .lbl{font-size:11px;color:var(--gray-400);margin-top:1px}
+
+/* Project overview — icon + label/value pairs, replaces a dense spec table
+   for the facts a buyer scans first; the full ph-snapshot table below still
+   carries the complete, precise disclosure (RERA no., last verified, etc). */
+.ph-kv-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:22px 24px;margin-top:24px}
+.ph-kv-card .ph-section-title{margin-bottom:16px}
+.ph-kv-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
+@media(max-width:480px){.ph-kv-grid{grid-template-columns:1fr}}
+.ph-kv{display:flex;align-items:center;gap:11px}
+.ph-kv-ic{width:34px;height:34px;border-radius:10px;background:var(--gray-100);color:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+.ph-kv .lbl{font-size:11.5px;color:var(--gray-400)}
+.ph-kv .val{font-size:13.5px;font-weight:700;color:var(--ink);margin-top:1px}
 
 /* Pricing */
 .ph-pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
-.ph-price-card{border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:22px 20px;background:#fff;transition:box-shadow .2s,border-color .2s;position:relative}
-.ph-price-card:hover{box-shadow:var(--shadow);border-color:var(--red)}
-.ph-price-card.featured{border-color:var(--red);background:linear-gradient(135deg,#fff8f7,#fff)}
-.ph-price-card.featured::before{content:'Most Popular';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 12px;border-radius:0 0 8px 8px;white-space:nowrap}
-.ph-price-card .unit-type{font-family:'Open Sans',sans-serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.ph-price-card{border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:20px;background:#fff;transition:border-color .2s;position:relative}
+.ph-price-card.featured{border-color:var(--red)}
+.ph-price-card.featured::before{content:'Most popular';position:absolute;top:-10px;left:20px;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.4px;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.ph-price-card .unit-type{font-family:'Open Sans',sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px}
 .ph-price-card .unit-area{font-size:12.5px;color:var(--gray-400);margin-bottom:12px}
-.ph-price-card .unit-price{font-family:'Open Sans',sans-serif;font-size:16px;font-weight:700;color:var(--red)}
+.ph-price-card .unit-price{font-family:'Open Sans',sans-serif;font-size:17px;font-weight:800;color:var(--red)}
 .ph-price-card .unit-note{font-size:11px;color:var(--gray-400);margin-top:2px}
-.ph-enquire-btn{display:inline-block;margin-top:14px;width:100%;text-align:center;background:var(--red);color:#fff;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:11px;border-radius:6px;border:none;cursor:pointer;transition:background .18s}
+.ph-enquire-btn{display:inline-block;margin-top:14px;width:100%;text-align:center;background:var(--red);color:#fff;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.3px;padding:11px;border-radius:99px;border:none;cursor:pointer;transition:background .18s}
 .ph-enquire-btn:hover{background:var(--red-dark)}
 
 /* Amenities */
-.ph-amenities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
-.ph-amenity{display:flex;align-items:center;gap:9px;padding:12px 14px;background:var(--gray-100);border-radius:var(--radius);border:1px solid var(--gray-200);font-size:13px;color:var(--gray-700);font-weight:500}
-.ph-amenity i{color:var(--red);font-size:15px;flex-shrink:0}
+.ph-amenities-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}
+@media(max-width:480px){.ph-amenities-grid{grid-template-columns:1fr}}
+.ph-amenity{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid var(--gray-100);font-size:13.5px;color:var(--gray-800);font-weight:500}
+.ph-amenity-ic{width:30px;height:30px;border-radius:9px;background:var(--gray-100);color:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
 
 /* RERA */
 .ph-rera-box{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px 20px;font-size:13px;color:var(--gray-600);display:flex;align-items:center;gap:12px}
@@ -215,7 +230,7 @@ button,select,input,textarea{font-family:inherit}
 .ph-emi-note{font-size:11px;color:var(--gray-400);margin-top:12px;text-align:center}
 
 /* Brochure download */
-.ph-brochure-btn{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border-radius:8px;font-family:'Open Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;background:var(--gold);color:var(--ink);transition:opacity .18s}
+.ph-brochure-btn{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border-radius:99px;font-family:'Open Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.2px;background:var(--gold);color:var(--ink);transition:opacity .18s}
 .ph-brochure-btn:hover{opacity:.88}
 
 /* ── SIDEBAR ─────────────────────────────────────── */
@@ -247,11 +262,11 @@ button,select,input,textarea{font-family:inherit}
 }
 
 /* Enquiry card */
-.ph-enq-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden}
-.ph-enq-card-head{background:var(--ink);color:#fff;padding:20px 22px}
-.ph-enq-card-head h3{font-family:'Open Sans',sans-serif;font-size:15px;font-weight:700;margin-bottom:4px;color:#fff}
-.ph-enq-card-head p{font-size:12.5px;color:#fff;opacity:.75}
-.ph-enq-card-body{padding:20px 22px}
+.ph-enq-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);overflow:hidden}
+.ph-enq-card-head{padding:20px 22px 4px}
+.ph-enq-card-head h3{font-family:'Open Sans',sans-serif;font-size:16px;font-weight:700;margin-bottom:3px;color:var(--ink)}
+.ph-enq-card-head p{font-size:12.5px;color:var(--gray-400)}
+.ph-enq-card-body{padding:16px 22px 20px}
 .ph-form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:480px){.ph-form-row{grid-template-columns:1fr}}
 .ph-field{margin-bottom:10px}
@@ -272,7 +287,7 @@ button,select,input,textarea{font-family:inherit}
 .ph-select-option{padding:11px 14px;font-size:13.5px;color:var(--gray-800);cursor:pointer;transition:background .12s}
 .ph-select-option:hover,.ph-select-option.active{background:var(--gray-100)}
 .ph-select-option.selected{color:var(--red);font-weight:600}
-.ph-enq-submit{width:100%;padding:13px;background:var(--red);color:#fff;font-family:'Open Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;transition:background .18s;margin-top:4px}
+.ph-enq-submit{width:100%;padding:13px;background:var(--red);color:#fff;font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:700;letter-spacing:.2px;border:none;border-radius:99px;cursor:pointer;transition:background .18s;margin-top:4px}
 .ph-enq-submit:hover{background:var(--red-dark)}
 .ph-enq-note{text-align:center;font-size:11.5px;color:var(--gray-400);margin-top:10px}
 
@@ -294,10 +309,10 @@ button,select,input,textarea{font-family:inherit}
 
 /* Contact quick links */
 .ph-quick-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:18px 20px;display:flex;flex-direction:column;gap:10px}
-.ph-quick-btn{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border-radius:8px;font-family:'Open Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;transition:opacity .18s}
+.ph-quick-btn{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border-radius:99px;font-family:'Open Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.2px;transition:opacity .18s}
 .ph-quick-btn:hover{opacity:.88}
-.ph-quick-wa{background:#25D366;color:#fff}
-.ph-quick-call{background:var(--ink);color:#fff}
+.ph-quick-wa{background:rgba(37,211,102,.1);color:#128c42}
+.ph-quick-call{background:var(--gray-100);color:var(--ink)}
 
 /* ── FOOTER ──────────────────────────────────────── */
 .ph-footer{background:var(--ink);color:rgba(255,255,255,.7);font-size:13px;padding:28px 24px;text-align:center}
@@ -467,6 +482,7 @@ button,select,input,textarea{font-family:inherit}
 <!-- PAGE WRAPPER -->
 <div id="ph-page">
   <div class="ph-prerender" style="max-width:900px;margin:0 auto;padding:32px 24px 24px">
+    <div class="ph-tag-chips" style="margin-bottom:12px"><span class="ph-tag-chip"><i class="fas fa-layer-group"></i>Plot</span><span class="ph-tag-chip rera"><i class="fas fa-shield-halved"></i>RERA Registered</span></div>
     <div style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Shapoorji Pallonji</div>
     <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">Shapoorji Pallonji Khopoli</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">Near Khopoli, Maharashtra · Residential Plots &amp; Private Hamlets · Starting from ₹80 L*</p>
@@ -563,6 +579,22 @@ function amenityIcon(name) {
   const key = name.toLowerCase();
   for (const [k,v] of Object.entries(AMENITY_ICONS)) { if (key.includes(k)) return v; }
   return 'star';
+}
+
+// Icon for a headline stat/fact card — matched on label+value text, not a
+// per-project lookup, so it works the same for every project's stat_N pairs.
+function factIcon(label, value) {
+  const s = ((label||'') + ' ' + (value||'')).toLowerCase();
+  if (/acre|forest|buffer|nature|green/.test(s)) return 'tree';
+  if (/sqft|sq ft|sq\.ft|area|size/.test(s)) return 'ruler-combined';
+  if (/yr|year|legacy|since|founded/.test(s)) return 'calendar-days';
+  if (/possession|launch|date/.test(s)) return 'calendar-days';
+  if (/price|₹|starting|cr\b|lakh/.test(s)) return 'tag';
+  if (/bhk|bedroom|config|unit/.test(s)) return 'building';
+  if (/developer|by /.test(s)) return 'building-columns';
+  if (/status|rera|verified/.test(s)) return 'shield-halved';
+  if (/location|near|pune|mumbai/.test(s)) return 'map-marker-alt';
+  return 'circle-check';
 }
 
 // Matches scripts/build-locality-pages.js's CATEGORY_META.slug — keep in sync.
@@ -682,8 +714,13 @@ function buildPage(prop, allProps) {
 
   /* ── Header tag chips (tagline split into small pills instead of one loud banner) ── */
   const tagChips = (prop.tagline || '').split('|').map(s => s.trim()).filter(Boolean);
-  const tagChipsHtml = tagChips.length
-    ? `<div class="ph-tag-chips">${tagChips.map(t => `<span class="ph-tag-chip">${t}</span>`).join('')}</div>` : '';
+  const categoryLabel = { apartment:'Apartment', villa:'Villa', plot:'Plot', commercial:'Commercial' }[prop.category] || '';
+  const chipList = [
+    categoryLabel ? `<span class="ph-tag-chip"><i class="fas fa-layer-group"></i>${categoryLabel}</span>` : '',
+    ...tagChips.map(t => `<span class="ph-tag-chip">${t}</span>`),
+    prop.rera ? `<span class="ph-tag-chip rera"><i class="fas fa-shield-halved"></i>RERA Registered</span>` : '',
+  ].filter(Boolean);
+  const tagChipsHtml = chipList.length ? `<div class="ph-tag-chips">${chipList.join('')}</div>` : '';
 
   /* ── Photo grid (Airbnb-style: one big photo + up to 4 thumbs, all one row-height) ── */
   function buildPhotoGrid() {
@@ -721,7 +758,7 @@ function buildPage(prop, allProps) {
     [prop.stat_4_value, prop.stat_4_label],
   ].filter(([v]) => v);
   const statsHtml = statsData.length
-    ? `<div class="ph-stats-row">${statsData.map(([v,l])=>`<div class="ph-stat"><span class="val">${v}</span><span class="lbl">${l||''}</span></div>`).join('')}</div>` : '';
+    ? `<div class="ph-stats-row">${statsData.map(([v,l])=>`<div class="ph-stat"><span class="ph-stat-ic"><i class="fas fa-${factIcon(l,v)}"></i></span><span><span class="val">${v}</span><span class="lbl">${l||''}</span></span></div>`).join('')}</div>` : '';
 
   /* ── Snapshot + "before you book" — markup mirrors scripts/build-properties.js ── */
   const MAHARERA_URL = 'https://maharera.mahaonline.gov.in';
@@ -845,7 +882,7 @@ function buildPage(prop, allProps) {
         <div class="ph-section-title">Amenities</div>
         <div class="ph-divider"></div>
         <div class="ph-amenities-grid">
-          ${amenities.map(a => `<div class="ph-amenity"><i class="fas fa-${amenityIcon(a)}"></i>${a}</div>`).join('')}
+          ${amenities.map(a => `<div class="ph-amenity"><span class="ph-amenity-ic"><i class="fas fa-${amenityIcon(a)}"></i></span>${a}</div>`).join('')}
         </div>
       </div>` : '';
 
