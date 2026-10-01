@@ -11,14 +11,18 @@ module.exports = async (req, res) => {
   // Preferred location, Timeline etc. instead of leaving them in the notes.
   const SKIP = /^(name|phone|phone \/ whatsapp|email|message)$/i;
   const custom_fields = [];
+  const freeText = []; // what the visitor typed in their own words
   for (const line of String(message || '').split('\n')) {
     const m = line.match(/^([A-Za-z][^:]{1,60}):\s*(.+)$/);
-    if (!m) continue;
+    if (!m) { if (line.trim() && !/^Please (contact me about|review and publish)/i.test(line.trim())) freeText.push(line.trim()); continue; }
     const label = m[1].trim();
     const value = m[2].trim();
     if (SKIP.test(label) || /^not (provided|specified)$/i.test(value)) continue;
     custom_fields.push({ fieldKey: label, label, value });
   }
+  // The CRM shows `message` as the lead's requirements, so send only the
+  // visitor's own words, not the whole "Label: value" form dump.
+  const visitorMessage = freeText.join(' ').trim();
 
   try {
     if (!process.env.ARTHALEADS_TOKEN) {
@@ -29,7 +33,7 @@ module.exports = async (req, res) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         token: process.env.ARTHALEADS_TOKEN,
-        name, phone, email, message,
+        name, phone, email, message: visitorMessage,
         form_plugin: 'custom_site',
         form_name: form_name || 'Website',
         page_url: page_url || '',
