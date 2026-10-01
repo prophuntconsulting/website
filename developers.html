@@ -341,6 +341,7 @@ html, body { overflow-x:hidden; }
           </div>
           <div class="form-group"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message" placeholder="Share unit sizes, amenities, possession date, or current sales priority." rows="4"></textarea></div>
           <div class="form-group"><label class="form-label" for="attachments">Project Images / Brochure</label><input class="form-control" type="file" id="attachments" name="attachments" accept=".pdf,.zip,.jpg,.jpeg,.png,.webp" multiple><small style="color:var(--gray-500);font-size:.78rem;display:block;margin-top:.35rem;">Optional: attach a brochure PDF or a few project photos (up to ~15MB total).</small></div>
+          <p id="formError" role="alert" style="display:none;color:#c8362b;font-size:.88rem;margin:0 0 .75rem"></p>
           <button type="submit" class="btn btn-primary btn-lg form-submit-btn"><span>Submit Property Listing</span><i class="fas fa-paper-plane"></i></button>
         </form>
         <div class="form-success" id="formSuccess">
@@ -396,6 +397,15 @@ html, body { overflow-x:hidden; }
 
   form?.addEventListener('submit', function(e){
     e.preventDefault();
+    const errEl = document.getElementById('formError');
+    const fail = (msg, el) => { if (errEl) { errEl.textContent = msg; errEl.style.display = 'block'; } if (el) { el.focus({preventScroll:false}); } };
+    const emptyReq = [...form.querySelectorAll('[required]')].find(el => !String(el.value || '').trim());
+    if (emptyReq) { return fail('Please fill in the required fields marked *.', emptyReq); }
+    const phoneEl = form.elements.phone;
+    if (!/^\+?[\d\s()-]{8,18}$/.test(phoneEl.value.trim()) || phoneEl.value.replace(/\D/g,'').length < 8) { return fail('Please enter a valid phone number.', phoneEl); }
+    const emailEl = form.elements.email;
+    if (!emailEl.checkValidity()) { return fail('Please enter a valid email address.', emailEl); }
+    if (errEl) errEl.style.display = 'none';
     const raw = Object.fromEntries(new FormData(form).entries());
     const subject = `Property Listing Submission - ${raw.projectName || raw.companyName || 'New Project'}`;
     const body = [
@@ -418,6 +428,15 @@ html, body { overflow-x:hidden; }
     if (copyText) copyText.value = fullText;
     const submitBtn = form.querySelector('.form-submit-btn, [type=submit]');
     if (submitBtn) submitBtn.disabled = true;
+
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: raw.contactPerson, phone: raw.phone, email: raw.email, message: body,
+        form_name: 'Developer Listing', page_url: window.location.href
+      })
+    }).catch(() => {});
 
     // Sent as multipart FormData (not JSON) so any attached brochure/photos ride along.
     const fd = new FormData(form);

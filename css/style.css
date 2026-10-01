@@ -499,16 +499,29 @@ textarea.form-control { resize:vertical; min-height:120px; }
 .back-to-top.visible { opacity:1; visibility:visible; transform:translateY(0); }
 .back-to-top:hover { background:var(--red-dark); }
 
-/* WhatsApp Float */
+/* WhatsApp Float — circle at rest, expands into a labelled pill on hover/focus */
 .wa-float {
-    position:fixed; bottom:5.5rem; left:2rem; right:auto; z-index:500;
-    width:48px; height:48px; border-radius:50%;
+    position:fixed; bottom:2rem; left:2rem; right:auto; z-index:500;
+    height:48px; max-width:48px; border-radius:999px; overflow:hidden;
     background:#25D366; color:#fff;
-    display:flex; align-items:center; justify-content:center;
-    font-size:1.4rem; box-shadow:0 4px 20px rgba(37,211,102,.4);
-    transition:transform .25s var(--ease), box-shadow .25s;
+    display:flex; align-items:center;
+    box-shadow:0 4px 20px rgba(37,211,102,.4);
+    transition:max-width .35s var(--ease), box-shadow .25s;
 }
-.wa-float:hover { transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.55); }
+.wa-float i {
+    flex:none; width:48px; height:48px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+}
+.wa-float::after {
+    content:"Chat on WhatsApp";
+    flex:none; white-space:nowrap;
+    font-family:'Rubik',sans-serif; font-size:.88rem; font-weight:600;
+    padding-right:1.1rem;
+}
+.wa-float:hover, .wa-float:focus-visible {
+    max-width:220px; box-shadow:0 6px 28px rgba(37,211,102,.55);
+}
 
 /* ═══════════════════════════════════════════════
    SKELETON LOADER
@@ -560,7 +573,9 @@ textarea.form-control { resize:vertical; min-height:120px; }
         padding:1rem 0 calc(1rem + env(safe-area-inset-bottom));
     }
     .footer-bottom-links { gap:1rem; flex-wrap:wrap; }
-    .wa-float { left:1rem; bottom:calc(1.25rem + env(safe-area-inset-bottom)); width:48px; height:48px; font-size:1.3rem; }
+    .wa-float { left:1rem; bottom:calc(1.25rem + env(safe-area-inset-bottom)); height:48px; max-width:48px; }
+    .wa-float i { width:48px; height:48px; font-size:1.3rem; }
+    .wa-float:hover, .wa-float:focus-visible { max-width:48px; }
     .back-to-top { right:1rem; bottom:calc(1.25rem + env(safe-area-inset-bottom)); width:48px; height:48px; }
 
     /* Navbar — tighter on mobile */

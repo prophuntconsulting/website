@@ -1379,6 +1379,14 @@ function buildPage(prop, allProps) {
         '',
         f.message || 'Please contact me about this project.'
       ].join('\n');
+      fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: f.name, phone: f.phone, email: f.email, message: body,
+          form_name: `Project Enquiry — ${prop.title || prop.slug || ''}`, page_url: window.location.href
+        })
+      }).catch(() => {});
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },

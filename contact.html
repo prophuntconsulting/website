@@ -387,6 +387,14 @@
     if(copyText) copyText.value=fullText;
     const submitBtn=form.querySelector('.btn-submit, [type=submit]');
     if(submitBtn) submitBtn.disabled=true;
+    fetch('/api/lead',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        name:`${f.firstName} ${f.lastName}`.trim(), phone:f.phone, email:f.email, message:body,
+        form_name:'Contact', page_url:window.location.href
+      })
+    }).catch(()=>{});
     fetch('https://api.web3forms.com/submit',{
       method:'POST',
       headers:{'Content-Type':'application/json',Accept:'application/json'},
