@@ -7,7 +7,10 @@ module.exports = async (req, res) => {
   }
 
   try {
-    await fetch('https://api.arthaleads.com/webhook/website', {
+    if (!process.env.ARTHALEADS_TOKEN) {
+      console.error('[lead] ARTHALEADS_TOKEN is not set in this environment');
+    }
+    const crmRes = await fetch('https://api.arthaleads.com/webhook/website', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -19,8 +22,12 @@ module.exports = async (req, res) => {
         website_url: 'https://www.prophuntllp.com',
       }),
     });
+    if (!crmRes.ok) {
+      console.error('[lead] ArthaLeads rejected the lead:', crmRes.status, await crmRes.text());
+    }
   } catch (e) {
     // CRM delivery is best-effort — a failure here must never block the visitor's enquiry.
+    console.error('[lead] ArthaLeads request threw:', e.message);
   }
 
   res.status(200).json({ ok: true });
