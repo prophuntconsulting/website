@@ -6,6 +6,20 @@ module.exports = async (req, res) => {
     return res.status(400).json({ ok: false, error: 'name and phone are required' });
   }
 
+  // Every form here sends its answers as "Label: value" lines in `message`.
+  // Split them into separate fields so the CRM can fill Budget, Configuration,
+  // Preferred location, Timeline etc. instead of leaving them in the notes.
+  const SKIP = /^(name|phone|phone \/ whatsapp|email|message)$/i;
+  const custom_fields = [];
+  for (const line of String(message || '').split('\n')) {
+    const m = line.match(/^([A-Za-z][^:]{1,60}):\s*(.+)$/);
+    if (!m) continue;
+    const label = m[1].trim();
+    const value = m[2].trim();
+    if (SKIP.test(label) || /^not (provided|specified)$/i.test(value)) continue;
+    custom_fields.push({ fieldKey: label, label, value });
+  }
+
   try {
     if (!process.env.ARTHALEADS_TOKEN) {
       console.error('[lead] ARTHALEADS_TOKEN is not set in this environment');
@@ -22,6 +36,7 @@ module.exports = async (req, res) => {
         // Do NOT send website_url: the CRM treats it as a bot trap and silently
         // drops the lead (returns 200 but creates nothing).
         source_name: 'PropHunt LLP Website',
+        custom_fields,
       }),
     });
     if (!crmRes.ok) {
