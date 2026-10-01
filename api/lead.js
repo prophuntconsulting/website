@@ -19,7 +19,9 @@ module.exports = async (req, res) => {
         form_plugin: 'custom_site',
         form_name: form_name || 'Website',
         page_url: page_url || '',
-        website_url: 'https://www.prophuntllp.com',
+        // Do NOT send website_url: the CRM treats it as a bot trap and silently
+        // drops the lead (returns 200 but creates nothing).
+        source_name: 'PropHunt LLP Website',
       }),
     });
     if (!crmRes.ok) {
