@@ -1,3 +1,19 @@
+// Bots have been filling every form here (3 Oct onwards: random-letter names,
+// a different dotted Gmail address per burst, gibberish in every field). Real
+// visitors never look like either of these, so such a submission is dropped:
+// the visitor still sees "sent" and no lead is created.
+//  - Gmail ignores dots, so spammers write one inbox as endless addresses
+//    ("ki.c.imu.ze66.4@gmail.com"); three or more dots is not how people type.
+//  - A single word of 12+ letters that flips lower to UPPER case four or more
+//    times ("xHmDXxLAkxTFyGYRrjTala") is random text, not a name or a RERA number.
+function looksLikeSpam({ email, name, custom_fields }) {
+  const mail = String(email || '').trim().toLowerCase();
+  const [local, domain] = mail.split('@');
+  if ((domain === 'gmail.com' || domain === 'googlemail.com') && (local.match(/\./g) || []).length >= 3) return true;
+  const random = (v) => String(v || '').split(/\s+/).some((w) => w.length >= 12 && (w.match(/[a-z][A-Z]/g) || []).length >= 4);
+  return random(name) || (custom_fields || []).some((f) => random(f.value));
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ ok: false, error: 'Method not allowed' });
 
@@ -23,6 +39,11 @@ module.exports = async (req, res) => {
   // The CRM shows `message` as the lead's requirements, so send only the
   // visitor's own words, not the whole "Label: value" form dump.
   const visitorMessage = freeText.join(' ').trim();
+
+  if (looksLikeSpam({ email, name, custom_fields })) {
+    console.warn('[lead] dropped as spam:', String(email || '').slice(0, 40));
+    return res.status(200).json({ ok: true });
+  }
 
   try {
     if (!process.env.ARTHALEADS_TOKEN) {
