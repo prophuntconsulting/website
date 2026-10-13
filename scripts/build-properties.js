@@ -142,14 +142,20 @@ function clampAtWord(s, max) {
 
 function metaDescription(p) {
   const title = p.title || 'This project';
-  const bits = [];
-  bits.push(`${title}${p.location ? ` in ${p.location}` : ''}${p.developer ? ` by ${p.developer}` : ''} offers ${p.config || 'premium homes'}${p.category ? ` (${p.category})` : ''}.`);
+  const where = p.area_alias ? `${p.area_alias} (${p.location})` : p.location;
+  // Lead with the facts searchers ask about (price, configuration, RERA), not
+  // the developer's marketing overview, which is the same text every other
+  // portal shows for this project.
+  const bits = [`${title}${where ? `, ${where}` : ''}${p.developer ? ` by ${p.developer}` : ''}: ${p.config || 'premium homes'}.`];
+  if (p.price > 0) bits.push(`Starting ${priceLabel(p).replace(/\*$/, '')}.`);
+  if (p.rera) bits.push(`MahaRERA ${String(p.rera).split(/[ ,(]/)[0]}.`);
+  bits.push('Price list & free site visits with PROPHUNT LLP.');
+  // Possession status only if it still fits — the call to action matters more.
   const status = possessionSentence(p, title);
-  if (status) bits.push(status);
-  bits.push('Explore amenities, pricing, floor plans and RERA details on PROPHUNT LLP.');
-  const generated = bits.join(' ');
-  // Prefer the editor's overview when present, but never cut it mid-word.
-  return clampAtWord(p.overview ? p.overview : generated, 160);
+  const withStatus = status ? [...bits.slice(0, -1), status, bits[bits.length - 1]].join(' ') : '';
+  if (withStatus && withStatus.length <= 165) return withStatus;
+  const full = bits.join(' ');
+  return full.length <= 165 ? full : clampAtWord(bits.slice(0, -1).join(' '), 165);
 }
 
 // Project-specific FAQ content, generated only from fields that are
@@ -183,7 +189,7 @@ function generateProjectFAQs(p) {
   if (p.location) {
     faqs.push({
       q: `Where is ${title} located?`,
-      a: `${title} is located at ${p.location}${p.developer ? `, developed by ${p.developer}` : ''}.`,
+      a: `${title} is located at ${p.location}${p.area_alias ? ` (the ${p.area_alias} area)` : ''}${p.developer ? `, developed by ${p.developer}` : ''}.`,
     });
   }
 
@@ -219,16 +225,27 @@ function shortLocation(p) {
 // characters for longer project names and would just get truncated in the
 // SERP snippet anyway. Locality + configuration are the two things buyers
 // actually search on ("2 BHK in Wakad"), so those are what earn the space.
+//
+// Updated Oct 2026 from Google Autocomplete research: what people append to
+// project names is overwhelmingly "price", "rera number", "2/3 bhk price"
+// (and "floor plan", which we don't claim until pages actually show plans).
+// So: [Name], [Area] | Price, [BHK] & RERA | PROPHUNT LLP. `area_alias` is
+// the area name buyers search (e.g. Tathawade for "Downtown Wakad" projects),
+// verified against the project's coordinates before being set.
+function shortConfig(p) {
+  const m = String(p.config || '').match(/^[\d.,&+\s]+BHK\+?/i);
+  if (m && m[0].length <= 16) return m[0].replace(/\s+/g, ' ').trim();
+  return { plot: 'Plots', villa: 'Villas', commercial: 'Office Space' }[p.category] || '';
+}
 function pageTitle(p) {
   const name = p.title || 'Property';
-  const bits = [name];
-  const loc = shortLocation(p);
+  const loc = p.area_alias || shortLocation(p);
   // Skip appending the locality when the project name already names it
   // (e.g. "Mahindra Lifespaces Mahalunge") — avoids "Mahalunge, Mahalunge".
-  if (loc && !name.toLowerCase().includes(loc.toLowerCase())) bits[0] += `, ${loc}`;
-  if (p.config) bits.push(p.config);
-  bits.push('PROPHUNT LLP');
-  return bits.join(' | ');
+  const head = loc && !name.toLowerCase().includes(loc.toLowerCase()) ? `${name}, ${loc}` : name;
+  const cfg = shortConfig(p);
+  const kw = p.rera ? (cfg ? `Price, ${cfg} & RERA` : 'Price & RERA') : (cfg ? `${cfg} Price & Details` : 'Price & Details');
+  return `${head} | ${kw} | PROPHUNT LLP`;
 }
 
 // Head tags: real title/description/canonical + OG/Twitter + JSON-LD

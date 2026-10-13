@@ -80,6 +80,12 @@ collections:
         required: false
         hint: "MahaRERA project registration number"
 
+      - label: "Area Name Buyers Search (optional)"
+        name: "area_alias"
+        widget: "string"
+        required: false
+        hint: "Only if buyers search this project under a different area name than the Location above, e.g. Tathawade for a 'Downtown Wakad' project. Used in the page title."
+
       - label: "Map Latitude"
         name: "lat"
         widget: "number"

@@ -667,11 +667,17 @@ function buildPage(prop, allProps) {
     const lastSpace = cut.lastIndexOf(' ');
     return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s.,;:–-]+$/, '') + '…';
   }
-  document.title = pageTitle(prop);
-  const desc = prop.overview
-    ? clampAtWord(prop.overview, 160)
-    : (prop.developer + ' – ' + prop.config + ' in ' + prop.location);
-  document.getElementById('ph-desc').setAttribute('content', desc);
+  // Every generated page already ships the real title/description from
+  // scripts/build-properties.js; only fill them in when this is the raw
+  // template (generic placeholders), so the client never overwrites the
+  // search-tuned versions with a simpler format.
+  if (/^Property \|/.test(document.title)) document.title = pageTitle(prop);
+  const descEl = document.getElementById('ph-desc');
+  if (descEl && /^Premium property listed by PROPHUNT/.test(descEl.getAttribute('content') || '')) {
+    descEl.setAttribute('content', prop.overview
+      ? clampAtWord(prop.overview, 160)
+      : (prop.developer + ' – ' + prop.config + ' in ' + prop.location));
+  }
   document.getElementById('ph-canonical').setAttribute('href', 'https://www.prophuntllp.com/projects/' + prop.slug);
   document.getElementById('ph-crumb').textContent = prop.title || prop.slug;
 
