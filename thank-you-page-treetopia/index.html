@@ -375,22 +375,11 @@
 </div>
 
 <script>
-/* ── GTM DataLayer — push conversion event ── */
-window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({
-  event: 'form_submission',
-  event_category: 'Lead',
-  event_action: 'Thank You Page',
-  event_label: 'Treetopia Enquiry',
-  value: 1
-});
-
-/* ── Also push a dedicated conversion event for Bing/Meta ── */
-window.dataLayer.push({
-  event: 'conversion',
-  conversionType: 'lead',
-  projectName: 'Treetopia'
-});
+/* ── GA4 conversion: the old dataLayer.push({event}) calls were GTM-style and
+   never reached GA4 (only gtag.js is installed). ── */
+if (typeof gtag === 'function') {
+  gtag('event', 'generate_lead', { form_name: 'Treetopia landing page', project: 'Shapoorji Pallonji Treetopia' });
+}
 
 /* ── Confetti animation ── */
 const colors = ['#2d6a2d','#c9a84c','#fff','#3d8f3d','#f0c040','#a8d5a2'];
