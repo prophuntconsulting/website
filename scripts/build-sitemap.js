@@ -72,6 +72,7 @@ const localityUrls  = loadJson('scripts/.locality-pages.json');
 const locationHubUrls = loadJson('scripts/.location-hubs.json');
 const categoryUrls = loadJson('scripts/.category-pages.json');
 const developerHubUrls = loadJson('scripts/.developer-hubs.json');
+const seoPageUrls = loadJson('scripts/.seo-pages.json');
 
 const urls = [];
 
@@ -118,6 +119,10 @@ categoryUrls.forEach(u => {
   urls.push({ loc: `${SITE}${u}`, lastmod: lastmodFor(u), changefreq: 'weekly', priority: '0.78' });
 });
 
+seoPageUrls.forEach(u => {
+  urls.push({ loc: `${SITE}${u}`, lastmod: lastmodFor(u), changefreq: 'weekly', priority: '0.7' });
+});
+
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -133,4 +138,4 @@ ${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ''}    <changefreq>${u.c
 
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), xml);
 fs.writeFileSync(LASTMOD_FILE, JSON.stringify(nextLastmodState, null, 1) + '\n');
-console.log(`Built sitemap.xml — ${urls.length} URLs (${STATIC_PAGES.length} static, ${properties.length} projects, ${posts.length} blog posts, ${localityUrls.length} locality pages, ${locationHubUrls.length} location hubs, ${developerHubUrls.length} developer hubs, ${categoryUrls.length} category pages)`);
+console.log(`Built sitemap.xml — ${urls.length} URLs (${STATIC_PAGES.length} static, ${properties.length} projects, ${posts.length} blog posts, ${localityUrls.length} locality pages, ${locationHubUrls.length} location hubs, ${developerHubUrls.length} developer hubs, ${categoryUrls.length} category pages, ${seoPageUrls.length} search pages)`);

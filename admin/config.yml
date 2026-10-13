@@ -80,6 +80,20 @@ collections:
         required: false
         hint: "MahaRERA project registration number"
 
+      - label: "Map Latitude"
+        name: "lat"
+        widget: "number"
+        value_type: "float"
+        required: false
+        hint: "Project site latitude, e.g. 18.5987. Right-click the project on Google Maps to copy it. Used for 'What's nearby' distances and 'near landmark' pages. Leave blank if unsure."
+
+      - label: "Map Longitude"
+        name: "lng"
+        widget: "number"
+        value_type: "float"
+        required: false
+        hint: "Project site longitude, e.g. 73.7651."
+
       - label: "Last Verified Date"
         name: "last_verified"
         widget: "string"

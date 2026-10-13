@@ -430,11 +430,15 @@ function buildPrerenderBlock(p, all) {
         ? `<p class="ph-landmarks-line"><strong>${label}:</strong> ${loc.landmarks[k].map(escapeHtml).join(' · ')}</p>` : '').join('')}
       <p><a href="/location/${escapeHtml(p.micro_market)}" class="ph-browse-link">All properties in ${escapeHtml(loc.name)} →</a></p></div>`);
   }
+  // Filled by scripts/build-seo-pages.js (straight-line distances to curated landmarks).
+  sections.push('<!--SEO-NEARBY-->');
   sections.push(verifyHtml(p));
   if (faqs.length) {
     sections.push(`<div id="faqs" class="ph-section"><div class="ph-section-label">Frequently Asked Questions</div>
       ${faqs.map(f => `<h3 class="ph-faq-q">${escapeHtml(f.q)}</h3><p class="ph-faq-a">${escapeHtml(f.a)}</p>`).join('')}</div>`);
   }
+  // Filled by scripts/build-seo-pages.js (links to search pages that exist for this project).
+  sections.push('<!--SEO-RELATED-->');
   if (similar.length) {
     sections.push(`<div class="ph-section"><div class="ph-section-label">Similar Projects${loc ? ` in ${escapeHtml(loc.name)}` : ''}</div>
       <ul class="ph-verify ph-cols">${similar.map(o => `<li><a href="${escapeHtml(o.url)}">${escapeHtml(o.title)}</a>${o.config ? ` — ${escapeHtml(o.config)}` : ''}</li>`).join('')}</ul></div>`);

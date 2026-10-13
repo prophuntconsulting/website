@@ -1354,5 +1354,870 @@
         "a": "Yashwin Urbo Centro is currently under construction."
       }
     ]
-  }
+  },
+  "related": {
+    "24k-altura": [
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      },
+      {
+        "label": "Kolte-Patil Developers projects in Pune",
+        "url": "/developer/kolte-patil-developers"
+      }
+    ],
+    "abil-imperial-atria": [
+      {
+        "label": "ABIL Imperial Atria 3 BHK price",
+        "url": "/projects/abil-imperial-atria/3-bhk"
+      },
+      {
+        "label": "ABIL Imperial Atria 4 BHK price",
+        "url": "/projects/abil-imperial-atria/4-bhk"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "anp-bizsquare": [
+      {
+        "label": "Commercial properties in Wakad",
+        "url": "/commercial-properties-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "ANP Corp projects in Pune",
+        "url": "/developer/anp-corp"
+      }
+    ],
+    "anp-landmark": [
+      {
+        "label": "Commercial properties in Wakad",
+        "url": "/commercial-properties-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "ANP Corp projects in Pune",
+        "url": "/developer/anp-corp"
+      }
+    ],
+    "anp-memento": [
+      {
+        "label": "2 BHK flats in Wakad",
+        "url": "/2-bhk-flats-in-wakad"
+      },
+      {
+        "label": "2.5 BHK flats in Wakad",
+        "url": "/2-5-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3.5 BHK flats in Wakad",
+        "url": "/3-5-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "ANP Corp projects in Pune",
+        "url": "/developer/anp-corp"
+      }
+    ],
+    "anp-privado": [
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "5 BHK flats in Baner",
+        "url": "/5-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      },
+      {
+        "label": "ANP Corp projects in Pune",
+        "url": "/developer/anp-corp"
+      }
+    ],
+    "anp-retreat": [
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "ANP Corp projects in Pune",
+        "url": "/developer/anp-corp"
+      }
+    ],
+    "anp-ultimus": [
+      {
+        "label": "2 BHK flats in Wakad",
+        "url": "/2-bhk-flats-in-wakad"
+      },
+      {
+        "label": "2.5 BHK flats in Wakad",
+        "url": "/2-5-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3.5 BHK flats in Wakad",
+        "url": "/3-5-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "ANP Corp projects in Pune",
+        "url": "/developer/anp-corp"
+      }
+    ],
+    "ashokvillas": [
+      {
+        "label": "Villas in Ravet-Gahunje",
+        "url": "/villas-in-ravet-gahunje"
+      },
+      {
+        "label": "New projects in Ravet-Gahunje",
+        "url": "/location/ravet-gahunje"
+      }
+    ],
+    "city-avenue-wakad": [
+      {
+        "label": "Commercial properties in Wakad",
+        "url": "/commercial-properties-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "Kolte-Patil Developers projects in Pune",
+        "url": "/developer/kolte-patil-developers"
+      }
+    ],
+    "eon-west-2": [
+      {
+        "label": "Commercial properties in Wakad",
+        "url": "/commercial-properties-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      }
+    ],
+    "godrej-river-royale": [
+      {
+        "label": "Godrej River Royale 3 BHK price",
+        "url": "/projects/godrej-river-royale/3-bhk"
+      },
+      {
+        "label": "Godrej River Royale 4.5 BHK price",
+        "url": "/projects/godrej-river-royale/4-5-bhk"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "4.5 BHK flats in Baner",
+        "url": "/4-5-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "greenfinity-wakad": [
+      {
+        "label": "2 BHK flats in Wakad",
+        "url": "/2-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      }
+    ],
+    "kalpataru-aria": [
+      {
+        "label": "Kalpataru Aria 2 BHK price",
+        "url": "/projects/kalpataru-aria/2-bhk"
+      },
+      {
+        "label": "Kalpataru Aria 3 BHK price",
+        "url": "/projects/kalpataru-aria/3-bhk"
+      },
+      {
+        "label": "Apartments in Karjat",
+        "url": "/apartments-in-karjat"
+      },
+      {
+        "label": "New projects in Karjat",
+        "url": "/location/karjat"
+      },
+      {
+        "label": "Kalpataru projects in Pune",
+        "url": "/developer/kalpataru"
+      }
+    ],
+    "kalpataru-blossoms": [
+      {
+        "label": "Kalpataru Blossoms 2 BHK price",
+        "url": "/projects/kalpataru-blossoms/2-bhk"
+      },
+      {
+        "label": "Kalpataru Blossoms 3 BHK price",
+        "url": "/projects/kalpataru-blossoms/3-bhk"
+      },
+      {
+        "label": "Apartments in Sinhagad Road",
+        "url": "/apartments-in-sinhagad-road"
+      },
+      {
+        "label": "New projects in Sinhagad Road",
+        "url": "/location/sinhagad-road"
+      },
+      {
+        "label": "Kalpataru projects in Pune",
+        "url": "/developer/kalpataru"
+      }
+    ],
+    "khopoli": [
+      {
+        "label": "Plots in Khopoli",
+        "url": "/plots-in-khopoli"
+      },
+      {
+        "label": "New projects in Khopoli",
+        "url": "/location/khopoli"
+      },
+      {
+        "label": "Shapoorji Pallonji projects in Pune",
+        "url": "/developer/shapoorji-pallonji"
+      }
+    ],
+    "kings-county-wakad": [
+      {
+        "label": "Kings County 3 BHK price",
+        "url": "/projects/kings-county-wakad/3-bhk"
+      },
+      {
+        "label": "Kings County 4 BHK price",
+        "url": "/projects/kings-county-wakad/4-bhk"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "4 BHK flats in Wakad",
+        "url": "/4-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      }
+    ],
+    "kohinoor-avantara": [
+      {
+        "label": "2 BHK flats in Wakad",
+        "url": "/2-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "Kohinoor Group projects in Pune",
+        "url": "/developer/kohinoor-group"
+      }
+    ],
+    "kohinoor-regalia-towers": [
+      {
+        "label": "2 BHK flats in Wakad",
+        "url": "/2-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "Kohinoor Group projects in Pune",
+        "url": "/developer/kohinoor-group"
+      }
+    ],
+    "kohinoor-westview-reserve": [
+      {
+        "label": "2 BHK flats in Wakad",
+        "url": "/2-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "Kohinoor Group projects in Pune",
+        "url": "/developer/kohinoor-group"
+      }
+    ],
+    "kumar-panache": [
+      {
+        "label": "Kumar Panache 2 BHK price",
+        "url": "/projects/kumar-panache/2-bhk"
+      },
+      {
+        "label": "Kumar Panache 3 BHK price",
+        "url": "/projects/kumar-panache/3-bhk"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "2 BHK flats in Baner",
+        "url": "/2-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "kumar-parth-towers": [
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "2 BHK flats in Baner",
+        "url": "/2-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "livience-unione": [
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "2 BHK flats in Baner",
+        "url": "/2-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "lodha-altero": [
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "4 BHK flats in Wakad",
+        "url": "/4-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "Lodha projects in Pune",
+        "url": "/developer/lodha"
+      }
+    ],
+    "lodha-massimo": [
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      },
+      {
+        "label": "Lodha projects in Pune",
+        "url": "/developer/lodha"
+      }
+    ],
+    "mahindra-citadel": [
+      {
+        "label": "Mahindra Citadel 2 BHK price",
+        "url": "/projects/mahindra-citadel/2-bhk"
+      },
+      {
+        "label": "Mahindra Citadel 3 BHK price",
+        "url": "/projects/mahindra-citadel/3-bhk"
+      },
+      {
+        "label": "2 BHK flats in Pimpri-Chinchwad",
+        "url": "/2-bhk-flats-in-pimpri-chinchwad"
+      },
+      {
+        "label": "3 BHK flats in Pimpri-Chinchwad",
+        "url": "/3-bhk-flats-in-pimpri-chinchwad"
+      },
+      {
+        "label": "Apartments in Pimpri-Chinchwad",
+        "url": "/apartments-in-pimpri-chinchwad"
+      },
+      {
+        "label": "New projects in Pimpri-Chinchwad",
+        "url": "/location/pimpri-chinchwad"
+      },
+      {
+        "label": "Mahindra Lifespaces projects in Pune",
+        "url": "/developer/mahindra-lifespaces"
+      }
+    ],
+    "mahindra-mahalunge": [
+      {
+        "label": "Mahindra Lifespaces Mahalunge 2 BHK price",
+        "url": "/projects/mahindra-mahalunge/2-bhk"
+      },
+      {
+        "label": "Mahindra Lifespaces Mahalunge 3 BHK price",
+        "url": "/projects/mahindra-mahalunge/3-bhk"
+      },
+      {
+        "label": "Mahindra Lifespaces Mahalunge 4 BHK price",
+        "url": "/projects/mahindra-mahalunge/4-bhk"
+      },
+      {
+        "label": "Apartments in Mahalunge",
+        "url": "/apartments-in-mahalunge"
+      },
+      {
+        "label": "New projects in Mahalunge",
+        "url": "/location/mahalunge"
+      },
+      {
+        "label": "Mahindra Lifespaces projects in Pune",
+        "url": "/developer/mahindra-lifespaces"
+      }
+    ],
+    "majestique-elements": [
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      },
+      {
+        "label": "Majestique Landmarks projects in Pune",
+        "url": "/developer/majestique-landmarks"
+      }
+    ],
+    "merlin-ventana": [
+      {
+        "label": "Merlin Ventana 3 BHK price",
+        "url": "/projects/merlin-ventana/3-bhk"
+      },
+      {
+        "label": "Merlin Ventana 4 BHK price",
+        "url": "/projects/merlin-ventana/4-bhk"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "millennium-towers-wakad": [
+      {
+        "label": "Commercial properties in Wakad",
+        "url": "/commercial-properties-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      }
+    ],
+    "neoliv-grand-forest-prive": [
+      {
+        "label": "Plots in Khopoli",
+        "url": "/plots-in-khopoli"
+      },
+      {
+        "label": "New projects in Khopoli",
+        "url": "/location/khopoli"
+      }
+    ],
+    "nyati-emerald": [
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "2 BHK flats in Baner",
+        "url": "/2-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "regency-astra": [
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "2 BHK flats in Baner",
+        "url": "/2-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "rohan-viti": [
+      {
+        "label": "2 BHK flats in Wakad",
+        "url": "/2-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      }
+    ],
+    "tej-elevia": [
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "the-arena-pimpri": [
+      {
+        "label": "2 BHK flats in Pimpri-Chinchwad",
+        "url": "/2-bhk-flats-in-pimpri-chinchwad"
+      },
+      {
+        "label": "3 BHK flats in Pimpri-Chinchwad",
+        "url": "/3-bhk-flats-in-pimpri-chinchwad"
+      },
+      {
+        "label": "Apartments in Pimpri-Chinchwad",
+        "url": "/apartments-in-pimpri-chinchwad"
+      },
+      {
+        "label": "New projects in Pimpri-Chinchwad",
+        "url": "/location/pimpri-chinchwad"
+      }
+    ],
+    "the-balmoral-hillside": [
+      {
+        "label": "The Balmoral Hillside 4.5 BHK price",
+        "url": "/projects/the-balmoral-hillside/4-5-bhk"
+      },
+      {
+        "label": "4.5 BHK flats in Baner",
+        "url": "/4-5-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "the-ornate-baner": [
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "5 BHK flats in Baner",
+        "url": "/5-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      },
+      {
+        "label": "Majestique Landmarks projects in Pune",
+        "url": "/developer/majestique-landmarks"
+      }
+    ],
+    "treetopia": [
+      {
+        "label": "Plots in Hadapsar",
+        "url": "/plots-in-hadapsar"
+      },
+      {
+        "label": "New projects in Hadapsar",
+        "url": "/location/hadapsar"
+      },
+      {
+        "label": "Shapoorji Pallonji projects in Pune",
+        "url": "/developer/shapoorji-pallonji"
+      }
+    ],
+    "venkatesh-tresor": [
+      {
+        "label": "4.5 BHK flats in Baner",
+        "url": "/4-5-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      }
+    ],
+    "vtp-altitude": [
+      {
+        "label": "Commercial properties in Wakad",
+        "url": "/commercial-properties-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      }
+    ],
+    "western-avenue-wakad": [
+      {
+        "label": "2 BHK flats in Wakad",
+        "url": "/2-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      },
+      {
+        "label": "Kolte-Patil Developers projects in Pune",
+        "url": "/developer/kolte-patil-developers"
+      }
+    ],
+    "yashwin-urbo-centro": [
+      {
+        "label": "Yashwin Urbo Centro 2 BHK price",
+        "url": "/projects/yashwin-urbo-centro/2-bhk"
+      },
+      {
+        "label": "Yashwin Urbo Centro 3 BHK price",
+        "url": "/projects/yashwin-urbo-centro/3-bhk"
+      },
+      {
+        "label": "Yashwin Urbo Centro 4 BHK price",
+        "url": "/projects/yashwin-urbo-centro/4-bhk"
+      },
+      {
+        "label": "2 BHK flats in Wakad",
+        "url": "/2-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "4 BHK flats in Wakad",
+        "url": "/4-bhk-flats-in-wakad"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
+      }
+    ]
+  },
+  "nearby": {}
 }

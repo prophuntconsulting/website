@@ -359,6 +359,13 @@ button,select,input,textarea{font-family:inherit}
 .ph-rel-view-all a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 
 /* ── NEARBY PROJECTS CAROUSEL ────────────────────── */
+.ph-nearby-places{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.ph-nearby-places li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--gray-200);font-size:13.5px;color:var(--gray-700)}
+.ph-nearby-places strong{color:var(--ink);white-space:nowrap}
+@media(max-width:600px){.ph-nearby-places{grid-template-columns:1fr}}
+.ph-related-searches{display:flex;flex-wrap:wrap;gap:8px}
+.ph-related-searches a{font-size:13px;font-weight:600;color:var(--gray-700);border:1.5px solid var(--gray-200);border-radius:999px;padding:7px 14px;transition:border-color .2s,color .2s}
+.ph-related-searches a:hover{border-color:var(--red);color:var(--red)}
 .ph-carousel-wrap{position:relative}
 .ph-carousel-viewport{overflow:hidden}
 .ph-carousel-track{display:flex;gap:20px;transition:transform .35s var(--ease)}
@@ -500,6 +507,7 @@ button,select,input,textarea{font-family:inherit}
       <div class="ph-section-title">Around Mahalunge</div>
       <p class="ph-landmarks-line"><strong>Education:</strong> Schools and colleges of the Baner-Balewadi belt (short drive)</p><p class="ph-landmarks-line"><strong>Business & IT:</strong> Hinjewadi Phase 3 IT Park · Baner-Pashan IT corridor</p><p class="ph-landmarks-line"><strong>Healthcare:</strong> Sahyadri Super Speciality Hospital, Baner (nearby)</p><p class="ph-landmarks-line"><strong>Lifestyle:</strong> Balewadi High Street (short drive)</p>
       <p><a href="/location/mahalunge" class="ph-browse-link">All properties in Mahalunge →</a></p></div>
+    
     <div id="before-you-book" class="ph-section"><div class="ph-section-label">Before You Book</div>
     <div class="ph-section-title">Things to verify for Mahindra Lifespaces Mahalunge</div>
     <ul class="ph-verify">
@@ -512,6 +520,8 @@ button,select,input,textarea{font-family:inherit}
     <p class="ph-disclaimer">Project details, prices, inventory, offers, possession timelines and RERA information are subject to developer disclosure and buyer verification. Buyers should independently verify applicable project details on <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">MahaRERA</a> before purchase.</p></div>
     <div id="faqs" class="ph-section"><div class="ph-section-label">Frequently Asked Questions</div>
       <h3 class="ph-faq-q">What configurations are available at Mahindra Lifespaces Mahalunge?</h3><p class="ph-faq-a">Mahindra Lifespaces Mahalunge offers 2, 3 &amp; 4 BHK Apartments, with sizes 700 – 1,650 sqft.</p><h3 class="ph-faq-q">What is the price of homes at Mahindra Lifespaces Mahalunge?</h3><p class="ph-faq-a">Mahindra Lifespaces Mahalunge is priced ₹90 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans.</p><h3 class="ph-faq-q">Where is Mahindra Lifespaces Mahalunge located?</h3><p class="ph-faq-a">Mahindra Lifespaces Mahalunge is located at Mahalunge, Baner Annex, Pune, developed by Mahindra Lifespaces.</p><h3 class="ph-faq-q">Who is the developer of Mahindra Lifespaces Mahalunge?</h3><p class="ph-faq-a">Mahindra Lifespaces Mahalunge is developed by Mahindra Lifespaces.</p><h3 class="ph-faq-q">Is Mahindra Lifespaces Mahalunge ready to move in or under construction?</h3><p class="ph-faq-a">Mahindra Lifespaces Mahalunge is a new launch.</p><h3 class="ph-faq-q">Where is Mahalunge and how does it relate to Baner?</h3><p class="ph-faq-a">Mahalunge is an emerging locality adjoining Baner in west Pune, often marketed as the next growth corridor as Baner itself matures and land availability there tightens.</p><h3 class="ph-faq-q">Why are developers launching projects in Mahalunge?</h3><p class="ph-faq-a">Mahalunge offers relatively larger parcels of land close to the established Baner-Balewadi belt and within reach of Hinjewadi Phase 3, letting developers offer larger-format homes at comparatively accessible pricing versus core Baner.</p><h3 class="ph-faq-q">What is the connectivity like in Mahalunge?</h3><p class="ph-faq-a">Mahalunge benefits from its proximity to the Baner-Pashan Link Road and the Mumbai-Pune Expressway, with onward access to Hinjewadi’s IT parks.</p></div>
+    <div id="related-searches" class="ph-section"><div class="ph-section-label">Related Searches</div>
+      <ul class="ph-verify ph-cols"><li><a href="/projects/mahindra-mahalunge/2-bhk">Mahindra Lifespaces Mahalunge 2 BHK price</a></li><li><a href="/projects/mahindra-mahalunge/3-bhk">Mahindra Lifespaces Mahalunge 3 BHK price</a></li><li><a href="/projects/mahindra-mahalunge/4-bhk">Mahindra Lifespaces Mahalunge 4 BHK price</a></li><li><a href="/apartments-in-mahalunge">Apartments in Mahalunge</a></li><li><a href="/location/mahalunge">New projects in Mahalunge</a></li><li><a href="/developer/mahindra-lifespaces">Mahindra Lifespaces projects in Pune</a></li></ul></div>
   </div>
 </div>
 
@@ -1095,6 +1105,28 @@ function buildPage(prop, allProps) {
           </div>` : '').join('')}
       </div>` : '';
 
+  /* ── What's nearby (straight-line distances) and Related searches — both
+     computed by scripts/build-seo-pages.js and shipped in seo-content.json;
+     the same content is prerendered into the page for crawlers. ── */
+  const esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const nearbyPlaces = Array.isArray(prop.nearby_places) ? prop.nearby_places : [];
+  const nearbyPlacesHtml = nearbyPlaces.length
+    ? `<div id="whats-nearby" class="ph-section">
+        <div class="ph-section-label">Location</div>
+        <div class="ph-section-title">What's Nearby</div>
+        <div class="ph-divider"></div>
+        <ul class="ph-nearby-places">${nearbyPlaces.map(x => `<li><span>${esc(x.name)}</span><strong>${esc(x.label)}</strong></li>`).join('')}</ul>
+        <p class="ph-disclaimer">Approximate straight-line distances from the project's map location. Road distance is longer.</p>
+      </div>` : '';
+  const relatedSearches = Array.isArray(prop.related_searches) ? prop.related_searches : [];
+  const relatedSearchesHtml = relatedSearches.length && prop.status !== 'sold-out'
+    ? `<div id="related-searches" class="ph-section">
+        <div class="ph-section-label">Explore More</div>
+        <div class="ph-section-title">Related Searches</div>
+        <div class="ph-divider"></div>
+        <div class="ph-related-searches">${relatedSearches.map(r => `<a href="${esc(r.url)}">${esc(r.label)}</a>`).join('')}</div>
+      </div>` : '';
+
   /* ── Config select for form (custom-styled, not a native <select>) ──
      When there's no per-unit pricing breakdown, prop.config is often a combined
      string like "3 & 4 BHK Apartments" or "2, 3 & 4 BHK" — split that into
@@ -1217,9 +1249,11 @@ function buildPage(prop, allProps) {
         </div>
 
         ${nearbyCarouselHtml}
+        ${nearbyPlacesHtml}
         ${landmarksHtml}
         ${verifyHtml}
         ${faqHtml}
+        ${relatedSearchesHtml}
 
       </main>
 
@@ -1537,6 +1571,8 @@ Promise.all([
     prop.project_faqs     = seo.projects?.[prop.slug] || [];
     prop.locality_faqs    = localitySeo.faqs || [];
     prop.nearby_landmarks = localitySeo.landmarks || {};
+    prop.related_searches = seo.related?.[prop.slug] || [];
+    prop.nearby_places    = seo.nearby?.[prop.slug] || [];
     buildPage(prop, all);
   })
   .catch(() => {
