@@ -415,8 +415,29 @@
   // Newsletter
   document.getElementById('blogNewsletterForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
-    const em = this.querySelector('input[type="email"]').value;
-    window.location.href = 'mailto:info@prophuntllp.com?subject=Blog Newsletter Subscription&body=Please add me to your newsletter list.%0A%0AEmail: ' + encodeURIComponent(em);
+    const form = this;
+    const input = form.querySelector('input[type="email"]');
+    const em = input.value.trim();
+    const btn = form.querySelector('button');
+    if (!/^\S+@\S+\.\S+$/.test(em)) { input.focus(); return; }
+    const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Subscribing…';
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9',
+        subject: 'Blog newsletter subscription',
+        from_name: 'PROPHUNT LLP website (Blog newsletter)',
+        email: em,
+        source_page: window.location.pathname
+      })
+    }).then(r => r.json().then(d => r.ok && d.success !== false)).catch(() => false).then(ok => {
+      btn.disabled = false;
+      btn.textContent = ok ? 'Subscribed' : 'Error, try again';
+      if (ok) form.reset();
+      setTimeout(() => { btn.textContent = orig; }, 3000);
+    });
   });
 })();
 </script>
