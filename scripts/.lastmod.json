@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "781a86e5fc4e51a911bce49c4c15faae085e30e3",
+  "hash": "f73af562c35e7908a135b36967d1b25705c4dae1",
   "date": "2026-10-13"
  },
  "/projects": {
@@ -12,8 +12,8 @@
   "date": "2026-09-21"
  },
  "/about": {
-  "hash": "dd2aa63c23abdededb0031234ef308a26b2444a8",
-  "date": "2026-10-01"
+  "hash": "e4624eb8750b27231920a417ca5ca8d1c637e8e4",
+  "date": "2026-10-13"
  },
  "/contact": {
   "hash": "5e0dd38b5a90dbd05f44ee90be63e006d587f0ba",
@@ -28,12 +28,12 @@
   "date": "2026-10-13"
  },
  "/rera-disclosure": {
-  "hash": "e99e38de26e74e71a27c50b3ef188d40b43dba75",
-  "date": "2026-09-21"
+  "hash": "285dd34ebbc585899780f3830ebc046fe6017b8d",
+  "date": "2026-10-13"
  },
  "/privacy-policy": {
-  "hash": "4366c5229545ab74753a557ec84b1fcb9940a148",
-  "date": "2026-09-21"
+  "hash": "296bd5d1ecb4f0e0ce0125def595d790a6e8ac55",
+  "date": "2026-10-13"
  },
  "/terms": {
   "hash": "0c3748559a67b2ff65b28cc42bfb4ffa24d4a9ae",
@@ -140,7 +140,7 @@
   "date": "2026-10-13"
  },
  "/projects/mahindra-citadel": {
-  "hash": "312cd02d25b4720ec3c7c134f0a567e7477e93b6",
+  "hash": "255ee5742ff561def3fc9af3a64813cb3458e866",
   "date": "2026-10-13"
  },
  "/projects/mahindra-mahalunge": {
@@ -184,7 +184,7 @@
   "date": "2026-10-13"
  },
  "/projects/the-balmoral-hillside": {
-  "hash": "e52912852091a69c7389cf4f17814c8204efcf0d",
+  "hash": "67245c863b1e2cce778364ef04db72db4444025f",
   "date": "2026-10-13"
  },
  "/projects/the-ornate-baner": {
@@ -312,8 +312,8 @@
   "date": "2026-10-01"
  },
  "/developer/mahindra-lifespaces": {
-  "hash": "55ad797c8be76d431e346c37f5f6a96a634bc56d",
-  "date": "2026-10-01"
+  "hash": "249b370fd20fc410d4746320bb520a139a8e390e",
+  "date": "2026-10-13"
  },
  "/developer/majestique-landmarks": {
   "hash": "7f40a4e535884385e13069469a24022afadea9a2",
