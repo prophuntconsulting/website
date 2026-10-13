@@ -112,15 +112,16 @@
 .timeline-year { font-size:.78rem; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:.1em; margin-bottom:.3rem; }
 .timeline-title { font-size:1rem; font-weight:700; color:var(--black); margin-bottom:.35rem; }
 .timeline-desc { font-size:.875rem; color:var(--gray-600); line-height:1.6; }
-.team-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
-.team-card { text-align:center; }
-.team-avatar { width:88px; height:88px; border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center; font-size:1.75rem; font-weight:700; color:var(--white); font-family:var(--font-head); margin:0 auto 1rem; border:3px solid var(--gray-200); transition:border-color .3s; }
-.team-card:hover .team-avatar { border-color:var(--red); }
-.team-name { font-size:1rem; font-weight:700; font-family:var(--font-head); margin-bottom:.2rem; }
-.team-role { font-size:.8rem; color:var(--red); font-weight:600; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.5rem; }
-.team-desc { font-size:.82rem; color:var(--gray-600); line-height:1.6; }
-@media(max-width:1024px){ .about-story{grid-template-columns:1fr;gap:2.5rem;} .mission-grid{grid-template-columns:1fr 1fr;} .team-grid{grid-template-columns:repeat(2,1fr);} }
-@media(max-width:600px){ .mission-grid{grid-template-columns:1fr;} .team-grid{grid-template-columns:1fr 1fr;} .about-story-img-float{display:none;} }
+.office-gallery { display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:280px; gap:1rem; }
+.office-tile { position:relative; margin:0; overflow:hidden; border-radius:var(--radius-md); background:var(--gray-200); }
+.office-tile--team { grid-column:span 4; }
+.office-tile--awards { grid-column:span 2; }
+.office-tile--half { grid-column:span 3; }
+.office-tile img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s var(--ease); }
+.office-tile:hover img { transform:scale(1.04); }
+.office-tile figcaption { position:absolute; left:0; right:0; bottom:0; padding:2.5rem 1.1rem .9rem; font-size:.85rem; font-weight:600; color:#fff; background:linear-gradient(to top, rgba(17,17,17,.78), rgba(17,17,17,0)); }
+@media(max-width:1024px){ .about-story{grid-template-columns:1fr;gap:2.5rem;} .mission-grid{grid-template-columns:1fr 1fr;} .office-gallery{grid-auto-rows:240px;} }
+@media(max-width:600px){ .mission-grid{grid-template-columns:1fr;} .office-gallery{grid-template-columns:1fr;grid-auto-rows:220px;} .office-tile--team,.office-tile--awards,.office-tile--half{grid-column:auto;} .about-story-img-float{display:none;} }
 </style>
 </head>
 <body>
@@ -281,39 +282,31 @@
   </div>
 </section>
 
-<!-- Team -->
+<!-- Team & Office -->
 <section class="section section--tinted">
   <div class="container">
     <div class="section-header centered" data-reveal>
       <span class="section-label"><i class="fas fa-users"></i> Our Team</span>
-      <h2>The People Behind PROPHUNT</h2>
-      <p class="section-sub">A team of experienced real estate professionals, market analysts, and legal advisors committed to your success.</p>
+      <h2>Inside Our Baner Office</h2>
+      <p class="section-sub">Our advisors work out of Work Katta, Pancard Club Road, Baner. Drop in for a consultation, or book a site visit and we will take it from there.</p>
     </div>
-    <div class="team-grid">
-      <div class="team-card" data-reveal data-reveal-delay="0">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#C8362B,#A02A22);">PH</div>
-        <div class="team-name">Founder & CEO</div>
-        <div class="team-role">Leadership</div>
-        <p class="team-desc">Visionary behind PROPHUNT LLP. Deep expertise in Pune's real estate micro-markets and developer relationships.</p>
-      </div>
-      <div class="team-card" data-reveal data-reveal-delay="100">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#1A1A1A,#2d2d2d);">SA</div>
-        <div class="team-name">Head of Advisory</div>
-        <div class="team-role">Client Relations</div>
-        <p class="team-desc">Guides clients through every step of the purchase journey, from shortlisting to registration.</p>
-      </div>
-      <div class="team-card" data-reveal data-reveal-delay="200">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#C9A96E,#a07a3e);">MR</div>
-        <div class="team-name">Legal Advisor</div>
-        <div class="team-role">Legal & Compliance</div>
-        <p class="team-desc">Ensures every transaction is legally sound: RERA verification, title checks, and agreement review.</p>
-      </div>
-      <div class="team-card" data-reveal data-reveal-delay="300">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#2d6a2d,#1e4d1e);">NK</div>
-        <div class="team-name">NRI Desk</div>
-        <div class="team-role">NRI Services</div>
-        <p class="team-desc">Dedicated support for Non-Resident Indian buyers with expertise in FEMA compliance and repatriation.</p>
-      </div>
+    <div class="office-gallery">
+      <figure class="office-tile office-tile--team" data-reveal>
+        <img src="/images/office/team-at-work.webp" srcset="/images/office/team-at-work-sm.webp 760w, /images/office/team-at-work.webp 1360w" sizes="(max-width:768px) 100vw, 66vw" width="1360" height="628" loading="lazy" decoding="async" alt="PROPHUNT advisors working at their desks in the Baner office">
+        <figcaption>Our advisory team at work</figcaption>
+      </figure>
+      <figure class="office-tile office-tile--awards" data-reveal data-reveal-delay="100">
+        <img src="/images/office/awards.webp" srcset="/images/office/awards-sm.webp 760w, /images/office/awards.webp 1400w" sizes="(max-width:768px) 100vw, 33vw" width="1400" height="790" loading="lazy" decoding="async" alt="Framed certificates of appreciation awarded to PROPHUNT LLP by developer partners">
+        <figcaption>Recognition from our developer partners</figcaption>
+      </figure>
+      <figure class="office-tile office-tile--half" data-reveal>
+        <img src="/images/office/workspace.webp" srcset="/images/office/workspace-sm.webp 760w, /images/office/workspace.webp 1400w" sizes="(max-width:768px) 100vw, 50vw" width="1400" height="790" loading="lazy" decoding="async" alt="Open-plan advisory workspace with desks and pendant lights">
+        <figcaption>Advisory workspace</figcaption>
+      </figure>
+      <figure class="office-tile office-tile--half" data-reveal data-reveal-delay="100">
+        <img src="/images/office/meeting-room.webp" srcset="/images/office/meeting-room-sm.webp 760w, /images/office/meeting-room.webp 1400w" sizes="(max-width:768px) 100vw, 50vw" width="1400" height="790" loading="lazy" decoding="async" alt="Client meeting room with conference table and display screen">
+        <figcaption>Client meeting room</figcaption>
+      </figure>
     </div>
   </div>
 </section>
