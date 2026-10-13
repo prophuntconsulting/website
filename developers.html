@@ -454,7 +454,7 @@ html, body { overflow-x:hidden; }
     fd.append('source_page', window.location.pathname);
 
     fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
-      .then(r=>r.json().catch(()=>({})).then(d=>{ if(!r.ok||d.success===false) throw new Error('submit failed'); setResult(true); }))
+      .then(r=>r.json().catch(()=>({})).then(d=>{ if(!r.ok||d.success===false) throw new Error('submit failed'); setResult(true); if(typeof gtag==='function') gtag('event','generate_lead',{form_name:'Developer Listing'}); }))
       .catch(()=>{ setResult(false); window.location.href = `mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; })
       .finally(() => {
         if (submitBtn) submitBtn.disabled = false;

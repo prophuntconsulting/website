@@ -3,13 +3,14 @@
 // visitors never look like either of these, so such a submission is dropped:
 // the visitor still sees "sent" and no lead is created.
 //  - Gmail ignores dots, so spammers write one inbox as endless addresses
-//    ("ki.c.imu.ze66.4@gmail.com"); three or more dots is not how people type.
+//    ("ki.c.imu.ze66.4@gmail.com"). The cut-off is four or more dots: three
+//    would also drop real addresses like "r.k.sharma.pune@gmail.com".
 //  - A single word of 12+ letters that flips lower to UPPER case four or more
 //    times ("xHmDXxLAkxTFyGYRrjTala") is random text, not a name or a RERA number.
 function looksLikeSpam({ email, name, custom_fields }) {
   const mail = String(email || '').trim().toLowerCase();
   const [local, domain] = mail.split('@');
-  if ((domain === 'gmail.com' || domain === 'googlemail.com') && (local.match(/\./g) || []).length >= 3) return true;
+  if ((domain === 'gmail.com' || domain === 'googlemail.com') && (local.match(/\./g) || []).length >= 4) return true;
   const random = (v) => String(v || '').split(/\s+/).some((w) => w.length >= 12 && (w.match(/[a-z][A-Z]/g) || []).length >= 4);
   return random(name) || (custom_fields || []).some((f) => random(f.value));
 }
@@ -45,10 +46,16 @@ module.exports = async (req, res) => {
     return res.status(200).json({ ok: true });
   }
 
+  // CRM delivery is best-effort: the browser fires this request and moves on
+  // (Web3Forms emails the same lead), so a failure never blocks the visitor.
+  // Return a real error status though, so failures show up in Vercel's logs
+  // and request metrics instead of hiding behind a 200.
+  if (!process.env.ARTHALEADS_TOKEN) {
+    console.error('[lead] ARTHALEADS_TOKEN is not set in this environment');
+    return res.status(500).json({ ok: false, error: 'CRM not configured' });
+  }
+
   try {
-    if (!process.env.ARTHALEADS_TOKEN) {
-      console.error('[lead] ARTHALEADS_TOKEN is not set in this environment');
-    }
     const crmRes = await fetch('https://api.arthaleads.com/webhook/website', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -66,10 +73,11 @@ module.exports = async (req, res) => {
     });
     if (!crmRes.ok) {
       console.error('[lead] ArthaLeads rejected the lead:', crmRes.status, await crmRes.text());
+      return res.status(502).json({ ok: false, error: 'CRM rejected the lead' });
     }
   } catch (e) {
-    // CRM delivery is best-effort — a failure here must never block the visitor's enquiry.
     console.error('[lead] ArthaLeads request threw:', e.message);
+    return res.status(502).json({ ok: false, error: 'CRM unreachable' });
   }
 
   res.status(200).json({ ok: true });

@@ -1363,6 +1363,20 @@ function buildPage(prop, allProps) {
 
   /* ── Forms (Web3Forms — same working integration as contact.html/developers.html,
      with a mailto fallback so a failed request never dead-ends the lead) ── */
+  function showFormError(form, subject, body) {
+    let el = form.querySelector('.form-send-error');
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'form-send-error';
+      el.setAttribute('role', 'alert');
+      el.style.cssText = 'margin:.6rem 0 0;font-size:.82rem;line-height:1.45;color:#b42318;';
+      form.appendChild(el);
+    }
+    const mail = `mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    el.innerHTML = 'Sorry, we could not send that. Please call <a href="tel:+917066880808" style="color:inherit;font-weight:600">+91 70668 80808</a>, '
+      + '<a href="https://wa.me/917447430431" target="_blank" rel="noopener" style="color:inherit;font-weight:600">WhatsApp us</a> or '
+      + `<a href="${mail}" style="color:inherit;font-weight:600">email us</a>.`;
+  }
   function handleForm(form) {
     form?.addEventListener('submit', e => {
       e.preventDefault();
@@ -1399,15 +1413,17 @@ function buildPage(prop, allProps) {
           project: prop.title, slug: prop.slug,
           ...f
         })
-      }).then(r => { if (!r.ok) throw new Error('submit failed'); })
+      }).then(r => r.json().catch(() => ({})).then(d => { if (!r.ok || d.success === false) throw new Error('submit failed'); }))
         .then(() => {
+          form.querySelector('.form-send-error')?.remove();
+          if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'Project Enquiry', project: prop.title || prop.slug || '' });
           btn.textContent = '✓ Sent! We\'ll call you soon';
           btn.style.background = '#16a34a';
           form.reset();
           setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 5000);
         })
         .catch(() => {
-          window.location.href = `mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          showFormError(form, subject, body);
           btn.textContent = orig; btn.disabled = false;
         });
     });
