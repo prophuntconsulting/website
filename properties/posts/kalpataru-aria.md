@@ -52,4 +52,7 @@ gallery_images:
   - "/images/landing-pages/kalpataru-aria/masterplan-aerial.jpg"
   - "/images/landing-pages/kalpataru-aria/health-club.jpg"
   - "/images/landing-pages/kalpataru-aria/fitness-park.jpg"
+lat: 18.8920963
+lng: 73.3108444
+geo_confidence: "exact"
 ---

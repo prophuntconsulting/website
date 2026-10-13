@@ -44,4 +44,7 @@ gallery_images:
   - "/images/landing-pages/majestique-elements/photo-4.webp"
   - "/images/landing-pages/majestique-elements/photo-5.webp"
   - "/images/landing-pages/majestique-elements/photo-6.webp"
+lat: 18.5568082
+lng: 73.7863334
+geo_confidence: "exact"
 ---

@@ -44,4 +44,7 @@ gallery_images:
   - "/images/landing-pages/greenfinity-wakad/photo-4.webp"
   - "/images/landing-pages/greenfinity-wakad/photo-5.webp"
   - "/images/landing-pages/greenfinity-wakad/photo-6.webp"
+lat: 18.5897
+lng: 73.7626
+geo_confidence: "exact"
 ---

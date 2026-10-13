@@ -49,4 +49,7 @@ gallery_images:
   - "/images/landing-pages/merlin-ventana/photo-4.webp"
   - "/images/landing-pages/merlin-ventana/photo-5.webp"
   - "/images/landing-pages/merlin-ventana/photo-6.webp"
+lat: 18.5650666
+lng: 73.7677699
+geo_confidence: "exact"
 ---

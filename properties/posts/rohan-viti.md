@@ -39,4 +39,7 @@ gallery_images:
   - "/images/landing-pages/rohan-viti/photo-4.webp"
   - "/images/landing-pages/rohan-viti/photo-5.webp"
   - "/images/landing-pages/rohan-viti/photo-6.webp"
+lat: 18.5912221
+lng: 73.7611284
+geo_confidence: "exact"
 ---

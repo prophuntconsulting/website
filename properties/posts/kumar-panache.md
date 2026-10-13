@@ -42,4 +42,7 @@ gallery_images:
   - "/images/landing-pages/kumar-panache/photo-4.webp"
   - "/images/landing-pages/kumar-panache/photo-5.webp"
   - "/images/landing-pages/kumar-panache/photo-6.webp"
+lat: 18.5640145
+lng: 73.7684284
+geo_confidence: "exact"
 ---

@@ -48,4 +48,7 @@ gallery_images:
   - "/images/landing-pages/nyati-emerald/photo-4.webp"
   - "/images/landing-pages/nyati-emerald/photo-5.webp"
   - "/images/landing-pages/nyati-emerald/photo-6.webp"
+lat: 18.5530908
+lng: 73.7662117
+geo_confidence: "exact"
 ---

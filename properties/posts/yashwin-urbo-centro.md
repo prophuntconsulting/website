@@ -44,4 +44,7 @@ gallery_images:
   - "/images/landing-pages/yashwin-urbo-centro/photo-2.webp"
   - "/images/landing-pages/yashwin-urbo-centro/photo-3.webp"
   - "/images/landing-pages/yashwin-urbo-centro/photo-4.webp"
+lat: 18.6065711
+lng: 73.7508086
+geo_confidence: "exact"
 ---

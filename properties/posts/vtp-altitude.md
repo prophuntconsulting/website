@@ -40,4 +40,7 @@ gallery_images:
   - "/images/landing-pages/vtp-altitude/photo-1.webp"
   - "/images/landing-pages/vtp-altitude/photo-2.jpg"
   - "/images/landing-pages/vtp-altitude/photo-3.avif"
+lat: 18.612246
+lng: 73.767233
+geo_confidence: "exact"
 ---

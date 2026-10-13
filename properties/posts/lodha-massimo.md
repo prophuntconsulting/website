@@ -41,4 +41,7 @@ gallery_images:
   - "/images/landing-pages/lodha-massimo/pool-deck.webp"
   - "/images/landing-pages/lodha-massimo/temple.webp"
   - "/images/landing-pages/lodha-massimo/entrance-close-up.webp"
+lat: 18.5533473
+lng: 73.7772599
+geo_confidence: "exact"
 ---

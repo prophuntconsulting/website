@@ -41,4 +41,7 @@ gallery_images:
   - "/images/landing-pages/regency-astra/photo-4.webp"
   - "/images/landing-pages/regency-astra/photo-5.webp"
   - "/images/landing-pages/regency-astra/photo-6.webp"
+lat: 18.5529456
+lng: 73.7672933
+geo_confidence: "exact"
 ---

@@ -41,4 +41,7 @@ gallery_images:
   - "/images/landing-pages/anp-landmark/photo-3.jpg"
   - "/images/landing-pages/anp-landmark/photo-4.jpg"
   - "/images/landing-pages/anp-landmark/photo-5.jpg"
+lat: 18.6008
+lng: 73.7471
+geo_confidence: "exact"
 ---

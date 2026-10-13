@@ -52,4 +52,7 @@ amenities:
   - EV Charging Points
   - Co-Working Space
   - Café Lounge
+lat: 18.570032
+lng: 73.736299
+geo_confidence: "exact"
 ---

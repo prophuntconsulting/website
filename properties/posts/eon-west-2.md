@@ -16,4 +16,7 @@ stat_1_label: "Tech Park Area"
 stat_2_value: "Wakad"
 stat_2_label: "Micro-Market"
 price: 0
+lat: 18.6022495
+lng: 73.7644454
+geo_confidence: "locality"
 ---

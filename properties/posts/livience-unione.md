@@ -43,4 +43,7 @@ gallery_images:
   - "/images/landing-pages/livience-unione/photo-4.webp"
   - "/images/landing-pages/livience-unione/photo-5.webp"
   - "/images/landing-pages/livience-unione/photo-6.webp"
+lat: 18.5621978
+lng: 73.7942779
+geo_confidence: "exact"
 ---

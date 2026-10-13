@@ -51,4 +51,7 @@ gallery_images:
   - "/images/landing-pages/kings-county-wakad/photo-6.webp"
   - "/images/landing-pages/kings-county-wakad/photo-7.webp"
   - "/images/landing-pages/kings-county-wakad/photo-8.webp"
+lat: 18.5987759
+lng: 73.7455743
+geo_confidence: "exact"
 ---

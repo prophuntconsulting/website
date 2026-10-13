@@ -46,4 +46,7 @@ gallery_images:
   - "/images/landing-pages/the-arena-pimpri/walkway-pavilion.jpg"
 gallery_videos:
   - "/images/landing-pages/the-arena-pimpri/teaser.mp4"
+lat: 18.6191259
+lng: 73.7997543
+geo_confidence: "street"
 ---

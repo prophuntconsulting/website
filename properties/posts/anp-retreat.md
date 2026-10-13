@@ -45,4 +45,7 @@ gallery_images:
   - "/images/landing-pages/anp-retreat/photo-4.jpg"
   - "/images/landing-pages/anp-retreat/photo-5.jpg"
   - "/images/landing-pages/anp-retreat/photo-6.jpg"
+lat: 18.601543
+lng: 73.747654
+geo_confidence: "exact"
 ---

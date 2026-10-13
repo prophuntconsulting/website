@@ -40,4 +40,7 @@ gallery_images:
   - "/images/landing-pages/venkatesh-tresor/photo-4.webp"
   - "/images/landing-pages/venkatesh-tresor/photo-5.webp"
   - "/images/landing-pages/venkatesh-tresor/photo-6.webp"
+lat: 18.5592731
+lng: 73.7978598
+geo_confidence: "exact"
 ---

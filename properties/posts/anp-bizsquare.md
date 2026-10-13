@@ -42,4 +42,7 @@ gallery_images:
   - "/images/landing-pages/anp-bizsquare/photo-3.jpg"
   - "/images/landing-pages/anp-bizsquare/photo-4.jpg"
   - "/images/landing-pages/anp-bizsquare/photo-5.jpg"
+lat: 18.602337
+lng: 73.751048
+geo_confidence: "exact"
 ---

@@ -39,4 +39,7 @@ gallery_images:
   - "/images/landing-pages/supreme-estia/photo-4.webp"
   - "/images/landing-pages/supreme-estia/photo-5.webp"
   - "/images/landing-pages/supreme-estia/photo-6.webp"
+lat: 18.5564798
+lng: 73.7799678
+geo_confidence: "exact"
 ---

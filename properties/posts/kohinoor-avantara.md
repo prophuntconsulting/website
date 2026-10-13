@@ -45,4 +45,7 @@ gallery_images:
   - "/images/landing-pages/kohinoor-avantara/photo-2.webp"
   - "/images/landing-pages/kohinoor-avantara/photo-3.webp"
   - "/images/landing-pages/kohinoor-avantara/photo-4.webp"
+lat: 18.611506
+lng: 73.7406384
+geo_confidence: "exact"
 ---

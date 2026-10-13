@@ -32,7 +32,7 @@ const {
 } = require('./hub-shared');
 
 const ROOT = path.join(__dirname, '..');
-const NEAR_KM = 6;          // radius for "near {landmark}" pages
+const NEAR_KM = 3;          // radius for "near {landmark}" pages
 const NEARBY_KM = 12;       // radius for a project's "What's nearby" list
 const NEARBY_MAX = 10;
 
@@ -345,13 +345,29 @@ const NEAR_TYPES = [
   { key: 'office', match: p => p.category === 'commercial', prefix: 'office-space-near', noun: 'Office Space', nounLower: 'office and commercial spaces' },
 ];
 const CAT_LABEL = { 'it-park': 'IT park', mall: 'shopping', hospital: 'healthcare', transit: 'transit', education: 'education', other: 'landmark' };
+// Landmarks close to each other (a metro station beside a mall beside an IT
+// park) would otherwise yield pages listing the same projects — near-duplicate
+// doorway pages. Take landmarks in search-demand order and keep a page only if
+// its project set is clearly different from every page already kept for that
+// type (Jaccard similarity below MAX_OVERLAP).
+const CAT_PRIORITY = ['it-park', 'transit', 'mall', 'hospital', 'education', 'other'];
+// Landmarks buyers actually search "flats near ..." for go first; the rest follow by category.
+const PRIORITY_SLUGS = ['hinjewadi-phase-1', 'hinjewadi-phase-2', 'hinjewadi-phase-3', 'balewadi-high-street',
+  'phoenix-mall-of-the-millennium', 'wakad-chowk-metro', 'baner-metro', 'eon-it-park-kharadi', 'magarpatta-city',
+  'pcmc-metro-station', 'pune-university-metro', 'aditya-birla-memorial-hospital', 'jupiter-hospital-baner'];
+const rank = lm => { const i = PRIORITY_SLUGS.indexOf(lm.slug); return i >= 0 ? i : PRIORITY_SLUGS.length + CAT_PRIORITY.indexOf(lm.category); };
+const MAX_OVERLAP = 0.6;
+const jaccard = (a, b) => { const A = new Set(a); const inter = b.filter(x => A.has(x)).length; return inter / (A.size + b.length - inter); };
+const orderedLandmarks = landmarks.filter(lm => Number.isFinite(lm.lat) && Number.isFinite(lm.lng))
+  .map((lm, i) => ({ lm, i })).sort((a, b) => (rank(a.lm) - rank(b.lm)) || a.i - b.i).map(x => x.lm);
 const nearPages = [];
-for (const lm of landmarks) {
-  if (!Number.isFinite(lm.lat) || !Number.isFinite(lm.lng)) continue;
+for (const lm of orderedLandmarks) {
   for (const t of NEAR_TYPES) {
     const matches = live.filter(t.match).map(p => ({ p, g: geoOf(p) })).filter(x => x.g)
       .map(x => ({ p: x.p, km: haversineKm(x.g, lm) })).filter(x => x.km <= NEAR_KM).sort((a, b) => a.km - b.km);
     if (matches.length < 2) continue;
+    const slugs = matches.map(m => m.p.slug);
+    if (nearPages.some(x => x.t === t && jaccard(x.matches.map(m => m.p.slug), slugs) >= MAX_OVERLAP)) continue;
     nearPages.push({ lm, t, matches, url: `/${t.prefix}-${lm.slug}` });
   }
 }

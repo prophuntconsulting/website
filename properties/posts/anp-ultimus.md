@@ -44,4 +44,7 @@ gallery_images:
   - "/images/landing-pages/anp-ultimus/photo-3.jpg"
   - "/images/landing-pages/anp-ultimus/photo-4.jpg"
   - "/images/landing-pages/anp-ultimus/photo-5.jpg"
+lat: 18.5933421
+lng: 73.7563207
+geo_confidence: "exact"
 ---

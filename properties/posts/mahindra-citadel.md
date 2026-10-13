@@ -44,4 +44,7 @@ amenities:
   - Indoor Community Hall
   - Yoga & Meditation Deck
   - Pet Park
+lat: 18.6166347
+lng: 73.8132729
+geo_confidence: "exact"
 ---

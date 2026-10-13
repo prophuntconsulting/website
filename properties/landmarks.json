@@ -1,0 +1,371 @@
+[
+  {
+    "slug": "hinjewadi-phase-1",
+    "name": "Rajiv Gandhi Infotech Park, Hinjewadi Phase 1",
+    "short_name": "Hinjewadi Phase 1",
+    "category": "it-park",
+    "lat": 18.5910328,
+    "lng": 73.7352965,
+    "source_url": "https://www.openstreetmap.org/node/673316094"
+  },
+  {
+    "slug": "hinjewadi-phase-2",
+    "name": "Rajiv Gandhi Infotech Park, Hinjewadi Phase 2",
+    "short_name": "Hinjewadi Phase 2",
+    "category": "it-park",
+    "lat": 18.5938279,
+    "lng": 73.7079111,
+    "source_url": "https://www.openstreetmap.org/node/13611182118"
+  },
+  {
+    "slug": "hinjewadi-phase-3",
+    "name": "Rajiv Gandhi Infotech Park, Hinjewadi Phase 3",
+    "short_name": "Hinjewadi Phase 3",
+    "category": "it-park",
+    "lat": 18.5860879,
+    "lng": 73.687338,
+    "source_url": "https://www.openstreetmap.org/node/9497561239"
+  },
+  {
+    "slug": "international-tech-park-pune-hinjewadi",
+    "name": "International Tech Park Pune (ITPP), Hinjewadi",
+    "short_name": "ITPP Hinjewadi",
+    "category": "it-park",
+    "lat": 18.592239,
+    "lng": 73.683106,
+    "source_url": "https://www.openstreetmap.org/way/359496849"
+  },
+  {
+    "slug": "embassy-tech-zone",
+    "name": "Embassy TechZone, Hinjewadi Phase 2",
+    "short_name": "Embassy Tech Zone",
+    "category": "it-park",
+    "lat": 18.605851,
+    "lng": 73.71515,
+    "source_url": "https://www.openstreetmap.org/way/206485496"
+  },
+  {
+    "slug": "blue-ridge-sez",
+    "name": "Blue Ridge SEZ, Hinjewadi Phase 1",
+    "short_name": "Blue Ridge SEZ",
+    "category": "it-park",
+    "lat": 18.5774523,
+    "lng": 73.740292,
+    "source_url": "https://www.openstreetmap.org/way/206486840"
+  },
+  {
+    "slug": "embassy-quadron",
+    "name": "Embassy Quadron Business Park, Hinjewadi Phase 2",
+    "short_name": "Quadron Business Park",
+    "category": "it-park",
+    "lat": 18.58717,
+    "lng": 73.69646,
+    "source_url": "https://www.openstreetmap.org/way/1041857746"
+  },
+  {
+    "slug": "panchshil-business-park-balewadi",
+    "name": "Panchshil Business Park, Balewadi",
+    "short_name": "Panchshil Business Park",
+    "category": "it-park",
+    "lat": 18.569494,
+    "lng": 73.774089,
+    "source_url": "https://www.openstreetmap.org/way/276154594"
+  },
+  {
+    "slug": "eon-it-park-kharadi",
+    "name": "EON IT Park (EON Free Zone), Kharadi",
+    "short_name": "EON IT Park Kharadi",
+    "category": "it-park",
+    "lat": 18.551815,
+    "lng": 73.951153,
+    "source_url": "https://www.openstreetmap.org/way/206530452"
+  },
+  {
+    "slug": "world-trade-center-pune",
+    "name": "World Trade Center Pune, Kharadi",
+    "short_name": "WTC Kharadi",
+    "category": "it-park",
+    "lat": 18.5531806,
+    "lng": 73.9482802,
+    "source_url": "https://www.openstreetmap.org/way/632458567"
+  },
+  {
+    "slug": "magarpatta-city",
+    "name": "Magarpatta City (Cybercity), Hadapsar",
+    "short_name": "Magarpatta City",
+    "category": "it-park",
+    "lat": 18.515,
+    "lng": 73.92638889,
+    "source_url": "https://en.wikipedia.org/wiki/Magarpatta"
+  },
+  {
+    "slug": "phoenix-mall-of-the-millennium",
+    "name": "Phoenix Mall of the Millennium, Wakad",
+    "short_name": "Phoenix Mall Wakad",
+    "category": "mall",
+    "lat": 18.599711,
+    "lng": 73.7551552,
+    "source_url": "https://magicpin.in/Pune/Phoenix-Mall-Of-The-Millennium-Wakad/Fashion/Trends/store/16b1b1b"
+  },
+  {
+    "slug": "westend-mall-aundh",
+    "name": "Westend Mall, Aundh",
+    "short_name": "Westend Mall",
+    "category": "mall",
+    "lat": 18.5616546,
+    "lng": 73.8068193,
+    "source_url": "https://www.openstreetmap.org/relation/5351394"
+  },
+  {
+    "slug": "balewadi-high-street",
+    "name": "Balewadi High Street",
+    "short_name": "Balewadi High Street",
+    "category": "mall",
+    "lat": 18.5707189,
+    "lng": 73.7743082,
+    "source_url": "https://www.openstreetmap.org/node/12861335422"
+  },
+  {
+    "slug": "elpro-city-square",
+    "name": "Elpro City Square, Chinchwad",
+    "short_name": "Elpro Mall",
+    "category": "mall",
+    "lat": 18.6286463,
+    "lng": 73.7836384,
+    "source_url": "https://www.openstreetmap.org/way/1219435160"
+  },
+  {
+    "slug": "the-pavillion",
+    "name": "The Pavillion, Senapati Bapat Road",
+    "short_name": "Pavillion Mall",
+    "category": "mall",
+    "lat": 18.5337227,
+    "lng": 73.8296243,
+    "source_url": "https://www.openstreetmap.org/way/1019388898"
+  },
+  {
+    "slug": "vision-one-mall-wakad",
+    "name": "Vision One Mall, Bhujbal Chowk, Wakad",
+    "short_name": "Vision One Mall",
+    "category": "mall",
+    "lat": 18.608529,
+    "lng": 73.7519623,
+    "source_url": "https://www.openstreetmap.org/way/1410049678"
+  },
+  {
+    "slug": "amanora-mall",
+    "name": "Amanora Mall, Hadapsar",
+    "short_name": "Amanora Mall",
+    "category": "mall",
+    "lat": 18.5186503,
+    "lng": 73.9353564,
+    "source_url": "https://www.openstreetmap.org/way/224711846"
+  },
+  {
+    "slug": "abhiruchi-mall-sinhagad-road",
+    "name": "Abhiruchi Mall & Multiplex, Sinhagad Road",
+    "short_name": "Abhiruchi Mall",
+    "category": "mall",
+    "lat": 18.462949,
+    "lng": 73.8165301,
+    "source_url": "https://www.openstreetmap.org/node/1714023640"
+  },
+  {
+    "slug": "aditya-birla-memorial-hospital",
+    "name": "Aditya Birla Memorial Hospital, Thergaon",
+    "short_name": "Aditya Birla Hospital",
+    "category": "hospital",
+    "lat": 18.6258445,
+    "lng": 73.7749915,
+    "source_url": "https://www.openstreetmap.org/way/1123804654"
+  },
+  {
+    "slug": "jupiter-hospital-baner",
+    "name": "Jupiter Hospital, Baner",
+    "short_name": "Jupiter Hospital Baner",
+    "category": "hospital",
+    "lat": 18.565664,
+    "lng": 73.7860094,
+    "source_url": "https://www.openstreetmap.org/way/1410820103"
+  },
+  {
+    "slug": "ruby-hall-clinic-hinjewadi",
+    "name": "Ruby Hall Clinic, Hinjewadi",
+    "short_name": "Ruby Hall Hinjewadi",
+    "category": "hospital",
+    "lat": 18.5925237,
+    "lng": 73.7341447,
+    "source_url": "https://www.openstreetmap.org/way/1410509613"
+  },
+  {
+    "slug": "pcmc-metro-station",
+    "name": "PCMC Metro Station (Line 1, Purple)",
+    "short_name": "PCMC Metro",
+    "category": "transit",
+    "lat": 18.629319,
+    "lng": 73.803286,
+    "source_url": "https://www.openstreetmap.org/node/10214268972"
+  },
+  {
+    "slug": "wakad-chowk-metro",
+    "name": "Wakad Chowk Metro Station (Line 3, Pink)",
+    "short_name": "Wakad Chowk Metro",
+    "category": "transit",
+    "lat": 18.590299,
+    "lng": 73.757559,
+    "source_url": "https://www.openstreetmap.org/node/7944597702"
+  },
+  {
+    "slug": "hinjewadi-metro",
+    "name": "Hinjawadi (Shivaji Chowk) Metro Station (Line 3)",
+    "short_name": "Hinjewadi Metro",
+    "category": "transit",
+    "lat": 18.592395,
+    "lng": 73.737357,
+    "source_url": "https://www.openstreetmap.org/node/13647113374"
+  },
+  {
+    "slug": "megapolis-circle-metro",
+    "name": "Megapolis Circle Metro Station (Line 3 terminus, Phase 3)",
+    "short_name": "Megapolis Circle Metro",
+    "category": "transit",
+    "lat": 18.57922,
+    "lng": 73.688,
+    "source_url": "https://www.openstreetmap.org/node/7944584973"
+  },
+  {
+    "slug": "balewadi-stadium-metro",
+    "name": "Balewadi Stadium Metro Station (Line 3)",
+    "short_name": "Balewadi Metro",
+    "category": "transit",
+    "lat": 18.579709,
+    "lng": 73.761542,
+    "source_url": "https://www.openstreetmap.org/node/7944584964"
+  },
+  {
+    "slug": "baner-metro",
+    "name": "Baner Metro Station (Line 3)",
+    "short_name": "Baner Metro",
+    "category": "transit",
+    "lat": 18.554964,
+    "lng": 73.797938,
+    "source_url": "https://www.openstreetmap.org/node/13647113365"
+  },
+  {
+    "slug": "pune-university-metro",
+    "name": "Savitribai Phule Pune University Metro Station (Line 3)",
+    "short_name": "Pune University Metro",
+    "category": "transit",
+    "lat": 18.542347,
+    "lng": 73.827173,
+    "source_url": "https://www.openstreetmap.org/node/13647113362"
+  },
+  {
+    "slug": "bhumkar-chowk",
+    "name": "Bhumkar Chowk (Mumbai-Bengaluru Highway x Hinjewadi Road), Wakad",
+    "short_name": "Bhumkar Chowk",
+    "category": "transit",
+    "lat": 18.6054357,
+    "lng": 73.7521665,
+    "source_url": "https://www.openstreetmap.org/way/1540277085"
+  },
+  {
+    "slug": "pune-international-airport",
+    "name": "Pune International Airport, Lohegaon",
+    "short_name": "Pune Airport",
+    "category": "transit",
+    "lat": 18.5803749,
+    "lng": 73.9182265,
+    "source_url": "https://www.openstreetmap.org/way/481312177"
+  },
+  {
+    "slug": "pune-railway-station",
+    "name": "Pune Junction Railway Station",
+    "short_name": "Pune Station",
+    "category": "transit",
+    "lat": 18.528877,
+    "lng": 73.874415,
+    "source_url": "https://www.openstreetmap.org/node/343304315"
+  },
+  {
+    "slug": "karjat-railway-station",
+    "name": "Karjat Railway Station",
+    "short_name": "Karjat Station",
+    "category": "transit",
+    "lat": 18.9099653,
+    "lng": 73.3209629,
+    "source_url": "https://www.openstreetmap.org/node/632358105"
+  },
+  {
+    "slug": "khopoli-railway-station",
+    "name": "Khopoli Railway Station",
+    "short_name": "Khopoli Station",
+    "category": "transit",
+    "lat": 18.788473,
+    "lng": 73.3460712,
+    "source_url": "https://www.openstreetmap.org/node/968816750"
+  },
+  {
+    "slug": "symbiosis-lavale",
+    "name": "Symbiosis International University, Lavale",
+    "short_name": "Symbiosis Lavale",
+    "category": "education",
+    "lat": 18.537479,
+    "lng": 73.731267,
+    "source_url": "https://en.wikipedia.org/wiki/Symbiosis_International_University"
+  },
+  {
+    "slug": "symbiosis-hinjewadi",
+    "name": "Symbiosis Hinjewadi Campus",
+    "short_name": "Symbiosis Hinjewadi",
+    "category": "education",
+    "lat": 18.5829822,
+    "lng": 73.7362756,
+    "source_url": "https://www.openstreetmap.org/way/206486832"
+  },
+  {
+    "slug": "savitribai-phule-pune-university",
+    "name": "Savitribai Phule Pune University",
+    "short_name": "Pune University",
+    "category": "education",
+    "lat": 18.5528441,
+    "lng": 73.8266441,
+    "source_url": "https://www.openstreetmap.org/way/995138926"
+  },
+  {
+    "slug": "indira-college-wakad",
+    "name": "Indira Group of Institutes, Wakad",
+    "short_name": "Indira College Wakad",
+    "category": "education",
+    "lat": 18.6093443,
+    "lng": 73.750135,
+    "source_url": "https://www.openstreetmap.org/way/752309308"
+  },
+  {
+    "slug": "balewadi-stadium",
+    "name": "Shree Shiv Chhatrapati Sports Complex, Balewadi",
+    "short_name": "Balewadi Stadium",
+    "category": "other",
+    "lat": 18.573823,
+    "lng": 73.7617088,
+    "source_url": "https://www.openstreetmap.org/way/615974518"
+  },
+  {
+    "slug": "lonavala",
+    "name": "Lonavala",
+    "short_name": "Lonavala",
+    "category": "other",
+    "lat": 18.74806,
+    "lng": 73.40722,
+    "source_url": "https://en.wikipedia.org/wiki/Lonavala"
+  },
+  {
+    "slug": "imagicaa",
+    "name": "Imagicaa Theme Park, Khopoli",
+    "short_name": "Imagicaa",
+    "category": "other",
+    "lat": 18.768,
+    "lng": 73.279,
+    "source_url": "https://en.wikipedia.org/wiki/Imagicaa"
+  }
+]

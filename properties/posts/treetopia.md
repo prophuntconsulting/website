@@ -46,4 +46,7 @@ amenities:
   - Pavilion
   - Gym
   - Landscaped Greenery
+lat: 18.4065498
+lng: 73.9975344
+geo_confidence: "exact"
 ---

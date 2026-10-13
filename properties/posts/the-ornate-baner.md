@@ -43,4 +43,7 @@ gallery_images:
   - "/images/landing-pages/the-ornate-baner/photo-4.webp"
   - "/images/landing-pages/the-ornate-baner/photo-5.webp"
   - "/images/landing-pages/the-ornate-baner/photo-6.webp"
+lat: 18.5548324
+lng: 73.7835955
+geo_confidence: "exact"
 ---

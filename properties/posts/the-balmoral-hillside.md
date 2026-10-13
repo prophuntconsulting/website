@@ -46,4 +46,7 @@ gallery_images:
   - "/images/landing-pages/the-balmoral-hillside/photo-3.webp"
   - "/images/landing-pages/the-balmoral-hillside/photo-4.webp"
   - "/images/landing-pages/the-balmoral-hillside/photo-5.webp"
+lat: 18.5581382
+lng: 73.7818189
+geo_confidence: "exact"
 ---

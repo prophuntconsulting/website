@@ -45,4 +45,7 @@ gallery_images:
   - "/images/landing-pages/anp-memento/photo-3.jpg"
   - "/images/landing-pages/anp-memento/photo-4.jpg"
   - "/images/landing-pages/anp-memento/photo-5.jpg"
+lat: 18.6000854
+lng: 73.7470013
+geo_confidence: "exact"
 ---

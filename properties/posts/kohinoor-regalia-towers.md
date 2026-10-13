@@ -42,4 +42,7 @@ gallery_images:
   - "/images/landing-pages/kohinoor-regalia-towers/photo-5.webp"
   - "/images/landing-pages/kohinoor-regalia-towers/photo-6.webp"
   - "/images/landing-pages/kohinoor-regalia-towers/photo-7.webp"
+lat: 18.6090484
+lng: 73.7467683
+geo_confidence: "exact"
 ---

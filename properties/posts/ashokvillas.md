@@ -54,4 +54,7 @@ gallery_images:
   - "/images/landing-pages/ashok-villas/villa-interior.jpg"
 gallery_videos:
   - "/images/landing-pages/ashok-villas/site-walkthrough.mp4"
+lat: 18.665891
+lng: 73.711202
+geo_confidence: "exact"
 ---

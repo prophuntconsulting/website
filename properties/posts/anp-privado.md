@@ -43,4 +43,7 @@ gallery_images:
   - "/images/landing-pages/anp-privado/photo-4.webp"
   - "/images/landing-pages/anp-privado/photo-5.webp"
   - "/images/landing-pages/anp-privado/photo-6.webp"
+lat: 18.5542633
+lng: 73.7811169
+geo_confidence: "exact"
 ---

@@ -38,4 +38,7 @@ gallery_images:
   - "/images/landing-pages/city-avenue-wakad/photo-1.webp"
   - "/images/landing-pages/city-avenue-wakad/photo-2.webp"
   - "/images/landing-pages/city-avenue-wakad/photo-3.webp"
+lat: 18.602126
+lng: 73.754126
+geo_confidence: "exact"
 ---

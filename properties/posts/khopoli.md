@@ -45,4 +45,7 @@ amenities:
   - Low-Density Eco-Sensitive Planning
   - Underground Utilities
   - Row Houses & Education Spaces
+lat: 18.773091
+lng: 73.2848346
+geo_confidence: "locality"
 ---

@@ -43,4 +43,7 @@ gallery_images:
   - "/images/landing-pages/tej-elevia/photo-4.webp"
   - "/images/landing-pages/tej-elevia/photo-5.webp"
   - "/images/landing-pages/tej-elevia/photo-6.webp"
+lat: 18.5600525
+lng: 73.7835381
+geo_confidence: "exact"
 ---

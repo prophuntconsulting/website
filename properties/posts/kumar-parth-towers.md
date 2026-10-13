@@ -45,4 +45,7 @@ gallery_images:
   - "/images/landing-pages/kumar-parth-towers/photo-4.webp"
   - "/images/landing-pages/kumar-parth-towers/photo-5.webp"
   - "/images/landing-pages/kumar-parth-towers/photo-6.webp"
+lat: 18.5542868
+lng: 73.7698666
+geo_confidence: "exact"
 ---

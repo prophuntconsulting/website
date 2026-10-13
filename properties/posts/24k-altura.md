@@ -44,4 +44,7 @@ gallery_images:
   - "/images/landing-pages/24k-altura/photo-2.webp"
   - "/images/landing-pages/24k-altura/photo-3.webp"
   - "/images/landing-pages/24k-altura/photo-4.webp"
+lat: 18.5528501
+lng: 73.7731995
+geo_confidence: "exact"
 ---

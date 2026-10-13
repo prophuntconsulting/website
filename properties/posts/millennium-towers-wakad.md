@@ -42,4 +42,7 @@ gallery_images:
   - "/images/landing-pages/millennium-towers-wakad/photo-4.webp"
   - "/images/landing-pages/millennium-towers-wakad/photo-5.webp"
   - "/images/landing-pages/millennium-towers-wakad/photo-6.webp"
+lat: 18.6008208
+lng: 73.7570019
+geo_confidence: "exact"
 ---

@@ -49,4 +49,7 @@ gallery_images:
 gallery_videos:
   - "/images/landing-pages/neoliv-grand-forest-prive/site-walkthrough-1.mp4"
   - "/images/landing-pages/neoliv-grand-forest-prive/site-walkthrough-2.mp4"
+lat: 18.773091
+lng: 73.2848346
+geo_confidence: "locality"
 ---

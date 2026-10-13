@@ -48,6 +48,9 @@
       "/images/landing-pages/24k-altura/photo-3.webp",
       "/images/landing-pages/24k-altura/photo-4.webp"
     ],
+    "lat": 18.5528501,
+    "lng": 73.7731995,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/24k-altura/photo-1.webp",
     "thumb": "/images/thumbs/24k-altura.webp",
     "url": "/projects/24k-altura",
@@ -108,6 +111,9 @@
       "/images/landing-pages/abil-imperial-atria/photo-5.webp",
       "/images/landing-pages/abil-imperial-atria/photo-6.webp"
     ],
+    "lat": 18.5552309,
+    "lng": 73.7732624,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/abil-imperial-atria/photo-1.webp",
     "thumb": "/images/thumbs/abil-imperial-atria.webp",
     "url": "/projects/abil-imperial-atria",
@@ -162,6 +168,9 @@
       "/images/landing-pages/anp-bizsquare/photo-4.jpg",
       "/images/landing-pages/anp-bizsquare/photo-5.jpg"
     ],
+    "lat": 18.602337,
+    "lng": 73.751048,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/anp-bizsquare/photo-1.jpg",
     "thumb": "/images/thumbs/anp-bizsquare.webp",
     "url": "/projects/anp-bizsquare",
@@ -216,6 +225,9 @@
       "/images/landing-pages/anp-landmark/photo-4.jpg",
       "/images/landing-pages/anp-landmark/photo-5.jpg"
     ],
+    "lat": 18.6008,
+    "lng": 73.7471,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/anp-landmark/photo-1.jpg",
     "thumb": "/images/thumbs/anp-landmark.webp",
     "url": "/projects/anp-landmark",
@@ -274,6 +286,9 @@
       "/images/landing-pages/anp-memento/photo-4.jpg",
       "/images/landing-pages/anp-memento/photo-5.jpg"
     ],
+    "lat": 18.6000854,
+    "lng": 73.7470013,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/anp-memento/photo-1.jpg",
     "thumb": "/images/thumbs/anp-memento.webp",
     "url": "/projects/anp-memento",
@@ -330,6 +345,9 @@
       "/images/landing-pages/anp-privado/photo-5.webp",
       "/images/landing-pages/anp-privado/photo-6.webp"
     ],
+    "lat": 18.5542633,
+    "lng": 73.7811169,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/anp-privado/photo-1.webp",
     "thumb": "/images/thumbs/anp-privado.webp",
     "url": "/projects/anp-privado",
@@ -388,6 +406,9 @@
       "/images/landing-pages/anp-retreat/photo-5.jpg",
       "/images/landing-pages/anp-retreat/photo-6.jpg"
     ],
+    "lat": 18.601543,
+    "lng": 73.747654,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/anp-retreat/photo-1.jpg",
     "thumb": "/images/thumbs/anp-retreat.webp",
     "url": "/projects/anp-retreat",
@@ -445,6 +466,9 @@
       "/images/landing-pages/anp-ultimus/photo-4.jpg",
       "/images/landing-pages/anp-ultimus/photo-5.jpg"
     ],
+    "lat": 18.5933421,
+    "lng": 73.7563207,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/anp-ultimus/photo-1.jpg",
     "thumb": "/images/thumbs/anp-ultimus.webp",
     "url": "/projects/anp-ultimus",
@@ -513,6 +537,9 @@
     "gallery_videos": [
       "/images/landing-pages/ashok-villas/site-walkthrough.mp4"
     ],
+    "lat": 18.665891,
+    "lng": 73.711202,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/ashok-villas/row-villas-exterior.jpg",
     "thumb": "/images/thumbs/ashokvillas.webp",
     "url": "/projects/ashokvillas",
@@ -563,6 +590,9 @@
       "/images/landing-pages/city-avenue-wakad/photo-2.webp",
       "/images/landing-pages/city-avenue-wakad/photo-3.webp"
     ],
+    "lat": 18.602126,
+    "lng": 73.754126,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/city-avenue-wakad/photo-1.webp",
     "thumb": "/images/thumbs/city-avenue-wakad.webp",
     "url": "/projects/city-avenue-wakad",
@@ -590,6 +620,9 @@
     "stat_2_value": "Wakad",
     "stat_2_label": "Micro-Market",
     "price": 0,
+    "lat": 18.6022495,
+    "lng": 73.7644454,
+    "geo_confidence": "locality",
     "cover": "/images/landing-pages/eon-west-2/photo-1.webp",
     "thumb": "/images/thumbs/eon-west-2.webp",
     "url": "/projects/eon-west-2",
@@ -653,6 +686,9 @@
       "Co-Working Space",
       "Café Lounge"
     ],
+    "lat": 18.570032,
+    "lng": 73.736299,
+    "geo_confidence": "exact",
     "cover": "/images/projects/godrej-river-royale.jpg",
     "thumb": "/images/thumbs/godrej-river-royale.webp",
     "url": "/projects/godrej-river-royale",
@@ -709,6 +745,9 @@
       "/images/landing-pages/greenfinity-wakad/photo-5.webp",
       "/images/landing-pages/greenfinity-wakad/photo-6.webp"
     ],
+    "lat": 18.5897,
+    "lng": 73.7626,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/greenfinity-wakad/photo-1.webp",
     "thumb": "/images/thumbs/greenfinity-wakad.webp",
     "url": "/projects/greenfinity-wakad",
@@ -773,6 +812,9 @@
       "/images/landing-pages/kalpataru-aria/health-club.jpg",
       "/images/landing-pages/kalpataru-aria/fitness-park.jpg"
     ],
+    "lat": 18.8920963,
+    "lng": 73.3108444,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/kalpataru-aria/masterplan-aerial.jpg",
     "thumb": "/images/thumbs/kalpataru-aria.webp",
     "url": "/projects/kalpataru-aria",
@@ -840,6 +882,9 @@
       "/images/landing-pages/kalpataru-blossoms/club-pool.jpg",
       "/images/landing-pages/kalpataru-blossoms/living-dining.jpg"
     ],
+    "lat": 18.4714375,
+    "lng": 73.8205625,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/kalpataru-blossoms/tower-dusk-view.jpg",
     "thumb": "/images/thumbs/kalpataru-blossoms.webp",
     "url": "/projects/kalpataru-blossoms",
@@ -897,6 +942,9 @@
       "Underground Utilities",
       "Row Houses & Education Spaces"
     ],
+    "lat": 18.773091,
+    "lng": 73.2848346,
+    "geo_confidence": "locality",
     "cover": "/images/landing-pages/khopoli/hero-vision.jpg",
     "thumb": "/images/thumbs/khopoli.webp",
     "url": "/projects/khopoli",
@@ -961,6 +1009,9 @@
       "/images/landing-pages/kings-county-wakad/photo-7.webp",
       "/images/landing-pages/kings-county-wakad/photo-8.webp"
     ],
+    "lat": 18.5987759,
+    "lng": 73.7455743,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/kings-county-wakad/photo-1.webp",
     "thumb": "/images/thumbs/kings-county-wakad.webp",
     "url": "/projects/kings-county-wakad",
@@ -1018,6 +1069,9 @@
       "/images/landing-pages/kohinoor-avantara/photo-3.webp",
       "/images/landing-pages/kohinoor-avantara/photo-4.webp"
     ],
+    "lat": 18.611506,
+    "lng": 73.7406384,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/kohinoor-avantara/photo-1.webp",
     "thumb": "/images/thumbs/kohinoor-avantara.webp",
     "url": "/projects/kohinoor-avantara",
@@ -1073,6 +1127,9 @@
       "/images/landing-pages/kohinoor-regalia-towers/photo-6.webp",
       "/images/landing-pages/kohinoor-regalia-towers/photo-7.webp"
     ],
+    "lat": 18.6090484,
+    "lng": 73.7467683,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/kohinoor-regalia-towers/photo-1.webp",
     "thumb": "/images/thumbs/kohinoor-regalia-towers.webp",
     "url": "/projects/kohinoor-regalia-towers",
@@ -1135,6 +1192,9 @@
       "/images/landing-pages/kohinoor-westview-reserve/photo-5.webp",
       "/images/landing-pages/kohinoor-westview-reserve/photo-6.webp"
     ],
+    "lat": 18.6156774,
+    "lng": 73.7329559,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/kohinoor-westview-reserve/photo-1.webp",
     "thumb": "/images/thumbs/kohinoor-westview-reserve.webp",
     "url": "/projects/kohinoor-westview-reserve",
@@ -1190,6 +1250,9 @@
       "/images/landing-pages/kumar-panache/photo-5.webp",
       "/images/landing-pages/kumar-panache/photo-6.webp"
     ],
+    "lat": 18.5640145,
+    "lng": 73.7684284,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/kumar-panache/photo-1.webp",
     "thumb": "/images/thumbs/kumar-panache.webp",
     "url": "/projects/kumar-panache",
@@ -1247,6 +1310,9 @@
       "/images/landing-pages/kumar-parth-towers/photo-5.webp",
       "/images/landing-pages/kumar-parth-towers/photo-6.webp"
     ],
+    "lat": 18.5542868,
+    "lng": 73.7698666,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/kumar-parth-towers/photo-1.webp",
     "thumb": "/images/thumbs/kumar-parth-towers.webp",
     "url": "/projects/kumar-parth-towers",
@@ -1302,6 +1368,9 @@
       "/images/landing-pages/livience-unione/photo-5.webp",
       "/images/landing-pages/livience-unione/photo-6.webp"
     ],
+    "lat": 18.5621978,
+    "lng": 73.7942779,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/livience-unione/photo-1.webp",
     "thumb": "/images/thumbs/livience-unione.webp",
     "url": "/projects/livience-unione",
@@ -1359,6 +1428,9 @@
       "/images/landing-pages/lodha-altero/photo-5.webp",
       "/images/landing-pages/lodha-altero/photo-6.webp"
     ],
+    "lat": 18.5902448,
+    "lng": 73.7718644,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/lodha-altero/photo-1.webp",
     "thumb": "/images/thumbs/lodha-altero.webp",
     "url": "/projects/lodha-altero",
@@ -1413,6 +1485,9 @@
       "/images/landing-pages/lodha-massimo/temple.webp",
       "/images/landing-pages/lodha-massimo/entrance-close-up.webp"
     ],
+    "lat": 18.5533473,
+    "lng": 73.7772599,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/lodha-massimo/entrance-night-view.webp",
     "thumb": "/images/thumbs/lodha-massimo.webp",
     "url": "/projects/lodha-massimo",
@@ -1469,6 +1544,9 @@
       "Yoga & Meditation Deck",
       "Pet Park"
     ],
+    "lat": 18.6166347,
+    "lng": 73.8132729,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/mahindra-citadel/hero-tower.jpg",
     "thumb": "/images/thumbs/mahindra-citadel.webp",
     "url": "/projects/mahindra-citadel",
@@ -1512,6 +1590,9 @@
     "unit_3_area": "Around 1,650 sqft",
     "unit_3_price": "₹2.17 Cr Onwards*",
     "unit_3_featured": false,
+    "lat": 18.5623125,
+    "lng": 73.7273125,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/mahindra-mahalunge/banner.jpg",
     "thumb": "/images/thumbs/mahindra-mahalunge.webp",
     "url": "/projects/mahindra-mahalunge",
@@ -1569,6 +1650,9 @@
       "/images/landing-pages/majestique-elements/photo-5.webp",
       "/images/landing-pages/majestique-elements/photo-6.webp"
     ],
+    "lat": 18.5568082,
+    "lng": 73.7863334,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/majestique-elements/photo-1.webp",
     "thumb": "/images/thumbs/majestique-elements.webp",
     "url": "/projects/majestique-elements",
@@ -1631,6 +1715,9 @@
       "/images/landing-pages/merlin-ventana/photo-5.webp",
       "/images/landing-pages/merlin-ventana/photo-6.webp"
     ],
+    "lat": 18.5650666,
+    "lng": 73.7677699,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/merlin-ventana/photo-1.webp",
     "thumb": "/images/thumbs/merlin-ventana.webp",
     "url": "/projects/merlin-ventana",
@@ -1685,6 +1772,9 @@
       "/images/landing-pages/millennium-towers-wakad/photo-5.webp",
       "/images/landing-pages/millennium-towers-wakad/photo-6.webp"
     ],
+    "lat": 18.6008208,
+    "lng": 73.7570019,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/millennium-towers-wakad/photo-1.webp",
     "thumb": "/images/thumbs/millennium-towers-wakad.webp",
     "url": "/projects/millennium-towers-wakad",
@@ -1747,6 +1837,9 @@
       "/images/landing-pages/neoliv-grand-forest-prive/site-walkthrough-1.mp4",
       "/images/landing-pages/neoliv-grand-forest-prive/site-walkthrough-2.mp4"
     ],
+    "lat": 18.773091,
+    "lng": 73.2848346,
+    "geo_confidence": "locality",
     "cover": "/images/landing-pages/neoliv-grand-forest-prive/site-progress-1.jpg",
     "thumb": "/images/thumbs/neoliv-grand-forest-prive.webp",
     "url": "/projects/neoliv-grand-forest-prive",
@@ -1807,6 +1900,9 @@
       "/images/landing-pages/nyati-emerald/photo-5.webp",
       "/images/landing-pages/nyati-emerald/photo-6.webp"
     ],
+    "lat": 18.5530908,
+    "lng": 73.7662117,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/nyati-emerald/photo-1.webp",
     "thumb": "/images/thumbs/nyati-emerald.webp",
     "url": "/projects/nyati-emerald",
@@ -1860,6 +1956,9 @@
       "/images/landing-pages/regency-astra/photo-5.webp",
       "/images/landing-pages/regency-astra/photo-6.webp"
     ],
+    "lat": 18.5529456,
+    "lng": 73.7672933,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/regency-astra/photo-1.webp",
     "thumb": "/images/thumbs/regency-astra.webp",
     "url": "/projects/regency-astra",
@@ -1911,6 +2010,9 @@
       "/images/landing-pages/rohan-viti/photo-5.webp",
       "/images/landing-pages/rohan-viti/photo-6.webp"
     ],
+    "lat": 18.5912221,
+    "lng": 73.7611284,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/rohan-viti/photo-1.webp",
     "thumb": "/images/thumbs/rohan-viti.webp",
     "url": "/projects/rohan-viti",
@@ -1962,6 +2064,9 @@
       "/images/landing-pages/supreme-estia/photo-5.webp",
       "/images/landing-pages/supreme-estia/photo-6.webp"
     ],
+    "lat": 18.5564798,
+    "lng": 73.7799678,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/supreme-estia/photo-1.webp",
     "thumb": "/images/thumbs/supreme-estia.webp",
     "url": "/projects/supreme-estia",
@@ -2017,6 +2122,9 @@
       "/images/landing-pages/tej-elevia/photo-5.webp",
       "/images/landing-pages/tej-elevia/photo-6.webp"
     ],
+    "lat": 18.5600525,
+    "lng": 73.7835381,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/tej-elevia/photo-1.webp",
     "thumb": "/images/thumbs/tej-elevia.webp",
     "url": "/projects/tej-elevia",
@@ -2076,6 +2184,9 @@
     "gallery_videos": [
       "/images/landing-pages/the-arena-pimpri/teaser.mp4"
     ],
+    "lat": 18.6191259,
+    "lng": 73.7997543,
+    "geo_confidence": "street",
     "cover": "/images/landing-pages/the-arena-pimpri/tower-view-1.jpg",
     "thumb": "/images/thumbs/the-arena-pimpri.webp",
     "url": "/projects/the-arena-pimpri",
@@ -2134,6 +2245,9 @@
       "/images/landing-pages/the-balmoral-hillside/photo-4.webp",
       "/images/landing-pages/the-balmoral-hillside/photo-5.webp"
     ],
+    "lat": 18.5581382,
+    "lng": 73.7818189,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/the-balmoral-hillside/photo-1.webp",
     "thumb": "/images/thumbs/the-balmoral-hillside.webp",
     "url": "/projects/the-balmoral-hillside",
@@ -2189,6 +2303,9 @@
       "/images/landing-pages/the-ornate-baner/photo-5.webp",
       "/images/landing-pages/the-ornate-baner/photo-6.webp"
     ],
+    "lat": 18.5548324,
+    "lng": 73.7835955,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/the-ornate-baner/photo-1.webp",
     "thumb": "/images/thumbs/the-ornate-baner.webp",
     "url": "/projects/the-ornate-baner",
@@ -2247,6 +2364,9 @@
       "Gym",
       "Landscaped Greenery"
     ],
+    "lat": 18.4065498,
+    "lng": 73.9975344,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/treetopia/Untitled-design-10.png",
     "thumb": "/images/thumbs/treetopia.webp",
     "url": "/projects/treetopia",
@@ -2300,6 +2420,9 @@
       "/images/landing-pages/venkatesh-tresor/photo-5.webp",
       "/images/landing-pages/venkatesh-tresor/photo-6.webp"
     ],
+    "lat": 18.5592731,
+    "lng": 73.7978598,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/venkatesh-tresor/photo-1.webp",
     "thumb": "/images/thumbs/venkatesh-tresor.webp",
     "url": "/projects/venkatesh-tresor",
@@ -2352,6 +2475,9 @@
       "/images/landing-pages/vtp-altitude/photo-2.jpg",
       "/images/landing-pages/vtp-altitude/photo-3.avif"
     ],
+    "lat": 18.612246,
+    "lng": 73.767233,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/vtp-altitude/photo-1.webp",
     "thumb": "/images/thumbs/vtp-altitude.webp",
     "url": "/projects/vtp-altitude",
@@ -2407,6 +2533,9 @@
       "/images/landing-pages/western-avenue-wakad/photo-5.webp",
       "/images/landing-pages/western-avenue-wakad/photo-6.webp"
     ],
+    "lat": 18.5984,
+    "lng": 73.7608,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/western-avenue-wakad/photo-1.webp",
     "thumb": "/images/thumbs/western-avenue-wakad.webp",
     "url": "/projects/western-avenue-wakad",
@@ -2464,6 +2593,9 @@
       "/images/landing-pages/yashwin-urbo-centro/photo-3.webp",
       "/images/landing-pages/yashwin-urbo-centro/photo-4.webp"
     ],
+    "lat": 18.6065711,
+    "lng": 73.7508086,
+    "geo_confidence": "exact",
     "cover": "/images/landing-pages/yashwin-urbo-centro/photo-1.webp",
     "thumb": "/images/thumbs/yashwin-urbo-centro.webp",
     "url": "/projects/yashwin-urbo-centro",

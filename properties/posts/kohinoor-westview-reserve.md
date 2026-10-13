@@ -49,4 +49,7 @@ gallery_images:
   - "/images/landing-pages/kohinoor-westview-reserve/photo-4.webp"
   - "/images/landing-pages/kohinoor-westview-reserve/photo-5.webp"
   - "/images/landing-pages/kohinoor-westview-reserve/photo-6.webp"
+lat: 18.6156774
+lng: 73.7329559
+geo_confidence: "exact"
 ---

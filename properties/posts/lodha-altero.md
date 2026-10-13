@@ -45,4 +45,7 @@ gallery_images:
   - "/images/landing-pages/lodha-altero/photo-4.webp"
   - "/images/landing-pages/lodha-altero/photo-5.webp"
   - "/images/landing-pages/lodha-altero/photo-6.webp"
+lat: 18.5902448
+lng: 73.7718644
+geo_confidence: "exact"
 ---

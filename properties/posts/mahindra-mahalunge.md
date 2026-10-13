@@ -32,4 +32,7 @@ unit_3_type: "4 BHK Luxury"
 unit_3_area: "Around 1,650 sqft"
 unit_3_price: "₹2.17 Cr Onwards*"
 unit_3_featured: false
+lat: 18.5623125
+lng: 73.7273125
+geo_confidence: "exact"
 ---

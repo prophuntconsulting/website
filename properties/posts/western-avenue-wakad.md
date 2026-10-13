@@ -43,4 +43,7 @@ gallery_images:
   - "/images/landing-pages/western-avenue-wakad/photo-4.webp"
   - "/images/landing-pages/western-avenue-wakad/photo-5.webp"
   - "/images/landing-pages/western-avenue-wakad/photo-6.webp"
+lat: 18.5984
+lng: 73.7608
+geo_confidence: "exact"
 ---

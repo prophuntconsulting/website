@@ -54,4 +54,7 @@ gallery_images:
   - "/images/landing-pages/kalpataru-blossoms/night-elevation.jpg"
   - "/images/landing-pages/kalpataru-blossoms/club-pool.jpg"
   - "/images/landing-pages/kalpataru-blossoms/living-dining.jpg"
+lat: 18.4714375
+lng: 73.8205625
+geo_confidence: "exact"
 ---

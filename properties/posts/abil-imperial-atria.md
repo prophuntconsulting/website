@@ -47,4 +47,7 @@ gallery_images:
   - "/images/landing-pages/abil-imperial-atria/photo-4.webp"
   - "/images/landing-pages/abil-imperial-atria/photo-5.webp"
   - "/images/landing-pages/abil-imperial-atria/photo-6.webp"
+lat: 18.5552309
+lng: 73.7732624
+geo_confidence: "exact"
 ---
