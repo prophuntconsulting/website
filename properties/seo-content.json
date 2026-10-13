@@ -895,7 +895,7 @@
     "mahindra-citadel": [
       {
         "q": "What is the RERA registration number of Mahindra Citadel?",
-        "a": "Mahindra Citadel is registered under MahaRERA with registration number PPI261012501803. You can verify this directly on the official MahaRERA website."
+        "a": "Mahindra Citadel is registered under MahaRERA with registration number P52100047656 (Phase 1), P52100053150 (Bastion J, K), P52100053012 (Bastion I), PR1260002500154 (Tower L), PM1264042600425 (Phase 5). You can verify this directly on the official MahaRERA website."
       },
       {
         "q": "What configurations are available at Mahindra Citadel?",
@@ -1105,7 +1105,7 @@
     "supreme-estia": [
       {
         "q": "What is the RERA registration number of Supreme Estia?",
-        "a": "Supreme Estia is registered under MahaRERA with registration number P52100024783 (Phase 1), PS2100030247 (Phase 2), P52100030231 (Phase 3). You can verify this directly on the official MahaRERA website."
+        "a": "Supreme Estia is registered under MahaRERA with registration number P52100024783 (Phase 1), P52100030247 (Phase 2), P52100030231 (Phase 3). You can verify this directly on the official MahaRERA website."
       },
       {
         "q": "What configurations are available at Supreme Estia?",
@@ -1177,6 +1177,10 @@
       }
     ],
     "the-balmoral-hillside": [
+      {
+        "q": "What is the RERA registration number of The Balmoral Hillside?",
+        "a": "The Balmoral Hillside is registered under MahaRERA with registration number P52100052022 (Tower A), P52100046444 (Tower B). You can verify this directly on the official MahaRERA website."
+      },
       {
         "q": "What configurations are available at The Balmoral Hillside?",
         "a": "The Balmoral Hillside offers 4.5 & 5.5 BHK, with sizes 2,486 sqft (4.5 BHK)."
