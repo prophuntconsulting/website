@@ -488,5 +488,52 @@ seo.nearby = nearby;
 fs.writeFileSync(seoPath, JSON.stringify(seo, null, 2));
 
 fs.writeFileSync(path.join(ROOT, 'scripts', '.seo-pages.json'), JSON.stringify(generated));
+
+/* ── 6. Homepage "Popular searches" ────────────────────────────────────
+   Search Console (Oct 2026) showed Google had discovered but never crawled
+   ~70 project/location/developer pages, and the homepage, the page Google
+   crawls most, linked to only 6 of them. This block gives every hub and
+   search page a plain HTML link from the homepage; regenerated each build
+   between the markers so it never goes stale. */
+const homePath = path.join(ROOT, 'index.html');
+if (fs.existsSync(homePath)) {
+  const devName = {};
+  live.forEach(p => { if (p.developer_hub) devName[p.developer_hub] = p.developer; });
+  const groups = [
+    ['Projects by location', readJson('scripts/.location-hubs.json', []).filter(u => u !== '/location')
+      .map(u => ({ label: `New projects in ${(LOCALITY_CONTENT[u.split('/').pop()] || {}).name || u.split('/').pop()}`, url: u }))],
+    ['Flats by size', [...locBhkPages].sort((a, b) => a.mm.localeCompare(b.mm) || a.n - b.n)
+      .map(x => ({ label: `${bhkLabel(x.n)} flats in ${LOCALITY_CONTENT[x.mm].name}`, url: x.url }))],
+    ['Near work & transit', nearPages.map(x => ({ label: `${x.t.noun} near ${x.lm.short_name || x.lm.name}`, url: x.url }))],
+    ['Projects by developer', readJson('scripts/.developer-hubs.json', []).filter(u => u !== '/developer' && devName[u])
+      .map(u => ({ label: `${devName[u]} projects`, url: u }))],
+  ].filter(([, links]) => links.length);
+  const block = `<!--POPULAR-SEARCHES-START-->
+<section class="section" id="popular-searches" aria-labelledby="popularSearchesTitle">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label"><i class="fas fa-magnifying-glass"></i> Popular Searches</span>
+      <h2 class="section-title" id="popularSearchesTitle">Explore Pune Projects</h2>
+    </div>
+    <div class="popular-searches-grid">
+      ${groups.map(([title, links]) => `<div><h3 class="popular-searches-title">${escapeHtml(title)}</h3><ul class="popular-searches-list">${links.map(l => `<li><a href="${l.url}">${escapeHtml(l.label)}</a></li>`).join('')}</ul></div>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+<style>
+.popular-searches-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:2rem}
+@media(max-width:1024px){.popular-searches-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.popular-searches-grid{grid-template-columns:1fr}}
+.popular-searches-title{font-size:.95rem;font-weight:700;margin-bottom:.75rem;color:var(--black)}
+.popular-searches-list{list-style:none;margin:0;padding:0}
+.popular-searches-list li{padding:.3rem 0}
+.popular-searches-list a{font-size:.88rem;color:var(--gray-600);transition:color .2s}
+.popular-searches-list a:hover{color:var(--red)}
+</style>
+<!--POPULAR-SEARCHES-END-->`;
+  const home = fs.readFileSync(homePath, 'utf8');
+  const next = home.replace(/<!--POPULAR-SEARCHES-START-->[\s\S]*?<!--POPULAR-SEARCHES-END-->/, block);
+  if (next !== home) fs.writeFileSync(homePath, next);
+}
 const count = re => generated.filter(u => re.test(u)).length;
 console.log(`Built ${generated.length} search pages: ${count(/^\/projects\//)} project×BHK, ${count(/-flats-in-/)} locality×BHK, ${count(/-near-/)} near-landmark; nearby data for ${Object.keys(nearby).length} projects`);
