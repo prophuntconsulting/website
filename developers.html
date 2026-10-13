@@ -395,6 +395,14 @@ html, body { overflow-x:hidden; }
   const btnCopy = document.getElementById('btnCopy');
   const btnReset = document.getElementById('btnReset');
 
+  function setResult(ok){
+    const h=success?.querySelector('h3'), p=success?.querySelector('p'), area=success?.querySelector('.copy-area');
+    if(h) h.textContent = ok ? 'Enquiry Sent!' : 'Could not send your enquiry';
+    if(p) p.innerHTML = ok ? "Thank you. We've received your enquiry and our team will get back to you shortly."
+                           : 'Something went wrong. Please copy the message below and email it to <strong>info@prophuntllp.com</strong>, or call <a href="tel:+917066880808">+91 70668 80808</a>.';
+    if(area) area.style.display = ok ? 'none' : '';
+    if(btnCopy) btnCopy.style.display = ok ? 'none' : '';
+  }
   form?.addEventListener('submit', function(e){
     e.preventDefault();
     const errEl = document.getElementById('formError');
@@ -446,8 +454,8 @@ html, body { overflow-x:hidden; }
     fd.append('source_page', window.location.pathname);
 
     fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
-      .then(r => { if (!r.ok) throw new Error('submit failed'); })
-      .catch(() => { window.location.href = `mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; })
+      .then(r=>r.json().catch(()=>({})).then(d=>{ if(!r.ok||d.success===false) throw new Error('submit failed'); setResult(true); }))
+      .catch(()=>{ setResult(false); window.location.href = `mailto:info@prophuntllp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; })
       .finally(() => {
         if (submitBtn) submitBtn.disabled = false;
         form.style.display = 'none';
