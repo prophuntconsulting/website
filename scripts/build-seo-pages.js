@@ -28,7 +28,7 @@ const path = require('path');
 const { LOCALITY_CONTENT } = require('./locality-content');
 const {
   SITE, escapeHtml, priceRangeText, developersText, renderHubCard, faqAccordion,
-  headBoilerplate, FOOTER_HTML,
+  headBoilerplate, FOOTER_HTML, fitTitle,
 } = require('./hub-shared');
 
 const ROOT = path.join(__dirname, '..');
@@ -172,7 +172,8 @@ for (const p of live) {
     const rowText = rows.map(r => r.type).join(' ');
     const noun = /townhouse/i.test(rowText) ? 'Townhouse' : /villa/i.test(rowText) || p.category === 'villa' ? 'Villa' : /penthouse|chalet/i.test(rowText) ? 'Residence' : 'Flat';
     const h1 = `${bhkLabel(n)} ${noun}s in ${p.title}, ${loc}`;
-    const title = `${p.title} ${bhkLabel(n)} Price${sizeTxt ? ', Size' : ''} & Details | PROPHUNT LLP`;
+    const core = `${p.title} ${bhkLabel(n)} Price${sizeTxt ? ', Size' : ''} & Details`;
+    const title = fitTitle([`${core} | PROPHUNT LLP`, `${core} | PROPHUNT`, core, `${p.title} ${bhkLabel(n)} Price | PROPHUNT`, `${p.title} ${bhkLabel(n)} Price`]);
     const desc = `${bhkLabel(n)} ${noun.toLowerCase()}s at ${p.title} by ${p.developer} in ${loc}, Pune.` +
       (priceTxt ? ` Price ${priceTxt}.` : '') + (sizeTxt ? ` Size ${sizeTxt}.` : '') +
       (p.rera ? ' MahaRERA registered.' : '') + ' Get the cost sheet and book a site visit with PROPHUNT LLP.';
@@ -276,7 +277,7 @@ for (const pg of locBhkPages) {
   const pricedProjects = projects.filter(p => rowsFor(p).price !== 'On request');
   const sorted = [...projects].sort((a, b) => (a.status === 'coming-soon') - (b.status === 'coming-soon') || a.title.localeCompare(b.title));
   const reraCount = projects.filter(p => p.rera).length;
-  const title = `${label}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`;
+  const title = fitTitle([`${label}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`, `${label}, Pune: ${projects.length} New Projects & Prices`, `${label}, Pune: ${projects.length} New Projects | PROPHUNT`, `${label}: ${projects.length} New Projects & Prices`]);
   const desc = `Compare ${projects.length} new ${bhkLabel(n)} flat projects in ${loc.name}, Pune from ${developersText(projects)}.` +
     (pricedProjects.length ? ` ${bhkLabel(n)} prices from ${pricedProjects.map(p => rowsFor(p).price).sort()[0]}.` : '') + ' Sizes, MahaRERA numbers and free site visits with PROPHUNT LLP.';
   const crumbs = [{ name: 'Home', url: '/' }, { name: 'Locations', url: '/location' }, { name: loc.name, url: `/location/${mm}` }, { name: label, url }];
@@ -376,7 +377,7 @@ for (const pg of nearPages) {
   const { lm, t, matches, url } = pg;
   const label = `${t.noun} near ${lm.short_name || lm.name}`;
   const ps = matches.map(m => m.p);
-  const title = `${label}, Pune: ${matches.length} Projects within ${NEAR_KM} km | PROPHUNT LLP`;
+  const title = fitTitle([`${label}, Pune: ${matches.length} Projects within ${NEAR_KM} km | PROPHUNT LLP`, `${label}, Pune: ${matches.length} Projects within ${NEAR_KM} km`, `${label}: ${matches.length} Projects within ${NEAR_KM} km`, `${label}: ${matches.length} Projects`]);
   const desc = `${matches.length} new ${t.nounLower} projects within ${NEAR_KM} km of ${lm.name}, sorted by distance: ${matches.slice(0, 3).map(m => `${m.p.title} (${kmText(m.km)})`).join(', ')}${matches.length > 3 ? ' and more' : ''}. Prices, MahaRERA details and site visits with PROPHUNT LLP.`;
   const crumbs = [{ name: 'Home', url: '/' }, { name: 'Projects', url: '/projects' }, { name: label, url }];
   const faqs = [
@@ -474,7 +475,7 @@ for (const a of AREA_PAGES) {
   const around = centre ? landmarks.filter(l => Number.isFinite(l.lat)).map(l => ({ name: l.name, km: haversineKm(centre, l) }))
     .filter(x => x.km <= 8).sort((x, y) => x.km - y.km).slice(0, 8) : [];
   const label = `${a.noun} ${a.slug.includes('-on-') ? 'on' : 'in'} ${a.name}`;
-  const title = `${label}, Pune: ${matches.length} New Projects & Prices | PROPHUNT LLP`;
+  const title = fitTitle([`${label}, Pune: ${matches.length} New Projects & Prices | PROPHUNT LLP`, `${label}, Pune: ${matches.length} New Projects & Prices`, `${label}: ${matches.length} New Projects & Prices`, `${label}: ${matches.length} New Projects`]);
   const desc = `${matches.length} new residential projects ${a.slug.includes('-on-') ? 'on' : 'in'} ${a.name}, Pune from ${developersText(matches)}. ${bhks.map(bhkLabel).join(', ')} homes, prices ${priceRangeText(matches)}. MahaRERA details and free site visits.`;
   const crumbs = [{ name: 'Home', url: '/' }, { name: 'Locations', url: '/location' }, ...(loc ? [{ name: loc.name, url: `/location/${a.parent}` }] : []), { name: short, url }];
   const reraCount = matches.filter(p => p.rera).length;

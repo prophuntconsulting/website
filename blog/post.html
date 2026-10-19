@@ -305,7 +305,8 @@ function buildPost(meta, body, allPosts) {
   // Meta tags
   const seoTitle = meta.seo_title || title;
   const seoDesc  = meta.seo_description || excerpt;
-  document.title = seoTitle + ' | PROPHUNT LLP Blog';
+  // Generated pages already carry a length-fitted title from scripts/build-blog.js.
+  if (/^Loading/.test(document.title)) document.title = seoTitle + ' | PROPHUNT LLP Blog';
   document.getElementById('ph-meta-desc').setAttribute('content', seoDesc);
   document.getElementById('ph-og-title').setAttribute('content', seoTitle);
   document.getElementById('ph-og-desc').setAttribute('content', seoDesc);

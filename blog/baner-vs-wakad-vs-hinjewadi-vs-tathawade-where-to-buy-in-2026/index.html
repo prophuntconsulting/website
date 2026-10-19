@@ -17,16 +17,16 @@
   })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="ph-blog-title">Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026? | PROPHUNT LLP Blog</title>
+<title id="ph-blog-title">Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?</title>
 <meta id="ph-meta-desc" name="description" content="Compare Baner, Wakad, Hinjewadi and Tathawade for connectivity, lifestyle, projects and buyer fit before choosing your West Pune location.">
-<meta id="ph-og-title"  property="og:title" content="Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026? | PROPHUNT LLP Blog">
+<meta id="ph-og-title"  property="og:title" content="Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?">
 <meta id="ph-og-desc"  property="og:description" content="Compare Baner, Wakad, Hinjewadi and Tathawade for connectivity, lifestyle, projects and buyer fit before choosing your West Pune location.">
 <meta id="ph-og-img"   property="og:image" content="https://www.prophuntllp.com/images/blog/baner-wakad-hinjewadi-tathawade-property-comparison-2026.png">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.prophuntllp.com/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026? | PROPHUNT LLP Blog">
+<meta name="twitter:title" content="Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?">
 <meta name="twitter:description" content="Compare Baner, Wakad, Hinjewadi and Tathawade for connectivity, lifestyle, projects and buyer fit before choosing your West Pune location.">
 <meta name="twitter:image" content="https://www.prophuntllp.com/images/blog/baner-wakad-hinjewadi-tathawade-property-comparison-2026.png">
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026">
@@ -479,7 +479,8 @@ function buildPost(meta, body, allPosts) {
   // Meta tags
   const seoTitle = meta.seo_title || title;
   const seoDesc  = meta.seo_description || excerpt;
-  document.title = seoTitle + ' | PROPHUNT LLP Blog';
+  // Generated pages already carry a length-fitted title from scripts/build-blog.js.
+  if (/^Loading/.test(document.title)) document.title = seoTitle + ' | PROPHUNT LLP Blog';
   document.getElementById('ph-meta-desc').setAttribute('content', seoDesc);
   document.getElementById('ph-og-title').setAttribute('content', seoTitle);
   document.getElementById('ph-og-desc').setAttribute('content', seoDesc);

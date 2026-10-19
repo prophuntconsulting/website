@@ -6,6 +6,7 @@
 
 const fs   = require('fs');
 const path = require('path');
+const { fitTitle } = require('./hub-shared');
 
 const SITE = 'https://www.prophuntllp.com';
 
@@ -142,7 +143,8 @@ function markdownToHtml(markdown) {
 // so search engines and AI crawlers see genuine, article-specific signals without
 // running JS.
 function buildHeadBlock(p) {
-  const title = `${p.title} | PROPHUNT LLP Blog`;
+  const base = p.seo_title || p.title;
+  const title = fitTitle([`${base} | PROPHUNT LLP Blog`, `${base} | PROPHUNT LLP`, `${base} | PROPHUNT`, base]);
   const desc  = p.seo_description || p.excerpt || '';
   const url   = `${SITE}${p.url}`;
   const image = absUrl(p.cover);

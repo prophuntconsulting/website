@@ -253,8 +253,16 @@ function developerSlug(name) {
   return String(name || '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
+// Bing Site Scan (Oct 2026) flagged titles over ~65-70 characters as "too
+// long" (they get cut off in results). Try each candidate in order and keep
+// the first that fits, so the brand suffix is dropped before the keywords are.
+function fitTitle(candidates, max = 65) {
+  const list = candidates.filter(Boolean);
+  return list.find(c => c.length <= max) || list[list.length - 1];
+}
+
 module.exports = {
-  SITE, CATEGORY_META, escapeHtml, priceLabel, fmtLakhCr, priceRangeText, developersText,
+  fitTitle, SITE, CATEGORY_META, escapeHtml, priceLabel, fmtLakhCr, priceRangeText, developersText,
   lifecycle, renderHubCard, faqAccordion, SHARED_STYLE, NAV_HTML, FOOTER_HTML, headBoilerplate,
   DEV_HUB_MIN, developerSlug,
 };

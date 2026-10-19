@@ -1,5 +1,6 @@
 ---
 title: "Pune Residential Market H1 2025: Price Trends, Top Micro-Markets & Outlook"
+seo_title: "Pune Property Market H1 2025: Prices & Top Micro-Markets"
 date: 2025-06-27
 author: "PROPHUNT Advisory Team"
 category: "market"

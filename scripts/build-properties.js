@@ -1,7 +1,7 @@
 const fs   = require('fs');
 const path = require('path');
 const { getMicroMarket, LOCALITY_CONTENT } = require('./locality-content');
-const { DEV_HUB_MIN, developerSlug } = require('./hub-shared');
+const { DEV_HUB_MIN, developerSlug, fitTitle } = require('./hub-shared');
 
 const SITE = 'https://www.prophuntllp.com';
 
@@ -245,7 +245,8 @@ function pageTitle(p) {
   const head = loc && !name.toLowerCase().includes(loc.toLowerCase()) ? `${name}, ${loc}` : name;
   const cfg = shortConfig(p);
   const kw = p.rera ? (cfg ? `Price, ${cfg} & RERA` : 'Price & RERA') : (cfg ? `${cfg} Price & Details` : 'Price & Details');
-  return `${head} | ${kw} | PROPHUNT LLP`;
+  const kwShort = p.rera ? 'Price & RERA' : (cfg ? `${cfg} Price` : 'Price & Details');
+  return fitTitle([`${head} | ${kw} | PROPHUNT LLP`, `${head} | ${kw} | PROPHUNT`, `${head} | ${kw}`, `${head} | ${kwShort} | PROPHUNT`, `${head} | ${kwShort}`, `${name} | ${kwShort}`]);
 }
 
 // Head tags: real title/description/canonical + OG/Twitter + JSON-LD

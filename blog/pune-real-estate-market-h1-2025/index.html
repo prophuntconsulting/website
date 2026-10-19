@@ -17,16 +17,16 @@
   })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="ph-blog-title">Pune Residential Market H1 2025: Price Trends, Top Micro-Markets &amp; Outlook | PROPHUNT LLP Blog</title>
+<title id="ph-blog-title">Pune Property Market H1 2025: Prices &amp; Top Micro-Markets</title>
 <meta id="ph-meta-desc" name="description" content="Baner, Hinjewadi and Balewadi recorded 8–12% year-on-year price appreciation in H1 2025. Here is what the data says and where value lies today.">
-<meta id="ph-og-title"  property="og:title" content="Pune Residential Market H1 2025: Price Trends, Top Micro-Markets &amp; Outlook | PROPHUNT LLP Blog">
+<meta id="ph-og-title"  property="og:title" content="Pune Property Market H1 2025: Prices &amp; Top Micro-Markets">
 <meta id="ph-og-desc"  property="og:description" content="Baner, Hinjewadi and Balewadi recorded 8–12% year-on-year price appreciation in H1 2025. Here is what the data says and where value lies today.">
 <meta id="ph-og-img"   property="og:image" content="https://www.prophuntllp.com/images/og-home.jpg">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.prophuntllp.com/blog/pune-real-estate-market-h1-2025">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pune Residential Market H1 2025: Price Trends, Top Micro-Markets &amp; Outlook | PROPHUNT LLP Blog">
+<meta name="twitter:title" content="Pune Property Market H1 2025: Prices &amp; Top Micro-Markets">
 <meta name="twitter:description" content="Baner, Hinjewadi and Balewadi recorded 8–12% year-on-year price appreciation in H1 2025. Here is what the data says and where value lies today.">
 <meta name="twitter:image" content="https://www.prophuntllp.com/images/og-home.jpg">
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/blog/pune-real-estate-market-h1-2025">
@@ -344,7 +344,8 @@ function buildPost(meta, body, allPosts) {
   // Meta tags
   const seoTitle = meta.seo_title || title;
   const seoDesc  = meta.seo_description || excerpt;
-  document.title = seoTitle + ' | PROPHUNT LLP Blog';
+  // Generated pages already carry a length-fitted title from scripts/build-blog.js.
+  if (/^Loading/.test(document.title)) document.title = seoTitle + ' | PROPHUNT LLP Blog';
   document.getElementById('ph-meta-desc').setAttribute('content', seoDesc);
   document.getElementById('ph-og-title').setAttribute('content', seoTitle);
   document.getElementById('ph-og-desc').setAttribute('content', seoDesc);
