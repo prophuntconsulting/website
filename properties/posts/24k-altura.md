@@ -27,18 +27,18 @@ unit_1_type: "4 BHK Luxury"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Cafe
-  - Gymnasium
-  - Library
-  - Mini Theatre
-  - Multipurpose Hall
-  - Swimming Pool
-  - Spa
-  - Squash Court
-  - Table Tennis
-  - Yoga Studio
-  - Virtual Cricket Zone
-  - Creche
+  - "Cafe"
+  - "Gymnasium"
+  - "Library"
+  - "Mini Theatre"
+  - "Multipurpose Hall"
+  - "Swimming Pool"
+  - "Spa"
+  - "Squash Court"
+  - "Table Tennis"
+  - "Yoga Studio"
+  - "Virtual Cricket Zone"
+  - "Creche"
 gallery_images:
   - "/images/landing-pages/24k-altura/photo-1.webp"
   - "/images/landing-pages/24k-altura/photo-2.webp"

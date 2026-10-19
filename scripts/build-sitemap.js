@@ -91,10 +91,11 @@ properties.forEach(p => {
 });
 
 posts.forEach(p => {
-  if (!p.url) return;
+  // in_sitemap is false for noindex posts and ones excluded in Sanity (Advanced SEO).
+  if (!p.url || p.in_sitemap === false || p.canonical_url) return;
   urls.push({
     loc: `${SITE}${p.url}`,
-    lastmod: p.date || today(),
+    lastmod: (p.updated && p.updated > p.date ? p.updated : p.date) || today(),
     changefreq: 'monthly',
     priority: '0.65',
   });

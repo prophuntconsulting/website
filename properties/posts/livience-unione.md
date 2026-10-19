@@ -27,15 +27,15 @@ unit_1_type: "2+2, 3 & 4 BHK"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Rooftop Infinity Pool
-  - Fusion Hall & Sky Cafe
-  - Mini Theatre
-  - Co-Working Space
-  - Amphitheatre
-  - Yoga & Meditation Deck
-  - Senior Citizen Area
-  - Box Cricket Court
-  - Home Automation
+  - "Rooftop Infinity Pool"
+  - "Fusion Hall & Sky Cafe"
+  - "Mini Theatre"
+  - "Co-Working Space"
+  - "Amphitheatre"
+  - "Yoga & Meditation Deck"
+  - "Senior Citizen Area"
+  - "Box Cricket Court"
+  - "Home Automation"
 gallery_images:
   - "/images/landing-pages/livience-unione/photo-1.webp"
   - "/images/landing-pages/livience-unione/photo-2.webp"

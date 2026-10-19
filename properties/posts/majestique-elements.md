@@ -27,16 +27,16 @@ unit_1_type: "4 BHK Signature"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Infinity Edge Swimming Pool
-  - Yoga Studio & Meditation Lounge
-  - Fully Equipped Gymnasium
-  - Spa & Wellness Centre
-  - Indoor Games Lounge
-  - Multipurpose Hall
-  - Rooftop Party Deck
-  - Landscaped Sky Garden
-  - EV Charging Provision
-  - 24x7 Security with CCTV
+  - "Infinity Edge Swimming Pool"
+  - "Yoga Studio & Meditation Lounge"
+  - "Fully Equipped Gymnasium"
+  - "Spa & Wellness Centre"
+  - "Indoor Games Lounge"
+  - "Multipurpose Hall"
+  - "Rooftop Party Deck"
+  - "Landscaped Sky Garden"
+  - "EV Charging Provision"
+  - "24x7 Security with CCTV"
 gallery_images:
   - "/images/landing-pages/majestique-elements/photo-1.webp"
   - "/images/landing-pages/majestique-elements/photo-2.webp"

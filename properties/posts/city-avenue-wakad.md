@@ -8,7 +8,7 @@ category: "commercial"
 status: "active"
 rera: "P52100003760"
 rera_qr: "/images/landing-pages/city-avenue-wakad/rera-qr.webp"
-hero_1: "/images/landing-pages/city-avenue-wakad/photo-1.webp"
+hero_1: "/images/landing-pages/city-avenue-wakad/photo-2.webp"
 hero_2: "/images/landing-pages/city-avenue-wakad/photo-2.webp"
 hero_3: "/images/landing-pages/city-avenue-wakad/photo-3.webp"
 hero_caption: "City Avenue, Wakad, Pune"
@@ -27,15 +27,15 @@ unit_1_type: "Retail Shops & Offices"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Integrated Retail & Dining Spaces
-  - Clubhouse
-  - Swimming Pool
-  - Gymnasium
-  - Landscaped Gardens
-  - 24/7 Security & CCTV
-  - Ample Parking
+  - "Integrated Retail & Dining Spaces"
+  - "Clubhouse"
+  - "Swimming Pool"
+  - "Gymnasium"
+  - "Landscaped Gardens"
+  - "24/7 Security & CCTV"
+  - "Ample Parking"
 gallery_images:
-  - "/images/landing-pages/city-avenue-wakad/photo-1.webp"
+  - "/images/landing-pages/city-avenue-wakad/photo-2.webp"
   - "/images/landing-pages/city-avenue-wakad/photo-2.webp"
   - "/images/landing-pages/city-avenue-wakad/photo-3.webp"
 lat: 18.602126

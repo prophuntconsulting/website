@@ -491,7 +491,9 @@ const properties = files.map(file => {
   // Card thumbnail (640w WebP) when one exists in images/thumbs/ — cards use it instead of
   // the full-size cover (which is 1-2MB-class for a ~400px slot). Full cover stays for the
   // project page hero and og:image.
-  const thumb = fs.existsSync(path.join(__dirname, '..', 'images', 'thumbs', `${slug}.webp`)) ? `/images/thumbs/${slug}.webp` : '';
+  // Images uploaded in Sanity come from its CDN, which resizes on request.
+  const thumb = fs.existsSync(path.join(__dirname, '..', 'images', 'thumbs', `${slug}.webp`)) ? `/images/thumbs/${slug}.webp`
+    : /^https:\/\/cdn\.sanity\.io\/images\//.test(cover) ? cover.replace(/\?.*$/, '') + '?w=640&fit=max&auto=format&q=75' : '';
   const merged = { slug, ...data, cover, thumb, url, body: body || '' };
 
   const micro_market = getMicroMarket(data.location);

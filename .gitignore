@@ -5,3 +5,7 @@ node_modules/
 images/hero-frames/
 
 tools/.vendor-src/
+
+# Written by scripts/sanity-pull.js during each build
+build-info.json
+scripts/.changed-urls.json

@@ -1,0 +1,39 @@
+name: Sanity maintenance
+
+# Content lives in Sanity and Vercel builds the site from it on every deploy
+# (publishing in the Studio calls the Vercel deploy hook). This job covers
+# the two things a publish does not:
+#  1. Scheduled blog posts: once a day, if a post's "Publish at" time passed
+#     in the last 24 hours, trigger a deploy so it goes live.
+#  2. Backups: every Sunday, export all published content to a workflow
+#     artifact (kept 90 days). No git commits.
+# Needs the repository secret VERCEL_DEPLOY_HOOK (the deploy hook URL).
+on:
+  schedule:
+    - cron: '30 0 * * *'   # 06:00 IST daily
+  workflow_dispatch:
+
+jobs:
+  maintain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Deploy if a scheduled post became due
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: node scripts/sanity-maintenance.js due
+
+      - name: Export content backup (Sundays, or when run by hand)
+        run: node scripts/sanity-maintenance.js backup sanity-backup
+
+      - uses: actions/upload-artifact@v4
+        if: hashFiles('sanity-backup/**') != ''
+        with:
+          name: sanity-backup-${{ github.run_id }}
+          path: sanity-backup
+          retention-days: 90

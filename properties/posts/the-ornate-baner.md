@@ -27,15 +27,15 @@ unit_1_type: "3, 3.5, 4 & 5 BHK"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Grand Entrance Lobby
-  - Co-Working Space
-  - Cafeteria
-  - Billiards & Card Room
-  - Rooftop Facilities
-  - Multi-Level Car Parking
-  - Rain Water Harvesting
-  - Organic Waste Converter
-  - Video Door Phone with Intercom
+  - "Grand Entrance Lobby"
+  - "Co-Working Space"
+  - "Cafeteria"
+  - "Billiards & Card Room"
+  - "Rooftop Facilities"
+  - "Multi-Level Car Parking"
+  - "Rain Water Harvesting"
+  - "Organic Waste Converter"
+  - "Video Door Phone with Intercom"
 gallery_images:
   - "/images/landing-pages/the-ornate-baner/photo-1.webp"
   - "/images/landing-pages/the-ornate-baner/photo-2.webp"

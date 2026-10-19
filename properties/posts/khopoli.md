@@ -26,25 +26,19 @@ unit_1_type: "Residential Plot"
 unit_1_area: "1,700 – 6,000 sqft"
 unit_1_price: "₹80 L*"
 unit_1_featured: true
-unit_2_type: ""
-unit_2_area: ""
-unit_2_price: ""
 unit_2_featured: false
-unit_3_type: ""
-unit_3_area: ""
-unit_3_price: ""
 unit_3_featured: false
 amenities:
-  - 25,000 Sq Ft Wellness Retreat Centre
-  - Private Hamlets & Villa Clusters
-  - Genuine Waterfalls & Perennial Streams
-  - 2,000+ Acres Protected Forest Buffer
-  - Wellness & Spa Programmes
-  - Sports Zones & Multi-Sport Courts
-  - Nature Trails & Walking Paths
-  - Low-Density Eco-Sensitive Planning
-  - Underground Utilities
-  - Row Houses & Education Spaces
+  - "25,000 Sq Ft Wellness Retreat Centre"
+  - "Private Hamlets & Villa Clusters"
+  - "Genuine Waterfalls & Perennial Streams"
+  - "2,000+ Acres Protected Forest Buffer"
+  - "Wellness & Spa Programmes"
+  - "Sports Zones & Multi-Sport Courts"
+  - "Nature Trails & Walking Paths"
+  - "Low-Density Eco-Sensitive Planning"
+  - "Underground Utilities"
+  - "Row Houses & Education Spaces"
 lat: 18.773091
 lng: 73.2848346
 geo_confidence: "locality"

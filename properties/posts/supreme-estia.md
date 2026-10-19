@@ -24,14 +24,14 @@ stat_4_value: "2023-25"
 stat_4_label: "OC Received"
 price: 0
 amenities:
-  - 3 Dedicated Clubhouses
-  - Swimming Pool & Gymnasium
-  - Yoga Studio
-  - Co-Working Spaces
-  - Banquet Hall
-  - Kids' Play Areas
-  - 3-Level Parking
-  - Medical Room & Creche
+  - "3 Dedicated Clubhouses"
+  - "Swimming Pool & Gymnasium"
+  - "Yoga Studio"
+  - "Co-Working Spaces"
+  - "Banquet Hall"
+  - "Kids' Play Areas"
+  - "3-Level Parking"
+  - "Medical Room & Creche"
 gallery_images:
   - "/images/landing-pages/supreme-estia/photo-1.webp"
   - "/images/landing-pages/supreme-estia/photo-2.webp"

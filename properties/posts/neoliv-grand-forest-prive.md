@@ -30,19 +30,16 @@ unit_2_type: "Plot"
 unit_2_area: "2,500 sqft"
 unit_2_price: "₹1.32 Cr*"
 unit_2_featured: false
-unit_3_type: ""
-unit_3_area: ""
-unit_3_price: ""
 unit_3_featured: false
 amenities:
-  - Access to 2 Exclusive Clubs
-  - Wide Internal Roads & Landscaped Gardens
-  - Natural Waterfalls & Mountain Views
-  - Individual 7/12 Ownership
-  - Gr+2 Floors Construction Allowed
-  - Low-Density Premium Layout
-  - Complimentary Site-Visit Pick & Drop
-  - Foothills of the Sahyadris
+  - "Access to 2 Exclusive Clubs"
+  - "Wide Internal Roads & Landscaped Gardens"
+  - "Natural Waterfalls & Mountain Views"
+  - "Individual 7/12 Ownership"
+  - "Gr+2 Floors Construction Allowed"
+  - "Low-Density Premium Layout"
+  - "Complimentary Site-Visit Pick & Drop"
+  - "Foothills of the Sahyadris"
 gallery_images:
   - "/images/landing-pages/neoliv-grand-forest-prive/site-progress-1.jpg"
   - "/images/landing-pages/neoliv-grand-forest-prive/site-progress-2.jpg"

@@ -27,15 +27,15 @@ unit_1_type: "3 & 4 BHK+"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - 38th-Floor Sky Deck & Cafe-Bar
-  - Swimming Pool & Kids' Pool
-  - Gymnasium & Fitness Centre
-  - Multipurpose Hall & Co-Working Hub
-  - Creche & Children's Play Areas
-  - Yoga Deck
-  - Pickleball Court
-  - Skating Rink
-  - Biometric Access & Panic Buttons
+  - "38th-Floor Sky Deck & Cafe-Bar"
+  - "Swimming Pool & Kids' Pool"
+  - "Gymnasium & Fitness Centre"
+  - "Multipurpose Hall & Co-Working Hub"
+  - "Creche & Children's Play Areas"
+  - "Yoga Deck"
+  - "Pickleball Court"
+  - "Skating Rink"
+  - "Biometric Access & Panic Buttons"
 gallery_images:
   - "/images/landing-pages/tej-elevia/photo-1.webp"
   - "/images/landing-pages/tej-elevia/photo-2.webp"

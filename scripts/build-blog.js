@@ -108,6 +108,13 @@ function markdownToHtml(markdown) {
       continue;
     }
     flushTable();
+    // Image block from the Sanity editor: ![alt](src "caption")
+    const img = line.match(/^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]*)")?\)$/);
+    if (img) {
+      flushAll();
+      out.push(`<figure class="bp-figure"><img src="${escapeHtml(img[2])}" alt="${escapeHtml(img[1])}" loading="lazy" decoding="async">${img[3] ? `<figcaption>${escapeHtml(img[3])}</figcaption>` : ''}</figure>`);
+      continue;
+    }
     const heading = line.match(/^(#{1,6})\s+(.+)$/);
     if (heading) {
       flushParagraph();
@@ -139,79 +146,249 @@ function markdownToHtml(markdown) {
   return out.join('\n');
 }
 
-// Head tags: real title/description/canonical + OG/Twitter + JSON-LD (BlogPosting)
-// so search engines and AI crawlers see genuine, article-specific signals without
-// running JS.
-function buildHeadBlock(p) {
-  const base = p.seo_title || p.title;
+// Head tags: title/description/robots/canonical, Open Graph + X cards and
+// JSON-LD (article + breadcrumbs + FAQs), all from the post's SEO fields
+// (Sanity: SEO, Social and Advanced SEO tabs) with sensible fallbacks, so
+// search engines and AI crawlers get them without running JS.
+function seoTitleBase(p) { return p.seo_title || p.title; }
+function crumbLabel(p) { return p.breadcrumb_title || p.title; }
+
+function buildHeadBlock(p, ctx) {
+  const base = seoTitleBase(p);
   const title = fitTitle([`${base} | PROPHUNT LLP Blog`, `${base} | PROPHUNT LLP`, `${base} | PROPHUNT`, base]);
   const desc  = p.seo_description || p.excerpt || '';
   const url   = `${SITE}${p.url}`;
-  const image = absUrl(p.cover);
+  const canonical = p.canonical_url || url;
+  const ogTitle = p.og_title || base;
+  const ogDesc  = p.og_description || desc;
+  const ogImage = absUrl(p.og_image || p.cover);
+  const ogAlt   = p.og_image ? p.og_image_alt : (p.cover_alt || p.title);
+  const twTitle = p.twitter_title || ogTitle;
+  const twDesc  = p.twitter_description || ogDesc;
+  const twImage = p.twitter_image ? absUrl(p.twitter_image) : ogImage;
+  const twAlt   = p.twitter_image ? p.twitter_image_alt : ogAlt;
+  const keywords = [...new Set([p.focus_keyword, ...p.secondary_keywords, ...p.tags].filter(Boolean))];
+  const catLabel = CAT_LABELS[p.category] || 'Article';
+  const published = p.date ? `${p.date}T09:00:00+05:30` : '';
+  const modified  = p.updated && p.updated > p.date ? `${p.updated}T09:00:00+05:30` : published;
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: p.title,
-    description: p.excerpt || '',
-    datePublished: p.date || '',
-    dateModified: p.date || '',
-    author: { '@type': 'Organization', name: p.author || 'PROPHUNT Advisory Team' },
-    publisher: { '@type': 'Organization', name: 'PROPHUNT LLP', url: SITE, logo: `${SITE}/images/logo-black.png` },
-    mainEntityOfPage: url,
-    ...(p.cover ? { image } : {}),
-  };
+  const graph = [
+    {
+      '@type': p.schema_type,
+      headline: p.title,
+      description: desc,
+      ...(p.cover || p.og_image ? { image: ogImage } : {}),
+      datePublished: published,
+      dateModified: modified,
+      ...(keywords.length ? { keywords: keywords.join(', ') } : {}),
+      articleSection: catLabel,
+      inLanguage: 'en-IN',
+      author: { '@type': 'Organization', name: p.author || 'PROPHUNT Advisory Team', url: `${SITE}/about` },
+      publisher: { '@type': 'Organization', name: 'PROPHUNT LLP', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/images/logo-black.png` } },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+      ...(ctx.projects.length ? { about: ctx.projects.map(x => ({ '@type': 'Residence', name: x.title, url: `${SITE}${x.url}` })) } : {}),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog` },
+        { '@type': 'ListItem', position: 3, name: catLabel, item: `${SITE}/blog?cat=${p.category}` },
+        { '@type': 'ListItem', position: 4, name: crumbLabel(p), item: url },
+      ],
+    },
+    ...(p.faqs.length ? [{
+      '@type': 'FAQPage',
+      mainEntity: p.faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    }] : []),
+  ];
 
   return `<title id="ph-blog-title">${escapeHtml(title)}</title>
 <meta id="ph-meta-desc" name="description" content="${escapeHtml(desc)}">
-<meta id="ph-og-title"  property="og:title" content="${escapeHtml(title)}">
-<meta id="ph-og-desc"  property="og:description" content="${escapeHtml(desc)}">
-<meta id="ph-og-img"   property="og:image" content="${image}">
-<meta property="og:type" content="article">
-<meta property="og:url" content="${url}">
+<meta name="robots" content="${escapeHtml(p.robots)}">
+${keywords.length ? `<meta name="keywords" content="${escapeHtml(keywords.join(', '))}">\n` : ''}<meta id="ph-og-title"  property="og:title" content="${escapeHtml(ogTitle)}">
+<meta id="ph-og-desc"  property="og:description" content="${escapeHtml(ogDesc)}">
+<meta id="ph-og-img"   property="og:image" content="${escapeHtml(ogImage)}">
+${ogAlt ? `<meta property="og:image:alt" content="${escapeHtml(ogAlt)}">\n` : ''}<meta property="og:type" content="article">
+<meta property="og:url" content="${escapeHtml(canonical)}">
 <meta property="og:site_name" content="PROPHUNT LLP">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${escapeHtml(title)}">
-<meta name="twitter:description" content="${escapeHtml(desc)}">
-<meta name="twitter:image" content="${image}">
-<link rel="canonical" id="ph-canonical" href="${url}">
-<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`;
+<meta property="og:locale" content="en_IN">
+${published ? `<meta property="article:published_time" content="${published}">\n<meta property="article:modified_time" content="${modified}">\n` : ''}<meta property="article:section" content="${escapeHtml(catLabel)}">
+<meta name="twitter:card" content="${escapeHtml(p.twitter_card)}">
+<meta name="twitter:title" content="${escapeHtml(twTitle)}">
+<meta name="twitter:description" content="${escapeHtml(twDesc)}">
+<meta name="twitter:image" content="${escapeHtml(twImage)}">
+${twAlt ? `<meta name="twitter:image:alt" content="${escapeHtml(twAlt)}">\n` : ''}<link rel="canonical" id="ph-canonical" href="${escapeHtml(canonical)}">
+<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c')}</script>`;
 }
 
-// Full server-rendered article shown before the client JS hydrates the page.
-// Google should not have to execute JavaScript to see the CMS article body.
-function buildPrerenderBlock(p) {
+function priceText(x) {
+  if (!x.price || Number(x.price) === 0) return 'Price on request';
+  const n = Number(x.price);
+  return n >= 100 ? `From ₹${(n / 100).toFixed(2).replace(/\.?0+$/, '')} Cr*` : `From ₹${n} L*`;
+}
+
+// Project cards for "Related Projects" (internal links to project pages).
+function renderProjectCards(projects) {
+  if (!projects.length) return '';
+  return `<section class="bp-projects" aria-label="Projects in this article">
+          <h2>Projects mentioned in this article</h2>
+          <div class="bp-projects-grid">${projects.map(x => `
+            <a class="bp-proj-card" href="${x.url}">
+              <span class="bp-proj-img" style="background-image:url('${escapeHtml(x.thumb || x.cover || '')}')"></span>
+              <span class="bp-proj-body">
+                <span class="bp-proj-title">${escapeHtml(x.title)}</span>
+                <span class="bp-proj-meta">${escapeHtml([x.developer, x.location].filter(Boolean).join(' · '))}</span>
+                <span class="bp-proj-meta">${escapeHtml([x.config, priceText(x)].filter(Boolean).join(' · '))}</span>
+              </span>
+            </a>`).join('')}
+          </div>
+        </section>`;
+}
+
+function renderFaqs(faqs) {
+  if (!faqs.length) return '';
+  return `<section class="bp-faqs" aria-label="Frequently asked questions">
+          <h2>Frequently asked questions</h2>
+          ${faqs.map(f => `<details class="bp-faq"><summary>${escapeHtml(f.q)}</summary><p>${renderInline(f.a)}</p></details>`).join('\n          ')}
+        </section>`;
+}
+
+const CAT_ICONS = { market: 'fas fa-chart-line', buyer: 'fas fa-home', investment: 'fas fa-coins', legal: 'fas fa-file-contract', nri: 'fas fa-globe' };
+
+// The full article page, rendered at build time. blog/post.html's script sees
+// data-prerendered and only wires up the enquiry form, so Google and visitors
+// get the same HTML with no client-side Markdown rendering.
+function buildPrerenderBlock(p, ctx) {
   const catLabel = CAT_LABELS[p.category] || p.category || 'Article';
   const mins = p.readTime || estimateReadTime(p.body || '');
   const bodyHtml = markdownToHtml(p.body || '');
   const tagsHtml = p.tags && p.tags.length
     ? `<div class="bp-tags"><span style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#6b7280;margin-right:6px;align-self:center">Tags:</span>${p.tags.map(t => `<span class="bp-tag"><i class="fas fa-tag" style="font-size:9px"></i>${escapeHtml(t)}</span>`).join('')}</div>`
     : '';
+  const pageUrl = encodeURIComponent(`${SITE}${p.url}`);
+  const pageTitle = encodeURIComponent(p.title);
+  const relatedHtml = ctx.related.length
+    ? ctx.related.map(r => `
+          <div class="bp-related-item">
+            <a href="${r.url}" class="bp-related-img" style="background-image:url('${escapeHtml(r.cover || '')}')" aria-label="${escapeHtml(r.title)}"></a>
+            <div>
+              <div class="bp-related-cat">${escapeHtml(CAT_LABELS[r.category] || r.category)}</div>
+              <div class="bp-related-title"><a href="${r.url}">${escapeHtml(r.title)}</a></div>
+              <div class="bp-related-date">${escapeHtml(fmtDate(r.date))}</div>
+            </div>
+          </div>`).join('')
+    : '<p style="font-size:13px;color:#9ca3af;text-align:center;padding:8px 0">More articles coming soon.</p>';
 
-  return `<div class="bp-prerender" style="max-width:820px;margin:0 auto;padding:40px 24px 24px">
-    <div class="bp-header" style="padding:0;background:none">
-      <div class="bp-header-inner" style="padding:0">
+  return `<div data-prerendered="1">
+    <div class="bp-header">
+      <div class="bp-header-inner">
         <div class="bp-meta-row">
-          <span class="bp-cat-badge">${escapeHtml(catLabel)}</span>
-          <span class="bp-meta-item">${escapeHtml(fmtDate(p.date))}</span>
-          <span class="bp-meta-item">${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</span>
-          <span class="bp-meta-item">${mins} min read</span>
+          <a class="bp-cat-badge" href="/blog?cat=${escapeHtml(p.category)}"><i class="${CAT_ICONS[p.category] || 'fas fa-newspaper'}" style="font-size:9px"></i>${escapeHtml(catLabel)}</a>
+          <span class="bp-meta-item"><i class="fas fa-calendar-alt"></i><time datetime="${escapeHtml(p.date)}">${escapeHtml(fmtDate(p.date))}</time></span>
+          ${p.updated && p.updated > p.date ? `<span class="bp-meta-item"><i class="fas fa-rotate"></i>Updated <time datetime="${escapeHtml(p.updated)}">${escapeHtml(fmtDate(p.updated))}</time></span>` : ''}
+          <span class="bp-meta-item"><i class="fas fa-user-circle"></i>${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</span>
+          <span class="bp-meta-item"><i class="fas fa-clock"></i>${mins} min read</span>
         </div>
         <h1 class="bp-title">${escapeHtml(p.title)}</h1>
         ${p.excerpt ? `<p class="bp-excerpt">${escapeHtml(p.excerpt)}</p>` : ''}
       </div>
     </div>
-    ${p.cover ? `<div class="bp-cover-wrap" style="margin:24px 0"><img src="${escapeHtml(p.cover)}" alt="${escapeHtml(p.title)}" loading="eager"></div>` : ''}
-    <article class="bp-article" style="box-shadow:none;border:0;padding:0">
-      <div class="bp-body">${bodyHtml}</div>
-      ${tagsHtml}
-      <div class="bp-article-cta">
-        <h3>Looking to Buy a Home in Pune?</h3>
-        <p>Talk to a PROPHUNT advisor - free consultation, no pressure, just clarity on pricing and suitable projects.</p>
-        <a href="/contact">Book a Free Consultation</a>
-      </div>
-    </article>
+
+    <div class="bp-cover-wrap">
+      ${p.cover
+        ? `<img src="${escapeHtml(p.cover)}" alt="${escapeHtml(p.cover_alt || p.title)}" width="1200" height="630" fetchpriority="high">`
+        : `<div class="bp-cover-placeholder"><i class="${CAT_ICONS[p.category] || 'fas fa-newspaper'}"></i></div>`}
+    </div>
+
+    <div class="bp-layout">
+      <article class="bp-article">
+        <div class="bp-body" id="bp-body-content">${bodyHtml}</div>
+        ${renderFaqs(p.faqs)}
+        ${renderProjectCards(ctx.projects)}
+        ${tagsHtml}
+        <div class="bp-share">
+          <span class="bp-share-label">Share:</span>
+          <a href="https://wa.me/?text=${pageTitle}%20${pageUrl}" target="_blank" rel="noopener" class="bp-share-btn bp-share-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <a href="https://twitter.com/intent/tweet?text=${pageTitle}&amp;url=${pageUrl}" target="_blank" rel="noopener" class="bp-share-btn bp-share-tw"><i class="fab fa-x-twitter"></i> Tweet</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=${pageUrl}&amp;title=${pageTitle}" target="_blank" rel="noopener" class="bp-share-btn bp-share-li"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+          <button type="button" onclick="navigator.clipboard.writeText(location.href);this.textContent='✓ Copied!';setTimeout(()=>this.textContent='Copy Link',2000)" class="bp-share-btn bp-share-copy"><i class="fas fa-link"></i> Copy Link</button>
+        </div>
+        <div class="bp-article-cta">
+          <h3>Looking to Buy a Home in Pune?</h3>
+          <p>Talk to a PROPHUNT advisor - free consultation, no pressure, just clarity on pricing &amp; best projects.</p>
+          <a href="/contact">Book a Free Consultation</a>
+        </div>
+        <p class="bp-more-links"><a href="/blog">More guides on the PROPHUNT blog</a> · <a href="/projects">All projects in Pune</a> · <a href="/location">Browse by location</a></p>
+      </article>
+
+      <aside class="bp-sidebar">
+        <div class="bp-widget">
+          <div class="bp-widget-head"><i class="fas fa-calendar-check"></i> Book a Site Visit</div>
+          <div class="bp-widget-body">
+            <form id="bpEnqForm">
+              <div class="bp-enq-field"><input type="text" name="name" placeholder="Your Name *" required aria-label="Your name"></div>
+              <div class="bp-enq-field"><input type="tel" name="phone" placeholder="Phone Number *" required aria-label="Phone number"></div>
+              <div class="bp-enq-field"><input type="email" name="email" placeholder="Email Address" aria-label="Email address"></div>
+              <div class="bp-enq-field">
+                <select name="interest" aria-label="I'm interested in">
+                  <option value="" disabled selected>I'm interested in…</option>
+                  <option>2 BHK Apartment</option>
+                  <option>3 BHK Apartment</option>
+                  <option>Villa / Row House</option>
+                  <option>Plot</option>
+                  <option>Commercial Property</option>
+                  <option>General Advisory</option>
+                </select>
+              </div>
+              <button type="submit" class="bp-enq-submit">Get Free Advice →</button>
+              <p class="bp-enq-note"><i class="fas fa-lock" style="font-size:9px"></i> 100% private, no spam</p>
+            </form>
+          </div>
+        </div>
+
+        <div class="bp-widget">
+          <div class="bp-widget-head"><i class="fas fa-newspaper"></i> Related Articles</div>
+          <div class="bp-widget-body">${relatedHtml}</div>
+        </div>
+
+        <div class="bp-widget">
+          <div class="bp-widget-head"><i class="fas fa-layer-group"></i> Categories</div>
+          <div class="bp-widget-body">
+            ${Object.entries(LISTING_CAT_LABELS).map(([k, v]) => `<a class="bp-cat-item" href="/blog?cat=${k}"><span class="left"><i class="${CAT_ICONS[k] || 'fas fa-circle'}"></i>${v}</span><span class="bp-cat-count">${ctx.catCounts[k] || 0}</span></a>`).join('\n            ')}
+          </div>
+        </div>
+
+        <div class="bp-widget" style="background:#0f1b2d;border-color:#0f1b2d">
+          <div style="padding:20px 18px;text-align:center;color:#fff">
+            <i class="fas fa-building" style="font-size:24px;color:#C8362B;margin-bottom:10px;display:block"></i>
+            <div style="font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;margin-bottom:6px">Explore New Projects</div>
+            <p style="font-size:12.5px;color:rgba(255,255,255,.65);margin-bottom:14px">Verified listings across Pune, apartments, plots &amp; villas</p>
+            <a href="/projects" style="display:block;padding:10px;background:#C8362B;color:#fff;border-radius:6px;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-decoration:none">View All Projects</a>
+          </div>
+        </div>
+      </aside>
+    </div>
   </div>`;
+}
+
+// A post with a Redirect Destination becomes an instant redirect page
+// (canonical + meta refresh + JS), left out of the sitemap and the listing.
+function buildRedirectPage(p) {
+  const to = /^https?:\/\//.test(p.redirect_url) ? p.redirect_url : `${SITE}${p.redirect_url.startsWith('/') ? '' : '/'}${p.redirect_url}`;
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Moved | PROPHUNT LLP</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="${escapeHtml(to)}">
+<meta http-equiv="refresh" content="0; url=${escapeHtml(to)}">
+<script>location.replace(${JSON.stringify(to)});</script>
+</head>
+<body><p>This article has moved to <a href="${escapeHtml(to)}">${escapeHtml(to)}</a>.</p></body>
+</html>
+`;
 }
 
 // Mirrors the renderCard() embedded in blog/index.html exactly, so the
@@ -303,6 +480,18 @@ function parseFrontmatter(content) {
   return { meta, body: match[2] };
 }
 
+const DEFAULT_ROBOTS = 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
+
+function parseFaqs(json, slug) {
+  if (!json) return [];
+  try {
+    return JSON.parse(json).filter(f => f && f.q && f.a);
+  } catch {
+    console.warn(`  ⚠ ${slug}: faqs_json is not valid JSON, skipping FAQs`);
+    return [];
+  }
+}
+
 function estimateReadTime(text) {
   return Math.max(1, Math.round(text.split(/\s+/).length / 200));
 }
@@ -340,6 +529,28 @@ const posts = files.map(filename => {
     seo_title:       meta.seo_title       || '',
     seo_description: meta.seo_description || '',
     readTime: estimateReadTime(body),
+    // SEO fields written by scripts/sanity-pull.js (all optional).
+    updated:            meta.updated || '',
+    cover_alt:          meta.cover_alt || '',
+    secondary_keywords: Array.isArray(meta.secondary_keywords) ? meta.secondary_keywords : [],
+    breadcrumb_title:   meta.breadcrumb_title || '',
+    og_title:           meta.og_title || '',
+    og_description:     meta.og_description || '',
+    og_image:           meta.og_image || '',
+    og_image_alt:       meta.og_image_alt || '',
+    twitter_card:       meta.twitter_card || 'summary_large_image',
+    twitter_title:      meta.twitter_title || '',
+    twitter_description: meta.twitter_description || '',
+    twitter_image:      meta.twitter_image || '',
+    twitter_image_alt:  meta.twitter_image_alt || '',
+    canonical_url:      meta.canonical_url || '',
+    schema_type:        ['Article', 'NewsArticle'].includes(meta.schema_type) ? meta.schema_type : 'BlogPosting',
+    robots:             meta.robots || DEFAULT_ROBOTS,
+    redirect_url:       meta.redirect_url || '',
+    related_projects:   Array.isArray(meta.related_projects) ? meta.related_projects : [],
+    faqs:               parseFaqs(meta.faqs_json, fileSlug),
+    // Left out of sitemap.xml: noindex, excluded by hand, or redirected away.
+    in_sitemap: !/noindex/.test(meta.robots || '') && meta.exclude_from_sitemap !== 'true' && !meta.redirect_url,
     body,
   };
 });
@@ -349,9 +560,29 @@ const posts = files.map(filename => {
 // publish date. Stable tiebreak on filename keeps the output deterministic.
 posts.sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.slug.localeCompare(a.slug));
 
-const publicPosts = posts.map(({ body, ...post }) => post);
+// Redirected posts get a redirect page only: no card, no sitemap entry.
+const listed = posts.filter(p => !p.redirect_url);
+const publicPosts = listed.map(({ body, faqs, ...post }) => post);
 fs.writeFileSync(OUT_FILE, JSON.stringify(publicPosts, null, 2));
-console.log(`Built posts.json — ${posts.length} post(s)`);
+console.log(`Built posts.json — ${listed.length} post(s)`);
+
+// Projects for "Related Projects" cards (built by build-properties.js, which runs first).
+const PROPERTIES_JSON = path.join(__dirname, '..', 'properties', 'posts.json');
+const propertyBySlug = new Map((fs.existsSync(PROPERTIES_JSON) ? JSON.parse(fs.readFileSync(PROPERTIES_JSON, 'utf8')) : []).map(x => [x.slug, x]));
+const catCounts = {};
+listed.forEach(p => { catCounts[p.category] = (catCounts[p.category] || 0) + 1; });
+
+function contextFor(p) {
+  const projects = p.related_projects.map(s => {
+    const x = propertyBySlug.get(s);
+    if (!x) console.warn(`  ⚠ ${p.slug}: related project "${s}" not found`);
+    return x;
+  }).filter(Boolean);
+  // Same category first, then the newest others: always 3 internal links.
+  const others = listed.filter(r => r.slug !== p.slug);
+  const related = [...others.filter(r => r.category === p.category), ...others.filter(r => r.category !== p.category)].slice(0, 3);
+  return { projects, related, catCounts };
+}
 
 // Generate static blog/{cleanSlug}/index.html for each post
 if (fs.existsSync(TEMPLATE)) {
@@ -380,10 +611,19 @@ if (fs.existsSync(TEMPLATE)) {
     const outDir = path.join(__dirname, '..', 'blog', p.urlSlug);
     fs.mkdirSync(outDir, { recursive: true });
 
+    if (p.redirect_url) {
+      fs.writeFileSync(path.join(outDir, 'index.html'), buildRedirectPage(p));
+      console.log(`  → blog/${p.urlSlug}/index.html (redirects to ${p.redirect_url})`);
+      return;
+    }
+    const ctx = contextFor(p);
     let html = template.replace(INJECT_MARKER, `const fileSlug = '${p.slug}';`);
-    html = html.replace(HEAD_MARKER, buildHeadBlock(p));
-    html = html.replace(LOADING_MARKER, buildPrerenderBlock(p));
-    html = html.replace('Loading…</span>', `${escapeHtml(p.title)}</span>`);
+    html = html.replace(HEAD_MARKER, buildHeadBlock(p, ctx));
+    html = html.replace(LOADING_MARKER, buildPrerenderBlock(p, ctx));
+    html = html.replace('<span id="bp-crumb" style="color:#1f2937;font-weight:500">Loading…</span>',
+      `<a href="/blog?cat=${escapeHtml(p.category)}">${escapeHtml(CAT_LABELS[p.category] || 'Articles')}</a>
+    <span class="sep">/</span>
+    <span id="bp-crumb" style="color:#1f2937;font-weight:500" aria-current="page">${escapeHtml(crumbLabel(p))}</span>`);
 
     fs.writeFileSync(path.join(outDir, 'index.html'), html.replace(/[ \t]+$/gm, ''));
     console.log(`  → blog/${p.urlSlug}/index.html`);
@@ -411,7 +651,7 @@ if (fs.existsSync(listingPagePath)) {
   // rebuild after the first would silently leave these sections holding
   // whatever they held at that first build forever (see the identical fix
   // for projects.html's grid in build-properties.js).
-  const cardsHtml = posts.map((p, i) => renderListingCard(p, i === 0)).join('');
+  const cardsHtml = listed.map((p, i) => renderListingCard(p, i === 0)).join('');
   html = html.replace(
     /<div class="blog-grid" id="blogGrid">[\s\S]*?(?=<div class="coming-soon-banner")/,
     `<div class="blog-grid" id="blogGrid">${cardsHtml}</div>\n\n        `
@@ -419,13 +659,13 @@ if (fs.existsSync(listingPagePath)) {
 
   html = html.replace(
     /[ \t]*<div class="sidebar-cats">[\s\S]*?<\/div>/,
-    buildSidebarCatsBlock(posts)
+    buildSidebarCatsBlock(listed)
   );
 
   const popularHtml = `<div class="sidebar-box">
           <div class="sidebar-box-title">Popular Guides</div>
           <div>
-${posts.slice(0, 3).map(renderMini).join('\n')}
+${listed.slice(0, 3).map(renderMini).join('\n')}
           </div>
         </div>`;
   html = html.replace(
@@ -456,13 +696,13 @@ ${posts.slice(0, 3).map(renderMini).join('\n')}
       {
         '@type': 'ItemList',
         name: 'PROPHUNT LLP Blog Articles',
-        numberOfItems: posts.length,
-        itemListElement: posts.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, item: `${SITE}${p.url}` })),
+        numberOfItems: listed.length,
+        itemListElement: listed.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, item: `${SITE}${p.url}` })),
       },
     ],
   };
   html = html.replace(/<script type="application\/ld\+json">\n\{[\s\S]*?\n\}\n<\/script>/, `<script type="application/ld+json">\n${JSON.stringify(listingJsonLd, null, 2)}\n</script>`);
 
   fs.writeFileSync(listingPagePath, html);
-  console.log(`Prerendered blog/index.html — ${posts.length} article cards`);
+  console.log(`Prerendered blog/index.html — ${listed.length} article cards`);
 }

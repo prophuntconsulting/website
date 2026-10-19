@@ -3,15 +3,13 @@ date_added: "2026-06-29"
 title: "Godrej River Royale"
 developer: "Godrej Properties"
 location: "Baner–Hinjewadi Rd, Pune"
-area_alias: "Mahalunge"
 config: "3 & 4.5 BHK"
 area: "From 1,688 sqft"
 category: "apartment"
 status: "active"
 rera: "P52100047823"
+area_alias: "Mahalunge"
 hero_1: "/images/projects/godrej-river-royale.jpg"
-hero_2: ""
-hero_3: ""
 hero_caption: "Luxury residences on Baner–Hinjewadi Road"
 tagline: "New Launch | 3 & 4.5 BHK Luxury Residences | Limited Inventory"
 overview: "Godrej River Royale is a premium residential project by Godrej Properties located on the high-growth Baner–Hinjewadi corridor. Offering spacious 3 and 4.5 BHK apartments with panoramic views, world-class amenities and proximity to Pune's top IT hubs, it is designed for discerning homebuyers seeking luxury and convenience."
@@ -32,27 +30,24 @@ unit_2_type: "4.5 BHK"
 unit_2_area: "2,340 sqft"
 unit_2_price: "₹3.85 Cr*"
 unit_2_featured: true
-unit_3_type: ""
-unit_3_area: ""
-unit_3_price: ""
 unit_3_featured: false
 amenities:
-  - Swimming Pool
-  - Gymnasium
-  - Club House
-  - Children's Play Area
-  - Jogging Track
-  - Yoga & Meditation Deck
-  - Landscaped Garden
-  - Indoor Games Room
-  - Multipurpose Hall
-  - Senior Citizen Area
-  - 24/7 Security
-  - CCTV Surveillance
-  - Power Backup
-  - EV Charging Points
-  - Co-Working Space
-  - Café Lounge
+  - "Swimming Pool"
+  - "Gymnasium"
+  - "Club House"
+  - "Children's Play Area"
+  - "Jogging Track"
+  - "Yoga & Meditation Deck"
+  - "Landscaped Garden"
+  - "Indoor Games Room"
+  - "Multipurpose Hall"
+  - "Senior Citizen Area"
+  - "24/7 Security"
+  - "CCTV Surveillance"
+  - "Power Backup"
+  - "EV Charging Points"
+  - "Co-Working Space"
+  - "Café Lounge"
 lat: 18.570032
 lng: 73.736299
 geo_confidence: "exact"

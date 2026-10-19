@@ -29,16 +29,16 @@ unit_1_area: "749 - 1,201 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Infinity Swimming Pool
-  - Gymnasium
-  - Creche
-  - Co-Working Space
-  - Multi-Purpose Hall
-  - Indoor Games Room
-  - Yoga Room
-  - Jogging Track
-  - Reading Library
-  - Multipurpose Court
+  - "Infinity Swimming Pool"
+  - "Gymnasium"
+  - "Creche"
+  - "Co-Working Space"
+  - "Multi-Purpose Hall"
+  - "Indoor Games Room"
+  - "Yoga Room"
+  - "Jogging Track"
+  - "Reading Library"
+  - "Multipurpose Court"
 gallery_images:
   - "/images/landing-pages/anp-memento/photo-1.jpg"
   - "/images/landing-pages/anp-memento/photo-2.jpg"

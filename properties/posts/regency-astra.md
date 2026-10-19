@@ -27,13 +27,13 @@ unit_1_type: "2 & 3 BHK"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Swimming Pool & Kids Pool
-  - Club E'SCAPE Membership Facility
-  - Gymnasium & Multipurpose Court
-  - Central Landscaped Podium
-  - Jogging Path
-  - Children's Play Area
-  - Digital Lock & Video Door Phone
+  - "Swimming Pool & Kids Pool"
+  - "Club E'SCAPE Membership Facility"
+  - "Gymnasium & Multipurpose Court"
+  - "Central Landscaped Podium"
+  - "Jogging Path"
+  - "Children's Play Area"
+  - "Digital Lock & Video Door Phone"
 gallery_images:
   - "/images/landing-pages/regency-astra/photo-1.webp"
   - "/images/landing-pages/regency-astra/photo-2.webp"

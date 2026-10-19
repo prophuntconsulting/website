@@ -29,15 +29,15 @@ unit_1_area: "749 – 1,073 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Gated Security with CCTV
-  - Plunge Infinity Pool
-  - Gymnasium & Yoga Terrace
-  - Multipurpose Court & Net Cricket Pitch
-  - Clubhouse with Co-Working Spaces
-  - Children's Play Area
-  - Amphitheatre & Meditation Corner
-  - Temple & Herb Garden
-  - Cafeteria
+  - "Gated Security with CCTV"
+  - "Plunge Infinity Pool"
+  - "Gymnasium & Yoga Terrace"
+  - "Multipurpose Court & Net Cricket Pitch"
+  - "Clubhouse with Co-Working Spaces"
+  - "Children's Play Area"
+  - "Amphitheatre & Meditation Corner"
+  - "Temple & Herb Garden"
+  - "Cafeteria"
 gallery_images:
   - "/images/landing-pages/kumar-parth-towers/photo-1.webp"
   - "/images/landing-pages/kumar-parth-towers/photo-2.webp"

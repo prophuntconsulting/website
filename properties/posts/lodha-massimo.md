@@ -24,17 +24,17 @@ stat_4_value: "5-20 Min"
 stat_4_label: "To IT Parks"
 price: 0
 amenities:
-  - 25m Lap Pool & Kids Pool
-  - Sky Sports Club
-  - Multi-Use Sports Courts
-  - Padel Court
-  - 5-a-Side Football Turf
-  - Cricket Pitch
-  - Central Sports Lawn
-  - Jogging Track
-  - Café cum Library
-  - Senior Citizens' Corner
-  - Pets' Area
+  - "25m Lap Pool & Kids Pool"
+  - "Sky Sports Club"
+  - "Multi-Use Sports Courts"
+  - "Padel Court"
+  - "5-a-Side Football Turf"
+  - "Cricket Pitch"
+  - "Central Sports Lawn"
+  - "Jogging Track"
+  - "Café cum Library"
+  - "Senior Citizens' Corner"
+  - "Pets' Area"
 gallery_images:
   - "/images/landing-pages/lodha-massimo/entrance-night-view.webp"
   - "/images/landing-pages/lodha-massimo/balcony-lounge.webp"

@@ -1,11 +1,10 @@
 ---
 title: "Pune Residential Market H1 2025: Price Trends, Top Micro-Markets & Outlook"
 seo_title: "Pune Property Market H1 2025: Prices & Top Micro-Markets"
-date: 2025-06-27
+date: "2025-06-27"
 author: "PROPHUNT Advisory Team"
 category: "market"
 excerpt: "Baner, Hinjewadi and Balewadi recorded 8–12% year-on-year price appreciation in H1 2025. Here is what the data says and where value lies today."
-cover: ""
 ---
 
 ## Overview
@@ -22,12 +21,15 @@ The first half of 2025 has reinforced Pune's position as one of India's most res
 ## Micro-Market Breakdown
 
 ### Baner – Hinjewadi Road
+
 The prime corridor for IT professionals. Average prices have moved from ₹9,200/sqft to ₹10,100/sqft. Godrej River Royale's launch has set a new benchmark at ₹12,500+/sqft for branded luxury.
 
 ### Pimpri-Chinchwad
+
 Emerging as a strong value pick. Mahindra Citadel at Pimpri is attracting first-time buyers with 2 BHK pricing starting under ₹1 Cr and strong social infrastructure.
 
 ### East Pune (Keshav Nagar, Wagholi)
+
 Budget-friendly corridor seeing developer attention. Godrej Aqua Vista at Keshav Nagar offers 2 & 3 BHK from ₹96.99 Lakh, appealing to end-users and investors alike.
 
 ## What Should Buyers Do?
@@ -36,6 +38,6 @@ If you have been waiting to buy, waiting further is unlikely to benefit you: pri
 
 Our recommendation: **shortlist now, visit within 30 days**. The pre-launch window for several upcoming Baner projects closes in Q3 2025.
 
----
+***
 
-*Want a personalised analysis for your budget and location? [Book a free advisory call](/contact) with the PROPHUNT team.*
+*Want a personalised analysis for your budget and location?* [*Book a free advisory call*](/contact) *with the PROPHUNT team.*

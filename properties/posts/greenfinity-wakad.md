@@ -27,16 +27,16 @@ unit_1_type: "2 & 3 BHK"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Zen Yoga Lawn
-  - Pro-Cricket Arena
-  - Adventure Play Mounds
-  - Wellness Loop Track
-  - Multipurpose Court
-  - Open-Air Green Gym
-  - Eco Cycle Trail
-  - Infinity Pool
-  - Clubhouse
-  - Landscaping & Tree Planting
+  - "Zen Yoga Lawn"
+  - "Pro-Cricket Arena"
+  - "Adventure Play Mounds"
+  - "Wellness Loop Track"
+  - "Multipurpose Court"
+  - "Open-Air Green Gym"
+  - "Eco Cycle Trail"
+  - "Infinity Pool"
+  - "Clubhouse"
+  - "Landscaping & Tree Planting"
 gallery_images:
   - "/images/landing-pages/greenfinity-wakad/photo-1.webp"
   - "/images/landing-pages/greenfinity-wakad/photo-2.webp"

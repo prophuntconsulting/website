@@ -27,15 +27,15 @@ unit_1_type: "3, 4 & 5 BHK"
 unit_1_price: "Rs 2.65 Cr Onwards*"
 unit_1_featured: true
 amenities:
-  - Temperature-Controlled Pool with Lazy River
-  - Private Luxe Theatre
-  - Regal Banquet Hall
-  - Elite Fitness Studio
-  - Badminton & Squash Courts
-  - Cricket Simulator
-  - Children's Interactive Play Area
-  - Canopy Walk
-  - 50,000 sqft Clubhouse
+  - "Temperature-Controlled Pool with Lazy River"
+  - "Private Luxe Theatre"
+  - "Regal Banquet Hall"
+  - "Elite Fitness Studio"
+  - "Badminton & Squash Courts"
+  - "Cricket Simulator"
+  - "Children's Interactive Play Area"
+  - "Canopy Walk"
+  - "50,000 sqft Clubhouse"
 gallery_images:
   - "/images/landing-pages/anp-privado/photo-1.webp"
   - "/images/landing-pages/anp-privado/photo-2.webp"

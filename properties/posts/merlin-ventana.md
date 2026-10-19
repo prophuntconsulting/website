@@ -33,15 +33,15 @@ unit_2_area: "1,476 – 1,482 sqft"
 unit_2_price: "Price on Request"
 unit_2_featured: false
 amenities:
-  - 180-Degree Rooftop Infinity Pool
-  - Kids' Pool
-  - Mini Theatre
-  - Steam Room
-  - Banquet Hall & BBQ Party Deck
-  - Basketball, Badminton & Squash Courts
-  - Gymnasium
-  - Co-Working Areas
-  - Smart Home Provisions
+  - "180-Degree Rooftop Infinity Pool"
+  - "Kids' Pool"
+  - "Mini Theatre"
+  - "Steam Room"
+  - "Banquet Hall & BBQ Party Deck"
+  - "Basketball, Badminton & Squash Courts"
+  - "Gymnasium"
+  - "Co-Working Areas"
+  - "Smart Home Provisions"
 gallery_images:
   - "/images/landing-pages/merlin-ventana/photo-1.webp"
   - "/images/landing-pages/merlin-ventana/photo-2.webp"

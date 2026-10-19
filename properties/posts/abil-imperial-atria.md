@@ -33,13 +33,13 @@ unit_2_area: "2,529 sqft"
 unit_2_price: "Price on Request"
 unit_2_featured: false
 amenities:
-  - Double-Height Lobby & Living Areas
-  - Swimming Pool & Gymnasium
-  - Games Room
-  - Open-Air Lounge
-  - Meeting Room
-  - 24/7 Security & CCTV
-  - Smart Home Automation Provisions
+  - "Double-Height Lobby & Living Areas"
+  - "Swimming Pool & Gymnasium"
+  - "Games Room"
+  - "Open-Air Lounge"
+  - "Meeting Room"
+  - "24/7 Security & CCTV"
+  - "Smart Home Automation Provisions"
 gallery_images:
   - "/images/landing-pages/abil-imperial-atria/photo-1.webp"
   - "/images/landing-pages/abil-imperial-atria/photo-2.webp"

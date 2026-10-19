@@ -1,0 +1,24 @@
+{
+  "name": "prophunt-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sanity Studio for www.prophuntllp.com (property listings and blog posts)",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "migrate": "sanity exec scripts/migrate-from-markdown.js --with-user-token"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "dependencies": {
+    "@sanity/icons": "^5.2.3",
+    "@sanity/ui": "^4.4.9",
+    "@sanity/vision": "^6.19.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sanity": "^6.19.0",
+    "styled-components": "^6.6.0"
+  }
+}

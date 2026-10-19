@@ -3,12 +3,12 @@ date_added: "2026-09-07"
 title: "Kohinoor Avantara"
 developer: "Kohinoor Group"
 location: "Downtown Wakad, Pune"
-area_alias: "Tathawade"
 config: "2 & 3 BHK Apartments"
 area: "704 - 1,087 sqft"
 category: "apartment"
 status: "active"
 rera: "PR1260002501984"
+area_alias: "Tathawade"
 rera_qr: "/images/landing-pages/kohinoor-avantara/rera-qr.webp"
 hero_1: "/images/landing-pages/kohinoor-avantara/photo-1.webp"
 hero_2: "/images/landing-pages/kohinoor-avantara/photo-2.webp"
@@ -30,17 +30,17 @@ unit_1_area: "704 - 1,087 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Swimming Pool & Kids' Pool
-  - Gymnasium & Outdoor Gym
-  - Yoga Area
-  - Squash Courts
-  - Climbing Wall Zone
-  - Netted Cricket Pitch
-  - Clubhouse & Banquet Hall
-  - Cafeteria
-  - Skating Zone
-  - Futsal Court
-  - Senior Citizens' Area with Reflexology Pathway
+  - "Swimming Pool & Kids' Pool"
+  - "Gymnasium & Outdoor Gym"
+  - "Yoga Area"
+  - "Squash Courts"
+  - "Climbing Wall Zone"
+  - "Netted Cricket Pitch"
+  - "Clubhouse & Banquet Hall"
+  - "Cafeteria"
+  - "Skating Zone"
+  - "Futsal Court"
+  - "Senior Citizens' Area with Reflexology Pathway"
 gallery_images:
   - "/images/landing-pages/kohinoor-avantara/photo-1.webp"
   - "/images/landing-pages/kohinoor-avantara/photo-2.webp"

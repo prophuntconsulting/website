@@ -30,11 +30,11 @@ unit_2_type: "3 BHK"
 unit_2_price: "Rs 1.47 Cr + Taxes*"
 unit_2_featured: false
 amenities:
-  - 11th-Floor Fitness Facilities
-  - Rooftop Gardens
-  - Snooker & Billiards Room
-  - Carrom & Foosball
-  - Landscaped Outdoor Spaces
+  - "11th-Floor Fitness Facilities"
+  - "Rooftop Gardens"
+  - "Snooker & Billiards Room"
+  - "Carrom & Foosball"
+  - "Landscaped Outdoor Spaces"
 gallery_images:
   - "/images/landing-pages/kumar-panache/photo-1.webp"
   - "/images/landing-pages/kumar-panache/photo-2.webp"

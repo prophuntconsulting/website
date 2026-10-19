@@ -36,14 +36,14 @@ unit_3_area: "1,080 sqft"
 unit_3_price: "₹1.59 Cr*"
 unit_3_featured: false
 amenities:
-  - Swimming Pool
-  - Badminton Court
-  - Multipurpose Sports Court
-  - Cricket Net
-  - Clubhouse Gym
-  - Indoor Community Hall
-  - Yoga & Meditation Deck
-  - Pet Park
+  - "Swimming Pool"
+  - "Badminton Court"
+  - "Multipurpose Sports Court"
+  - "Cricket Net"
+  - "Clubhouse Gym"
+  - "Indoor Community Hall"
+  - "Yoga & Meditation Deck"
+  - "Pet Park"
 lat: 18.6166347
 lng: 73.8132729
 geo_confidence: "exact"

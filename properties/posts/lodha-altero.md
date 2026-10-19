@@ -27,17 +27,17 @@ unit_1_type: "3 & 4 BHK"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Rooftop Pool & Deck
-  - Hi-Tech Gymnasium
-  - Party Hall
-  - Cafe cum Work-From-Home Space
-  - Jogging Track
-  - Multipurpose Sports Court
-  - Padel Court
-  - Indoor Games Area
-  - Yoga & Meditation Zone
-  - Pet Park
-  - Senior Citizens' Corner
+  - "Rooftop Pool & Deck"
+  - "Hi-Tech Gymnasium"
+  - "Party Hall"
+  - "Cafe cum Work-From-Home Space"
+  - "Jogging Track"
+  - "Multipurpose Sports Court"
+  - "Padel Court"
+  - "Indoor Games Area"
+  - "Yoga & Meditation Zone"
+  - "Pet Park"
+  - "Senior Citizens' Corner"
 gallery_images:
   - "/images/landing-pages/lodha-altero/photo-1.webp"
   - "/images/landing-pages/lodha-altero/photo-2.webp"

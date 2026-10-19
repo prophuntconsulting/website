@@ -27,15 +27,15 @@ unit_1_type: "2 & 3 BHK"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Clubhouse & Gymnasium
-  - Swimming Pool with Kids' Section
-  - Kids' Play Areas
-  - Jogging Track
-  - Yoga & Meditation Spaces
-  - Amphitheatre
-  - Landscaped Gardens
-  - 24/7 Security
-  - Retail Stores
+  - "Clubhouse & Gymnasium"
+  - "Swimming Pool with Kids' Section"
+  - "Kids' Play Areas"
+  - "Jogging Track"
+  - "Yoga & Meditation Spaces"
+  - "Amphitheatre"
+  - "Landscaped Gardens"
+  - "24/7 Security"
+  - "Retail Stores"
 gallery_images:
   - "/images/landing-pages/western-avenue-wakad/photo-1.webp"
   - "/images/landing-pages/western-avenue-wakad/photo-2.webp"

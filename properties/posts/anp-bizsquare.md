@@ -29,13 +29,13 @@ unit_1_area: "306 - 3,150 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - High-Quality Lifts with Generator Backup
-  - Decorative Entrance Lobby
-  - Fire-Fighting System
-  - DG Backup for Offices
-  - Glass Facade
-  - Covered Balconies
-  - Vitrified Flooring
+  - "High-Quality Lifts with Generator Backup"
+  - "Decorative Entrance Lobby"
+  - "Fire-Fighting System"
+  - "DG Backup for Offices"
+  - "Glass Facade"
+  - "Covered Balconies"
+  - "Vitrified Flooring"
 gallery_images:
   - "/images/landing-pages/anp-bizsquare/photo-1.jpg"
   - "/images/landing-pages/anp-bizsquare/photo-2.jpg"

@@ -29,18 +29,18 @@ unit_1_area: "838 – 1,213 sqft"
 unit_1_price: "Rs 1.25 Cr Onwards*"
 unit_1_featured: true
 amenities:
-  - Swimming Pools & Kids' Play Areas
-  - Skating Rink
-  - Cricket Pitch
-  - Multipurpose Courts
-  - Jogging & Cycling Tracks
-  - Yoga Lawn
-  - Co-Working Space
-  - Mini Theatre
-  - Indoor Games
-  - Amphitheatre
-  - Food Plaza
-  - Senior Citizen Plaza
+  - "Swimming Pools & Kids' Play Areas"
+  - "Skating Rink"
+  - "Cricket Pitch"
+  - "Multipurpose Courts"
+  - "Jogging & Cycling Tracks"
+  - "Yoga Lawn"
+  - "Co-Working Space"
+  - "Mini Theatre"
+  - "Indoor Games"
+  - "Amphitheatre"
+  - "Food Plaza"
+  - "Senior Citizen Plaza"
 gallery_images:
   - "/images/landing-pages/nyati-emerald/photo-1.webp"
   - "/images/landing-pages/nyati-emerald/photo-2.webp"

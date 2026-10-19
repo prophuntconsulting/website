@@ -29,13 +29,13 @@ unit_1_area: "480 - 3,000 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - 3-Level Podium Parking
-  - Rooftop Amphitheatre
-  - Solar-Powered Workstations
-  - Indoor Games Room
-  - Creche Facility
-  - Cafe in Lobby
-  - Landscaped Frontage
+  - "3-Level Podium Parking"
+  - "Rooftop Amphitheatre"
+  - "Solar-Powered Workstations"
+  - "Indoor Games Room"
+  - "Creche Facility"
+  - "Cafe in Lobby"
+  - "Landscaped Frontage"
 gallery_images:
   - "/images/landing-pages/vtp-altitude/photo-1.webp"
   - "/images/landing-pages/vtp-altitude/photo-2.jpg"

@@ -24,7 +24,6 @@ stat_4_value: "45 Min"
 stat_4_label: "To Navi Mumbai Airport"
 price: 74
 unit_1_type: "2 BHK Apartment"
-unit_1_area: ""
 unit_1_price: "₹74.49 L++*"
 unit_1_featured: true
 unit_2_type: "Hill-View Plot"
@@ -36,18 +35,18 @@ unit_3_area: "1,700 – 1,800 sqft"
 unit_3_price: "₹2.01 Cr+*"
 unit_3_featured: false
 amenities:
-  - Grand Health Club with Swimming Pool
-  - Lawn Tennis & Futsal Courts
-  - Banquet Hall & Guest Suites
-  - Indoor Badminton & Squash Courts
-  - Spa & Fitness Centre
-  - Yoga Room & Meditation Deck
-  - Multipurpose Sports Court & Net Cricket
-  - Amphitheatre
-  - Kids' Play Areas
-  - Senior Citizens' Pavilions
-  - Fruit Orchard & Miyawaki Forest
-  - Sensory Garden & Reflexology Path
+  - "Grand Health Club with Swimming Pool"
+  - "Lawn Tennis & Futsal Courts"
+  - "Banquet Hall & Guest Suites"
+  - "Indoor Badminton & Squash Courts"
+  - "Spa & Fitness Centre"
+  - "Yoga Room & Meditation Deck"
+  - "Multipurpose Sports Court & Net Cricket"
+  - "Amphitheatre"
+  - "Kids' Play Areas"
+  - "Senior Citizens' Pavilions"
+  - "Fruit Orchard & Miyawaki Forest"
+  - "Sensory Garden & Reflexology Path"
 gallery_images:
   - "/images/landing-pages/kalpataru-aria/masterplan-aerial.jpg"
   - "/images/landing-pages/kalpataru-aria/health-club.jpg"

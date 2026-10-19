@@ -29,15 +29,15 @@ unit_1_area: "492 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Well-Equipped Gym
-  - Yoga & Meditation Area
-  - Creche Facility
-  - Children's Play Area
-  - Senior Citizen Sit-Out
-  - Terrace Party Area
-  - Landscape Garden
-  - Multi-Purpose Court
-  - Indoor Game Area
+  - "Well-Equipped Gym"
+  - "Yoga & Meditation Area"
+  - "Creche Facility"
+  - "Children's Play Area"
+  - "Senior Citizen Sit-Out"
+  - "Terrace Party Area"
+  - "Landscape Garden"
+  - "Multi-Purpose Court"
+  - "Indoor Game Area"
 gallery_images:
   - "/images/landing-pages/anp-retreat/photo-1.jpg"
   - "/images/landing-pages/anp-retreat/photo-2.jpg"

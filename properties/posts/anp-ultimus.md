@@ -29,15 +29,15 @@ unit_1_area: "841 - 1,233 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Infinity Pool with Jacuzzi
-  - Practice Cricket Pitch
-  - Multipurpose & Basketball Courts
-  - Fully-Equipped Gym
-  - Clubhouse with Party Lawn
-  - Kids' Play Area & Pool
-  - Yoga Area
-  - Sculpture Garden
-  - Indoor Games & Amphitheatre
+  - "Infinity Pool with Jacuzzi"
+  - "Practice Cricket Pitch"
+  - "Multipurpose & Basketball Courts"
+  - "Fully-Equipped Gym"
+  - "Clubhouse with Party Lawn"
+  - "Kids' Play Area & Pool"
+  - "Yoga Area"
+  - "Sculpture Garden"
+  - "Indoor Games & Amphitheatre"
 gallery_images:
   - "/images/landing-pages/anp-ultimus/photo-1.jpg"
   - "/images/landing-pages/anp-ultimus/photo-2.jpg"

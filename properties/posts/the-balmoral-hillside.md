@@ -29,17 +29,17 @@ unit_1_area: "2,486 sqft"
 unit_1_price: "Rs 5.64 Cr Onwards*"
 unit_1_featured: true
 amenities:
-  - Indoor Badminton Court
-  - Swimming Pool & Kids' Pool
-  - Table Tennis
-  - Gymnasium
-  - Squash Court
-  - Community Centre & Banquet Zone
-  - Kids' Play Area
-  - Billiards Room
-  - Executive Cafe & Workspace
-  - Multisport Floodlit Court
-  - Card Room
+  - "Indoor Badminton Court"
+  - "Swimming Pool & Kids' Pool"
+  - "Table Tennis"
+  - "Gymnasium"
+  - "Squash Court"
+  - "Community Centre & Banquet Zone"
+  - "Kids' Play Area"
+  - "Billiards Room"
+  - "Executive Cafe & Workspace"
+  - "Multisport Floodlit Court"
+  - "Card Room"
 gallery_images:
   - "/images/landing-pages/the-balmoral-hillside/photo-1.webp"
   - "/images/landing-pages/the-balmoral-hillside/photo-2.webp"

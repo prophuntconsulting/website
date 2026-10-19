@@ -27,27 +27,21 @@ unit_1_type: "3 BHK Row Villa"
 unit_1_area: "3,350 sqft onwards"
 unit_1_price: "₹2.99 Cr Onwards*"
 unit_1_featured: true
-unit_2_type: ""
-unit_2_area: ""
-unit_2_price: ""
 unit_2_featured: false
-unit_3_type: ""
-unit_3_area: ""
-unit_3_price: ""
 unit_3_featured: false
 amenities:
-  - 15,000 Sq Ft Club Peninsula (Private Membership)
-  - Swimming Pool & Pool Deck
-  - Paddle Ball & Badminton Courts
-  - Kids' Play Zone
-  - Gymnasium
-  - Open Air Party Lawn & Multi Court
-  - Multipurpose Hall & Games Room
-  - Star Gazing Deck
-  - Private Front & Back Courtyards
-  - Terrace Yoga Deck
-  - Vastu-Compliant Layouts with Pooja Area
-  - Space for 2 Car Parks (Select Villas)
+  - "15,000 Sq Ft Club Peninsula (Private Membership)"
+  - "Swimming Pool & Pool Deck"
+  - "Paddle Ball & Badminton Courts"
+  - "Kids' Play Zone"
+  - "Gymnasium"
+  - "Open Air Party Lawn & Multi Court"
+  - "Multipurpose Hall & Games Room"
+  - "Star Gazing Deck"
+  - "Private Front & Back Courtyards"
+  - "Terrace Yoga Deck"
+  - "Vastu-Compliant Layouts with Pooja Area"
+  - "Space for 2 Car Parks (Select Villas)"
 gallery_images:
   - "/images/landing-pages/ashok-villas/row-villas-exterior.jpg"
   - "/images/landing-pages/ashok-villas/club-peninsula.jpg"

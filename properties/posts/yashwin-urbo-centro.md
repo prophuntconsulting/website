@@ -33,12 +33,12 @@ unit_3_type: "4 BHK"
 unit_3_price: "Rs 1.4 Cr*"
 unit_3_featured: false
 amenities:
-  - Swimming Pool
-  - Gymnasium
-  - Clubhouse
-  - Children's Play Area
-  - Landscaped Gardens
-  - 24/7 Security
+  - "Swimming Pool"
+  - "Gymnasium"
+  - "Clubhouse"
+  - "Children's Play Area"
+  - "Landscaped Gardens"
+  - "24/7 Security"
 gallery_images:
   - "/images/landing-pages/yashwin-urbo-centro/photo-1.webp"
   - "/images/landing-pages/yashwin-urbo-centro/photo-2.webp"

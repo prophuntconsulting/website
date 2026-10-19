@@ -21,22 +21,21 @@ stat_3_label: "Mahalaxmi Group Legacy"
 stat_4_value: "4.2M Sqft"
 stat_4_label: "Delivered by Mahalaxmi"
 unit_1_type: "2, 3 & 4 BHK Apartment"
-unit_1_area: ""
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Rooftop Infinity Pool & Deck
-  - Multi-Sport Courts (Football, Tennis, Padel, Pickleball)
-  - Indoor Racquet Courts
-  - Premium Sports Bar & Café Lounges
-  - Steam, Sauna & Recovery Zones
-  - Expansive Gym Floor
-  - Jacuzzi & Wet Leisure Deck
-  - Early Learning Centre
-  - Co-Working Spaces
-  - Cue Sports Lounge
-  - Landscaped Walking Trails & Amphitheatre
-  - Operated by Ileseum Sports Management
+  - "Rooftop Infinity Pool & Deck"
+  - "Multi-Sport Courts (Football, Tennis, Padel, Pickleball)"
+  - "Indoor Racquet Courts"
+  - "Premium Sports Bar & Café Lounges"
+  - "Steam, Sauna & Recovery Zones"
+  - "Expansive Gym Floor"
+  - "Jacuzzi & Wet Leisure Deck"
+  - "Early Learning Centre"
+  - "Co-Working Spaces"
+  - "Cue Sports Lounge"
+  - "Landscaped Walking Trails & Amphitheatre"
+  - "Operated by Ileseum Sports Management"
 gallery_images:
   - "/images/landing-pages/the-arena-pimpri/tower-view-1.jpg"
   - "/images/landing-pages/the-arena-pimpri/tower-view-2.jpg"

@@ -31,21 +31,18 @@ unit_2_type: "Phase 2 Plot"
 unit_2_area: "3,000 – 6,000 sqft"
 unit_2_price: "₹2 Cr*"
 unit_2_featured: false
-unit_3_type: ""
-unit_3_area: ""
-unit_3_price: ""
 unit_3_featured: false
 amenities:
-  - Luxury Clubhouse
-  - 25-Acre Natural Reservoir
-  - Lakeside Promenade
-  - Walking Trails
-  - Cycle Tracks
-  - Broadwalk
-  - Herb Garden
-  - Pavilion
-  - Gym
-  - Landscaped Greenery
+  - "Luxury Clubhouse"
+  - "25-Acre Natural Reservoir"
+  - "Lakeside Promenade"
+  - "Walking Trails"
+  - "Cycle Tracks"
+  - "Broadwalk"
+  - "Herb Garden"
+  - "Pavilion"
+  - "Gym"
+  - "Landscaped Greenery"
 lat: 18.4065498
 lng: 73.9975344
 geo_confidence: "exact"

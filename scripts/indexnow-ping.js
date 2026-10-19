@@ -7,6 +7,7 @@
  *
  *   node scripts/indexnow-ping.js            -> submit pages changed in HEAD
  *   node scripts/indexnow-ping.js --all      -> submit every URL in sitemap.xml
+ *   node scripts/indexnow-ping.js --content  -> submit pages edited in Sanity (end of the Vercel build)
  *   node scripts/indexnow-ping.js --dry-run  -> print, don't submit
  */
 
@@ -40,7 +41,18 @@ function sitemapUrls() {
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
 }
 
-const list = (args.includes('--all') ? sitemapUrls() : changedUrls()).slice(0, 10000);
+// --content: pages edited in Sanity since the last production deploy, as
+// listed by scripts/sanity-pull.js. Runs as the last build step on Vercel,
+// so it only pings for production builds and never fails the build.
+function contentUrls() {
+  if (process.env.VERCEL_ENV !== 'production') return [];
+  try {
+    return JSON.parse(fs.readFileSync(path.join(__dirname, '.changed-urls.json'), 'utf8')).map(p => `https://${HOST}${p}`);
+  } catch { return []; }
+}
+const CONTENT = args.includes('--content');
+
+const list = (args.includes('--all') ? sitemapUrls() : CONTENT ? contentUrls() : changedUrls()).slice(0, 10000);
 if (!list.length) { console.log('IndexNow: no public page changes to submit'); process.exit(0); }
 console.log(`IndexNow: ${list.length} URL(s)`);
 list.slice(0, 25).forEach(u => console.log('  ' + u));
@@ -52,5 +64,8 @@ fetch('https://api.indexnow.org/indexnow', {
   body: JSON.stringify({ host: HOST, key: KEY, keyLocation: `https://${HOST}/${KEY}.txt`, urlList: list }),
 }).then(async r => {
   console.log('IndexNow response:', r.status, await r.text());
-  if (r.status >= 400) process.exit(1);
+  if (r.status >= 400 && !CONTENT) process.exit(1);
+}).catch(err => {
+  console.log('IndexNow request failed:', err.message);
+  if (!CONTENT) process.exit(1);
 });

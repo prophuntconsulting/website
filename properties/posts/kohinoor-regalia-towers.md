@@ -3,12 +3,12 @@ date_added: "2026-09-07"
 title: "Kohinoor Regalia Towers"
 developer: "Kohinoor Group"
 location: "Downtown Wakad, Pune"
-area_alias: "Tathawade"
 config: "2 & 3 BHK Apartments"
 area: "740 - 1,076 sqft"
 category: "apartment"
 status: "active"
 rera: "PR1260002500271"
+area_alias: "Tathawade"
 rera_qr: "/images/landing-pages/kohinoor-regalia-towers/rera-qr.webp"
 hero_1: "/images/landing-pages/kohinoor-regalia-towers/photo-1.webp"
 hero_2: "/images/landing-pages/kohinoor-regalia-towers/photo-2.webp"
@@ -30,14 +30,14 @@ unit_1_area: "740 - 1,076 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Infinity-Edge Swimming Pool
-  - Kids Pool
-  - State-of-the-Art Gymnasium
-  - Wellness Spa & Jacuzzi
-  - Mini Theatre
-  - Indoor Games
-  - Co-Working Spaces
-  - Senior Citizens' Area
+  - "Infinity-Edge Swimming Pool"
+  - "Kids Pool"
+  - "State-of-the-Art Gymnasium"
+  - "Wellness Spa & Jacuzzi"
+  - "Mini Theatre"
+  - "Indoor Games"
+  - "Co-Working Spaces"
+  - "Senior Citizens' Area"
 gallery_images:
   - "/images/landing-pages/kohinoor-regalia-towers/photo-4.webp"
   - "/images/landing-pages/kohinoor-regalia-towers/photo-5.webp"

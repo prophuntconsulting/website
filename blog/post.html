@@ -155,6 +155,29 @@
 .bp-footer a:hover{color:#fff}
 .bp-footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:10px}
 .bp-footer-copy{font-size:12px;opacity:.5}
+/* ── Prerendered extras: FAQs, project cards, figures ── */
+a.bp-cat-badge,a.bp-cat-badge:hover{color:#fff;text-decoration:none}
+a.bp-cat-item{text-decoration:none}
+.bp-figure{margin:1.8rem 0}
+.bp-figure img{width:100%;height:auto;border-radius:10px;display:block}
+.bp-figure figcaption{font-size:13px;color:#6b7280;margin-top:8px;text-align:center}
+.bp-faqs,.bp-projects{margin-top:40px}
+.bp-faqs h2,.bp-projects h2{font-family:'Open Sans',sans-serif;font-size:22px;font-weight:700;color:#0f1b2d;margin:0 0 16px}
+.bp-faq{border:1px solid #e5e7eb;border-radius:8px;margin-bottom:10px;background:#fff}
+.bp-faq summary{cursor:pointer;padding:14px 16px;font-weight:600;color:#0f1b2d;list-style:none;position:relative;padding-right:40px}
+.bp-faq summary::-webkit-details-marker{display:none}
+.bp-faq summary::after{content:'+';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:20px;color:#C8362B}
+.bp-faq[open] summary::after{content:'−'}
+.bp-faq p{padding:0 16px 14px;margin:0;color:#374151;line-height:1.7}
+.bp-projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.bp-proj-card{display:flex;flex-direction:column;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;text-decoration:none!important;color:inherit;background:#fff;transition:box-shadow .18s,transform .18s}
+.bp-proj-card:hover{box-shadow:0 8px 24px rgba(15,27,45,.12);transform:translateY(-2px)}
+.bp-proj-img{display:block;height:140px;background:#e5e7eb center/cover no-repeat}
+.bp-proj-body{display:flex;flex-direction:column;gap:4px;padding:12px 14px}
+.bp-proj-title{font-family:'Open Sans',sans-serif;font-weight:700;color:#0f1b2d;font-size:15px}
+.bp-proj-meta{font-size:12.5px;color:#6b7280}
+.bp-more-links{margin-top:24px;font-size:14px;color:#6b7280}
+.bp-more-links a{color:#C8362B}
 </style>
 </head>
 <body class="blog-post-page">
@@ -241,7 +264,7 @@
   <script>document.getElementById('bp-year').textContent=new Date().getFullYear();</script>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>if (!document.querySelector('#bp-page [data-prerendered]')) document.write('<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>');</script>
 <script>
 // fileSlug is injected by build-blog.js for static pages.
 // For the template itself, fall back to the query param.
@@ -452,9 +475,12 @@ function buildPost(meta, body, allPosts) {
 
   // Render markdown body
   document.getElementById('bp-body-content').innerHTML = marked.parse(body);
+  wireEnquiryForm(title);
+}
 
-  // Enquiry form (Web3Forms — same working integration as contact.html/developers.html,
-  // with a mailto fallback so a failed request never dead-ends the lead)
+// Enquiry form (Web3Forms — same working integration as contact.html/developers.html,
+// with a mailto fallback so a failed request never dead-ends the lead)
+function wireEnquiryForm(title) {
   function showFormError(form, subject, body) {
     let el = form.querySelector('.form-send-error');
     if (!el) {
@@ -519,8 +545,12 @@ function buildPost(meta, body, allPosts) {
   });
 }
 
-// Load
-if (!fileSlug) {
+// Load. Generated pages (scripts/build-blog.js) arrive fully rendered:
+// only the form needs wiring. The fetch path is for the bare template.
+const prerendered = document.querySelector('#bp-page [data-prerendered]');
+if (prerendered) {
+  wireEnquiryForm((document.querySelector('.bp-title') || {}).textContent || document.title);
+} else if (!fileSlug) {
   document.getElementById('bp-page').innerHTML = `<div class="bp-error"><h2>Article Not Found</h2><p>No article specified.</p><a href="/blog">Back to Blog</a></div>`;
 } else {
   Promise.all([

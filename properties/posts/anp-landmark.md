@@ -29,12 +29,12 @@ unit_1_area: "360 - 1,229 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - High-Quality Lifts with Generator Backup
-  - Decorative Entrance Lobby
-  - Fire-Fighting System
-  - Glass Facade
-  - Exclusive Balcony per Office
-  - Vitrified Flooring
+  - "High-Quality Lifts with Generator Backup"
+  - "Decorative Entrance Lobby"
+  - "Fire-Fighting System"
+  - "Glass Facade"
+  - "Exclusive Balcony per Office"
+  - "Vitrified Flooring"
 gallery_images:
   - "/images/landing-pages/anp-landmark/photo-1.jpg"
   - "/images/landing-pages/anp-landmark/photo-2.jpg"

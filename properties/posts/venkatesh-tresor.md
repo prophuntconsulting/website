@@ -27,12 +27,12 @@ unit_1_type: "4.5 BHK Sky Chalet / Penthouse"
 unit_1_price: "Rs 3.2 Cr All-Inclusive*"
 unit_1_featured: true
 amenities:
-  - Indoor Gym & Games Area
-  - Senior Citizen Seating Zone
-  - Multi-Purpose Hall
-  - Party Lawn with Stage
-  - Yoga & Meditation Hall
-  - Kids' Play Area
+  - "Indoor Gym & Games Area"
+  - "Senior Citizen Seating Zone"
+  - "Multi-Purpose Hall"
+  - "Party Lawn with Stage"
+  - "Yoga & Meditation Hall"
+  - "Kids' Play Area"
 gallery_images:
   - "/images/landing-pages/venkatesh-tresor/photo-1.webp"
   - "/images/landing-pages/venkatesh-tresor/photo-2.webp"

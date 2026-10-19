@@ -3,12 +3,12 @@ date_added: "2026-09-07"
 title: "Kohinoor Westview Reserve"
 developer: "Kohinoor Group"
 location: "New Wakad, Pune"
-area_alias: "Tathawade"
 config: "2 & 3 BHK Apartments"
 area: "798 - 1,244 sqft"
 category: "apartment"
 status: "active"
 rera: "P52100048589, P52100050739"
+area_alias: "Tathawade"
 rera_qr: "/images/landing-pages/kohinoor-westview-reserve/rera-qr.webp"
 hero_1: "/images/landing-pages/kohinoor-westview-reserve/photo-1.webp"
 hero_2: "/images/landing-pages/kohinoor-westview-reserve/photo-2.webp"
@@ -30,19 +30,19 @@ unit_1_area: "798 - 1,244 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Outdoor & Indoor Gym
-  - Box Cricket
-  - Futsal
-  - Yoga Area
-  - Squash Courts
-  - Party Lawn
-  - Multipurpose Hall
-  - Amphitheatre (Big & Small)
-  - Climbing Wall Zone
-  - Swimming Pool & Kids Pool
-  - Pool Deck
-  - Indoor Games
-  - Barbeque Area
+  - "Outdoor & Indoor Gym"
+  - "Box Cricket"
+  - "Futsal"
+  - "Yoga Area"
+  - "Squash Courts"
+  - "Party Lawn"
+  - "Multipurpose Hall"
+  - "Amphitheatre (Big & Small)"
+  - "Climbing Wall Zone"
+  - "Swimming Pool & Kids Pool"
+  - "Pool Deck"
+  - "Indoor Games"
+  - "Barbeque Area"
 gallery_images:
   - "/images/landing-pages/kohinoor-westview-reserve/photo-1.webp"
   - "/images/landing-pages/kohinoor-westview-reserve/photo-2.webp"

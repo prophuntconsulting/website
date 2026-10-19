@@ -32,19 +32,19 @@ unit_2_area: "1,540 sqft"
 unit_2_price: "Rs 2.06 Cr + Charges*"
 unit_2_featured: false
 amenities:
-  - Swimming Pool
-  - Gymnasium
-  - Club House
-  - Creche / Day Care
-  - Children's Play Area
-  - Rooftop Lounge
-  - Sunset Deck
-  - Terrace Garden
-  - Landscaped Garden
-  - Indoor Games Room
-  - Meditation Area
-  - Co-Working Space
-  - Round-the-Clock CCTV Security
+  - "Swimming Pool"
+  - "Gymnasium"
+  - "Club House"
+  - "Creche / Day Care"
+  - "Children's Play Area"
+  - "Rooftop Lounge"
+  - "Sunset Deck"
+  - "Terrace Garden"
+  - "Landscaped Garden"
+  - "Indoor Games Room"
+  - "Meditation Area"
+  - "Co-Working Space"
+  - "Round-the-Clock CCTV Security"
 gallery_images:
   - "/images/landing-pages/kings-county-wakad/photo-4.webp"
   - "/images/landing-pages/kings-county-wakad/photo-5.webp"

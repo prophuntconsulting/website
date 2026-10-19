@@ -27,11 +27,11 @@ unit_1_type: "2 & 3 BHK"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - Swimming Pool
-  - Gymnasium with Semi-Open Seating
-  - Meeting Lounges & Game Areas
-  - Stepped Amphitheatre
-  - Sky Courtyard Amenity Floor
+  - "Swimming Pool"
+  - "Gymnasium with Semi-Open Seating"
+  - "Meeting Lounges & Game Areas"
+  - "Stepped Amphitheatre"
+  - "Sky Courtyard Amenity Floor"
 gallery_images:
   - "/images/landing-pages/rohan-viti/photo-1.webp"
   - "/images/landing-pages/rohan-viti/photo-2.webp"

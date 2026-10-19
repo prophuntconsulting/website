@@ -27,14 +27,14 @@ unit_1_area: "10,000 - 70,000 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:
-  - The Great Hall (Events & Networking)
-  - Millennium Club (Fitness & Wellness)
-  - Business Lounges
-  - Cafes
-  - Library
-  - Creche
-  - Landscaped Podiums
-  - Co-Located Retail Mall
+  - "The Great Hall (Events & Networking)"
+  - "Millennium Club (Fitness & Wellness)"
+  - "Business Lounges"
+  - "Cafes"
+  - "Library"
+  - "Creche"
+  - "Landscaped Podiums"
+  - "Co-Located Retail Mall"
 gallery_images:
   - "/images/landing-pages/millennium-towers-wakad/photo-1.webp"
   - "/images/landing-pages/millennium-towers-wakad/photo-2.webp"
