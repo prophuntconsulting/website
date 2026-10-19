@@ -209,5 +209,6 @@
   .bl-body { font-size: 16px; }
   .bl-body h2 { font-size: 22px; }
 }
-.bl-own-numbers h2::before { content: none; }
 .bl-author .bl-avatar { color: var(--white); font-size: 14px; }
+/* A divider right before a section heading would double its top rule. */
+.bl-body hr + h2 { border-top: 0; padding-top: 0; margin-top: 0; }

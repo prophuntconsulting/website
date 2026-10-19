@@ -64,6 +64,14 @@ function renderTable(lines) {
   </table></div>`;
 }
 
+function stripHeadingNumber(text) {
+  return String(text).replace(/^(\*\*)?\s*\d{1,2}[.)]\s+/, '$1');
+}
+
+function plainHeading(text) {
+  return String(text).replace(/[*`]/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').trim();
+}
+
 // Anchor ids for H2s ("In this article" links). Same input -> same ids.
 function headingId(text, seen) {
   const base = String(text).toLowerCase().replace(/<[^>]+>/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60) || 'section';
@@ -129,8 +137,14 @@ function markdownToHtml(markdown) {
       flushParagraph();
       if (list.length) out.push(flushList(list, ordered));
       const level = Math.min(6, Math.max(2, heading[1].length));
-      const plain = heading[2].replace(/[*`]/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').trim();
-      out.push(level === 2 ? `<h2 id="${headingId(plain, ids)}">${renderInline(heading[2])}</h2>` : `<h${level}>${renderInline(heading[2])}</h${level}>`);
+      if (level === 2) {
+        // Section headings are numbered by the page (01, 02 …), so drop a
+        // hand-typed "1. " to avoid "02 1. Baner".
+        const text = stripHeadingNumber(heading[2]);
+        out.push(`<h2 id="${headingId(plainHeading(text), ids)}">${renderInline(text)}</h2>`);
+      } else {
+        out.push(`<h${level}>${renderInline(heading[2])}</h${level}>`);
+      }
       continue;
     }
     const ul = line.match(/^[-*]\s+(.+)$/);
@@ -286,7 +300,7 @@ function ctaBand() {
 function tocFromMarkdown(md) {
   const seen = new Map();
   return String(md || '').split(/\r?\n/).map(l => l.match(/^#{1,2}\s+(.+)$/)).filter(Boolean).map(m => {
-    const text = m[1].replace(/[*`]/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').trim();
+    const text = plainHeading(stripHeadingNumber(m[1]));
     return { text, id: headingId(text, seen) };
   });
 }
@@ -323,8 +337,6 @@ function buildPrerenderBlock(p, ctx) {
   const catLabel = CAT_LABELS[p.category] || 'Article';
   const mins = p.readTime || estimateReadTime(p.body || '');
   const toc = tocFromMarkdown(p.body);
-  // Posts that number their own headings ("1. Baner") skip the automatic 01/02.
-  const ownNumbers = toc.some(h => /^d+[.)]s/.test(h.text));
   const pageUrl = encodeURIComponent(`${SITE}${p.url}`);
   const pageTitle = encodeURIComponent(p.title);
   const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: catLabel, url: `/blog?cat=${p.category}` }, { name: crumbLabel(p) }];
@@ -352,7 +364,7 @@ function buildPrerenderBlock(p, ctx) {
         </div>
         ${p.excerpt ? `<p class="bl-lead">${escapeHtml(p.excerpt)}</p>` : ''}
         ${p.cover ? `<figure class="bl-hero-img">${mediaHtml(p.cover, p.cover_alt || p.title, { eager: true })}</figure>` : ''}
-        <div class="bl-body${ownNumbers ? ' bl-own-numbers' : ''}">${markdownToHtml(p.body || '')}</div>
+        <div class="bl-body">${markdownToHtml(p.body || '')}</div>
         ${renderFaqs(p.faqs)}
         ${renderProjectCards(ctx.projects)}
         ${p.tags && p.tags.length ? `<div class="bl-tags"><strong style="font-size:13px">Tags:</strong>${p.tags.map(t => `<span>${escapeHtml(t)}</span>`).join('')}</div>` : ''}
@@ -375,7 +387,7 @@ function buildPrerenderBlock(p, ctx) {
             ${Object.entries(LISTING_CAT_LABELS).map(([k, v]) => `<option value="/blog?cat=${k}"${k === p.category ? ' selected' : ''}>${escapeHtml(v)} (${ctx.catCounts[k] || 0})</option>`).join('')}
           </select>
           ${toc.length ? `<div class="bl-side-sub">In this article</div>
-          <ol class="bl-toc">${toc.map((h, i) => `<li><span>${ownNumbers ? '•' : String(i + 1).padStart(2, '0')}</span><a href="#${h.id}">${escapeHtml(h.text)}</a></li>`).join('')}</ol>` : ''}
+          <ol class="bl-toc">${toc.map((h, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span><a href="#${h.id}">${escapeHtml(h.text)}</a></li>`).join('')}</ol>` : ''}
           ${ctx.related.length ? `<div class="bl-side-sub">Suggested reading</div>
           <div class="bl-side-list">${ctx.related.map(r => `<a href="${r.url}"><small>${escapeHtml(CAT_LABELS[r.category] || 'Article')}</small><strong>${escapeHtml(r.title)}</strong><em>${r.readTime} min read</em></a>`).join('')}</div>` : ''}
         </div>
