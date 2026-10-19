@@ -6,7 +6,9 @@
  *
  * spec.json: {
  *   "id": "blog-...",                  document id
- *   "markdown": "path/to/body.md",     body only, no frontmatter
+ *   "markdown": "path/to/body.md",     optional: body only, no frontmatter
+ *   "copyCoverToSocial": true,         optional: use the featured image (and its alt) as the
+ *                                      Facebook/LinkedIn/WhatsApp and X images
  *   "set": { "metaTitle": "..." },     any other fields to set
  *   "relatedProjects": ["slug", ...],  property slugs
  *   "faqs": [{ "q": "...", "a": "..." }]
@@ -29,9 +31,16 @@ const urlToId = new Map(docs.map(d => [d._type === 'property' ? `/projects/${d.s
 const bySlug = new Map(docs.filter(d => d._type === 'property').map(d => [d.slug, d._id]))
 if (!docs.some(d => d._id === spec.id)) throw new Error(`No published document ${spec.id}`)
 
-const md = fs.readFileSync(path.resolve(path.dirname(specPath), spec.markdown), 'utf8')
-const body = markdownToPortableText(md, urlToId)
-const patch = { ...(spec.set || {}), body }
+const body = spec.markdown ? markdownToPortableText(fs.readFileSync(path.resolve(path.dirname(specPath), spec.markdown), 'utf8'), urlToId) : null
+const patch = { ...(spec.set || {}) }
+if (body) patch.body = body
+if (spec.copyCoverToSocial) {
+  const { featuredImage } = await client.fetch('*[_id == $id][0]{featuredImage}', { id: spec.id })
+  if (!featuredImage || !featuredImage.asset) throw new Error(`${spec.id} has no featured image to copy`)
+  const img = { _type: 'image', asset: featuredImage.asset, alt: featuredImage.alt || '' }
+  patch.openGraphImage = img
+  patch.twitterImage = img
+}
 if (spec.relatedProjects) {
   patch.relatedProjects = spec.relatedProjects.map((s, i) => {
     if (!bySlug.has(s)) throw new Error(`Unknown project slug ${s}`)
@@ -40,8 +49,8 @@ if (spec.relatedProjects) {
 }
 if (spec.faqs) patch.faqs = spec.faqs.map((f, i) => ({ _type: 'faq', _key: `faq${i}`, question: f.q, answer: f.a }))
 
-const links = body.flatMap(b => b.markDefs || []).map(m => m._type === 'internalLink' ? `ref  ${m.reference._ref}` : `link ${m.href}`)
-console.log(`${spec.id}: ${body.length} blocks, ${links.length} links`)
+const links = (body || []).flatMap(b => b.markDefs || []).map(m => m._type === 'internalLink' ? `ref  ${m.reference._ref}` : `link ${m.href}`)
+console.log(`${spec.id}: ${body ? body.length + ' blocks, ' : ''}${links.length} links; setting ${Object.keys(patch).join(', ')}`)
 links.forEach(l => console.log('  ' + l))
 if (DRY) {
   console.log('Dry run, nothing saved.')
