@@ -1,7 +1,7 @@
 {
  "/": {
-  "hash": "0d48283209578733b10b20b693e1c583493e914f",
-  "date": "2026-10-17"
+  "hash": "382f09ced07c5e17c1186253eb62d3e9555d562b",
+  "date": "2026-10-19"
  },
  "/projects": {
   "hash": "b55a7dcd75b232c72873d7dfc43069ee0862463b",
@@ -44,8 +44,8 @@
   "date": "2026-10-13"
  },
  "/projects/abil-imperial-atria": {
-  "hash": "a3470865febc85ecf334632eb9cdda032b91eb06",
-  "date": "2026-10-13"
+  "hash": "082d80df2f9b54a1556c1636a83ddd8fcfa54e52",
+  "date": "2026-10-19"
  },
  "/projects/anp-bizsquare": {
   "hash": "4075edae26ee7e5500b13a583e9e4c01bb99a442",
@@ -60,8 +60,8 @@
   "date": "2026-10-13"
  },
  "/projects/anp-privado": {
-  "hash": "4d23fe111372aefff5d96530673d21ef45261f30",
-  "date": "2026-10-13"
+  "hash": "c5208dc0f34461193d34415023711b29f2e75ffc",
+  "date": "2026-10-19"
  },
  "/projects/anp-retreat": {
   "hash": "e94ad5fdebf233539c6e80005d794fb990c6fedf",
@@ -108,16 +108,16 @@
   "date": "2026-10-13"
  },
  "/projects/kohinoor-avantara": {
-  "hash": "ee2b0b7768afc6c2a5b4ad8dfcb40f83c737cc3c",
-  "date": "2026-10-13"
+  "hash": "e48bb6fae124c8e1803214fe621c660166646110",
+  "date": "2026-10-19"
  },
  "/projects/kohinoor-regalia-towers": {
-  "hash": "aec715750e1cffa11321fc04749c25a26da972d0",
-  "date": "2026-10-13"
+  "hash": "5e5f18fcb54eecd390a95366280dd8cb9b774e67",
+  "date": "2026-10-19"
  },
  "/projects/kohinoor-westview-reserve": {
-  "hash": "6b05adf4377bad0d294becb962014655093401c2",
-  "date": "2026-10-13"
+  "hash": "0fc4a8999b0d292cbf325be7325a9b6f162a18ee",
+  "date": "2026-10-19"
  },
  "/projects/kumar-panache": {
   "hash": "2d24b3b8e7a1210596122b5bc41c9ca2d6bc859e",
@@ -136,8 +136,8 @@
   "date": "2026-10-13"
  },
  "/projects/lodha-massimo": {
-  "hash": "6c3af4a945a0b05d6566413b8c926841f778a18e",
-  "date": "2026-10-13"
+  "hash": "7d62c5d3cfe48f1c7696e50492d6632ed91e7849",
+  "date": "2026-10-19"
  },
  "/projects/mahindra-citadel": {
   "hash": "78b5718b073e25d0c96f0ae93291a685cc07bc08",
@@ -148,8 +148,8 @@
   "date": "2026-10-13"
  },
  "/projects/majestique-elements": {
-  "hash": "47eef7ad75da94bf2123f49d2238801861613303",
-  "date": "2026-10-13"
+  "hash": "edb7a544bba9079793d4e9f33061c79cd2a8389c",
+  "date": "2026-10-19"
  },
  "/projects/merlin-ventana": {
   "hash": "ca2b5036a025861f07a10b787caa3c1079dc744f",
@@ -176,8 +176,8 @@
   "date": "2026-10-13"
  },
  "/projects/tej-elevia": {
-  "hash": "0d76f6cb086274ab0da1177c16d813456d68384d",
-  "date": "2026-10-13"
+  "hash": "57f4f4f2a3c1e2870263ac6e1a5076ae70720d64",
+  "date": "2026-10-19"
  },
  "/projects/the-arena-pimpri": {
   "hash": "5cead0f6701c44e1ad0b59f1c4cbe00e079e433b",
@@ -188,8 +188,8 @@
   "date": "2026-10-13"
  },
  "/projects/the-ornate-baner": {
-  "hash": "08f26336520e1603afe20443be589411170e6593",
-  "date": "2026-10-13"
+  "hash": "3d481211fcdf3a16cce32bbff5d5a760621ca2bc",
+  "date": "2026-10-19"
  },
  "/projects/treetopia": {
   "hash": "113a68ae817f703358595e3238dafc4734ba5551",
@@ -208,8 +208,8 @@
   "date": "2026-10-13"
  },
  "/projects/yashwin-urbo-centro": {
-  "hash": "d52d0215174f9ab738df21df393cc2fcbd3a6b15",
-  "date": "2026-10-13"
+  "hash": "155c8ecc16b4054411efcfb8adcbefd88262c6ca",
+  "date": "2026-10-19"
  },
  "/apartments-in-baner": {
   "hash": "1a49db0c356101a4f30109f1f238726d9c2e473b",
@@ -344,12 +344,12 @@
   "date": "2026-09-21"
  },
  "/projects/abil-imperial-atria/3-bhk": {
-  "hash": "00b7cf452ff67bfc7cbb7e38b5081859824ae45e",
-  "date": "2026-10-13"
+  "hash": "4e77c45f4d83db69cb0e500c3eec7d0a7e9fbedb",
+  "date": "2026-10-19"
  },
  "/projects/abil-imperial-atria/4-bhk": {
-  "hash": "1ed16ee7c2ce6e85f29dc8b4bca35bc931fddfa1",
-  "date": "2026-10-13"
+  "hash": "23a19edebc3302b93f7a0fbd392008a16f343677",
+  "date": "2026-10-19"
  },
  "/projects/godrej-river-royale/3-bhk": {
   "hash": "dd46f3c3a89f9971797f88803f06c6ec17caad69",
@@ -424,16 +424,16 @@
   "date": "2026-10-13"
  },
  "/projects/yashwin-urbo-centro/2-bhk": {
-  "hash": "91bfa46a2877138fdd1219f47ad29ea017b1dfef",
-  "date": "2026-10-13"
+  "hash": "b1f5ba3e89c1518dda53e6721678c9b8cd5dfbfa",
+  "date": "2026-10-19"
  },
  "/projects/yashwin-urbo-centro/3-bhk": {
-  "hash": "72501baa97d54d7345c092f7b96a2db2b8782ca8",
-  "date": "2026-10-13"
+  "hash": "26c5aabd32e301a3086e515a5698e4122559ea68",
+  "date": "2026-10-19"
  },
  "/projects/yashwin-urbo-centro/4-bhk": {
-  "hash": "a5fc3ad6ad42d41e9a55c33487c4ca0a75d5f392",
-  "date": "2026-10-13"
+  "hash": "dc1482a93ed5016ecca86b783ea68b847edd03cd",
+  "date": "2026-10-19"
  },
  "/4-bhk-flats-in-baner": {
   "hash": "3f3722552e6159c57b1bf249066c57a7319bdca6",
@@ -518,5 +518,13 @@
  "/flats-near-westend-mall-aundh": {
   "hash": "570bac5c4f62fee02cffc6a4e3a6cb8c5f1658b2",
   "date": "2026-10-13"
+ },
+ "/flats-in-tathawade": {
+  "hash": "f882fcedb080a84e5d7a43c4006869924451d9cf",
+  "date": "2026-10-19"
+ },
+ "/flats-on-pan-card-club-road-baner": {
+  "hash": "aceb91697268faa25c4a2698808e6e8b68907dec",
+  "date": "2026-10-19"
  }
 }

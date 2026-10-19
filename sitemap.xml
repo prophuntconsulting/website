@@ -5,7 +5,7 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://www.prophuntllp.com/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -71,7 +71,7 @@
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/abil-imperial-atria</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -95,7 +95,7 @@
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/anp-privado</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -167,19 +167,19 @@
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/kohinoor-avantara</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/kohinoor-regalia-towers</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/kohinoor-westview-reserve</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -209,7 +209,7 @@
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/lodha-massimo</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -227,7 +227,7 @@
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/majestique-elements</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -269,7 +269,7 @@
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/tej-elevia</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -287,7 +287,7 @@
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/the-ornate-baner</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -317,7 +317,7 @@
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/yashwin-urbo-centro</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -539,13 +539,13 @@
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/abil-imperial-atria/3-bhk</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/abil-imperial-atria/4-bhk</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -659,19 +659,19 @@
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/yashwin-urbo-centro/2-bhk</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/yashwin-urbo-centro/3-bhk</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.prophuntllp.com/projects/yashwin-urbo-centro/4-bhk</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -798,6 +798,18 @@
   <url>
     <loc>https://www.prophuntllp.com/flats-near-westend-mall-aundh</loc>
     <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.prophuntllp.com/flats-in-tathawade</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.prophuntllp.com/flats-on-pan-card-club-road-baner</loc>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

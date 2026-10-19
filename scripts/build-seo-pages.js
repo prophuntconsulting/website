@@ -438,6 +438,106 @@ for (const p of all) {
   if (list.length) nearby[p.slug] = list;
 }
 
+/* ── 3b. Sub-area pages ────────────────────────────────────────────────
+   Areas buyers search by name that sit inside one of our micro-markets
+   (Search Console / Autocomplete, Oct 2026: "flats in tathawade",
+   "flats on pan card club road baner"). Membership is decided by data, not
+   by guesswork: an explicit area_alias (verified against coordinates), a
+   project-level map point within radiusKm of the area centre, or the street
+   named in the listing's own location. A page is only built with 3+
+   projects. Punawale was checked and has none within 2.5 km, so no page. */
+const AREA_PAGES = [
+  {
+    slug: 'flats-in-tathawade', name: 'Tathawade', parent: 'wakad', noun: 'Flats',
+    centre: { lat: 18.6153997, lng: 73.7501907 }, radiusKm: 1.2,
+    match: p => p.area_alias === 'Tathawade',
+    intro: 'Tathawade is a residential locality in Pimpri-Chinchwad on the Mumbai-Bengaluru highway, between Wakad and Punawale, close to the Hinjewadi IT parks. Many projects marketed as "Downtown Wakad" or "New Wakad" are in Tathawade.',
+  },
+  {
+    slug: 'flats-on-pan-card-club-road-baner', name: 'Pan Card Club Road, Baner', short: 'Pan Card Club Road', parent: 'baner', noun: 'Flats',
+    match: p => /pan ?card/i.test(p.location || ''),
+    intro: 'Pan Card Club Road is a residential stretch in Baner, west Pune, with a concentration of larger-format 3, 4 and 5 BHK projects from established developers.',
+  },
+];
+const areaPages = [];
+for (const a of AREA_PAGES) {
+  const inRadius = p => a.centre && geoOf(p) && haversineKm(geoOf(p), a.centre) <= a.radiusKm;
+  const matches = live.filter(p => isResidential(p) && (a.match(p) || inRadius(p)));
+  if (matches.length < 3) continue;
+  const url = `/${a.slug}`;
+  const short = a.short || a.name;
+  const loc = LOCALITY_CONTENT[a.parent];
+  const sorted = [...matches].sort((x, y) => (x.status === 'coming-soon') - (y.status === 'coming-soon') || x.title.localeCompare(y.title));
+  const bhks = [...new Set(matches.flatMap(projectBhks))].sort((x, y) => x - y);
+  const pts = matches.map(geoOf).filter(Boolean);
+  const centre = a.centre || (pts.length ? { lat: pts.reduce((s, g) => s + g.lat, 0) / pts.length, lng: pts.reduce((s, g) => s + g.lng, 0) / pts.length } : null);
+  const around = centre ? landmarks.filter(l => Number.isFinite(l.lat)).map(l => ({ name: l.name, km: haversineKm(centre, l) }))
+    .filter(x => x.km <= 8).sort((x, y) => x.km - y.km).slice(0, 8) : [];
+  const label = `${a.noun} ${a.slug.includes('-on-') ? 'on' : 'in'} ${a.name}`;
+  const title = `${label}, Pune: ${matches.length} New Projects & Prices | PROPHUNT LLP`;
+  const desc = `${matches.length} new residential projects ${a.slug.includes('-on-') ? 'on' : 'in'} ${a.name}, Pune from ${developersText(matches)}. ${bhks.map(bhkLabel).join(', ')} homes, prices ${priceRangeText(matches)}. MahaRERA details and free site visits.`;
+  const crumbs = [{ name: 'Home', url: '/' }, { name: 'Locations', url: '/location' }, ...(loc ? [{ name: loc.name, url: `/location/${a.parent}` }] : []), { name: short, url }];
+  const reraCount = matches.filter(p => p.rera).length;
+  const faqs = [
+    { q: `Which new projects are ${a.slug.includes('-on-') ? 'on' : 'in'} ${short}?`, a: `PROPHUNT LLP currently lists ${matches.length} projects: ${sorted.map(p => `${p.title} by ${p.developer}`).join('; ')}.` },
+    { q: `What configurations are available in ${short}?`, a: `Across these projects: ${bhks.map(bhkLabel).join(', ')}. See each project for its exact unit mix.` },
+    { q: `What is the price range of flats in ${short}?`, a: `Published starting prices are ${priceRangeText(matches)}. Several developers share pricing on request; our advisors can get you current cost sheets at no charge.` },
+    { q: `Are these ${short} projects RERA registered?`, a: `${reraCount} of the ${matches.length} projects list a MahaRERA registration number on their PROPHUNT LLP page.${reraCount < matches.length ? ' For the others, ask our advisors for the current status before booking.' : ''}` },
+  ];
+  const sibling = [
+    ...(loc && existingUrls.has(`/location/${a.parent}`) ? [{ label: `All projects in ${loc.name}`, url: `/location/${a.parent}` }] : []),
+    ...locBhkPages.filter(x => x.mm === a.parent).sort((x, y) => x.n - y.n).map(x => ({ label: `${bhkLabel(x.n)} flats in ${LOCALITY_CONTENT[x.mm].name}`, url: x.url })),
+  ];
+  const html = headBoilerplate({ title, desc, canonical: `${SITE}${url}`, jsonLd: jsonLdFor({ crumbs, list: { name: label, items: sorted }, faqs }), ogImage: ogImg(sorted[0]) }) + `
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    ${breadcrumbHtml(crumbs)}
+    <span class="section-label"><i class="fas fa-location-dot"></i> ${escapeHtml(short)}, Pune</span>
+    <h1>${escapeHtml(label)}, Pune</h1>
+    <p>${matches.length} new projects from ${escapeHtml(developersText(matches))}. ${escapeHtml(bhks.map(bhkLabel).join(', '))} homes.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="loc-about">${escapeHtml(a.intro)}</p>
+    ${sectionHead('table', 'Compare', `Projects ${a.slug.includes('-on-') ? 'on' : 'in'} ${short}`)}
+    <div style="overflow-x:auto;margin-bottom:.75rem"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Developer</th><th>Configuration</th><th>Starting price</th></tr></thead><tbody>${sorted.map(p =>
+      `<tr><td><a href="${p.url}">${escapeHtml(p.title)}</a>${p.status === 'coming-soon' ? ' <small>(new launch)</small>' : ''}</td><td>${escapeHtml(p.developer || '')}</td><td>${escapeHtml(p.config || '')}</td><td>${escapeHtml(p.price > 0 ? (p.price >= 100 ? '₹' + (p.price / 100).toFixed(2).replace(/\.?0+$/, '') + ' Cr' : '₹' + p.price + ' L') : 'On request')}</td></tr>`).join('')}</tbody></table></div>
+    <p class="loc-note">Indicative, as listed in ${escapeHtml(todayLabel)}; excludes taxes and charges.</p>
+    <div class="loc-grid">${sorted.map(renderHubCard).join('')}</div>
+  </div>
+</section>
+${around.length ? `
+<section class="section section--tinted">
+  <div class="container">
+    ${sectionHead('map-signs', 'Connectivity', `What's near ${short}`)}
+    <ul class="loc-guide-list">${around.map(x => `<li>${escapeHtml(x.name)}: about ${kmText(x.km)}</li>`).join('')}</ul>
+    <p class="loc-note">Approximate straight-line distances from the centre of ${escapeHtml(short)}.</p>
+  </div>
+</section>` : ''}
+
+<section class="section">
+  <div class="container">
+    ${sectionHead('circle-question', 'FAQs', `${short}: Frequently Asked Questions`)}
+    <div class="loc-faq-list">${faqAccordion(faqs)}</div>
+  </div>
+</section>
+${sibling.length ? `
+<section class="section">
+  <div class="container">
+    ${sectionHead('link', 'Related', 'Related Searches')}
+    ${pillLinks(sibling)}
+  </div>
+</section>` : ''}
+${ctaHtml(`Looking for a home ${a.slug.includes('-on-') ? 'on' : 'in'} ${short}?`, 'Tell us your budget and timeline. A PROPHUNT advisor will shortlist the right projects and arrange site visits, free for buyers.', `Hi PROPHUNT LLP, I'm looking for a flat ${a.slug.includes('-on-') ? 'on' : 'in'} ${a.name}. Please share options.`)}
+` + FOOTER_HTML;
+  writePage(url, html);
+  generated.push(url);
+  areaPages.push({ url, short, name: a.name, matches });
+  for (const p of matches) addRelated(p.slug, label, url);
+}
+
 /* ── 4. Finish related searches: hubs that already exist ───────────── */
 
 for (const p of live) {
@@ -502,6 +602,7 @@ if (fs.existsSync(homePath)) {
   const groups = [
     ['Projects by location', readJson('scripts/.location-hubs.json', []).filter(u => u !== '/location')
       .map(u => ({ label: `New projects in ${(LOCALITY_CONTENT[u.split('/').pop()] || {}).name || u.split('/').pop()}`, url: u }))],
+    ['Popular areas', areaPages.map(x => ({ label: `Flats ${x.url.includes('-on-') ? 'on' : 'in'} ${x.name}`, url: x.url }))],
     ['Flats by size', [...locBhkPages].sort((a, b) => a.mm.localeCompare(b.mm) || a.n - b.n)
       .map(x => ({ label: `${bhkLabel(x.n)} flats in ${LOCALITY_CONTENT[x.mm].name}`, url: x.url }))],
     ['Near work & transit', nearPages.map(x => ({ label: `${x.t.noun} near ${x.lm.short_name || x.lm.name}`, url: x.url }))],
@@ -536,4 +637,4 @@ if (fs.existsSync(homePath)) {
   if (next !== home) fs.writeFileSync(homePath, next);
 }
 const count = re => generated.filter(u => re.test(u)).length;
-console.log(`Built ${generated.length} search pages: ${count(/^\/projects\//)} project×BHK, ${count(/-flats-in-/)} locality×BHK, ${count(/-near-/)} near-landmark; nearby data for ${Object.keys(nearby).length} projects`);
+console.log(`Built ${generated.length} search pages: ${count(/^\/projects\//)} project×BHK, ${count(/-flats-in-/)} locality×BHK, ${count(/-near-/)} near-landmark, ${areaPages.length} area; nearby data for ${Object.keys(nearby).length} projects`);
