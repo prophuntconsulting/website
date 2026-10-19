@@ -47,9 +47,13 @@ function analyse(doc) {
 
   const h2s = blocks.filter(b => b.style === 'h2').length
   const firstPara = blocks.find(b => (b.style || 'normal') === 'normal' && blockText(b).trim())
-  const internalLinks = blocks.reduce((n, b) => n + (b.markDefs || []).filter(m =>
-    m._type === 'internalLink' || (m._type === 'link' && /^(\/|https?:\/\/(www\.)?prophuntllp\.com)/.test(m.href || ''))).length, 0)
-    + (doc.relatedProjects || []).length
+  const linkDefs = blocks.flatMap(b => b.markDefs || [])
+  const isOwn = href => /^(\/|https?:\/\/(www\.)?prophuntllp\.com)/.test(href || '')
+  // In-text links only: Related Projects cards don't count here.
+  const internalLinks = linkDefs.filter(m => m._type === 'internalLink' || (m._type === 'link' && isOwn(m.href))).length
+  // A source a reader can check: an https page that isn't ours, WhatsApp, phone or email.
+  const externalLinks = linkDefs.filter(m => m._type === 'link' && /^https:\/\//.test(m.href || '') && !isOwn(m.href)
+    && !/^https:\/\/(wa\.me|api\.whatsapp\.com)\//.test(m.href)).length
   const image = doc.featuredImage && doc.featuredImage.asset
   const ogOk = Boolean((doc.openGraphTitle || seoTitle) && (doc.openGraphDescription || seoDesc) && ((doc.openGraphImage && doc.openGraphImage.asset) || image))
   const canonical = (doc.canonicalUrl || '').trim()
@@ -65,7 +69,9 @@ function analyse(doc) {
     ['SEO description is 120 to 160 characters', seoDesc.length >= 120 && seoDesc.length <= 160],
     ['Article contains at least 600 words', words.length >= 600],
     ['Article uses descriptive subheadings', h2s >= 2],
-    ['Links to at least 2 PropHunt pages', internalLinks >= 2],
+    ['Links to at least 3 PropHunt pages in the article', internalLinks >= 3],
+    ['Links to at least one trusted outside source', externalLinks >= 1],
+    ['Related Projects selected', (doc.relatedProjects || []).length >= 1],
     ['Featured image has alt text', Boolean(image && doc.featuredImage.alt)],
     ['Social title, description, and image added', ogOk],
     ['Canonical URL is blank or secure', !canonical || canonical.startsWith('https://')],
