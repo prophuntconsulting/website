@@ -352,7 +352,7 @@ function formatVerified(d) {
   return `${+m[3]} ${names[+m[2] - 1]} ${m[1]}`;
 }
 
-const MAHARERA_URL = 'https://maharera.mahaonline.gov.in';
+const MAHARERA_URL = 'https://maharera.maharashtra.gov.in';
 const CAT_LABEL = { apartment: 'Apartment', villa: 'Villa', plot: 'Plot', commercial: 'Commercial' };
 
 // Snapshot + "before you book" markup is shared, class-for-class, with the

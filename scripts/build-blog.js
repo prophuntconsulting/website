@@ -64,7 +64,16 @@ function renderTable(lines) {
   </table></div>`;
 }
 
+// Anchor ids for H2s ("In this article" links). Same input -> same ids.
+function headingId(text, seen) {
+  const base = String(text).toLowerCase().replace(/<[^>]+>/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60) || 'section';
+  const n = (seen.get(base) || 0) + 1;
+  seen.set(base, n);
+  return n > 1 ? `${base}-${n}` : base;
+}
+
 function markdownToHtml(markdown) {
+  const ids = new Map();
   const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
   const out = [];
   let paragraph = [];
@@ -120,7 +129,8 @@ function markdownToHtml(markdown) {
       flushParagraph();
       if (list.length) out.push(flushList(list, ordered));
       const level = Math.min(6, Math.max(2, heading[1].length));
-      out.push(`<h${level}>${renderInline(heading[2])}</h${level}>`);
+      const plain = heading[2].replace(/[*`]/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').trim();
+      out.push(level === 2 ? `<h2 id="${headingId(plain, ids)}">${renderInline(heading[2])}</h2>` : `<h${level}>${renderInline(heading[2])}</h${level}>`);
       continue;
     }
     const ul = line.match(/^[-*]\s+(.+)$/);
@@ -228,18 +238,70 @@ function priceText(x) {
   return n >= 100 ? `From ₹${(n / 100).toFixed(2).replace(/\.?0+$/, '')} Cr*` : `From ₹${n} L*`;
 }
 
-// Project cards for "Related Projects" (internal links to project pages).
+const CAT_ICONS = { market: 'fas fa-chart-line', buyer: 'fas fa-home', investment: 'fas fa-coins', legal: 'fas fa-file-contract', nri: 'fas fa-globe' };
+const BLOG_AUTHOR_BIO = 'The PROPHUNT LLP advisory team helps homebuyers and investors in Pune shortlist developer-backed projects, compare pricing and verify approvals. PROPHUNT LLP is a MahaRERA-registered real estate agent (A52100037156). Articles are for general information; check current prices, approvals and registration details before you book.';
+
+// Fixed-ratio image (css/blog.css: 1200 x 630). Sanity CDN images get a
+// right-sized rendition; repo images are used as they are.
+function mediaHtml(src, alt, { eager = false, width = 1200 } = {}) {
+  if (!src) return `<span class="bl-media bl-media-empty" aria-hidden="true"><i class="fas fa-newspaper"></i></span>`;
+  const url = /^https:\/\/cdn\.sanity\.io\/images\//.test(src) ? `${src.replace(/\?.*$/, '')}?w=${width}&h=${Math.round(width * 630 / 1200)}&fit=crop&auto=format&q=80` : src;
+  return `<span class="bl-media"><img src="${escapeHtml(url)}" alt="${escapeHtml(alt || '')}" width="1200" height="630" ${eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"'}></span>`;
+}
+
+// One card component for the listing grid and "Suggested articles".
+function postCard(p, num) {
+  return `<a class="bl-card" href="${p.url}" data-cat="${escapeHtml(p.category)}" data-search="${escapeHtml([p.title, p.excerpt, ...(p.tags || [])].join(' ').toLowerCase())}">
+        ${mediaHtml(p.cover, p.cover_alt || p.title, { width: 800 })}
+        ${num ? `<span class="bl-card-num">${String(num).padStart(2, '0')}</span>` : ''}
+        <span class="bl-card-body">
+          <span class="bl-card-top"><span class="bl-card-cat">${escapeHtml(CAT_LABELS[p.category] || 'Article')}</span><span class="bl-card-read">${p.readTime} min read</span></span>
+          <h3>${escapeHtml(p.title)}</h3>
+          <p>${escapeHtml(p.excerpt)}</p>
+          <span class="bl-card-foot"><span>${escapeHtml(fmtDate(p.date))} · ${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</span><span class="bl-more">Read →</span></span>
+        </span>
+      </a>`;
+}
+
+function crumbsHtml(items) {
+  return `<nav class="bl-crumbs" aria-label="Breadcrumb">${items.map((c, i) => i === items.length - 1
+    ? `<span aria-current="page">${escapeHtml(c.name)}</span>`
+    : `<a href="${c.url}">${escapeHtml(c.name)}</a><span class="sep">/</span>`).join('')}</nav>`;
+}
+
+function ctaBand() {
+  return `<section class="bl-cta">
+      <div>
+        <h2>Looking to buy a home in Pune?</h2>
+        <p>Tell us your budget, location and timeline. A PROPHUNT advisor will shortlist developer-backed projects, share current cost sheets and arrange site visits, free for buyers.</p>
+      </div>
+      <div class="bl-cta-actions">
+        <a class="bl-btn bl-btn-primary" href="/contact">Book a free consultation <i class="fas fa-arrow-right"></i></a>
+        <a class="bl-btn bl-btn-ghost" href="https://wa.me/917447430431?text=${encodeURIComponent('Hi PROPHUNT LLP, I read your blog and would like advice on buying a property in Pune.')}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp us</a>
+      </div>
+    </section>`;
+}
+
+// "In this article": the post's H2s (ids come from markdownToHtml).
+function tocFromMarkdown(md) {
+  const seen = new Map();
+  return String(md || '').split(/\r?\n/).map(l => l.match(/^#{1,2}\s+(.+)$/)).filter(Boolean).map(m => {
+    const text = m[1].replace(/[*`]/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').trim();
+    return { text, id: headingId(text, seen) };
+  });
+}
+
 function renderProjectCards(projects) {
   if (!projects.length) return '';
-  return `<section class="bp-projects" aria-label="Projects in this article">
+  return `<section class="bl-projects" aria-label="Projects in this article">
           <h2>Projects mentioned in this article</h2>
-          <div class="bp-projects-grid">${projects.map(x => `
-            <a class="bp-proj-card" href="${x.url}">
-              <span class="bp-proj-img" style="background-image:url('${escapeHtml(x.thumb || x.cover || '')}')"></span>
-              <span class="bp-proj-body">
-                <span class="bp-proj-title">${escapeHtml(x.title)}</span>
-                <span class="bp-proj-meta">${escapeHtml([x.developer, x.location].filter(Boolean).join(' · '))}</span>
-                <span class="bp-proj-meta">${escapeHtml([x.config, priceText(x)].filter(Boolean).join(' · '))}</span>
+          <div class="bl-proj-grid">${projects.map(x => `
+            <a class="bl-proj" href="${x.url}">
+              ${mediaHtml(x.thumb || x.cover, x.title, { width: 640 })}
+              <span class="bl-proj-body">
+                <strong>${escapeHtml(x.title)}</strong>
+                <span>${escapeHtml([x.developer, x.location].filter(Boolean).join(' · '))}</span>
+                <span>${escapeHtml([x.config, priceText(x)].filter(Boolean).join(' · '))}</span>
               </span>
             </a>`).join('')}
           </div>
@@ -248,128 +310,165 @@ function renderProjectCards(projects) {
 
 function renderFaqs(faqs) {
   if (!faqs.length) return '';
-  return `<section class="bp-faqs" aria-label="Frequently asked questions">
+  return `<section class="bl-faqs" aria-label="Frequently asked questions">
           <h2>Frequently asked questions</h2>
-          ${faqs.map(f => `<details class="bp-faq"><summary>${escapeHtml(f.q)}</summary><p>${renderInline(f.a)}</p></details>`).join('\n          ')}
+          ${faqs.map(f => `<details class="bl-faq"><summary>${escapeHtml(f.q)}</summary><p>${renderInline(f.a)}</p></details>`).join('\n          ')}
         </section>`;
 }
 
-const CAT_ICONS = { market: 'fas fa-chart-line', buyer: 'fas fa-home', investment: 'fas fa-coins', legal: 'fas fa-file-contract', nri: 'fas fa-globe' };
-
-// The full article page, rendered at build time. blog/post.html's script sees
-// data-prerendered and only wires up the enquiry form, so Google and visitors
-// get the same HTML with no client-side Markdown rendering.
+// The full article page, rendered at build time (layout modelled on
+// vistrow.com/blog). blog/post.html's script only wires up the form, the
+// copy-link button and the table of contents.
 function buildPrerenderBlock(p, ctx) {
-  const catLabel = CAT_LABELS[p.category] || p.category || 'Article';
+  const catLabel = CAT_LABELS[p.category] || 'Article';
   const mins = p.readTime || estimateReadTime(p.body || '');
-  const bodyHtml = markdownToHtml(p.body || '');
-  const tagsHtml = p.tags && p.tags.length
-    ? `<div class="bp-tags"><span style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#6b7280;margin-right:6px;align-self:center">Tags:</span>${p.tags.map(t => `<span class="bp-tag"><i class="fas fa-tag" style="font-size:9px"></i>${escapeHtml(t)}</span>`).join('')}</div>`
-    : '';
+  const toc = tocFromMarkdown(p.body);
+  // Posts that number their own headings ("1. Baner") skip the automatic 01/02.
+  const ownNumbers = toc.some(h => /^d+[.)]s/.test(h.text));
   const pageUrl = encodeURIComponent(`${SITE}${p.url}`);
   const pageTitle = encodeURIComponent(p.title);
-  const relatedHtml = ctx.related.length
-    ? ctx.related.map(r => `
-          <div class="bp-related-item">
-            <a href="${r.url}" class="bp-related-img" style="background-image:url('${escapeHtml(r.cover || '')}')" aria-label="${escapeHtml(r.title)}"></a>
-            <div>
-              <div class="bp-related-cat">${escapeHtml(CAT_LABELS[r.category] || r.category)}</div>
-              <div class="bp-related-title"><a href="${r.url}">${escapeHtml(r.title)}</a></div>
-              <div class="bp-related-date">${escapeHtml(fmtDate(r.date))}</div>
-            </div>
-          </div>`).join('')
-    : '<p style="font-size:13px;color:#9ca3af;text-align:center;padding:8px 0">More articles coming soon.</p>';
+  const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: catLabel, url: `/blog?cat=${p.category}` }, { name: crumbLabel(p) }];
 
   return `<div data-prerendered="1">
-    <div class="bp-header">
-      <div class="bp-header-inner">
-        <div class="bp-meta-row">
-          <a class="bp-cat-badge" href="/blog?cat=${escapeHtml(p.category)}"><i class="${CAT_ICONS[p.category] || 'fas fa-newspaper'}" style="font-size:9px"></i>${escapeHtml(catLabel)}</a>
-          <span class="bp-meta-item"><i class="fas fa-calendar-alt"></i><time datetime="${escapeHtml(p.date)}">${escapeHtml(fmtDate(p.date))}</time></span>
-          ${p.updated && p.updated > p.date ? `<span class="bp-meta-item"><i class="fas fa-rotate"></i>Updated <time datetime="${escapeHtml(p.updated)}">${escapeHtml(fmtDate(p.updated))}</time></span>` : ''}
-          <span class="bp-meta-item"><i class="fas fa-user-circle"></i>${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</span>
-          <span class="bp-meta-item"><i class="fas fa-clock"></i>${mins} min read</span>
+  <div class="bl-wrap">
+    ${crumbsHtml(crumbs)}
+    <div class="bl-post">
+      <article class="bl-post-main">
+        <a class="bl-pill" href="/blog?cat=${escapeHtml(p.category)}">${escapeHtml(catLabel)}</a>
+        <h1>${escapeHtml(p.title)}</h1>
+        <div class="bl-byline">
+          <div class="bl-author">
+            <span class="bl-avatar" aria-hidden="true">PH</span>
+            <div><strong>${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</strong>
+            <span><time datetime="${escapeHtml(p.date)}">${escapeHtml(fmtDate(p.date))}</time>${p.updated && p.updated > p.date ? ` · Updated <time datetime="${escapeHtml(p.updated)}">${escapeHtml(fmtDate(p.updated))}</time>` : ''} · ${mins} min read</span></div>
+          </div>
+          <div class="bl-share" aria-label="Share this article">
+            <a href="https://wa.me/?text=${pageTitle}%20${pageUrl}" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=${pageUrl}&amp;title=${pageTitle}" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=${pageUrl}" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=${pageTitle}&amp;url=${pageUrl}" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-x-twitter"></i></a>
+            <button type="button" data-copy-link aria-label="Copy link"><i class="fas fa-link"></i></button>
+          </div>
         </div>
-        <h1 class="bp-title">${escapeHtml(p.title)}</h1>
-        ${p.excerpt ? `<p class="bp-excerpt">${escapeHtml(p.excerpt)}</p>` : ''}
-      </div>
-    </div>
-
-    <div class="bp-cover-wrap">
-      ${p.cover
-        ? `<img src="${escapeHtml(p.cover)}" alt="${escapeHtml(p.cover_alt || p.title)}" width="1200" height="630" fetchpriority="high">`
-        : `<div class="bp-cover-placeholder"><i class="${CAT_ICONS[p.category] || 'fas fa-newspaper'}"></i></div>`}
-    </div>
-
-    <div class="bp-layout">
-      <article class="bp-article">
-        <div class="bp-body" id="bp-body-content">${bodyHtml}</div>
+        ${p.excerpt ? `<p class="bl-lead">${escapeHtml(p.excerpt)}</p>` : ''}
+        ${p.cover ? `<figure class="bl-hero-img">${mediaHtml(p.cover, p.cover_alt || p.title, { eager: true })}</figure>` : ''}
+        <div class="bl-body${ownNumbers ? ' bl-own-numbers' : ''}">${markdownToHtml(p.body || '')}</div>
         ${renderFaqs(p.faqs)}
         ${renderProjectCards(ctx.projects)}
-        ${tagsHtml}
-        <div class="bp-share">
-          <span class="bp-share-label">Share:</span>
-          <a href="https://wa.me/?text=${pageTitle}%20${pageUrl}" target="_blank" rel="noopener" class="bp-share-btn bp-share-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-          <a href="https://twitter.com/intent/tweet?text=${pageTitle}&amp;url=${pageUrl}" target="_blank" rel="noopener" class="bp-share-btn bp-share-tw"><i class="fab fa-x-twitter"></i> Tweet</a>
-          <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=${pageUrl}&amp;title=${pageTitle}" target="_blank" rel="noopener" class="bp-share-btn bp-share-li"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-          <button type="button" onclick="navigator.clipboard.writeText(location.href);this.textContent='✓ Copied!';setTimeout(()=>this.textContent='Copy Link',2000)" class="bp-share-btn bp-share-copy"><i class="fas fa-link"></i> Copy Link</button>
+        ${p.tags && p.tags.length ? `<div class="bl-tags"><strong style="font-size:13px">Tags:</strong>${p.tags.map(t => `<span>${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+        <div class="bl-author-box">
+          <span class="bl-avatar" aria-hidden="true">PH</span>
+          <div><strong>About ${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</strong><p>${escapeHtml(BLOG_AUTHOR_BIO)}</p></div>
         </div>
-        <div class="bp-article-cta">
-          <h3>Looking to Buy a Home in Pune?</h3>
-          <p>Talk to a PROPHUNT advisor - free consultation, no pressure, just clarity on pricing &amp; best projects.</p>
-          <a href="/contact">Book a Free Consultation</a>
-        </div>
-        <p class="bp-more-links"><a href="/blog">More guides on the PROPHUNT blog</a> · <a href="/projects">All projects in Pune</a> · <a href="/location">Browse by location</a></p>
       </article>
 
-      <aside class="bp-sidebar">
-        <div class="bp-widget">
-          <div class="bp-widget-head"><i class="fas fa-calendar-check"></i> Book a Site Visit</div>
-          <div class="bp-widget-body">
-            <form id="bpEnqForm">
-              <div class="bp-enq-field"><input type="text" name="name" placeholder="Your Name *" required aria-label="Your name"></div>
-              <div class="bp-enq-field"><input type="tel" name="phone" placeholder="Phone Number *" required aria-label="Phone number"></div>
-              <div class="bp-enq-field"><input type="email" name="email" placeholder="Email Address" aria-label="Email address"></div>
-              <div class="bp-enq-field">
-                <select name="interest" aria-label="I'm interested in">
-                  <option value="" disabled selected>I'm interested in…</option>
-                  <option>2 BHK Apartment</option>
-                  <option>3 BHK Apartment</option>
-                  <option>Villa / Row House</option>
-                  <option>Plot</option>
-                  <option>Commercial Property</option>
-                  <option>General Advisory</option>
-                </select>
-              </div>
-              <button type="submit" class="bp-enq-submit">Get Free Advice →</button>
-              <p class="bp-enq-note"><i class="fas fa-lock" style="font-size:9px"></i> 100% private, no spam</p>
-            </form>
-          </div>
+      <aside class="bl-side">
+        <div class="bl-side-card">
+          <h2>Explore the blog</h2>
+          <form class="bl-search" action="/blog" method="get" role="search">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input type="search" name="q" placeholder="Search articles…" aria-label="Search articles">
+          </form>
+          <div class="bl-side-sub">Category</div>
+          <select id="blCatSelect" aria-label="Browse a category">
+            <option value="/blog">All categories (${ctx.total})</option>
+            ${Object.entries(LISTING_CAT_LABELS).map(([k, v]) => `<option value="/blog?cat=${k}"${k === p.category ? ' selected' : ''}>${escapeHtml(v)} (${ctx.catCounts[k] || 0})</option>`).join('')}
+          </select>
+          ${toc.length ? `<div class="bl-side-sub">In this article</div>
+          <ol class="bl-toc">${toc.map((h, i) => `<li><span>${ownNumbers ? '•' : String(i + 1).padStart(2, '0')}</span><a href="#${h.id}">${escapeHtml(h.text)}</a></li>`).join('')}</ol>` : ''}
+          ${ctx.related.length ? `<div class="bl-side-sub">Suggested reading</div>
+          <div class="bl-side-list">${ctx.related.map(r => `<a href="${r.url}"><small>${escapeHtml(CAT_LABELS[r.category] || 'Article')}</small><strong>${escapeHtml(r.title)}</strong><em>${r.readTime} min read</em></a>`).join('')}</div>` : ''}
         </div>
 
-        <div class="bp-widget">
-          <div class="bp-widget-head"><i class="fas fa-newspaper"></i> Related Articles</div>
-          <div class="bp-widget-body">${relatedHtml}</div>
-        </div>
-
-        <div class="bp-widget">
-          <div class="bp-widget-head"><i class="fas fa-layer-group"></i> Categories</div>
-          <div class="bp-widget-body">
-            ${Object.entries(LISTING_CAT_LABELS).map(([k, v]) => `<a class="bp-cat-item" href="/blog?cat=${k}"><span class="left"><i class="${CAT_ICONS[k] || 'fas fa-circle'}"></i>${v}</span><span class="bp-cat-count">${ctx.catCounts[k] || 0}</span></a>`).join('\n            ')}
-          </div>
-        </div>
-
-        <div class="bp-widget" style="background:#0f1b2d;border-color:#0f1b2d">
-          <div style="padding:20px 18px;text-align:center;color:#fff">
-            <i class="fas fa-building" style="font-size:24px;color:#C8362B;margin-bottom:10px;display:block"></i>
-            <div style="font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;margin-bottom:6px">Explore New Projects</div>
-            <p style="font-size:12.5px;color:rgba(255,255,255,.65);margin-bottom:14px">Verified listings across Pune, apartments, plots &amp; villas</p>
-            <a href="/projects" style="display:block;padding:10px;background:#C8362B;color:#fff;border-radius:6px;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;text-decoration:none">View All Projects</a>
-          </div>
+        <div class="bl-side-card bl-side-form">
+          <h2>Book a site visit</h2>
+          <form id="bpEnqForm">
+            <div class="bp-enq-field"><input type="text" name="name" placeholder="Your name *" required aria-label="Your name"></div>
+            <div class="bp-enq-field"><input type="tel" name="phone" placeholder="Phone number *" required aria-label="Phone number"></div>
+            <div class="bp-enq-field"><input type="email" name="email" placeholder="Email address" aria-label="Email address"></div>
+            <div class="bp-enq-field">
+              <select name="interest" aria-label="I'm interested in">
+                <option value="" disabled selected>I'm interested in…</option>
+                <option>2 BHK Apartment</option>
+                <option>3 BHK Apartment</option>
+                <option>Villa / Row House</option>
+                <option>Plot</option>
+                <option>Commercial Property</option>
+                <option>General Advisory</option>
+              </select>
+            </div>
+            <button type="submit" class="bp-enq-submit">Get free advice →</button>
+            <p class="bp-enq-note"><i class="fas fa-lock" style="font-size:9px"></i> 100% private, no spam</p>
+          </form>
         </div>
       </aside>
     </div>
+
+    ${ctx.related.length ? `<section class="bl-related">
+      <div class="bl-section-head"><span class="bl-eyebrow">Keep reading</span><h2>Suggested articles for you</h2><p>More guides on buying, investing and the paperwork in Pune.</p></div>
+      <div class="bl-grid">${ctx.related.map(r => postCard(r)).join('')}</div>
+    </section>` : ''}
+    ${ctaBand()}
+  </div>
   </div>`;
+}
+
+// /blog listing: hero + search, topic chips, featured story, card grid, CTA.
+function buildListingBlock(listed, catCounts) {
+  const [first, ...rest] = listed;
+  const topics = Object.keys(LISTING_CAT_LABELS).filter(k => catCounts[k]).length;
+  return `<!--BLOG-LISTING-START-->
+<main class="bl-page">
+  <div class="bl-wrap">
+    ${crumbsHtml([{ name: 'Home', url: '/' }, { name: 'Blog' }])}
+    <section class="bl-hero">
+      <div>
+        <span class="bl-eyebrow"><i class="fas fa-newspaper" aria-hidden="true"></i>PROPHUNT Insights</span>
+        <h1>Pune property, <em>explained clearly.</em></h1>
+        <p>Buyer guides, market notes and the paperwork that matters, from the PROPHUNT LLP advisory team in Baner, Pune.</p>
+      </div>
+      <div class="bl-search-card">
+        <label for="blSearch">What do you want to know?</label>
+        <div class="bl-search"><i class="fas fa-search" aria-hidden="true"></i><input id="blSearch" type="search" placeholder="Search guides, areas, topics…" autocomplete="off"></div>
+        <div class="bl-stats"><div><strong>${listed.length}</strong><span>Guides</span></div><div><strong>${topics}</strong><span>Topics</span></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="bl-chips-bar">
+    <div class="bl-wrap bl-chips" role="toolbar" aria-label="Filter by topic">
+      <span class="bl-chips-label">Browse</span>
+      <button class="bl-chip active" data-cat="all" type="button">All articles <span class="n">${listed.length}</span></button>
+      ${Object.entries(LISTING_CAT_LABELS).map(([k, v]) => `<button class="bl-chip" data-cat="${k}" type="button">${escapeHtml(v)} <span class="n">${catCounts[k] || 0}</span></button>`).join('\n      ')}
+    </div>
+  </div>
+
+  <div class="bl-wrap">
+    ${first ? `<section class="bl-block" id="blFeatured">
+      <div class="bl-section-head"><span class="bl-eyebrow">Latest</span><h2>Start with the latest</h2></div>
+      <a class="bl-featured" href="${first.url}" data-cat="${escapeHtml(first.category)}" data-search="${escapeHtml([first.title, first.excerpt, ...(first.tags || [])].join(' ').toLowerCase())}">
+        <span class="bl-featured-body">
+          <span class="bl-meta"><span class="bl-pill">${escapeHtml(CAT_LABELS[first.category] || 'Article')}</span>${first.readTime} min read · ${escapeHtml(fmtDate(first.date))}</span>
+          <h3>${escapeHtml(first.title)}</h3>
+          <p>${escapeHtml(first.excerpt)}</p>
+          <span class="bl-more">Read the guide →</span>
+        </span>
+        <span class="bl-featured-media">${mediaHtml(first.cover, first.cover_alt || first.title, { eager: true })}<span class="bl-featured-tag">Featured</span></span>
+      </a>
+    </section>` : ''}
+
+    <section class="bl-block" style="padding-top:0">
+      <div class="bl-section-head"><span class="bl-eyebrow">All guides</span><h2>Keep exploring</h2></div>
+      <div class="bl-grid" id="blogGrid">
+        ${rest.map((p, i) => postCard(p, i + 2)).join('\n        ')}
+        <p class="bl-empty" id="blEmpty" hidden>No articles match that yet. Try another topic, or <a href="/contact">ask our advisors</a>.</p>
+      </div>
+    </section>
+
+    ${ctaBand()}
+  </div>
+</main>
+<!--BLOG-LISTING-END-->`;
 }
 
 // A post with a Redirect Destination becomes an instant redirect page
@@ -391,67 +490,8 @@ function buildRedirectPage(p) {
 `;
 }
 
-// Mirrors the renderCard() embedded in blog/index.html exactly, so the
-// prerendered grid (below) and the client-hydrated one are identical.
-function renderListingCard(p, featured) {
-  const coverHTML = p.cover
-    ? `<div class="blog-card-img-inner" style="background-image:url('${p.cover}');background-size:cover;background-position:center;"></div>`
-    : `<div class="blog-card-img-inner" style="background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;"><i class="${LISTING_CAT_ICONS[p.category] || 'fas fa-newspaper'}" style="font-size:${featured ? '4' : '3'}rem;color:rgba(200,54,43,.35);"></i></div>`;
-  return `
-      <article class="blog-card" data-cat="${p.category}">
-        <div class="blog-card-img"${featured ? ' style="height:auto;"' : ''}>
-          ${coverHTML}
-          <div class="blog-card-cat"><span class="badge ${LISTING_CAT_COLORS[p.category] || 'badge-dark'}">${LISTING_CAT_LABELS[p.category] || p.category}</span></div>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> ${fmtDate(p.date)}</div>
-          <div class="blog-card-title"><a href="${p.url}">${p.title}</a></div>
-          <p class="blog-card-excerpt">${p.excerpt}</p>
-          <div class="blog-card-footer">
-            <span class="blog-card-author"><i class="fas fa-user-circle"></i> ${p.author}</span>
-            <a href="${p.url}" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </article>`;
-}
-
-// Matches the category pills / sidebar filter buttons in blog/index.html.
-const LISTING_CATS = [
-  { key: 'all',        label: 'All Articles',   icon: 'fas fa-th' },
-  { key: 'market',     label: 'Market Reports', icon: 'fas fa-chart-bar' },
-  { key: 'buyer',      label: 'Buyer Guides',   icon: 'fas fa-home' },
-  { key: 'investment', label: 'Investment',     icon: 'fas fa-rupee-sign' },
-  { key: 'legal',      label: 'Legal & Docs',   icon: 'fas fa-file-contract' },
-  { key: 'nri',        label: 'NRI Corner',     icon: 'fas fa-globe-asia' },
-];
-const LISTING_CAT_ICONS  = { market: 'fas fa-chart-bar', buyer: 'fas fa-home', investment: 'fas fa-rupee-sign', legal: 'fas fa-file-contract', nri: 'fas fa-globe-asia' };
-const LISTING_CAT_COLORS = { market: 'badge-red', buyer: 'badge-dark', investment: 'badge-red', legal: 'badge-dark', nri: 'badge-dark' };
-const LISTING_CAT_LABELS = { market: 'Market Report', buyer: 'Buyer Guide', investment: 'Investment', legal: 'Legal & Docs', nri: 'NRI Corner' };
-
-function buildSidebarCatsBlock(posts) {
-  const counts = {};
-  posts.forEach(p => { counts[p.category] = (counts[p.category] || 0) + 1; });
-  const buttons = LISTING_CATS.map(c => {
-    const count = c.key === 'all' ? posts.length : (counts[c.key] || 0);
-    return `            <button class="sidebar-cat-btn${c.key === 'all' ? ' active' : ''}" data-cat="${c.key}"><span><i class="${c.icon}" style="width:16px;color:var(--red);"></i> ${c.label}</span><span class="cat-count">${count}</span></button>`;
-  }).join('\n');
-  return `          <div class="sidebar-cats">\n${buttons}\n          </div>`;
-}
-
-// The most recent posts, real and linked — replaces a hand-written "Popular
-// This Month" list that named 3 articles that don't exist on the site
-// (stale content the audit flagged as a freshness/trust risk).
-function renderMini(p) {
-  const icon = { market: 'fa-chart-area', buyer: 'fa-home', investment: 'fa-rupee-sign', legal: 'fa-file-contract', nri: 'fa-globe-asia' }[p.category] || 'fa-newspaper';
-  const bg = p.cover
-    ? `background-image:url('${p.cover}');background-size:cover;background-position:center;`
-    : `background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;`;
-  const inner = p.cover ? '' : `<i class="fas ${icon}" style="color:rgba(200,54,43,.5);font-size:1.2rem;"></i>`;
-  return `            <a href="${p.url}" class="blog-item-mini">
-              <div class="blog-mini-img"><div style="${bg}">${inner}</div></div>
-              <div><div class="blog-mini-title">${escapeHtml(p.title)}</div><div class="blog-mini-date">${fmtDate(p.date)}</div></div>
-            </a>`;
-}
+// Category labels used on the blog listing (chips, sidebar select).
+const LISTING_CAT_LABELS = { market: 'Market Reports', buyer: 'Buyer Guides', investment: 'Investment', legal: 'Legal & Docs', nri: 'NRI Corner' };
 
 // Strip leading YYYY-MM-DD- date prefix from filename slug
 function toUrlSlug(fileSlug) {
@@ -581,7 +621,7 @@ function contextFor(p) {
   // Same category first, then the newest others: always 3 internal links.
   const others = listed.filter(r => r.slug !== p.slug);
   const related = [...others.filter(r => r.category === p.category), ...others.filter(r => r.category !== p.category)].slice(0, 3);
-  return { projects, related, catCounts };
+  return { projects, related, catCounts, total: listed.length };
 }
 
 // Generate static blog/{cleanSlug}/index.html for each post
@@ -620,10 +660,6 @@ if (fs.existsSync(TEMPLATE)) {
     let html = template.replace(INJECT_MARKER, `const fileSlug = '${p.slug}';`);
     html = html.replace(HEAD_MARKER, buildHeadBlock(p, ctx));
     html = html.replace(LOADING_MARKER, buildPrerenderBlock(p, ctx));
-    html = html.replace('<span id="bp-crumb" style="color:#1f2937;font-weight:500">Loading…</span>',
-      `<a href="/blog?cat=${escapeHtml(p.category)}">${escapeHtml(CAT_LABELS[p.category] || 'Articles')}</a>
-    <span class="sep">/</span>
-    <span id="bp-crumb" style="color:#1f2937;font-weight:500" aria-current="page">${escapeHtml(crumbLabel(p))}</span>`);
 
     fs.writeFileSync(path.join(outDir, 'index.html'), html.replace(/[ \t]+$/gm, ''));
     console.log(`  → blog/${p.urlSlug}/index.html`);
@@ -645,33 +681,12 @@ const listingPagePath = path.join(__dirname, '..', 'blog', 'index.html');
 if (fs.existsSync(listingPagePath)) {
   let html = fs.readFileSync(listingPagePath, 'utf8').replace(/\r\n/g, '\n');
 
-  // All three replacements below are anchored on a stable opening tag /
-  // sibling boundary rather than an exact match on the pristine
-  // placeholder content — an exact match only ever fires once; every
-  // rebuild after the first would silently leave these sections holding
-  // whatever they held at that first build forever (see the identical fix
-  // for projects.html's grid in build-properties.js).
-  const cardsHtml = listed.map((p, i) => renderListingCard(p, i === 0)).join('');
-  html = html.replace(
-    /<div class="blog-grid" id="blogGrid">[\s\S]*?(?=<div class="coming-soon-banner")/,
-    `<div class="blog-grid" id="blogGrid">${cardsHtml}</div>\n\n        `
-  );
-
-  html = html.replace(
-    /[ \t]*<div class="sidebar-cats">[\s\S]*?<\/div>/,
-    buildSidebarCatsBlock(listed)
-  );
-
-  const popularHtml = `<div class="sidebar-box">
-          <div class="sidebar-box-title">Popular Guides</div>
-          <div>
-${listed.slice(0, 3).map(renderMini).join('\n')}
-          </div>
-        </div>`;
-  html = html.replace(
-    /<div class="sidebar-box">\s*<div class="sidebar-box-title">Popular[\s\S]*?(?=<div class="sidebar-box" style="background:var\(--black\))/,
-    `${popularHtml}\n\n        `
-  );
+  // Everything between the markers is generated (hero, topic chips,
+  // featured story, card grid, CTA); blog/index.html keeps the head, nav,
+  // footer and the small filter/search script.
+  const LISTING_BLOCK = /<!--BLOG-LISTING-START-->[\s\S]*<!--BLOG-LISTING-END-->/;
+  if (!LISTING_BLOCK.test(html)) throw new Error('blog/index.html: BLOG-LISTING markers missing');
+  html = html.replace(LISTING_BLOCK, () => buildListingBlock(listed, catCounts));
 
   // Real Blog + ItemList structured data instead of just a bare Blog stub —
   // gives crawlers an indexable list of every published article.

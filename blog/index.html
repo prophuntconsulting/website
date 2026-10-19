@@ -110,38 +110,7 @@
 <link rel="stylesheet" href="/css/vendor.css">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/pages.css">
-<style>
-.blog-layout { display:grid; grid-template-columns:1fr 300px; gap:3rem; align-items:start; }
-.blog-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
-.blog-grid .blog-card:first-child { grid-column:1/-1; display:grid; grid-template-columns:1fr 1.2fr; }
-.blog-grid .blog-card:first-child .blog-card-img { padding-top:0; }
-.blog-grid .blog-card:first-child .blog-card-img-inner { position:static; height:320px; }
-.blog-grid .blog-card:first-child .blog-card-cat { top:.85rem; left:.85rem; position:absolute; }
-.blog-grid .blog-card:first-child .blog-card-img { position:relative; overflow:hidden; }
-.blog-sidebar { position:sticky; top:calc(var(--nav-h) + 1.5rem); display:flex; flex-direction:column; gap:1.5rem; }
-.sidebar-box { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-md); padding:1.5rem; }
-.sidebar-box-title { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--gray-500); margin-bottom:1rem; }
-.sidebar-cats { display:flex; flex-direction:column; gap:.4rem; }
-.sidebar-cat-btn { display:flex; align-items:center; justify-content:space-between; padding:.5rem .75rem; border-radius:var(--radius-sm); font-size:.875rem; color:var(--gray-700); font-weight:500; background:none; border:none; cursor:pointer; transition:background .2s, color .2s; text-align:left; }
-.sidebar-cat-btn:hover, .sidebar-cat-btn.active { background:var(--red-light); color:var(--red); }
-.sidebar-cat-btn .cat-count { font-size:.75rem; background:var(--gray-100); border-radius:3px; padding:.1rem .55rem; color:var(--gray-500); }
-.sidebar-cat-btn.active .cat-count { background:rgba(200,54,43,.12); color:var(--red); }
-.blog-item-mini { display:flex; gap:.85rem; padding:.85rem 0; border-bottom:1px solid var(--gray-200); }
-.blog-item-mini:last-child { border-bottom:none; padding-bottom:0; }
-.blog-mini-img { width:64px; height:56px; border-radius:var(--radius-sm); background:var(--gray-100); overflow:hidden; flex-shrink:0; }
-.blog-mini-img div { width:100%; height:100%; background-size:cover; background-position:center; }
-.blog-mini-title { font-size:.82rem; font-weight:600; color:var(--black); line-height:1.4; margin-bottom:.25rem; }
-.blog-mini-date { font-size:.72rem; color:var(--gray-400); }
-.blog-cats-strip { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2rem; }
-.blog-cat-pill { padding:.4rem 1rem; border-radius:5px; font-size:.8rem; font-weight:600; border:1.5px solid var(--gray-200); color:var(--gray-600); background:var(--white); cursor:pointer; transition:all .2s; }
-.blog-cat-pill:hover, .blog-cat-pill.active { background:var(--red); border-color:var(--red); color:var(--white); }
-.coming-soon-banner { background:linear-gradient(135deg,var(--red-light),rgba(200,54,43,.04)); border:1px solid rgba(200,54,43,.2); border-radius:var(--radius-md); padding:2rem; text-align:center; margin-top:2rem; }
-.coming-soon-banner i { font-size:2rem; color:var(--red); margin-bottom:.75rem; display:block; }
-.coming-soon-banner h4 { margin-bottom:.4rem; }
-.coming-soon-banner p { font-size:.875rem; color:var(--gray-600); margin-bottom:1rem; }
-@media(max-width:1024px){ .blog-layout{grid-template-columns:1fr;} .blog-sidebar{position:static;} }
-@media(max-width:768px){ .blog-grid{grid-template-columns:1fr;} .blog-grid .blog-card:first-child{grid-column:auto;grid-template-columns:1fr;} .blog-grid .blog-card:first-child .blog-card-img-inner{height:220px;} }
-</style>
+<link rel="stylesheet" href="/css/blog.css">
 </head>
 <body>
 
@@ -153,7 +122,7 @@
       <li class="nav-item"><a href="/projects" class="nav-link">Projects <i class="fas fa-chevron-down chevron"></i></a><div class="dropdown"><a href="/projects" class="dropdown-link"><i class="fas fa-th"></i> All Projects</a><a href="/projects/apartments" class="dropdown-link"><i class="fas fa-building"></i> Apartments</a><a href="/projects/plots" class="dropdown-link"><i class="fas fa-map"></i> Plots</a><hr class="dropdown-divider"><a href="/developers" class="dropdown-link"><i class="fas fa-sitemap"></i> Developer Partnerships</a></div></li>
       <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
       <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-      <li class="nav-item"><a href="/" class="nav-link active">Blog</a></li>
+      <li class="nav-item"><a href="/blog" class="nav-link active">Blog</a></li>
       <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
     </ul>
     <div class="nav-actions">
@@ -169,150 +138,165 @@
       <li><a href="/projects" class="mobile-nav-link">Projects</a><div class="mobile-sub"><a href="/projects/apartments" class="mobile-sub-link">Apartments</a><a href="/projects/plots" class="mobile-sub-link">Plots</a><a href="/projects/villas" class="mobile-sub-link">Villas</a><a href="/projects/commercial" class="mobile-sub-link">Commercial</a><a href="/developers" class="mobile-sub-link">Developer Partnerships</a></div></li>
       <li><a href="/services" class="mobile-nav-link">Services</a></li>
       <li><a href="/about" class="mobile-nav-link">About</a></li>
-      <li><a href="/" class="mobile-nav-link active">Blog</a></li>
+      <li><a href="/blog" class="mobile-nav-link active">Blog</a></li>
     </ul>
     <div class="mobile-menu-footer"><a href="/contact" class="btn btn-primary">Enquire Now</a><a href="tel:+917066880808" class="btn btn-ghost">Call Us</a><div class="mobile-contact-info"><a href="tel:+917066880808"><i class="fas fa-phone"></i> +91 70668 80808</a><a href="mailto:info@prophuntllp.com"><i class="fas fa-envelope"></i> info@prophuntllp.com</a><a href="https://wa.me/917447430431" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></div></div>
   </div>
 </div>
 
-<section class="page-hero">
-  <div class="container page-hero-inner">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">Blog</span></nav>
-    <span class="section-label"><i class="fas fa-newspaper"></i> Insights &amp; Updates</span>
-    <h1>Pune Real Estate<br>Market Intelligence</h1>
-    <p>Expert analysis, buyer guides, investment research, and market updates straight from our advisory team.</p>
-    <div class="page-hero-meta">
-      <div class="page-hero-meta-item"><i class="fas fa-pen"></i> Written by PROPHUNT Advisors</div>
-      <div class="page-hero-meta-item"><i class="fas fa-sync-alt"></i> Updated regularly</div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="blog-cats-strip" data-reveal>
-      <button class="blog-cat-pill active" data-cat="all">All Articles</button>
-      <button class="blog-cat-pill" data-cat="market">Market Reports</button>
-      <button class="blog-cat-pill" data-cat="buyer">Buyer Guides</button>
-      <button class="blog-cat-pill" data-cat="investment">Investment</button>
-      <button class="blog-cat-pill" data-cat="legal">Legal &amp; Docs</button>
-      <button class="blog-cat-pill" data-cat="nri">NRI Corner</button>
-    </div>
-
-    <div class="blog-layout">
+<!--BLOG-LISTING-START-->
+<main class="bl-page">
+  <div class="bl-wrap">
+    <nav class="bl-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><span aria-current="page">Blog</span></nav>
+    <section class="bl-hero">
       <div>
-        <div class="blog-grid" id="blogGrid">
-      <article class="blog-card" data-cat="buyer">
-        <div class="blog-card-img" style="height:auto;">
-          <div class="blog-card-img-inner" style="background-image:url('/images/blog/baner-wakad-hinjewadi-tathawade-property-comparison-2026.png');background-size:cover;background-position:center;"></div>
-          <div class="blog-card-cat"><span class="badge badge-dark">Buyer Guide</span></div>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> 8 September 2026</div>
-          <div class="blog-card-title"><a href="/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026">Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?</a></div>
-          <p class="blog-card-excerpt">Compare Baner, Wakad, Hinjewadi and Tathawade for connectivity, lifestyle, projects and buyer fit before choosing your West Pune location.</p>
-          <div class="blog-card-footer">
-            <span class="blog-card-author"><i class="fas fa-user-circle"></i> PROPHUNT Advisory Team</span>
-            <a href="/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </article>
-      <article class="blog-card" data-cat="buyer">
-        <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background-image:url('/images/blog/luxury-apartments-in-pune-buyers-guide.png');background-size:cover;background-position:center;"></div>
-          <div class="blog-card-cat"><span class="badge badge-dark">Buyer Guide</span></div>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> 29 June 2026</div>
-          <div class="blog-card-title"><a href="/blog/luxury-apartments-in-pune-complete-buyer-s-guide-2026">Luxury Apartments in Pune: Complete Buyer's Guide 2026</a></div>
-          <p class="blog-card-excerpt">Explore luxury apartments in Pune with expert insights on top locations, prices, amenities, investment potential, and smart buying tips from PropHunt LLP.</p>
-          <div class="blog-card-footer">
-            <span class="blog-card-author"><i class="fas fa-user-circle"></i> PROPHUNT Advisory Team</span>
-            <a href="/blog/luxury-apartments-in-pune-complete-buyer-s-guide-2026" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </article>
-      <article class="blog-card" data-cat="market">
-        <div class="blog-card-img">
-          <div class="blog-card-img-inner" style="background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;"><i class="fas fa-chart-bar" style="font-size:3rem;color:rgba(200,54,43,.35);"></i></div>
-          <div class="blog-card-cat"><span class="badge badge-red">Market Report</span></div>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> 27 June 2025</div>
-          <div class="blog-card-title"><a href="/blog/pune-real-estate-market-h1-2025">Pune Residential Market H1 2025: Price Trends, Top Micro-Markets & Outlook</a></div>
-          <p class="blog-card-excerpt">Baner, Hinjewadi and Balewadi recorded 8–12% year-on-year price appreciation in H1 2025. Here is what the data says and where value lies today.</p>
-          <div class="blog-card-footer">
-            <span class="blog-card-author"><i class="fas fa-user-circle"></i> PROPHUNT Advisory Team</span>
-            <a href="/blog/pune-real-estate-market-h1-2025" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </article></div>
-
-        <div class="coming-soon-banner" data-reveal>
-          <i class="fas fa-pen-nib"></i>
-          <h4>More Articles Coming Soon</h4>
-          <p>Our advisory team publishes new market insights, buyer guides, and investment analysis every month. Subscribe to our newsletter to get notified.</p>
-          <form id="blogNewsletterForm" novalidate style="display:flex;gap:.5rem;max-width:380px;margin:0 auto;">
-            <input type="email" placeholder="Your email address" class="form-control" style="flex:1;font-size:.875rem;" required>
-            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
-          </form>
-        </div>
+        <span class="bl-eyebrow"><i class="fas fa-newspaper" aria-hidden="true"></i>PROPHUNT Insights</span>
+        <h1>Pune property, <em>explained clearly.</em></h1>
+        <p>Buyer guides, market notes and the paperwork that matters, from the PROPHUNT LLP advisory team in Baner, Pune.</p>
       </div>
+      <div class="bl-search-card">
+        <label for="blSearch">What do you want to know?</label>
+        <div class="bl-search"><i class="fas fa-search" aria-hidden="true"></i><input id="blSearch" type="search" placeholder="Search guides, areas, topics…" autocomplete="off"></div>
+        <div class="bl-stats"><div><strong>3</strong><span>Guides</span></div><div><strong>2</strong><span>Topics</span></div></div>
+      </div>
+    </section>
+  </div>
 
-      <!-- Sidebar -->
-      <aside class="blog-sidebar">
-        <div class="sidebar-box">
-          <div class="sidebar-box-title">Categories</div>
-          <div class="sidebar-cats">
-            <button class="sidebar-cat-btn active" data-cat="all"><span><i class="fas fa-th" style="width:16px;color:var(--red);"></i> All Articles</span><span class="cat-count">3</span></button>
-            <button class="sidebar-cat-btn" data-cat="market"><span><i class="fas fa-chart-bar" style="width:16px;color:var(--red);"></i> Market Reports</span><span class="cat-count">1</span></button>
-            <button class="sidebar-cat-btn" data-cat="buyer"><span><i class="fas fa-home" style="width:16px;color:var(--red);"></i> Buyer Guides</span><span class="cat-count">2</span></button>
-            <button class="sidebar-cat-btn" data-cat="investment"><span><i class="fas fa-rupee-sign" style="width:16px;color:var(--red);"></i> Investment</span><span class="cat-count">0</span></button>
-            <button class="sidebar-cat-btn" data-cat="legal"><span><i class="fas fa-file-contract" style="width:16px;color:var(--red);"></i> Legal & Docs</span><span class="cat-count">0</span></button>
-            <button class="sidebar-cat-btn" data-cat="nri"><span><i class="fas fa-globe-asia" style="width:16px;color:var(--red);"></i> NRI Corner</span><span class="cat-count">0</span></button>
-          </div>
-        </div>
-
-        <div class="sidebar-box">
-          <div class="sidebar-box-title">Popular Guides</div>
-          <div>
-            <a href="/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026" class="blog-item-mini">
-              <div class="blog-mini-img"><div style="background-image:url('/images/blog/baner-wakad-hinjewadi-tathawade-property-comparison-2026.png');background-size:cover;background-position:center;"></div></div>
-              <div><div class="blog-mini-title">Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?</div><div class="blog-mini-date">8 September 2026</div></div>
-            </a>
-            <a href="/blog/luxury-apartments-in-pune-complete-buyer-s-guide-2026" class="blog-item-mini">
-              <div class="blog-mini-img"><div style="background-image:url('/images/blog/luxury-apartments-in-pune-buyers-guide.png');background-size:cover;background-position:center;"></div></div>
-              <div><div class="blog-mini-title">Luxury Apartments in Pune: Complete Buyer's Guide 2026</div><div class="blog-mini-date">29 June 2026</div></div>
-            </a>
-            <a href="/blog/pune-real-estate-market-h1-2025" class="blog-item-mini">
-              <div class="blog-mini-img"><div style="background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;"><i class="fas fa-chart-area" style="color:rgba(200,54,43,.5);font-size:1.2rem;"></i></div></div>
-              <div><div class="blog-mini-title">Pune Residential Market H1 2025: Price Trends, Top Micro-Markets &amp; Outlook</div><div class="blog-mini-date">27 June 2025</div></div>
-            </a>
-          </div>
-        </div>
-
-        <div class="sidebar-box" style="background:var(--black); border-color:rgba(255,255,255,.08);">
-          <div class="sidebar-box-title" style="color:rgba(255,255,255,.4);">Need Expert Advice?</div>
-          <p style="font-size:.875rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:1.25rem;">Our property advisors can help you compare projects, locations, budgets and next steps.</p>
-          <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Consultation</a>
-          <a href="https://wa.me/917447430431" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:.6rem;"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
-        </div>
-      </aside>
+  <div class="bl-chips-bar">
+    <div class="bl-wrap bl-chips" role="toolbar" aria-label="Filter by topic">
+      <span class="bl-chips-label">Browse</span>
+      <button class="bl-chip active" data-cat="all" type="button">All articles <span class="n">3</span></button>
+      <button class="bl-chip" data-cat="market" type="button">Market Reports <span class="n">1</span></button>
+      <button class="bl-chip" data-cat="buyer" type="button">Buyer Guides <span class="n">2</span></button>
+      <button class="bl-chip" data-cat="investment" type="button">Investment <span class="n">0</span></button>
+      <button class="bl-chip" data-cat="legal" type="button">Legal &amp; Docs <span class="n">0</span></button>
+      <button class="bl-chip" data-cat="nri" type="button">NRI Corner <span class="n">0</span></button>
     </div>
   </div>
-</section>
 
-<footer class="footer">
+  <div class="bl-wrap">
+    <section class="bl-block" id="blFeatured">
+      <div class="bl-section-head"><span class="bl-eyebrow">Latest</span><h2>Start with the latest</h2></div>
+      <a class="bl-featured" href="/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026" data-cat="buyer" data-search="baner vs wakad vs hinjewadi vs tathawade: where to buy in 2026? compare baner, wakad, hinjewadi and tathawade for connectivity, lifestyle, projects and buyer fit before choosing your west pune location.">
+        <span class="bl-featured-body">
+          <span class="bl-meta"><span class="bl-pill">Buyer Guide</span>9 min read · 8 September 2026</span>
+          <h3>Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?</h3>
+          <p>Compare Baner, Wakad, Hinjewadi and Tathawade for connectivity, lifestyle, projects and buyer fit before choosing your West Pune location.</p>
+          <span class="bl-more">Read the guide →</span>
+        </span>
+        <span class="bl-featured-media"><span class="bl-media"><img src="/images/blog/baner-wakad-hinjewadi-tathawade-property-comparison-2026.png" alt="Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?" width="1200" height="630" fetchpriority="high"></span><span class="bl-featured-tag">Featured</span></span>
+      </a>
+    </section>
+
+    <section class="bl-block" style="padding-top:0">
+      <div class="bl-section-head"><span class="bl-eyebrow">All guides</span><h2>Keep exploring</h2></div>
+      <div class="bl-grid" id="blogGrid">
+        <a class="bl-card" href="/blog/luxury-apartments-in-pune-complete-buyer-s-guide-2026" data-cat="buyer" data-search="luxury apartments in pune: complete buyer's guide 2026 explore luxury apartments in pune with expert insights on top locations, prices, amenities, investment potential, and smart buying tips from prophunt llp.">
+        <span class="bl-media"><img src="/images/blog/luxury-apartments-in-pune-buyers-guide.png" alt="Luxury Apartments in Pune: Complete Buyer's Guide 2026" width="1200" height="630" loading="lazy" decoding="async"></span>
+        <span class="bl-card-num">02</span>
+        <span class="bl-card-body">
+          <span class="bl-card-top"><span class="bl-card-cat">Buyer Guide</span><span class="bl-card-read">5 min read</span></span>
+          <h3>Luxury Apartments in Pune: Complete Buyer's Guide 2026</h3>
+          <p>Explore luxury apartments in Pune with expert insights on top locations, prices, amenities, investment potential, and smart buying tips from PropHunt LLP.</p>
+          <span class="bl-card-foot"><span>29 June 2026 · PROPHUNT Advisory Team</span><span class="bl-more">Read →</span></span>
+        </span>
+      </a>
+        <a class="bl-card" href="/blog/pune-real-estate-market-h1-2025" data-cat="market" data-search="pune residential market h1 2025: price trends, top micro-markets &amp; outlook baner, hinjewadi and balewadi recorded 8–12% year-on-year price appreciation in h1 2025. here is what the data says and where value lies today.">
+        <span class="bl-media bl-media-empty" aria-hidden="true"><i class="fas fa-newspaper"></i></span>
+        <span class="bl-card-num">03</span>
+        <span class="bl-card-body">
+          <span class="bl-card-top"><span class="bl-card-cat">Market Report</span><span class="bl-card-read">1 min read</span></span>
+          <h3>Pune Residential Market H1 2025: Price Trends, Top Micro-Markets &amp; Outlook</h3>
+          <p>Baner, Hinjewadi and Balewadi recorded 8–12% year-on-year price appreciation in H1 2025. Here is what the data says and where value lies today.</p>
+          <span class="bl-card-foot"><span>27 June 2025 · PROPHUNT Advisory Team</span><span class="bl-more">Read →</span></span>
+        </span>
+      </a>
+        <p class="bl-empty" id="blEmpty" hidden>No articles match that yet. Try another topic, or <a href="/contact">ask our advisors</a>.</p>
+      </div>
+    </section>
+
+    <section class="bl-cta">
+      <div>
+        <h2>Looking to buy a home in Pune?</h2>
+        <p>Tell us your budget, location and timeline. A PROPHUNT advisor will shortlist developer-backed projects, share current cost sheets and arrange site visits, free for buyers.</p>
+      </div>
+      <div class="bl-cta-actions">
+        <a class="bl-btn bl-btn-primary" href="/contact">Book a free consultation <i class="fas fa-arrow-right"></i></a>
+        <a class="bl-btn bl-btn-ghost" href="https://wa.me/917447430431?text=Hi%20PROPHUNT%20LLP%2C%20I%20read%20your%20blog%20and%20would%20like%20advice%20on%20buying%20a%20property%20in%20Pune." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp us</a>
+      </div>
+    </section>
+  </div>
+</main>
+<!--BLOG-LISTING-END-->
+
+<footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand"><a href="/" class="footer-logo"><img src="../images/logo-black.png" alt="PROPHUNT LLP"></a><div class="footer-tagline"><span class="sanskrit">भूमिं मृगयध्वम्</span><span class="translation">Hunt the Land</span></div><p class="footer-about-text">Pune's trusted real estate partner.</p><div class="footer-social"><a href="https://www.facebook.com/PropHuntLLP" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/prophunt_llp/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/company/prophunt-llp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/917447430431" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
-      <div class="footer-col"><h5 aria-level="3">Explore</h5><ul class="footer-links"><li><a href="/"><i class="fas fa-chevron-right"></i>Home</a></li><li><a href="/projects"><i class="fas fa-chevron-right"></i>All Projects</a></li><li><a href="/developers"><i class="fas fa-chevron-right"></i>Developers</a></li><li><a href="/services"><i class="fas fa-chevron-right"></i>Services</a></li><li><a href="/about"><i class="fas fa-chevron-right"></i>About Us</a></li><li><a href="/"><i class="fas fa-chevron-right"></i>Blog</a></li><li><a href="/contact"><i class="fas fa-chevron-right"></i>Contact</a></li></ul></div>
-      <div class="footer-col"><h5 aria-level="3">Projects</h5><ul class="footer-links"><li><a href="/projects/mahindra-citadel"><i class="fas fa-chevron-right"></i>Mahindra Citadel</a></li><li><a href="/projects/treetopia"><i class="fas fa-chevron-right"></i>SP Treetopia</a></li><li><a href="/projects/apartments"><i class="fas fa-chevron-right"></i>Apartments</a></li><li><a href="/projects/plots"><i class="fas fa-chevron-right"></i>Plots</a></li><li><a href="/privacy-policy"><i class="fas fa-chevron-right"></i>Privacy Policy</a></li><li><a href="/terms"><i class="fas fa-chevron-right"></i>Terms of Service</a></li><li><a href="/location"><i class="fas fa-chevron-right"></i>Browse by Location</a></li><li><a href="/developer"><i class="fas fa-chevron-right"></i>Browse by Developer</a></li></ul></div>
-      <div class="footer-newsletter"><h5 aria-level="3">Stay Updated</h5><p>Get market insights and new article alerts.</p><form class="newsletter-form" id="newsletterForm" novalidate><input type="email" name="newsletterEmail" placeholder="Your email" aria-label="Email" required><button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button></form></div>
+      <div class="footer-brand">
+        <a href="/" class="footer-logo"><img src="/images/logo-black.png" alt="PROPHUNT LLP"></a>
+        <div class="footer-tagline">
+          <span class="sanskrit">भूमिं मृगयध्वम्</span>
+          <span class="translation">Hunt the Land</span>
+        </div>
+        <p class="footer-about-text">Real estate channel partners based in Baner, Pune. We connect homebuyers and investors with trusted, developer-backed projects, guided with clarity from enquiry to booking.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/PropHuntLLP" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/prophunt_llp/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/prophunt-llp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/917447430431" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5 aria-level="3">Explore</h5>
+        <ul class="footer-links">
+          <li><a href="/"><i class="fas fa-chevron-right"></i>Home</a></li>
+          <li><a href="/projects"><i class="fas fa-chevron-right"></i>All Projects</a></li>
+          <li><a href="/developers"><i class="fas fa-chevron-right"></i>Developers</a></li>
+          <li><a href="/services"><i class="fas fa-chevron-right"></i>Services</a></li>
+          <li><a href="/about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+          <li><a href="/blog"><i class="fas fa-chevron-right"></i>Blog</a></li>
+          <li><a href="/contact"><i class="fas fa-chevron-right"></i>Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 aria-level="3">Projects</h5>
+        <ul class="footer-links">
+          <li><a href="/projects/mahindra-citadel"><i class="fas fa-chevron-right"></i>Mahindra Citadel</a></li>
+          <li><a href="/projects/treetopia"><i class="fas fa-chevron-right"></i>SP Treetopia</a></li>
+          <li><a href="/projects/apartments"><i class="fas fa-chevron-right"></i>Apartments</a></li>
+          <li><a href="/projects/plots"><i class="fas fa-chevron-right"></i>Plots</a></li>
+          <li><a href="/rera-disclosure"><i class="fas fa-chevron-right"></i>RERA Disclosure</a></li>
+          <li><a href="/privacy-policy"><i class="fas fa-chevron-right"></i>Privacy Policy</a></li>
+          <li><a href="/terms"><i class="fas fa-chevron-right"></i>Terms &amp; Conditions</a></li>
+          <li><a href="/location"><i class="fas fa-chevron-right"></i>Browse by Location</a></li><li><a href="/developer"><i class="fas fa-chevron-right"></i>Browse by Developer</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h5 aria-level="3">Stay Updated</h5>
+        <p>Get the latest project launches, price updates, and market insights in your inbox.</p>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <input type="email" name="newsletterEmail" placeholder="Your email" aria-label="Email for newsletter" required>
+          <button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button>
+        </form>
+        <div class="footer-contact-quick" style="margin-top:1.5rem;">
+          <a href="tel:+917066880808" style="display:flex;align-items:center;gap:.5rem;color:var(--gray-400);font-size:.82rem;margin-bottom:.5rem;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color=''"><i class="fas fa-phone" style="color:#C8362B;width:14px;"></i> +91 70668 80808</a>
+          <a href="mailto:info@prophuntllp.com" style="display:flex;align-items:center;gap:.5rem;color:var(--gray-400);font-size:.82rem;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color=''"><i class="fas fa-envelope" style="color:#C8362B;width:14px;"></i> info@prophuntllp.com</a>
+        </div>
+      </div>
     </div>
     <hr class="divider" style="border-color:rgba(255,255,255,.08);">
-    <div class="footer-rera" style="text-align:center;padding:.75rem 0;font-size:.78rem;color:rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:.85rem;">MahaRERA Agent Registration No. <a href="/rera-disclosure" style="color:rgba(200,54,43,.7);font-weight:700;" onmouseover="this.style.color='#C8362B'" onmouseout="this.style.color='rgba(200,54,43,.7)'">A52100037156</a> &nbsp;|&nbsp; Registered under Real Estate (Regulation &amp; Development) Act, 2016 &nbsp;|&nbsp; <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener" style="color:rgba(255,255,255,.35);" onmouseover="this.style.color='rgba(255,255,255,.75)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">maharera.mahaonline.gov.in <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i></a></div>
-<div class="footer-bottom"><span>&copy; 2026 PROPHUNT LLP. All rights reserved.</span><span style="color:#C8362B;font-family:'Lora',serif;">भूमिं मृगयध्वम् | Hunt the Land</span><div class="footer-bottom-links"><a href="/rera-disclosure">RERA</a><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a></div></div>
+    <div class="footer-rera" style="text-align:center;padding:.75rem 0;font-size:.78rem;color:rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:.85rem;">
+      MahaRERA Agent Registration No. <a href="/rera-disclosure" style="color:rgba(200,54,43,.7);font-weight:700;transition:color .2s;" onmouseover="this.style.color='#C8362B'" onmouseout="this.style.color='rgba(200,54,43,.7)'">A52100037156</a> &nbsp;|&nbsp; Registered under Real Estate (Regulation &amp; Development) Act, 2016 &nbsp;|&nbsp; <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener" style="color:rgba(255,255,255,.35);transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.75)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">maharera.maharashtra.gov.in <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i></a>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 PROPHUNT LLP. All rights reserved.</span>
+      <span style="color:#C8362B;font-family:'Lora',serif;">भूमिं मृगयध्वम् | Hunt the Land</span>
+      <div class="footer-bottom-links">
+        <a href="/rera-disclosure">RERA</a>
+        <a href="/privacy-policy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -322,123 +306,34 @@
 <script src="../js/nav.js"></script>
 <script src="../js/custom-select.js"></script>
 <script>
+// Topic chips + search on the prerendered cards (scripts/build-blog.js).
+// ?cat=legal and ?q=stamp+duty work as links too.
 (function () {
-  const CAT_LABELS  = { market:'Market Report', buyer:'Buyer Guide', investment:'Investment', legal:'Legal & Docs', nri:'NRI Corner' };
-  const CAT_ICONS   = { market:'fas fa-chart-bar', buyer:'fas fa-home', investment:'fas fa-rupee-sign', legal:'fas fa-file-contract', nri:'fas fa-globe-asia' };
-  const CAT_COLORS  = { market:'badge-red', buyer:'badge-dark', investment:'badge-red', legal:'badge-dark', nri:'badge-dark' };
-
-  let allPosts = [];
-  let activeFilter = 'all';
-
-  function formatDate(str) {
-    if (!str) return '';
-    const d = new Date(str);
-    return d.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.bl-chip'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#blFeatured .bl-featured, #blogGrid .bl-card'));
+  var search = document.getElementById('blSearch');
+  var empty = document.getElementById('blEmpty');
+  var params = new URLSearchParams(location.search);
+  var state = { cat: params.get('cat') || 'all', q: (params.get('q') || '').toLowerCase().trim() };
+  if (search && state.q) search.value = params.get('q');
+  function apply() {
+    var shown = 0;
+    chips.forEach(function (c) { c.classList.toggle('active', c.dataset.cat === state.cat); c.setAttribute('aria-pressed', c.dataset.cat === state.cat); });
+    cards.forEach(function (c) {
+      var ok = (state.cat === 'all' || c.dataset.cat === state.cat) && (!state.q || (c.dataset.search || '').indexOf(state.q) !== -1);
+      c.hidden = !ok; if (ok) shown++;
+    });
+    var feat = document.getElementById('blFeatured');
+    if (feat) feat.hidden = !!feat.querySelector('.bl-featured[hidden]');
+    if (empty) empty.hidden = shown > 0;
   }
-
-  function renderCard(p, featured) {
-    const coverHTML = p.cover
-      ? `<div class="blog-card-img-inner" style="background-image:url('${p.cover}');background-size:cover;background-position:center;"></div>`
-      : `<div class="blog-card-img-inner" style="background:linear-gradient(135deg,#1a1a1a,#2d1a1a);display:flex;align-items:center;justify-content:center;"><i class="${CAT_ICONS[p.category] || 'fas fa-newspaper'}" style="font-size:${featured?'4':'3'}rem;color:rgba(200,54,43,.35);"></i></div>`;
-    return `
-      <article class="blog-card" data-cat="${p.category}">
-        <div class="blog-card-img"${featured?' style="height:auto;"':''}>
-          ${coverHTML}
-          <div class="blog-card-cat"><span class="badge ${CAT_COLORS[p.category]||'badge-dark'}">${CAT_LABELS[p.category]||p.category}</span></div>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-date"><i class="fas fa-calendar-alt"></i> ${formatDate(p.date)}</div>
-          <div class="blog-card-title"><a href="${p.url||'/blog/post?slug='+p.slug}">${p.title}</a></div>
-          <p class="blog-card-excerpt">${p.excerpt}</p>
-          <div class="blog-card-footer">
-            <span class="blog-card-author"><i class="fas fa-user-circle"></i> ${p.author}</span>
-            <a href="${p.url||'/blog/post?slug='+p.slug}" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </article>`;
-  }
-
-  function renderGrid(filter) {
-    const grid = document.getElementById('blogGrid');
-    const list = filter === 'all' ? allPosts : allPosts.filter(p => p.category === filter);
-    if (!list.length) {
-      grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--gray-400);"><i class="fas fa-inbox" style="font-size:2rem;display:block;margin-bottom:.75rem;"></i>No articles in this category yet.</div>`;
-      return;
-    }
-    grid.innerHTML = list.map((p, i) => renderCard(p, i === 0 && filter === 'all')).join('');
-  }
-
-  function updateSidebarCounts() {
-    const counts = {};
-    allPosts.forEach(p => { counts[p.category] = (counts[p.category] || 0) + 1; });
-    document.querySelectorAll('.sidebar-cat-btn').forEach(btn => {
-      const span = btn.querySelector('.cat-count');
-      if (!span) return;
-      const cat = btn.dataset.cat;
-      if (cat === 'all') span.textContent = allPosts.length;
-      else span.textContent = counts[cat] || 0;
-    });
-  }
-
-  // Load posts.json
-  fetch('/blog/posts.json')
-    .then(r => r.ok ? r.json() : [])
-    .catch(() => [])
-    .then(posts => {
-      allPosts = posts;
-      renderGrid('all');
-      updateSidebarCounts();
-    });
-
-  // Category filter pills
-  document.querySelectorAll('.blog-cat-pill').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.blog-cat-pill').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeFilter = btn.dataset.cat || 'all';
-      renderGrid(activeFilter);
-    });
-  });
-
-  document.querySelectorAll('.sidebar-cat-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.sidebar-cat-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeFilter = btn.dataset.cat || 'all';
-      renderGrid(activeFilter);
-      document.querySelectorAll('.blog-cat-pill').forEach(b => {
-        b.classList.toggle('active', (b.dataset.cat || 'all') === activeFilter);
-      });
-    });
-  });
-
-  // Newsletter
-  document.getElementById('blogNewsletterForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = this;
-    const input = form.querySelector('input[type="email"]');
-    const em = input.value.trim();
-    const btn = form.querySelector('button');
-    if (!/^\S+@\S+\.\S+$/.test(em)) { input.focus(); return; }
-    const orig = btn.textContent;
-    btn.disabled = true; btn.textContent = 'Subscribing…';
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: 'acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9',
-        subject: 'Blog newsletter subscription',
-        from_name: 'PROPHUNT LLP website (Blog newsletter)',
-        email: em,
-        source_page: window.location.pathname
-      })
-    }).then(r => r.json().then(d => r.ok && d.success !== false)).catch(() => false).then(ok => {
-      btn.disabled = false;
-      btn.textContent = ok ? 'Subscribed' : 'Error, try again';
-      if (ok) form.reset();
-      setTimeout(() => { btn.textContent = orig; }, 3000);
-    });
-  });
+  chips.forEach(function (c) { c.addEventListener('click', function () {
+    state.cat = c.dataset.cat; apply();
+    var u = new URL(location.href); if (state.cat === 'all') u.searchParams.delete('cat'); else u.searchParams.set('cat', state.cat);
+    history.replaceState(null, '', u);
+  }); });
+  if (search) search.addEventListener('input', function () { state.q = search.value.toLowerCase().trim(); apply(); });
+  apply();
 })();
 </script>
 <script>

@@ -21,7 +21,7 @@ const {
 } = require('./hub-shared');
 
 const ROOT = path.join(__dirname, '..');
-const MAHARERA_URL = 'https://maharera.mahaonline.gov.in';
+const MAHARERA_URL = 'https://maharera.maharashtra.gov.in';
 
 function joinList(items) {
   if (items.length <= 1) return items.join('');

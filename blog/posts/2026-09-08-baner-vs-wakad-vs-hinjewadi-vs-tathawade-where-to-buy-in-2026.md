@@ -1,5 +1,10 @@
 ---
 title: "Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?"
+focus_keyword: "baner vs wakad"
+secondary_keywords:
+  - "wakad vs hinjewadi"
+  - "tathawade vs wakad"
+  - "where to buy in west pune"
 date: "2026-09-08"
 author: "PROPHUNT Advisory Team"
 category: "buyer"

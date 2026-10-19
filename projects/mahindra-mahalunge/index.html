@@ -519,7 +519,7 @@ button,select,input,textarea{font-family:inherit}
       <li>Confirm offers, payment plans and possession timelines in writing — they change, and marketing material may be out of date.</li>
       <li>Have the sale agreement and title documents reviewed by a qualified legal professional before signing.</li>
     </ul>
-    <p class="ph-disclaimer">Project details, prices, inventory, offers, possession timelines and RERA information are subject to developer disclosure and buyer verification. Buyers should independently verify applicable project details on <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">MahaRERA</a> before purchase.</p></div>
+    <p class="ph-disclaimer">Project details, prices, inventory, offers, possession timelines and RERA information are subject to developer disclosure and buyer verification. Buyers should independently verify applicable project details on <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">MahaRERA</a> before purchase.</p></div>
     <div id="faqs" class="ph-section"><div class="ph-section-label">Frequently Asked Questions</div>
       <h3 class="ph-faq-q">What configurations are available at Mahindra Lifespaces Mahalunge?</h3><p class="ph-faq-a">Mahindra Lifespaces Mahalunge offers 2, 3 &amp; 4 BHK Apartments, with sizes 700 – 1,650 sqft.</p><h3 class="ph-faq-q">What is the price of homes at Mahindra Lifespaces Mahalunge?</h3><p class="ph-faq-a">Mahindra Lifespaces Mahalunge is priced ₹90 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans.</p><h3 class="ph-faq-q">Where is Mahindra Lifespaces Mahalunge located?</h3><p class="ph-faq-a">Mahindra Lifespaces Mahalunge is located at Mahalunge, Baner Annex, Pune, developed by Mahindra Lifespaces.</p><h3 class="ph-faq-q">Who is the developer of Mahindra Lifespaces Mahalunge?</h3><p class="ph-faq-a">Mahindra Lifespaces Mahalunge is developed by Mahindra Lifespaces.</p><h3 class="ph-faq-q">Is Mahindra Lifespaces Mahalunge ready to move in or under construction?</h3><p class="ph-faq-a">Mahindra Lifespaces Mahalunge is a new launch.</p><h3 class="ph-faq-q">Where is Mahalunge and how does it relate to Baner?</h3><p class="ph-faq-a">Mahalunge is an emerging locality adjoining Baner in west Pune, often marketed as the next growth corridor as Baner itself matures and land availability there tightens.</p><h3 class="ph-faq-q">Why are developers launching projects in Mahalunge?</h3><p class="ph-faq-a">Mahalunge offers relatively larger parcels of land close to the established Baner-Balewadi belt and within reach of Hinjewadi Phase 3, letting developers offer larger-format homes at comparatively accessible pricing versus core Baner.</p><h3 class="ph-faq-q">What is the connectivity like in Mahalunge?</h3><p class="ph-faq-a">Mahalunge benefits from its proximity to the Baner-Pashan Link Road and the Mumbai-Pune Expressway, with onward access to Hinjewadi’s IT parks.</p></div>
     <div id="related-searches" class="ph-section"><div class="ph-section-label">Related Searches</div>
@@ -539,7 +539,7 @@ button,select,input,textarea{font-family:inherit}
     <a href="/location">Browse by Location</a>
     <a href="/developer">Browse by Developer</a>
   </div>
-  <div class="ph-footer-copy">© <span id="ph-year">2026</span> PROPHUNT LLP. All rights reserved. | MahaRERA Agent Registration No. <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">A52100037156</a></div>
+  <div class="ph-footer-copy">© <span id="ph-year">2026</span> PROPHUNT LLP. All rights reserved. | MahaRERA Agent Registration No. <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">A52100037156</a></div>
   <script>document.getElementById('ph-year').textContent=new Date().getFullYear();</script>
 </footer>
 
@@ -775,7 +775,7 @@ function buildPage(prop, allProps) {
     ? `<div class="ph-stats-row">${statsData.map(([v,l])=>`<div class="ph-stat"><span class="ph-stat-ic"><i class="fas fa-${factIcon(l,v)}"></i></span><span><span class="val">${v}</span><span class="lbl">${l||''}</span></span></div>`).join('')}</div>` : '';
 
   /* ── Snapshot + "before you book" — markup mirrors scripts/build-properties.js ── */
-  const MAHARERA_URL = 'https://maharera.mahaonline.gov.in';
+  const MAHARERA_URL = 'https://maharera.maharashtra.gov.in';
   const MONTH_IDX = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
   function possessionInfo() {
     for (let i = 1; i <= 4; i++) {
@@ -903,7 +903,7 @@ function buildPage(prop, allProps) {
   /* ── RERA ── */
   const reraHtml = prop.rera
     ? `<div class="ph-rera-box"><i class="fas fa-shield-halved"></i>
-        <div><strong>MahaRERA Registered</strong><br>Registration No: ${prop.rera} - <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener" style="color:var(--red)">Verify on MahaRERA</a></div>
+        <div><strong>MahaRERA Registered</strong><br>Registration No: ${prop.rera} - <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener" style="color:var(--red)">Verify on MahaRERA</a></div>
       </div>` : '';
 
   /* RERA + QR strip shown right before the enquiry form, so the verification
@@ -916,7 +916,7 @@ function buildPage(prop, allProps) {
         <div class="ph-rera-preform-text">
           <strong><i class="fas fa-shield-halved"></i> MahaRERA Registered</strong>
           <span>Registration No: ${prop.rera}</span>
-          <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener">Verify on MahaRERA →</a>
+          <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">Verify on MahaRERA →</a>
         </div>
       </div>` : '';
 
