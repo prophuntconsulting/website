@@ -247,9 +247,10 @@
 .fa-graduation-cap:before{content:"\f19d"}
 .fa-sr-only,.fa-sr-only-focusable:not(:focus),.sr-only,.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
 :host,:root{--fa-style-family-brands:"Font Awesome 6 Brands";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}
-@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:block;src:url(/fonts/fa-brands-400-subset.woff2) format("woff2")}
+@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:block;src:url(/fonts/fa-brands-400-subset-v2.woff2) format("woff2")}
 .fa-brands,.fab{font-weight:400}
 .fa-linkedin-in:before{content:"\f0e1"}
+.fa-youtube:before{content:"\f167"}
 .fa-meta:before{content:"\e49b"}
 .fa-facebook-f:before{content:"\f39e"}
 .fa-x-twitter:before{content:"\e61b"}
