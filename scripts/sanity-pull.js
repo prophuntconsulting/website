@@ -241,7 +241,9 @@ async function main() {
     if (r.ok) since = Date.parse((await r.json()).builtAt) || 0;
   } catch { /* first deploy, or site unreachable */ }
   const changed = since
-    ? docs.filter(d => Date.parse(d._updatedAt) > since && written[d._type].has(`${d.slug.current}.md`)).map(d => urlFor.get(d._id))
+    // Edited since the last deploy, or a scheduled post that has just become due.
+    ? docs.filter(d => written[d._type].has(`${d.slug.current}.md`)
+        && (Date.parse(d._updatedAt) > since || (d.publishedAt && Date.parse(d.publishedAt) > since))).map(d => urlFor.get(d._id))
     : [];
   fs.writeFileSync(path.join(__dirname, '.changed-urls.json'), JSON.stringify(changed, null, 2) + '\n');
   fs.writeFileSync(path.join(ROOT, 'build-info.json'), JSON.stringify({ builtAt: new Date(now).toISOString() }) + '\n');
