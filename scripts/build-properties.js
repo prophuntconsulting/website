@@ -141,6 +141,8 @@ function clampAtWord(s, max) {
 }
 
 function metaDescription(p) {
+  // A hand-written description from the Studio (SEO tab) wins.
+  if (p.seo_description) return String(p.seo_description);
   const title = p.title || 'This project';
   const where = p.area_alias ? `${p.area_alias} (${p.location})` : p.location;
   // Lead with the facts searchers ask about (price, configuration, RERA), not
@@ -238,6 +240,8 @@ function shortConfig(p) {
   return { plot: 'Plots', villa: 'Villas', commercial: 'Office Space' }[p.category] || '';
 }
 function pageTitle(p) {
+  // A hand-written title from the Studio (SEO tab) wins; brand added if it fits.
+  if (p.seo_title) return fitTitle([`${p.seo_title} | PROPHUNT LLP`, `${p.seo_title} | PROPHUNT`, String(p.seo_title)]);
   const name = p.title || 'Property';
   const loc = p.area_alias || shortLocation(p);
   // Skip appending the locality when the project name already names it

@@ -39,7 +39,7 @@ const PROPERTY_KEYS = ['date_added', 'title', 'developer', 'location', 'config',
   'stat_1_value', 'stat_1_label', 'stat_2_value', 'stat_2_label', 'stat_3_value', 'stat_3_label', 'stat_4_value', 'stat_4_label',
   'price', 'unit_1_type', 'unit_1_area', 'unit_1_price', 'unit_1_featured', 'unit_2_type', 'unit_2_area', 'unit_2_price', 'unit_2_featured',
   'unit_3_type', 'unit_3_area', 'unit_3_price', 'unit_3_featured', 'amenities', 'gallery_images', 'gallery_videos', 'brochure',
-  'lat', 'lng', 'geo_confidence'].map(k => [k, k]);
+  'lat', 'lng', 'geo_confidence', 'seo_title', 'seo_description'].map(k => [k, k]);
 
 // Blog: [value prepared below, frontmatter key read by scripts/build-blog.js].
 const BLOG_MAP = [

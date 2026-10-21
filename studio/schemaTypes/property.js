@@ -27,6 +27,7 @@ export const property = defineType({
     { name: 'overview', title: 'Overview' },
     { name: 'pricing', title: 'Pricing' },
     { name: 'amenities', title: 'Amenities' },
+    { name: 'seo', title: 'SEO' },
   ],
   fields: [
     // ── Basic info ─────────────────────────────────────────────
@@ -88,6 +89,18 @@ export const property = defineType({
 
     // ── Amenities ──────────────────────────────────────────────
     defineField({ name: 'amenities', title: 'Amenities', type: 'array', group: 'amenities', of: [defineArrayMember({ type: 'string' })], description: 'One amenity per item, e.g. Swimming Pool, Gymnasium, Club House' }),
+
+    // ── SEO (optional overrides) ───────────────────────────────
+    defineField({
+      name: 'seo_title', title: 'SEO Title (optional)', type: 'string', group: 'seo',
+      description: 'The headline Google shows. Leave empty to generate one from the project name, area, configuration and RERA. "| PROPHUNT" is added when it fits.',
+      validation: r => r.max(60).warning('Over 60 characters gets cut off in Google.'),
+    }),
+    defineField({
+      name: 'seo_description', title: 'SEO Description (optional)', type: 'text', rows: 3, group: 'seo',
+      description: 'The text Google shows under the headline. Leave empty to generate one. Lead with what searchers want: configuration, size, location, price or RERA.',
+      validation: r => r.max(160).warning('Keep under 160 characters.'),
+    }),
   ],
   orderings: [
     { title: 'Project name', name: 'titleAsc', by: [{ field: 'title', direction: 'asc' }] },
