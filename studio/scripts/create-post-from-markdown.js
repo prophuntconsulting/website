@@ -74,6 +74,11 @@ if (DRY) {
     const file = here(spec.cover)
     const asset = await client.assets.upload('image', fs.readFileSync(file), { filename: path.basename(file) })
     doc.featuredImage = { _type: 'image', asset: { _type: 'reference', _ref: asset._id }, alt: spec.coverAlt || spec.title }
+    // Same image for Facebook/LinkedIn/WhatsApp and X, so every field is filled.
+    if (spec.copyCoverToSocial !== false) {
+      doc.openGraphImage = { ...doc.featuredImage }
+      doc.twitterImage = { ...doc.featuredImage }
+    }
   }
   await client.createOrReplace(doc)
   console.log('Saved and published.')
