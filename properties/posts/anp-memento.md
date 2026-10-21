@@ -48,4 +48,6 @@ gallery_images:
 lat: 18.6000854
 lng: 73.7470013
 geo_confidence: "exact"
+seo_title: "ANP Memento Wakad: 2, 2.5, 3 & 3.5 BHK at Bhumkar Chowk"
+seo_description: "ANP Memento by ANP Corp, Bhumkar Chowk, Wakad: 4 towers of 2, 2.5, 3 & 3.5 BHK homes, 749–1,201 sq ft carpet. MahaRERA P52100026219. Get the price sheet."
 ---
