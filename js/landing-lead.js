@@ -29,4 +29,20 @@
       } catch (e) { /* CRM copy is best-effort; Web3Forms still gets the lead */ }
     });
   });
+
+  // GA4: phone and WhatsApp taps count as leads (same events as js/nav.js).
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || typeof gtag !== 'function') return;
+    var href = a.getAttribute('href');
+    var name = /^tel:/i.test(href) ? 'phone_call'
+      : /^https?:\/\/(wa\.me|api\.whatsapp\.com|(www\.)?whatsapp\.com)\//i.test(href) ? 'whatsapp_click' : '';
+    if (!name) return;
+    gtag('event', name, {
+      link_url: href.split('?')[0],
+      link_text: (a.textContent || a.getAttribute('aria-label') || '').trim().slice(0, 100),
+      page_path: window.location.pathname,
+      transport_type: 'beacon'
+    });
+  }, true);
 })();

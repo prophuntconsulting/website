@@ -174,4 +174,20 @@
         el.innerHTML = el.innerHTML.replace(/(&copy;|©)\s*20\d\d/, '$1 ' + new Date().getFullYear());
     });
 
+    /* ── GA4: phone and WhatsApp taps are leads too (key events in GA4) ── */
+    document.addEventListener('click', e => {
+        const a = e.target.closest && e.target.closest('a[href]');
+        if (!a || typeof gtag !== 'function') return;
+        const href = a.getAttribute('href');
+        const name = /^tel:/i.test(href) ? 'phone_call'
+            : /^https?:\/\/(wa\.me|api\.whatsapp\.com|(www\.)?whatsapp\.com)\//i.test(href) ? 'whatsapp_click' : '';
+        if (!name) return;
+        gtag('event', name, {
+            link_url: href.split('?')[0],
+            link_text: (a.textContent || a.getAttribute('aria-label') || '').trim().slice(0, 100),
+            page_path: window.location.pathname,
+            transport_type: 'beacon'
+        });
+    }, true);
+
 })();
