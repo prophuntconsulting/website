@@ -54,6 +54,7 @@ const STATIC_PAGES = [
   { loc: '/about',       changefreq: 'monthly', priority: '0.8'  },
   { loc: '/contact',     changefreq: 'monthly', priority: '0.8'  },
   { loc: '/blog',        changefreq: 'weekly',  priority: '0.75' },
+  { loc: '/stamp-duty-calculator-pune', changefreq: 'monthly', priority: '0.7' },
   { loc: '/developers',  changefreq: 'monthly', priority: '0.7'  },
   { loc: '/rera-disclosure', changefreq: 'yearly', priority: '0.4' },
   { loc: '/privacy-policy',  changefreq: 'yearly', priority: '0.3' },
