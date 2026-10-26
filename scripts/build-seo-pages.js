@@ -618,20 +618,32 @@ if (fs.existsSync(homePath)) {
       <h2 class="section-title" id="popularSearchesTitle">Explore Pune Projects</h2>
     </div>
     <div class="popular-searches-grid">
-      ${groups.map(([title, links]) => `<div><h3 class="popular-searches-title">${escapeHtml(title)}</h3><ul class="popular-searches-list">${links.map(l => `<li><a href="${l.url}">${escapeHtml(l.label)}</a></li>`).join('')}</ul></div>`).join('\n      ')}
+      ${groups.map(([title, links]) => `<details class="popular-searches-group" open><summary class="popular-searches-title">${escapeHtml(title)} <span class="n">${links.length}</span></summary><ul class="popular-searches-list">${links.map(l => `<li><a href="${l.url}">${escapeHtml(l.label)}</a></li>`).join('')}</ul></details>`).join('\n      ')}
     </div>
   </div>
 </section>
 <style>
-.popular-searches-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:2rem}
-@media(max-width:1024px){.popular-searches-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.popular-searches-grid{grid-template-columns:1fr}}
-.popular-searches-title{font-size:.95rem;font-weight:700;margin-bottom:.75rem;color:var(--black)}
+.popular-searches-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2rem;margin-top:2rem}
+@media(max-width:1100px){.popular-searches-grid{grid-template-columns:repeat(3,1fr)}}
+.popular-searches-title{display:flex;align-items:center;gap:.5rem;font-family:var(--font-head);font-size:.95rem;font-weight:700;margin-bottom:.75rem;color:var(--black);list-style:none;pointer-events:none}
+.popular-searches-title::-webkit-details-marker{display:none}
+.popular-searches-title .n{display:none}
 .popular-searches-list{list-style:none;margin:0;padding:0}
 .popular-searches-list li{padding:.3rem 0}
-.popular-searches-list a{font-size:.88rem;color:var(--gray-600);transition:color .2s}
+.popular-searches-list a{font-size:.9rem;color:var(--gray-600);transition:color .2s}
 .popular-searches-list a:hover{color:var(--red)}
+/* Phones: each group is a tap-to-open row instead of one 40-link column. */
+@media(max-width:640px){
+  .popular-searches-grid{grid-template-columns:1fr;gap:0;border-top:1px solid var(--gray-200)}
+  .popular-searches-group{border-bottom:1px solid var(--gray-200)}
+  .popular-searches-title{pointer-events:auto;cursor:pointer;margin:0;padding:1rem 0}
+  .popular-searches-title .n{display:inline-flex;margin-left:auto;font-size:.75rem;font-weight:600;color:var(--gray-600);background:var(--gray-100);border-radius:99px;padding:.1rem .55rem}
+  .popular-searches-title::after{content:"\\f078";font-family:"Font Awesome 6 Free";font-weight:900;font-size:.7rem;color:var(--red);transition:transform .2s}
+  .popular-searches-group[open] .popular-searches-title::after{transform:rotate(180deg)}
+  .popular-searches-list{padding:0 0 .9rem}
+}
 </style>
+<script>if(matchMedia('(max-width:640px)').matches)document.querySelectorAll('.popular-searches-group').forEach(function(d){d.open=false})</script>
 <!--POPULAR-SEARCHES-END-->`;
   const home = fs.readFileSync(homePath, 'utf8');
   const next = home.replace(/<!--POPULAR-SEARCHES-START-->[\s\S]*?<!--POPULAR-SEARCHES-END-->/, block);

@@ -384,7 +384,7 @@ function buildPrerenderBlock(p, ctx) {
           <div class="bl-side-sub">Category</div>
           <select id="blCatSelect" aria-label="Browse a category">
             <option value="/blog">All categories (${ctx.total})</option>
-            ${Object.entries(LISTING_CAT_LABELS).map(([k, v]) => `<option value="/blog?cat=${k}"${k === p.category ? ' selected' : ''}>${escapeHtml(v)} (${ctx.catCounts[k] || 0})</option>`).join('')}
+            ${Object.entries(LISTING_CAT_LABELS).filter(([k]) => ctx.catCounts[k] || k === p.category).map(([k, v]) => `<option value="/blog?cat=${k}"${k === p.category ? ' selected' : ''}>${escapeHtml(v)} (${ctx.catCounts[k] || 0})</option>`).join('')}
           </select>
           ${toc.length ? `<div class="bl-side-sub">In this article</div>
           <ol class="bl-toc">${toc.map((h, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span><a href="#${h.id}">${escapeHtml(h.text)}</a></li>`).join('')}</ol>` : ''}
@@ -451,7 +451,7 @@ function buildListingBlock(listed, catCounts) {
     <div class="bl-wrap bl-chips" role="toolbar" aria-label="Filter by topic">
       <span class="bl-chips-label">Browse</span>
       <button class="bl-chip active" data-cat="all" type="button">All articles <span class="n">${listed.length}</span></button>
-      ${Object.entries(LISTING_CAT_LABELS).map(([k, v]) => `<button class="bl-chip" data-cat="${k}" type="button">${escapeHtml(v)} <span class="n">${catCounts[k] || 0}</span></button>`).join('\n      ')}
+      ${Object.entries(LISTING_CAT_LABELS).filter(([k]) => catCounts[k]).map(([k, v]) => `<button class="bl-chip" data-cat="${k}" type="button">${escapeHtml(v)} <span class="n">${catCounts[k] || 0}</span></button>`).join('\n      ')}
     </div>
   </div>
 
