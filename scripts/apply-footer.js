@@ -8,12 +8,14 @@ const path = require('path');
 const { applyFooter } = require('./site-footer');
 
 const ROOT = path.join(__dirname, '..');
-// Self-contained ad landing pages with their own design; they don't load style.css.
-const SKIP_DIRS = new Set(['node_modules', 'studio', 'admin', 'scripts', '.git', '.vercel', 'treetopia']);
+const SKIP_DIRS = new Set(['node_modules', 'studio', 'admin', 'scripts']);
+// Self-contained ad landing pages with their own design (top level only; /projects/treetopia is a normal page).
+const SKIP_TOP = new Set(['treetopia']);
 
 function* htmlFiles(dir) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (e.isDirectory()) { if (!SKIP_DIRS.has(e.name) && !e.name.startsWith('.')) yield* htmlFiles(path.join(dir, e.name)); }
+    const skip = SKIP_DIRS.has(e.name) || e.name.startsWith('.') || (dir === ROOT && SKIP_TOP.has(e.name));
+    if (e.isDirectory()) { if (!skip) yield* htmlFiles(path.join(dir, e.name)); }
     else if (e.name.endsWith('.html')) yield path.join(dir, e.name);
   }
 }

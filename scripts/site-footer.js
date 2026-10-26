@@ -31,16 +31,16 @@ const FOOTER_HTML = `<footer class="footer" role="contentinfo">
         li('/projects/commercial', 'Commercial'), li('/location', 'Browse by Location'), li('/developer', 'Browse by Developer'),
         li('/stamp-duty-calculator-pune', 'Stamp Duty Calculator'),
       ].join('')}</ul></nav>
-      <div class="footer-col footer-contact"><h5>Contact</h5><ul class="footer-contact-list">
-        <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+917066880808">+91 70668 80808</a></li>
-        <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@prophuntllp.com">info@prophuntllp.com</a></li>
-        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Work Katta, 291/3, Pancard Club Road, Baner, Pune 411069</span></li>
-      </ul>
-      <h5 class="footer-subhead">Legal</h5><ul class="footer-links">${[
+      <nav class="footer-col footer-legal" aria-label="Legal"><h5>Legal</h5><ul class="footer-links">${[
         li('/rera-disclosure', 'RERA Disclosure'), li('/privacy-policy', 'Privacy Policy'), li('/terms', 'Terms &amp; Conditions'),
-      ].join('')}</ul></div>
+      ].join('')}</ul></nav>
       <div class="footer-newsletter"><h5>Stay Updated</h5><p>New launches, price updates and market insights, in your inbox.</p>
         <form class="newsletter-form" id="newsletterForm" novalidate><input type="email" name="newsletterEmail" placeholder="Your email" aria-label="Email address" required><button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button></form>
+        <h5 class="footer-subhead">Contact</h5><ul class="footer-contact-list">
+          <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+917066880808">+91 70668 80808</a></li>
+          <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@prophuntllp.com">info@prophuntllp.com</a></li>
+          <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Work Katta, 291/3, Pancard Club Road, Baner, Pune 411069</span></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">

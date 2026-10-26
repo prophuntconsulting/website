@@ -383,7 +383,12 @@
 .section-cta { text-align: center; margin-top: 1rem; }
 
 /* ── Developer Ticker ── */
-.dev-section { padding-bottom: 5rem; }
+/* Compact band: a logo strip doesn't need a full-height section. */
+.dev-section { padding: 3.5rem 0; }
+.dev-section .section-header { margin-bottom: 1.25rem; }
+.dev-section .section-title { font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
+.dev-section .section-sub { font-size: .98rem; }
+@media (max-width: 768px) { .dev-section { padding: 2.75rem 0; } }
 .dev-loop { overflow: hidden; position: relative; }
 .dev-loop::before,.dev-loop::after {
     content:''; position:absolute; top:0; bottom:0; width:80px; z-index:2; pointer-events:none;
@@ -401,7 +406,7 @@
     to   { transform: translateX(-50%); }
 }
 .dev-logo-item {
-    padding: 1.5rem 2.5rem;
+    padding: 1rem 2.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -410,7 +415,7 @@
     height: 38px;
     width: auto;
     object-fit: contain;
-    filter: grayscale(1) opacity(.5);
+    filter: grayscale(1) opacity(.7);
     transition: filter .3s;
 }
 .dev-loop-track:hover .dev-logo-item:hover img { filter: grayscale(0) opacity(1); }
