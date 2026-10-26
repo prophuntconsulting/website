@@ -88,7 +88,7 @@ function renderProjectCard(p) {
   const statusBadge = p.status === 'sold-out'
     ? '<span class="badge badge-gray" style="font-size:.68rem;padding:.2rem .55rem;background:#6b7280">Sold Out</span>'
     : '';
-  const priceLbl = p.price_label || (p.price > 0 ? '₹' + p.price + ' L*' : 'Price on request');
+  const priceLbl = priceLabel(p);
   const areaSpec = p.area ? `<span><i class="fas fa-ruler-combined"></i>${p.area}</span>` : '';
   return `
         <a href="${p.url}" ${linkAttrs} class="prop-card" data-category="${p.category}" aria-label="${linkLabel}: ${p.title}">
@@ -371,7 +371,7 @@ function snapshotHtml(p) {
     ['Category', CAT_LABEL[p.category] || ''],
     ['Configuration', p.config],
     ['Sizes', p.area],
-    ['Starting price', price !== 'Price on Request' ? `${price} onwards` : 'Price on request'],
+    ['Starting price', price !== 'Price on Request' ? `${price} onwards` : 'Price on Request'],
     ['Status', statusLabel(p)],
     ['Possession', poss ? poss.value + (poss.passed ? ' — this date has passed; please confirm the current timeline' : '') : ''],
     ['MahaRERA project no.', p.rera ? `${escapeHtml(p.rera)} · <a href="${MAHARERA_URL}" target="_blank" rel="noopener">Verify on MahaRERA</a>` : ''],
@@ -434,7 +434,7 @@ function buildPrerenderBlock(p, all) {
   if (units.length) {
     sections.push(`<div id="pricing" class="ph-section"><div class="ph-section-label">Unit Configurations &amp; Pricing</div>
       <table class="ph-snapshot"><thead><tr><th>Configuration</th><th>Area</th><th>Price</th></tr></thead><tbody>${units.map(u =>
-        `<tr><td>${escapeHtml(u.t)}</td><td>${escapeHtml(u.a || '—')}</td><td>${escapeHtml(u.pr || 'Price on request')}</td></tr>`).join('')}</tbody></table>
+        `<tr><td>${escapeHtml(u.t)}</td><td>${escapeHtml(u.a || '—')}</td><td>${escapeHtml(u.pr || 'Price on Request')}</td></tr>`).join('')}</tbody></table>
       <p class="ph-disclaimer">*Indicative, exclusive of taxes and other charges. Contact PROPHUNT LLP for the current cost sheet.</p></div>`);
   }
   if (stats.length) {

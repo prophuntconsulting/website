@@ -204,7 +204,7 @@ for (const p of live) {
   <div class="container" style="max-width:900px">
     ${sectionHead('tags', 'Configuration', `${bhkLabel(n)} at ${p.title}`)}
     <table class="ph-snapshot"><thead><tr><th>Unit</th><th>Size</th><th>Price</th></tr></thead><tbody>${rows.map(r =>
-      `<tr><td>${escapeHtml(r.type)}</td><td>${escapeHtml(r.area || 'On request')}</td><td>${escapeHtml(hasPrice(r.price) ? r.price : 'Price on request')}</td></tr>`).join('')}</tbody></table>
+      `<tr><td>${escapeHtml(r.type)}</td><td>${escapeHtml(r.area || 'On request')}</td><td>${escapeHtml(hasPrice(r.price) ? r.price : 'Price on Request')}</td></tr>`).join('')}</tbody></table>
     <p class="loc-note" style="margin-top:.75rem">Indicative prices as listed in ${escapeHtml(todayLabel)}, exclusive of taxes and other charges. Always confirm the current cost sheet with PROPHUNT LLP or the developer.</p>
     ${p.overview ? `<p class="loc-about">${escapeHtml(p.overview)}</p>` : ''}
     <table class="ph-snapshot" style="margin-bottom:2rem"><tbody>

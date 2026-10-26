@@ -4,6 +4,13 @@
 (function () {
     'use strict';
 
+    // Prices are stored in lakh; show ₹1 crore and above in crore, as everywhere else on the site.
+    function priceText(p) {
+        if (p.price_label) return p.price_label;
+        if (!(p.price > 0)) return 'Price on Request';
+        return p.price >= 100 ? '₹' + (p.price / 100).toFixed(2).replace(/.?0+$/, '') + ' Cr*' : '₹' + p.price + ' L*';
+    }
+
     /* ── SCROLL REVEAL ── */
     const revealEls = document.querySelectorAll('[data-reveal]');
     const revealObs = new IntersectionObserver((entries) => {
@@ -110,7 +117,7 @@
         const linkLabel = external ? 'View Project' : 'View Details';
         const badge     = p.rera ? 'RERA Registered' : '';
         const badgeHtml = badge ? `<div class="prop-card-tag">${badge}</div>` : '';
-        const priceLabel = p.price_label || (p.price > 0 ? '₹' + p.price + ' L*' : 'Price on request');
+        const priceLabel = priceText(p);
         const areaSpec = p.area ? `<span><i class="fas fa-ruler-combined"></i> ${p.area}</span>` : '';
         const icon = p.category === 'plot' ? 'map' : p.category === 'villa' ? 'home' : 'building';
         return `

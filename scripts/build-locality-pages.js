@@ -27,6 +27,7 @@
  */
 
 const fs   = require('fs');
+const { FOOTER_HTML } = require('./site-footer');
 const path = require('path');
 const { LOCALITY_CONTENT } = require('./locality-content');
 
@@ -112,7 +113,7 @@ function renderProjectCard(p) {
         <p class="prop-card-loc"><i class="fas fa-map-marker-alt"></i>${escapeHtml(p.location || '')}</p>
         <div class="prop-card-specs">
           <span><i class="fas fa-${icon}"></i>${escapeHtml(p.config || '')}</span>
-          <span><i class="fas fa-ruler-combined"></i>${escapeHtml(p.area || '')}</span>
+          ${p.area ? `<span><i class="fas fa-ruler-combined"></i>${escapeHtml(p.area)}</span>` : ''}
         </div>
         <div class="prop-card-footer">
           <span class="prop-card-status">View on PROPHUNT</span>
@@ -330,19 +331,7 @@ ${locality.landmarks && Object.keys(locality.landmarks).length ? `
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand"><a href="/" class="footer-logo"><img src="/images/logo-black.png" alt="PROPHUNT LLP"></a><div class="footer-tagline"><span class="sanskrit">भूमिं मृगयध्वम्</span><span class="translation">Hunt the Land</span></div><p class="footer-about-text">Pune's trusted real estate partner.</p><div class="footer-social"><a href="https://www.facebook.com/PropHuntLLP" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/prophunt_llp/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/company/prophunt-llp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.youtube.com/channel/UCX9xvRLtAiDhEqrbSgl5IFg" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a><a href="https://wa.me/917447430431" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
-      <div class="footer-col"><h5 aria-level="3">Explore</h5><ul class="footer-links"><li><a href="/"><i class="fas fa-chevron-right"></i>Home</a></li><li><a href="/projects"><i class="fas fa-chevron-right"></i>All Projects</a></li><li><a href="/developers"><i class="fas fa-chevron-right"></i>Developers</a></li><li><a href="/services"><i class="fas fa-chevron-right"></i>Services</a></li><li><a href="/about"><i class="fas fa-chevron-right"></i>About Us</a></li><li><a href="/blog"><i class="fas fa-chevron-right"></i>Blog</a></li><li><a href="/stamp-duty-calculator-pune"><i class="fas fa-chevron-right"></i>Stamp Duty Calculator</a></li><li><a href="/contact"><i class="fas fa-chevron-right"></i>Contact</a></li></ul></div>
-      <div class="footer-col"><h5 aria-level="3">Browse</h5><ul class="footer-links"><li><a href="/apartments-in-wakad"><i class="fas fa-chevron-right"></i>Apartments in Wakad</a></li><li><a href="/apartments-in-baner"><i class="fas fa-chevron-right"></i>Apartments in Baner</a></li><li><a href="/projects/plots"><i class="fas fa-chevron-right"></i>Plots</a></li><li><a href="/privacy-policy"><i class="fas fa-chevron-right"></i>Privacy Policy</a></li><li><a href="/terms"><i class="fas fa-chevron-right"></i>Terms of Service</a></li></ul></div>
-      <div class="footer-newsletter"><h5 aria-level="3">Stay Updated</h5><p>Get market insights and new project alerts.</p><form class="newsletter-form" id="newsletterForm" novalidate><input type="email" name="newsletterEmail" placeholder="Your email" aria-label="Email" required><button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button></form></div>
-    </div>
-    <hr class="divider" style="border-color:rgba(255,255,255,.08);">
-    <div class="footer-rera" style="text-align:center;padding:.75rem 0;font-size:.78rem;color:rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:.85rem;">MahaRERA Agent Registration No. <a href="/rera-disclosure" style="color:rgba(200,54,43,.7);font-weight:700;">A52100037156</a> &nbsp;|&nbsp; Registered under Real Estate (Regulation &amp; Development) Act, 2016 &nbsp;|&nbsp; <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener" style="color:rgba(255,255,255,.35);">maharera.maharashtra.gov.in <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i></a></div>
-    <div class="footer-bottom"><span>&copy; 2026 PROPHUNT LLP. All rights reserved.</span><span style="color:#C8362B;font-family:var(--font-head);">भूमिं मृगयध्वम् | Hunt the Land</span><div class="footer-bottom-links"><a href="/rera-disclosure">RERA</a><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a></div></div>
-  </div>
-</footer>
+${FOOTER_HTML}
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 <a href="https://wa.me/917447430431" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>

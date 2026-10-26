@@ -247,7 +247,7 @@ ${twAlt ? `<meta name="twitter:image:alt" content="${escapeHtml(twAlt)}">\n` : '
 }
 
 function priceText(x) {
-  if (!x.price || Number(x.price) === 0) return 'Price on request';
+  if (!x.price || Number(x.price) === 0) return 'Price on Request';
   const n = Number(x.price);
   return n >= 100 ? `From ₹${(n / 100).toFixed(2).replace(/\.?0+$/, '')} Cr*` : `From ₹${n} L*`;
 }

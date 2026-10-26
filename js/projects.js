@@ -5,6 +5,13 @@
 (function () {
     'use strict';
 
+    // Prices are stored in lakh; show ₹1 crore and above in crore, as everywhere else on the site.
+    function priceText(p) {
+        if (p.price_label) return p.price_label;
+        if (!(p.price > 0)) return 'Price on Request';
+        return p.price >= 100 ? '₹' + (p.price / 100).toFixed(2).replace(/.?0+$/, '') + ' Cr*' : '₹' + p.price + ' L*';
+    }
+
     const grid        = document.getElementById('projectsGrid');
     const countEl     = document.getElementById('projectCount');
     const typeSelect  = document.getElementById('filterType');
@@ -70,7 +77,7 @@
         const statusBadge = p.status === 'sold-out'
             ? '<span class="badge badge-gray" style="font-size:.68rem;padding:.2rem .55rem;background:#6b7280">Sold Out</span>'
             : '';
-        const priceLabel = p.price_label || (p.price > 0 ? '₹' + p.price + ' L*' : 'Price on request');
+        const priceLabel = priceText(p);
         const areaSpec = p.area ? `<span><i class="fas fa-ruler-combined"></i>${p.area}</span>` : '';
         return `
         <a href="${p.url}" ${linkAttrs} class="prop-card" data-category="${p.category}" aria-label="${linkLabel}: ${p.title}">

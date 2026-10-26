@@ -284,8 +284,8 @@ p { color:var(--gray-800); }
 .footer { background:var(--black-soft); color:rgba(255,255,255,.75); padding:5rem 0 0; }
 .footer-grid {
     display:grid;
-    grid-template-columns:2fr 1fr 1fr 1.6fr;
-    gap:3rem;
+    grid-template-columns:1.7fr 1fr 1.1fr 1.3fr 1.5fr;
+    gap:2.5rem;
     padding-bottom:3.5rem;
 }
 .footer-logo img { height:34px; width:auto; margin-bottom:1.25rem; filter:brightness(0) invert(1); }
@@ -307,6 +307,14 @@ p { color:var(--gray-800); }
 .footer-links a { font-size:.875rem; color:var(--gray-400); transition:color .2s; display:flex; align-items:center; gap:.4rem; }
 .footer-links a:hover { color:var(--white); }
 .footer-links a i { font-size:.7rem; color:var(--red); }
+.footer-subhead { margin-top:1.75rem; }
+.footer-contact-list { display:flex; flex-direction:column; gap:.7rem; }
+.footer-contact-list li { display:grid; grid-template-columns:1rem 1fr; gap:.6rem; align-items:start; font-size:.875rem; line-height:1.5; color:var(--gray-400); }
+.footer-contact-list i { color:var(--red); font-size:.8rem; margin-top:.3rem; }
+.footer-contact-list a { color:var(--gray-400); transition:color .2s; word-break:break-word; }
+.footer-contact-list a:hover { color:var(--white); }
+.footer-bottom .footer-rera a { color:#ef7a70; text-decoration:none; }
+.footer-bottom .footer-rera a:hover { text-decoration:underline; }
 
 .footer-newsletter h5 { font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--white); margin-bottom:1.25rem; font-family:var(--font-body); }
 .footer-newsletter p { font-size:.875rem; color:var(--gray-400); margin-bottom:1rem; line-height:1.6; }
@@ -477,6 +485,9 @@ textarea.form-control { resize:vertical; min-height:120px; }
 [data-reveal="left"].revealed { transform:none; }
 [data-reveal="right"] { transform:translateX(30px); }
 [data-reveal="right"].revealed { transform:none; }
+/* On phones, slide in vertically: a sideways offset widens the page until the element is revealed. */
+@media (max-width:768px) { [data-reveal="left"], [data-reveal="right"] { transform:translateY(24px); } }
+html { overflow-x:clip; }
 [data-reveal-delay="100"] { transition-delay:.1s; }
 [data-reveal-delay="200"] { transition-delay:.2s; }
 [data-reveal-delay="300"] { transition-delay:.3s; }
@@ -541,7 +552,8 @@ textarea.form-control { resize:vertical; min-height:120px; }
     .nav-phone { display:none; }
     .hamburger { display:flex; }
     .mobile-menu { display:block; }
-    .footer-grid { grid-template-columns:1fr 1fr; }
+    .footer-grid { grid-template-columns:repeat(3,1fr); }
+    .footer-brand, .footer-newsletter { grid-column:1 / -1; }
     .stats-grid { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:2rem; }
     .stat-item:nth-of-type(5) { border-left:0; }
 }
@@ -555,6 +567,7 @@ textarea.form-control { resize:vertical; min-height:120px; }
         padding-bottom:2rem;
     }
     .footer-brand,
+    .footer-contact,
     .footer-newsletter { grid-column:1 / -1; }
     .footer-logo img { height:30px; margin-bottom:1rem; }
     .footer-tagline { margin-bottom:.75rem; }
@@ -593,6 +606,7 @@ textarea.form-control { resize:vertical; min-height:120px; }
     .stats-grid { grid-template-columns:1fr 1fr; row-gap:1.5rem; }
     .stat-label { font-size:.6rem; letter-spacing:.05em; }
     .footer-grid { grid-template-columns:1fr 1fr; gap:1.8rem 1.25rem; }
+    .footer-contact { grid-column:1 / -1; }
     .footer-col h5 { font-size:.72rem; }
     .footer-links a { font-size:.8rem; }
     .newsletter-form { flex-direction:column; }
@@ -601,7 +615,7 @@ textarea.form-control { resize:vertical; min-height:120px; }
 
 /* Footer text on the near-black background: keep >= 4.5:1 contrast (WCAG AA). */
 .footer .footer-rera { color:#a9a6a3 !important; }
-.footer .footer-rera a { color:#ef7a70 !important; text-decoration:underline; }
+.footer .footer-rera a { color:#ef7a70 !important; }
 .footer-bottom, .footer-bottom > span, .footer-bottom-links a { color:#a9a6a3; }
 .footer-bottom > span[style] { color:#ef7a70 !important; }
 .footer-bottom-links a:hover { color:var(--white); }

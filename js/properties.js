@@ -102,7 +102,7 @@ const projectProperties = [
         configuration: '2, 3 & 4 BHK',
         area: 'Sky-level living',
         price: 0,
-        priceLabel: 'Price on request',
+        priceLabel: 'Price on Request',
         category: 'apartment',
         image: 'images/projects/rohan-ekam-building.jpg',
         url: 'https://rohanbuilder-pune.com/rohan-ekam/'
@@ -114,7 +114,7 @@ const projectProperties = [
         configuration: '1, 2 & 3 BHK',
         area: 'Nature-led homes',
         price: 0,
-        priceLabel: 'Price on request',
+        priceLabel: 'Price on Request',
         category: 'apartment',
         image: 'images/projects/rohan-harita.png',
         url: 'https://rohanbuilder-pune.com/rohan-harita/'
@@ -126,7 +126,7 @@ const projectProperties = [
         configuration: '2 & 3 BHK',
         area: 'Nature-inspired homes',
         price: 0,
-        priceLabel: 'Price on request',
+        priceLabel: 'Price on Request',
         category: 'apartment',
         image: 'images/projects/rohan-nidita.jpg',
         url: 'https://rohanbuilder-pune.com/nidita/'
@@ -138,7 +138,7 @@ const projectProperties = [
         configuration: '2, 3 & 4 BHK',
         area: 'Hillside township',
         price: 0,
-        priceLabel: 'Price on request',
+        priceLabel: 'Price on Request',
         category: 'apartment',
         image: 'images/projects/rohan-saroha.jpg',
         url: 'https://rohanbuilder-pune.com/rohan-saroha/'
@@ -150,7 +150,7 @@ const projectProperties = [
         configuration: 'Premium residences',
         area: 'Baner Next',
         price: 0,
-        priceLabel: 'Price on request',
+        priceLabel: 'Price on Request',
         category: 'apartment',
         image: 'images/projects/vtp-earth-one.webp',
         url: 'https://vtpnewprojects.com/vtp-earth-one/'
@@ -162,7 +162,7 @@ const projectProperties = [
         configuration: '2 & 3 BHK',
         area: '7 acres open spaces',
         price: 0,
-        priceLabel: 'Price on request',
+        priceLabel: 'Price on Request',
         category: 'apartment',
         image: 'images/projects/mahindra-citadel.webp',
         url: 'mahindra-citadel/'
@@ -174,7 +174,7 @@ const projectProperties = [
         configuration: '3, 4 & 4.5 BHK',
         area: 'Approx. 3 acres amenities',
         price: 0,
-        priceLabel: 'Price on request',
+        priceLabel: 'Price on Request',
         category: 'apartment',
         image: 'images/projects/satori.jpg',
         url: 'https://satorinewbaner.com/'
@@ -186,7 +186,7 @@ const projectProperties = [
         configuration: 'NA residential plots',
         area: '1,817-6,000 sqft',
         price: 0,
-        priceLabel: 'Price on request',
+        priceLabel: 'Price on Request',
         category: 'plot',
         image: 'images/projects/treetopia.webp',
         url: 'treetopia/'
@@ -198,7 +198,7 @@ const projectProperties = [
         configuration: '3 BHK',
         area: '125m sky deck',
         price: 0,
-        priceLabel: 'Price on request',
+        priceLabel: 'Price on Request',
         category: 'apartment',
         image: 'images/projects/tej-elevia.webp',
         url: 'https://tejeleviabaner.com/'
@@ -210,7 +210,7 @@ const projectProperties = [
         configuration: '3, 4 & 5 BHK',
         area: '40+ amenities',
         price: 0,
-        priceLabel: 'Price on request',
+        priceLabel: 'Price on Request',
         category: 'apartment',
         image: 'images/projects/tribeca-lulla-nagar.jpg',
         url: 'https://tribecalullanagar.co.in/'
