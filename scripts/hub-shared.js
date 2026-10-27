@@ -62,7 +62,7 @@ function renderHubCard(p) {
     ? '<span class="badge badge-black" style="font-size:.68rem;padding:.2rem .55rem">Sold Out</span>'
     : `<span class="badge badge-outline" style="font-size:.68rem;padding:.2rem .55rem;background:rgba(255,255,255,.92)">${escapeHtml(stage.label)}</span>`;
   return `
-    <a href="${p.url}" class="prop-card" aria-label="View Details: ${escapeHtml(p.title)}">
+    <a href="${p.url}" class="prop-card">
       <div class="prop-card-img">
         <div>${p.cover ? `<img src="${escapeHtml(p.thumb || p.cover)}" alt="${escapeHtml(p.title || '')}" width="600" height="372" loading="lazy" decoding="async">` : `<span class="prop-card-img-empty"><i class="fas fa-${icon}"></i></span>`}</div>
         <div class="prop-card-badge"><span class="badge badge-red">${escapeHtml(p.developer || '')}</span>${statusBadge}</div>
@@ -104,7 +104,7 @@ const SHARED_STYLE = `
 @media(max-width:1024px){.loc-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.loc-grid{grid-template-columns:1fr}}
 .loc-about{font-size:1.02rem;line-height:1.8;color:var(--gray-600);max-width:760px;margin-bottom:1.5rem}
-.loc-note{font-size:.85rem;color:var(--gray-400);max-width:760px;margin-bottom:2.5rem}
+.loc-note{font-size:.85rem;color:var(--gray-600);max-width:760px;margin-bottom:2.5rem}
 .loc-cat-pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
 .loc-cat-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border:1.5px solid var(--gray-200);border-radius:999px;font-size:.82rem;font-weight:600;color:var(--gray-700);transition:border-color .2s,color .2s}
 .loc-cat-pill:hover{border-color:var(--red);color:var(--red)}

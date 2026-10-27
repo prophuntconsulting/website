@@ -101,7 +101,7 @@ function renderProjectCard(p) {
   const statusBadge = p.status === 'sold-out'
     ? '<span class="badge badge-black" style="font-size:.68rem;padding:.2rem .55rem">Sold Out</span>' : '';
   return `
-    <a href="${p.url}" class="prop-card" aria-label="View Details: ${escapeHtml(p.title)}">
+    <a href="${p.url}" class="prop-card">
       <div class="prop-card-img">
         <div>${p.cover ? `<img src="${escapeHtml(p.thumb || p.cover)}" alt="${escapeHtml(p.title || '')}" width="600" height="372" loading="lazy" decoding="async">` : `<span class="prop-card-img-empty"><i class="fas fa-${icon}"></i></span>`}</div>
         <div class="prop-card-badge"><span class="badge badge-red">${escapeHtml(p.developer || '')}</span>${statusBadge}</div>

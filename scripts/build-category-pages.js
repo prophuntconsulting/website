@@ -96,7 +96,7 @@ function renderProjectCard(p) {
     : '';
   const areaSpec = p.area ? `<span><i class="fas fa-ruler-combined"></i>${escapeHtml(p.area)}</span>` : '';
   return `
-    <a href="${escapeHtml(p.url)}" class="prop-card" aria-label="View Details: ${escapeHtml(p.title)}">
+    <a href="${escapeHtml(p.url)}" class="prop-card">
       <div class="prop-card-img">
         <div>${p.cover ? `<img src="${escapeHtml(p.thumb || p.cover)}" alt="${escapeHtml(p.title || '')}" width="600" height="372" loading="lazy" decoding="async">` : `<span class="prop-card-img-empty"><i class="fas fa-${meta.icon}"></i></span>`}</div>
         <div class="prop-card-badge"><span class="badge badge-red">${escapeHtml(p.developer || '')}</span>${statusBadge}</div>
@@ -131,7 +131,7 @@ function buildPage(category, matches) {
   const sorted = [...matches].sort((a, b) => statusWeight(a) - statusWeight(b) || String(a.title).localeCompare(String(b.title)));
   const url = `/projects/${meta.slug}`;
   const canonical = `${SITE}${url}`;
-  const title = `${meta.label} in Pune | PROPHUNT LLP`;
+  const title = `${meta.label} for Sale in Pune: ${sorted.length} Project${sorted.length === 1 ? "" : "s"} | PROPHUNT LLP`;
   const desc = `Browse ${sorted.length} curated ${meta.lower} in Pune from ${developersText(sorted)}. Prices ${priceRangeText(sorted)} with RERA-aware advisory from PROPHUNT LLP.`;
   const ogImage = sorted[0] && sorted[0].cover ? (sorted[0].cover.startsWith('http') ? sorted[0].cover : SITE + sorted[0].cover) : SITE + '/images/og-home.jpg';
   const faqs = [
