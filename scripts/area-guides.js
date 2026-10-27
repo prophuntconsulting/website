@@ -39,6 +39,61 @@ function renderGuide(title, sections, label = 'Area guide') {
 // Civic/water/flood: Punekar News, Pune Pulse, Free Press Journal, PMRDA, MoEF.
 const KF = '[Knight Frank India’s H1 2026 report](https://content.knightfrank.com/research/3116/documents/en/india-real-estate-office-and-residential-market-h1-2026-12927.pdf)';
 const AREA_GUIDES = {
+  'baner': {
+    sections: [
+      { h: 'Why Baner is one of Pune’s most sought-after addresses', p: [
+        'Baner, in West Pune, sits between Aundh and Pashan on one side and Balewadi and the Mumbai–Pune Expressway on the other, with the green Baner hills along its southern edge. It falls under the Pune Municipal Corporation and has grown from a quiet suburb into a premium residential and office district, close to the Hinjewadi IT parks but with its own restaurants, shops and schools.',
+        'Much of the newest supply is in premium 3, 4 and 5 BHK towers, especially along [Pan Card Club Road](/blog/pan-card-club-road-baner) at the foot of the hills, while older parts of Baner and Balewadi offer more 2 and 3 BHK homes.',
+      ] },
+      { h: 'Prices', p: [
+        `${KF} recorded Baner at about ₹16,418 to ₹16,987 per sq ft, up 4% over 12 months, against about ₹17,734 to ₹18,274 in neighbouring Aundh and ₹12,115 to ₹12,588 in Wakad. Prices vary widely by road, tower and view, so compare projects on the full cost sheet, not the rate per sq ft.`,
+      ] },
+      { h: 'Connectivity', p: [
+        'Baner Road and the Baner–Pashan link road connect the area to Aundh, the university and central Pune, and the Expressway is close by for Mumbai and Hinjewadi. Pune Metro Line 3, from Hinjewadi to Shivajinagar, has stations at Balewadi Phata, Baner Gaon and Baner, but these are among the six stations due to open after the first section on the Hinjewadi side. Our [Metro Line 3 guide](/blog/pune-metro-line-3-property) explains what it means for property.',
+      ] },
+      { h: 'Who Baner suits', list: [
+        'Professionals working in Baner, Balewadi, Aundh or Hinjewadi who want an established neighbourhood with good restaurants, shops and schools.',
+        'Families upgrading to a larger home with a premium address.',
+        'Buyers comparing it with nearby areas: see our [Baner vs Wakad vs Hinjewadi vs Tathawade guide](/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026).',
+      ] },
+      { h: 'What to check', list: [
+        '**Water.** Parts of Baner and Balewadi rely on tankers, tanker rates rose in 2026, and some areas moved to alternate-day supply. Ask each project how it gets its water.',
+        '**Flooding.** Low-lying parts of Baner and Balewadi near the river flooded in July 2026. Check the site against the river’s flood lines.',
+        '**Traffic.** Baner Road is busy at peak hours; drive your commute before you decide.',
+      ] },
+    ],
+    faqs: [
+      { q: 'What are property prices in Baner in 2026?', a: 'Knight Frank India recorded Baner at about ₹16,418 to ₹16,987 per sq ft in H1 2026, up 4% over 12 months. New launches on Pan Card Club Road and other premium projects are often priced above that range.' },
+      { q: 'When will the Baner metro stations open?', a: 'Baner’s stations on Metro Line 3, at Balewadi Phata, Baner Gaon and Baner, are among the six stations due to open after the first section, which runs from Maan in Hinjewadi to Balewadi. Check the latest status before relying on them.' },
+    ],
+  },
+  'wakad': {
+    sections: [
+      { h: 'Wakad at a glance', p: [
+        'Wakad lies in West Pune, between the Hinjewadi IT parks and the Mumbai–Bengaluru highway, and falls under the Pimpri-Chinchwad Municipal Corporation (PCMC). Its location, a short drive from Hinjewadi with quick highway access, made it one of the city’s fastest-growing residential areas, with large gated projects, the Phoenix Mall of the Millennium and a wide choice of schools and hospitals.',
+      ] },
+      { h: 'Prices: a pause after a strong run', p: [
+        `${KF} recorded Wakad at about ₹12,115 to ₹12,588 per sq ft, unchanged over 12 months, after a strong 2025. Heavy new supply in and around Wakad is being absorbed, which gives buyers more choice and more room to negotiate than a year ago. It remains well below Baner, at about ₹16,418 to ₹16,987.`,
+      ] },
+      { h: 'Connectivity', p: [
+        'Wakad’s draw is its position: the Hinjewadi IT parks on one side, the highway towards Mumbai, Bengaluru and the rest of Pune on the other. Pune Metro Line 3 has a Wakad Chowk station in its first section, from Maan to Balewadi. The flip side is traffic: Bhumkar Chowk and the Wakad flyover are among Hinjewadi’s best-known choke points at peak hours.',
+      ] },
+      { h: 'Who Wakad suits', list: [
+        'IT professionals working in Hinjewadi who want an established neighbourhood rather than a newer one further out.',
+        'Families who want malls, schools and hospitals close by at a lower price than Baner.',
+        'Buyers weighing it against its neighbour: see our [Tathawade vs Wakad comparison](/blog/tathawade-vs-wakad).',
+      ] },
+      { h: 'What to check', list: [
+        '**Water.** PCMC cut supply in 2026 when the Pavana dam ran low, and many Wakad societies rely partly on tankers. Ask any project how it is supplied and what the society spends on tankers.',
+        '**Monsoon flooding.** Heavy rain in 2026 waterlogged roads in Wakad and closed underpasses towards Tathawade and Punawale. Check the approach roads.',
+        '**Traffic.** Drive the route to work at peak hours, especially through Bhumkar Chowk.',
+      ] },
+    ],
+    faqs: [
+      { q: 'Did Wakad property prices rise in 2026?', a: 'No. Knight Frank India recorded Wakad at about ₹12,115 to ₹12,588 per sq ft in H1 2026, unchanged over 12 months after a strong 2025, as heavy new supply was absorbed.' },
+      { q: 'Is Wakad under PMC or PCMC?', a: 'Wakad falls under the Pimpri-Chinchwad Municipal Corporation (PCMC), which handles its water supply, roads and property tax.' },
+    ],
+  },
   'mahalunge': {
     sections: [
       { h: 'Where Mahalunge is', p: [
