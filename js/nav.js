@@ -190,4 +190,18 @@
         });
     }, true);
 
+    /* ── GA4: the Vistrow voice/chat widget announces what happens inside it as a
+       'vistrow-widget' window event (its dataLayer pushes are GTM-only, which gtag
+       ignores). Forward the useful ones as widget_* events; a lead counts as generate_lead. ── */
+    const WIDGET_ACTIONS = ['open', 'chat_opened', 'chat_message_sent', 'chat_ended', 'call_started', 'call_connected',
+        'agent_joined', 'microphone_denied', 'consent_declined', 'post_call_cta_clicked', 'feedback_submitted', 'lead_submitted'];
+    window.addEventListener('vistrow-widget', e => {
+        const d = (e && e.detail) || {};
+        if (typeof gtag !== 'function' || !WIDGET_ACTIONS.includes(d.action)) return;
+        const params = { widget_mode: d.mode || '', page_path: window.location.pathname };
+        if (d.rating) params.rating = d.rating;
+        gtag('event', 'widget_' + d.action, params);
+        if (d.action === 'lead_submitted') gtag('event', 'generate_lead', { form_name: 'Voice widget', page_path: window.location.pathname });
+    });
+
 })();

@@ -45,4 +45,16 @@
       transport_type: 'beacon'
     });
   }, true);
+
+  // GA4: forward the voice/chat widget's own events (same as js/nav.js).
+  var WIDGET_ACTIONS = ['open', 'chat_opened', 'chat_message_sent', 'chat_ended', 'call_started', 'call_connected',
+    'agent_joined', 'microphone_denied', 'consent_declined', 'post_call_cta_clicked', 'feedback_submitted', 'lead_submitted'];
+  window.addEventListener('vistrow-widget', function (e) {
+    var d = (e && e.detail) || {};
+    if (typeof gtag !== 'function' || WIDGET_ACTIONS.indexOf(d.action) < 0) return;
+    var params = { widget_mode: d.mode || '', page_path: window.location.pathname };
+    if (d.rating) params.rating = d.rating;
+    gtag('event', 'widget_' + d.action, params);
+    if (d.action === 'lead_submitted') gtag('event', 'generate_lead', { form_name: 'Voice widget', page_path: window.location.pathname });
+  });
 })();
