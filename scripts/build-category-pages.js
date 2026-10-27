@@ -8,6 +8,7 @@
 
 const fs = require('fs');
 const { FOOTER_HTML } = require('./site-footer');
+const { INDEX_GUIDES, renderGuide } = require('./area-guides');
 const path = require('path');
 
 const SITE = 'https://www.prophuntllp.com';
@@ -147,6 +148,7 @@ function buildPage(category, matches) {
       q: `Which developers are active in this category?`,
       a: `${meta.label} in this category include projects from ${developersText(sorted)}.`,
     },
+    ...((INDEX_GUIDES[category] || {}).faqs || []),
   ];
 
   const jsonLd = {
@@ -288,6 +290,7 @@ function buildPage(category, matches) {
     </div>
   </div>
 </section>
+${renderGuide(`Buying ${meta.lower} in Pune: what to know`, (INDEX_GUIDES[category] || {}).sections, 'Buyer guide')}
 
 ${FOOTER_HTML}
 <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>

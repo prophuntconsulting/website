@@ -19,6 +19,7 @@ const {
   lifecycle, renderHubCard, faqAccordion, headBoilerplate, FOOTER_HTML,
   DEV_HUB_MIN, developerSlug,
 } = require('./hub-shared');
+const { INDEX_GUIDES, renderGuide } = require('./area-guides');
 
 const ROOT = path.join(__dirname, '..');
 const MAHARERA_URL = 'https://maharera.maharashtra.gov.in';
@@ -243,6 +244,7 @@ function buildIndexPage(devs) {
     </div>
   </div>
 </section>
+${renderGuide('How to Judge a Developer Before You Buy', (INDEX_GUIDES.developer || {}).sections, 'Buyer guide')}
 ` + FOOTER_HTML;
 }
 

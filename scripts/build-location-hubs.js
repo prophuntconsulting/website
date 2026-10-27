@@ -22,6 +22,7 @@
 const fs   = require('fs');
 const path = require('path');
 const { LOCALITY_CONTENT } = require('./locality-content');
+const { AREA_GUIDES, INDEX_GUIDES, renderGuide } = require('./area-guides');
 const {
   SITE, CATEGORY_META, escapeHtml, fmtLakhCr, priceRangeText, developersText, lifecycle,
   renderHubCard, faqAccordion, headBoilerplate, FOOTER_HTML,
@@ -74,6 +75,8 @@ function buildHubPage({ bucket, locality, matches, todayLabel }) {
   const canonical = `${SITE}/location/${bucket}`;
   const desc = `${matches.length} curated projects in ${locality.name}, Pune from ${developersText(matches)}. Prices ${priceRangeText(matches)}. Curated listings with MahaRERA details, by PROPHUNT LLP.`;
   const aboutBlurb = locality.faqs && locality.faqs[0] ? locality.faqs[0].a : '';
+  const guide = AREA_GUIDES[bucket] || {};
+  const faqs = [...(locality.faqs || []), ...(guide.faqs || [])];
   const cats = categoryBreakdown(bucket, matches);
   const sorted = [...matches].sort((a, b) => lifecycle(a).weight - lifecycle(b).weight);
   const siblings = Object.keys(LOCALITY_CONTENT).filter(b => b !== bucket);
@@ -96,9 +99,9 @@ function buildHubPage({ bucket, locality, matches, todayLabel }) {
         numberOfItems: sorted.length,
         itemListElement: sorted.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, item: `${SITE}${p.url}` })),
       },
-      ...(locality.faqs && locality.faqs.length ? [{
+      ...(faqs.length ? [{
         '@type': 'FAQPage',
-        mainEntity: locality.faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
       }] : []),
     ],
   };
@@ -133,6 +136,7 @@ function buildHubPage({ bucket, locality, matches, todayLabel }) {
     <div class="loc-grid">${sorted.map(renderHubCard).join('')}</div>
   </div>
 </section>
+${renderGuide(`Living in ${locality.name}: Area Guide`, guide.sections)}
 
 ${locality.landmarks && Object.keys(locality.landmarks).length ? `
 <section class="section section--tinted">
@@ -153,7 +157,7 @@ ${locality.landmarks && Object.keys(locality.landmarks).length ? `
     <span class="section-label"><i class="fas fa-circle-question"></i> FAQs</span>
     <h2 class="section-title">${escapeHtml(locality.name)} — Frequently Asked Questions</h2>
     <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>
-    <div class="loc-faq-list">${faqAccordion(locality.faqs || [])}</div>
+    <div class="loc-faq-list">${faqAccordion(faqs)}</div>
   </div>
 </section>
 
@@ -233,6 +237,7 @@ function buildIndexPage(buckets) {
     </div>
   </div>
 </section>
+${renderGuide('Choosing a Location in Pune', (INDEX_GUIDES.location || {}).sections, 'Buyer guide')}
 ` + FOOTER_HTML;
 }
 

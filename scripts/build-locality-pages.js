@@ -30,6 +30,7 @@ const fs   = require('fs');
 const { FOOTER_HTML } = require('./site-footer');
 const path = require('path');
 const { LOCALITY_CONTENT } = require('./locality-content');
+const { TYPE_GUIDES, renderGuide } = require('./area-guides');
 
 const SITE = 'https://www.prophuntllp.com';
 const ROOT = path.join(__dirname, '..');
@@ -138,7 +139,9 @@ function buildPage({ slug, url, meta, locality, bucket, matches }) {
   const desc = `Explore ${countLabel(matches.length, meta)} in ${locality.name}, Pune from ${developersText(matches)}. Prices ${priceRangeText(matches)}. Curated listings with MahaRERA details, by PROPHUNT LLP.`;
   const canonical = `${SITE}${url}`;
   const aboutBlurb = locality.faqs && locality.faqs[0] ? locality.faqs[0].a : '';
-  const faqs = categoryFaqs(meta, locality, matches);
+  const typeKey = Object.keys(CATEGORY_META).find(k => CATEGORY_META[k] === meta);
+  const typeGuide = TYPE_GUIDES[`${bucket}:${typeKey}`] || {};
+  const faqs = [...categoryFaqs(meta, locality, matches), ...(typeGuide.faqs || [])];
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -298,6 +301,7 @@ function buildPage({ slug, url, meta, locality, bucket, matches }) {
     </div>
   </div>
 </section>
+${renderGuide(`Buying ${meta.lower} in ${locality.name}: what to know`, typeGuide.sections, 'Buyer guide')}
 
 ${locality.landmarks && Object.keys(locality.landmarks).length ? `
 <section class="section section--tinted">

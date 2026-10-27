@@ -41,6 +41,7 @@ const readJson = (rel, fallback) => { try { return JSON.parse(fs.readFileSync(pa
 const all = readJson('properties/posts.json', []);
 const live = all.filter(p => p.status !== 'sold-out');
 const landmarks = readJson('properties/landmarks.json', []);
+const { LANDMARK_GUIDES, renderGuide } = require('./area-guides');
 const existingUrls = new Set([
   ...readJson('scripts/.locality-pages.json', []),
   ...readJson('scripts/.location-hubs.json', []),
@@ -384,6 +385,7 @@ for (const pg of nearPages) {
     { q: `Which new projects are closest to ${lm.name}?`, a: `By straight-line distance: ${matches.slice(0, 5).map(m => `${m.p.title} (about ${kmText(m.km)})`).join(', ')}.` },
     { q: `What is the price range of ${t.nounLower} near ${lm.short_name || lm.name}?`, a: `Across the ${matches.length} projects listed here, published starting prices are ${priceRangeText(ps)}. Many developers share pricing on request; our advisors can get you current cost sheets.` },
     { q: `How are the distances on this page measured?`, a: `Distances are approximate straight-line distances between each project's map location and ${lm.name}. Actual travel distance by road is longer and depends on route and traffic.` },
+    ...((LANDMARK_GUIDES[url.slice(1)] || {}).faqs || []),
   ];
   const otherNear = nearPages.filter(x => x !== pg && (x.lm === lm || x.t === t)).slice(0, 12)
     .map(x => ({ label: `${x.t.noun} near ${x.lm.short_name || x.lm.name}`, url: x.url }));
@@ -406,6 +408,7 @@ for (const pg of nearPages) {
     <div class="loc-grid">${ps.map(renderHubCard).join('')}</div>
   </div>
 </section>
+${renderGuide(`Living and working near ${lm.short_name || lm.name}`, (LANDMARK_GUIDES[url.slice(1)] || {}).sections, 'Area guide')}
 
 <section class="section section--tinted">
   <div class="container">

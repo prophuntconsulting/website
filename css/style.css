@@ -617,3 +617,14 @@ html { overflow-x:clip; }
 .footer-bottom, .footer-bottom > span, .footer-bottom-links a { color:#a9a6a3; }
 .footer-bottom > span[style] { color:#ef7a70 !important; }
 .footer-bottom-links a:hover { color:var(--white); }
+
+/* Long-form area / category / landmark guides (scripts/area-guides.js) */
+.area-guide { max-width:820px; }
+.area-guide h3 { font-size:1.15rem; margin:2rem 0 .6rem; color:var(--black); }
+.area-guide h3:first-of-type { margin-top:1.25rem; }
+.area-guide p { color:var(--gray-800); line-height:1.75; margin:0 0 .9rem; }
+.area-guide ul { list-style:disc; margin:.25rem 0 1rem 1.2rem; padding-left:.4rem; display:flex; flex-direction:column; gap:.45rem; }
+.area-guide li::marker { color:var(--red); }
+.area-guide li { color:var(--gray-800); line-height:1.65; }
+.area-guide a { color:var(--red-dark); text-decoration:underline; text-underline-offset:2px; }
+.area-guide strong { color:var(--black); }
