@@ -485,7 +485,7 @@ button,select,input,textarea{font-family:inherit}
     
     
     <div id="snapshot" class="ph-section"><div class="ph-section-label">Project Snapshot</div>
-    <table class="ph-snapshot"><tbody><tr><th scope="row">Developer</th><td>Supreme Universal</td></tr><tr><th scope="row">Location</th><td>Off Pancard Club Road, Baner, Pune</td></tr><tr><th scope="row">Category</th><td>Apartment</td></tr><tr><th scope="row">Configuration</th><td>2, 3 &amp; 4 BHK (Sold Out)</td></tr><tr><th scope="row">Sizes</th><td>From 730 sqft (2 BHK)</td></tr><tr><th scope="row">Starting price</th><td>Price on Request</td></tr><tr><th scope="row">Status</th><td>Sold out</td></tr><tr><th scope="row">MahaRERA project no.</th><td>P52100024783 (Phase 1), P52100030247 (Phase 2), P52100030231 (Phase 3) · <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">Verify on MahaRERA</a></td></tr></tbody></table></div>
+    <table class="ph-snapshot"><tbody><tr><th scope="row">Developer</th><td>Supreme Universal</td></tr><tr><th scope="row">Location</th><td>Off Pancard Club Road, Baner, Pune</td></tr><tr><th scope="row">Category</th><td>Apartment</td></tr><tr><th scope="row">Configuration</th><td>2, 3 &amp; 4 BHK (Sold Out)</td></tr><tr><th scope="row">Sizes</th><td>From 730 sqft (2 BHK)</td></tr><tr><th scope="row">Starting price</th><td>Price on Request</td></tr><tr><th scope="row">Status</th><td>Sold out</td></tr><tr><th scope="row">Promoter (as registered)</th><td>Supreme Palatial Developers LLP</td></tr><tr><th scope="row">MahaRERA registered</th><td>Mar 2020 (Phase 1)</td></tr><tr><th scope="row">MahaRERA project no.</th><td>P52100024783 (Phase 1), P52100030247 (Phase 2), P52100030231 (Phase 3) · <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">Verify on MahaRERA</a></td></tr><tr><th scope="row">Registration facts checked</th><td>28 Oct 2026 (public MahaRERA filing data)</td></tr></tbody></table></div>
     <div class="ph-section"><div class="ph-section-label">Key Facts</div>
       <ul class="ph-verify"><li><strong>5.8 Acres</strong> — Project Area</li><li><strong>3</strong> — Clubhouses</li><li><strong>45,000 sqft</strong> — Amenity Space</li><li><strong>2023-25</strong> — OC Received</li></ul></div>
     <div id="amenities" class="ph-section"><div class="ph-section-label">Amenities</div>
@@ -794,7 +794,8 @@ function buildPage(prop, allProps) {
     if (prop.rera_possession) {
       const m = String(prop.rera_possession).match(/([A-Za-z]{3})[a-z]*\.?\s+(20\d\d)/);
       const passed = m ? new Date(+m[2], MONTH_IDX[m[1].toLowerCase()] + 1, 0) < new Date() : false;
-      return { value: prop.rera_possession + ' (MahaRERA completion date' + (prop.rera_revised ? ', revised' : '') + ')', passed };
+      const many = /\(/.test(prop.rera_possession);
+      return { value: many ? prop.rera_possession + ' — MahaRERA completion dates' + (prop.rera_revised ? ' (revised)' : '') : prop.rera_possession + ' (MahaRERA completion date' + (prop.rera_revised ? ', revised' : '') + ')', passed };
     }
     return null;
   }

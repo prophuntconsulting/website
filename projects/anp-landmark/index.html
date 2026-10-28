@@ -485,7 +485,7 @@ button,select,input,textarea{font-family:inherit}
     <p><a href="/developer/anp-corp" class="ph-browse-link">All ANP Corp projects →</a></p>
     <p><a href="/commercial-properties-in-wakad" class="ph-browse-link">Browse all Commercial Properties in Wakad →</a></p>
     <div id="snapshot" class="ph-section"><div class="ph-section-label">Project Snapshot</div>
-    <table class="ph-snapshot"><tbody><tr><th scope="row">Developer</th><td>ANP Corp</td></tr><tr><th scope="row">Location</th><td>Bhumkar Chowk, Wakad, Pune</td></tr><tr><th scope="row">Category</th><td>Commercial</td></tr><tr><th scope="row">Configuration</th><td>Retail Shops &amp; Office Spaces</td></tr><tr><th scope="row">Sizes</th><td>360 - 1,229 sqft</td></tr><tr><th scope="row">Starting price</th><td>Price on Request</td></tr><tr><th scope="row">Status</th><td>Ready to move</td></tr><tr><th scope="row">Possession</th><td>Ready</td></tr><tr><th scope="row">MahaRERA project no.</th><td>P52100023061 · <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">Verify on MahaRERA</a></td></tr></tbody></table></div>
+    <table class="ph-snapshot"><tbody><tr><th scope="row">Developer</th><td>ANP Corp</td></tr><tr><th scope="row">Location</th><td>Bhumkar Chowk, Wakad, Pune</td></tr><tr><th scope="row">Category</th><td>Commercial</td></tr><tr><th scope="row">Configuration</th><td>Retail Shops &amp; Office Spaces</td></tr><tr><th scope="row">Sizes</th><td>360 - 1,229 sqft</td></tr><tr><th scope="row">Starting price</th><td>Price on Request</td></tr><tr><th scope="row">Status</th><td>Ready to move</td></tr><tr><th scope="row">Possession</th><td>Ready</td></tr><tr><th scope="row">Promoter (as registered)</th><td>Five Star Construction Company</td></tr><tr><th scope="row">MahaRERA registered</th><td>Nov 2019</td></tr><tr><th scope="row">MahaRERA project no.</th><td>P52100023061 · <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">Verify on MahaRERA</a></td></tr><tr><th scope="row">Registration facts checked</th><td>28 Oct 2026 (public MahaRERA filing data)</td></tr></tbody></table></div>
     <div id="pricing" class="ph-section"><div class="ph-section-label">Unit Configurations &amp; Pricing</div>
       <table class="ph-snapshot"><thead><tr><th>Configuration</th><th>Area</th><th>Price</th></tr></thead><tbody><tr><td>Retail Shops &amp; Offices</td><td>360 - 1,229 sqft</td><td>Price on Request</td></tr></tbody></table>
       <p class="ph-disclaimer">*Indicative, exclusive of taxes and other charges. Contact PROPHUNT LLP for the current cost sheet.</p></div>
@@ -798,7 +798,8 @@ function buildPage(prop, allProps) {
     if (prop.rera_possession) {
       const m = String(prop.rera_possession).match(/([A-Za-z]{3})[a-z]*\.?\s+(20\d\d)/);
       const passed = m ? new Date(+m[2], MONTH_IDX[m[1].toLowerCase()] + 1, 0) < new Date() : false;
-      return { value: prop.rera_possession + ' (MahaRERA completion date' + (prop.rera_revised ? ', revised' : '') + ')', passed };
+      const many = /\(/.test(prop.rera_possession);
+      return { value: many ? prop.rera_possession + ' — MahaRERA completion dates' + (prop.rera_revised ? ' (revised)' : '') : prop.rera_possession + ' (MahaRERA completion date' + (prop.rera_revised ? ', revised' : '') + ')', passed };
     }
     return null;
   }

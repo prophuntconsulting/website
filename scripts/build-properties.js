@@ -211,11 +211,14 @@ function generateProjectFAQs(p) {
   if (p.rera_possession) {
     faqs.push({
       q: `When is possession of ${title}?`,
-      a: `${title}'s MahaRERA registration (${p.rera}) gives ${p.rera_possession} as the ${p.rera_revised ? 'revised ' : ''}proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking.`,
+      a: (/\(/.test(p.rera_possession)
+        ? `${title}'s MahaRERA registrations give these ${p.rera_revised ? 'revised ' : ''}proposed completion dates: ${p.rera_possession}.`
+        : `${title}'s MahaRERA registration (${String(p.rera).split(/[ ,(]/)[0]}) gives ${p.rera_possession} as the ${p.rera_revised ? 'revised ' : ''}proposed completion date.`)
+        + ' Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking.',
     });
   }
 
-  const scale = [p.rera_land && `land ${p.rera_land}`, p.rera_buildings, p.rera_units && `${p.rera_units} units`].filter(Boolean);
+  const scale = [p.rera_land && `land ${p.rera_land}`, p.rera_buildings, p.rera_units && String(p.rera_units).replace(/^([^(]*?)(\s*\(.*\))?$/, (m, n, note) => `${n} units${note || ''}`)].filter(Boolean);
   if (scale.length >= 2) {
     faqs.push({
       q: `How big is ${title}?`,
@@ -357,7 +360,8 @@ function possessionInfo(p) {
   if (p.rera_possession) {
     const m = String(p.rera_possession).match(/([A-Za-z]{3})[a-z]*\.?\s+(20\d\d)/);
     const passed = m ? new Date(+m[2], MONTH_IDX[m[1].toLowerCase()] + 1, 0) < new Date() : false;
-    return { value: `${p.rera_possession} (MahaRERA completion date${p.rera_revised ? ', revised' : ''})`, passed };
+    const many = /\(/.test(p.rera_possession);
+    return { value: many ? `${p.rera_possession} — MahaRERA completion dates${p.rera_revised ? ' (revised)' : ''}` : `${p.rera_possession} (MahaRERA completion date${p.rera_revised ? ', revised' : ''})`, passed };
   }
   return null;
 }

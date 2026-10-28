@@ -310,6 +310,14 @@
       {
         "q": "Is 24K Altura ready to move in or under construction?",
         "a": "24K Altura is currently under construction."
+      },
+      {
+        "q": "When is possession of 24K Altura?",
+        "a": "24K Altura's MahaRERA registrations give these proposed completion dates: Mar 2028 (Tower A/B), Dec 2030 (Tower C). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
+      },
+      {
+        "q": "How big is 24K Altura?",
+        "a": "As registered with MahaRERA: land about 0.68 acres (2,740 sq m, Tower A/B registration); about 264 units (Tower A/B registration). The registered promoter is Kolte-Patil Developers Ltd."
       }
     ],
     "abil-imperial-atria": [
@@ -358,6 +366,10 @@
       {
         "q": "Who is the developer of ANP Bizsquare?",
         "a": "ANP Bizsquare is developed by ANP Corp."
+      },
+      {
+        "q": "How big is ANP Bizsquare?",
+        "a": "As registered with MahaRERA: land about 0.23 acres (944 sq m); about 68 units. The registered promoter is Five Star Vighnesh Associates (AOP)."
       }
     ],
     "anp-landmark": [
@@ -436,6 +448,10 @@
       {
         "q": "Is ANP Privado ready to move in or under construction?",
         "a": "ANP Privado is a new launch."
+      },
+      {
+        "q": "When is possession of ANP Privado?",
+        "a": "ANP Privado's MahaRERA registrations give these proposed completion dates: Sep 2031 (Phase 1). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "anp-retreat": [
@@ -462,6 +478,10 @@
       {
         "q": "Is ANP Retreat ready to move in or under construction?",
         "a": "ANP Retreat is currently under construction."
+      },
+      {
+        "q": "How big is ANP Retreat?",
+        "a": "As registered with MahaRERA: land about 0.88 acres (3,550 sq m); about 186 units. The registered promoter is Five Star Construction Company."
       }
     ],
     "anp-ultimus": [
@@ -658,6 +678,10 @@
       {
         "q": "Who is the developer of Kalpataru Blossoms?",
         "a": "Kalpataru Blossoms is developed by Kalpataru."
+      },
+      {
+        "q": "When is possession of Kalpataru Blossoms?",
+        "a": "Kalpataru Blossoms's MahaRERA registrations give these proposed completion dates: Mar 2029 (Towers 1 and 3). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "khopoli": [
@@ -706,6 +730,10 @@
       {
         "q": "Is Kings County ready to move in or under construction?",
         "a": "Kings County is currently under construction."
+      },
+      {
+        "q": "When is possession of Kings County?",
+        "a": "Kings County's MahaRERA registration (P52100055635) gives Dec 2027 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "kohinoor-avantara": [
@@ -780,6 +808,14 @@
       {
         "q": "Is Kohinoor Westview Reserve ready to move in or under construction?",
         "a": "Kohinoor Westview Reserve is currently under construction."
+      },
+      {
+        "q": "When is possession of Kohinoor Westview Reserve?",
+        "a": "Kohinoor Westview Reserve's MahaRERA registrations give these proposed completion dates: Dec 2028 (P52100048589 registration). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
+      },
+      {
+        "q": "How big is Kohinoor Westview Reserve?",
+        "a": "As registered with MahaRERA: land about 4.25 acres (17,214 sq m, P52100048589 registration); about 782 units (P52100048589 registration). The registered promoter is Goldway Realty."
       }
     ],
     "kumar-panache": [
@@ -806,6 +842,10 @@
       {
         "q": "Is Kumar Panache ready to move in or under construction?",
         "a": "Kumar Panache is currently under construction."
+      },
+      {
+        "q": "When is possession of Kumar Panache?",
+        "a": "Kumar Panache's MahaRERA registration (P52100077734) gives Dec 2027 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "kumar-parth-towers": [
@@ -828,6 +868,10 @@
       {
         "q": "Who is the developer of Kumar Parth Towers?",
         "a": "Kumar Parth Towers is developed by Kumar Properties."
+      },
+      {
+        "q": "When is possession of Kumar Parth Towers?",
+        "a": "Kumar Parth Towers's MahaRERA registrations give these proposed completion dates: Dec 2027 (Tower C1), Mar 2028 (Tower C2). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "livience-unione": [
@@ -854,6 +898,10 @@
       {
         "q": "Is Livience Unione ready to move in or under construction?",
         "a": "Livience Unione is currently under construction."
+      },
+      {
+        "q": "When is possession of Livience Unione?",
+        "a": "Livience Unione's MahaRERA registration (PR1260002501582) gives Dec 2030 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "lodha-altero": [
@@ -876,6 +924,10 @@
       {
         "q": "Who is the developer of Lodha Altero?",
         "a": "Lodha Altero is developed by Lodha."
+      },
+      {
+        "q": "When is possession of Lodha Altero?",
+        "a": "Lodha Altero's MahaRERA registration (P52100079692) gives Jun 2030 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "lodha-massimo": [
@@ -902,6 +954,10 @@
       {
         "q": "Is Lodha Massimo ready to move in or under construction?",
         "a": "Lodha Massimo is currently under construction."
+      },
+      {
+        "q": "When is possession of Lodha Massimo?",
+        "a": "Lodha Massimo's MahaRERA registration (PR1261012400049) gives Jun 2029 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "mahindra-citadel": [
@@ -928,6 +984,10 @@
       {
         "q": "Is Mahindra Citadel ready to move in or under construction?",
         "a": "Mahindra Citadel is a new launch."
+      },
+      {
+        "q": "When is possession of Mahindra Citadel?",
+        "a": "Mahindra Citadel's MahaRERA registrations give these proposed completion dates: Jun 2028 (Phase 1, Towers A-D), Mar 2030 (Bastion I). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "mahindra-mahalunge": [
@@ -1002,6 +1062,10 @@
       {
         "q": "Is Merlin Ventana ready to move in or under construction?",
         "a": "Merlin Ventana is currently under construction."
+      },
+      {
+        "q": "When is possession of Merlin Ventana?",
+        "a": "Merlin Ventana's MahaRERA registration (P52100053687) gives Dec 2028 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "millennium-towers-wakad": [
@@ -1064,6 +1128,10 @@
       {
         "q": "Who is the developer of Nyati Emerald?",
         "a": "Nyati Emerald is developed by Nyati Group."
+      },
+      {
+        "q": "When is possession of Nyati Emerald?",
+        "a": "Nyati Emerald's MahaRERA registrations give these proposed completion dates: May 2027 (Phase I), Aug 2028 (Phase III). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "regency-astra": [
@@ -1086,6 +1154,14 @@
       {
         "q": "Who is the developer of Regency Astra?",
         "a": "Regency Astra is developed by Regency Group."
+      },
+      {
+        "q": "When is possession of Regency Astra?",
+        "a": "Regency Astra's MahaRERA registrations give these proposed completion dates: Dec 2026 (Phase III, P52100053943). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
+      },
+      {
+        "q": "How big is Regency Astra?",
+        "a": "As registered with MahaRERA: land about 1.42 acres (5,745 sq m, Phase III registration); about 168 units (Phase III registration). The registered promoter is Regency Aawishkar Sarsan Developers LLP."
       }
     ],
     "rohan-viti": [
@@ -1172,6 +1248,10 @@
       {
         "q": "Is Tej Elevia ready to move in or under construction?",
         "a": "Tej Elevia is currently under construction."
+      },
+      {
+        "q": "When is possession of Tej Elevia?",
+        "a": "Tej Elevia's MahaRERA registrations give these proposed completion dates: Dec 2028 (Bldg A/B and C). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "the-arena-pimpri": [
@@ -1220,6 +1300,10 @@
       {
         "q": "Is The Balmoral Hillside ready to move in or under construction?",
         "a": "The Balmoral Hillside is currently under construction."
+      },
+      {
+        "q": "When is possession of The Balmoral Hillside?",
+        "a": "The Balmoral Hillside's MahaRERA registrations give these proposed completion dates: Dec 2028 (Tower B). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "the-ornate-baner": [
@@ -1246,6 +1330,14 @@
       {
         "q": "Is The Ornate ready to move in or under construction?",
         "a": "The Ornate is currently under construction."
+      },
+      {
+        "q": "When is possession of The Ornate?",
+        "a": "The Ornate's MahaRERA registration (P52100046463) gives Dec 2029 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
+      },
+      {
+        "q": "How big is The Ornate?",
+        "a": "As registered with MahaRERA: land about 2.23 acres (9,028 sq m); 2 towers. The registered promoter is Empresa Estate Pvt Ltd."
       }
     ],
     "treetopia": [
@@ -1294,6 +1386,10 @@
       {
         "q": "Is Venkatesh Tresor ready to move in or under construction?",
         "a": "Venkatesh Tresor is a new launch."
+      },
+      {
+        "q": "When is possession of Venkatesh Tresor?",
+        "a": "Venkatesh Tresor's MahaRERA registration (PR1260002501248) gives Mar 2030 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
     "vtp-altitude": [
@@ -1376,6 +1472,14 @@
       {
         "q": "Is Yashwin Urbo Centro ready to move in or under construction?",
         "a": "Yashwin Urbo Centro is currently under construction."
+      },
+      {
+        "q": "When is possession of Yashwin Urbo Centro?",
+        "a": "Yashwin Urbo Centro's MahaRERA registrations give these proposed completion dates: Dec 2027 (Phase 1, P52100053194). Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
+      },
+      {
+        "q": "How big is Yashwin Urbo Centro?",
+        "a": "As registered with MahaRERA: land about 3.1 acres (12,500 sq m, Phase 1 registration); about 700 units (Phase 1 registration). The registered promoter is Vilas Javdekar Infinitee Developers Pvt Ltd."
       }
     ]
   },

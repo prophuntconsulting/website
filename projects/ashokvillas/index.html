@@ -485,7 +485,7 @@ button,select,input,textarea{font-family:inherit}
     
     <p><a href="/villas-in-ravet-gahunje" class="ph-browse-link">Browse all Villas in Ravet-Gahunje →</a></p>
     <div id="snapshot" class="ph-section"><div class="ph-section-label">Project Snapshot</div>
-    <table class="ph-snapshot"><tbody><tr><th scope="row">Developer</th><td>Peninsula Land</td></tr><tr><th scope="row">Location</th><td>Ravet - Gahunje, Pune</td></tr><tr><th scope="row">Category</th><td>Villa</td></tr><tr><th scope="row">Configuration</th><td>3 BHK Row Villas</td></tr><tr><th scope="row">Sizes</th><td>3,350 sqft onwards (Total Usable Area)</td></tr><tr><th scope="row">Starting price</th><td>₹2.99 Cr* onwards</td></tr><tr><th scope="row">MahaRERA project no.</th><td>Ashok Villas Imperial: PR1260002600608, Ashok Villas Grande: PR1260002600614 · <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">Verify on MahaRERA</a></td></tr></tbody></table></div>
+    <table class="ph-snapshot"><tbody><tr><th scope="row">Developer</th><td>Peninsula Land</td></tr><tr><th scope="row">Location</th><td>Ravet - Gahunje, Pune</td></tr><tr><th scope="row">Category</th><td>Villa</td></tr><tr><th scope="row">Configuration</th><td>3 BHK Row Villas</td></tr><tr><th scope="row">Sizes</th><td>3,350 sqft onwards (Total Usable Area)</td></tr><tr><th scope="row">Starting price</th><td>₹2.99 Cr* onwards</td></tr><tr><th scope="row">Total units</th><td>19 villas</td></tr><tr><th scope="row">MahaRERA project no.</th><td>Ashok Villas Imperial: PR1260002600608, Ashok Villas Grande: PR1260002600614 · <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">Verify on MahaRERA</a></td></tr><tr><th scope="row">Registration facts checked</th><td>28 Oct 2026 (public MahaRERA filing data)</td></tr></tbody></table></div>
     <div id="pricing" class="ph-section"><div class="ph-section-label">Unit Configurations &amp; Pricing</div>
       <table class="ph-snapshot"><thead><tr><th>Configuration</th><th>Area</th><th>Price</th></tr></thead><tbody><tr><td>3 BHK Row Villa</td><td>3,350 sqft onwards</td><td>₹2.99 Cr Onwards*</td></tr></tbody></table>
       <p class="ph-disclaimer">*Indicative, exclusive of taxes and other charges. Contact PROPHUNT LLP for the current cost sheet.</p></div>
@@ -796,7 +796,8 @@ function buildPage(prop, allProps) {
     if (prop.rera_possession) {
       const m = String(prop.rera_possession).match(/([A-Za-z]{3})[a-z]*\.?\s+(20\d\d)/);
       const passed = m ? new Date(+m[2], MONTH_IDX[m[1].toLowerCase()] + 1, 0) < new Date() : false;
-      return { value: prop.rera_possession + ' (MahaRERA completion date' + (prop.rera_revised ? ', revised' : '') + ')', passed };
+      const many = /\(/.test(prop.rera_possession);
+      return { value: many ? prop.rera_possession + ' — MahaRERA completion dates' + (prop.rera_revised ? ' (revised)' : '') : prop.rera_possession + ' (MahaRERA completion date' + (prop.rera_revised ? ', revised' : '') + ')', passed };
     }
     return null;
   }
