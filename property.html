@@ -746,6 +746,11 @@ function buildPage(prop, allProps) {
       }
       return { value, passed };
     }
+    if (prop.rera_possession) {
+      const m = String(prop.rera_possession).match(/([A-Za-z]{3})[a-z]*\.?\s+(20\d\d)/);
+      const passed = m ? new Date(+m[2], MONTH_IDX[m[1].toLowerCase()] + 1, 0) < new Date() : false;
+      return { value: prop.rera_possession + ' (MahaRERA completion date' + (prop.rera_revised ? ', revised' : '') + ')', passed };
+    }
     return null;
   }
   function statusLabel() {
@@ -772,7 +777,13 @@ function buildPage(prop, allProps) {
     ['Starting price', snapPrice ? snapPrice + ' onwards' : 'Price on Request'],
     ['Status', statusLabel()],
     ['Possession', snapPoss ? snapPoss.value + (snapPoss.passed ? ' — this date has passed; please confirm the current timeline' : '') : ''],
+    ['Promoter (as registered)', prop.rera_promoter],
+    ['Land area', prop.rera_land],
+    ['Buildings', prop.rera_buildings],
+    ['Total units', prop.rera_units],
+    ['MahaRERA registered', prop.rera_registered],
     ['MahaRERA project no.', prop.rera ? prop.rera + ' · <a href="' + MAHARERA_URL + '" target="_blank" rel="noopener">Verify on MahaRERA</a>' : ''],
+    ['Registration facts checked', prop.rera_checked ? formatVerified(prop.rera_checked) + ' (' + (prop.rera_source || 'MahaRERA') + ')' : ''],
     ['Last verified', formatVerified(prop.last_verified)],
   ].filter(([, v]) => v);
   const snapshotHtml = `<div id="snapshot" class="ph-section" style="margin-top:24px"><div class="ph-section-label">Project Snapshot</div>

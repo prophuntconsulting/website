@@ -406,6 +406,10 @@
       {
         "q": "Is ANP Memento ready to move in or under construction?",
         "a": "ANP Memento is currently under construction."
+      },
+      {
+        "q": "How big is ANP Memento?",
+        "a": "As registered with MahaRERA: land about 2.07 acres (8,358 sq m); 4 towers, G+3P+23 storeys. The registered promoter is Five Star Construction Company."
       }
     ],
     "anp-privado": [
@@ -484,6 +488,14 @@
       {
         "q": "Is ANP Ultimus ready to move in or under construction?",
         "a": "ANP Ultimus is currently under construction."
+      },
+      {
+        "q": "When is possession of ANP Ultimus?",
+        "a": "ANP Ultimus's MahaRERA registration (P52100047835) gives Jun 2027 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
+      },
+      {
+        "q": "How big is ANP Ultimus?",
+        "a": "As registered with MahaRERA: land about 4.16 acres (16,827 sq m); 6 towers, B+G+2P+35 storeys. The registered promoter is Swadik Trade Pvt Ltd."
       }
     ],
     "ashokvillas": [
@@ -1100,6 +1112,14 @@
       {
         "q": "Is Rohan Viti ready to move in or under construction?",
         "a": "Rohan Viti is currently under construction."
+      },
+      {
+        "q": "When is possession of Rohan Viti?",
+        "a": "Rohan Viti's MahaRERA registration (P52100046719) gives Dec 2027 as the revised proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
+      },
+      {
+        "q": "How big is Rohan Viti?",
+        "a": "As registered with MahaRERA: land about 0.9 acres (3,620 sq m); 3 towers. The registered promoter is Rohan Builders & Developers Pvt Ltd."
       }
     ],
     "supreme-estia": [
@@ -1326,6 +1346,10 @@
       {
         "q": "Is Western Avenue ready to move in or under construction?",
         "a": "Western Avenue is ready to move in."
+      },
+      {
+        "q": "How big is Western Avenue?",
+        "a": "As registered with MahaRERA: land about 13.4 acres (54,205 sq m); about 936 units. The registered promoter is Kolte-Patil Developers Ltd."
       }
     ],
     "yashwin-urbo-centro": [

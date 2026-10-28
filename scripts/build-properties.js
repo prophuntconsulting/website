@@ -2,6 +2,7 @@ const fs   = require('fs');
 const path = require('path');
 const { getMicroMarket, LOCALITY_CONTENT } = require('./locality-content');
 const { DEV_HUB_MIN, developerSlug, fitTitle } = require('./hub-shared');
+const { PROJECT_FACTS } = require('./project-facts');
 
 const SITE = 'https://www.prophuntllp.com';
 
@@ -207,6 +208,21 @@ function generateProjectFAQs(p) {
     faqs.push({ q: `Is ${title} ready to move in or under construction?`, a: status });
   }
 
+  if (p.rera_possession) {
+    faqs.push({
+      q: `When is possession of ${title}?`,
+      a: `${title}'s MahaRERA registration (${p.rera}) gives ${p.rera_possession} as the ${p.rera_revised ? 'revised ' : ''}proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking.`,
+    });
+  }
+
+  const scale = [p.rera_land && `land ${p.rera_land}`, p.rera_buildings, p.rera_units && `${p.rera_units} units`].filter(Boolean);
+  if (scale.length >= 2) {
+    faqs.push({
+      q: `How big is ${title}?`,
+      a: `As registered with MahaRERA: ${scale.join('; ')}.${p.rera_promoter ? ` The registered promoter is ${p.rera_promoter}.` : ''}`,
+    });
+  }
+
   return faqs;
 }
 
@@ -337,6 +353,12 @@ function possessionInfo(p) {
     }
     return { value, passed };
   }
+  // No possession stat in Sanity: fall back to the MahaRERA completion date.
+  if (p.rera_possession) {
+    const m = String(p.rera_possession).match(/([A-Za-z]{3})[a-z]*\.?\s+(20\d\d)/);
+    const passed = m ? new Date(+m[2], MONTH_IDX[m[1].toLowerCase()] + 1, 0) < new Date() : false;
+    return { value: `${p.rera_possession} (MahaRERA completion date${p.rera_revised ? ', revised' : ''})`, passed };
+  }
   return null;
 }
 
@@ -374,7 +396,13 @@ function snapshotHtml(p) {
     ['Starting price', price !== 'Price on Request' ? `${price} onwards` : 'Price on Request'],
     ['Status', statusLabel(p)],
     ['Possession', poss ? poss.value + (poss.passed ? ' — this date has passed; please confirm the current timeline' : '') : ''],
+    ['Promoter (as registered)', p.rera_promoter],
+    ['Land area', p.rera_land],
+    ['Buildings', p.rera_buildings],
+    ['Total units', p.rera_units],
+    ['MahaRERA registered', p.rera_registered],
     ['MahaRERA project no.', p.rera ? `${escapeHtml(p.rera)} · <a href="${MAHARERA_URL}" target="_blank" rel="noopener">Verify on MahaRERA</a>` : ''],
+    ['Registration facts checked', p.rera_checked ? `${formatVerified(p.rera_checked)} (${p.rera_source || 'MahaRERA'})` : ''],
     ['Last verified', formatVerified(p.last_verified)],
   ].filter(([, v]) => v);
   return `<div id="snapshot" class="ph-section"><div class="ph-section-label">Project Snapshot</div>
@@ -498,7 +526,9 @@ const properties = files.map(file => {
   // Images uploaded in Sanity come from its CDN, which resizes on request.
   const thumb = fs.existsSync(path.join(__dirname, '..', 'images', 'thumbs', `${slug}.webp`)) ? `/images/thumbs/${slug}.webp`
     : /^https:\/\/cdn\.sanity\.io\/images\//.test(cover) ? cover.replace(/\?.*$/, '') + '?w=640&fit=max&auto=format&q=75' : '';
-  const merged = { slug, ...data, cover, thumb, url, body: body || '' };
+  const facts = PROJECT_FACTS[slug] || {};
+  const reraFacts = Object.fromEntries(Object.entries(facts).filter(([, v]) => v != null && v !== '').map(([k, v]) => [`rera_${k}`, v]));
+  const merged = { slug, ...data, ...reraFacts, cover, thumb, url, body: body || '' };
 
   const micro_market = getMicroMarket(data.location);
   const locality = LOCALITY_CONTENT[micro_market] || null;
