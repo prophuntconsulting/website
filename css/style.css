@@ -628,3 +628,49 @@ html { overflow-x:clip; }
 .area-guide li { color:var(--gray-800); line-height:1.65; }
 .area-guide a { color:var(--red-dark); text-decoration:underline; text-underline-offset:2px; }
 .area-guide strong { color:var(--black); }
+
+/* ═══════════════════════════════════════════════
+   CARD SURFACES — one border, shadow and glow for every card on the site,
+   so white cards and photos stand off the white / off-white page.
+   "body :is()" outranks the per-page card rules in home.css, pages.css,
+   blog.css and the inline <style> blocks without !important.
+═══════════════════════════════════════════════ */
+:root {
+    --card-border:       #CEC4BA;
+    --card-border-hover: rgba(200,54,43,.55);
+    --card-shadow:       0 1px 3px rgba(17,17,17,.08), 0 8px 24px rgba(60,40,30,.12), 0 4px 18px rgba(200,54,43,.05);
+    --card-glow:         0 0 0 1px rgba(200,54,43,.40), 0 0 24px rgba(200,54,43,.22), 0 18px 44px rgba(17,17,17,.14);
+    --img-edge:          0 0 0 1px rgba(17,17,17,.10), 0 8px 24px rgba(60,40,30,.14);
+}
+/* Clickable cards: border + resting shadow, red glow and lift on hover */
+body :is(.card, .prop-card, .blog-card, .bl-card, .dev-card, .loc-hub-card, .ph-rel-card, .ph-nearby-card,
+         .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured) {
+    border:1px solid var(--card-border);
+    box-shadow:var(--card-shadow);
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+body :is(.card, .prop-card, .blog-card, .bl-card, .dev-card, .loc-hub-card, .ph-rel-card, .ph-nearby-card,
+         .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured):hover {
+    border-color:var(--card-border-hover);
+    box-shadow:var(--card-glow);
+    transform:translateY(-5px);
+}
+/* Static panels (forms, sidebars, info boxes): border + resting shadow only */
+body :is(.info-card, .testi-card, .capability-card, .sdc-card, .bl-side-card, .bl-search-card,
+         .ph-price-card, .ph-enq-card, .ph-quick-card, .ph-side-card) {
+    border:1px solid var(--card-border);
+    box-shadow:var(--card-shadow);
+}
+/* A hairline between a card's photo and its text, so bright photos don't melt into the card */
+body :is(.prop-card-img, .blog-card-img, .bl-card .bl-media, .ph-rel-card-img, .ph-nearby-card-img) {
+    border-bottom:1px solid var(--card-border);
+}
+/* Stand-alone photos: framed edge and soft shadow */
+body :is(.office-tile, .bl-hero-img .bl-media, .ph-photo-grid-inner, .bl-body img) {
+    box-shadow:var(--img-edge);
+}
+.bl-body img { border-radius:12px; }
+@media (hover: none) {
+    body :is(.card, .prop-card, .blog-card, .bl-card, .dev-card, .loc-hub-card, .ph-rel-card, .ph-nearby-card,
+             .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured):hover { transform:none; }
+}
