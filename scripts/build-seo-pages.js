@@ -149,6 +149,9 @@ const addRelated = (slug, label, url) => {
   if (!related[slug].some(r => r.url === url)) related[slug].push({ label, url });
 };
 
+// PMC/PCMC areas where the calculator's stamp duty rates apply.
+const COST_AREAS = new Set(['baner', 'wakad', 'pimpri-chinchwad', 'hadapsar', 'sinhagad-road', 'ravet-gahunje']);
+
 /* ── 1. Project × BHK pages ─────────────────────────────────────────── */
 
 const projectBhkPages = {};       // slug -> [{n, url}]
@@ -173,7 +176,25 @@ for (const p of live) {
     const rowText = rows.map(r => r.type).join(' ');
     const noun = /townhouse/i.test(rowText) ? 'Townhouse' : /villa/i.test(rowText) || p.category === 'villa' ? 'Villa' : /penthouse|chalet/i.test(rowText) ? 'Residence' : 'Flat';
     const h1 = `${bhkLabel(n)} ${noun}s in ${p.title}, ${loc}`;
-    const core = `${p.title} ${bhkLabel(n)} Price${sizeTxt ? ', Size' : ''} & Details`;
+    const core = `${p.title} ${bhkLabel(n)} Price${sizeTxt ? ', Size' : ''} & Floor Plan`;
+    // Same configuration in other projects of the same area: the part of this
+    // page that the main project page doesn't have ("3 bhk in wakad" shoppers).
+    const compare = p.micro_market ? live.filter(q => q.slug !== p.slug && q.micro_market === p.micro_market && specificRows(q, n).length)
+      .map(q => { const r = specificRows(q, n); return { q, size: r.map(x => x.area).filter(Boolean).join(' / '), price: r.filter(x => hasPrice(x.price)).map(x => cleanPrice(x.price)).join(' / ') }; }) : [];
+    const areaBhkUrl = compare.length ? `/${bhkSlug(n)}-flats-in-${p.micro_market}` : '';
+    // All-in cost estimate, same rates as /stamp-duty-calculator-pune (PMC/PCMC only):
+    // stamp duty 7% (incl. metro cess and LBT; 6% for a woman buyer), registration 1%
+    // capped at Rs 30,000, GST 5% on under-construction homes.
+    const baseL = priceTxt ? priceLakh(priceTxt) : Infinity;
+    const underCon = /under construction|nearing|new launch|launched/i.test(p.tagline || '') || p.status === 'coming-soon';
+    const costEst = Number.isFinite(baseL) && COST_AREAS.has(p.micro_market) ? (() => {
+      const v = baseL * 1e5, sd = v * 0.07, reg = Math.min(v * 0.01, 30000), gst = underCon ? v * 0.05 : 0;
+      const L = x => x >= 1e7 ? `₹${(x / 1e7).toFixed(2)} Cr` : `₹${(x / 1e5).toFixed(1)} lakh`;
+      return { base: L(v), sd: L(sd), reg: `₹${Math.round(reg).toLocaleString('en-IN')}`, gst: gst ? L(gst) : '', total: L(v + sd + reg + gst) };
+    })() : null;
+    const intro = `${bhkLabel(n)} ${noun.toLowerCase()}s at ${p.title}, ${loc}${sizeTxt ? `, measure ${sizeTxt}` : ''}${priceTxt ? ` and are listed at ${priceTxt}` : ', with the price shared on request'}.` +
+      (p.rera_possession ? ` MahaRERA completion date: ${p.rera_possession}.` : '') +
+      (otherBhks.length > 1 ? ` The project also offers ${otherBhks.filter(x => x !== n).map(bhkLabel).join(', ')}.` : '');
     const title = fitTitle([`${core} | PROPHUNT LLP`, `${core} | PROPHUNT`, core, `${p.title} ${bhkLabel(n)} Price | PROPHUNT`, `${p.title} ${bhkLabel(n)} Price`]);
     const desc = `${bhkLabel(n)} ${noun.toLowerCase()}s at ${p.title} by ${p.developer} in ${loc}, Pune.` +
       (priceTxt ? ` Price ${priceTxt}.` : '') + (sizeTxt ? ` Size ${sizeTxt}.` : '') +
@@ -184,9 +205,9 @@ for (const p of live) {
         ? `${bhkLabel(n)} homes at ${p.title} are listed at ${priceTxt} (indicative, excluding taxes and other charges). Contact PROPHUNT LLP for the current cost sheet and any offers.`
         : `The developer has not published a ${bhkLabel(n)} price for ${p.title} yet. Contact PROPHUNT LLP for the current cost sheet.` },
       ...(sizeTxt ? [{ q: `What is the size of a ${bhkLabel(n)} in ${p.title}?`, a: `${bhkLabel(n)} units at ${p.title} are ${sizeTxt}, as published for the project. Ask our advisors for the floor plan and exact carpet area of the unit you are considering.` }] : []),
-      { q: `Where is ${p.title} located?`, a: `${p.title} is in ${p.location}. ${LOCALITY_CONTENT[p.micro_market] ? `See all projects in ${loc} on our ${loc} location guide.` : ''}`.trim() },
-      ...(p.rera ? [{ q: `Is ${p.title} RERA registered?`, a: `Yes. ${p.title} is registered with MahaRERA under ${p.rera}. You can verify it on the MahaRERA portal.` }] : []),
-      { q: `What other configurations are available in ${p.title}?`, a: `${p.title} offers ${p.config}.` },
+      ...(costEst ? [{ q: `What is the total cost of a ${bhkLabel(n)} at ${p.title} including stamp duty?`, a: `On the published ${costEst.base} price, stamp duty (7%) adds ${costEst.sd}, registration ${costEst.reg}${costEst.gst ? ` and GST (5%) ${costEst.gst}` : ''}, for about ${costEst.total} in total, before parking, maintenance deposits or loan charges.` }] : []),
+      ...(p.rera_possession ? [{ q: `When is possession of the ${bhkLabel(n)} at ${p.title}?`, a: `MahaRERA lists ${p.rera_possession} as the proposed completion date for ${p.title}. Confirm the timeline for your tower and the possession clause before booking.` }] : []),
+      ...(compare.length ? [{ q: `How does the ${p.title} ${bhkLabel(n)} compare with other ${bhkLabel(n)} projects in ${loc}?`, a: `Other ${bhkLabel(n)} options in ${loc}: ${compare.slice(0, 4).map(c => `${c.q.title}${c.size ? ` (${c.size}${c.price ? `, ${c.price}` : ''})` : c.price ? ` (${c.price})` : ''}`).join('; ')}. Compare carpet area, possession and total cost, not just the base price.` }] : []),
     ];
     const siblingLinks = pages.filter(x => x.n !== n).map(x => ({ label: `${bhkLabel(x.n)} in ${p.title}`, url: x.url }));
     const otherList = otherBhks.filter(x => x !== n).map(bhkLabel).join(', ');
@@ -207,7 +228,8 @@ for (const p of live) {
     <table class="ph-snapshot"><thead><tr><th>Unit</th><th>Size</th><th>Price</th></tr></thead><tbody>${rows.map(r =>
       `<tr><td>${escapeHtml(r.type)}</td><td>${escapeHtml(r.area || 'On request')}</td><td>${escapeHtml(hasPrice(r.price) ? r.price : 'Price on Request')}</td></tr>`).join('')}</tbody></table>
     <p class="loc-note" style="margin-top:.75rem">Indicative prices as listed in ${escapeHtml(todayLabel)}, exclusive of taxes and other charges. Always confirm the current cost sheet with PROPHUNT LLP or the developer.</p>
-    ${p.overview ? `<p class="loc-about">${escapeHtml(p.overview)}</p>` : ''}
+    <p class="loc-about">${escapeHtml(intro)}</p>
+    ${costEst ? `<div class="loc-about"><strong>Estimated all-in cost of a ${escapeHtml(bhkLabel(n))} at ${escapeHtml(p.title)}:</strong> about ${costEst.total} on a ${costEst.base} agreement value, adding stamp duty ${costEst.sd} (7%), registration ${costEst.reg}${costEst.gst ? ` and GST ${costEst.gst} (5%, under construction)` : ''}. A woman buyer pays 6% stamp duty. Work out your own figure with our <a href="/stamp-duty-calculator-pune">stamp duty calculator</a>.</div>` : ''}
     <table class="ph-snapshot" style="margin-bottom:2rem"><tbody>
       <tr><th>Project</th><td><a href="${p.url}">${escapeHtml(p.title)}</a></td></tr>
       <tr><th>Developer</th><td>${p.developer_hub ? `<a href="${p.developer_hub}">${escapeHtml(p.developer)}</a>` : escapeHtml(p.developer || '')}</td></tr>
@@ -219,11 +241,22 @@ for (const p of live) {
   </div>
 </section>
 
-${Array.isArray(p.amenities) && p.amenities.length ? `
+${compare.length ? `
 <section class="section section--tinted">
   <div class="container" style="max-width:900px">
-    ${sectionHead('swimming-pool', 'Amenities', `Amenities at ${p.title}`)}
-    <div class="loc-landmarks-chips">${p.amenities.map(a => `<span class="loc-landmark-chip">${escapeHtml(a)}</span>`).join('')}</div>
+    ${sectionHead('table', 'Compare', `${bhkLabel(n)} in ${p.title} vs other ${bhkLabel(n)} projects in ${loc}`)}
+    <div style="overflow-x:auto"><table class="ph-snapshot"><thead><tr><th>Project</th><th>${bhkLabel(n)} size</th><th>${bhkLabel(n)} price</th></tr></thead><tbody>
+      <tr><td><strong>${escapeHtml(p.title)}</strong></td><td>${escapeHtml(sizeTxt || 'On request')}</td><td>${escapeHtml(priceTxt || 'On request')}</td></tr>
+      ${compare.map(c => `<tr><td><a href="${(projectBhkPages[c.q.slug] || []).find(x => x.n === n)?.url || c.q.url}">${escapeHtml(c.q.title)}</a></td><td>${escapeHtml(c.size || 'On request')}</td><td>${escapeHtml(c.price || 'On request')}</td></tr>`).join('')}
+    </tbody></table></div>
+    <p class="loc-note">Developer-published sizes and prices, exclusive of taxes. <a href="${areaBhkUrl}">All ${bhkLabel(n)} flats in ${escapeHtml(loc)}</a></p>
+  </div>
+</section>` : ''}
+${Array.isArray(p.amenities) && p.amenities.length ? `
+<section class="section">
+  <div class="container" style="max-width:900px">
+    ${sectionHead('swimming-pool', 'Amenities', `Key amenities at ${p.title}`)}
+    <div class="loc-landmarks-chips">${p.amenities.slice(0, 6).map(a => `<span class="loc-landmark-chip">${escapeHtml(a)}</span>`).join('')}</div>
   </div>
 </section>` : ''}
 
@@ -632,6 +665,11 @@ if (fs.existsSync(homePath)) {
     ['Projects by location', readJson('scripts/.location-hubs.json', []).filter(u => u !== '/location')
       .map(u => ({ label: `New projects in ${(LOCALITY_CONTENT[u.split('/').pop()] || {}).name || u.split('/').pop()}`, url: u }))],
     ['Popular areas', areaPages.map(x => ({ label: `Flats ${x.url.includes('-on-') ? 'on' : 'in'} ${x.name}`, url: x.url }))],
+    // Type x area pages ("villas in ravet gahunje", "plots in hadapsar") had only
+    // 2-3 internal links each; the homepage is the page Google crawls most.
+    ['Homes by type', readJson('scripts/.locality-pages.json', [])
+      .map(u => { const m = u.match(/^\/(apartments|villas|plots|commercial-properties)-in-(.+)$/); return m && LOCALITY_CONTENT[m[2]] ? { label: `${m[1] === 'commercial-properties' ? 'Commercial' : m[1][0].toUpperCase() + m[1].slice(1)} in ${LOCALITY_CONTENT[m[2]].name}`, url: u } : null; })
+      .filter(Boolean)],
     ['Flats by size', [...locBhkPages].sort((a, b) => a.mm.localeCompare(b.mm) || a.n - b.n)
       .map(x => ({ label: `${bhkLabel(x.n)} flats in ${LOCALITY_CONTENT[x.mm].name}`, url: x.url }))],
     ['Near work & transit', nearPages.map(x => ({ label: `${x.t.noun} near ${x.lm.short_name || x.lm.name}`, url: x.url }))],
@@ -651,7 +689,7 @@ if (fs.existsSync(homePath)) {
   </div>
 </section>
 <style>
-.popular-searches-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2rem;margin-top:2rem}
+.popular-searches-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
 @media(max-width:1100px){.popular-searches-grid{grid-template-columns:repeat(3,1fr)}}
 .popular-searches-title{display:flex;align-items:center;gap:.5rem;font-family:var(--font-head);font-size:.95rem;font-weight:700;margin-bottom:.75rem;color:var(--black);list-style:none;pointer-events:none}
 .popular-searches-title::-webkit-details-marker{display:none}

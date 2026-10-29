@@ -297,7 +297,7 @@ function buildPage({ slug, url, meta, locality, bucket, matches }) {
     <div class="loc-grid">${matches.map(renderProjectCard).join('')}</div>
 
     <div class="section-cta" style="margin-top:2.5rem">
-      <a href="/projects?type=${encodeURIComponent(Object.keys(CATEGORY_META).find(k => CATEGORY_META[k] === meta))}&location=${encodeURIComponent(bucket)}" class="btn btn-outline btn-lg">See All ${escapeHtml(meta.label)} Filters <i class="fas fa-arrow-right"></i></a>
+      <a href="/location/${encodeURIComponent(bucket)}" class="btn btn-outline btn-lg">All Properties in ${escapeHtml(locality.name)} <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>

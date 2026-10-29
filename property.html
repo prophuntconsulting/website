@@ -110,6 +110,7 @@ button,select,input,textarea{font-family:inherit}
 .ph-section{margin-bottom:56px;scroll-margin-top:130px}
 .ph-section-label{display:inline-flex;align-items:center;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red-deeper);border-left:2px solid var(--red);padding-left:.7rem;margin-bottom:10px}
 h2.ph-section-label,h2.ph-section-title{margin-top:0}
+.ph-aka{font-size:13px;color:var(--gray-600);margin:-4px 0 8px}
 .ph-yt{display:block;position:relative;aspect-ratio:16/9;border-radius:var(--radius-card);overflow:hidden;background:#000;margin-bottom:12px;box-shadow:var(--card-shadow,0 6px 18px rgba(0,0,0,.12))}
 .ph-yt img,.ph-yt iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
 .ph-yt-play{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;border-radius:12px;background:var(--red)}
@@ -818,7 +819,7 @@ function buildPage(prop, allProps) {
   const pricingHtml = units.length
     ? `<div id="pricing" class="ph-section">
         <div class="ph-section-label">Unit Configurations & Pricing</div>
-        <h2 class="ph-section-title">Choose Your Home</h2>
+        <h2 class="ph-section-title">${prop.title || 'Project'} Price List &amp; Floor Plan Sizes</h2>
         <div class="ph-divider"></div>
         <div class="ph-pricing-grid">
           ${units.map(u => `
@@ -1170,6 +1171,7 @@ function buildPage(prop, allProps) {
         <div>
           ${tagChipsHtml}
           <h1>${prop.h1 || prop.title || ''}</h1>
+          ${(prop.aka || []).length ? `<p class="ph-aka">Also known as: ${prop.aka.join(', ')}</p>` : ''}
           <div class="ph-header-meta-row">
             <span><i class="fas fa-map-marker-alt"></i> ${prop.location || ''}</span>
             <span class="sep">·</span>
@@ -1565,7 +1567,7 @@ Promise.all([
     }
     const localitySeo = seo.locality?.[prop.micro_market] || {};
     prop.project_faqs     = seo.projects?.[prop.slug] || [];
-    prop.locality_faqs    = localitySeo.faqs || [];
+    prop.locality_faqs    = [];  // area FAQs live on the area hub, not on every project
     prop.nearby_landmarks = localitySeo.landmarks || {};
     prop.related_searches = seo.related?.[prop.slug] || [];
     prop.nearby_places    = seo.nearby?.[prop.slug] || [];

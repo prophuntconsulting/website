@@ -176,19 +176,34 @@ function generateProjectFAQs(p) {
     });
   }
 
+  // Unit-by-unit sizes and prices ("<project> 3 bhk price", "<project> floor plan")
+  const units = [1, 2, 3].map(n => ({ type: p[`unit_${n}_type`], area: p[`unit_${n}_area`], price: p[`unit_${n}_price`] })).filter(u => u.type);
+  const unitPriced = units.filter(u => u.price && !/request/i.test(u.price));
   if (p.config) {
     faqs.push({
-      q: `What configurations are available at ${title}?`,
-      a: `${title} offers ${p.config}${p.area ? `, with sizes ${p.area}` : ''}.`,
+      q: `What are the configurations and flat sizes at ${title}?`,
+      a: units.some(u => u.area)
+        ? `${title} offers ${p.config}: ${units.map(u => `${u.type}${u.area ? ` of ${u.area}` : ''}`).join('; ')}. Ask PROPHUNT LLP for the floor plan of the exact unit you are considering.`
+        : `${title} offers ${p.config}${p.area ? `, with sizes ${p.area}` : ''}.`,
     });
   }
 
   faqs.push({
-    q: `What is the price of homes at ${title}?`,
-    a: p.price > 0
-      ? `${title} is priced ${priceLabel(p)} onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans.`
-      : `Pricing for ${title} is available on request — contact PROPHUNT LLP's advisory team for the latest rates.`,
+    q: `What is the price of ${title}?`,
+    a: unitPriced.length
+      ? `Published prices at ${title}: ${unitPriced.map(u => `${u.type} ${u.price}`).join('; ')} (indicative, excluding stamp duty, registration and GST). Contact PROPHUNT LLP for the current cost sheet and offers.`
+      : p.price > 0
+        ? `${title} is priced ${priceLabel(p)} onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans.`
+        : `The developer shares ${title} pricing on request. PROPHUNT LLP can get you the current cost sheet at no charge.`,
   });
+
+  const amen = Array.isArray(p.amenities) ? p.amenities.filter(Boolean) : [];
+  if (amen.length >= 4) {
+    faqs.push({
+      q: `What amenities does ${title} have?`,
+      a: `Amenities at ${title} include ${amen.slice(0, 8).join(', ')}${amen.length > 8 ? ` and ${amen.length - 8} more` : ''}.`,
+    });
+  }
 
   if (p.location) {
     faqs.push({
@@ -200,7 +215,7 @@ function generateProjectFAQs(p) {
   if (p.developer) {
     faqs.push({
       q: `Who is the developer of ${title}?`,
-      a: `${title} is developed by ${p.developer}.`,
+      a: `${title} is developed by ${p.developer}${p.rera_promoter && !p.rera_promoter.toLowerCase().includes(String(p.developer).split(' ')[0].toLowerCase()) ? `; the MahaRERA promoter entity is ${p.rera_promoter}` : ''}.${p.developer_hub ? ` See all ${p.developer} projects PROPHUNT LLP lists in Pune.` : ''}`,
     });
   }
 
@@ -259,6 +274,21 @@ function shortConfig(p) {
   if (m && m[0].length <= 16) return m[0].replace(/\s+/g, ' ').trim();
   return { plot: 'Plots', villa: 'Villas', commercial: 'Office Space' }[p.category] || '';
 }
+// Other names buyers search a project by (Search Console and developer
+// branding), shown under the H1 as "Also known as". Real variants only.
+const ALSO_KNOWN_AS = {
+  'kohinoor-satori-baner': ['Satori by Kohinoor'],
+  'mahindra-mahalunge': ['Mahindra Lifespaces Mahalunge'],
+  'city-avenue-wakad': ['City Avenue by Kolte Patil'],
+  'eon-west-2': ['EON IT Park Wakad', 'Panchshil EON West'],
+  'kolte-patil-qrious-life-republic': ['Life Republic Qrious'],
+  'shapoorji-vanaha-verdant-bavdhan': ['Vanaha Bavdhan', 'Vanaha Verdant'],
+  'treetopia': ['SPRE Treetopia', 'Shapoorji Pallonji Jadhavwadi plots'],
+  'kohinoor-avantara': ['Avantara Wakad'],
+  'lodha-bella-vita-nibm': ['Lodha NIBM'],
+  'rohan-ekam-balewadi': ['Rohan Ekam Baner'],
+};
+
 // Developer names buyers type in front of the project name (Search Console,
 // Oct 2026: "kolte patil city avenue", "panchshil eon west wakad"). Only
 // brands that read naturally before the name; the others already start the
@@ -309,7 +339,9 @@ function buildHeadBlock(p) {
   const desc  = metaDescription(p);
   const url   = `${SITE}${p.url}`;
   const image = absUrl(p.cover);
-  const allFaqs = [...(p.project_faqs || []), ...(p.locality_faqs || [])];
+  // Area FAQs stay on the area hub; repeating them on every project page made
+  // ~18 Wakad pages share the same FAQ block.
+  const allFaqs = [...(p.project_faqs || [])];
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -493,13 +525,13 @@ function buildPrerenderBlock(p, all) {
   const units = [1, 2, 3].map(i => ({ t: p[`unit_${i}_type`], a: p[`unit_${i}_area`], pr: p[`unit_${i}_price`] })).filter(u => u.t);
   const stats = [1, 2, 3, 4].map(i => [p[`stat_${i}_value`], p[`stat_${i}_label`]]).filter(([v]) => v);
   const amenities = Array.isArray(p.amenities) ? p.amenities : [];
-  const faqs = [...(p.project_faqs || []), ...(loc ? loc.faqs : [])];
+  const faqs = [...(p.project_faqs || [])];  // area FAQs live on the area hub
   const similar = all.filter(o => o.slug !== p.slug && o.micro_market === p.micro_market && o.status !== 'sold-out')
     .sort((a, b) => (b.category === p.category) - (a.category === p.category)).slice(0, 6);
 
   const sections = [];
   if (units.length) {
-    sections.push(`<div id="pricing" class="ph-section"><h2 class="ph-section-label">Unit Configurations &amp; Pricing</h2>
+    sections.push(`<div id="pricing" class="ph-section"><h2 class="ph-section-label">${escapeHtml(p.title || 'Project')} Price List &amp; Floor Plan Sizes</h2>
       <table class="ph-snapshot"><thead><tr><th>Configuration</th><th>Area</th><th>Price</th></tr></thead><tbody>${units.map(u =>
         `<tr><td>${escapeHtml(u.t)}</td><td>${escapeHtml(u.a || '—')}</td><td>${escapeHtml(u.pr || 'Price on Request')}</td></tr>`).join('')}</tbody></table>
       <p class="ph-disclaimer">*Indicative, exclusive of taxes and other charges. Contact PROPHUNT LLP for the current cost sheet.</p></div>`);
@@ -545,7 +577,7 @@ function buildPrerenderBlock(p, all) {
   return `<div class="ph-prerender" style="max-width:900px;margin:0 auto;padding:32px 24px 24px">
     ${prerenderBadges ? `<div class="ph-tag-chips" style="margin-bottom:12px">${prerenderBadges}</div>` : ''}
     <div style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">${escapeHtml(p.developer)}</div>
-    <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">${escapeHtml(pageH1(p))}</h1>
+    <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">${escapeHtml(pageH1(p))}</h1>${ALSO_KNOWN_AS[p.slug] ? `<p class="ph-aka">Also known as: ${ALSO_KNOWN_AS[p.slug].map(escapeHtml).join(', ')}</p>` : ''}
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">${escapeHtml(metaLine)}</p>
     ${p.overview ? `<p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">${escapeHtml(p.overview)}</p>` : ''}
     ${p.developer_hub ? `<p><a href="${escapeHtml(p.developer_hub)}" class="ph-browse-link">All ${escapeHtml(p.developer)} projects →</a></p>` : ''}
@@ -601,7 +633,7 @@ properties.forEach(p => { if (p.status !== 'sold-out' && devCount[p.developer] >
 // individual property detail page (property.html) actually renders.
 // Keep this file lean; the FAQ/landmark content ships separately below.
 // The client renderer (property.html) uses the same H1 as the prerender.
-properties.forEach(p => { p.h1 = pageH1(p); });
+properties.forEach(p => { p.h1 = pageH1(p); if (ALSO_KNOWN_AS[p.slug]) p.aka = ALSO_KNOWN_AS[p.slug]; });
 const leanProperties = properties.map(({ project_faqs, locality_faqs, nearby_landmarks, ...rest }) => rest);
 fs.writeFileSync(outFile, JSON.stringify(leanProperties, null, 2));
 console.log(`Built properties/posts.json — ${properties.length} properties`);

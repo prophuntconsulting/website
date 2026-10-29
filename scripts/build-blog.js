@@ -219,7 +219,7 @@ function buildHeadBlock(p, ctx) {
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
         { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog` },
-        { '@type': 'ListItem', position: 3, name: catLabel, item: `${SITE}/blog?cat=${p.category}` },
+        { '@type': 'ListItem', position: 3, name: catLabel, item: `${SITE}/blog` },
         { '@type': 'ListItem', position: 4, name: crumbLabel(p), item: url },
       ],
     },
@@ -349,7 +349,7 @@ function buildPrerenderBlock(p, ctx) {
   const toc = tocFromMarkdown(p.body);
   const pageUrl = encodeURIComponent(`${SITE}${p.url}`);
   const pageTitle = encodeURIComponent(p.title);
-  const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: catLabel, url: `/blog?cat=${p.category}` }, { name: crumbLabel(p) }];
+  const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: catLabel, url: '/blog' }, { name: crumbLabel(p) }];
 
   return `<div data-prerendered="1">
   <div class="bl-wrap">

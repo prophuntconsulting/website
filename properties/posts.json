@@ -740,7 +740,10 @@
     "micro_market": "wakad",
     "locality_name": "Wakad",
     "developer_hub": "/developer/kolte-patil-developers",
-    "h1": "Kolte Patil City Avenue, Wakad"
+    "h1": "Kolte Patil City Avenue, Wakad",
+    "aka": [
+      "City Avenue by Kolte Patil"
+    ]
   },
   {
     "slug": "eon-west-2",
@@ -770,7 +773,11 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "h1": "Panchshil EON West II, Wakad"
+    "h1": "Panchshil EON West II, Wakad",
+    "aka": [
+      "EON IT Park Wakad",
+      "Panchshil EON West"
+    ]
   },
   {
     "slug": "godrej-aqua-vista-keshav-nagar",
@@ -1495,7 +1502,10 @@
     "micro_market": "wakad",
     "locality_name": "Wakad",
     "developer_hub": "/developer/kohinoor-group",
-    "h1": "Kohinoor Avantara, Tathawade"
+    "h1": "Kohinoor Avantara, Tathawade",
+    "aka": [
+      "Avantara Wakad"
+    ]
   },
   {
     "slug": "kohinoor-regalia-towers",
@@ -1623,7 +1633,10 @@
     "micro_market": "mahalunge",
     "locality_name": "Mahalunge",
     "developer_hub": "/developer/kohinoor-group",
-    "h1": "Kohinoor Satori, New Baner"
+    "h1": "Kohinoor Satori, New Baner",
+    "aka": [
+      "Satori by Kohinoor"
+    ]
   },
   {
     "slug": "kohinoor-westview-reserve",
@@ -1756,7 +1769,10 @@
     "micro_market": "",
     "locality_name": "",
     "developer_hub": "/developer/kolte-patil-developers",
-    "h1": "Kolte Patil Qrious, Life Republic, Hinjewadi"
+    "h1": "Kolte Patil Qrious, Life Republic, Hinjewadi",
+    "aka": [
+      "Life Republic Qrious"
+    ]
   },
   {
     "slug": "kumar-panache",
@@ -2075,7 +2091,10 @@
     "micro_market": "",
     "locality_name": "",
     "developer_hub": "/developer/lodha",
-    "h1": "Lodha Bella Vita, Mohammadwadi"
+    "h1": "Lodha Bella Vita, Mohammadwadi",
+    "aka": [
+      "Lodha NIBM"
+    ]
   },
   {
     "slug": "lodha-massimo",
@@ -2254,7 +2273,10 @@
     "micro_market": "mahalunge",
     "locality_name": "Mahalunge",
     "developer_hub": "/developer/mahindra-lifespaces",
-    "h1": "Mahindra Rivenza, Mahalunge"
+    "h1": "Mahindra Rivenza, Mahalunge",
+    "aka": [
+      "Mahindra Lifespaces Mahalunge"
+    ]
   },
   {
     "slug": "majestique-elements",
@@ -2710,7 +2732,10 @@
     "micro_market": "baner",
     "locality_name": "Baner",
     "developer_hub": "/developer/rohan-builders",
-    "h1": "Rohan Ekam, Balewadi"
+    "h1": "Rohan Ekam, Balewadi",
+    "aka": [
+      "Rohan Ekam Baner"
+    ]
   },
   {
     "slug": "rohan-harita-tathawade",
@@ -2723,6 +2748,7 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100052972 (Phase 1), P52100079539 (Phase 2), PR1263032501085 (Phase 3)",
+    "area_alias": "Tathawade",
     "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/39ec51196ec1cece0a9628a31f8dd342d27c180f-3840x1694.png?w=2000&fit=max&auto=format&q=80",
     "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/efc3ad949d58e6ac560e57e67d6406c58fce5173-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
     "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/03dc27b665690b63189ec6b2b4c0aba109d68708-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
@@ -2921,7 +2947,11 @@
     "micro_market": "",
     "locality_name": "",
     "developer_hub": "/developer/shapoorji-pallonji",
-    "h1": "Shapoorji Pallonji Vanaha Verdant, near Bavdhan"
+    "h1": "Shapoorji Pallonji Vanaha Verdant, near Bavdhan",
+    "aka": [
+      "Vanaha Bavdhan",
+      "Vanaha Verdant"
+    ]
   },
   {
     "slug": "shapoorji-wildernest-hadapsar",
@@ -3437,7 +3467,11 @@
     "micro_market": "hadapsar",
     "locality_name": "Hadapsar",
     "developer_hub": "/developer/shapoorji-pallonji",
-    "h1": "Shapoorji Pallonji Treetopia, Hadapsar"
+    "h1": "Shapoorji Pallonji Treetopia, Hadapsar",
+    "aka": [
+      "SPRE Treetopia",
+      "Shapoorji Pallonji Jadhavwadi plots"
+    ]
   },
   {
     "slug": "venkatesh-tresor",
