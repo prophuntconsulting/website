@@ -269,8 +269,12 @@ const BLOG_AUTHOR_BIO = 'The PROPHUNT LLP advisory team helps homebuyers and inv
 // right-sized rendition; repo images are used as they are.
 function mediaHtml(src, alt, { eager = false, width = 1200 } = {}) {
   if (!src) return `<span class="bl-media bl-media-empty" aria-hidden="true"><i class="fas fa-newspaper"></i></span>`;
-  const url = /^https:\/\/cdn\.sanity\.io\/images\//.test(src) ? `${src.replace(/\?.*$/, '')}?w=${width}&h=${Math.round(width * 630 / 1200)}&fit=crop&auto=format&q=80` : src;
-  return `<span class="bl-media"><img src="${escapeHtml(url)}" alt="${escapeHtml(alt || '')}" width="1200" height="630" ${eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"'}></span>`;
+  const isCdn = /^https:\/\/cdn\.sanity\.io\/images\//.test(src);
+  const at = w => `${src.replace(/\?.*$/, '')}?w=${w}&h=${Math.round(w * 630 / 1200)}&fit=crop&auto=format&q=80`;
+  const url = isCdn ? at(width) : src;
+  // Phones fetch a 600px copy instead of the full width (blog post LCP was 3.2s on mobile).
+  const srcset = isCdn ? ` srcset="${[600, 900, width].filter((w, i, a) => w <= width && a.indexOf(w) === i).map(w => `${escapeHtml(at(w))} ${w}w`).join(', ')}" sizes="(max-width: 760px) 100vw, ${eager ? '760px' : '400px'}"` : '';
+  return `<span class="bl-media"><img src="${escapeHtml(url)}"${srcset} alt="${escapeHtml(alt || '')}" width="1200" height="630" ${eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"'}></span>`;
 }
 
 // One card component for the listing grid and "Suggested articles".
