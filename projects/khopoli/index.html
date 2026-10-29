@@ -1204,7 +1204,7 @@ function buildPage(prop, allProps) {
       <div class="ph-header-top">
         <div>
           ${tagChipsHtml}
-          <h1>${prop.title || ''}</h1>
+          <h1>${prop.h1 || prop.title || ''}</h1>
           <div class="ph-header-meta-row">
             <span><i class="fas fa-map-marker-alt"></i> ${prop.location || ''}</span>
             <span class="sep">·</span>

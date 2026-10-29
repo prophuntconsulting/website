@@ -258,18 +258,43 @@ function shortConfig(p) {
   if (m && m[0].length <= 16) return m[0].replace(/\s+/g, ' ').trim();
   return { plot: 'Plots', villa: 'Villas', commercial: 'Office Space' }[p.category] || '';
 }
+// Developer names buyers type in front of the project name (Search Console,
+// Oct 2026: "kolte patil city avenue", "panchshil eon west wakad"). Only
+// brands that read naturally before the name; the others already start the
+// project name (ANP, Kohinoor, Lodha...) or would read oddly.
+const SEARCH_BRAND = {
+  'Kolte-Patil Developers': 'Kolte Patil', 'Panchshil Realty': 'Panchshil',
+  'Kasturi Housing': 'Kasturi', 'Goel Ganga Group': 'Goel Ganga', 'Vilas Javdekar Developers': 'Vilas Javdekar',
+  'Peninsula Land': 'Peninsula',
+};
+function searchName(p) {
+  const name = p.title || 'Property';
+  const brand = SEARCH_BRAND[p.developer];
+  return brand && !name.toLowerCase().includes(brand.split(' ')[0].toLowerCase()) ? `${brand} ${name}` : name;
+}
+// H1: the searched name plus the area, e.g. "Kolte Patil City Avenue, Wakad".
+function pageH1(p) {
+  const name = searchName(p);
+  const loc = p.area_alias || shortLocation(p);
+  return loc && !name.toLowerCase().includes(loc.toLowerCase()) ? `${name}, ${loc}` : name;
+}
 function pageTitle(p) {
   // A hand-written title from the Studio (SEO tab) wins; brand added if it fits.
   if (p.seo_title) return fitTitle([`${p.seo_title} | PROPHUNT LLP`, `${p.seo_title} | PROPHUNT`, String(p.seo_title)]);
-  const name = p.title || 'Property';
-  const loc = p.area_alias || shortLocation(p);
+  const name = searchName(p);
+  // "Kohinoor Avantara tathawade" and "... wakad" are both searched: when the
+  // area alias differs from the locality bucket, name both.
+  const loc = p.area_alias && p.locality_name && p.area_alias !== p.locality_name ? `${p.area_alias}, ${p.locality_name}` : (p.area_alias || shortLocation(p));
   // Skip appending the locality when the project name already names it
   // (e.g. "Mahindra Lifespaces Mahalunge") — avoids "Mahalunge, Mahalunge".
   const head = loc && !name.toLowerCase().includes(loc.toLowerCase()) ? `${name}, ${loc}` : name;
   const cfg = shortConfig(p);
-  const kw = p.rera ? (cfg ? `Price, ${cfg} & RERA` : 'Price & RERA') : (cfg ? `${cfg} Price & Details` : 'Price & Details');
-  const kwShort = p.rera ? 'Price & RERA' : (cfg ? `${cfg} Price` : 'Price & Details');
-  return fitTitle([`${head} | ${kw} | PROPHUNT LLP`, `${head} | ${kw} | PROPHUNT`, `${head} | ${kw}`, `${head} | ${kwShort} | PROPHUNT`, `${head} | ${kwShort}`, `${name} | ${kwShort}`]);
+  // "<project> possession date" is a common search; claim it only when the
+  // page shows a MahaRERA completion date.
+  const poss = p.rera_possession ? 'Possession' : '';
+  const kw = p.rera ? (poss ? `Price, ${poss} & RERA` : cfg ? `Price, ${cfg} & RERA` : 'Price & RERA') : (cfg ? `${cfg} Price & Details` : 'Price & Details');
+  const kwShort = p.rera ? (poss ? 'Price & Possession' : 'Price & RERA') : (cfg ? `${cfg} Price` : 'Price & Details');
+  return fitTitle([`${head} | ${kw} | PROPHUNT LLP`, `${head} | ${kw} | PROPHUNT`, `${head} | ${kw}`, `${head} | ${kwShort} | PROPHUNT`, `${head} | ${kwShort}`, `${name} | ${kwShort}`, `${head}: Price & RERA`]);
 }
 
 // Head tags: real title/description/canonical + OG/Twitter + JSON-LD
@@ -506,7 +531,7 @@ function buildPrerenderBlock(p, all) {
   return `<div class="ph-prerender" style="max-width:900px;margin:0 auto;padding:32px 24px 24px">
     ${prerenderBadges ? `<div class="ph-tag-chips" style="margin-bottom:12px">${prerenderBadges}</div>` : ''}
     <div style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">${escapeHtml(p.developer)}</div>
-    <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">${escapeHtml(p.title)}</h1>
+    <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">${escapeHtml(pageH1(p))}</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">${escapeHtml(metaLine)}</p>
     ${p.overview ? `<p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">${escapeHtml(p.overview)}</p>` : ''}
     ${p.developer_hub ? `<p><a href="${escapeHtml(p.developer_hub)}" class="ph-browse-link">All ${escapeHtml(p.developer)} projects →</a></p>` : ''}
@@ -560,6 +585,8 @@ properties.forEach(p => { if (p.status !== 'sold-out' && devCount[p.developer] >
 // than doubled the payload (104KB -> 235KB) for content only the
 // individual property detail page (property.html) actually renders.
 // Keep this file lean; the FAQ/landmark content ships separately below.
+// The client renderer (property.html) uses the same H1 as the prerender.
+properties.forEach(p => { p.h1 = pageH1(p); });
 const leanProperties = properties.map(({ project_faqs, locality_faqs, nearby_landmarks, ...rest }) => rest);
 fs.writeFileSync(outFile, JSON.stringify(leanProperties, null, 2));
 console.log(`Built properties/posts.json — ${properties.length} properties`);

@@ -63,7 +63,8 @@
     "body": "",
     "micro_market": "baner",
     "locality_name": "Baner",
-    "developer_hub": "/developer/kolte-patil-developers"
+    "developer_hub": "/developer/kolte-patil-developers",
+    "h1": "Kolte Patil 24K Altura, Baner"
   },
   {
     "slug": "abil-imperial-atria",
@@ -128,7 +129,8 @@
     "url": "/projects/abil-imperial-atria",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "ABIL Imperial Atria, Baner"
   },
   {
     "slug": "anp-bizsquare",
@@ -192,7 +194,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/anp-corp"
+    "developer_hub": "/developer/anp-corp",
+    "h1": "ANP Bizsquare, Wakad"
   },
   {
     "slug": "anp-landmark",
@@ -253,7 +256,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/anp-corp"
+    "developer_hub": "/developer/anp-corp",
+    "h1": "ANP Landmark, Wakad"
   },
   {
     "slug": "anp-memento",
@@ -322,7 +326,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/anp-corp"
+    "developer_hub": "/developer/anp-corp",
+    "h1": "ANP Memento, Wakad"
   },
   {
     "slug": "anp-privado",
@@ -384,7 +389,8 @@
     "body": "",
     "micro_market": "baner",
     "locality_name": "Baner",
-    "developer_hub": "/developer/anp-corp"
+    "developer_hub": "/developer/anp-corp",
+    "h1": "ANP Privado, Baner"
   },
   {
     "slug": "anp-retreat",
@@ -450,7 +456,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/anp-corp"
+    "developer_hub": "/developer/anp-corp",
+    "h1": "ANP Retreat, Wakad"
   },
   {
     "slug": "anp-ultimus",
@@ -516,7 +523,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/anp-corp"
+    "developer_hub": "/developer/anp-corp",
+    "h1": "ANP Ultimus, Wakad"
   },
   {
     "slug": "ashokvillas",
@@ -583,7 +591,8 @@
     "url": "/projects/ashokvillas",
     "body": "",
     "micro_market": "ravet-gahunje",
-    "locality_name": "Ravet-Gahunje"
+    "locality_name": "Ravet-Gahunje",
+    "h1": "Peninsula AshokVillas, Ravet-Gahunje"
   },
   {
     "slug": "city-avenue-wakad",
@@ -642,7 +651,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/kolte-patil-developers"
+    "developer_hub": "/developer/kolte-patil-developers",
+    "h1": "Kolte Patil City Avenue, Wakad"
   },
   {
     "slug": "eon-west-2",
@@ -671,7 +681,8 @@
     "url": "/projects/eon-west-2",
     "body": "",
     "micro_market": "wakad",
-    "locality_name": "Wakad"
+    "locality_name": "Wakad",
+    "h1": "Panchshil EON West II, Wakad"
   },
   {
     "slug": "godrej-river-royale",
@@ -733,7 +744,8 @@
     "url": "/projects/godrej-river-royale",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Godrej River Royale, Mahalunge"
   },
   {
     "slug": "greenfinity-wakad",
@@ -792,7 +804,8 @@
     "url": "/projects/greenfinity-wakad",
     "body": "",
     "micro_market": "wakad",
-    "locality_name": "Wakad"
+    "locality_name": "Wakad",
+    "h1": "Goel Ganga Greenfinity, Wakad"
   },
   {
     "slug": "kalpataru-aria",
@@ -859,7 +872,8 @@
     "body": "",
     "micro_market": "karjat",
     "locality_name": "Karjat",
-    "developer_hub": "/developer/kalpataru"
+    "developer_hub": "/developer/kalpataru",
+    "h1": "Kalpataru Aria, Karjat"
   },
   {
     "slug": "kalpataru-blossoms",
@@ -930,7 +944,8 @@
     "body": "",
     "micro_market": "sinhagad-road",
     "locality_name": "Sinhagad Road",
-    "developer_hub": "/developer/kalpataru"
+    "developer_hub": "/developer/kalpataru",
+    "h1": "Kalpataru Blossoms, Vadgaon Budruk"
   },
   {
     "slug": "khopoli",
@@ -984,7 +999,8 @@
     "body": "",
     "micro_market": "khopoli",
     "locality_name": "Khopoli",
-    "developer_hub": "/developer/shapoorji-pallonji"
+    "developer_hub": "/developer/shapoorji-pallonji",
+    "h1": "Shapoorji Pallonji Khopoli"
   },
   {
     "slug": "kings-county-wakad",
@@ -1053,7 +1069,8 @@
     "url": "/projects/kings-county-wakad",
     "body": "",
     "micro_market": "wakad",
-    "locality_name": "Wakad"
+    "locality_name": "Wakad",
+    "h1": "Kings County, Wakad"
   },
   {
     "slug": "kohinoor-avantara",
@@ -1115,7 +1132,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/kohinoor-group"
+    "developer_hub": "/developer/kohinoor-group",
+    "h1": "Kohinoor Avantara, Tathawade"
   },
   {
     "slug": "kohinoor-regalia-towers",
@@ -1174,7 +1192,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/kohinoor-group"
+    "developer_hub": "/developer/kohinoor-group",
+    "h1": "Kohinoor Regalia Towers, Tathawade"
   },
   {
     "slug": "kohinoor-westview-reserve",
@@ -1246,7 +1265,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/kohinoor-group"
+    "developer_hub": "/developer/kohinoor-group",
+    "h1": "Kohinoor Westview Reserve, Tathawade"
   },
   {
     "slug": "kumar-panache",
@@ -1307,7 +1327,8 @@
     "url": "/projects/kumar-panache",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Kumar Panache, Baner"
   },
   {
     "slug": "kumar-parth-towers",
@@ -1370,7 +1391,8 @@
     "url": "/projects/kumar-parth-towers",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Kumar Parth Towers, Baner"
   },
   {
     "slug": "livience-unione",
@@ -1431,7 +1453,8 @@
     "url": "/projects/livience-unione",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Livience Unione, Baner"
   },
   {
     "slug": "lodha-altero",
@@ -1496,7 +1519,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/lodha"
+    "developer_hub": "/developer/lodha",
+    "h1": "Lodha Altero, Wakad"
   },
   {
     "slug": "lodha-massimo",
@@ -1556,7 +1580,8 @@
     "body": "",
     "micro_market": "baner",
     "locality_name": "Baner",
-    "developer_hub": "/developer/lodha"
+    "developer_hub": "/developer/lodha",
+    "h1": "Lodha Massimo, Baner"
   },
   {
     "slug": "mahindra-citadel",
@@ -1619,7 +1644,8 @@
     "body": "",
     "micro_market": "pimpri-chinchwad",
     "locality_name": "Pimpri-Chinchwad",
-    "developer_hub": "/developer/mahindra-lifespaces"
+    "developer_hub": "/developer/mahindra-lifespaces",
+    "h1": "Mahindra Citadel, Pimpri-Chinchwad"
   },
   {
     "slug": "mahindra-mahalunge",
@@ -1665,7 +1691,8 @@
     "body": "",
     "micro_market": "mahalunge",
     "locality_name": "Mahalunge",
-    "developer_hub": "/developer/mahindra-lifespaces"
+    "developer_hub": "/developer/mahindra-lifespaces",
+    "h1": "Mahindra Lifespaces Mahalunge"
   },
   {
     "slug": "majestique-elements",
@@ -1725,7 +1752,8 @@
     "body": "",
     "micro_market": "baner",
     "locality_name": "Baner",
-    "developer_hub": "/developer/majestique-landmarks"
+    "developer_hub": "/developer/majestique-landmarks",
+    "h1": "Majestique Elements, Baner"
   },
   {
     "slug": "merlin-ventana",
@@ -1794,7 +1822,8 @@
     "url": "/projects/merlin-ventana",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Merlin Ventana, Baner"
   },
   {
     "slug": "millennium-towers-wakad",
@@ -1851,7 +1880,8 @@
     "url": "/projects/millennium-towers-wakad",
     "body": "",
     "micro_market": "wakad",
-    "locality_name": "Wakad"
+    "locality_name": "Wakad",
+    "h1": "Millennium Towers, Wakad"
   },
   {
     "slug": "neoliv-grand-forest-prive",
@@ -1913,7 +1943,8 @@
     "url": "/projects/neoliv-grand-forest-prive",
     "body": "",
     "micro_market": "khopoli",
-    "locality_name": "Khopoli"
+    "locality_name": "Khopoli",
+    "h1": "Neoliv Grand Forest Privé, Khopoli"
   },
   {
     "slug": "nyati-emerald",
@@ -1979,7 +2010,8 @@
     "url": "/projects/nyati-emerald",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Nyati Emerald, Baner"
   },
   {
     "slug": "regency-astra",
@@ -2041,7 +2073,8 @@
     "url": "/projects/regency-astra",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Regency Astra, Baner"
   },
   {
     "slug": "rohan-viti",
@@ -2102,7 +2135,8 @@
     "url": "/projects/rohan-viti",
     "body": "",
     "micro_market": "wakad",
-    "locality_name": "Wakad"
+    "locality_name": "Wakad",
+    "h1": "Rohan Viti, Wakad"
   },
   {
     "slug": "supreme-estia",
@@ -2160,7 +2194,8 @@
     "url": "/projects/supreme-estia",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Supreme Estia, Baner"
   },
   {
     "slug": "tej-elevia",
@@ -2224,7 +2259,8 @@
     "url": "/projects/tej-elevia",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Tej Elevia, Baner"
   },
   {
     "slug": "the-arena-pimpri",
@@ -2285,7 +2321,8 @@
     "url": "/projects/the-arena-pimpri",
     "body": "",
     "micro_market": "pimpri-chinchwad",
-    "locality_name": "Pimpri-Chinchwad"
+    "locality_name": "Pimpri-Chinchwad",
+    "h1": "The Arena Pimpri, Pimpri-Chinchwad"
   },
   {
     "slug": "the-balmoral-hillside",
@@ -2349,7 +2386,8 @@
     "url": "/projects/the-balmoral-hillside",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Kasturi The Balmoral Hillside, Baner"
   },
   {
     "slug": "the-ornate-baner",
@@ -2414,7 +2452,8 @@
     "body": "",
     "micro_market": "baner",
     "locality_name": "Baner",
-    "developer_hub": "/developer/majestique-landmarks"
+    "developer_hub": "/developer/majestique-landmarks",
+    "h1": "The Ornate, Baner"
   },
   {
     "slug": "treetopia",
@@ -2472,7 +2511,8 @@
     "body": "",
     "micro_market": "hadapsar",
     "locality_name": "Hadapsar",
-    "developer_hub": "/developer/shapoorji-pallonji"
+    "developer_hub": "/developer/shapoorji-pallonji",
+    "h1": "Shapoorji Pallonji Treetopia, Hadapsar"
   },
   {
     "slug": "venkatesh-tresor",
@@ -2530,7 +2570,8 @@
     "url": "/projects/venkatesh-tresor",
     "body": "",
     "micro_market": "baner",
-    "locality_name": "Baner"
+    "locality_name": "Baner",
+    "h1": "Venkatesh Tresor, Baner"
   },
   {
     "slug": "vtp-altitude",
@@ -2585,7 +2626,8 @@
     "url": "/projects/vtp-altitude",
     "body": "",
     "micro_market": "wakad",
-    "locality_name": "Wakad"
+    "locality_name": "Wakad",
+    "h1": "VTP Altitude, Wakad"
   },
   {
     "slug": "western-avenue-wakad",
@@ -2650,7 +2692,8 @@
     "body": "",
     "micro_market": "wakad",
     "locality_name": "Wakad",
-    "developer_hub": "/developer/kolte-patil-developers"
+    "developer_hub": "/developer/kolte-patil-developers",
+    "h1": "Kolte Patil Western Avenue, Wakad"
   },
   {
     "slug": "yashwin-urbo-centro",
@@ -2715,6 +2758,7 @@
     "url": "/projects/yashwin-urbo-centro",
     "body": "",
     "micro_market": "wakad",
-    "locality_name": "Wakad"
+    "locality_name": "Wakad",
+    "h1": "Vilas Javdekar Yashwin Urbo Centro, Wakad"
   }
 ]

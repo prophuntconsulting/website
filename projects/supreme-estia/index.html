@@ -480,7 +480,7 @@ h2.ph-section-label,h2.ph-section-title{margin-top:0}
   <div class="ph-prerender" style="max-width:900px;margin:0 auto;padding:32px 24px 24px">
     <div class="ph-tag-chips" style="margin-bottom:12px"><span class="ph-tag-chip"><i class="fas fa-layer-group"></i>Apartment</span><span class="ph-tag-chip rera"><i class="fas fa-shield-halved"></i>RERA Registered</span></div>
     <div style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Supreme Universal</div>
-    <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">Supreme Estia</h1>
+    <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">Supreme Estia, Baner</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">Off Pancard Club Road, Baner, Pune · 2, 3 &amp; 4 BHK (Sold Out)</p>
     <p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">Supreme Estia is a completed, 5.8-acre residential development off Pancard Club Road, Baner, by Supreme Universal, with all buildings having received their Occupancy Certificate between July 2023 and March 2025. The project is fully sold out, but is listed here for reference - Supreme Universal's newer Baner-area launches may still have availability; ask our advisor. The completed community includes 3 dedicated clubhouses, a swimming pool, co-working spaces, and 45,000 sq ft of lifestyle amenities.</p>
     
@@ -1202,7 +1202,7 @@ function buildPage(prop, allProps) {
       <div class="ph-header-top">
         <div>
           ${tagChipsHtml}
-          <h1>${prop.title || ''}</h1>
+          <h1>${prop.h1 || prop.title || ''}</h1>
           <div class="ph-header-meta-row">
             <span><i class="fas fa-map-marker-alt"></i> ${prop.location || ''}</span>
             <span class="sep">·</span>

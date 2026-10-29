@@ -265,9 +265,15 @@ const locBhkPages = Object.entries(byLocBhk).filter(([, ps]) => ps.length >= 2).
 });
 const locBhkUrl = (mm, n) => (locBhkPages.find(x => x.mm === mm && x.n === n) || {}).url;
 
+// Knight Frank India, Pune residential H1 2026 (same figures as the area guides).
+const AREA_RATE = { baner: '₹16,418 to ₹16,987', wakad: '₹12,115 to ₹12,588', hadapsar: '₹11,510 to ₹11,822' };
+const AREA_SEARCH_ALIAS = { 'pimpri-chinchwad': 'PCMC' };
+
 for (const pg of locBhkPages) {
   const { mm, n, projects, url } = pg;
   const loc = LOCALITY_CONTENT[mm];
+  // Searchers say "pcmc" as often as "pimpri chinchwad" (Search Console, Oct 2026).
+  const alias = AREA_SEARCH_ALIAS[mm] ? ` (${AREA_SEARCH_ALIAS[mm]})` : '';
   const label = `${bhkLabel(n)} Flats in ${loc.name}`;
   const rowsFor = p => {
     const s = specificRows(p, n);
@@ -278,7 +284,7 @@ for (const pg of locBhkPages) {
   const pricedProjects = projects.filter(p => rowsFor(p).price !== 'On request');
   const sorted = [...projects].sort((a, b) => (a.status === 'coming-soon') - (b.status === 'coming-soon') || a.title.localeCompare(b.title));
   const reraCount = projects.filter(p => p.rera).length;
-  const title = fitTitle([`${label}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`, `${label}, Pune: ${projects.length} New Projects & Prices`, `${label}, Pune: ${projects.length} New Projects | PROPHUNT`, `${label}: ${projects.length} New Projects & Prices`]);
+  const title = fitTitle([`${label}${alias}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`, `${label}${alias}, Pune: ${projects.length} New Projects & Prices`, `${label}${alias}: ${projects.length} New Projects & Prices`, `${label}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`, `${label}, Pune: ${projects.length} New Projects & Prices`, `${label}, Pune: ${projects.length} New Projects | PROPHUNT`, `${label}: ${projects.length} New Projects & Prices`]);
   const desc = `Compare ${projects.length} new ${bhkLabel(n)} flat projects in ${loc.name}, Pune from ${developersText(projects)}.` +
     (pricedProjects.length ? ` ${bhkLabel(n)} prices from ${pricedProjects.map(p => rowsFor(p).price).sort()[0]}.` : '') + ' Sizes, MahaRERA numbers and free site visits with PROPHUNT LLP.';
   const crumbs = [{ name: 'Home', url: '/' }, { name: 'Locations', url: '/location' }, { name: loc.name, url: `/location/${mm}` }, { name: label, url }];
@@ -301,7 +307,7 @@ for (const pg of locBhkPages) {
   <div class="container page-hero-inner">
     ${breadcrumbHtml(crumbs)}
     <span class="section-label"><i class="fas fa-building"></i> ${escapeHtml(loc.name)}, Pune</span>
-    <h1>${escapeHtml(label)}, Pune</h1>
+    <h1>${escapeHtml(`${bhkLabel(n)} Flats & Apartments in ${loc.name}${alias}, Pune`)}</h1>
     <p>${projects.length} new projects offering ${bhkLabel(n)} homes in ${escapeHtml(loc.name)}, from ${escapeHtml(developersText(projects))}.</p>
   </div>
 </section>
@@ -309,6 +315,7 @@ for (const pg of locBhkPages) {
 <section class="section">
   <div class="container">
     ${aboutBlurb ? `<p class="loc-about">${escapeHtml(aboutBlurb)}</p>` : ''}
+    ${AREA_RATE[mm] ? `<p class="loc-about"><strong>${bhkLabel(n)} flat prices in ${escapeHtml(loc.name)}:</strong> Knight Frank India's H1 2026 report puts ${escapeHtml(loc.name)} at about ${AREA_RATE[mm]} per sq ft. Individual projects vary with tower, floor and view, so ask each developer for a cost sheet, and add stamp duty, registration and GST with our <a href="/stamp-duty-calculator-pune">stamp duty calculator</a>.</p>` : ''}
     ${sectionHead('table', 'Compare', `${bhkLabel(n)} Size & Price by Project`)}
     <div style="overflow-x:auto;margin-bottom:.75rem"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Developer</th><th>${bhkLabel(n)} size</th><th>${bhkLabel(n)} price</th></tr></thead><tbody>${sorted.map(p => {
       const r = rowsFor(p);

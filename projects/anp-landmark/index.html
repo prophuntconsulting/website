@@ -480,7 +480,7 @@ h2.ph-section-label,h2.ph-section-title{margin-top:0}
   <div class="ph-prerender" style="max-width:900px;margin:0 auto;padding:32px 24px 24px">
     <div class="ph-tag-chips" style="margin-bottom:12px"><span class="ph-tag-chip"><i class="fas fa-layer-group"></i>Commercial</span><span class="ph-tag-chip rera"><i class="fas fa-shield-halved"></i>RERA Registered</span></div>
     <div style="font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px">ANP Corp</div>
-    <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">ANP Landmark</h1>
+    <h1 style="font-family:'Open Sans',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:8px">ANP Landmark, Wakad</h1>
     <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">Bhumkar Chowk, Wakad, Pune · Retail Shops &amp; Office Spaces</p>
     <p style="color:var(--gray-600);line-height:1.8;font-size:14.5px;margin-bottom:20px">ANP Landmark is a ready-to-possess commercial development by ANP Corp at Bhumkar Chowk, Wakad, Pune, offering retail shops (386-1,229 sq ft) and office spaces (360-975 sq ft) with 60-metre road frontage. The building includes a glass facade, a decorative entrance lobby with generator-backed lifts, and is 5 minutes from Hinjewadi and 40 minutes from Pune Railway Station.</p>
     <p><a href="/developer/anp-corp" class="ph-browse-link">All ANP Corp projects →</a></p>
@@ -1206,7 +1206,7 @@ function buildPage(prop, allProps) {
       <div class="ph-header-top">
         <div>
           ${tagChipsHtml}
-          <h1>${prop.title || ''}</h1>
+          <h1>${prop.h1 || prop.title || ''}</h1>
           <div class="ph-header-meta-row">
             <span><i class="fas fa-map-marker-alt"></i> ${prop.location || ''}</span>
             <span class="sep">·</span>
