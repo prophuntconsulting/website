@@ -98,11 +98,12 @@ function writePage(url, html) {
   fs.writeFileSync(path.join(outDir, 'index.html'), html);
 }
 
-function jsonLdFor({ crumbs, list, faqs }) {
+function jsonLdFor({ crumbs, list, faqs, listing }) {
   const graph = [{
     '@type': 'BreadcrumbList',
     itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: `${SITE}${c.url}` })),
   }];
+  if (listing) graph.push({ '@type': 'RealEstateListing', ...listing });
   if (list) graph.push({
     '@type': 'ItemList', name: list.name, numberOfItems: list.items.length,
     itemListElement: list.items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, item: `${SITE}${p.url}` })),
@@ -212,7 +213,15 @@ for (const p of live) {
     const siblingLinks = pages.filter(x => x.n !== n).map(x => ({ label: `${bhkLabel(x.n)} in ${p.title}`, url: x.url }));
     const otherList = otherBhks.filter(x => x !== n).map(bhkLabel).join(', ');
 
-    const html = headBoilerplate({ title, desc, canonical: `${SITE}${url}`, jsonLd: jsonLdFor({ crumbs, faqs }), ogImage: ogImg(p) }) + `
+    // The BHK listing itself, tied to the project page and to PROPHUNT LLP.
+    const listing = {
+      name: `${p.title} ${bhkLabel(n)}`, url: `${SITE}${url}`, description: desc,
+      ...(ogImg(p) ? { image: ogImg(p) } : {}),
+      about: { '@type': 'Residence', name: p.title, url: `${SITE}${p.url}` },
+      provider: { '@id': `${SITE}/#organization` },
+      ...(Number.isFinite(baseL) ? { offers: { '@type': 'Offer', price: Math.round(baseL * 1e5), priceCurrency: 'INR', url: `${SITE}${url}` } } : {}),
+    };
+    const html = headBoilerplate({ title, desc, canonical: `${SITE}${url}`, jsonLd: jsonLdFor({ crumbs, faqs, listing }), ogImage: ogImg(p) }) + `
 <section class="page-hero">
   <div class="container page-hero-inner">
     ${breadcrumbHtml(crumbs)}

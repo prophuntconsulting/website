@@ -362,6 +362,15 @@ function buildHeadBlock(p) {
         image,
         ...(p.developer ? { provider: { '@type': 'Organization', name: p.developer } } : {}),
         ...(p.location ? { address: { '@type': 'PostalAddress', addressLocality: p.location, addressRegion: 'Maharashtra', addressCountry: 'IN' } } : {}),
+        // The building itself: MahaRERA number, and a map point only when it's exact.
+        about: {
+          '@type': p.category === 'commercial' ? 'Place' : p.category === 'plot' ? 'Place' : 'ApartmentComplex',
+          name: p.title || '',
+          ...(p.location ? { address: { '@type': 'PostalAddress', addressLocality: p.location, addressRegion: 'Maharashtra', addressCountry: 'IN' } } : {}),
+          ...(Number.isFinite(+p.lat) && Number.isFinite(+p.lng) && p.lat !== '' && ['exact', 'street'].includes(p.geo_confidence || 'exact') ? { geo: { '@type': 'GeoCoordinates', latitude: +p.lat, longitude: +p.lng } } : {}),
+          ...(p.rera ? { identifier: { '@type': 'PropertyValue', propertyID: 'MahaRERA', value: String(p.rera) } } : {}),
+        },
+        publisher: { '@id': `${SITE}/#organization` },
         ...(p.price ? { offers: { '@type': 'Offer', price: p.price * 100000, priceCurrency: 'INR', url, availability: p.status === 'sold-out' ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock' } } : {}),
       },
       ...(p.youtube || []).map(v => ({
