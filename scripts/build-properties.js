@@ -604,7 +604,22 @@ const properties = files.map(file => {
   const facts = PROJECT_FACTS[slug] || {};
   const reraFacts = Object.fromEntries(Object.entries(facts).filter(([, v]) => v != null && v !== '').map(([k, v]) => [`rera_${k}`, v]));
   const youtube = PROJECT_VIDEOS[slug] || undefined;
-  const merged = { slug, ...data, ...reraFacts, ...(youtube ? { youtube } : {}), cover, thumb, url, body: body || '' };
+  // Lighter page photos: serve the .webp made by scripts/make-webp.py when
+  // one exists, and ask Sanity's CDN for a resized, modern-format copy. The
+  // cover (og:image) is left as is for link previews.
+  const lighter = u => {
+    if (typeof u !== 'string' || !u) return u;
+    if (/^\/images\/.+\.(jpe?g|png)$/i.test(u)) {
+      const w = u.replace(/\.(jpe?g|png)$/i, '.webp');
+      return fs.existsSync(path.join(__dirname, '..', w)) ? w : u;
+    }
+    if (/^https:\/\/cdn\.sanity\.io\/images\//.test(u) && !u.includes('?')) return `${u}?w=1600&fit=max&auto=format&q=75`;
+    return u;
+  };
+  const photos = {};
+  for (const k of ['hero_1', 'hero_2', 'hero_3']) if (data[k]) photos[k] = lighter(data[k]);
+  if (Array.isArray(data.gallery_images)) photos.gallery_images = data.gallery_images.map(lighter);
+  const merged = { slug, ...data, ...photos, ...reraFacts, ...(youtube ? { youtube } : {}), cover, thumb, url, body: body || '' };
 
   const micro_market = getMicroMarket(data.location);
   const locality = LOCALITY_CONTENT[micro_market] || null;

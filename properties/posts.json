@@ -146,7 +146,7 @@
     "status": "active",
     "rera": "P52100055995",
     "rera_qr": "/images/landing-pages/anp-bizsquare/rera-qr.jpg",
-    "hero_1": "/images/landing-pages/anp-bizsquare/photo-1.jpg",
+    "hero_1": "/images/landing-pages/anp-bizsquare/photo-1.webp",
     "hero_2": "/images/landing-pages/anp-bizsquare/photo-2.jpg",
     "hero_3": "/images/landing-pages/anp-bizsquare/photo-3.jpg",
     "hero_caption": "ANP Bizsquare, Bhumkar Chowk, Wakad, Pune",
@@ -179,7 +179,7 @@
       "Vitrified Flooring"
     ],
     "gallery_images": [
-      "/images/landing-pages/anp-bizsquare/photo-1.jpg",
+      "/images/landing-pages/anp-bizsquare/photo-1.webp",
       "/images/landing-pages/anp-bizsquare/photo-2.jpg",
       "/images/landing-pages/anp-bizsquare/photo-3.jpg",
       "/images/landing-pages/anp-bizsquare/photo-4.jpg",
@@ -217,7 +217,7 @@
     "rera_qr": "/images/landing-pages/anp-landmark/rera-qr.jpg",
     "hero_1": "/images/landing-pages/anp-landmark/photo-1.jpg",
     "hero_2": "/images/landing-pages/anp-landmark/photo-2.jpg",
-    "hero_3": "/images/landing-pages/anp-landmark/photo-3.jpg",
+    "hero_3": "/images/landing-pages/anp-landmark/photo-3.webp",
     "hero_caption": "ANP Landmark, Bhumkar Chowk, Wakad, Pune",
     "tagline": "Ready Possession | 60m Road Frontage | Bhumkar Chowk, Wakad",
     "overview": "ANP Landmark is a ready-to-possess commercial development by ANP Corp at Bhumkar Chowk, Wakad, Pune, offering retail shops (386-1,229 sq ft) and office spaces (360-975 sq ft) with 60-metre road frontage. The building includes a glass facade, a decorative entrance lobby with generator-backed lifts, and is 5 minutes from Hinjewadi and 40 minutes from Pune Railway Station.",
@@ -249,8 +249,8 @@
     "gallery_images": [
       "/images/landing-pages/anp-landmark/photo-1.jpg",
       "/images/landing-pages/anp-landmark/photo-2.jpg",
-      "/images/landing-pages/anp-landmark/photo-3.jpg",
-      "/images/landing-pages/anp-landmark/photo-4.jpg",
+      "/images/landing-pages/anp-landmark/photo-3.webp",
+      "/images/landing-pages/anp-landmark/photo-4.webp",
       "/images/landing-pages/anp-landmark/photo-5.jpg"
     ],
     "lat": 18.6008,
@@ -281,7 +281,7 @@
     "status": "active",
     "rera": "P52100026219",
     "rera_qr": "/images/landing-pages/anp-memento/rera-qr.jpg",
-    "hero_1": "/images/landing-pages/anp-memento/photo-1.jpg",
+    "hero_1": "/images/landing-pages/anp-memento/photo-1.webp",
     "hero_2": "/images/landing-pages/anp-memento/photo-2.jpg",
     "hero_3": "/images/landing-pages/anp-memento/photo-3.jpg",
     "hero_caption": "ANP Memento, Bhumkar Chowk, Wakad, Pune",
@@ -317,11 +317,11 @@
       "Multipurpose Court"
     ],
     "gallery_images": [
-      "/images/landing-pages/anp-memento/photo-1.jpg",
+      "/images/landing-pages/anp-memento/photo-1.webp",
       "/images/landing-pages/anp-memento/photo-2.jpg",
       "/images/landing-pages/anp-memento/photo-3.jpg",
       "/images/landing-pages/anp-memento/photo-4.jpg",
-      "/images/landing-pages/anp-memento/photo-5.jpg"
+      "/images/landing-pages/anp-memento/photo-5.webp"
     ],
     "lat": 18.6000854,
     "lng": 73.7470013,
@@ -428,7 +428,7 @@
     "status": "active",
     "rera": "P52100034557",
     "rera_qr": "/images/landing-pages/anp-retreat/rera-qr.jpg",
-    "hero_1": "/images/landing-pages/anp-retreat/photo-1.jpg",
+    "hero_1": "/images/landing-pages/anp-retreat/photo-1.webp",
     "hero_2": "/images/landing-pages/anp-retreat/photo-2.jpg",
     "hero_3": "/images/landing-pages/anp-retreat/photo-3.jpg",
     "hero_caption": "ANP Retreat, Bhumkar Chowk, Wakad, Pune",
@@ -459,11 +459,11 @@
       "Indoor Game Area"
     ],
     "gallery_images": [
-      "/images/landing-pages/anp-retreat/photo-1.jpg",
+      "/images/landing-pages/anp-retreat/photo-1.webp",
       "/images/landing-pages/anp-retreat/photo-2.jpg",
       "/images/landing-pages/anp-retreat/photo-3.jpg",
       "/images/landing-pages/anp-retreat/photo-4.jpg",
-      "/images/landing-pages/anp-retreat/photo-5.jpg",
+      "/images/landing-pages/anp-retreat/photo-5.webp",
       "/images/landing-pages/anp-retreat/photo-6.jpg"
     ],
     "lat": 18.601543,
@@ -495,9 +495,9 @@
     "status": "active",
     "rera": "P52100047835",
     "rera_qr": "/images/landing-pages/anp-ultimus/rera-qr.jpg",
-    "hero_1": "/images/landing-pages/anp-ultimus/photo-1.jpg",
-    "hero_2": "/images/landing-pages/anp-ultimus/photo-2.jpg",
-    "hero_3": "/images/landing-pages/anp-ultimus/photo-3.jpg",
+    "hero_1": "/images/landing-pages/anp-ultimus/photo-1.webp",
+    "hero_2": "/images/landing-pages/anp-ultimus/photo-2.webp",
+    "hero_3": "/images/landing-pages/anp-ultimus/photo-3.webp",
     "hero_caption": "ANP Ultimus, Wakad, Pune",
     "tagline": "Under Construction | Near Wakad Metro Station | Wakad, Pune",
     "overview": "ANP Ultimus is a residential development by ANP Corp in Wakad, Pune, close to the Wakad Metro Station, offering 2, 2.5, 3 and 3.5 BHK homes from 841 to 1,233 sq ft carpet area. The project features an infinity swimming pool with a jacuzzi, a practice cricket pitch with a viewing pavilion, a sculpture garden and an amphitheatre.",
@@ -530,11 +530,11 @@
       "Indoor Games & Amphitheatre"
     ],
     "gallery_images": [
-      "/images/landing-pages/anp-ultimus/photo-1.jpg",
-      "/images/landing-pages/anp-ultimus/photo-2.jpg",
-      "/images/landing-pages/anp-ultimus/photo-3.jpg",
-      "/images/landing-pages/anp-ultimus/photo-4.jpg",
-      "/images/landing-pages/anp-ultimus/photo-5.jpg"
+      "/images/landing-pages/anp-ultimus/photo-1.webp",
+      "/images/landing-pages/anp-ultimus/photo-2.webp",
+      "/images/landing-pages/anp-ultimus/photo-3.webp",
+      "/images/landing-pages/anp-ultimus/photo-4.webp",
+      "/images/landing-pages/anp-ultimus/photo-5.webp"
     ],
     "lat": 18.5933421,
     "lng": 73.7563207,
@@ -1103,9 +1103,9 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52000047146 (Phase A), P52000050704 (Phase B), P52000051573 (Phase C)",
-    "hero_1": "/images/landing-pages/kalpataru-aria/masterplan-aerial.jpg",
+    "hero_1": "/images/landing-pages/kalpataru-aria/masterplan-aerial.webp",
     "hero_2": "/images/landing-pages/kalpataru-aria/health-club.jpg",
-    "hero_3": "/images/landing-pages/kalpataru-aria/fitness-park.jpg",
+    "hero_3": "/images/landing-pages/kalpataru-aria/fitness-park.webp",
     "hero_caption": "Kalpataru Aria - an 88-acre gated township, Karjat",
     "tagline": "88-Acre Gated Township | Foothills of the Sahyadris | Karjat",
     "overview": "Kalpataru Aria is an 88-acre gated township at the foothills of the Sahyadris in Karjat, designed by Padma Bhushan architect Hafeez Contractor with landscaping by Green Space Alliance. The retreat-style address offers 2 BHK homes starting at ₹74.49 Lakhs, hill-view plots from 1,615 to 9,000 sqft starting at ₹88 Lakhs, and spacious 3 BHK luxury townhouses (1,700–1,800 sqft carpet) starting at ₹2.01 Cr. Residents get access to 30+ lifestyle amenities including a Grand Health Club, with excellent connectivity via the Mumbai–Pune Expressway, the upcoming Navi Mumbai International Airport, and Atal Setu - part of Karjat's fast-emerging Mumbai 3.0 growth corridor. Backed by Kalpataru's 53+ year legacy of over 110 landmark projects across Mumbai, Thane and Pune.",
@@ -1144,9 +1144,9 @@
       "Sensory Garden & Reflexology Path"
     ],
     "gallery_images": [
-      "/images/landing-pages/kalpataru-aria/masterplan-aerial.jpg",
+      "/images/landing-pages/kalpataru-aria/masterplan-aerial.webp",
       "/images/landing-pages/kalpataru-aria/health-club.jpg",
-      "/images/landing-pages/kalpataru-aria/fitness-park.jpg"
+      "/images/landing-pages/kalpataru-aria/fitness-park.webp"
     ],
     "lat": 18.8920963,
     "lng": 73.3108444,
@@ -1173,8 +1173,8 @@
     "rera": "P52100077659 (Tower 1), P52100077649 (Tower 2), P52100077750 (Tower 3)",
     "area_alias": "Vadgaon Budruk",
     "hero_1": "/images/landing-pages/kalpataru-blossoms/tower-dusk-view.jpg",
-    "hero_2": "/images/landing-pages/kalpataru-blossoms/tower-day-view.jpg",
-    "hero_3": "/images/landing-pages/kalpataru-blossoms/club-pool.jpg",
+    "hero_2": "/images/landing-pages/kalpataru-blossoms/tower-day-view.webp",
+    "hero_3": "/images/landing-pages/kalpataru-blossoms/club-pool.webp",
     "hero_caption": "Kalpataru Blossoms - 3 towers on Sinhagad Road, Pune",
     "tagline": "10:90 Subvention Scheme & Zero Stamp Duty | Sinhagad Road, Pune",
     "overview": "Kalpataru Blossoms is a 3-tower residential development on Sinhagad Road, Pune, offering spacious 2, 3, 3.5, 4 and 4.5 BHK homes designed by MQA Architects with landscaping by Vikas & Nilima Bhosekar. The location links seamlessly to Kothrud, Deccan and FC Road via Rajaram Bridge, with swift access to Laxmi Road, Swargate and the Mumbai-Bengaluru Highway via Navale Bridge. Residents get a central clubhouse with a swimming pool, spa, gymnasium, indoor preview theatre and co-working lounge, plus 35+ zoned outdoor amenities across activity, relaxation and fitness zones. Backed by Kalpataru's legacy of over 110 landmark projects and 120+ industry awards.",
@@ -1212,10 +1212,10 @@
     ],
     "gallery_images": [
       "/images/landing-pages/kalpataru-blossoms/tower-dusk-view.jpg",
-      "/images/landing-pages/kalpataru-blossoms/tower-day-view.jpg",
-      "/images/landing-pages/kalpataru-blossoms/night-elevation.jpg",
-      "/images/landing-pages/kalpataru-blossoms/club-pool.jpg",
-      "/images/landing-pages/kalpataru-blossoms/living-dining.jpg"
+      "/images/landing-pages/kalpataru-blossoms/tower-day-view.webp",
+      "/images/landing-pages/kalpataru-blossoms/night-elevation.webp",
+      "/images/landing-pages/kalpataru-blossoms/club-pool.webp",
+      "/images/landing-pages/kalpataru-blossoms/living-dining.webp"
     ],
     "lat": 18.4714375,
     "lng": 73.8205625,
@@ -1250,9 +1250,9 @@
     "area": "1,700 – 6,000 sqft",
     "category": "plot",
     "status": "coming-soon",
-    "hero_1": "/images/landing-pages/khopoli/hero-vision.jpg",
-    "hero_2": "/images/landing-pages/khopoli/hillside-villas.jpg",
-    "hero_3": "/images/landing-pages/khopoli/waterfall.jpg",
+    "hero_1": "/images/landing-pages/khopoli/hero-vision.webp",
+    "hero_2": "/images/landing-pages/khopoli/hillside-villas.webp",
+    "hero_3": "/images/landing-pages/khopoli/waterfall.webp",
     "hero_caption": "Shapoorji Pallonji Khopoli - a 900-acre nature-led development in the Sahyadris",
     "tagline": "Pre-Launch Opportunity | ~900-Acre Nature-Led Development | Shapoorji Pallonji",
     "overview": "Presenting a landmark ~900-acre nature-led development near Khopoli, set amidst the scenic Sahyadri landscape. Premium residential plots from 1,700 to 6,000 sqft, low-density and nature-integrated by design, with over 2,000 acres of protected forest buffer surrounding the community. The masterplan includes private hamlets, row houses, wellness and sports zones, and a landmark 25,000 sq ft retreat centre anchored by a premium hospitality partner. Backed by the trusted legacy of Shapoorji Pallonji, and positioned in Khopoli - one of the Mumbai region's fastest-emerging infrastructure-led micro-markets.",
@@ -2174,9 +2174,9 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100047656 (Phase 1), P52100053150 (Bastion J, K), P52100053012 (Bastion I), PR1260002500154 (Tower L), PM1264042600425 (Phase 5)",
-    "hero_1": "/images/landing-pages/mahindra-citadel/hero-tower.jpg",
+    "hero_1": "/images/landing-pages/mahindra-citadel/hero-tower.webp",
     "hero_2": "/images/landing-pages/mahindra-citadel/hero-living.webp",
-    "hero_3": "/images/landing-pages/mahindra-citadel/hero-amenities.jpg",
+    "hero_3": "/images/landing-pages/mahindra-citadel/hero-amenities.webp",
     "hero_caption": "Mahindra Citadel - modern homes in Pimpri-Chinchwad",
     "tagline": "New Launch | 2 & 3 BHK Homes | EOI Now Open",
     "overview": "Mahindra Citadel is a residential project by Mahindra Lifespaces in Pimpri-Chinchwad, one of Pune's fastest-growing suburbs. Offering 2 and 3 BHK homes with modern amenities and strong connectivity to nearby industrial and IT hubs, the project is developed in phases under MahaRERA registration. Mahindra Lifespaces has delivered 8 completed projects and has 4 ongoing developments, backed by the Mahindra Group's real estate track record since 1994.",
@@ -2478,8 +2478,8 @@
     "category": "plot",
     "status": "active",
     "rera": "PP1270002502553, PP1270002502551, PP1270002502087, PP1270002502595",
-    "hero_1": "/images/landing-pages/neoliv-grand-forest-prive/site-progress-1.jpg",
-    "hero_2": "/images/landing-pages/neoliv-grand-forest-prive/site-progress-2.jpg",
+    "hero_1": "/images/landing-pages/neoliv-grand-forest-prive/site-progress-1.webp",
+    "hero_2": "/images/landing-pages/neoliv-grand-forest-prive/site-progress-2.webp",
     "hero_caption": "Neoliv Grand Forest Privé - site progress, Khopoli",
     "tagline": "Mumbai 3.0's Premium Forest Lifestyle Destination | Khopoli",
     "overview": "Neoliv Grand Forest Privé is a 9-acre low-density plotted development at the foothills of the Sahyadris in Khopoli, part of the Mumbai 3.0 growth corridor. Located near Radisson Hotel and Imagica Theme Park - just 7 minutes from the Mumbai–Pune Expressway and 45 minutes from Navi Mumbai International Airport - the project offers residential plots from 1,800 to 2,500 sqft with individual 7/12 ownership and Gr+2 construction allowed. Residents get access to two exclusive clubs, wide roads, and landscaped gardens, set against natural waterfalls and mountain views.",
@@ -2508,8 +2508,8 @@
       "Foothills of the Sahyadris"
     ],
     "gallery_images": [
-      "/images/landing-pages/neoliv-grand-forest-prive/site-progress-1.jpg",
-      "/images/landing-pages/neoliv-grand-forest-prive/site-progress-2.jpg"
+      "/images/landing-pages/neoliv-grand-forest-prive/site-progress-1.webp",
+      "/images/landing-pages/neoliv-grand-forest-prive/site-progress-2.webp"
     ],
     "gallery_videos": [
       "/images/landing-pages/neoliv-grand-forest-prive/site-walkthrough-1.mp4",
@@ -3229,8 +3229,8 @@
     "category": "apartment",
     "status": "coming-soon",
     "hero_1": "/images/landing-pages/the-arena-pimpri/tower-view-1.jpg",
-    "hero_2": "/images/landing-pages/the-arena-pimpri/tower-view-2.jpg",
-    "hero_3": "/images/landing-pages/the-arena-pimpri/infinity-pool.jpg",
+    "hero_2": "/images/landing-pages/the-arena-pimpri/tower-view-2.webp",
+    "hero_3": "/images/landing-pages/the-arena-pimpri/infinity-pool.webp",
     "hero_caption": "The Arena Pimpri - India's sports township concept, Pimpri, Pune",
     "tagline": "80,000 Sq Ft Sports Township | Operated by Ileseum Sports Management | Pimpri",
     "overview": "The Arena Pimpri is a sports-first residential township in the heart of Pimpri, a joint venture between Mahalaxmi Group, Kohinoor Group and Agarwal Sukhwani Associates. Spacious 2, 3 and 4 BHK homes are built around 80,000 sq. ft. of dedicated sport and recreation - multi-sport courts, indoor racquet courts, a rooftop infinity pool, and a professionally run ecosystem operated by Ileseum Sports Management, drawing on their experience across 126 clubs. The location sits just 2 km from KWT (Kohinoor World Towers) and Pune Metro Line 1, with easy access to Chinchwad and Pimpri railway stations, Chakan MIDC, and Hinjewadi IT Park. Backed by Mahalaxmi Group's 25+ year legacy of 4.2 million sq. ft. delivered and 2,800+ delighted families.",
@@ -3261,11 +3261,11 @@
     ],
     "gallery_images": [
       "/images/landing-pages/the-arena-pimpri/tower-view-1.jpg",
-      "/images/landing-pages/the-arena-pimpri/tower-view-2.jpg",
-      "/images/landing-pages/the-arena-pimpri/infinity-pool.jpg",
-      "/images/landing-pages/the-arena-pimpri/sports-courts.jpg",
-      "/images/landing-pages/the-arena-pimpri/lakeside-garden.jpg",
-      "/images/landing-pages/the-arena-pimpri/walkway-pavilion.jpg"
+      "/images/landing-pages/the-arena-pimpri/tower-view-2.webp",
+      "/images/landing-pages/the-arena-pimpri/infinity-pool.webp",
+      "/images/landing-pages/the-arena-pimpri/sports-courts.webp",
+      "/images/landing-pages/the-arena-pimpri/lakeside-garden.webp",
+      "/images/landing-pages/the-arena-pimpri/walkway-pavilion.webp"
     ],
     "gallery_videos": [
       "/images/landing-pages/the-arena-pimpri/teaser.mp4"
@@ -3545,7 +3545,7 @@
     "rera": "P52100024885",
     "rera_qr": "/images/landing-pages/vtp-altitude/rera-qr.avif",
     "hero_1": "/images/landing-pages/vtp-altitude/photo-1.webp",
-    "hero_2": "/images/landing-pages/vtp-altitude/photo-2.jpg",
+    "hero_2": "/images/landing-pages/vtp-altitude/photo-2.webp",
     "hero_3": "/images/landing-pages/vtp-altitude/photo-3.avif",
     "hero_caption": "VTP Altitude, Wakad, Pune",
     "tagline": "Under Construction | 14-Storey Grade A Commercial | Wakad, Pune",
@@ -3574,7 +3574,7 @@
     ],
     "gallery_images": [
       "/images/landing-pages/vtp-altitude/photo-1.webp",
-      "/images/landing-pages/vtp-altitude/photo-2.jpg",
+      "/images/landing-pages/vtp-altitude/photo-2.webp",
       "/images/landing-pages/vtp-altitude/photo-3.avif"
     ],
     "lat": 18.612246,

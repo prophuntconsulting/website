@@ -674,3 +674,9 @@ body :is(.office-tile, .bl-hero-img .bl-media, .ph-photo-grid-inner, .bl-body im
     body :is(.card, .prop-card, .blog-card, .bl-card, .dev-card, .loc-hub-card, .ph-rel-card, .ph-nearby-card,
              .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured):hover { transform:none; }
 }
+
+/* Phone tap targets: header CTA and breadcrumbs at least 44px tall */
+@media (max-width:768px){
+  .nav-actions .btn-sm{min-height:44px}
+  .breadcrumb a{display:inline-flex;align-items:center;min-height:44px}
+}
