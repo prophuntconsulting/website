@@ -3,6 +3,7 @@ const path = require('path');
 const { getMicroMarket, LOCALITY_CONTENT } = require('./locality-content');
 const { DEV_HUB_MIN, developerSlug, fitTitle } = require('./hub-shared');
 const { PROJECT_FACTS } = require('./project-facts');
+const { PROJECT_VIDEOS } = require('./project-videos');
 
 const SITE = 'https://www.prophuntllp.com';
 
@@ -331,6 +332,15 @@ function buildHeadBlock(p) {
         ...(p.location ? { address: { '@type': 'PostalAddress', addressLocality: p.location, addressRegion: 'Maharashtra', addressCountry: 'IN' } } : {}),
         ...(p.price ? { offers: { '@type': 'Offer', price: p.price * 100000, priceCurrency: 'INR', url, availability: p.status === 'sold-out' ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock' } } : {}),
       },
+      ...(p.youtube || []).map(v => ({
+        '@type': 'VideoObject',
+        name: v.title,
+        description: v.description,
+        thumbnailUrl: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`,
+        uploadDate: v.uploadDate,
+        contentUrl: `https://www.youtube.com/watch?v=${v.id}`,
+        embedUrl: `https://www.youtube-nocookie.com/embed/${v.id}`,
+      })),
       ...(allFaqs.length ? [{
         '@type': 'FAQPage',
         mainEntity: allFaqs.map(f => ({
@@ -498,6 +508,10 @@ function buildPrerenderBlock(p, all) {
     sections.push(`<div class="ph-section"><h2 class="ph-section-label">Key Facts</h2>
       <ul class="ph-verify">${stats.map(([v, l]) => `<li><strong>${escapeHtml(v)}</strong>${l ? ` — ${escapeHtml(l)}` : ''}</li>`).join('')}</ul></div>`);
   }
+  if ((p.youtube || []).length) {
+    sections.push(`<div id="video" class="ph-section"><h2 class="ph-section-label">Video Walkthrough</h2>
+      ${p.youtube.map(v => `<a class="ph-yt" href="https://www.youtube.com/watch?v=${v.id}" data-yt="${v.id}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${escapeHtml(v.title)}" loading="lazy" width="480" height="360"><span class="ph-yt-play" aria-hidden="true"></span><span class="ph-yt-title">${escapeHtml(v.title)}</span></a>`).join('')}</div>`);
+  }
   if (amenities.length) {
     sections.push(`<div id="amenities" class="ph-section"><h2 class="ph-section-label">Amenities</h2>
       <ul class="ph-verify ph-cols">${amenities.map(a => `<li>${escapeHtml(a)}</li>`).join('')}</ul></div>`);
@@ -557,7 +571,8 @@ const properties = files.map(file => {
     : /^https:\/\/cdn\.sanity\.io\/images\//.test(cover) ? cover.replace(/\?.*$/, '') + '?w=640&fit=max&auto=format&q=75' : '';
   const facts = PROJECT_FACTS[slug] || {};
   const reraFacts = Object.fromEntries(Object.entries(facts).filter(([, v]) => v != null && v !== '').map(([k, v]) => [`rera_${k}`, v]));
-  const merged = { slug, ...data, ...reraFacts, cover, thumb, url, body: body || '' };
+  const youtube = PROJECT_VIDEOS[slug] || undefined;
+  const merged = { slug, ...data, ...reraFacts, ...(youtube ? { youtube } : {}), cover, thumb, url, body: body || '' };
 
   const micro_market = getMicroMarket(data.location);
   const locality = LOCALITY_CONTENT[micro_market] || null;

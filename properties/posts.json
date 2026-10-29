@@ -938,6 +938,14 @@
     "rera_possession": "Mar 2029 (Towers 1 and 3)",
     "rera_checked": "2026-10-28",
     "rera_source": "public MahaRERA filing data",
+    "youtube": [
+      {
+        "id": "9GAjrYlKCq8",
+        "title": "Kalpataru Blossoms: Luxurious Living in Pune, Manik Baug, Sinhagad Road",
+        "uploadDate": "2024-10-24T05:09:42-07:00",
+        "description": "Video tour of Kalpataru Blossoms, 2 to 4.5 BHK homes by Kalpataru at Manik Baug, Sinhagad Road, Pune."
+      }
+    ],
     "cover": "/images/landing-pages/kalpataru-blossoms/tower-dusk-view.jpg",
     "thumb": "/images/thumbs/kalpataru-blossoms.webp",
     "url": "/projects/kalpataru-blossoms",
@@ -993,6 +1001,14 @@
     "lat": 18.773091,
     "lng": 73.2848346,
     "geo_confidence": "locality",
+    "youtube": [
+      {
+        "id": "4rHIg9gLWIo",
+        "title": "Premium Plots Near Khopoli | ~900-Acre Nature-Led Development by Shapoorji Pallonji",
+        "uploadDate": "2026-08-31T01:13:22-07:00",
+        "description": "Overview of the Shapoorji Pallonji residential plots and private hamlets near Khopoli, Maharashtra."
+      }
+    ],
     "cover": "/images/landing-pages/khopoli/hero-vision.jpg",
     "thumb": "/images/thumbs/khopoli.webp",
     "url": "/projects/khopoli",
@@ -2254,6 +2270,14 @@
     "rera_land": "about 0.88 acres (3,547 sq m, Bldg A/B registration)",
     "rera_checked": "2026-10-28",
     "rera_source": "public MahaRERA filing data",
+    "youtube": [
+      {
+        "id": "s1rWxxeqqPw",
+        "title": "Tej Elevia Baner Walkthrough | Sky-High Luxury Living in Pune",
+        "uploadDate": "2025-11-26T23:00:52-08:00",
+        "description": "Walkthrough of Tej Elevia, a luxury high-rise by Tejraj Group on Pan Card Club Road, Baner, Pune."
+      }
+    ],
     "cover": "/images/landing-pages/tej-elevia/photo-1.webp",
     "thumb": "/images/thumbs/tej-elevia.webp",
     "url": "/projects/tej-elevia",

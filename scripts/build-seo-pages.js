@@ -265,6 +265,13 @@ const locBhkPages = Object.entries(byLocBhk).filter(([, ps]) => ps.length >= 2).
 });
 const locBhkUrl = (mm, n) => (locBhkPages.find(x => x.mm === mm && x.n === n) || {}).url;
 
+// "₹1.59 Cr", "Rs 80 - 90 L", "Rs 1.45 - 1.6 Cr + Charges" -> lakh (first figure); unknown sorts last.
+function priceLakh(txt) {
+  const m = String(txt || '').match(/([\d.]+)\s*(?:-\s*[\d.]+\s*)?(Cr|L)/i);
+  if (!m) return Infinity;
+  return parseFloat(m[1]) * (/cr/i.test(m[2]) ? 100 : 1);
+}
+
 // Knight Frank India, Pune residential H1 2026 (same figures as the area guides).
 const AREA_RATE = { baner: '₹16,418 to ₹16,987', wakad: '₹12,115 to ₹12,588', hadapsar: '₹11,510 to ₹11,822' };
 const AREA_SEARCH_ALIAS = { 'pimpri-chinchwad': 'PCMC' };
@@ -281,18 +288,29 @@ for (const pg of locBhkPages) {
     const r = anyRow(p, n);
     return { size: r && r.area ? `Not published (all units: ${r.area})` : 'On request', price: 'On request', specific: false };
   };
-  const pricedProjects = projects.filter(p => rowsFor(p).price !== 'On request');
-  const sorted = [...projects].sort((a, b) => (a.status === 'coming-soon') - (b.status === 'coming-soon') || a.title.localeCompare(b.title));
+  const pricedProjects = projects.filter(p => rowsFor(p).price !== 'On request')
+    .sort((a, b) => priceLakh(rowsFor(a).price) - priceLakh(rowsFor(b).price));
+  // Cheapest published price first ("budget 3 bhk wakad"), then the rest by name.
+  const sorted = [...projects].sort((a, b) => (a.status === 'coming-soon') - (b.status === 'coming-soon')
+    || priceLakh(rowsFor(a).price) - priceLakh(rowsFor(b).price) || a.title.localeCompare(b.title));
+  const building = projects.filter(p => /under construction|nearing|new launch|launched/i.test(p.tagline || '') || p.status === 'coming-soon');
+  const ready = projects.filter(p => /ready to move|ready possession|oc received/i.test(p.tagline || ''));
   const reraCount = projects.filter(p => p.rera).length;
   const title = fitTitle([`${label}${alias}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`, `${label}${alias}, Pune: ${projects.length} New Projects & Prices`, `${label}${alias}: ${projects.length} New Projects & Prices`, `${label}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`, `${label}, Pune: ${projects.length} New Projects & Prices`, `${label}, Pune: ${projects.length} New Projects | PROPHUNT`, `${label}: ${projects.length} New Projects & Prices`]);
   const desc = `Compare ${projects.length} new ${bhkLabel(n)} flat projects in ${loc.name}, Pune from ${developersText(projects)}.` +
-    (pricedProjects.length ? ` ${bhkLabel(n)} prices from ${pricedProjects.map(p => rowsFor(p).price).sort()[0]}.` : '') + ' Sizes, MahaRERA numbers and free site visits with PROPHUNT LLP.';
+    (pricedProjects.length ? ` ${bhkLabel(n)} prices from ${rowsFor(pricedProjects[0]).price}.` : '') + ' Sizes, MahaRERA numbers and free site visits with PROPHUNT LLP.';
   const crumbs = [{ name: 'Home', url: '/' }, { name: 'Locations', url: '/location' }, { name: loc.name, url: `/location/${mm}` }, { name: label, url }];
   const faqs = [
     { q: `How many ${bhkLabel(n)} projects are available in ${loc.name}?`, a: `PROPHUNT LLP currently lists ${projects.length} projects in ${loc.name} offering ${bhkLabel(n)} homes: ${projects.map(p => p.title).join(', ')}.` },
     { q: `What is the price of a ${bhkLabel(n)} flat in ${loc.name}?`, a: pricedProjects.length
       ? `Published ${bhkLabel(n)} prices in ${loc.name}: ${pricedProjects.map(p => `${p.title} ${rowsFor(p).price}`).join('; ')} (indicative, excluding taxes). For the other projects the developer shares pricing on request; our advisors can get you the current cost sheets.`
       : `Developers in ${loc.name} share ${bhkLabel(n)} pricing on request. PROPHUNT LLP can get you current cost sheets for all ${projects.length} projects at no charge.` },
+    ...(pricedProjects.length ? [{ q: `What is the most affordable ${bhkLabel(n)} flat in ${loc.name}?`, a: `Among the projects PROPHUNT LLP lists, the lowest published ${bhkLabel(n)} price in ${loc.name} is at ${pricedProjects[0].title}: ${rowsFor(pricedProjects[0]).price} (indicative, excluding stamp duty, registration and GST). ${pricedProjects.length > 1 ? `Next: ${pricedProjects.slice(1, 3).map(p => `${p.title} at ${rowsFor(p).price}`).join('; ')}. ` : ''}Other developers share prices on request.` }] : []),
+    ...(AREA_RATE[mm] ? [{ q: `What is the price per sq ft for flats in ${loc.name}?`, a: `Knight Frank India's H1 2026 report puts ${loc.name} at about ${AREA_RATE[mm]} per sq ft. Rates differ by project, tower, floor and view, so compare cost sheets on carpet area.` }] : []),
+    ...(building.length || ready.length ? [{ q: `Which ${bhkLabel(n)} projects in ${loc.name} are under construction or ready to move?`, a: [
+      building.length ? `Under construction or newly launched: ${building.map(p => p.title + (p.rera_possession && !/\(/.test(p.rera_possession) ? ` (MahaRERA completion ${p.rera_possession})` : '')).join(', ')}.` : '',
+      ready.length ? `Ready to move: ${ready.map(p => p.title).join(', ')}.` : '',
+    ].filter(Boolean).join(' ') + ' Confirm the current status with the developer before booking.' }] : []),
     { q: `Which developers offer ${bhkLabel(n)} flats in ${loc.name}?`, a: `${[...new Set(projects.map(p => p.developer))].join(', ')}.` },
     { q: `Are these ${bhkLabel(n)} projects in ${loc.name} RERA registered?`, a: `${reraCount} of the ${projects.length} projects list a MahaRERA registration number on their PROPHUNT LLP page.${reraCount < projects.length ? ' For the rest, ask our advisors for the current registration status before booking.' : ''}` },
   ];
