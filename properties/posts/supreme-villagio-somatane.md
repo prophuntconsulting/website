@@ -7,7 +7,9 @@ config: "4 BHK Townhouses & Twin Villas"
 category: "villa"
 status: "active"
 rera: "P52100055048 (Phase III)"
-hero_1: "https://cdn.sanity.io/images/9cgq9uxv/production/fecb57987d580ac7d5f19e06fc7f36654c2c03f4-1280x720.jpg?w=2000&fit=max&auto=format&q=80"
+hero_1: "https://cdn.sanity.io/images/9cgq9uxv/production/7906a030b37ff2679b9fab6a1f34a54c45160f72-1920x810.jpg?w=2000&fit=max&auto=format&q=80"
+hero_2: "https://cdn.sanity.io/images/9cgq9uxv/production/c9337f0adccef013d2abcea4435f222010395b96-1920x810.jpg?w=2000&fit=max&auto=format&q=80"
+hero_3: "https://cdn.sanity.io/images/9cgq9uxv/production/ccb91252a17fe19da34b85b17a809dfda08db436-1920x810.jpg?w=2000&fit=max&auto=format&q=80"
 hero_caption: "Supreme Villagio, Somatane, near Talegaon, Pune"
 tagline: "Phase III | 4 BHK Townhouses & Villas | Somatane"
 overview: "Supreme Villagio is a gated villa and townhouse community by Supreme Universal at Somatane, near Talegaon. The first two phases have been handed over; Phase III, registered with MahaRERA as P52100055048, has 66 homes on 4.63 acres and is due in December 2027. The developer publishes 4 BHK townhouses from ₹2.89 Cr all inclusive, with an 18,500 sq ft clubhouse."
@@ -36,6 +38,11 @@ amenities:
   - "Mini Forest"
   - "Butterfly Garden"
   - "Kids' Play Area"
+gallery_images:
+  - "https://cdn.sanity.io/images/9cgq9uxv/production/7906a030b37ff2679b9fab6a1f34a54c45160f72-1920x810.jpg?w=2000&fit=max&auto=format&q=80"
+  - "https://cdn.sanity.io/images/9cgq9uxv/production/c9337f0adccef013d2abcea4435f222010395b96-1920x810.jpg?w=2000&fit=max&auto=format&q=80"
+  - "https://cdn.sanity.io/images/9cgq9uxv/production/ccb91252a17fe19da34b85b17a809dfda08db436-1920x810.jpg?w=2000&fit=max&auto=format&q=80"
+  - "https://cdn.sanity.io/images/9cgq9uxv/production/1fbd91cbcfc9a6e9e9ff7a48d7166b411bdf3723-1920x810.jpg?w=2000&fit=max&auto=format&q=80"
 lat: 18.7144
 lng: 73.6772
 geo_confidence: "locality"

@@ -8,7 +8,7 @@ area: "710 – 1,087 sqft"
 category: "apartment"
 status: "active"
 rera: "P52100079623 (Phase 1)"
-hero_1: "https://cdn.sanity.io/images/9cgq9uxv/production/a547fedd8f7b68d9fbf63b15aaa8d527d86d171a-1280x720.jpg?w=2000&fit=max&auto=format&q=80"
+hero_1: "https://cdn.sanity.io/images/9cgq9uxv/production/27d84189193be661801af92d037f7b8f1d4ceb59-2000x1000.png?w=2000&fit=max&auto=format&q=80"
 hero_caption: "Qrious, Life Republic, Life Republic Township, Marunji, Hinjewadi, Pune"
 tagline: "New Launch | 2 & 3 BHK | Life Republic, Hinjewadi"
 overview: "Qrious is Kolte Patil's 2 and 3 BHK launch inside the Life Republic township at Marunji, near Hinjewadi, with homes of about 710 to 1,087 sq ft and a 19,000 sq ft clubhouse. Phase 1 is registered with MahaRERA as P52100079623 with 452 homes, due in April 2030."
@@ -33,6 +33,8 @@ amenities:
   - "Cricket Nets"
   - "Skating Rink"
   - "Yoga Lawn"
+gallery_images:
+  - "https://cdn.sanity.io/images/9cgq9uxv/production/27d84189193be661801af92d037f7b8f1d4ceb59-2000x1000.png?w=2000&fit=max&auto=format&q=80"
 lat: 18.6115
 lng: 73.702
 geo_confidence: "locality"

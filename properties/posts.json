@@ -632,7 +632,9 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100080203",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/ad122659ea26451e59e9404c483af634f13402e5-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/4784347c08acebf6f76d3b107495892a5cf209f5-1920x1250.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/7db54b1a92d2c732a014b43eb02b6a96b27e3635-1920x1251.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/f6548889d5ab7fff32867d27e3a4698ac2762071-2070x1350.jpg?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Bramha Sun Valley, Bavdhan, Pune (on the Mumbai-Bengaluru Highway)",
     "tagline": "Under Construction | 2 to 4.5 BHK | Bavdhan",
     "overview": "Bramha Sun Valley is a BramhaCorp project beside the Mumbai–Bengaluru highway in Bavdhan, launched in May 2025 and registered with MahaRERA as P52100080203. It offers 2, 2.5, 3, 3.5 and 4.5 BHK homes, including units with private plunge pools. BramhaCorp publishes a starting price of ₹1.14 Cr all inclusive.",
@@ -654,6 +656,11 @@
       "CCTV Security",
       "High-speed Lifts"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/4784347c08acebf6f76d3b107495892a5cf209f5-1920x1250.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/7db54b1a92d2c732a014b43eb02b6a96b27e3635-1920x1251.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/f6548889d5ab7fff32867d27e3a4698ac2762071-2070x1350.jpg?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.5205,
     "lng": 73.7755,
     "geo_confidence": "locality",
@@ -665,8 +672,8 @@
         "description": "Video walkthrough of Bramha Sun Valley by BramhaCorp, Bavdhan, Pune (on the Mumbai-Bengaluru Highway)."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/ad122659ea26451e59e9404c483af634f13402e5-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/ad122659ea26451e59e9404c483af634f13402e5-1280x720.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/4784347c08acebf6f76d3b107495892a5cf209f5-1920x1250.jpg?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/4784347c08acebf6f76d3b107495892a5cf209f5-1920x1250.jpg?w=640&fit=max&auto=format&q=75",
     "url": "/projects/bramha-sun-valley-bavdhan",
     "body": "",
     "micro_market": "",
@@ -775,7 +782,9 @@
     "category": "apartment",
     "status": "active",
     "rera": "PM1260002500389",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/c5780ed255c280edeab82d9c657ca649050c15c3-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/d2a0eb6ef714324609ec730008cf244da1a8043a-1920x901.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/bbc9d4bb094e881c4184010d5c596321e6fd2828-1600x745.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/8b664b934e343a8b23a8454371bc88496e26afb2-2293x2292.webp?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Godrej Aqua Vista, Keshav Nagar, Mundhwa, Pune",
     "tagline": "New Launch | Riverside 1, 2 & 3 BHK | Keshav Nagar",
     "overview": "Godrej Aqua Vista is a riverside 1, 2 and 3 BHK project by Godrej Properties in Keshav Nagar, Mundhwa, east Pune, registered with MahaRERA as PM1260002500389. The project is built around a riverfront promenade and a 16,000+ sq ft riverside clubhouse with an infinity pool. Godrej publishes prices from ₹82 lakh; the MahaRERA completion date is March 2032.",
@@ -799,6 +808,13 @@
       "Kids' Adventure Zone",
       "Landscaped Gardens"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/d2a0eb6ef714324609ec730008cf244da1a8043a-1920x901.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/bbc9d4bb094e881c4184010d5c596321e6fd2828-1600x745.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/8b664b934e343a8b23a8454371bc88496e26afb2-2293x2292.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/e8d7be2148472e7b563d233076089da51c19283d-5459x3126.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/41cd3b4f10c319c280826039d61e7c2c20edd919-2293x2292.webp?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.54168,
     "lng": 73.944439,
     "geo_confidence": "locality",
@@ -810,8 +826,8 @@
         "description": "Video walkthrough of Godrej Aqua Vista by Godrej Properties, Keshav Nagar, Mundhwa, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/c5780ed255c280edeab82d9c657ca649050c15c3-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/c5780ed255c280edeab82d9c657ca649050c15c3-1280x720.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/d2a0eb6ef714324609ec730008cf244da1a8043a-1920x901.webp?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/d2a0eb6ef714324609ec730008cf244da1a8043a-1920x901.webp?w=640&fit=max&auto=format&q=75",
     "url": "/projects/godrej-aqua-vista-keshav-nagar",
     "body": "",
     "micro_market": "",
@@ -829,7 +845,9 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100078240",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/7f223d420e5b04c5916c0fc43875ee89f50b9272-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/e1a74917d9f0c75d5027eb1c245c9564b2662cd0-1920x900.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/8a57d7eefa942b9e2cb80313b3e6aa5495d360a2-1740x810.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/d2b01568cb4b06ffe2fbcde51768ef740a908f3e-1166x550.jpg?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Godrej Evergreen Square, Rajiv Gandhi Infotech Park Phase 3, Hinjewadi, Pune",
     "tagline": "New Launch | 2 & 3 BHK | Hinjewadi Phase 3",
     "overview": "Godrej Evergreen Square is a new 2 and 3 BHK project by Godrej Properties inside Rajiv Gandhi Infotech Park Phase 3, Hinjewadi, registered with MahaRERA as P52100078240. It is planned around garden-themed landscaping, including a maze garden and a French garden, with retail shops within the project, so the Hinjewadi IT parks are on the doorstep. Godrej publishes a starting price of ₹1.05 Cr and gives possession as October 2030.",
@@ -854,6 +872,12 @@
       "Kids' Play Areas",
       "Retail Shops"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/e1a74917d9f0c75d5027eb1c245c9564b2662cd0-1920x900.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/8a57d7eefa942b9e2cb80313b3e6aa5495d360a2-1740x810.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/d2b01568cb4b06ffe2fbcde51768ef740a908f3e-1166x550.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/2010860363ac6a3d99a09a0381191640e89af88d-1166x550.jpg?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.588,
     "lng": 73.68,
     "geo_confidence": "locality",
@@ -865,8 +889,8 @@
         "description": "Video walkthrough of Godrej Evergreen Square by Godrej Properties, Rajiv Gandhi Infotech Park Phase 3, Hinjewadi, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/7f223d420e5b04c5916c0fc43875ee89f50b9272-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/7f223d420e5b04c5916c0fc43875ee89f50b9272-1280x720.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/e1a74917d9f0c75d5027eb1c245c9564b2662cd0-1920x900.jpg?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/e1a74917d9f0c75d5027eb1c245c9564b2662cd0-1920x900.jpg?w=640&fit=max&auto=format&q=75",
     "url": "/projects/godrej-evergreen-square-hinjewadi",
     "body": "",
     "micro_market": "",
@@ -1004,7 +1028,9 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100045257, P52100049547",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/c9aa05e2dc3ed8fafa6f5826113cb690f0cdeeeb-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/044437c62e0662e3836e5f2ea0f0d5d2afa961c0-1272x964.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/3fe9b4f5fa86c44d2dc89c903ad95920d1660ac4-1272x964.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/13cb3afb8ae3ed166a0eb29c35f0ba45b8162285-1272x964.webp?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Joyville Sensorium, Maan, near Hinjewadi Phase 1, Pune",
     "tagline": "Final Towers | Riverside 2 & 3 BHK | Hinjewadi Phase 1",
     "overview": "Joyville Sensorium is a riverside 2 and 3 BHK community by Joyville, the Shapoorji Pallonji brand, at Maan beside Hinjewadi Phase 1, registered with MahaRERA as P52100045257 and P52100049547. Early towers are complete and the remaining towers are due by the end of 2026. Homes range from 697 to 979 sq ft, with a riverfront clubhouse, an infinity pool and a 5D miniplex.",
@@ -1031,6 +1057,14 @@
       "Crèche",
       "Jogging Track"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/044437c62e0662e3836e5f2ea0f0d5d2afa961c0-1272x964.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/3fe9b4f5fa86c44d2dc89c903ad95920d1660ac4-1272x964.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/13cb3afb8ae3ed166a0eb29c35f0ba45b8162285-1272x964.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/cba1136b67802cd503fbca1f4bf5bd9a8546267d-1272x964.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/9ac6a3c6a69e2fe7850af1f560d12187afdac215-1272x964.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/eb49cc55eca57f2ae988df2609c6d844cad3a32a-1272x964.webp?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.5706427,
     "lng": 73.7218813,
     "geo_confidence": "exact",
@@ -1042,8 +1076,8 @@
         "description": "Video walkthrough of Joyville Sensorium by Shapoorji Pallonji, Maan, near Hinjewadi Phase 1, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/c9aa05e2dc3ed8fafa6f5826113cb690f0cdeeeb-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/c9aa05e2dc3ed8fafa6f5826113cb690f0cdeeeb-1280x720.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/044437c62e0662e3836e5f2ea0f0d5d2afa961c0-1272x964.webp?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/044437c62e0662e3836e5f2ea0f0d5d2afa961c0-1272x964.webp?w=640&fit=max&auto=format&q=75",
     "url": "/projects/joyville-sensorium-hinjewadi",
     "body": "",
     "micro_market": "",
@@ -1343,7 +1377,9 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100032485",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/b465712bc654cb2b95d01cf0347df0c86830acde-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/57f2a5c170090557e75ee2ad4e7d455a141f29cf-4095x2730.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/f1beb2cee6b35466e71570889426a47d8e30d709-4095x2730.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/3dfa1de37a19be8005a33708bcfac003b62de2dc-4095x2619.webp?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Kohinoor Abhimaan Homes, Shirgaon, near Talegaon, Pune",
     "tagline": "Nearing Completion | 1 & 2 BHK | Shirgaon, Talegaon",
     "overview": "Kohinoor Abhimaan Homes is Kohinoor Group's budget 1 and 2 BHK project at Shirgaon, opposite the Prati Shirdi temple near Talegaon, serving the Talegaon and Chakan industrial belt. MahaRERA (P52100032485) lists 5 towers and 550 homes of 447 to 649 sq ft, with completion due in December 2026.",
@@ -1370,6 +1406,14 @@
       "Reflexology Path",
       "Outdoor Cinema"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/57f2a5c170090557e75ee2ad4e7d455a141f29cf-4095x2730.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/f1beb2cee6b35466e71570889426a47d8e30d709-4095x2730.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/3dfa1de37a19be8005a33708bcfac003b62de2dc-4095x2619.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/e54587eb288fa92cd17770853b2a73aff3fffa97-4095x2609.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/d42a8e4c57ae18da8817be31d9944f953d691b5a-4095x2651.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/c760c03a42a97efb992e90ff139b96a2f68a1fdf-4095x2730.webp?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.7066,
     "lng": 73.6957,
     "geo_confidence": "locality",
@@ -1381,8 +1425,8 @@
         "description": "Video walkthrough of Kohinoor Abhimaan Homes by Kohinoor Group, Shirgaon, near Talegaon, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/b465712bc654cb2b95d01cf0347df0c86830acde-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/b465712bc654cb2b95d01cf0347df0c86830acde-1280x720.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/57f2a5c170090557e75ee2ad4e7d455a141f29cf-4095x2730.webp?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/57f2a5c170090557e75ee2ad4e7d455a141f29cf-4095x2730.webp?w=640&fit=max&auto=format&q=75",
     "url": "/projects/kohinoor-abhimaan-shirgaon",
     "body": "",
     "micro_market": "",
@@ -1525,7 +1569,9 @@
     "status": "active",
     "rera": "P52100066472",
     "area_alias": "New Baner",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/bf8cbfaab9075a2690fb796266eb680fadfdaa24-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/011d98c509fea5415e10406695e3d6167e1eb0a1-1280x720.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/488f56c5b0957f5c3c76781ac2c0c3d2100dc99a-1280x720.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/97888474cbc80f948576647892bd410978a366f9-1280x720.webp?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Kohinoor Satori, Mahalunge (New Baner), Pune",
     "tagline": "Under Construction | 3, 4 & 4.5 BHK | New Baner",
     "overview": "Satori by Kohinoor offers large-format 3, 4 and 4.5 BHK homes of 1,121 to 2,326 sq ft on about 6 acres in Mahalunge (New Baner), close to Baner and Hinjewadi. It is registered with MahaRERA as P52100066472, with completion due in December 2028, and the developer lists 7 towers with a sports-focused clubhouse.",
@@ -1552,6 +1598,13 @@
       "Yoga Area",
       "Forest Walkway"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/011d98c509fea5415e10406695e3d6167e1eb0a1-1280x720.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/488f56c5b0957f5c3c76781ac2c0c3d2100dc99a-1280x720.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/97888474cbc80f948576647892bd410978a366f9-1280x720.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/51e2e0cda6fd355d633a10f6c420fb7bfc92f4aa-1280x720.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/922d71f9f931592f8b8eef04017379006a02ceac-1280x720.webp?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.5735,
     "lng": 73.755,
     "geo_confidence": "locality",
@@ -1563,8 +1616,8 @@
         "description": "Video walkthrough of Kohinoor Satori by Kohinoor Group, Mahalunge (New Baner), Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/bf8cbfaab9075a2690fb796266eb680fadfdaa24-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/bf8cbfaab9075a2690fb796266eb680fadfdaa24-1280x720.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/011d98c509fea5415e10406695e3d6167e1eb0a1-1280x720.webp?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/011d98c509fea5415e10406695e3d6167e1eb0a1-1280x720.webp?w=640&fit=max&auto=format&q=75",
     "url": "/projects/kohinoor-satori-baner",
     "body": "",
     "micro_market": "mahalunge",
@@ -1656,7 +1709,7 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100079623 (Phase 1)",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/a547fedd8f7b68d9fbf63b15aaa8d527d86d171a-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/27d84189193be661801af92d037f7b8f1d4ceb59-2000x1000.png?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Qrious, Life Republic, Life Republic Township, Marunji, Hinjewadi, Pune",
     "tagline": "New Launch | 2 & 3 BHK | Life Republic, Hinjewadi",
     "overview": "Qrious is Kolte Patil's 2 and 3 BHK launch inside the Life Republic township at Marunji, near Hinjewadi, with homes of about 710 to 1,087 sq ft and a 19,000 sq ft clubhouse. Phase 1 is registered with MahaRERA as P52100079623 with 452 homes, due in April 2030.",
@@ -1682,6 +1735,9 @@
       "Skating Rink",
       "Yoga Lawn"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/27d84189193be661801af92d037f7b8f1d4ceb59-2000x1000.png?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.6115,
     "lng": 73.702,
     "geo_confidence": "locality",
@@ -1693,8 +1749,8 @@
         "description": "Video walkthrough of Qrious, Life Republic by Kolte-Patil Developers, Life Republic Township, Marunji, Hinjewadi, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/a547fedd8f7b68d9fbf63b15aaa8d527d86d171a-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/a547fedd8f7b68d9fbf63b15aaa8d527d86d171a-1280x720.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/27d84189193be661801af92d037f7b8f1d4ceb59-2000x1000.png?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/27d84189193be661801af92d037f7b8f1d4ceb59-2000x1000.png?w=640&fit=max&auto=format&q=75",
     "url": "/projects/kolte-patil-qrious-life-republic",
     "body": "",
     "micro_market": "",
@@ -1972,7 +2028,7 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100035060 (Tower 10)",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/c3a9071778cee4a92ba4b5846853460744180216-480x360.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/5c941b719e8f19de146d8688f5c9ea9d0d56f9c1-1903x800.jpg?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Lodha Bella Vita, Off NIBM Road, Mohammadwadi, Pune",
     "tagline": "Under Construction | Final Towers | NIBM Road",
     "overview": "Lodha Bella Vita is a multi-tower Lodha community off NIBM Road in Mohammadwadi, south Pune, with 2 and 3 BHK homes and 4 and 5 BHK homes in select towers. Its final towers are under construction; Tower 10 is registered with MahaRERA as P52100035060 with completion due in December 2026. Residents get a 15,000 sq ft clubhouse, a rooftop sports field and an athletic track.",
@@ -1998,6 +2054,9 @@
       "Crèche",
       "Pet Park"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/5c941b719e8f19de146d8688f5c9ea9d0d56f9c1-1903x800.jpg?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.4697,
     "lng": 73.907,
     "geo_confidence": "locality",
@@ -2009,8 +2068,8 @@
         "description": "Video walkthrough of Lodha Bella Vita by Lodha, Off NIBM Road, Mohammadwadi, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/c3a9071778cee4a92ba4b5846853460744180216-480x360.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/c3a9071778cee4a92ba4b5846853460744180216-480x360.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/5c941b719e8f19de146d8688f5c9ea9d0d56f9c1-1903x800.jpg?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/5c941b719e8f19de146d8688f5c9ea9d0d56f9c1-1903x800.jpg?w=640&fit=max&auto=format&q=75",
     "url": "/projects/lodha-bella-vita-nibm",
     "body": "",
     "micro_market": "",
@@ -2589,7 +2648,9 @@
     "status": "active",
     "rera": "P52100052298 (Phase 1), PR1261012502532 (Phase 2), PR1262022601327 (Phase 3)",
     "area_alias": "Balewadi",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/9e3f7dc98d3427db02f8ae2122e4b6f82d9d48ee-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/5dd07fc86bdb6d5c492fdc9f53733dc331568e5d-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/44561b35924dd242ef5c2519395842152efd0211-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/a46f2818d84d8509e47970ffec5aff095e02ad46-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Rohan Ekam, Riverside, Balewadi, near Baner, Pune",
     "tagline": "Under Construction | Riverside 2, 3 & 4 BHK | Balewadi",
     "overview": "Rohan Ekam is a riverside development by Rohan Builders of about 13 acres on the Mula river at Balewadi, with towers of up to 34 floors across three MahaRERA phases. It offers 2 BHK homes of 870 to 890 sq ft, 3 BHK of 1,046 to 1,500 sq ft and 4 BHK of 1,842 to 2,160 sq ft. Phase 1 (P52100052298) is due in December 2027.",
@@ -2623,6 +2684,14 @@
       "Cricket Pitch",
       "Sky Yoga Decks"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/5dd07fc86bdb6d5c492fdc9f53733dc331568e5d-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/44561b35924dd242ef5c2519395842152efd0211-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/a46f2818d84d8509e47970ffec5aff095e02ad46-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/82276bf013e064dccc9723ffabc4757c5bb7afb4-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/bdda4ea870b76dd9c4351acbd18115d6b7d9d876-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/e971709c1f6e58d2fa0f8e8f1d6780f08e4af5ff-2560x1129.jpg?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.578,
     "lng": 73.776,
     "geo_confidence": "locality",
@@ -2634,8 +2703,8 @@
         "description": "Video walkthrough of Rohan Ekam by Rohan Builders, Riverside, Balewadi, near Baner, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/9e3f7dc98d3427db02f8ae2122e4b6f82d9d48ee-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/9e3f7dc98d3427db02f8ae2122e4b6f82d9d48ee-1280x720.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/5dd07fc86bdb6d5c492fdc9f53733dc331568e5d-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/5dd07fc86bdb6d5c492fdc9f53733dc331568e5d-2560x1129.jpg?w=640&fit=max&auto=format&q=75",
     "url": "/projects/rohan-ekam-balewadi",
     "body": "",
     "micro_market": "baner",
@@ -2654,7 +2723,9 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100052972 (Phase 1), P52100079539 (Phase 2), PR1263032501085 (Phase 3)",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/1d0599fefaf18aa7e75cf21487055b7a1b5bede9-480x360.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/39ec51196ec1cece0a9628a31f8dd342d27c180f-3840x1694.png?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/efc3ad949d58e6ac560e57e67d6406c58fce5173-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/03dc27b665690b63189ec6b2b4c0aba109d68708-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Rohan Harita, Ashok Nagar Road, Tathawade, Pune",
     "tagline": "Under Construction | 1 to 4 BHK | Tathawade",
     "overview": "Rohan Harita is a multi-phase Rohan Builders project on about 8.5 acres on Ashok Nagar Road, Tathawade, in PCMC, with 1, 2, 3 and 4 BHK homes and a Miyawaki forest. 2 BHK homes are 713 to 756 sq ft, 3 BHK 1,106 sq ft and 4 BHK 1,740 sq ft. Its three MahaRERA phases complete in December 2027, 2028 and 2029.",
@@ -2689,6 +2760,14 @@
       "Cricket Pitch",
       "Jogging Path"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/39ec51196ec1cece0a9628a31f8dd342d27c180f-3840x1694.png?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/efc3ad949d58e6ac560e57e67d6406c58fce5173-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/03dc27b665690b63189ec6b2b4c0aba109d68708-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/e49e4478cff5cc433130523a2cd187dc537ac5e5-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/63beb17b65878a16f46c776463708e73286e8471-2560x1129.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/b4136dc21346ca89a4ad18b94b4fea510d48449b-2560x1129.jpg?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.6222,
     "lng": 73.7536,
     "geo_confidence": "locality",
@@ -2700,8 +2779,8 @@
         "description": "Video walkthrough of Rohan Harita by Rohan Builders, Ashok Nagar Road, Tathawade, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/1d0599fefaf18aa7e75cf21487055b7a1b5bede9-480x360.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/1d0599fefaf18aa7e75cf21487055b7a1b5bede9-480x360.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/39ec51196ec1cece0a9628a31f8dd342d27c180f-3840x1694.png?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/39ec51196ec1cece0a9628a31f8dd342d27c180f-3840x1694.png?w=640&fit=max&auto=format&q=75",
     "url": "/projects/rohan-harita-tathawade",
     "body": "",
     "micro_market": "",
@@ -2785,7 +2864,9 @@
     "category": "apartment",
     "status": "active",
     "rera": "PR1260002500246",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/3a0c2ff8723dfd03454baa882e772666a45c4336-480x360.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/15dc48fec467f567429bb0e2bc8b3a3144525af8-1240x954.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/b2ed2dca3e7cb3587902799283b8a9c48b74253e-1240x954.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/b29cfed69c30964e4a00981ca8dca6cdda980298-1240x954.webp?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Shapoorji Pallonji Vanaha Verdant, Vanaha Township, Lavale, near Bavdhan, Pune",
     "tagline": "Under Construction | 2 & 3 BHK | Vanaha, Bavdhan",
     "overview": "Vanaha Verdant is a mid-rise 2 and 3 BHK phase by Shapoorji Pallonji in the 1,000-acre Vanaha township at Lavale, near Bavdhan, registered with MahaRERA as PR1260002500246. It is planned around retained forest, with treehouses, a hammock garden and a stargazing deck. The developer publishes prices from ₹1.05 Cr for an 868 sq ft 2 BHK; MahaRERA lists 4 towers and 363 homes, with completion due in June 2030.",
@@ -2814,6 +2895,14 @@
       "Nature Pond",
       "Senior Citizens' Zone"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/15dc48fec467f567429bb0e2bc8b3a3144525af8-1240x954.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/b2ed2dca3e7cb3587902799283b8a9c48b74253e-1240x954.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/b29cfed69c30964e4a00981ca8dca6cdda980298-1240x954.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/96e44ebcba9c3ec999c1554a780436b8a6d57916-1240x954.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/83a605acf18ad803f287585468698c242813de12-1240x954.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/8347a43cdc4311cae73917c6c77021bf7a6505a2-1240x954.webp?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.539,
     "lng": 73.735,
     "geo_confidence": "locality",
@@ -2825,8 +2914,8 @@
         "description": "Video walkthrough of Shapoorji Pallonji Vanaha Verdant by Shapoorji Pallonji, Vanaha Township, Lavale, near Bavdhan, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/3a0c2ff8723dfd03454baa882e772666a45c4336-480x360.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/3a0c2ff8723dfd03454baa882e772666a45c4336-480x360.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/15dc48fec467f567429bb0e2bc8b3a3144525af8-1240x954.webp?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/15dc48fec467f567429bb0e2bc8b3a3144525af8-1240x954.webp?w=640&fit=max&auto=format&q=75",
     "url": "/projects/shapoorji-vanaha-verdant-bavdhan",
     "body": "",
     "micro_market": "",
@@ -2845,7 +2934,9 @@
     "category": "apartment",
     "status": "active",
     "rera": "P52100052683, P52100053177, P52100054077, P52100053966, P52100053978, P52100053927, P52100053977",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/f2199e91fb7f23f39ee72ff46994f1b4c62c029e-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/03df2c49227b15fc6cd778f5096c90a979537155-1272x976.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/bd06b1b2b75d5a95bac6d93f01d7aa27018608f8-1272x976.webp?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/003d03eafc5b8ba1b1569ec62f5d3afa921395b1-1272x976.webp?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Shapoorji Pallonji Wildernest, SP Kingstown, Shewalewadi, Hadapsar Annexe, Pune",
     "tagline": "Under Construction | 3 & 4 BHK, Villaments & Villas | SP Kingstown",
     "overview": "Wildernest is the low-density luxury phase of Shapoorji Pallonji's SP Kingstown township at Shewalewadi, Hadapsar Annexe, off the Pune–Solapur highway. It mixes 3 and 4 BHK apartments with villaments and villas, from 1,384 to 1,909 sq ft, across MahaRERA registrations P52100052683 and others. The developer publishes 3 BHK prices from ₹1.84 Cr and 4 BHK from ₹2.40 Cr, with towers completing between June 2027 and March 2029.",
@@ -2872,6 +2963,13 @@
       "Cycling & Jogging Tracks",
       "Senior Citizens' Area"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/03df2c49227b15fc6cd778f5096c90a979537155-1272x976.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/bd06b1b2b75d5a95bac6d93f01d7aa27018608f8-1272x976.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/003d03eafc5b8ba1b1569ec62f5d3afa921395b1-1272x976.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/cce92e11790da658307a5a313c494263baa9daa9-1272x976.webp?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/9d622231902c32f32638e485b1080104460a9d74-1272x976.webp?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.4815,
     "lng": 73.985,
     "geo_confidence": "locality",
@@ -2883,8 +2981,8 @@
         "description": "Video walkthrough of Shapoorji Pallonji Wildernest by Shapoorji Pallonji, SP Kingstown, Shewalewadi, Hadapsar Annexe, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/f2199e91fb7f23f39ee72ff46994f1b4c62c029e-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/f2199e91fb7f23f39ee72ff46994f1b4c62c029e-1280x720.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/03df2c49227b15fc6cd778f5096c90a979537155-1272x976.webp?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/03df2c49227b15fc6cd778f5096c90a979537155-1272x976.webp?w=640&fit=max&auto=format&q=75",
     "url": "/projects/shapoorji-wildernest-hadapsar",
     "body": "",
     "micro_market": "hadapsar",
@@ -2961,7 +3059,9 @@
     "category": "villa",
     "status": "active",
     "rera": "P52100055048 (Phase III)",
-    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/fecb57987d580ac7d5f19e06fc7f36654c2c03f4-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_1": "https://cdn.sanity.io/images/9cgq9uxv/production/7906a030b37ff2679b9fab6a1f34a54c45160f72-1920x810.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_2": "https://cdn.sanity.io/images/9cgq9uxv/production/c9337f0adccef013d2abcea4435f222010395b96-1920x810.jpg?w=2000&fit=max&auto=format&q=80",
+    "hero_3": "https://cdn.sanity.io/images/9cgq9uxv/production/ccb91252a17fe19da34b85b17a809dfda08db436-1920x810.jpg?w=2000&fit=max&auto=format&q=80",
     "hero_caption": "Supreme Villagio, Somatane, near Talegaon, Pune",
     "tagline": "Phase III | 4 BHK Townhouses & Villas | Somatane",
     "overview": "Supreme Villagio is a gated villa and townhouse community by Supreme Universal at Somatane, near Talegaon. The first two phases have been handed over; Phase III, registered with MahaRERA as P52100055048, has 66 homes on 4.63 acres and is due in December 2027. The developer publishes 4 BHK townhouses from ₹2.89 Cr all inclusive, with an 18,500 sq ft clubhouse.",
@@ -2991,6 +3091,12 @@
       "Butterfly Garden",
       "Kids' Play Area"
     ],
+    "gallery_images": [
+      "https://cdn.sanity.io/images/9cgq9uxv/production/7906a030b37ff2679b9fab6a1f34a54c45160f72-1920x810.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/c9337f0adccef013d2abcea4435f222010395b96-1920x810.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/ccb91252a17fe19da34b85b17a809dfda08db436-1920x810.jpg?w=2000&fit=max&auto=format&q=80",
+      "https://cdn.sanity.io/images/9cgq9uxv/production/1fbd91cbcfc9a6e9e9ff7a48d7166b411bdf3723-1920x810.jpg?w=2000&fit=max&auto=format&q=80"
+    ],
     "lat": 18.7144,
     "lng": 73.6772,
     "geo_confidence": "locality",
@@ -3002,8 +3108,8 @@
         "description": "Video walkthrough of Supreme Villagio by Supreme Universal, Somatane, near Talegaon, Pune."
       }
     ],
-    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/fecb57987d580ac7d5f19e06fc7f36654c2c03f4-1280x720.jpg?w=2000&fit=max&auto=format&q=80",
-    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/fecb57987d580ac7d5f19e06fc7f36654c2c03f4-1280x720.jpg?w=640&fit=max&auto=format&q=75",
+    "cover": "https://cdn.sanity.io/images/9cgq9uxv/production/7906a030b37ff2679b9fab6a1f34a54c45160f72-1920x810.jpg?w=2000&fit=max&auto=format&q=80",
+    "thumb": "https://cdn.sanity.io/images/9cgq9uxv/production/7906a030b37ff2679b9fab6a1f34a54c45160f72-1920x810.jpg?w=640&fit=max&auto=format&q=75",
     "url": "/projects/supreme-villagio-somatane",
     "body": "",
     "micro_market": "",
