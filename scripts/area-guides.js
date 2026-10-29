@@ -13,9 +13,24 @@
  */
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// Guides can link to blog posts that are still scheduled. Until a post is in
+// blog/posts.json (written by build-blog, which runs first) its link renders
+// as plain text, so the page never links to a 404.
+let livePosts;
+function isLivePost(u) {
+  if (livePosts === undefined) {
+    try {
+      const posts = JSON.parse(require('fs').readFileSync(require('path').join(__dirname, '..', 'blog', 'posts.json'), 'utf8'));
+      livePosts = new Set(posts.map(p => `/blog/${p.urlSlug || p.slug}`));
+    } catch { livePosts = null; }
+  }
+  return !livePosts || livePosts.has(u.replace(/[?#].*$/, '').replace(/\/$/, ''));
+}
+
 const inline = s => esc(s)
   .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-  .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, u) => `<a href="${u}"${/^https?:/.test(u) ? ' target="_blank" rel="noopener"' : ''}>${t}</a>`);
+  .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, u) => /^\/blog\/[^/]+/.test(u) && !isLivePost(u) ? t
+    : `<a href="${u}"${/^https?:/.test(u) ? ' target="_blank" rel="noopener"' : ''}>${t}</a>`);
 
 // sections: [{ h: 'Heading', p: ['para', ...], list: ['item', ...] }]
 function renderGuide(title, sections, label = 'Area guide') {
