@@ -4,6 +4,7 @@ title: "The Ornate"
 developer: "Majestique Landmarks"
 location: "Pan Card Road, Baner, Pune"
 config: "3, 3.5, 4 & 5 BHK Apartments"
+area: "909 – 1,800 sqft carpet"
 category: "apartment"
 status: "active"
 rera: "P52100046463"
@@ -24,6 +25,7 @@ stat_4_value: "3-5 BHK"
 stat_4_label: "Configurations"
 price: 0
 unit_1_type: "3, 3.5, 4 & 5 BHK"
+unit_1_area: "909 – 1,800 sqft carpet"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:

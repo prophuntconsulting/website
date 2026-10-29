@@ -14,7 +14,7 @@ hero_2: "/images/landing-pages/anp-memento/photo-2.jpg"
 hero_3: "/images/landing-pages/anp-memento/photo-3.jpg"
 hero_caption: "ANP Memento, Bhumkar Chowk, Wakad, Pune"
 tagline: "Under Construction | 4 Towers | Bhumkar Chowk, Wakad"
-overview: "ANP Memento is a 4-tower residential development by ANP Corp at Bhumkar Chowk, Wakad, Pune, offering 2, 2.5, 3 and 3.5 BHK homes from 749 to 1,201 sq ft carpet area across G+3P+23 storeys. Amenities include an infinity swimming pool, a co-working space, a multipurpose court and a reading library, built with an earthquake-resistant RCC structure and biometric locks."
+overview: "ANP Memento is a 4-tower residential development by ANP Corp at Bhumkar Chowk, Wakad, Pune, offering 2, 2.5, 3 and 3.5 BHK homes of 749 to 1,201 sq ft (as published by the developer) across G+3P+23 storeys. Amenities include an infinity swimming pool, a co-working space, a multipurpose court and a reading library, built with an earthquake-resistant RCC structure and biometric locks."
 stat_1_value: "4"
 stat_1_label: "Towers"
 stat_2_value: "749-1,201"
@@ -24,10 +24,14 @@ stat_3_label: "Storeys"
 stat_4_value: "1.25 Acres"
 stat_4_label: "Podium Space"
 price: 0
-unit_1_type: "2, 2.5, 3 & 3.5 BHK"
-unit_1_area: "749 - 1,201 sqft"
+unit_1_type: "2 & 2.5 BHK"
+unit_1_area: "749 / 805 / 896 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
+unit_2_type: "3 & 3.5 BHK"
+unit_2_area: "1,068 / 1,106 / 1,201 sqft"
+unit_2_price: "Price on Request"
+unit_2_featured: false
 amenities:
   - "Infinity Swimming Pool"
   - "Gymnasium"
@@ -49,5 +53,5 @@ lat: 18.6000854
 lng: 73.7470013
 geo_confidence: "exact"
 seo_title: "ANP Memento Wakad: 2, 2.5, 3 & 3.5 BHK at Bhumkar Chowk"
-seo_description: "ANP Memento by ANP Corp, Bhumkar Chowk, Wakad: 4 towers of 2, 2.5, 3 & 3.5 BHK homes, 749–1,201 sq ft carpet. MahaRERA P52100026219. Get the price sheet."
+seo_description: "ANP Memento by ANP Corp, Bhumkar Chowk, Wakad: 4 towers of 2, 2.5, 3 & 3.5 BHK homes, 749–1,201 sq ft. MahaRERA P52100026219. Get the price sheet."
 ---

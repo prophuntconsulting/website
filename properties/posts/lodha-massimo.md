@@ -22,7 +22,13 @@ stat_3_value: "25m"
 stat_3_label: "Lap Pool"
 stat_4_value: "5-20 Min"
 stat_4_label: "To IT Parks"
-price: 0
+price: 446
+unit_1_type: "3 BHK with Study"
+unit_1_price: "₹4.46 Cr+*"
+unit_1_featured: true
+unit_2_type: "4 BHK with Study"
+unit_2_price: "₹5.46 Cr+*"
+unit_2_featured: false
 amenities:
   - "25m Lap Pool & Kids Pool"
   - "Sky Sports Club"

@@ -4,10 +4,10 @@ title: "Neoliv Grand Forest Privé"
 developer: "Neoliv"
 location: "Khopoli, Maharashtra"
 config: "NA Residential Plots"
-area: "1,800 – 2,500 sqft"
+area: "1,250 – 3,000 sqft"
 category: "plot"
 status: "active"
-rera: "PP1270002502553, PP1270002502551, PP1270002502087"
+rera: "PP1270002502553, PP1270002502551, PP1270002502087, PP1270002502595"
 hero_1: "/images/landing-pages/neoliv-grand-forest-prive/site-progress-1.jpg"
 hero_2: "/images/landing-pages/neoliv-grand-forest-prive/site-progress-2.jpg"
 hero_caption: "Neoliv Grand Forest Privé - site progress, Khopoli"
@@ -21,15 +21,11 @@ stat_3_value: "2 Clubs"
 stat_3_label: "Exclusive Access"
 stat_4_value: "7 Min"
 stat_4_label: "To Mumbai–Pune Expressway"
-price: 95
-unit_1_type: "Plot"
-unit_1_area: "1,800 sqft"
-unit_1_price: "₹95 L*"
+price: 60
+unit_1_type: "NA Residential Plot"
+unit_1_area: "1,250 – 3,000 sqft (plot area)"
+unit_1_price: "Starting ₹60 L* Onwards"
 unit_1_featured: true
-unit_2_type: "Plot"
-unit_2_area: "2,500 sqft"
-unit_2_price: "₹1.32 Cr*"
-unit_2_featured: false
 unit_3_featured: false
 amenities:
   - "Access to 2 Exclusive Clubs"

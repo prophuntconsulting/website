@@ -1,0 +1,42 @@
+---
+date_added: "2026-10-29"
+title: "Supreme Villagio"
+developer: "Supreme Universal"
+location: "Somatane, near Talegaon, Pune"
+config: "4 BHK Townhouses & Twin Villas"
+category: "villa"
+status: "active"
+rera: "P52100055048 (Phase III)"
+hero_1: "https://cdn.sanity.io/images/9cgq9uxv/production/fecb57987d580ac7d5f19e06fc7f36654c2c03f4-1280x720.jpg?w=2000&fit=max&auto=format&q=80"
+hero_caption: "Supreme Villagio, Somatane, near Talegaon, Pune"
+tagline: "Phase III | 4 BHK Townhouses & Villas | Somatane"
+overview: "Supreme Villagio is a gated villa and townhouse community by Supreme Universal at Somatane, near Talegaon. The first two phases have been handed over; Phase III, registered with MahaRERA as P52100055048, has 66 homes on 4.63 acres and is due in December 2027. The developer publishes 4 BHK townhouses from ₹2.89 Cr all inclusive, with an 18,500 sq ft clubhouse."
+stat_1_value: "66"
+stat_1_label: "Phase III Homes"
+stat_2_value: "4.63 Acres"
+stat_2_label: "Phase III Land"
+stat_3_value: "Dec 2027"
+stat_3_label: "Possession"
+price: 289
+unit_1_type: "4 BHK Townhouse"
+unit_1_price: "₹2.89 Cr* (All Incl.)"
+unit_1_featured: true
+unit_2_type: "4 BHK Twin Villa"
+unit_2_price: "Price on Request"
+amenities:
+  - "18,500 sq ft Clubhouse"
+  - "Banquet Hall"
+  - "Gymnasium"
+  - "Mini Theatre"
+  - "Café"
+  - "Co-working Space"
+  - "Yoga Lawn"
+  - "Reflexology Park"
+  - "Jogging Loop"
+  - "Mini Forest"
+  - "Butterfly Garden"
+  - "Kids' Play Area"
+lat: 18.7144
+lng: 73.6772
+geo_confidence: "locality"
+---

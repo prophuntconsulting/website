@@ -4,6 +4,7 @@ title: "City Avenue"
 developer: "Kolte-Patil Developers"
 location: "Wakad, Pune"
 config: "Retail Shops & Office Spaces"
+area: "240 – 4,178 sqft carpet"
 category: "commercial"
 status: "active"
 rera: "P52100003760"
@@ -24,6 +25,7 @@ stat_4_value: "Wakad"
 stat_4_label: "Micro-Market"
 price: 0
 unit_1_type: "Retail Shops & Offices"
+unit_1_area: "240 – 4,178 sqft carpet"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:

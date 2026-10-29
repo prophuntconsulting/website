@@ -4,6 +4,7 @@ title: "ANP Privado"
 developer: "ANP Corp"
 location: "Pan Card Club Road, Baner, Pune"
 config: "3, 4 & 5 BHK"
+area: "1,309 – 4,850 sqft carpet"
 category: "apartment"
 status: "active"
 rera: "PR1260002500840"
@@ -23,9 +24,18 @@ stat_3_label: "Open Space"
 stat_4_value: "65+"
 stat_4_label: "Amenities"
 price: 265
-unit_1_type: "3, 4 & 5 BHK"
+unit_1_type: "3 BHK"
+unit_1_area: "1,309 & 1,489 sqft carpet"
 unit_1_price: "Rs 2.65 Cr Onwards*"
 unit_1_featured: true
+unit_2_type: "4 BHK"
+unit_2_area: "1,855 & 2,306 sqft carpet"
+unit_2_price: "Price on Request"
+unit_2_featured: false
+unit_3_type: "5 BHK"
+unit_3_area: "4,850 sqft carpet"
+unit_3_price: "Price on Request"
+unit_3_featured: false
 amenities:
   - "Temperature-Controlled Pool with Lazy River"
   - "Private Luxe Theatre"

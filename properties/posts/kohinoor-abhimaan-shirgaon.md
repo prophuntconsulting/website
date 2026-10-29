@@ -1,0 +1,40 @@
+---
+date_added: "2026-10-29"
+title: "Kohinoor Abhimaan Homes"
+developer: "Kohinoor Group"
+location: "Shirgaon, near Talegaon, Pune"
+config: "1 & 2 BHK Apartments"
+area: "447 – 649 sqft"
+category: "apartment"
+status: "active"
+rera: "P52100032485"
+hero_1: "https://cdn.sanity.io/images/9cgq9uxv/production/b465712bc654cb2b95d01cf0347df0c86830acde-1280x720.jpg?w=2000&fit=max&auto=format&q=80"
+hero_caption: "Kohinoor Abhimaan Homes, Shirgaon, near Talegaon, Pune"
+tagline: "Nearing Completion | 1 & 2 BHK | Shirgaon, Talegaon"
+overview: "Kohinoor Abhimaan Homes is Kohinoor Group's budget 1 and 2 BHK project at Shirgaon, opposite the Prati Shirdi temple near Talegaon, serving the Talegaon and Chakan industrial belt. MahaRERA (P52100032485) lists 5 towers and 550 homes of 447 to 649 sq ft, with completion due in December 2026."
+stat_1_value: "5"
+stat_1_label: "Towers"
+stat_2_value: "550"
+stat_2_label: "Homes"
+stat_3_value: "Dec 2026"
+stat_3_label: "Possession"
+price: 0
+unit_1_type: "1 & 2 BHK"
+unit_1_area: "447 – 649 sqft"
+unit_1_price: "Price on Request"
+unit_1_featured: true
+amenities:
+  - "Gymnasium"
+  - "Swimming Pool"
+  - "Sports Court"
+  - "Kids' Play Area"
+  - "Climbing Wall"
+  - "Party Lawn"
+  - "BBQ Area"
+  - "Senior Citizens' Area"
+  - "Reflexology Path"
+  - "Outdoor Cinema"
+lat: 18.7066
+lng: 73.6957
+geo_confidence: "locality"
+---

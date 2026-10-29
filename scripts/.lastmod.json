@@ -1,11 +1,11 @@
 {
  "/": {
-  "hash": "08ba2a6c4d4b4cd89326fe9f39996e7a9bd86841",
+  "hash": "262fae6caf9854d5b99bd133f1fecd71a722aa5a",
   "date": "2026-10-29"
  },
  "/projects": {
-  "hash": "c013456c84437c4d9251fb85d2f54b2a2b210d15",
-  "date": "2026-10-27"
+  "hash": "912c5645beea51cae8b4f030235dc5b113036ec0",
+  "date": "2026-10-29"
  },
  "/services": {
   "hash": "36e2991b006d57f606f6eb714be32e1f1661b4b7",
@@ -44,27 +44,27 @@
   "date": "2026-10-29"
  },
  "/projects/24k-altura": {
-  "hash": "56668e1e127ba74c5422b977480d31db0d082b59",
+  "hash": "23a822d87ac8757f56e3b6089a21e77dd238486e",
   "date": "2026-10-29"
  },
  "/projects/abil-imperial-atria": {
-  "hash": "dbadd15a53b35138184c0273fa491aba008457d4",
+  "hash": "732f6c10ace78e21f50149cfda599fbb7a51dcaf",
   "date": "2026-10-29"
  },
  "/projects/anp-bizsquare": {
-  "hash": "50f3cc29b95c185b840d54ccb13ef2094856a525",
+  "hash": "79f5ba66a840913d62ebcd9da024ddf38876ce1c",
   "date": "2026-10-29"
  },
  "/projects/anp-landmark": {
-  "hash": "55df7abeac6d56a973c6c929d3d29568ec9ae3b0",
+  "hash": "379bc150fd2f03044186ccbcc71edb14eb306fe5",
   "date": "2026-10-29"
  },
  "/projects/anp-memento": {
-  "hash": "711c234d7f2f5e72a6ae4a8478fcf289eedcac1f",
+  "hash": "21289ca5f8805bcd6dbad4f669216340cd36b641",
   "date": "2026-10-29"
  },
  "/projects/anp-privado": {
-  "hash": "9656dc3d87e8b8d0aa07af8ecc209a619c525b8b",
+  "hash": "d3a3f28e68e4c3ff83dcb6c68bd8439faf0af843",
   "date": "2026-10-29"
  },
  "/projects/anp-retreat": {
@@ -72,35 +72,51 @@
   "date": "2026-10-29"
  },
  "/projects/anp-ultimus": {
-  "hash": "f717a8e9167d3fabd79a317a36d4bf183f2ca164",
+  "hash": "ea6ec03712f41f344e34c168d14b5c9be05c7b27",
   "date": "2026-10-29"
  },
  "/projects/ashokvillas": {
   "hash": "29ed8d0b1c8bcf6e98f9db85c4ffafef70feecf5",
   "date": "2026-10-29"
  },
+ "/projects/bramha-sun-valley-bavdhan": {
+  "hash": "417ac4f061277b77b50df23e00912cfa6720aae1",
+  "date": "2026-10-29"
+ },
  "/projects/city-avenue-wakad": {
-  "hash": "124b57f445a2b70bf989bdf845b516abd410a11d",
+  "hash": "626813e2360ac617895e3bff0c0f0085467aeb5d",
   "date": "2026-10-29"
  },
  "/projects/eon-west-2": {
   "hash": "554dca7cee61d9c5af19cc90e4c964223dd129d0",
   "date": "2026-10-29"
  },
+ "/projects/godrej-aqua-vista-keshav-nagar": {
+  "hash": "83c6036d1aba227c55f71d9c7cfbe9c129f26c9a",
+  "date": "2026-10-29"
+ },
+ "/projects/godrej-evergreen-square-hinjewadi": {
+  "hash": "c6b6418e304bf0f3ffab5ce361078b450840755e",
+  "date": "2026-10-29"
+ },
  "/projects/godrej-river-royale": {
-  "hash": "2ec72a3fdef4d95491ebc0bd1a693825e04bb8a0",
+  "hash": "25943a1054604f6bcb72cd35d202b67786905463",
   "date": "2026-10-29"
  },
  "/projects/greenfinity-wakad": {
   "hash": "3920cc308ce9354ce89b4e1b0b062e44d9a4d6c8",
   "date": "2026-10-29"
  },
+ "/projects/joyville-sensorium-hinjewadi": {
+  "hash": "2549f9fb7d75e3024a10ea5f32307335233c318e",
+  "date": "2026-10-29"
+ },
  "/projects/kalpataru-aria": {
-  "hash": "e9932868b149ea20e4e441afd09da3607b085152",
+  "hash": "d24e045654559747c12f7142d45d0ab3924acbce",
   "date": "2026-10-29"
  },
  "/projects/kalpataru-blossoms": {
-  "hash": "f575c040b92dcd01d5b29b3a9f079a860a8de36f",
+  "hash": "1d41a9a9c5e8bac27a458e3a8722fd1cdf97ba9a",
   "date": "2026-10-29"
  },
  "/projects/khopoli": {
@@ -111,6 +127,10 @@
   "hash": "acc4e47183cc8907e1ad5b8b59c7d9b51f0f8c68",
   "date": "2026-10-29"
  },
+ "/projects/kohinoor-abhimaan-shirgaon": {
+  "hash": "83b528f01306868586124169e9be6acddc062869",
+  "date": "2026-10-29"
+ },
  "/projects/kohinoor-avantara": {
   "hash": "89c468376167ed14418c37d1579d81bf21a88e10",
   "date": "2026-10-29"
@@ -119,28 +139,40 @@
   "hash": "54080aa2d2ba18e642f5843fda566f536cafd5e2",
   "date": "2026-10-29"
  },
+ "/projects/kohinoor-satori-baner": {
+  "hash": "c5cc25298244ed79e3a922eeae5f1e8bd120f63e",
+  "date": "2026-10-29"
+ },
  "/projects/kohinoor-westview-reserve": {
   "hash": "8ed90a0e9a1c5ac7b82a16b96e788067da8b8fa8",
   "date": "2026-10-29"
  },
+ "/projects/kolte-patil-qrious-life-republic": {
+  "hash": "a1d18864eaaf6b6a86126f512301e15ac7885919",
+  "date": "2026-10-29"
+ },
  "/projects/kumar-panache": {
-  "hash": "756e028c18a1b6eb299854a89f25ea5c45d874b5",
+  "hash": "9ac05d46af479ad5381c89efb30844a6ccb2a01c",
   "date": "2026-10-29"
  },
  "/projects/kumar-parth-towers": {
-  "hash": "801bfb1729bbebf8d7b5befa57032582e2af0618",
+  "hash": "d5eb425e4253c278a2a84a51d1aef1d8ddaad79b",
   "date": "2026-10-29"
  },
  "/projects/livience-unione": {
-  "hash": "6fd481dcb709a37ea86eb2b8547e4145a421b3ac",
+  "hash": "aa38ed6d3f64a68d2a33481b69f2fbb8089c2438",
   "date": "2026-10-29"
  },
  "/projects/lodha-altero": {
-  "hash": "4c02308d4d9baa3def57e6152e036f9ae9be2523",
+  "hash": "49b6b79f7b928dd5e282de464e2417c8c67d8f2f",
+  "date": "2026-10-29"
+ },
+ "/projects/lodha-bella-vita-nibm": {
+  "hash": "c545c441f741af2e2c9a069c7bc789aaa4f27b3e",
   "date": "2026-10-29"
  },
  "/projects/lodha-massimo": {
-  "hash": "9e5ccddcd08109235535a435c58dc03cc0f5bd8c",
+  "hash": "d72ae3462559369fd4954fea693ca7f3ac81b27d",
   "date": "2026-10-29"
  },
  "/projects/mahindra-citadel": {
@@ -148,15 +180,15 @@
   "date": "2026-10-29"
  },
  "/projects/mahindra-mahalunge": {
-  "hash": "e63b4f9cc655b50b0db484d89dfb678f7877bf87",
+  "hash": "d79143cd31be12678d90bf522251a4c6f5a497a2",
   "date": "2026-10-29"
  },
  "/projects/majestique-elements": {
-  "hash": "3a1144766bed04dbbaeca625d3b08dea79d05256",
+  "hash": "b4c99c23b9ceb6c8693d738f6b96d35541a2117a",
   "date": "2026-10-29"
  },
  "/projects/merlin-ventana": {
-  "hash": "1ba872644bade6e43a76fd82b93fae6cd9f632df",
+  "hash": "78208fad65a2e4ca28953958a45d25629a6d0e81",
   "date": "2026-10-29"
  },
  "/projects/millennium-towers-wakad": {
@@ -164,23 +196,43 @@
   "date": "2026-10-29"
  },
  "/projects/neoliv-grand-forest-prive": {
-  "hash": "2f783834d5b2f411e68d6bb764976187d4b110af",
+  "hash": "65c7f838e98a3952f54986139490a0cca4a70692",
   "date": "2026-10-29"
  },
  "/projects/nyati-emerald": {
-  "hash": "88f21a3e3c467aceeb26df7c4c7c1713b7aa339d",
+  "hash": "951e496adb1a9ee2e0547a9c14d544acae916d03",
   "date": "2026-10-29"
  },
  "/projects/regency-astra": {
-  "hash": "24dc34a0ce8a05419056f73f6f0ec96449ab57e8",
+  "hash": "fba05a0c151eeecc5493521003e45e8124c4acf4",
+  "date": "2026-10-29"
+ },
+ "/projects/rohan-ekam-balewadi": {
+  "hash": "fdae76abf484f08f25b5eefa2050a52e766fa454",
+  "date": "2026-10-29"
+ },
+ "/projects/rohan-harita-tathawade": {
+  "hash": "770bcfa647b365fa261cf1eb0ae7c5aa3e654993",
   "date": "2026-10-29"
  },
  "/projects/rohan-viti": {
-  "hash": "882ef97d8733fc16db46506c5b5ddfc7fa60656c",
+  "hash": "1c48c559220b5a7e2816eebcf5b1b71d9cfe6ac5",
+  "date": "2026-10-29"
+ },
+ "/projects/shapoorji-vanaha-verdant-bavdhan": {
+  "hash": "c6a2984c50d5349267c8dea4670f9e5a5f944b33",
+  "date": "2026-10-29"
+ },
+ "/projects/shapoorji-wildernest-hadapsar": {
+  "hash": "73f0904d604bbf4a91b65fbf52bea3aa68f25c6b",
+  "date": "2026-10-29"
+ },
+ "/projects/supreme-villagio-somatane": {
+  "hash": "37fb914f0c0b29fa6c49dac3609bb7180af14ac6",
   "date": "2026-10-29"
  },
  "/projects/tej-elevia": {
-  "hash": "4b554225a161b65ea876c1c621f68980f1366866",
+  "hash": "d348010344eee7b0b9051f20fa01e4c92489f5f9",
   "date": "2026-10-29"
  },
  "/projects/the-arena-pimpri": {
@@ -188,19 +240,19 @@
   "date": "2026-10-29"
  },
  "/projects/the-balmoral-hillside": {
-  "hash": "0a90b0a92d75fe4a203727069b3b1e668979535f",
+  "hash": "60ba74fe6e06fa1cc207dd0fb34da67b6801bd1a",
   "date": "2026-10-29"
  },
  "/projects/the-ornate-baner": {
-  "hash": "255372a58898e91c393224e1582d6f8d9e709482",
+  "hash": "c4660517d58ef2ed5abd874d69ee3c8d172f9171",
   "date": "2026-10-29"
  },
  "/projects/treetopia": {
-  "hash": "623cde1d2c0442f7ed74621c01baa5170633254d",
+  "hash": "d3894b58b32347f8e5d60679f8714bd3ad09bb3d",
   "date": "2026-10-29"
  },
  "/projects/venkatesh-tresor": {
-  "hash": "8a53ce8d50003c2e81f9eb31d28de69a3295106d",
+  "hash": "af0066f4225df637e9bf31de5d5c434fb07cf3d6",
   "date": "2026-10-29"
  },
  "/projects/vtp-altitude": {
@@ -216,56 +268,60 @@
   "date": "2026-10-29"
  },
  "/apartments-in-baner": {
-  "hash": "d36e20b52a8384da6cd792464c611f4d53ff362e",
-  "date": "2026-10-28"
+  "hash": "e1607355f66b23e9b86038140f4a57102403a79f",
+  "date": "2026-10-29"
  },
  "/apartments-in-wakad": {
-  "hash": "81ee9444b3af7af70af460457889d43016a32ebd",
+  "hash": "67b304fffb4da3f0120583822dfca756aeffdc8f",
   "date": "2026-10-29"
  },
  "/apartments-in-mahalunge": {
-  "hash": "ea7e685bd4a0a2f5ea7f7913cb577405670c56ca",
-  "date": "2026-10-28"
+  "hash": "1a8376c3bc7f8dc4554603becdfc48c54a41bb61",
+  "date": "2026-10-29"
  },
  "/apartments-in-pimpri-chinchwad": {
   "hash": "d9a73b8cf34afdcd8dd1708a9bab6b293223a77b",
   "date": "2026-10-28"
  },
  "/apartments-in-sinhagad-road": {
-  "hash": "ff207e130a52f4dd9ca18ca86f90dad38db5f196",
-  "date": "2026-10-28"
+  "hash": "c3e867d91eb677849ecd13bfbe3b322dc8a929f1",
+  "date": "2026-10-29"
+ },
+ "/apartments-in-hadapsar": {
+  "hash": "5748358c1d023cc6396a469bde8368adb9e77342",
+  "date": "2026-10-29"
  },
  "/apartments-in-karjat": {
-  "hash": "60cbb0d17d3f17ea3056f5cccc781b092f7cde29",
-  "date": "2026-10-28"
+  "hash": "751365951f25082b17646ed55d77c797beb2ac86",
+  "date": "2026-10-29"
  },
  "/plots-in-hadapsar": {
-  "hash": "346e806c03c1123291151da0b3cc51f41a4f241f",
-  "date": "2026-10-28"
+  "hash": "249c466265acf71ab2e7e4625fde734dff194e58",
+  "date": "2026-10-29"
  },
  "/plots-in-khopoli": {
-  "hash": "12b0a1d185c1c77fcef179437afb069dce42b9d4",
-  "date": "2026-10-28"
+  "hash": "f8ffb406a71e5f4163c73ca7cd869942a87af948",
+  "date": "2026-10-29"
  },
  "/villas-in-ravet-gahunje": {
   "hash": "0ea88f95291dd535f5063154bb8ec2545badb9ef",
   "date": "2026-10-28"
  },
  "/commercial-properties-in-wakad": {
-  "hash": "b1304118a2bbf90b30a66b1b025b62c82e2495b6",
+  "hash": "d96d47a18cf08c7fb2f4c468451fd15f96b096f2",
   "date": "2026-10-29"
  },
  "/location/baner": {
-  "hash": "1dab381a7c3544ea6143819928252e00d66b5d91",
+  "hash": "b106fb37d4954d4a17d49cd53661d07974e975c1",
   "date": "2026-10-29"
  },
  "/location/wakad": {
-  "hash": "a74471f67ca4466e15e089c2426e1131f32948bb",
+  "hash": "a3db5a558622b02420edbae54349001deb398647",
   "date": "2026-10-29"
  },
  "/location/mahalunge": {
-  "hash": "987e0b12693086574fe1eb0fe5995e8022f9e3a9",
-  "date": "2026-10-28"
+  "hash": "d1240143a9686441b93e63cb529690bf4dc2f1c6",
+  "date": "2026-10-29"
  },
  "/location/pimpri-chinchwad": {
   "hash": "1b5453584668ecce83a06d09aef06e933c1f8acc",
@@ -276,108 +332,128 @@
   "date": "2026-10-28"
  },
  "/location/sinhagad-road": {
-  "hash": "9d99034a7db86f0d4cccfbe76a0a4a091b728a62",
-  "date": "2026-10-28"
+  "hash": "248e908fcda2b35875e788ecb8cbfe4f6d472080",
+  "date": "2026-10-29"
  },
  "/location/hadapsar": {
-  "hash": "b63ec9f0d281362d7d89f46de8560a4fcd50721f",
-  "date": "2026-10-28"
+  "hash": "d5327d7bb48f22ac1e73003737083927ab5d4de0",
+  "date": "2026-10-29"
  },
  "/location/karjat": {
-  "hash": "8ee1b9c5731d83e4d242f80a291a2676e5fb5ea5",
-  "date": "2026-10-28"
+  "hash": "97a2def97495b971516a156ec5ab0cad070f67a3",
+  "date": "2026-10-29"
  },
  "/location/khopoli": {
-  "hash": "5857d83a447a899c77c2c2a7f2d471dd8c314d1b",
-  "date": "2026-10-28"
+  "hash": "b1f91f5eb316189a046890e2dff5cd870c9c8084",
+  "date": "2026-10-29"
  },
  "/location": {
-  "hash": "b8e54c2458cc1c3fcef946eb720126a343436e70",
-  "date": "2026-10-28"
+  "hash": "c26734e645aac80bfe6ab71828924ccb7c6bc082",
+  "date": "2026-10-29"
  },
  "/developer/anp-corp": {
-  "hash": "03c83201b39420dc3316223e8d6910f75aa0547f",
-  "date": "2026-10-27"
+  "hash": "4c87b7d0adaf2cbbeba4ada3ad1ac0bd8cb857bd",
+  "date": "2026-10-29"
  },
  "/developer/kohinoor-group": {
-  "hash": "4241a2ce2c2657280f3db77c6ef62d6b30f4baf0",
-  "date": "2026-10-27"
- },
- "/developer/kolte-patil-developers": {
-  "hash": "1bd1350b1112ff6d10890167e80e090f4e12b724",
-  "date": "2026-10-27"
- },
- "/developer/kalpataru": {
-  "hash": "39d6dedaf593a7cff18a7852761e540a511d4925",
-  "date": "2026-10-27"
- },
- "/developer/lodha": {
-  "hash": "8ae2010270019be1a38c5e7e23df5593f859d5da",
-  "date": "2026-10-27"
- },
- "/developer/mahindra-lifespaces": {
-  "hash": "521cf547ac7bf4187a45314d88ea2667f6d18509",
-  "date": "2026-10-27"
- },
- "/developer/majestique-landmarks": {
-  "hash": "d3ae2bdbb353e220e6b61f788626170c9b4ac573",
-  "date": "2026-10-27"
+  "hash": "2a8111c1c03cb9f9badc554b0b590cc97dc45713",
+  "date": "2026-10-29"
  },
  "/developer/shapoorji-pallonji": {
-  "hash": "a188b4a92ea89bea5e29dd2cf4efac48c3eefe4d",
-  "date": "2026-10-27"
+  "hash": "955016edb4264cda7761148ead2983afc89ab557",
+  "date": "2026-10-29"
+ },
+ "/developer/kolte-patil-developers": {
+  "hash": "54e6d2bd8d2ad57e79d3f43cd0f32e28b52a8966",
+  "date": "2026-10-29"
+ },
+ "/developer/godrej-properties": {
+  "hash": "7a1fdc4da7cfd82935666a6a78af9d8ccde33f26",
+  "date": "2026-10-29"
+ },
+ "/developer/lodha": {
+  "hash": "2593cf46c60e17122854858c0fe5ba031170ea39",
+  "date": "2026-10-29"
+ },
+ "/developer/rohan-builders": {
+  "hash": "1f06b9a56e876006d178ca77e07e5c2f0770f93d",
+  "date": "2026-10-29"
+ },
+ "/developer/kalpataru": {
+  "hash": "d251dc9f82f8ef2fb10003b22bc0c4401a9a61e0",
+  "date": "2026-10-29"
+ },
+ "/developer/mahindra-lifespaces": {
+  "hash": "05792c8bf885bd07d76d804fe645a5b604e5d6a1",
+  "date": "2026-10-29"
+ },
+ "/developer/majestique-landmarks": {
+  "hash": "fe063c72dd902b42ebccd4cbb480a7826da3d751",
+  "date": "2026-10-29"
  },
  "/developer": {
-  "hash": "f29a629d8a2c10f8b94dacd535925052032256fa",
-  "date": "2026-10-28"
+  "hash": "cb71ce795e2b6165788449fb635defb54bebc8e4",
+  "date": "2026-10-29"
  },
  "/projects/apartments": {
-  "hash": "339f336d0aeaef5ccf5ff8fb8f068a52fd5ad22f",
-  "date": "2026-10-28"
+  "hash": "1fe3448060e87a9ded8a067fea35ace1f8926bc7",
+  "date": "2026-10-29"
  },
  "/projects/villas": {
-  "hash": "5e20495dd2cb29f0570a309c369f16a883eb7167",
-  "date": "2026-10-28"
+  "hash": "80da2cc687420fe69cfa565e1366b7062cb41b05",
+  "date": "2026-10-29"
  },
  "/projects/plots": {
-  "hash": "02ded50ecf709b766273341cc9493e393eda346a",
-  "date": "2026-10-28"
+  "hash": "cff830c694a9c55209d55874653bd04123c974a4",
+  "date": "2026-10-29"
  },
  "/projects/commercial": {
-  "hash": "6b1366242dabef0e2094d548524beaf03f6bed73",
-  "date": "2026-10-28"
+  "hash": "60fb06797dcc66423d04b34f93526620aaa2f8a9",
+  "date": "2026-10-29"
  },
  "/projects/abil-imperial-atria/3-bhk": {
-  "hash": "fc67b75dfef1b9659ea3cb3726f1611747dce3cb",
-  "date": "2026-10-27"
+  "hash": "00f441435ddf3e1399997082261c2c2201268031",
+  "date": "2026-10-29"
  },
  "/projects/abil-imperial-atria/4-bhk": {
-  "hash": "b3f8af20323002bcca9d538a7587dff922818725",
-  "date": "2026-10-27"
+  "hash": "4f30289a7034369774b7fae62edebb24a5a39323",
+  "date": "2026-10-29"
  },
- "/projects/godrej-river-royale/3-bhk": {
-  "hash": "b0d17e2351b421ad617fc6faf153334e8eddde1a",
-  "date": "2026-10-27"
+ "/projects/anp-privado/3-bhk": {
+  "hash": "b0436b7d3473100b5acda6e205783cf4b4446433",
+  "date": "2026-10-29"
  },
- "/projects/godrej-river-royale/4-5-bhk": {
-  "hash": "f70ff36da9c973bd374a2843159df9e20fc4017f",
-  "date": "2026-10-27"
+ "/projects/anp-privado/4-bhk": {
+  "hash": "1c0df738125ba23eb97cada035434c394ce9ae9d",
+  "date": "2026-10-29"
+ },
+ "/projects/anp-privado/5-bhk": {
+  "hash": "336d036d1e6fa8bf8d62fe6dc66713d73c644145",
+  "date": "2026-10-29"
+ },
+ "/projects/bramha-sun-valley-bavdhan/4-5-bhk": {
+  "hash": "8083d5d8aafb48e5a28d0c5177249b85c0a0d9e9",
+  "date": "2026-10-29"
  },
  "/projects/kalpataru-aria/2-bhk": {
-  "hash": "de5313016d05192054b992b0e7681b4c373276ae",
-  "date": "2026-10-27"
+  "hash": "2fd663112e76dbe56235cf9b19f26462e21181af",
+  "date": "2026-10-29"
  },
  "/projects/kalpataru-aria/3-bhk": {
-  "hash": "50ccd15661e1e7bee29e870296447aa0030f6521",
-  "date": "2026-10-27"
+  "hash": "9a8d86cb46a4491787dded91c212874891d7790c",
+  "date": "2026-10-29"
  },
  "/projects/kalpataru-blossoms/2-bhk": {
-  "hash": "301443f0bc097ff9fa8a0675e06d12fcf55a47dc",
-  "date": "2026-10-27"
+  "hash": "61cf1ca24818365b9aedb1b0dbbc6c11d4f992ad",
+  "date": "2026-10-29"
  },
  "/projects/kalpataru-blossoms/3-bhk": {
-  "hash": "99be926041d699393b70c3942af037b0b21893f6",
-  "date": "2026-10-27"
+  "hash": "2d5b11d6f8c271af8274783569df66a352af732a",
+  "date": "2026-10-29"
+ },
+ "/projects/kalpataru-blossoms/4-bhk": {
+  "hash": "a68148f831e1d49904e11b71bcd36c4fffecce73",
+  "date": "2026-10-29"
  },
  "/projects/kings-county-wakad/3-bhk": {
   "hash": "52b0e7f0f8dcfded74c01488edc75f8acf688226",
@@ -395,6 +471,22 @@
   "hash": "9aa5dfce9659ab4bba98e1943a41303391e1a9ae",
   "date": "2026-10-27"
  },
+ "/projects/lodha-altero/3-bhk": {
+  "hash": "783058341d3be30bd795b24adba2664e66c4c74c",
+  "date": "2026-10-29"
+ },
+ "/projects/lodha-altero/4-bhk": {
+  "hash": "bf2866a086b1862c6d431253763ff8a88874c2de",
+  "date": "2026-10-29"
+ },
+ "/projects/lodha-massimo/3-bhk": {
+  "hash": "c19b1e2f54cc2152f632a9a9d05a0b6541be5bfe",
+  "date": "2026-10-29"
+ },
+ "/projects/lodha-massimo/4-bhk": {
+  "hash": "59866e00581cc41508c9aa1c18823ee227c60f6c",
+  "date": "2026-10-29"
+ },
  "/projects/mahindra-citadel/2-bhk": {
   "hash": "cfba94d511d215f6205df14de8ee056733e404b1",
   "date": "2026-10-27"
@@ -404,24 +496,56 @@
   "date": "2026-10-27"
  },
  "/projects/mahindra-mahalunge/2-bhk": {
-  "hash": "c7357ea4e7c60a8556d640d68fcc93e68cfcbfe7",
-  "date": "2026-10-27"
+  "hash": "6c460c09f5e19c4e8b7085a50ead18c333a5423c",
+  "date": "2026-10-29"
  },
  "/projects/mahindra-mahalunge/3-bhk": {
-  "hash": "c97e8bdb09fc9e98598f4e643343cafb315cbf16",
-  "date": "2026-10-27"
+  "hash": "ef9242e6bf310e8e0993888eda230a919c4e9dbf",
+  "date": "2026-10-29"
  },
  "/projects/mahindra-mahalunge/4-bhk": {
-  "hash": "dc36e731441c3a08f732f0da1d08d4328eecc8cf",
-  "date": "2026-10-27"
+  "hash": "1ba56a34abc5157c3746f07d3e78cf8686cc01cc",
+  "date": "2026-10-29"
  },
  "/projects/merlin-ventana/3-bhk": {
-  "hash": "5712d179cb2499f9b571adb678eaf68db9b34338",
-  "date": "2026-10-27"
+  "hash": "c380969b6efab9475c307b9a5a782fe3f7f11954",
+  "date": "2026-10-29"
  },
  "/projects/merlin-ventana/4-bhk": {
-  "hash": "b5cdc2abaeced318318ef02f8c5d9334fe162077",
-  "date": "2026-10-27"
+  "hash": "d5010a42f4fc7e622520b9aeec53baf2c6e18239",
+  "date": "2026-10-29"
+ },
+ "/projects/rohan-ekam-balewadi/2-bhk": {
+  "hash": "03641f92204455b233da8af00302cde4befb6ea0",
+  "date": "2026-10-29"
+ },
+ "/projects/rohan-ekam-balewadi/3-bhk": {
+  "hash": "3c0b53301c203a6f365b39902d83cc9d0c71c692",
+  "date": "2026-10-29"
+ },
+ "/projects/rohan-ekam-balewadi/4-bhk": {
+  "hash": "4561f45a09476f2f68ad66dfe1e0cb6f634d3706",
+  "date": "2026-10-29"
+ },
+ "/projects/rohan-harita-tathawade/2-bhk": {
+  "hash": "1c9b5c19b8bd179ef3b4048eb687c727b98ee49f",
+  "date": "2026-10-29"
+ },
+ "/projects/rohan-harita-tathawade/3-bhk": {
+  "hash": "3588f7629b90bff0085af5fb289aa41e6201d868",
+  "date": "2026-10-29"
+ },
+ "/projects/rohan-harita-tathawade/4-bhk": {
+  "hash": "ca9fa79f82bcf16f70c31e08b062cecfc5429a6e",
+  "date": "2026-10-29"
+ },
+ "/projects/shapoorji-wildernest-hadapsar/3-bhk": {
+  "hash": "575931a9f855df2e7e2934093b17d208fb2c5e33",
+  "date": "2026-10-29"
+ },
+ "/projects/shapoorji-wildernest-hadapsar/4-bhk": {
+  "hash": "73aa50b4cbe834ad631328e6f7c3f650fafc1f5e",
+  "date": "2026-10-29"
  },
  "/projects/the-balmoral-hillside/4-5-bhk": {
   "hash": "ef65c0c2541c4afcf55df4a3f4ca852bfd1ebeeb",
@@ -439,44 +563,48 @@
   "hash": "30be4e8e68438b8a312af802f92e890081930425",
   "date": "2026-10-27"
  },
- "/4-bhk-flats-in-baner": {
-  "hash": "98e11bd19b9b1989ea3edd4dc160c65d31372b66",
+ "/3-bhk-flats-in-baner": {
+  "hash": "623db94f5e38d172669734eee408de07a191766d",
   "date": "2026-10-29"
  },
- "/3-bhk-flats-in-baner": {
-  "hash": "91bc2e094255c8e858cf74447d64eb64dd81fbff",
+ "/4-bhk-flats-in-baner": {
+  "hash": "8c206ed998790c27b2ff078ea973e3b49d3ecb4e",
   "date": "2026-10-29"
  },
  "/2-bhk-flats-in-wakad": {
-  "hash": "166dfa987367ee49cc651793252dc2732d11545c",
+  "hash": "94f2f508f315311d25eaee0990cbb8d80e77f355",
   "date": "2026-10-29"
  },
  "/2-5-bhk-flats-in-wakad": {
-  "hash": "93981e98d9afc29244864b90b38f628dd85d2d07",
+  "hash": "c8cfa0eeb546d9577e9651823a5df5f3e1433d85",
   "date": "2026-10-29"
  },
  "/3-bhk-flats-in-wakad": {
-  "hash": "3216b0b2e9a53919a0fc7d4d4481d68e5ad073ea",
+  "hash": "91cc3d1c6591ba001053b4a6869a02cb2ab54044",
   "date": "2026-10-29"
  },
  "/3-5-bhk-flats-in-wakad": {
-  "hash": "94a559be703ede46635c0e2040d96b613031ef70",
+  "hash": "ac713a3134ab289f5efbbc4aee96dbbc175a1238",
   "date": "2026-10-29"
  },
  "/5-bhk-flats-in-baner": {
-  "hash": "45d0b7020b93b09fd9352acf13a0aa7657d690ad",
-  "date": "2026-10-29"
- },
- "/4-5-bhk-flats-in-baner": {
-  "hash": "8d261ca344dd34cba0e38d2e36f6d457981edc2b",
+  "hash": "ccc522c4c7f2d9e8a3b45a8d2e03c069936ab99d",
   "date": "2026-10-29"
  },
  "/4-bhk-flats-in-wakad": {
-  "hash": "bfcb38222c434166b42290de282eeb37f5330ed5",
+  "hash": "0683910944a63da3dbfc5014e87548a9c7aace03",
+  "date": "2026-10-29"
+ },
+ "/3-bhk-flats-in-mahalunge": {
+  "hash": "7ecfd2fd1471e5791429c367a3c9b974ef50afd5",
+  "date": "2026-10-29"
+ },
+ "/4-bhk-flats-in-mahalunge": {
+  "hash": "e0b7051164a1299bd2b2cc0d42d98ea0e13929d9",
   "date": "2026-10-29"
  },
  "/2-bhk-flats-in-baner": {
-  "hash": "1c4dfcada7be9f0b62a140802cb679fb9ea55a5d",
+  "hash": "6b08f5d8f43601bf0e8d44c4cd73c5e2fa786edc",
   "date": "2026-10-29"
  },
  "/2-bhk-flats-in-pimpri-chinchwad": {
@@ -484,20 +612,24 @@
   "date": "2026-10-29"
  },
  "/3-bhk-flats-in-pimpri-chinchwad": {
-  "hash": "4543682cd34bcbf054405beb0369f27dc4dbfab1",
+  "hash": "b59c563925e05adcadce15c02693de9f532dcb34",
+  "date": "2026-10-29"
+ },
+ "/4-5-bhk-flats-in-baner": {
+  "hash": "f9b537cee7cf218fc7b66577b2b471cb6f8ece76",
   "date": "2026-10-29"
  },
  "/flats-near-hinjewadi-phase-1": {
-  "hash": "c2b8c671db1f70dae5c3c7c775e2d59edff6d56d",
-  "date": "2026-10-28"
+  "hash": "5ae807c7eb49d86589c387a56b38984c850b1113",
+  "date": "2026-10-29"
  },
  "/office-space-near-hinjewadi-phase-1": {
-  "hash": "c71d11ee35eab2aa44556a499b0f2d9e4234f331",
-  "date": "2026-10-28"
+  "hash": "3f295c6cce64448c888305289870758bbcaed543",
+  "date": "2026-10-29"
  },
  "/flats-near-balewadi-high-street": {
-  "hash": "a1ac819e9d459d2cf2e4fd958d7bdddf686eeeb8",
-  "date": "2026-10-28"
+  "hash": "56a7acb261e3cd4bace61154217e9878a411eb14",
+  "date": "2026-10-29"
  },
  "/flats-near-pcmc-metro-station": {
   "hash": "7b9ef03eb73060804eb30954315d7fcd4d8328ab",
@@ -508,7 +640,7 @@
   "date": "2026-10-29"
  },
  "/flats-near-blue-ridge-sez": {
-  "hash": "2c31add6844d2508d4d760d7b314fbbc861c506c",
+  "hash": "f10087f8e289c7098659f94db71cc4cfc3b72120",
   "date": "2026-10-29"
  },
  "/office-space-near-blue-ridge-sez": {
@@ -516,19 +648,19 @@
   "date": "2026-10-29"
  },
  "/flats-near-balewadi-stadium-metro": {
-  "hash": "f0140fcc17f621ec5f656b97eb05bf5f7488c986",
-  "date": "2026-10-28"
+  "hash": "113d674d163e5ab2fe4d46496f06661537a58ff7",
+  "date": "2026-10-29"
  },
  "/flats-near-westend-mall-aundh": {
-  "hash": "4438abcfbabf6aa3cd6262bd81c330781e5eabc3",
-  "date": "2026-10-28"
+  "hash": "77d13a3190d3ce208f4c6061f43c18dce96e8f9a",
+  "date": "2026-10-29"
  },
  "/flats-in-tathawade": {
   "hash": "f3edb441161621640f53d57c7eae65b4e661e7ca",
   "date": "2026-10-27"
  },
  "/flats-on-pan-card-club-road-baner": {
-  "hash": "2a431ca52a45bd69371642e4b2b45dae84b28df5",
-  "date": "2026-10-27"
+  "hash": "cccd7f4d7b21679c31bca8107e6e5637cfd2217c",
+  "date": "2026-10-29"
  }
 }

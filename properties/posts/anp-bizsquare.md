@@ -24,10 +24,14 @@ stat_3_label: "To Hinjewadi"
 stat_4_value: "2 Min"
 stat_4_label: "To Pune-Mumbai Highway"
 price: 0
-unit_1_type: "Showroom & Office Spaces"
-unit_1_area: "306 - 3,150 sqft"
+unit_1_type: "Office Spaces"
+unit_1_area: "306 – 1,171 sqft carpet"
 unit_1_price: "Price on Request"
 unit_1_featured: true
+unit_2_type: "Showroom"
+unit_2_area: "3,150 sqft carpet"
+unit_2_price: "Price on Request"
+unit_2_featured: false
 amenities:
   - "High-Quality Lifts with Generator Backup"
   - "Decorative Entrance Lobby"

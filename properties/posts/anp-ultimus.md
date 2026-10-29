@@ -24,10 +24,14 @@ stat_3_label: "Station Nearby"
 stat_4_value: "Wakad"
 stat_4_label: "Micro-Market"
 price: 0
-unit_1_type: "2, 2.5, 3 & 3.5 BHK"
-unit_1_area: "841 - 1,233 sqft"
+unit_1_type: "2 & 2.5 BHK"
+unit_1_area: "841 / 960 sqft"
 unit_1_price: "Price on Request"
 unit_1_featured: true
+unit_2_type: "3 & 3.5 BHK"
+unit_2_area: "1,148 / 1,233 sqft"
+unit_2_price: "Price on Request"
+unit_2_featured: false
 amenities:
   - "Infinity Pool with Jacuzzi"
   - "Practice Cricket Pitch"

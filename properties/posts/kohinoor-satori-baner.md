@@ -1,0 +1,41 @@
+---
+date_added: "2026-10-29"
+title: "Kohinoor Satori"
+developer: "Kohinoor Group"
+location: "Mahalunge (New Baner), Pune"
+config: "3, 4 & 4.5 BHK Apartments"
+area: "1,121 – 2,326 sqft"
+category: "apartment"
+status: "active"
+rera: "P52100066472"
+area_alias: "New Baner"
+hero_1: "https://cdn.sanity.io/images/9cgq9uxv/production/bf8cbfaab9075a2690fb796266eb680fadfdaa24-1280x720.jpg?w=2000&fit=max&auto=format&q=80"
+hero_caption: "Kohinoor Satori, Mahalunge (New Baner), Pune"
+tagline: "Under Construction | 3, 4 & 4.5 BHK | New Baner"
+overview: "Satori by Kohinoor offers large-format 3, 4 and 4.5 BHK homes of 1,121 to 2,326 sq ft on about 6 acres in Mahalunge (New Baner), close to Baner and Hinjewadi. It is registered with MahaRERA as P52100066472, with completion due in December 2028, and the developer lists 7 towers with a sports-focused clubhouse."
+stat_1_value: "~6 Acres"
+stat_1_label: "Land"
+stat_2_value: "7"
+stat_2_label: "Towers"
+stat_3_value: "Dec 2028"
+stat_3_label: "Possession"
+price: 0
+unit_1_type: "3, 4 & 4.5 BHK"
+unit_1_area: "1,121 – 2,326 sqft"
+unit_1_price: "Price on Request"
+unit_1_featured: true
+amenities:
+  - "Clubhouse"
+  - "Spa"
+  - "Aqua Gym Pool"
+  - "Cricket Turf"
+  - "Futsal"
+  - "Skating Zone"
+  - "Zumba Room"
+  - "Meditation Area"
+  - "Yoga Area"
+  - "Forest Walkway"
+lat: 18.5735
+lng: 73.755
+geo_confidence: "locality"
+---

@@ -1,0 +1,42 @@
+---
+date_added: "2026-10-29"
+title: "Shapoorji Pallonji Vanaha Verdant"
+developer: "Shapoorji Pallonji"
+location: "Vanaha Township, Lavale, near Bavdhan, Pune"
+config: "2 & 3 BHK Apartments"
+area: "868 – 1,171 sqft"
+category: "apartment"
+status: "active"
+rera: "PR1260002500246"
+hero_1: "https://cdn.sanity.io/images/9cgq9uxv/production/3a0c2ff8723dfd03454baa882e772666a45c4336-480x360.jpg?w=2000&fit=max&auto=format&q=80"
+hero_caption: "Shapoorji Pallonji Vanaha Verdant, Vanaha Township, Lavale, near Bavdhan, Pune"
+tagline: "Under Construction | 2 & 3 BHK | Vanaha, Bavdhan"
+overview: "Vanaha Verdant is a mid-rise 2 and 3 BHK phase by Shapoorji Pallonji in the 1,000-acre Vanaha township at Lavale, near Bavdhan, registered with MahaRERA as PR1260002500246. It is planned around retained forest, with treehouses, a hammock garden and a stargazing deck. The developer publishes prices from ₹1.05 Cr for an 868 sq ft 2 BHK; MahaRERA lists 4 towers and 363 homes, with completion due in June 2030."
+stat_1_value: "4"
+stat_1_label: "Towers"
+stat_2_value: "363"
+stat_2_label: "Homes"
+stat_3_value: "Jun 2030"
+stat_3_label: "Possession"
+price: 105
+unit_1_type: "2 & 3 BHK"
+unit_1_area: "868 – 1,171 sqft"
+unit_1_price: "From ₹1.05 Cr*"
+unit_1_featured: true
+amenities:
+  - "Spa & Salon"
+  - "Yoga Deck"
+  - "Gymnasium"
+  - "Swimming Pool"
+  - "Jogging Track"
+  - "Squash Court"
+  - "Golf Putting Greens"
+  - "Treehouses"
+  - "Hammock Garden"
+  - "Stargazing Deck"
+  - "Nature Pond"
+  - "Senior Citizens' Zone"
+lat: 18.539
+lng: 73.735
+geo_confidence: "locality"
+---

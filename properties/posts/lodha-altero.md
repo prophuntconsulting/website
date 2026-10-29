@@ -22,10 +22,16 @@ stat_3_value: "Padel"
 stat_3_label: "Dedicated Court"
 stat_4_value: "Wakad"
 stat_4_label: "Micro-Market"
-price: 0
-unit_1_type: "3 & 4 BHK"
-unit_1_price: "Price on Request"
+price: 220
+unit_1_type: "3 BHK"
+unit_1_price: "₹2.20 Cr+*"
 unit_1_featured: true
+unit_2_type: "3 BHK with Study"
+unit_2_price: "₹2.75 Cr+*"
+unit_2_featured: false
+unit_3_type: "4 BHK"
+unit_3_price: "₹3.45 Cr+*"
+unit_3_featured: false
 amenities:
   - "Rooftop Pool & Deck"
   - "Hi-Tech Gymnasium"

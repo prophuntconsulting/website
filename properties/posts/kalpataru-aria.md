@@ -4,7 +4,7 @@ title: "Kalpataru Aria"
 developer: "Kalpataru"
 location: "Karjat, Maharashtra"
 config: "2 BHK Apartments, Plots & 3 BHK Townhouses"
-area: "1,615 – 9,000 sqft (Plots) · 1,700 – 1,800 sqft (Townhouses)"
+area: "1,826 – 6,789 sqft (Plots) · 1,504 – 1,611 sqft (Townhouses)"
 category: "apartment"
 status: "active"
 rera: "P52000047146 (Phase A), P52000050704 (Phase B), P52000051573 (Phase C)"
@@ -22,17 +22,17 @@ stat_3_value: "30+"
 stat_3_label: "Lifestyle Amenities"
 stat_4_value: "45 Min"
 stat_4_label: "To Navi Mumbai Airport"
-price: 74
+price: 77.99
 unit_1_type: "2 BHK Apartment"
-unit_1_price: "₹74.49 L++*"
+unit_1_price: "₹77.99 L+*"
 unit_1_featured: true
-unit_2_type: "Hill-View Plot"
-unit_2_area: "1,615 – 9,000 sqft"
-unit_2_price: "₹88 L+*"
+unit_2_type: "Serviced Plot"
+unit_2_area: "1,826 – 6,789 sqft"
+unit_2_price: "₹96 L+*"
 unit_2_featured: false
 unit_3_type: "3 BHK Townhouse"
-unit_3_area: "1,700 – 1,800 sqft"
-unit_3_price: "₹2.01 Cr+*"
+unit_3_area: "1,504 – 1,611 sqft carpet"
+unit_3_price: "Price on Request"
 unit_3_featured: false
 amenities:
   - "Grand Health Club with Swimming Pool"

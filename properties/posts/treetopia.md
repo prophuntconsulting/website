@@ -4,7 +4,7 @@ title: "Shapoorji Pallonji Treetopia"
 developer: "Shapoorji Pallonji"
 location: "Jadhavwadi, Hadapsar–Saswad Rd, Pune"
 config: "NA Residential Plots"
-area: "2,000 – 6,000 sqft"
+area: "1,800 – 5,000+ sqft"
 category: "plot"
 status: "active"
 rera: "PP1261012501803"
@@ -22,15 +22,11 @@ stat_3_value: "35+"
 stat_3_label: "Amenities"
 stat_4_value: "160+ Yrs"
 stat_4_label: "Developer Legacy"
-price: 84
-unit_1_type: "Phase 1 Plot"
-unit_1_area: "2,000 – 3,000 sqft"
-unit_1_price: "₹84 L*"
+price: 99
+unit_1_type: "NA Residential Plot"
+unit_1_area: "1,800 – 5,000+ sqft (plot area)"
+unit_1_price: "Starting ₹99 L* Onwards"
 unit_1_featured: true
-unit_2_type: "Phase 2 Plot"
-unit_2_area: "3,000 – 6,000 sqft"
-unit_2_price: "₹2 Cr*"
-unit_2_featured: false
 unit_3_featured: false
 amenities:
   - "Luxury Clubhouse"

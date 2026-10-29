@@ -23,14 +23,14 @@ stat_3_value: "120+"
 stat_3_label: "Kalpataru Awards"
 stat_4_value: "110+"
 stat_4_label: "Landmark Projects"
-price: 175
+price: 162
 unit_1_type: "2 BHK"
-unit_1_price: "₹1.75 Cr Onwards*"
+unit_1_price: "₹1.62 Cr* Onwards"
 unit_1_featured: true
 unit_2_type: "3 BHK"
-unit_2_price: "₹2.35 Cr Onwards*"
+unit_2_price: "₹2.18 Cr* Onwards"
 unit_2_featured: false
-unit_3_type: "3.5, 4 & 4.5 BHK"
+unit_3_type: "4 BHK"
 unit_3_price: "Price on Request"
 unit_3_featured: false
 amenities:

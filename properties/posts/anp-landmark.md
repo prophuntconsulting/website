@@ -24,10 +24,14 @@ stat_3_label: "To Hinjewadi"
 stat_4_value: "360-1,229"
 stat_4_label: "Sqft Range"
 price: 0
-unit_1_type: "Retail Shops & Offices"
-unit_1_area: "360 - 1,229 sqft"
+unit_1_type: "Retail Shops"
+unit_1_area: "386 & 1,229 sqft carpet"
 unit_1_price: "Price on Request"
 unit_1_featured: true
+unit_2_type: "Office Spaces"
+unit_2_area: "360 & 975 sqft carpet"
+unit_2_price: "Price on Request"
+unit_2_featured: false
 amenities:
   - "High-Quality Lifts with Generator Backup"
   - "Decorative Entrance Lobby"

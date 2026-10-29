@@ -1,0 +1,40 @@
+---
+date_added: "2026-10-29"
+title: "Shapoorji Pallonji Wildernest"
+developer: "Shapoorji Pallonji"
+location: "SP Kingstown, Shewalewadi, Hadapsar Annexe, Pune"
+config: "3 & 4 BHK Apartments, Villaments & Villas"
+area: "1,384 – 1,909 sqft"
+category: "apartment"
+status: "active"
+rera: "P52100052683, P52100053177, P52100054077, P52100053966, P52100053978, P52100053927, P52100053977"
+hero_1: "https://cdn.sanity.io/images/9cgq9uxv/production/f2199e91fb7f23f39ee72ff46994f1b4c62c029e-1280x720.jpg?w=2000&fit=max&auto=format&q=80"
+hero_caption: "Shapoorji Pallonji Wildernest, SP Kingstown, Shewalewadi, Hadapsar Annexe, Pune"
+tagline: "Under Construction | 3 & 4 BHK, Villaments & Villas | SP Kingstown"
+overview: "Wildernest is the low-density luxury phase of Shapoorji Pallonji's SP Kingstown township at Shewalewadi, Hadapsar Annexe, off the Pune–Solapur highway. It mixes 3 and 4 BHK apartments with villaments and villas, from 1,384 to 1,909 sq ft, across MahaRERA registrations P52100052683 and others. The developer publishes 3 BHK prices from ₹1.84 Cr and 4 BHK from ₹2.40 Cr, with towers completing between June 2027 and March 2029."
+stat_1_value: "3 & 4 BHK"
+stat_1_label: "Configurations"
+stat_2_value: "Jun 2027 – Mar 2029"
+stat_2_label: "Possession"
+price: 184
+unit_1_type: "3 BHK"
+unit_1_price: "Starting ₹1.84 Cr*"
+unit_1_featured: true
+unit_2_type: "4 BHK"
+unit_2_price: "From ₹2.40 Cr*"
+amenities:
+  - "Infinity-Edge Pool"
+  - "Clubhouse"
+  - "Co-working Space"
+  - "Mini Theatre"
+  - "Amphitheatre"
+  - "Cricket Pitch"
+  - "Skating Rink"
+  - "Putting Golf"
+  - "Mango Garden"
+  - "Cycling & Jogging Tracks"
+  - "Senior Citizens' Area"
+lat: 18.4815
+lng: 73.985
+geo_confidence: "locality"
+---

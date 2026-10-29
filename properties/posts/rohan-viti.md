@@ -4,6 +4,7 @@ title: "Rohan Viti"
 developer: "Rohan Builders"
 location: "Wakad, Pune"
 config: "2 & 3 BHK Apartments"
+area: "625 – 960 sqft carpet"
 category: "apartment"
 status: "active"
 rera: "P52100046719"
@@ -24,6 +25,7 @@ stat_4_value: "Wakad"
 stat_4_label: "Micro-Market"
 price: 0
 unit_1_type: "2 & 3 BHK"
+unit_1_area: "625 – 960 sqft carpet"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:

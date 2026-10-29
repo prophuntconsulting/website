@@ -1,0 +1,40 @@
+---
+date_added: "2026-10-29"
+title: "Joyville Sensorium"
+developer: "Shapoorji Pallonji"
+location: "Maan, near Hinjewadi Phase 1, Pune"
+config: "2 & 3 BHK Apartments"
+area: "697 – 979 sqft"
+category: "apartment"
+status: "active"
+rera: "P52100045257, P52100049547"
+hero_1: "https://cdn.sanity.io/images/9cgq9uxv/production/c9aa05e2dc3ed8fafa6f5826113cb690f0cdeeeb-1280x720.jpg?w=2000&fit=max&auto=format&q=80"
+hero_caption: "Joyville Sensorium, Maan, near Hinjewadi Phase 1, Pune"
+tagline: "Final Towers | Riverside 2 & 3 BHK | Hinjewadi Phase 1"
+overview: "Joyville Sensorium is a riverside 2 and 3 BHK community by Joyville, the Shapoorji Pallonji brand, at Maan beside Hinjewadi Phase 1, registered with MahaRERA as P52100045257 and P52100049547. Early towers are complete and the remaining towers are due by the end of 2026. Homes range from 697 to 979 sq ft, with a riverfront clubhouse, an infinity pool and a 5D miniplex."
+stat_1_value: "2 & 3 BHK"
+stat_1_label: "Configurations"
+stat_2_value: "Dec 2026 (final towers)"
+stat_2_label: "Possession"
+price: 0
+unit_1_type: "2 & 3 BHK"
+unit_1_area: "697 – 979 sqft"
+unit_1_price: "Price on Request"
+unit_1_featured: true
+amenities:
+  - "Riverfront Clubhouse"
+  - "Infinity Pool"
+  - "Kids' Pool"
+  - "5D Miniplex"
+  - "Gym with Steam"
+  - "Futsal"
+  - "Cricket Pitch"
+  - "Skating Rink"
+  - "Squash"
+  - "Amphitheatre"
+  - "Crèche"
+  - "Jogging Track"
+lat: 18.5706427
+lng: 73.7218813
+geo_confidence: "exact"
+---

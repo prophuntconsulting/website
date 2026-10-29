@@ -4,6 +4,7 @@ title: "Regency Astra"
 developer: "Regency Group"
 location: "Baner, Pune"
 config: "2 & 3 BHK Homes"
+area: "747 – 1,089 sqft carpet"
 category: "apartment"
 status: "active"
 rera: "P52100032177 (A1), P52100046664 (A2), P52100053943 (B1)"
@@ -24,6 +25,7 @@ stat_4_value: "Baner"
 stat_4_label: "Micro-Market"
 price: 0
 unit_1_type: "2 & 3 BHK"
+unit_1_area: "747 – 1,089 sqft carpet"
 unit_1_price: "Price on Request"
 unit_1_featured: true
 amenities:

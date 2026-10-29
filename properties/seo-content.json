@@ -293,7 +293,7 @@
       },
       {
         "q": "What configurations are available at 24K Altura?",
-        "a": "24K Altura offers 4 BHK Luxury Residences."
+        "a": "24K Altura offers 3 & 4 BHK Luxury Residences, with sizes From 1,136 sqft carpet."
       },
       {
         "q": "What is the price of homes at 24K Altura?",
@@ -431,7 +431,7 @@
       },
       {
         "q": "What configurations are available at ANP Privado?",
-        "a": "ANP Privado offers 3, 4 & 5 BHK."
+        "a": "ANP Privado offers 3, 4 & 5 BHK, with sizes 1,309 – 4,850 sqft carpet."
       },
       {
         "q": "What is the price of homes at ANP Privado?",
@@ -540,6 +540,32 @@
         "a": "AshokVillas is developed by Peninsula Land."
       }
     ],
+    "bramha-sun-valley-bavdhan": [
+      {
+        "q": "What is the RERA registration number of Bramha Sun Valley?",
+        "a": "Bramha Sun Valley is registered under MahaRERA with registration number P52100080203. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Bramha Sun Valley?",
+        "a": "Bramha Sun Valley offers 2, 2.5, 3, 3.5 & 4.5 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Bramha Sun Valley?",
+        "a": "Bramha Sun Valley is priced ₹1.14 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Bramha Sun Valley located?",
+        "a": "Bramha Sun Valley is located at Bavdhan, Pune (on the Mumbai-Bengaluru Highway), developed by BramhaCorp."
+      },
+      {
+        "q": "Who is the developer of Bramha Sun Valley?",
+        "a": "Bramha Sun Valley is developed by BramhaCorp."
+      },
+      {
+        "q": "Is Bramha Sun Valley ready to move in or under construction?",
+        "a": "Bramha Sun Valley is currently under construction."
+      }
+    ],
     "city-avenue-wakad": [
       {
         "q": "What is the RERA registration number of City Avenue?",
@@ -547,7 +573,7 @@
       },
       {
         "q": "What configurations are available at City Avenue?",
-        "a": "City Avenue offers Retail Shops & Office Spaces."
+        "a": "City Avenue offers Retail Shops & Office Spaces, with sizes 240 – 4,178 sqft carpet."
       },
       {
         "q": "What is the price of homes at City Avenue?",
@@ -584,18 +610,70 @@
         "a": "EON West II is developed by Panchshil Realty."
       }
     ],
+    "godrej-aqua-vista-keshav-nagar": [
+      {
+        "q": "What is the RERA registration number of Godrej Aqua Vista?",
+        "a": "Godrej Aqua Vista is registered under MahaRERA with registration number PM1260002500389. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Godrej Aqua Vista?",
+        "a": "Godrej Aqua Vista offers 1, 2 & 3 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Godrej Aqua Vista?",
+        "a": "Godrej Aqua Vista is priced ₹82 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Godrej Aqua Vista located?",
+        "a": "Godrej Aqua Vista is located at Keshav Nagar, Mundhwa, Pune, developed by Godrej Properties."
+      },
+      {
+        "q": "Who is the developer of Godrej Aqua Vista?",
+        "a": "Godrej Aqua Vista is developed by Godrej Properties."
+      },
+      {
+        "q": "Is Godrej Aqua Vista ready to move in or under construction?",
+        "a": "Godrej Aqua Vista is a new launch."
+      }
+    ],
+    "godrej-evergreen-square-hinjewadi": [
+      {
+        "q": "What is the RERA registration number of Godrej Evergreen Square?",
+        "a": "Godrej Evergreen Square is registered under MahaRERA with registration number P52100078240. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Godrej Evergreen Square?",
+        "a": "Godrej Evergreen Square offers 2 & 3 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Godrej Evergreen Square?",
+        "a": "Godrej Evergreen Square is priced ₹1.05 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Godrej Evergreen Square located?",
+        "a": "Godrej Evergreen Square is located at Rajiv Gandhi Infotech Park Phase 3, Hinjewadi, Pune, developed by Godrej Properties."
+      },
+      {
+        "q": "Who is the developer of Godrej Evergreen Square?",
+        "a": "Godrej Evergreen Square is developed by Godrej Properties."
+      },
+      {
+        "q": "Is Godrej Evergreen Square ready to move in or under construction?",
+        "a": "Godrej Evergreen Square is a new launch."
+      }
+    ],
     "godrej-river-royale": [
       {
         "q": "What is the RERA registration number of Godrej River Royale?",
-        "a": "Godrej River Royale is registered under MahaRERA with registration number P52100047823. You can verify this directly on the official MahaRERA website."
+        "a": "Godrej River Royale is registered under MahaRERA with registration number P52100052957. You can verify this directly on the official MahaRERA website."
       },
       {
         "q": "What configurations are available at Godrej River Royale?",
-        "a": "Godrej River Royale offers 3 & 4.5 BHK, with sizes From 1,688 sqft."
+        "a": "Godrej River Royale offers 3 & 4 BHK Apartments."
       },
       {
         "q": "What is the price of homes at Godrej River Royale?",
-        "a": "Godrej River Royale is priced ₹2.65 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+        "a": "Godrej River Royale is priced ₹2.92 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
       },
       {
         "q": "Where is Godrej River Royale located?",
@@ -636,6 +714,28 @@
         "a": "Greenfinity is currently under construction."
       }
     ],
+    "joyville-sensorium-hinjewadi": [
+      {
+        "q": "What is the RERA registration number of Joyville Sensorium?",
+        "a": "Joyville Sensorium is registered under MahaRERA with registration number P52100045257, P52100049547. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Joyville Sensorium?",
+        "a": "Joyville Sensorium offers 2 & 3 BHK Apartments, with sizes 697 – 979 sqft."
+      },
+      {
+        "q": "What is the price of homes at Joyville Sensorium?",
+        "a": "Pricing for Joyville Sensorium is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Joyville Sensorium located?",
+        "a": "Joyville Sensorium is located at Maan, near Hinjewadi Phase 1, Pune, developed by Shapoorji Pallonji."
+      },
+      {
+        "q": "Who is the developer of Joyville Sensorium?",
+        "a": "Joyville Sensorium is developed by Shapoorji Pallonji."
+      }
+    ],
     "kalpataru-aria": [
       {
         "q": "What is the RERA registration number of Kalpataru Aria?",
@@ -643,11 +743,11 @@
       },
       {
         "q": "What configurations are available at Kalpataru Aria?",
-        "a": "Kalpataru Aria offers 2 BHK Apartments, Plots & 3 BHK Townhouses, with sizes 1,615 – 9,000 sqft (Plots) · 1,700 – 1,800 sqft (Townhouses)."
+        "a": "Kalpataru Aria offers 2 BHK Apartments, Plots & 3 BHK Townhouses, with sizes 1,826 – 6,789 sqft (Plots) · 1,504 – 1,611 sqft (Townhouses)."
       },
       {
         "q": "What is the price of homes at Kalpataru Aria?",
-        "a": "Kalpataru Aria is priced ₹74 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+        "a": "Kalpataru Aria is priced ₹77.99 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
       },
       {
         "q": "Where is Kalpataru Aria located?",
@@ -669,7 +769,7 @@
       },
       {
         "q": "What is the price of homes at Kalpataru Blossoms?",
-        "a": "Kalpataru Blossoms is priced ₹1.75 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+        "a": "Kalpataru Blossoms is priced ₹1.62 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
       },
       {
         "q": "Where is Kalpataru Blossoms located?",
@@ -736,6 +836,28 @@
         "a": "Kings County's MahaRERA registration (P52100055635) gives Dec 2027 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
+    "kohinoor-abhimaan-shirgaon": [
+      {
+        "q": "What is the RERA registration number of Kohinoor Abhimaan Homes?",
+        "a": "Kohinoor Abhimaan Homes is registered under MahaRERA with registration number P52100032485. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Kohinoor Abhimaan Homes?",
+        "a": "Kohinoor Abhimaan Homes offers 1 & 2 BHK Apartments, with sizes 447 – 649 sqft."
+      },
+      {
+        "q": "What is the price of homes at Kohinoor Abhimaan Homes?",
+        "a": "Pricing for Kohinoor Abhimaan Homes is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Kohinoor Abhimaan Homes located?",
+        "a": "Kohinoor Abhimaan Homes is located at Shirgaon, near Talegaon, Pune, developed by Kohinoor Group."
+      },
+      {
+        "q": "Who is the developer of Kohinoor Abhimaan Homes?",
+        "a": "Kohinoor Abhimaan Homes is developed by Kohinoor Group."
+      }
+    ],
     "kohinoor-avantara": [
       {
         "q": "What is the RERA registration number of Kohinoor Avantara?",
@@ -784,6 +906,32 @@
         "a": "Kohinoor Regalia Towers is currently under construction."
       }
     ],
+    "kohinoor-satori-baner": [
+      {
+        "q": "What is the RERA registration number of Kohinoor Satori?",
+        "a": "Kohinoor Satori is registered under MahaRERA with registration number P52100066472. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Kohinoor Satori?",
+        "a": "Kohinoor Satori offers 3, 4 & 4.5 BHK Apartments, with sizes 1,121 – 2,326 sqft."
+      },
+      {
+        "q": "What is the price of homes at Kohinoor Satori?",
+        "a": "Pricing for Kohinoor Satori is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Kohinoor Satori located?",
+        "a": "Kohinoor Satori is located at Mahalunge (New Baner), Pune (the New Baner area), developed by Kohinoor Group."
+      },
+      {
+        "q": "Who is the developer of Kohinoor Satori?",
+        "a": "Kohinoor Satori is developed by Kohinoor Group."
+      },
+      {
+        "q": "Is Kohinoor Satori ready to move in or under construction?",
+        "a": "Kohinoor Satori is currently under construction."
+      }
+    ],
     "kohinoor-westview-reserve": [
       {
         "q": "What is the RERA registration number of Kohinoor Westview Reserve?",
@@ -816,6 +964,32 @@
       {
         "q": "How big is Kohinoor Westview Reserve?",
         "a": "As registered with MahaRERA: land about 4.25 acres (17,214 sq m, P52100048589 registration); about 782 units (P52100048589 registration). The registered promoter is Goldway Realty."
+      }
+    ],
+    "kolte-patil-qrious-life-republic": [
+      {
+        "q": "What is the RERA registration number of Qrious, Life Republic?",
+        "a": "Qrious, Life Republic is registered under MahaRERA with registration number P52100079623 (Phase 1). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Qrious, Life Republic?",
+        "a": "Qrious, Life Republic offers 2 & 3 BHK Apartments, with sizes 710 – 1,087 sqft."
+      },
+      {
+        "q": "What is the price of homes at Qrious, Life Republic?",
+        "a": "Pricing for Qrious, Life Republic is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Qrious, Life Republic located?",
+        "a": "Qrious, Life Republic is located at Life Republic Township, Marunji, Hinjewadi, Pune, developed by Kolte-Patil Developers."
+      },
+      {
+        "q": "Who is the developer of Qrious, Life Republic?",
+        "a": "Qrious, Life Republic is developed by Kolte-Patil Developers."
+      },
+      {
+        "q": "Is Qrious, Life Republic ready to move in or under construction?",
+        "a": "Qrious, Life Republic is a new launch."
       }
     ],
     "kumar-panache": [
@@ -915,7 +1089,7 @@
       },
       {
         "q": "What is the price of homes at Lodha Altero?",
-        "a": "Pricing for Lodha Altero is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+        "a": "Lodha Altero is priced ₹2.2 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
       },
       {
         "q": "Where is Lodha Altero located?",
@@ -930,6 +1104,32 @@
         "a": "Lodha Altero's MahaRERA registration (P52100079692) gives Jun 2030 as the proposed completion date. Developers can extend this with MahaRERA, so confirm the current timeline and the possession clause in your agreement before booking."
       }
     ],
+    "lodha-bella-vita-nibm": [
+      {
+        "q": "What is the RERA registration number of Lodha Bella Vita?",
+        "a": "Lodha Bella Vita is registered under MahaRERA with registration number P52100035060 (Tower 10). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Lodha Bella Vita?",
+        "a": "Lodha Bella Vita offers 2, 3, 4 & 5 BHK Apartments."
+      },
+      {
+        "q": "What is the price of homes at Lodha Bella Vita?",
+        "a": "Pricing for Lodha Bella Vita is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Lodha Bella Vita located?",
+        "a": "Lodha Bella Vita is located at Off NIBM Road, Mohammadwadi, Pune, developed by Lodha."
+      },
+      {
+        "q": "Who is the developer of Lodha Bella Vita?",
+        "a": "Lodha Bella Vita is developed by Lodha."
+      },
+      {
+        "q": "Is Lodha Bella Vita ready to move in or under construction?",
+        "a": "Lodha Bella Vita is currently under construction."
+      }
+    ],
     "lodha-massimo": [
       {
         "q": "What is the RERA registration number of Lodha Massimo?",
@@ -941,7 +1141,7 @@
       },
       {
         "q": "What is the price of homes at Lodha Massimo?",
-        "a": "Pricing for Lodha Massimo is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+        "a": "Lodha Massimo is priced ₹4.46 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
       },
       {
         "q": "Where is Lodha Massimo located?",
@@ -992,24 +1192,28 @@
     ],
     "mahindra-mahalunge": [
       {
-        "q": "What configurations are available at Mahindra Lifespaces Mahalunge?",
-        "a": "Mahindra Lifespaces Mahalunge offers 2, 3 & 4 BHK Apartments, with sizes 700 – 1,650 sqft."
+        "q": "What is the RERA registration number of Mahindra Rivenza?",
+        "a": "Mahindra Rivenza is registered under MahaRERA with registration number PR1261012602102 (Phase 1), PM1261012602103 (Phase 2). You can verify this directly on the official MahaRERA website."
       },
       {
-        "q": "What is the price of homes at Mahindra Lifespaces Mahalunge?",
-        "a": "Mahindra Lifespaces Mahalunge is priced ₹90 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+        "q": "What configurations are available at Mahindra Rivenza?",
+        "a": "Mahindra Rivenza offers 2, 3 & 4 BHK Apartments, with sizes 688 – 1,650 sqft."
       },
       {
-        "q": "Where is Mahindra Lifespaces Mahalunge located?",
-        "a": "Mahindra Lifespaces Mahalunge is located at Mahalunge, Baner Annex, Pune, developed by Mahindra Lifespaces."
+        "q": "What is the price of homes at Mahindra Rivenza?",
+        "a": "Mahindra Rivenza is priced ₹89 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
       },
       {
-        "q": "Who is the developer of Mahindra Lifespaces Mahalunge?",
-        "a": "Mahindra Lifespaces Mahalunge is developed by Mahindra Lifespaces."
+        "q": "Where is Mahindra Rivenza located?",
+        "a": "Mahindra Rivenza is located at Mahalunge, Baner Annex, Pune, developed by Mahindra Lifespaces."
       },
       {
-        "q": "Is Mahindra Lifespaces Mahalunge ready to move in or under construction?",
-        "a": "Mahindra Lifespaces Mahalunge is a new launch."
+        "q": "Who is the developer of Mahindra Rivenza?",
+        "a": "Mahindra Rivenza is developed by Mahindra Lifespaces."
+      },
+      {
+        "q": "Is Mahindra Rivenza ready to move in or under construction?",
+        "a": "Mahindra Rivenza is a new launch."
       }
     ],
     "majestique-elements": [
@@ -1089,15 +1293,15 @@
     "neoliv-grand-forest-prive": [
       {
         "q": "What is the RERA registration number of Neoliv Grand Forest Privé?",
-        "a": "Neoliv Grand Forest Privé is registered under MahaRERA with registration number PP1270002502553, PP1270002502551, PP1270002502087. You can verify this directly on the official MahaRERA website."
+        "a": "Neoliv Grand Forest Privé is registered under MahaRERA with registration number PP1270002502553, PP1270002502551, PP1270002502087, PP1270002502595. You can verify this directly on the official MahaRERA website."
       },
       {
         "q": "What configurations are available at Neoliv Grand Forest Privé?",
-        "a": "Neoliv Grand Forest Privé offers NA Residential Plots, with sizes 1,800 – 2,500 sqft."
+        "a": "Neoliv Grand Forest Privé offers NA Residential Plots, with sizes 1,250 – 3,000 sqft."
       },
       {
         "q": "What is the price of homes at Neoliv Grand Forest Privé?",
-        "a": "Neoliv Grand Forest Privé is priced ₹95 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+        "a": "Neoliv Grand Forest Privé is priced ₹60 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
       },
       {
         "q": "Where is Neoliv Grand Forest Privé located?",
@@ -1141,7 +1345,7 @@
       },
       {
         "q": "What configurations are available at Regency Astra?",
-        "a": "Regency Astra offers 2 & 3 BHK Homes."
+        "a": "Regency Astra offers 2 & 3 BHK Homes, with sizes 747 – 1,089 sqft carpet."
       },
       {
         "q": "What is the price of homes at Regency Astra?",
@@ -1164,6 +1368,58 @@
         "a": "As registered with MahaRERA: land about 1.42 acres (5,745 sq m, Phase III registration); about 168 units (Phase III registration). The registered promoter is Regency Aawishkar Sarsan Developers LLP."
       }
     ],
+    "rohan-ekam-balewadi": [
+      {
+        "q": "What is the RERA registration number of Rohan Ekam?",
+        "a": "Rohan Ekam is registered under MahaRERA with registration number P52100052298 (Phase 1), PR1261012502532 (Phase 2), PR1262022601327 (Phase 3). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Rohan Ekam?",
+        "a": "Rohan Ekam offers 2, 3 & 4 BHK Apartments, with sizes 870 – 2,160 sqft."
+      },
+      {
+        "q": "What is the price of homes at Rohan Ekam?",
+        "a": "Pricing for Rohan Ekam is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Rohan Ekam located?",
+        "a": "Rohan Ekam is located at Riverside, Balewadi, near Baner, Pune (the Balewadi area), developed by Rohan Builders."
+      },
+      {
+        "q": "Who is the developer of Rohan Ekam?",
+        "a": "Rohan Ekam is developed by Rohan Builders."
+      },
+      {
+        "q": "Is Rohan Ekam ready to move in or under construction?",
+        "a": "Rohan Ekam is currently under construction."
+      }
+    ],
+    "rohan-harita-tathawade": [
+      {
+        "q": "What is the RERA registration number of Rohan Harita?",
+        "a": "Rohan Harita is registered under MahaRERA with registration number P52100052972 (Phase 1), P52100079539 (Phase 2), PR1263032501085 (Phase 3). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Rohan Harita?",
+        "a": "Rohan Harita offers 1, 2, 3 & 4 BHK Apartments, with sizes 713 – 1,740 sqft."
+      },
+      {
+        "q": "What is the price of homes at Rohan Harita?",
+        "a": "Pricing for Rohan Harita is available on request — contact PROPHUNT LLP's advisory team for the latest rates."
+      },
+      {
+        "q": "Where is Rohan Harita located?",
+        "a": "Rohan Harita is located at Ashok Nagar Road, Tathawade, Pune, developed by Rohan Builders."
+      },
+      {
+        "q": "Who is the developer of Rohan Harita?",
+        "a": "Rohan Harita is developed by Rohan Builders."
+      },
+      {
+        "q": "Is Rohan Harita ready to move in or under construction?",
+        "a": "Rohan Harita is currently under construction."
+      }
+    ],
     "rohan-viti": [
       {
         "q": "What is the RERA registration number of Rohan Viti?",
@@ -1171,7 +1427,7 @@
       },
       {
         "q": "What configurations are available at Rohan Viti?",
-        "a": "Rohan Viti offers 2 & 3 BHK Apartments."
+        "a": "Rohan Viti offers 2 & 3 BHK Apartments, with sizes 625 – 960 sqft carpet."
       },
       {
         "q": "What is the price of homes at Rohan Viti?",
@@ -1198,6 +1454,58 @@
         "a": "As registered with MahaRERA: land about 0.9 acres (3,620 sq m); 3 towers. The registered promoter is Rohan Builders & Developers Pvt Ltd."
       }
     ],
+    "shapoorji-vanaha-verdant-bavdhan": [
+      {
+        "q": "What is the RERA registration number of Shapoorji Pallonji Vanaha Verdant?",
+        "a": "Shapoorji Pallonji Vanaha Verdant is registered under MahaRERA with registration number PR1260002500246. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Shapoorji Pallonji Vanaha Verdant?",
+        "a": "Shapoorji Pallonji Vanaha Verdant offers 2 & 3 BHK Apartments, with sizes 868 – 1,171 sqft."
+      },
+      {
+        "q": "What is the price of homes at Shapoorji Pallonji Vanaha Verdant?",
+        "a": "Shapoorji Pallonji Vanaha Verdant is priced ₹1.05 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Shapoorji Pallonji Vanaha Verdant located?",
+        "a": "Shapoorji Pallonji Vanaha Verdant is located at Vanaha Township, Lavale, near Bavdhan, Pune, developed by Shapoorji Pallonji."
+      },
+      {
+        "q": "Who is the developer of Shapoorji Pallonji Vanaha Verdant?",
+        "a": "Shapoorji Pallonji Vanaha Verdant is developed by Shapoorji Pallonji."
+      },
+      {
+        "q": "Is Shapoorji Pallonji Vanaha Verdant ready to move in or under construction?",
+        "a": "Shapoorji Pallonji Vanaha Verdant is currently under construction."
+      }
+    ],
+    "shapoorji-wildernest-hadapsar": [
+      {
+        "q": "What is the RERA registration number of Shapoorji Pallonji Wildernest?",
+        "a": "Shapoorji Pallonji Wildernest is registered under MahaRERA with registration number P52100052683, P52100053177, P52100054077, P52100053966, P52100053978, P52100053927, P52100053977. You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Shapoorji Pallonji Wildernest?",
+        "a": "Shapoorji Pallonji Wildernest offers 3 & 4 BHK Apartments, Villaments & Villas, with sizes 1,384 – 1,909 sqft."
+      },
+      {
+        "q": "What is the price of homes at Shapoorji Pallonji Wildernest?",
+        "a": "Shapoorji Pallonji Wildernest is priced ₹1.84 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Shapoorji Pallonji Wildernest located?",
+        "a": "Shapoorji Pallonji Wildernest is located at SP Kingstown, Shewalewadi, Hadapsar Annexe, Pune, developed by Shapoorji Pallonji."
+      },
+      {
+        "q": "Who is the developer of Shapoorji Pallonji Wildernest?",
+        "a": "Shapoorji Pallonji Wildernest is developed by Shapoorji Pallonji."
+      },
+      {
+        "q": "Is Shapoorji Pallonji Wildernest ready to move in or under construction?",
+        "a": "Shapoorji Pallonji Wildernest is currently under construction."
+      }
+    ],
     "supreme-estia": [
       {
         "q": "What is the RERA registration number of Supreme Estia?",
@@ -1222,6 +1530,28 @@
       {
         "q": "Is Supreme Estia ready to move in or under construction?",
         "a": "Supreme Estia is sold out and has no live inventory."
+      }
+    ],
+    "supreme-villagio-somatane": [
+      {
+        "q": "What is the RERA registration number of Supreme Villagio?",
+        "a": "Supreme Villagio is registered under MahaRERA with registration number P52100055048 (Phase III). You can verify this directly on the official MahaRERA website."
+      },
+      {
+        "q": "What configurations are available at Supreme Villagio?",
+        "a": "Supreme Villagio offers 4 BHK Townhouses & Twin Villas."
+      },
+      {
+        "q": "What is the price of homes at Supreme Villagio?",
+        "a": "Supreme Villagio is priced ₹2.89 Cr* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+      },
+      {
+        "q": "Where is Supreme Villagio located?",
+        "a": "Supreme Villagio is located at Somatane, near Talegaon, Pune, developed by Supreme Universal."
+      },
+      {
+        "q": "Who is the developer of Supreme Villagio?",
+        "a": "Supreme Villagio is developed by Supreme Universal."
       }
     ],
     "tej-elevia": [
@@ -1313,7 +1643,7 @@
       },
       {
         "q": "What configurations are available at The Ornate?",
-        "a": "The Ornate offers 3, 3.5, 4 & 5 BHK Apartments."
+        "a": "The Ornate offers 3, 3.5, 4 & 5 BHK Apartments, with sizes 909 – 1,800 sqft carpet."
       },
       {
         "q": "What is the price of homes at The Ornate?",
@@ -1347,11 +1677,11 @@
       },
       {
         "q": "What configurations are available at Shapoorji Pallonji Treetopia?",
-        "a": "Shapoorji Pallonji Treetopia offers NA Residential Plots, with sizes 2,000 – 6,000 sqft."
+        "a": "Shapoorji Pallonji Treetopia offers NA Residential Plots, with sizes 1,800 – 5,000+ sqft."
       },
       {
         "q": "What is the price of homes at Shapoorji Pallonji Treetopia?",
-        "a": "Shapoorji Pallonji Treetopia is priced ₹84 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
+        "a": "Shapoorji Pallonji Treetopia is priced ₹99 L* onwards. Contact PROPHUNT LLP for the latest pricing and available payment plans."
       },
       {
         "q": "Where is Shapoorji Pallonji Treetopia located?",
@@ -1486,6 +1816,10 @@
   "related": {
     "24k-altura": [
       {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
         "label": "4 BHK flats in Baner",
         "url": "/4-bhk-flats-in-baner"
       },
@@ -1516,12 +1850,12 @@
         "url": "/projects/abil-imperial-atria/4-bhk"
       },
       {
-        "label": "4 BHK flats in Baner",
-        "url": "/4-bhk-flats-in-baner"
-      },
-      {
         "label": "3 BHK flats in Baner",
         "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
       },
       {
         "label": "Flats near Balewadi High Street",
@@ -1632,12 +1966,24 @@
     ],
     "anp-privado": [
       {
-        "label": "4 BHK flats in Baner",
-        "url": "/4-bhk-flats-in-baner"
+        "label": "ANP Privado 3 BHK price",
+        "url": "/projects/anp-privado/3-bhk"
+      },
+      {
+        "label": "ANP Privado 4 BHK price",
+        "url": "/projects/anp-privado/4-bhk"
+      },
+      {
+        "label": "ANP Privado 5 BHK price",
+        "url": "/projects/anp-privado/5-bhk"
       },
       {
         "label": "3 BHK flats in Baner",
         "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
       },
       {
         "label": "5 BHK flats in Baner",
@@ -1746,6 +2092,12 @@
         "url": "/location/ravet-gahunje"
       }
     ],
+    "bramha-sun-valley-bavdhan": [
+      {
+        "label": "Bramha Sun Valley 4.5 BHK price",
+        "url": "/projects/bramha-sun-valley-bavdhan/4-5-bhk"
+      }
+    ],
     "city-avenue-wakad": [
       {
         "label": "Office Space near Hinjewadi Phase 1",
@@ -1774,22 +2126,26 @@
         "url": "/location/wakad"
       }
     ],
+    "godrej-aqua-vista-keshav-nagar": [
+      {
+        "label": "Godrej Properties projects in Pune",
+        "url": "/developer/godrej-properties"
+      }
+    ],
+    "godrej-evergreen-square-hinjewadi": [
+      {
+        "label": "Godrej Properties projects in Pune",
+        "url": "/developer/godrej-properties"
+      }
+    ],
     "godrej-river-royale": [
-      {
-        "label": "Godrej River Royale 3 BHK price",
-        "url": "/projects/godrej-river-royale/3-bhk"
-      },
-      {
-        "label": "Godrej River Royale 4.5 BHK price",
-        "url": "/projects/godrej-river-royale/4-5-bhk"
-      },
       {
         "label": "3 BHK flats in Baner",
         "url": "/3-bhk-flats-in-baner"
       },
       {
-        "label": "4.5 BHK flats in Baner",
-        "url": "/4-5-bhk-flats-in-baner"
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
       },
       {
         "label": "Flats near Hinjewadi Phase 1",
@@ -1810,6 +2166,10 @@
       {
         "label": "New projects in Baner",
         "url": "/location/baner"
+      },
+      {
+        "label": "Godrej Properties projects in Pune",
+        "url": "/developer/godrej-properties"
       }
     ],
     "greenfinity-wakad": [
@@ -1846,6 +2206,20 @@
         "url": "/location/wakad"
       }
     ],
+    "joyville-sensorium-hinjewadi": [
+      {
+        "label": "Flats near Hinjewadi Phase 1",
+        "url": "/flats-near-hinjewadi-phase-1"
+      },
+      {
+        "label": "Flats near Blue Ridge SEZ",
+        "url": "/flats-near-blue-ridge-sez"
+      },
+      {
+        "label": "Shapoorji Pallonji projects in Pune",
+        "url": "/developer/shapoorji-pallonji"
+      }
+    ],
     "kalpataru-aria": [
       {
         "label": "Kalpataru Aria 2 BHK price",
@@ -1876,6 +2250,10 @@
       {
         "label": "Kalpataru Blossoms 3 BHK price",
         "url": "/projects/kalpataru-blossoms/3-bhk"
+      },
+      {
+        "label": "Kalpataru Blossoms 4 BHK price",
+        "url": "/projects/kalpataru-blossoms/4-bhk"
       },
       {
         "label": "Apartments in Sinhagad Road",
@@ -1942,6 +2320,12 @@
         "url": "/location/wakad"
       }
     ],
+    "kohinoor-abhimaan-shirgaon": [
+      {
+        "label": "Kohinoor Group projects in Pune",
+        "url": "/developer/kohinoor-group"
+      }
+    ],
     "kohinoor-avantara": [
       {
         "label": "2 BHK flats in Wakad",
@@ -2006,6 +2390,28 @@
         "url": "/developer/kohinoor-group"
       }
     ],
+    "kohinoor-satori-baner": [
+      {
+        "label": "3 BHK flats in Mahalunge",
+        "url": "/3-bhk-flats-in-mahalunge"
+      },
+      {
+        "label": "4 BHK flats in Mahalunge",
+        "url": "/4-bhk-flats-in-mahalunge"
+      },
+      {
+        "label": "Apartments in Mahalunge",
+        "url": "/apartments-in-mahalunge"
+      },
+      {
+        "label": "New projects in Mahalunge",
+        "url": "/location/mahalunge"
+      },
+      {
+        "label": "Kohinoor Group projects in Pune",
+        "url": "/developer/kohinoor-group"
+      }
+    ],
     "kohinoor-westview-reserve": [
       {
         "label": "2 BHK flats in Wakad",
@@ -2038,6 +2444,12 @@
       {
         "label": "Kohinoor Group projects in Pune",
         "url": "/developer/kohinoor-group"
+      }
+    ],
+    "kolte-patil-qrious-life-republic": [
+      {
+        "label": "Kolte-Patil Developers projects in Pune",
+        "url": "/developer/kolte-patil-developers"
       }
     ],
     "kumar-panache": [
@@ -2076,12 +2488,12 @@
     ],
     "kumar-parth-towers": [
       {
-        "label": "4 BHK flats in Baner",
-        "url": "/4-bhk-flats-in-baner"
-      },
-      {
         "label": "3 BHK flats in Baner",
         "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
       },
       {
         "label": "2 BHK flats in Baner",
@@ -2106,12 +2518,12 @@
     ],
     "livience-unione": [
       {
-        "label": "4 BHK flats in Baner",
-        "url": "/4-bhk-flats-in-baner"
-      },
-      {
         "label": "3 BHK flats in Baner",
         "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
       },
       {
         "label": "2 BHK flats in Baner",
@@ -2135,6 +2547,14 @@
       }
     ],
     "lodha-altero": [
+      {
+        "label": "Lodha Altero 3 BHK price",
+        "url": "/projects/lodha-altero/3-bhk"
+      },
+      {
+        "label": "Lodha Altero 4 BHK price",
+        "url": "/projects/lodha-altero/4-bhk"
+      },
       {
         "label": "3 BHK flats in Wakad",
         "url": "/3-bhk-flats-in-wakad"
@@ -2164,14 +2584,28 @@
         "url": "/developer/lodha"
       }
     ],
+    "lodha-bella-vita-nibm": [
+      {
+        "label": "Lodha projects in Pune",
+        "url": "/developer/lodha"
+      }
+    ],
     "lodha-massimo": [
       {
-        "label": "4 BHK flats in Baner",
-        "url": "/4-bhk-flats-in-baner"
+        "label": "Lodha Massimo 3 BHK price",
+        "url": "/projects/lodha-massimo/3-bhk"
+      },
+      {
+        "label": "Lodha Massimo 4 BHK price",
+        "url": "/projects/lodha-massimo/4-bhk"
       },
       {
         "label": "3 BHK flats in Baner",
         "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
       },
       {
         "label": "Flats near Balewadi High Street",
@@ -2230,16 +2664,24 @@
     ],
     "mahindra-mahalunge": [
       {
-        "label": "Mahindra Lifespaces Mahalunge 2 BHK price",
+        "label": "Mahindra Rivenza 2 BHK price",
         "url": "/projects/mahindra-mahalunge/2-bhk"
       },
       {
-        "label": "Mahindra Lifespaces Mahalunge 3 BHK price",
+        "label": "Mahindra Rivenza 3 BHK price",
         "url": "/projects/mahindra-mahalunge/3-bhk"
       },
       {
-        "label": "Mahindra Lifespaces Mahalunge 4 BHK price",
+        "label": "Mahindra Rivenza 4 BHK price",
         "url": "/projects/mahindra-mahalunge/4-bhk"
+      },
+      {
+        "label": "3 BHK flats in Mahalunge",
+        "url": "/3-bhk-flats-in-mahalunge"
+      },
+      {
+        "label": "4 BHK flats in Mahalunge",
+        "url": "/4-bhk-flats-in-mahalunge"
       },
       {
         "label": "Flats near Blue Ridge SEZ",
@@ -2298,12 +2740,12 @@
         "url": "/projects/merlin-ventana/4-bhk"
       },
       {
-        "label": "4 BHK flats in Baner",
-        "url": "/4-bhk-flats-in-baner"
-      },
-      {
         "label": "3 BHK flats in Baner",
         "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
       },
       {
         "label": "Flats near Balewadi High Street",
@@ -2390,6 +2832,62 @@
         "url": "/location/baner"
       }
     ],
+    "rohan-ekam-balewadi": [
+      {
+        "label": "Rohan Ekam 2 BHK price",
+        "url": "/projects/rohan-ekam-balewadi/2-bhk"
+      },
+      {
+        "label": "Rohan Ekam 3 BHK price",
+        "url": "/projects/rohan-ekam-balewadi/3-bhk"
+      },
+      {
+        "label": "Rohan Ekam 4 BHK price",
+        "url": "/projects/rohan-ekam-balewadi/4-bhk"
+      },
+      {
+        "label": "3 BHK flats in Baner",
+        "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
+      },
+      {
+        "label": "2 BHK flats in Baner",
+        "url": "/2-bhk-flats-in-baner"
+      },
+      {
+        "label": "Apartments in Baner",
+        "url": "/apartments-in-baner"
+      },
+      {
+        "label": "New projects in Baner",
+        "url": "/location/baner"
+      },
+      {
+        "label": "Rohan Builders projects in Pune",
+        "url": "/developer/rohan-builders"
+      }
+    ],
+    "rohan-harita-tathawade": [
+      {
+        "label": "Rohan Harita 2 BHK price",
+        "url": "/projects/rohan-harita-tathawade/2-bhk"
+      },
+      {
+        "label": "Rohan Harita 3 BHK price",
+        "url": "/projects/rohan-harita-tathawade/3-bhk"
+      },
+      {
+        "label": "Rohan Harita 4 BHK price",
+        "url": "/projects/rohan-harita-tathawade/4-bhk"
+      },
+      {
+        "label": "Rohan Builders projects in Pune",
+        "url": "/developer/rohan-builders"
+      }
+    ],
     "rohan-viti": [
       {
         "label": "2 BHK flats in Wakad",
@@ -2422,16 +2920,48 @@
       {
         "label": "New projects in Wakad",
         "url": "/location/wakad"
+      },
+      {
+        "label": "Rohan Builders projects in Pune",
+        "url": "/developer/rohan-builders"
+      }
+    ],
+    "shapoorji-vanaha-verdant-bavdhan": [
+      {
+        "label": "Shapoorji Pallonji projects in Pune",
+        "url": "/developer/shapoorji-pallonji"
+      }
+    ],
+    "shapoorji-wildernest-hadapsar": [
+      {
+        "label": "Shapoorji Pallonji Wildernest 3 BHK price",
+        "url": "/projects/shapoorji-wildernest-hadapsar/3-bhk"
+      },
+      {
+        "label": "Shapoorji Pallonji Wildernest 4 BHK price",
+        "url": "/projects/shapoorji-wildernest-hadapsar/4-bhk"
+      },
+      {
+        "label": "Apartments in Hadapsar",
+        "url": "/apartments-in-hadapsar"
+      },
+      {
+        "label": "New projects in Hadapsar",
+        "url": "/location/hadapsar"
+      },
+      {
+        "label": "Shapoorji Pallonji projects in Pune",
+        "url": "/developer/shapoorji-pallonji"
       }
     ],
     "tej-elevia": [
       {
-        "label": "4 BHK flats in Baner",
-        "url": "/4-bhk-flats-in-baner"
-      },
-      {
         "label": "3 BHK flats in Baner",
         "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
       },
       {
         "label": "Flats near Balewadi High Street",
@@ -2504,12 +3034,12 @@
     ],
     "the-ornate-baner": [
       {
-        "label": "4 BHK flats in Baner",
-        "url": "/4-bhk-flats-in-baner"
-      },
-      {
         "label": "3 BHK flats in Baner",
         "url": "/3-bhk-flats-in-baner"
+      },
+      {
+        "label": "4 BHK flats in Baner",
+        "url": "/4-bhk-flats-in-baner"
       },
       {
         "label": "5 BHK flats in Baner",
@@ -3402,6 +3932,68 @@
         "category": "transit",
         "km": 2.7,
         "label": "2.7 km"
+      }
+    ],
+    "joyville-sensorium-hinjewadi": [
+      {
+        "name": "Symbiosis Hinjewadi Campus",
+        "category": "education",
+        "km": 2,
+        "label": "2.0 km"
+      },
+      {
+        "name": "Blue Ridge SEZ, Hinjewadi Phase 1",
+        "category": "it-park",
+        "km": 2.1,
+        "label": "2.1 km"
+      },
+      {
+        "name": "Rajiv Gandhi Infotech Park, Hinjewadi Phase 1",
+        "category": "it-park",
+        "km": 2.7,
+        "label": "2.7 km"
+      },
+      {
+        "name": "Ruby Hall Clinic, Hinjewadi",
+        "category": "hospital",
+        "km": 2.8,
+        "label": "2.8 km"
+      },
+      {
+        "name": "Hinjawadi (Shivaji Chowk) Metro Station (Line 3)",
+        "category": "transit",
+        "km": 2.9,
+        "label": "2.9 km"
+      },
+      {
+        "name": "Rajiv Gandhi Infotech Park, Hinjewadi Phase 2",
+        "category": "it-park",
+        "km": 3,
+        "label": "3.0 km"
+      },
+      {
+        "name": "Embassy Quadron Business Park, Hinjewadi Phase 2",
+        "category": "it-park",
+        "km": 3.2,
+        "label": "3.2 km"
+      },
+      {
+        "name": "Megapolis Circle Metro Station (Line 3 terminus, Phase 3)",
+        "category": "transit",
+        "km": 3.7,
+        "label": "3.7 km"
+      },
+      {
+        "name": "Symbiosis International University, Lavale",
+        "category": "education",
+        "km": 3.8,
+        "label": "3.8 km"
+      },
+      {
+        "name": "Embassy TechZone, Hinjewadi Phase 2",
+        "category": "it-park",
+        "km": 4,
+        "label": "4.0 km"
       }
     ],
     "kalpataru-aria": [
