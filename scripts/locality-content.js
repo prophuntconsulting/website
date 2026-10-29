@@ -45,7 +45,7 @@ const LOCALITY_CONTENT = {
     name: 'Baner',
     faqs: [
       { q: 'Where is Baner located and why is it popular with homebuyers?', a: 'Baner is a premium residential and IT corridor in west Pune, close to the Mumbai-Pune Expressway and adjoining Balewadi and Pashan. Its mix of IT parks, malls, restaurants and schools has made it one of Pune’s most sought-after addresses for professionals and families.' },
-      { q: 'How well connected is Baner to the rest of Pune?', a: 'Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity.' },
+      { q: 'How well connected is Baner to the rest of Pune?', a: 'Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. Pune Metro Line 3 (Hinjewadi to Shivajinagar) has three Baner stations, at Balewadi Phata, Baner Gaon and Baner; they are due to open after the first section from Maan to Balewadi, so check their status before relying on them.' },
       { q: 'What is the investment case for buying property in Baner?', a: 'Baner has seen sustained demand from IT professionals and NRIs due to its proximity to employment hubs and strong social infrastructure, which has historically supported steady appreciation and healthy rental demand in the corridor.' },
       { q: 'What lifestyle and social infrastructure does Baner offer?', a: 'Residents have access to established malls and high streets (including the Balewadi High Street area), multiplexes, restaurants, gyms and the Balewadi Sports Complex, alongside reputed schools and hospitals in the vicinity.' },
     ],
@@ -60,7 +60,7 @@ const LOCALITY_CONTENT = {
     name: 'Wakad',
     faqs: [
       { q: 'Where is Wakad located and what are its key advantages?', a: 'Wakad is a prominent suburb in Pune, Maharashtra, close to the Mumbai-Pune Expressway. Its biggest advantage is proximity to the Hinjewadi IT Park (Rajiv Gandhi Infotech Park), making it a preferred residential choice for IT professionals, with good connectivity to Pimpri-Chinchwad as well.' },
-      { q: 'How is the connectivity and public transport in Wakad?', a: 'Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune.' },
+      { q: 'How is the connectivity and public transport in Wakad?', a: 'Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and Pune Metro Line 3 has a Wakad Chowk station in its first section, which runs from Maan in Hinjewadi to Balewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune.' },
       { q: 'What kind of lifestyle does Wakad offer residents?', a: 'Wakad offers a self-sufficient, modern lifestyle with shopping malls, multiplexes and restaurants alongside established educational institutions and healthcare facilities, making it popular with both young professionals and families.' },
       { q: 'Are there prominent developers active in Wakad?', a: 'Wakad has attracted several established developers building apartments and mixed-use projects, reflecting continued builder confidence in the micro-market’s long-term demand.' },
     ],
@@ -68,7 +68,7 @@ const LOCALITY_CONTENT = {
       education: ['A.P.J. College of Science and Commerce', 'IBMR College', 'Indira College of Commerce & Science'],
       business:  ['Hinjewadi IT Park (Rajiv Gandhi Infotech Park)', 'EON West Tech Park'],
       hospital:  ['Lifepoint Multispeciality Hospital', 'Aditya Birla Memorial Hospital (nearby)'],
-      transit:   ['Wakad Bus Stand', 'Hinjewadi Bus Stand', 'Bhujbal Chowk (upcoming Metro corridor)'],
+      transit:   ['Wakad Bus Stand', 'Hinjewadi Bus Stand', 'Wakad Chowk (Metro Line 3 station)'],
       lifestyle: ['Xion Mall, Hinjewadi', 'Pimpri-Chinchwad Municipal Corporation Garden'],
     },
   },

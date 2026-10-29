@@ -273,7 +273,7 @@ for (const pg of locBhkPages) {
     const s = specificRows(p, n);
     if (s.length) return { size: s.map(r => r.area).filter(Boolean).join(' / ') || 'On request', price: s.map(r => hasPrice(r.price) ? cleanPrice(r.price) : '').filter(Boolean).join(' / ') || 'On request', specific: true };
     const r = anyRow(p, n);
-    return { size: r && r.area ? `${r.area} (project range)` : 'On request', price: 'On request', specific: false };
+    return { size: r && r.area ? `Not published (all units: ${r.area})` : 'On request', price: 'On request', specific: false };
   };
   const pricedProjects = projects.filter(p => rowsFor(p).price !== 'On request');
   const sorted = [...projects].sort((a, b) => (a.status === 'coming-soon') - (b.status === 'coming-soon') || a.title.localeCompare(b.title));
@@ -314,7 +314,7 @@ for (const pg of locBhkPages) {
       const r = rowsFor(p);
       return `<tr><td><a href="${(projectBhkPages[p.slug] || []).find(x => x.n === n)?.url || p.url}">${escapeHtml(p.title)}</a>${p.status === 'coming-soon' ? ' <small>(new launch)</small>' : ''}</td><td>${escapeHtml(p.developer || '')}</td><td>${escapeHtml(r.size)}</td><td>${escapeHtml(r.price)}</td></tr>`;
     }).join('')}</tbody></table></div>
-    <p class="loc-note">Indicative, as listed in ${escapeHtml(todayLabel)}; excludes taxes and charges. "Project range" means the developer publishes one size range across configurations.</p>
+    <p class="loc-note">Indicative, as listed in ${escapeHtml(todayLabel)}; excludes taxes and charges. "Not published" means the developer gives one size range for all configurations, shown in brackets, not a ${bhkLabel(n)}-specific size.</p>
     <div class="loc-grid">${sorted.map(renderHubCard).join('')}</div>
   </div>
 </section>

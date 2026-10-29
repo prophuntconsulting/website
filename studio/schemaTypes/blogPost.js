@@ -46,7 +46,7 @@ export const blogPost = defineType({
         { title: 'Investment', value: 'investment' }, { title: 'Legal & Docs', value: 'legal' }, { title: 'NRI Corner', value: 'nri' },
       ], layout: 'dropdown' },
     }),
-    defineField({ name: 'author', title: 'Author', type: 'string', group: 'content', initialValue: 'PROPHUNT Advisory Team' }),
+    defineField({ name: 'author', title: 'Author', type: 'string', group: 'content', initialValue: 'PROPHUNT LLP' }),
     defineField({
       name: 'publishedAt', title: 'Publish at', type: 'datetime', group: 'content',
       initialValue: () => new Date().toISOString(), validation: r => r.required(),

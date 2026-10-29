@@ -9,7 +9,7 @@
         },
         {
           "q": "How well connected is Baner to the rest of Pune?",
-          "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. The Pune Metro’s extension towards Baner is further improving connectivity."
+          "a": "Baner sits on the Baner-Pashan Link Road and is close to the Mumbai-Pune Expressway, giving quick access to Hinjewadi, Aundh and central Pune. Pune Metro Line 3 (Hinjewadi to Shivajinagar) has three Baner stations, at Balewadi Phata, Baner Gaon and Baner; they are due to open after the first section from Maan to Balewadi, so check their status before relying on them."
         },
         {
           "q": "What is the investment case for buying property in Baner?",
@@ -51,7 +51,7 @@
         },
         {
           "q": "How is the connectivity and public transport in Wakad?",
-          "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and connectivity is set to improve further with the under-construction Metro line extending towards Hinjewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
+          "a": "Wakad has strong public transport via the Wakad and Hinjewadi bus stands, and Pune Metro Line 3 has a Wakad Chowk station in its first section, which runs from Maan in Hinjewadi to Balewadi. The Mumbai-Pune Expressway and Aundh-Ravet Road provide smooth travel to the rest of Pune."
         },
         {
           "q": "What kind of lifestyle does Wakad offer residents?",
@@ -79,7 +79,7 @@
         "transit": [
           "Wakad Bus Stand",
           "Hinjewadi Bus Stand",
-          "Bhujbal Chowk (upcoming Metro corridor)"
+          "Wakad Chowk (Metro Line 3 station)"
         ],
         "lifestyle": [
           "Xion Mall, Hinjewadi",

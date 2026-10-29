@@ -207,8 +207,10 @@ function buildHeadBlock(p, ctx) {
       ...(keywords.length ? { keywords: keywords.join(', ') } : {}),
       articleSection: catLabel,
       inLanguage: 'en-IN',
-      author: { '@type': 'Organization', name: p.author || 'PROPHUNT Advisory Team', url: `${SITE}/about` },
-      publisher: { '@type': 'Organization', name: 'PROPHUNT LLP', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/images/logo-black.png` } },
+      author: bylineFor(p.author) === DEFAULT_BYLINE
+        ? { '@type': 'Organization', '@id': `${SITE}/#organization`, name: DEFAULT_BYLINE, url: `${SITE}/about` }
+        : { '@type': 'Person', name: p.author, worksFor: { '@id': `${SITE}/#organization` } },
+      publisher: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'PROPHUNT LLP', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/images/logo-black.png` } },
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
       ...(ctx.projects.length ? { about: ctx.projects.map(x => ({ '@type': 'Residence', name: x.title, url: `${SITE}${x.url}` })) } : {}),
     },
@@ -253,6 +255,14 @@ function priceText(x) {
 }
 
 const CAT_ICONS = { market: 'fas fa-chart-line', buyer: 'fas fa-home', investment: 'fas fa-coins', legal: 'fas fa-file-contract', nri: 'fas fa-globe' };
+// "PROPHUNT Advisory Team" (the Studio's old default) reads like Prophunt Advisory,
+// an unrelated Wagholi firm, so the company byline is always PROPHUNT LLP.
+const DEFAULT_BYLINE = 'PROPHUNT LLP';
+function bylineFor(author) {
+  const a = String(author || '').trim();
+  return !a || /^prophunt advisory team$/i.test(a) ? DEFAULT_BYLINE : a;
+}
+
 const BLOG_AUTHOR_BIO = 'The PROPHUNT LLP advisory team helps homebuyers and investors in Pune shortlist developer-backed projects, compare pricing and verify approvals. PROPHUNT LLP is a MahaRERA-registered real estate agent (A52100037156). Articles are for general information; check current prices, approvals and registration details before you book.';
 
 // Fixed-ratio image (css/blog.css: 1200 x 630). Sanity CDN images get a
@@ -272,7 +282,7 @@ function postCard(p, num) {
           <span class="bl-card-top"><span class="bl-card-cat">${escapeHtml(CAT_LABELS[p.category] || 'Article')}</span><span class="bl-card-read">${p.readTime} min read</span></span>
           <h3>${escapeHtml(p.title)}</h3>
           <p>${escapeHtml(p.excerpt)}</p>
-          <span class="bl-card-foot"><span>${escapeHtml(fmtDate(p.date))} · ${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</span><span class="bl-more">Read →</span></span>
+          <span class="bl-card-foot"><span>${escapeHtml(fmtDate(p.date))} · ${escapeHtml(bylineFor(p.author))}</span><span class="bl-more">Read →</span></span>
         </span>
       </a>`;
 }
@@ -351,7 +361,7 @@ function buildPrerenderBlock(p, ctx) {
         <div class="bl-byline">
           <div class="bl-author">
             <span class="bl-avatar" aria-hidden="true">PH</span>
-            <div><strong>${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</strong>
+            <div><strong>${escapeHtml(bylineFor(p.author))}</strong>
             <span><time datetime="${escapeHtml(p.date)}">${escapeHtml(fmtDate(p.date))}</time>${p.updated && p.updated > p.date ? ` · Updated <time datetime="${escapeHtml(p.updated)}">${escapeHtml(fmtDate(p.updated))}</time>` : ''} · ${mins} min read</span></div>
           </div>
           <div class="bl-share" aria-label="Share this article">
@@ -370,7 +380,7 @@ function buildPrerenderBlock(p, ctx) {
         ${p.tags && p.tags.length ? `<div class="bl-tags"><strong style="font-size:13px">Tags:</strong>${p.tags.map(t => `<span>${escapeHtml(t)}</span>`).join('')}</div>` : ''}
         <div class="bl-author-box">
           <span class="bl-avatar" aria-hidden="true">PH</span>
-          <div><strong>About ${escapeHtml(p.author || 'PROPHUNT Advisory Team')}</strong><p>${escapeHtml(BLOG_AUTHOR_BIO)}</p></div>
+          <div><strong>About ${escapeHtml(bylineFor(p.author))}</strong><p>${escapeHtml(BLOG_AUTHOR_BIO)}</p></div>
         </div>
       </article>
 
@@ -572,7 +582,7 @@ const posts = files.map(filename => {
     url:      '/blog/' + urlSlug, // canonical path
     title:    meta.title    || fileSlug,
     date:     meta.date     || '',
-    author:   meta.author   || 'PROPHUNT Advisory Team',
+    author:   bylineFor(meta.author),
     category: meta.category || 'general',
     excerpt:  meta.excerpt  || body.replace(/#{1,6}\s+/g, '').slice(0, 160) + '…',
     cover:    meta.cover    || '',
@@ -717,7 +727,7 @@ if (fs.existsSync(listingPagePath)) {
         name: 'PROPHUNT LLP Real Estate Blog',
         url: `${SITE}/blog`,
         description: 'Pune real estate market insights, buyer guides, investment analysis and property updates from PROPHUNT LLP.',
-        publisher: { '@type': 'Organization', name: 'PROPHUNT LLP', url: SITE, logo: `${SITE}/images/logo-black.png` },
+        publisher: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'PROPHUNT LLP', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/images/logo-black.png` } },
         inLanguage: 'en-IN',
       },
       {
