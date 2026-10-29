@@ -570,9 +570,9 @@ for (const [slug, pages] of Object.entries(projectBhkPages)) {
 
 /* ── 5. Inject into project pages + seo-content.json ────────────────── */
 
-const relatedHtml = links => links && links.length ? `<div id="related-searches" class="ph-section"><div class="ph-section-label">Related Searches</div>
+const relatedHtml = links => links && links.length ? `<div id="related-searches" class="ph-section"><h2 class="ph-section-label">Related Searches</h2>
       <ul class="ph-verify ph-cols">${links.map(l => `<li><a href="${escapeHtml(l.url)}">${escapeHtml(l.label)}</a></li>`).join('')}</ul></div>` : '';
-const nearbyHtml = list => list && list.length ? `<div id="whats-nearby" class="ph-section"><div class="ph-section-label">What's Nearby</div>
+const nearbyHtml = list => list && list.length ? `<div id="whats-nearby" class="ph-section"><h2 class="ph-section-label">What's Nearby</h2>
       <ul class="ph-verify ph-cols">${list.map(x => `<li>${escapeHtml(x.name)} <strong>${escapeHtml(x.label)}</strong></li>`).join('')}</ul>
       <p class="ph-disclaimer">Approximate straight-line distances from the project's map location.</p></div>` : '';
 

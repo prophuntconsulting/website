@@ -109,6 +109,7 @@ button,select,input,textarea{font-family:inherit}
 .ph-main{min-width:0}
 .ph-section{margin-bottom:56px;scroll-margin-top:130px}
 .ph-section-label{display:inline-flex;align-items:center;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red-deeper);border-left:2px solid var(--red);padding-left:.7rem;margin-bottom:10px}
+h2.ph-section-label,h2.ph-section-title{margin-top:0}
 .ph-section-title{font-family:var(--font-head);font-size:clamp(1.4rem,2.3vw,1.75rem);font-weight:700;line-height:1.25;color:var(--ink);margin-bottom:4px}
 .ph-snapshot{width:100%;border-collapse:collapse;font-size:15px;margin-top:10px;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden}
 .ph-snapshot th,.ph-snapshot td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--gray-200);vertical-align:top;line-height:1.5}
@@ -787,10 +788,10 @@ function buildPage(prop, allProps) {
     ['Registration facts checked', prop.rera_checked ? formatVerified(prop.rera_checked) + ' (' + (prop.rera_source || 'MahaRERA') + ')' : ''],
     ['Last verified', formatVerified(prop.last_verified)],
   ].filter(([, v]) => v);
-  const snapshotHtml = `<div id="snapshot" class="ph-section" style="margin-top:24px"><div class="ph-section-label">Project Snapshot</div>
+  const snapshotHtml = `<div id="snapshot" class="ph-section" style="margin-top:24px"><h2 class="ph-section-label">Project Snapshot</h2>
     <table class="ph-snapshot"><tbody>${snapshotRows.map(([k, v]) => `<tr><th scope="row">${k}</th><td>${v}</td></tr>`).join('')}</tbody></table></div>`;
   const verifyHtml = `<div id="before-you-book" class="ph-section"><div class="ph-section-label">Before You Book</div>
-    <div class="ph-section-title">Things to verify for ${prop.title || 'this project'}</div>
+    <h2 class="ph-section-title">Things to verify for ${prop.title || 'this project'}</h2>
     <ul class="ph-verify">
       <li>${prop.rera
         ? 'Search MahaRERA for <strong>' + prop.rera + '</strong> and confirm the registration is active, the promoter name matches, and the completion date filed there.'
@@ -811,7 +812,7 @@ function buildPage(prop, allProps) {
   const pricingHtml = units.length
     ? `<div id="pricing" class="ph-section">
         <div class="ph-section-label">Unit Configurations & Pricing</div>
-        <div class="ph-section-title">Choose Your Home</div>
+        <h2 class="ph-section-title">Choose Your Home</h2>
         <div class="ph-divider"></div>
         <div class="ph-pricing-grid">
           ${units.map(u => `
@@ -830,7 +831,7 @@ function buildPage(prop, allProps) {
   const loanBase = prop.price > 0 ? prop.price * 100000 : 5000000;
   const emiHtml = prop.status === 'sold-out' ? '' : `<div id="emi" class="ph-section">
       <div class="ph-section-label">Plan Your Finances</div>
-      <div class="ph-section-title">EMI Calculator</div>
+      <h2 class="ph-section-title">EMI Calculator</h2>
       <div class="ph-divider"></div>
       <div class="ph-emi-card">
         <div class="ph-emi-row">
@@ -861,7 +862,7 @@ function buildPage(prop, allProps) {
   const amenitiesHtml = amenities.length
     ? `<div id="amenities" class="ph-section">
         <div class="ph-section-label">Lifestyle Features</div>
-        <div class="ph-section-title">Amenities</div>
+        <h2 class="ph-section-title">Amenities</h2>
         <div class="ph-divider"></div>
         <div class="ph-amenities-grid">
           ${amenities.map(a => `<div class="ph-amenity"><span class="ph-amenity-ic"><i class="fas fa-${amenityIcon(a)}"></i></span>${a}</div>`).join('')}
@@ -1018,7 +1019,7 @@ function buildPage(prop, allProps) {
     ? `<a href="/location/${prop.micro_market}" class="ph-browse-link">View all properties in ${nearbyLocalityLabel} <i class="fas fa-arrow-right"></i></a>` : '';
   const nearbyCarouselHtml = `<div id="nearby-projects" class="ph-section">
         <div class="ph-section-label">Around ${nearbyLocalityLabel}</div>
-        <div class="ph-section-title">Discover Nearby Projects</div>
+        <h2 class="ph-section-title">Discover Nearby Projects</h2>
         <div class="ph-divider"></div>
         ${nearbyHubLink}
         ${nearbyProjects.length ? `
@@ -1050,7 +1051,7 @@ function buildPage(prop, allProps) {
   const faqHtml = (projectFaqs.length || localityFaqs.length)
     ? `<div id="faqs" class="ph-section">
         <div class="ph-section-label">Frequently Asked Questions</div>
-        <div class="ph-section-title">Have Questions About ${prop.title || 'This Project'}?</div>
+        <h2 class="ph-section-title">Have Questions About ${prop.title || 'This Project'}?</h2>
         <div class="ph-divider"></div>
         <div class="ph-faq-list">
           ${projectFaqs.map(faqItem).join('')}
@@ -1072,7 +1073,7 @@ function buildPage(prop, allProps) {
   const landmarksHtml = LANDMARK_CATS.some(([key]) => landmarks[key]?.length)
     ? `<div id="nearby-landmarks" class="ph-section">
         <div class="ph-section-label">Connectivity</div>
-        <div class="ph-section-title">Explore Around ${prop.locality_name || (prop.location||'').split(',')[0]}</div>
+        <h2 class="ph-section-title">Explore Around ${prop.locality_name || (prop.location||'').split(',')[0]}</h2>
         <div class="ph-divider"></div>
         ${LANDMARK_CATS.map(([key, icon, label]) => landmarks[key]?.length ? `
           <div class="ph-landmarks-cat">
@@ -1089,7 +1090,7 @@ function buildPage(prop, allProps) {
   const nearbyPlacesHtml = nearbyPlaces.length
     ? `<div id="whats-nearby" class="ph-section">
         <div class="ph-section-label">Location</div>
-        <div class="ph-section-title">What's Nearby</div>
+        <h2 class="ph-section-title">What's Nearby</h2>
         <div class="ph-divider"></div>
         <ul class="ph-nearby-places">${nearbyPlaces.map(x => `<li><span>${esc(x.name)}</span><strong>${esc(x.label)}</strong></li>`).join('')}</ul>
         <p class="ph-disclaimer">Approximate straight-line distances from the project's map location. Road distance is longer.</p>
@@ -1098,7 +1099,7 @@ function buildPage(prop, allProps) {
   const relatedSearchesHtml = relatedSearches.length && prop.status !== 'sold-out'
     ? `<div id="related-searches" class="ph-section">
         <div class="ph-section-label">Explore More</div>
-        <div class="ph-section-title">Related Searches</div>
+        <h2 class="ph-section-title">Related Searches</h2>
         <div class="ph-divider"></div>
         <div class="ph-related-searches">${relatedSearches.map(r => `<a href="${esc(r.url)}">${esc(r.label)}</a>`).join('')}</div>
       </div>` : '';
@@ -1207,7 +1208,7 @@ function buildPage(prop, allProps) {
         <div id="enquiry" class="ph-section ph-enquiry-jump">
           ${prop.status === 'sold-out' ? `
           <div class="ph-section-label">Sold Out</div>
-          <div class="ph-section-title">This Project is Fully Sold</div>
+          <h2 class="ph-section-title">This Project is Fully Sold</h2>
           <div class="ph-divider"></div>
           <p style="font-size:15px;color:var(--gray-600);margin-bottom:18px">${prop.title || 'This project'} has no live inventory left. Our advisors can point you to similar, currently-available projects in the same area and price range instead.</p>
           <div class="ph-enquiry-jump-actions">
@@ -1215,7 +1216,7 @@ function buildPage(prop, allProps) {
             <a href="https://wa.me/917447430431?text=${encodeURIComponent('Hi PROPHUNT LLP, ' + (prop.title||'this project') + ' looks sold out - can you suggest similar projects in ' + (prop.location||'the same area') + '?')}" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-whatsapp"></i> Ask an Advisor</a>
           </div>` : `
           <div class="ph-section-label">Get In Touch</div>
-          <div class="ph-section-title">Ready to Learn More?</div>
+          <h2 class="ph-section-title">Ready to Learn More?</h2>
           <div class="ph-divider"></div>
           <p style="font-size:15px;color:var(--gray-600);margin-bottom:18px">Use the form in the sidebar, or reach us directly - a PROPHUNT advisor will get back to you with pricing, floor plans and site visit details.</p>
           <div class="ph-enquiry-jump-actions">

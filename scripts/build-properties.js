@@ -409,7 +409,7 @@ function snapshotHtml(p) {
     ['Registration facts checked', p.rera_checked ? `${formatVerified(p.rera_checked)} (${p.rera_source || 'MahaRERA'})` : ''],
     ['Last verified', formatVerified(p.last_verified)],
   ].filter(([, v]) => v);
-  return `<div id="snapshot" class="ph-section"><div class="ph-section-label">Project Snapshot</div>
+  return `<div id="snapshot" class="ph-section"><h2 class="ph-section-label">Project Snapshot</h2>
     <table class="ph-snapshot"><tbody>${rows.map(([k, v]) => `<tr><th scope="row">${k}</th><td>${/<a /.test(v) ? v : escapeHtml(v)}</td></tr>`).join('')}</tbody></table></div>`;
 }
 
@@ -419,7 +419,7 @@ function verifyHtml(p) {
     ? `Search MahaRERA for <strong>${escapeHtml(p.rera)}</strong> and confirm the registration is active, the promoter name matches, and the completion date filed there.`
     : `A MahaRERA project registration number isn't listed for ${title} on this page yet. Ask PROPHUNT LLP for it, or search the project name on the MahaRERA portal, before you pay any booking amount.`;
   return `<div id="before-you-book" class="ph-section"><div class="ph-section-label">Before You Book</div>
-    <div class="ph-section-title">Things to verify for ${title}</div>
+    <h2 class="ph-section-title">Things to verify for ${title}</h2>
     <ul class="ph-verify">
       <li>${reraLine}</li>
       <li>Ask for the full cost sheet in writing — base price, floor rise, parking, GST, stamp duty, registration, maintenance deposit and society charges are usually quoted separately.</li>
@@ -464,22 +464,22 @@ function buildPrerenderBlock(p, all) {
 
   const sections = [];
   if (units.length) {
-    sections.push(`<div id="pricing" class="ph-section"><div class="ph-section-label">Unit Configurations &amp; Pricing</div>
+    sections.push(`<div id="pricing" class="ph-section"><h2 class="ph-section-label">Unit Configurations &amp; Pricing</h2>
       <table class="ph-snapshot"><thead><tr><th>Configuration</th><th>Area</th><th>Price</th></tr></thead><tbody>${units.map(u =>
         `<tr><td>${escapeHtml(u.t)}</td><td>${escapeHtml(u.a || '—')}</td><td>${escapeHtml(u.pr || 'Price on Request')}</td></tr>`).join('')}</tbody></table>
       <p class="ph-disclaimer">*Indicative, exclusive of taxes and other charges. Contact PROPHUNT LLP for the current cost sheet.</p></div>`);
   }
   if (stats.length) {
-    sections.push(`<div class="ph-section"><div class="ph-section-label">Key Facts</div>
+    sections.push(`<div class="ph-section"><h2 class="ph-section-label">Key Facts</h2>
       <ul class="ph-verify">${stats.map(([v, l]) => `<li><strong>${escapeHtml(v)}</strong>${l ? ` — ${escapeHtml(l)}` : ''}</li>`).join('')}</ul></div>`);
   }
   if (amenities.length) {
-    sections.push(`<div id="amenities" class="ph-section"><div class="ph-section-label">Amenities</div>
+    sections.push(`<div id="amenities" class="ph-section"><h2 class="ph-section-label">Amenities</h2>
       <ul class="ph-verify ph-cols">${amenities.map(a => `<li>${escapeHtml(a)}</li>`).join('')}</ul></div>`);
   }
   if (loc && LANDMARK_LABELS.some(([k]) => (loc.landmarks[k] || []).length)) {
     sections.push(`<div id="nearby-landmarks" class="ph-section"><div class="ph-section-label">Location &amp; Connectivity</div>
-      <div class="ph-section-title">Around ${escapeHtml(loc.name)}</div>
+      <h2 class="ph-section-title">Around ${escapeHtml(loc.name)}</h2>
       ${LANDMARK_LABELS.map(([k, label]) => (loc.landmarks[k] || []).length
         ? `<p class="ph-landmarks-line"><strong>${label}:</strong> ${loc.landmarks[k].map(escapeHtml).join(' · ')}</p>` : '').join('')}
       <p><a href="/location/${escapeHtml(p.micro_market)}" class="ph-browse-link">All properties in ${escapeHtml(loc.name)} →</a></p></div>`);
@@ -488,13 +488,13 @@ function buildPrerenderBlock(p, all) {
   sections.push('<!--SEO-NEARBY-->');
   sections.push(verifyHtml(p));
   if (faqs.length) {
-    sections.push(`<div id="faqs" class="ph-section"><div class="ph-section-label">Frequently Asked Questions</div>
+    sections.push(`<div id="faqs" class="ph-section"><h2 class="ph-section-label">Frequently Asked Questions</h2>
       ${faqs.map(f => `<h3 class="ph-faq-q">${escapeHtml(f.q)}</h3><p class="ph-faq-a">${escapeHtml(f.a)}</p>`).join('')}</div>`);
   }
   // Filled by scripts/build-seo-pages.js (links to search pages that exist for this project).
   sections.push('<!--SEO-RELATED-->');
   if (similar.length) {
-    sections.push(`<div class="ph-section"><div class="ph-section-label">Similar Projects${loc ? ` in ${escapeHtml(loc.name)}` : ''}</div>
+    sections.push(`<div class="ph-section"><h2 class="ph-section-label">Similar Projects${loc ? ` in ${escapeHtml(loc.name)}` : ''}</h2>
       <ul class="ph-verify ph-cols">${similar.map(o => `<li><a href="${escapeHtml(o.url)}">${escapeHtml(o.title)}</a>${o.config ? ` — ${escapeHtml(o.config)}` : ''}</li>`).join('')}</ul></div>`);
   }
 
