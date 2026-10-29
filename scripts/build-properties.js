@@ -289,6 +289,40 @@ const ALSO_KNOWN_AS = {
   'rohan-ekam-balewadi': ['Rohan Ekam Baner'],
 };
 
+// "Buyer guides" box on project pages: the blog posts that answer this
+// buyer's next questions. Only posts already in blog/posts.json (published)
+// are linked; scheduled ones appear when the publish deploy runs.
+let livePosts;
+function buyerGuides(p) {
+  if (livePosts === undefined) {
+    // Read the pulled post files (the same source build-blog uses, which runs
+    // after this script), so a post published today is linked on the same deploy.
+    livePosts = new Map();
+    const dir = path.join(__dirname, '..', 'blog', 'posts');
+    const today = new Date().toISOString().slice(0, 10);
+    for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter(x => x.endsWith('.md')) : []) {
+      const head = fs.readFileSync(path.join(dir, f), 'utf8').slice(0, 2000);
+      const title = (head.match(/^title:\s*"?(.*?)"?\s*$/m) || [])[1];
+      const date = (head.match(/^date:\s*"?(\d{4}-\d{2}-\d{2})/m) || [])[1];
+      if (title && (!date || date <= today)) livePosts.set(f.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, ''), title);
+    }
+  }
+  const tl = (p.tagline || '').toLowerCase();
+  const homes = p.category === 'apartment' || p.category === 'villa';
+  const wanted = [
+    'stamp-duty-in-pune-2026',
+    'how-to-check-maharera-registration-pune',
+    p.category === 'plot' && 'na-plots-near-pune-checklist',
+    'nri-guide-to-buying-property-in-pune',
+    homes && 'home-loan-in-pune-emi-eligibility-tax',
+    homes && (tl.includes('under construction') || tl.includes('launch')) && 'ready-to-move-vs-under-construction-flats-pune',
+    (p.micro_market === 'wakad' || p.area_alias === 'Tathawade') && 'tathawade-vs-wakad',
+    ['wakad', 'baner'].includes(p.micro_market) && 'baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026',
+    homes && 'carpet-area-vs-built-up-vs-super-built-up',
+  ].filter(Boolean);
+  return wanted.filter(slug => livePosts.has(slug)).slice(0, 5).map(slug => ({ title: livePosts.get(slug), url: `/blog/${slug}` }));
+}
+
 // Developer names buyers type in front of the project name (Search Console,
 // Oct 2026: "kolte patil city avenue", "panchshil eon west wakad"). Only
 // brands that read naturally before the name; the others already start the
@@ -549,6 +583,10 @@ function buildPrerenderBlock(p, all) {
     sections.push(`<div class="ph-section"><h2 class="ph-section-label">Key Facts</h2>
       <ul class="ph-verify">${stats.map(([v, l]) => `<li><strong>${escapeHtml(v)}</strong>${l ? ` — ${escapeHtml(l)}` : ''}</li>`).join('')}</ul></div>`);
   }
+  if ((p.guides || []).length) {
+    sections.push(`<div id="buyer-guides" class="ph-section"><h2 class="ph-section-label">Buyer Guides for ${escapeHtml(p.title || 'This Project')}</h2>
+      <ul class="ph-verify">${p.guides.map(g => `<li><a href="${g.url}">${escapeHtml(g.title)}</a></li>`).join('')}</ul></div>`);
+  }
   if ((p.youtube || []).length) {
     sections.push(`<div id="video" class="ph-section"><h2 class="ph-section-label">Video Walkthrough</h2>
       ${p.youtube.map(v => `<a class="ph-yt" href="https://www.youtube.com/watch?v=${v.id}" data-yt="${v.id}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${escapeHtml(v.title)}" loading="lazy" width="480" height="360"><span class="ph-yt-play" aria-hidden="true"></span><span class="ph-yt-title">${escapeHtml(v.title)}</span></a>`).join('')}</div>`);
@@ -657,7 +695,7 @@ properties.forEach(p => { if (p.status !== 'sold-out' && devCount[p.developer] >
 // individual property detail page (property.html) actually renders.
 // Keep this file lean; the FAQ/landmark content ships separately below.
 // The client renderer (property.html) uses the same H1 as the prerender.
-properties.forEach(p => { p.h1 = pageH1(p); if (ALSO_KNOWN_AS[p.slug]) p.aka = ALSO_KNOWN_AS[p.slug]; });
+properties.forEach(p => { p.h1 = pageH1(p); if (ALSO_KNOWN_AS[p.slug]) p.aka = ALSO_KNOWN_AS[p.slug]; p.guides = buyerGuides(p); });
 const leanProperties = properties.map(({ project_faqs, locality_faqs, nearby_landmarks, ...rest }) => rest);
 fs.writeFileSync(outFile, JSON.stringify(leanProperties, null, 2));
 console.log(`Built properties/posts.json — ${properties.length} properties`);

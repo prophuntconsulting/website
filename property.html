@@ -111,6 +111,7 @@ button,select,input,textarea{font-family:inherit}
 .ph-section-label{display:inline-flex;align-items:center;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red-deeper);border-left:2px solid var(--red);padding-left:.7rem;margin-bottom:10px}
 h2.ph-section-label,h2.ph-section-title{margin-top:0}
 .ph-aka{font-size:13px;color:var(--gray-600);margin:-4px 0 8px}
+#buyer-guides a{color:var(--red-dark);text-decoration:underline;text-underline-offset:2px;font-weight:500}
 .ph-yt{display:block;position:relative;aspect-ratio:16/9;border-radius:var(--radius-card);overflow:hidden;background:#000;margin-bottom:12px;box-shadow:var(--card-shadow,0 6px 18px rgba(0,0,0,.12))}
 .ph-yt img,.ph-yt iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
 .ph-yt-play{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;border-radius:12px;background:var(--red)}
@@ -880,6 +881,12 @@ function buildPage(prop, allProps) {
         <div class="ph-divider"></div>
         ${prop.youtube.map(v => `<a class="ph-yt" href="https://www.youtube.com/watch?v=${v.id}" data-yt="${v.id}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${v.title}" loading="lazy" width="480" height="360"><span class="ph-yt-play" aria-hidden="true"></span><span class="ph-yt-title">${v.title}</span></a>`).join('')}
       </div>` : '';
+  const guidesHtml = (prop.guides || []).length ? `<div id="buyer-guides" class="ph-section">
+        <div class="ph-section-label">Buyer Guides</div>
+        <h2 class="ph-section-title">Before You Buy at ${prop.title || 'This Project'}</h2>
+        <div class="ph-divider"></div>
+        <ul class="ph-verify">${prop.guides.map(g => `<li><a href="${g.url}">${g.title}</a></li>`).join('')}</ul>
+      </div>` : '';
   const amenitiesHtml = amenities.length
     ? `<div id="amenities" class="ph-section">
         <div class="ph-section-label">Lifestyle Features</div>
@@ -1252,6 +1259,7 @@ function buildPage(prop, allProps) {
         ${nearbyPlacesHtml}
         ${landmarksHtml}
         ${verifyHtml}
+        ${guidesHtml}
         ${faqHtml}
         ${relatedSearchesHtml}
 
