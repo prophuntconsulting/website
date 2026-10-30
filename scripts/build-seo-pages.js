@@ -689,7 +689,6 @@ if (fs.existsSync(homePath)) {
 <section class="section" id="popular-searches" aria-labelledby="popularSearchesTitle">
   <div class="container">
     <div class="section-header centered">
-      <span class="section-label"><i class="fas fa-magnifying-glass"></i> Popular Searches</span>
       <h2 class="section-title" id="popularSearchesTitle">Explore Pune Projects</h2>
     </div>
     <div class="popular-searches-grid">
@@ -698,8 +697,11 @@ if (fs.existsSync(homePath)) {
   </div>
 </section>
 <style>
-.popular-searches-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
-@media(max-width:1100px){.popular-searches-grid{grid-template-columns:repeat(3,1fr)}}
+/* Newspaper columns, not a grid: groups range from 2 to 20 links, and grid
+   rows stretched to the tallest group left big blanks under the short ones. */
+.popular-searches-grid{columns:3;column-gap:2rem;margin-top:2rem}
+.popular-searches-group{break-inside:avoid;margin-bottom:2rem}
+@media(max-width:900px){.popular-searches-grid{columns:2}}
 .popular-searches-title{display:flex;align-items:center;gap:.5rem;font-family:var(--font-head);font-size:.95rem;font-weight:700;margin-bottom:.75rem;color:var(--black);list-style:none;pointer-events:none}
 .popular-searches-title::-webkit-details-marker{display:none}
 .popular-searches-title .n{display:none}
@@ -709,11 +711,11 @@ if (fs.existsSync(homePath)) {
 .popular-searches-list a:hover{color:var(--red)}
 /* Phones: each group is a tap-to-open row instead of one 40-link column. */
 @media(max-width:640px){
-  .popular-searches-grid{grid-template-columns:1fr;gap:0;border-top:1px solid var(--gray-200)}
-  .popular-searches-group{border-bottom:1px solid var(--gray-200)}
+  .popular-searches-grid{columns:1;border-top:1px solid var(--gray-200)}
+  .popular-searches-group{margin:0;border-bottom:1px solid var(--gray-200)}
   .popular-searches-title{pointer-events:auto;cursor:pointer;margin:0;padding:1rem 0}
   .popular-searches-title .n{display:inline-flex;margin-left:auto;font-size:.75rem;font-weight:600;color:var(--gray-600);background:var(--gray-100);border-radius:99px;padding:.1rem .55rem}
-  .popular-searches-title::after{content:"\\f078";font-family:"Font Awesome 6 Free";font-weight:900;font-size:.7rem;color:var(--red);transition:transform .2s}
+  .popular-searches-title::after{content:"\\f078";font-family:var(--font-icon);font-weight:900;font-size:.7rem;color:var(--red);transition:transform .2s}
   .popular-searches-group[open] .popular-searches-title::after{transform:rotate(180deg)}
   .popular-searches-list{padding:0 0 .9rem}
 }
