@@ -1,3 +1,9 @@
+/* Hallmark · checked: 2026-10-30 · genre: editorial (inferred)
+ * floor: 0 FAIL open · fixed: 19, 38i, 40, 41, 44d, 48, 54, 75, 39b, 26b, 10a, F26 · structural: printed (44c, 58, 77, 85)
+ * waive 19: en dashes in the budget options are number ranges (50L to 1 Cr), not prose
+ * waive 40/41: "Quick Enquire" sits on a hover overlay that is invisible until hover; on hover it is white on 62% black
+ * waive 49b: popular-search links are the search phrases buyers type; shortening them costs rankings
+ * built: the project · redesign: polish · v2.0.0 */
 /* ============================================================
    PROPHUNT LLP — Global Stylesheet
    Brand: भूमिं मृगयध्वम् | Hunt the Land
@@ -22,9 +28,11 @@
     --gray-600:       #6E6A67;
     --gray-800:       #3D3A38;
     --gold:           #C9A96E;
+    --field-edge:     #8C8782;
 
     --font-head:      'Open Sans', Arial, sans-serif;
     --font-body:      'Rubik', system-ui, sans-serif;
+    --font-icon:      'Font Awesome 6 Free';
 
     --radius-sm:      6px;
     --radius-md:      12px;
@@ -723,3 +731,16 @@ body :is(.office-tile, .bl-hero-img .bl-media, .ph-photo-grid-inner, .bl-body im
   html.has-cnav{--nav-h:76px}
 }
 @media (max-width:768px) and (prefers-reduced-motion:reduce){.cnav-burger span,.cnav-panel,.cnav-card{transition:none!important}}
+
+/* ── Hallmark polish (30 Oct 2026) ───────────────────────────────────────
+   Labels in sentence case, untracked; readable field edges; every control
+   gets a pressed state; heads wrap evenly. Layout and copy unchanged. */
+.section-label,.ph-section-label{text-transform:none;letter-spacing:0;font-size:.85rem;font-weight:600}
+.cs-trigger,.home-finder-field select{border-color:var(--field-edge)}
+.btn:active,.filt-btn:active,.cs-trigger:active,.cnav-menu:active,.cnav-cta:active{transform:translateY(1px);filter:brightness(.94)}
+.btn-lg{padding:.8rem 2rem}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+.newsletter-form input{border-color:rgba(255,255,255,.45)}
+.newsletter-form input::placeholder{color:var(--gray-400)}
+.btn-sm,.cs-trigger,.newsletter-form input{min-height:44px}
