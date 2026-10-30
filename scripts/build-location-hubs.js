@@ -192,7 +192,28 @@ ${relatedPosts(locality).length ? `
 ` + FOOTER_HTML;
 }
 
-function buildIndexPage(buckets) {
+// Projects outside the 9 micro-markets above had no location page linking to
+// them at all. They are grouped here by where they actually are (never folded
+// into a hub they are not in); anything unmatched falls into "Other areas".
+const MORE_AREAS = [
+  { name: 'Hinjewadi', page: '/flats-in-hinjewadi', test: /hinjewadi|maan|marunji|life republic/i },
+  { name: 'Bavdhan', test: /bavdhan|lavale/i },
+  { name: 'Talegaon', test: /talegaon|shirgaon|somatane/i },
+  { name: 'East Pune: Keshav Nagar and NIBM', test: /keshav nagar|mundhwa|nibm|mohammadwadi/i },
+];
+function moreAreas(unassigned) {
+  const left = [...unassigned];
+  const groups = MORE_AREAS.map(a => {
+    const matches = left.filter(p => a.test.test(`${p.location || ''} ${p.title || ''}`));
+    matches.forEach(p => left.splice(left.indexOf(p), 1));
+    // Area pages need three projects (build-seo-pages), so only link one that exists.
+    return { ...a, page: matches.length >= 3 ? a.page : null, matches };
+  }).filter(g => g.matches.length);
+  if (left.length) groups.push({ name: 'Other areas', matches: left });
+  return groups;
+}
+
+function buildIndexPage(buckets, more = []) {
   const title = 'Properties by Location in Pune | PROPHUNT LLP';
   const canonical = `${SITE}/location`;
   const desc = `Browse PROPHUNT LLP's curated real estate listings across ${buckets.length} Pune micro-markets — Baner, Wakad, Mahalunge and more — with local FAQs, connectivity and pricing.`;
@@ -237,6 +258,15 @@ function buildIndexPage(buckets) {
     </div>
   </div>
 </section>
+${more.length ? `
+<section class="section section--tinted">
+  <div class="container">
+    <h2 class="section-title">More Areas We Cover</h2>
+    ${more.map(g => `
+    <h3 style="margin:2rem 0 1rem">${g.page ? `<a href="${g.page}">Flats in ${escapeHtml(g.name)}</a>` : escapeHtml(g.name)}</h3>
+    <div class="loc-grid">${g.matches.map(renderHubCard).join('')}</div>`).join('')}
+  </div>
+</section>` : ''}
 ${renderGuide('Choosing a Location in Pune', (INDEX_GUIDES.location || {}).sections, 'Buyer guide')}
 ` + FOOTER_HTML;
 }
@@ -262,7 +292,8 @@ buckets.forEach(({ bucket, locality, matches }) => {
 
 const indexOutDir = path.join(ROOT, 'location');
 fs.mkdirSync(indexOutDir, { recursive: true });
-fs.writeFileSync(path.join(indexOutDir, 'index.html'), buildIndexPage(buckets));
+const unassigned = active.filter(p => !LOCALITY_CONTENT[p.micro_market]);
+fs.writeFileSync(path.join(indexOutDir, 'index.html'), buildIndexPage(buckets, moreAreas(unassigned)));
 generatedUrls.push('/location');
 console.log(`  → location/index.html (${buckets.length} locations)`);
 

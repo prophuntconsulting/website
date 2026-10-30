@@ -2236,6 +2236,10 @@
     ],
     "anp-retreat": [
       {
+        "label": "1 BHK flats in Wakad",
+        "url": "/1-bhk-flats-in-wakad"
+      },
+      {
         "label": "Flats near Hinjewadi Phase 1",
         "url": "/flats-near-hinjewadi-phase-1"
       },
@@ -2354,6 +2358,10 @@
     ],
     "godrej-evergreen-square-hinjewadi": [
       {
+        "label": "Flats in Hinjewadi",
+        "url": "/flats-in-hinjewadi"
+      },
+      {
         "label": "Godrej Properties projects in Pune",
         "url": "/developer/godrej-properties"
       }
@@ -2434,6 +2442,10 @@
       {
         "label": "Flats near Blue Ridge SEZ",
         "url": "/flats-near-blue-ridge-sez"
+      },
+      {
+        "label": "Flats in Hinjewadi",
+        "url": "/flats-in-hinjewadi"
       },
       {
         "label": "Shapoorji Pallonji projects in Pune",
@@ -2667,6 +2679,10 @@
       }
     ],
     "kolte-patil-qrious-life-republic": [
+      {
+        "label": "Flats in Hinjewadi",
+        "url": "/flats-in-hinjewadi"
+      },
       {
         "label": "Kolte-Patil Developers projects in Pune",
         "url": "/developer/kolte-patil-developers"
@@ -3104,8 +3120,32 @@
         "url": "/projects/rohan-harita-tathawade/4-bhk"
       },
       {
+        "label": "2 BHK flats in Wakad",
+        "url": "/2-bhk-flats-in-wakad"
+      },
+      {
+        "label": "3 BHK flats in Wakad",
+        "url": "/3-bhk-flats-in-wakad"
+      },
+      {
+        "label": "1 BHK flats in Wakad",
+        "url": "/1-bhk-flats-in-wakad"
+      },
+      {
+        "label": "4 BHK flats in Wakad",
+        "url": "/4-bhk-flats-in-wakad"
+      },
+      {
         "label": "Flats in Tathawade",
         "url": "/flats-in-tathawade"
+      },
+      {
+        "label": "Apartments in Wakad",
+        "url": "/apartments-in-wakad"
+      },
+      {
+        "label": "New projects in Wakad",
+        "url": "/location/wakad"
       },
       {
         "label": "Rohan Builders projects in Pune",

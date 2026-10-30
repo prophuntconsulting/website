@@ -529,6 +529,14 @@ const AREA_PAGES = [
     match: p => /pan ?card/i.test(p.location || ''),
     intro: 'Pan Card Club Road is a residential stretch in Baner, west Pune, with a concentration of larger-format 3, 4 and 5 BHK projects from established developers.',
   },
+  {
+    // Search Console (Oct 2026): "flats in hinjewadi phase 1", "3 bhk near
+    // hinjewadi wakad" etc. were reaching the site with no page about Hinjewadi.
+    // Listed by slug: "Baner-Hinjewadi Road" projects (Mahalunge) are not Hinjewadi.
+    slug: 'flats-in-hinjewadi', name: 'Hinjewadi', noun: 'Flats',
+    match: p => ['godrej-evergreen-square-hinjewadi', 'joyville-sensorium-hinjewadi', 'kolte-patil-qrious-life-republic'].includes(p.slug),
+    intro: "Hinjewadi is home to the Rajiv Gandhi Infotech Park, spread across Phase 1, 2 and 3 in west Pune, and is one of the city's largest employment hubs. Housing here is spread across the IT park itself and the villages around it: Maan, next to Phase 3, and Marunji, home to the Life Republic township. Metro Line 3 links Hinjewadi to Shivajinagar.",
+  },
 ];
 const areaPages = [];
 for (const a of AREA_PAGES) {

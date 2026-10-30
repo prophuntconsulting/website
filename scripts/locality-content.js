@@ -19,6 +19,7 @@ const MICRO_MARKETS = [
   ['karjat',          'karjat'],
   ['khopoli',         'khopoli'],
   ['wakad',           'wakad'],
+  ['tathawade',       'wakad'],   // sold as "Downtown/New Wakad"; the Tathawade area page sits under it
   ['pimpri',          'pimpri-chinchwad'],
   ['ravet',           'ravet-gahunje'],
   ['gahunje',         'ravet-gahunje'],

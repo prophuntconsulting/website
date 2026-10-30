@@ -54,6 +54,7 @@
         ['karjat',          'karjat'],
         ['khopoli',         'khopoli'],
         ['wakad',           'wakad'],
+        ['tathawade',       'wakad'],
         ['pimpri',          'pimpri-chinchwad'],
         ['ravet',           'ravet-gahunje'],
         ['gahunje',         'ravet-gahunje'],
