@@ -371,7 +371,9 @@
   function loadOnce(){
     if (voiceLoaded) return; voiceLoaded = true;
     ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.removeEventListener(e, loadOnce); });
-    loadVoiceWidget();
+    // Start it a moment after the first touch so it never stalls the
+    // menu or scroll animation that same touch kicked off.
+    setTimeout(loadVoiceWidget, 1500);
   }
   ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.addEventListener(e, loadOnce, {passive:true, once:true}); });
   window.addEventListener('load', function(){ setTimeout(loadOnce, 20000); });

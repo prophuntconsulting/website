@@ -116,8 +116,8 @@
        https://reactbits.dev). Copyright (c) 2026 David Haz. Used under the
        MIT + Commons Clause licence as part of this website; the full notice
        is at https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md.
-       Rebuilt here without React: a floating bar that springs open into
-       three cards. Links live in this one list, so every page gets the same
+       Rebuilt here without React: a floating bar that opens into three
+       cards. Links live in this one list, so every page gets the same
        menu. Desktop keeps the normal navbar. */
     const CARD_NAV = [
         { label: 'Find a Home', note: 'New RERA-registered projects across Pune', tone: 'brand', links: [
@@ -158,54 +158,31 @@
         const panel = root.querySelector('.cnav-panel');
         const content = root.querySelector('.cnav-content');
         const btn = root.querySelector('.cnav-menu');
-        const cards = [...root.querySelectorAll('.cnav-card')];
         const links = [...root.querySelectorAll('.cnav-link')];
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const BAR = 60;
-        let open = false, p = 0, v = 0, raf = 0, last = 0;
+        let open = false;
 
-        // Spring from closed (0) to open (1); cards rise in one after another.
-        const render = () => {
-            const h = content.scrollHeight;
-            panel.style.height = (BAR + Math.max(0, p) * h) + 'px';
-            const lag = 0.12, span = 1 - lag * (cards.length - 1);
-            cards.forEach((card, i) => {
-                const t = Math.min(1, Math.max(0, (p - i * lag) / span));
-                const e = 1 - Math.pow(1 - t, 3);
-                card.style.opacity = e;
-                card.style.transform = `translateY(${(1 - e) * 24}px) scale(${0.97 + 0.03 * e})`;
-            });
-        };
-        const tick = now => {
-            raf = 0;
-            const dt = last ? Math.min(0.05, (now - last) / 1000) : 1 / 60; last = now;
-            const target = open ? 1 : 0;
-            if (reduce) { p = target; v = 0; }
-            else {
-                const k = 160, zeta = open ? 0.86 : 1, steps = Math.ceil(dt * 240), step = dt / steps;
-                for (let i = 0; i < steps; i++) { v += (-k * (p - target) - 2 * zeta * Math.sqrt(k) * v) * step; p += v * step; }
-            }
-            const done = Math.abs(p - target) < 0.0005 && Math.abs(v) < 0.002;
-            if (done) { p = target; v = 0; if (!open) root.classList.remove('is-shown'); }
-            render();
-            if (!done) raf = requestAnimationFrame(tick);
-        };
+        // CSS does the motion (height + card rise); JS only sets the target
+        // height once per toggle so the phone never lays out mid-animation.
         const setOpen = next => {
             if (next === open) return;
             open = next;
+            if (open) {
+                root.classList.add('is-shown');
+                panel.style.height = Math.min(60 + content.scrollHeight, window.innerHeight - 16) + 'px';
+            } else panel.style.height = '';
             root.classList.toggle('is-open', open);
-            if (open) root.classList.add('is-shown');
             btn.setAttribute('aria-expanded', String(open));
             btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
             content.setAttribute('aria-hidden', String(!open));
             links.forEach(a => a.tabIndex = open ? 0 : -1);
-            if (!raf) { last = 0; raf = requestAnimationFrame(tick); }
         };
+        panel.addEventListener('transitionend', e => {
+            if (e.target === panel && e.propertyName === 'height' && !open) root.classList.remove('is-shown');
+        });
         btn.addEventListener('click', () => setOpen(!open));
         links.forEach(a => a.addEventListener('click', () => setOpen(false)));
         document.addEventListener('pointerdown', e => { if (open && !root.contains(e.target)) setOpen(false); });
         document.addEventListener('keydown', e => { if (e.key === 'Escape' && open) { setOpen(false); btn.focus(); } });
-        render();
     }
     if (window.matchMedia('(max-width: 768px)').matches) buildCardNav();
     else window.matchMedia('(max-width: 768px)').addEventListener('change', e => { if (e.matches) buildCardNav(); });
