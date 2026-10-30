@@ -261,6 +261,8 @@ h2.ph-section-label,h2.ph-section-title{margin-top:0}
   /* keep content (and the footer) from hiding behind the fixed bar */
   .ph-layout{padding-bottom:90px}
   body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  /* floating WhatsApp / back-to-top buttons sit above the sticky Enquire bar */
+  .wa-float,.back-to-top{bottom:calc(84px + env(safe-area-inset-bottom))!important}
   /* tap targets at least 44px (audit, Oct 2026) */
   .ph-breadcrumb a,.ph-browse-link,.ph-rel-link,.ph-header-price-link,.ph-price-pill a{display:inline-flex;align-items:center;min-height:44px}
   .ph-show-all-btn,.ph-share-btn,.ph-nearby-card-enquire,.ph-nearby-card-brochure{min-height:44px}

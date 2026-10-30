@@ -10,12 +10,23 @@
         const host = document.getElementById('vistrow-voice-widget-host');
         if (!host) return false;
 
-        host.style.display = window.matchMedia('(max-width: 768px)').matches ? 'none' : '';
+        // Phones: a small 52px button above the back-to-top button (and above the
+        // project pages' sticky Enquire bar), instead of hiding the widget.
+        const cta = document.querySelector('.ph-mobile-cta');
+        const ctaShown = cta && getComputedStyle(cta).display !== 'none';
+        host.style.display = '';
+        // Clear the 72px Enquire bar on project pages, or the 48px back-to-top button elsewhere.
+        host.style.setProperty('--ph-av-bottom', 'calc(' + (ctaShown ? 84 : 80) + 'px + env(safe-area-inset-bottom))');
         const root = host.shadowRoot;
         if (root && !root.getElementById('prophunt-widget-tuning')) {
             const style = document.createElement('style');
             style.id = 'prophunt-widget-tuning';
-            style.textContent = '.av-greeting,.av-proof-pill{display:none!important}';
+            style.textContent = '.av-greeting,.av-proof-pill{display:none!important}' +
+                '@media (max-width:768px){' +
+                '.av-root{bottom:var(--ph-av-bottom,84px)!important;right:16px!important}' +
+                '.av-button-wrap,.av-button{width:52px!important;height:52px!important}' +
+                '.av-orb-media{width:78px!important;height:78px!important}' +
+                '.av-mic-badge{transform:scale(.8);bottom:30px!important;right:-4px!important}}';
             root.appendChild(style);
         }
         return true;
