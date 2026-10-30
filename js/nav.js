@@ -110,6 +110,106 @@
         if (e.key === 'Escape') closeMenu();
     });
 
+
+    /* ── Phone menu: card navigation ──────────────────────────────────────
+       Design adapted from "CardNav" by David Haz (React Bits,
+       https://reactbits.dev). Copyright (c) 2026 David Haz. Used under the
+       MIT + Commons Clause licence as part of this website; the full notice
+       is at https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md.
+       Rebuilt here without React: a floating bar that springs open into
+       three cards. Links live in this one list, so every page gets the same
+       menu. Desktop keeps the normal navbar. */
+    const CARD_NAV = [
+        { label: 'Find a Home', note: 'New RERA-registered projects across Pune', tone: 'brand', links: [
+            ['All Projects', '/projects'], ['Apartments', '/projects/apartments'], ['Villas', '/projects/villas'],
+            ['Plots', '/projects/plots'], ['Commercial', '/projects/commercial']] },
+        { label: 'Explore', note: 'Areas, developers and buyer guides', tone: 'light', links: [
+            ['Areas', '/location'], ['Developers', '/developers'], ['Blog', '/blog'], ['Stamp Duty Calculator', '/stamp-duty-calculator-pune']] },
+        { label: 'PROPHUNT LLP', note: 'MahaRERA agent A52100037156 · Baner, Pune', tone: 'dark', links: [
+            ['About', '/about'], ['Services', '/services'], ['Contact', '/contact'],
+            ['Call +91 70668 80808', 'tel:+917066880808'], ['WhatsApp', 'https://wa.me/917447430431']] },
+    ];
+    const ARROW_SVG = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    function buildCardNav() {
+        if (!navbar || !mobileMenu || document.querySelector('.cnav')) return;
+        const logo = navbar.querySelector('.nav-logo img');
+        const root = document.createElement('div');
+        root.className = 'cnav';
+        root.innerHTML = `
+          <nav class="cnav-panel" aria-label="Main">
+            <div class="cnav-bar">
+              <a href="/" class="cnav-logo" aria-label="PROPHUNT LLP Home"><img src="${logo ? logo.getAttribute('src') : '/images/logo-black.png'}" alt=""></a>
+              <a href="/contact" class="cnav-cta">Book a Visit</a>
+              <button type="button" class="cnav-menu" aria-expanded="false" aria-controls="cnavContent" aria-label="Open menu">
+                <span class="cnav-burger" aria-hidden="true"><span></span><span></span></span>
+              </button>
+            </div>
+            <div class="cnav-content" id="cnavContent" aria-hidden="true">
+              ${CARD_NAV.map(c => `<div class="cnav-card cnav-card--${c.tone}">
+                <div class="cnav-card-head"><span class="cnav-label">${c.label}</span><p class="cnav-note">${c.note}</p></div>
+                <ul class="cnav-links">${c.links.map(([t, h]) => `<li><a class="cnav-link" href="${h}"${/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : ''} tabindex="-1"><span class="cnav-arrow">${ARROW_SVG}</span>${t}</a></li>`).join('')}</ul>
+              </div>`).join('')}
+            </div>
+          </nav>`;
+        document.body.appendChild(root);
+        document.documentElement.classList.add('has-cnav');
+
+        const panel = root.querySelector('.cnav-panel');
+        const content = root.querySelector('.cnav-content');
+        const btn = root.querySelector('.cnav-menu');
+        const cards = [...root.querySelectorAll('.cnav-card')];
+        const links = [...root.querySelectorAll('.cnav-link')];
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const BAR = 60;
+        let open = false, p = 0, v = 0, raf = 0, last = 0;
+
+        // Spring from closed (0) to open (1); cards rise in one after another.
+        const render = () => {
+            const h = content.scrollHeight;
+            panel.style.height = (BAR + Math.max(0, p) * h) + 'px';
+            const lag = 0.12, span = 1 - lag * (cards.length - 1);
+            cards.forEach((card, i) => {
+                const t = Math.min(1, Math.max(0, (p - i * lag) / span));
+                const e = 1 - Math.pow(1 - t, 3);
+                card.style.opacity = e;
+                card.style.transform = `translateY(${(1 - e) * 24}px) scale(${0.97 + 0.03 * e})`;
+            });
+        };
+        const tick = now => {
+            raf = 0;
+            const dt = last ? Math.min(0.05, (now - last) / 1000) : 1 / 60; last = now;
+            const target = open ? 1 : 0;
+            if (reduce) { p = target; v = 0; }
+            else {
+                const k = 160, zeta = open ? 0.86 : 1, steps = Math.ceil(dt * 240), step = dt / steps;
+                for (let i = 0; i < steps; i++) { v += (-k * (p - target) - 2 * zeta * Math.sqrt(k) * v) * step; p += v * step; }
+            }
+            const done = Math.abs(p - target) < 0.0005 && Math.abs(v) < 0.002;
+            if (done) { p = target; v = 0; if (!open) root.classList.remove('is-shown'); }
+            render();
+            if (!done) raf = requestAnimationFrame(tick);
+        };
+        const setOpen = next => {
+            if (next === open) return;
+            open = next;
+            root.classList.toggle('is-open', open);
+            if (open) root.classList.add('is-shown');
+            btn.setAttribute('aria-expanded', String(open));
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            content.setAttribute('aria-hidden', String(!open));
+            links.forEach(a => a.tabIndex = open ? 0 : -1);
+            if (!raf) { last = 0; raf = requestAnimationFrame(tick); }
+        };
+        btn.addEventListener('click', () => setOpen(!open));
+        links.forEach(a => a.addEventListener('click', () => setOpen(false)));
+        document.addEventListener('pointerdown', e => { if (open && !root.contains(e.target)) setOpen(false); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && open) { setOpen(false); btn.focus(); } });
+        render();
+    }
+    if (window.matchMedia('(max-width: 768px)').matches) buildCardNav();
+    else window.matchMedia('(max-width: 768px)').addEventListener('change', e => { if (e.matches) buildCardNav(); });
+
     /* ── Scroll reveal (IntersectionObserver) ── */
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

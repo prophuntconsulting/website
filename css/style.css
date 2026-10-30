@@ -680,3 +680,43 @@ body :is(.office-tile, .bl-hero-img .bl-media, .ph-photo-grid-inner, .bl-body im
   .nav-actions .btn-sm{min-height:44px}
   .breadcrumb a{display:inline-flex;align-items:center;min-height:44px}
 }
+
+/* ── Phone menu: card navigation ─────────────────────────────────────────
+   Design adapted from "CardNav" by David Haz (React Bits, https://reactbits.dev).
+   Copyright (c) 2026 David Haz. MIT + Commons Clause licence:
+   https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md
+   Built by js/nav.js on phones only; desktop keeps .navbar. */
+.cnav{display:none}
+@media (max-width:768px){
+  html.has-cnav .navbar,html.has-cnav #mobileMenu{display:none!important}
+  .cnav{display:block;position:fixed;top:8px;left:8px;right:8px;z-index:1000;height:60px;font-size:14px;line-height:1.4;-webkit-tap-highlight-color:transparent}
+  .cnav-panel{position:absolute;top:0;left:0;right:0;height:60px;max-height:calc(100dvh - 16px);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(16px) saturate(1.6);backdrop-filter:blur(16px) saturate(1.6);box-shadow:inset 0 0 0 1px rgba(17,17,17,.08),0 10px 30px -10px rgba(17,17,17,.28)}
+  .cnav.is-open .cnav-panel{overflow-y:auto;overscroll-behavior:contain}
+  .cnav-bar{display:flex;align-items:center;gap:8px;height:60px;padding:0 8px 0 14px;box-sizing:border-box}
+  .cnav-logo{display:inline-flex;align-items:center;height:34px;margin-right:auto}
+  .cnav-logo img{display:block;height:100%;width:auto}
+  .cnav-cta{display:inline-flex;align-items:center;height:44px;padding:0 14px;border-radius:12px;background:#C8362B;color:#fff;font-weight:600;white-space:nowrap;text-decoration:none;box-shadow:0 4px 12px -4px rgba(200,54,43,.6)}
+  .cnav-menu{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;border-radius:12px;background:none;color:#111;cursor:pointer}
+  .cnav-menu:active{background:rgba(17,17,17,.06)}
+  .cnav-menu:focus-visible,.cnav-cta:focus-visible,.cnav-logo:focus-visible,.cnav-link:focus-visible{outline:2px solid #C8362B;outline-offset:2px}
+  .cnav-burger{position:relative;width:20px;height:12px}
+  .cnav-burger span{position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:currentColor;transition:transform .5s cubic-bezier(.22,1,.36,1),top .5s cubic-bezier(.22,1,.36,1)}
+  .cnav-burger span:first-child{top:1px}
+  .cnav-burger span:last-child{top:9px}
+  .cnav.is-open .cnav-burger span:first-child{top:5px;transform:rotate(45deg)}
+  .cnav.is-open .cnav-burger span:last-child{top:5px;transform:rotate(-45deg)}
+  .cnav-content{display:flex;flex-direction:column;gap:8px;padding:0 8px 8px;visibility:hidden}
+  .cnav.is-shown .cnav-content{visibility:visible}
+  .cnav-card{display:flex;flex-direction:column;gap:10px;padding:14px 14px 12px;border-radius:12px;transform-origin:50% 0;will-change:transform,opacity;opacity:0}
+  .cnav-card--brand{background:#C8362B;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 4px 10px -4px rgba(0,0,0,.4)}
+  .cnav-card--light{background:#fff;color:#111;box-shadow:inset 0 0 0 1px rgba(17,17,17,.08)}
+  .cnav-card--dark{background:#111;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 4px 10px -4px rgba(0,0,0,.45)}
+  .cnav-label{font-size:17px;font-weight:600;letter-spacing:-.015em}
+  .cnav-note{margin:2px 0 0;color:inherit;font-size:13px;line-height:1.45;opacity:.72}
+  .cnav-links{display:flex;flex-wrap:wrap;gap:0 16px;margin:0;padding:0;list-style:none}
+  .cnav-link{display:inline-flex;align-items:center;gap:6px;min-height:40px;color:inherit;font-size:15px;font-weight:500;text-decoration:none;opacity:.9}
+  .cnav-arrow{display:inline-flex;width:14px;height:14px}
+  .cnav-arrow svg{width:100%;height:100%}
+  html.has-cnav{--nav-h:76px}
+}
+@media (max-width:768px) and (prefers-reduced-motion:reduce){.cnav-burger span{transition:none}}
