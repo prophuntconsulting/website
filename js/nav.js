@@ -239,7 +239,15 @@
     if (nlForm) {
         nlForm.addEventListener('submit', e => {
             e.preventDefault();
-            const email = nlForm.elements.newsletterEmail?.value || '';
+            const field = nlForm.elements.newsletterEmail;
+            const email = (field?.value || '').trim();
+            // The form is novalidate, so check the address here: empty or malformed ones never get sent.
+            if (field && (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email) || !field.checkValidity())) {
+                field.setCustomValidity('Please enter a valid email address.');
+                field.reportValidity();
+                field.addEventListener('input', () => field.setCustomValidity(''), { once: true });
+                return;
+            }
             const btn = nlForm.querySelector('button');
             const originalIcon = btn ? btn.innerHTML : '';
             if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>'; }
