@@ -58,6 +58,8 @@ const STATIC_PAGES = [
   { loc: '/developers',  changefreq: 'monthly', priority: '0.7'  },
   { loc: '/dlf-westpark-andheri-west', changefreq: 'weekly', priority: '0.7' },
   { loc: '/new-projects-in-andheri-west', changefreq: 'weekly', priority: '0.7' },
+  { loc: '/new-projects-in-andheri-west/kalpataru-vian', changefreq: 'monthly', priority: '0.6' },
+  { loc: '/new-projects-in-andheri-west/runwal-rare', changefreq: 'monthly', priority: '0.6' },
   { loc: '/rera-disclosure', changefreq: 'yearly', priority: '0.4' },
   { loc: '/privacy-policy',  changefreq: 'yearly', priority: '0.3' },
   { loc: '/terms',           changefreq: 'yearly', priority: '0.3' },

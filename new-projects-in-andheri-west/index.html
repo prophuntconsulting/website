@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.prophuntllp.com/"}, {"@type": "ListItem", "position": 2, "name": "New projects in Andheri West", "item": "https://www.prophuntllp.com/new-projects-in-andheri-west"}]}, {"@type": "ItemList", "name": "New projects in Andheri West, Mumbai", "numberOfItems": 3, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "DLF The Westpark Phase 2"}, {"@type": "ListItem", "position": 2, "name": "Kalpataru Vian"}, {"@type": "ListItem", "position": 3, "name": "Runwal Rare"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which new residential projects are launching in Andheri West?", "acceptedAnswer": {"@type": "Answer", "text": "Three new projects with MahaRERA registration and published unit details are DLF The Westpark Phase 2 in Oshiwara, Kalpataru Vian on Lokhandwala Back Road, and Runwal Rare near DN Nagar Metro. Other launches in the area are still awaiting MahaRERA registration."}}, {"@type": "Question", "name": "How do I check a project's MahaRERA registration?", "acceptedAnswer": {"@type": "Answer", "text": "Search the registration number on maharera.maharashtra.gov.in. The record shows the promoter, the registered carpet areas, the approved plans and the completion date the developer has committed to."}}, {"@type": "Question", "name": "Which project suits a 3 BHK buyer in Andheri West?", "acceptedAnswer": {"@type": "Answer", "text": "Compare the RERA carpet area, not the marketing size, and the possession date against when you need to move. Runwal Rare's 3 BHK is 1,101 to 1,216 sq ft near DN Nagar Metro, and DLF The Westpark Phase 2's 3 BHK is 1,261 sq ft in Oshiwara. Kalpataru Vian offers 3, 4 and 4.5 BHK homes on Lokhandwala Back Road. An advisor can share current price sheets for all three."}}, {"@type": "Question", "name": "Is there a fee for using PROPHUNT LLP?", "acceptedAnswer": {"@type": "Answer", "text": "No. PROPHUNT LLP is a MahaRERA-registered agent (A52100037156). The developer pays our fee, so buyers pay the developer's price and nothing extra to us."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.prophuntllp.com/"}, {"@type": "ListItem", "position": 2, "name": "New projects in Andheri West", "item": "https://www.prophuntllp.com/new-projects-in-andheri-west"}]}, {"@type": "ItemList", "name": "New projects in Andheri West, Mumbai", "numberOfItems": 3, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "DLF The Westpark Phase 2", "url": "https://www.prophuntllp.com/dlf-westpark-andheri-west"}, {"@type": "ListItem", "position": 2, "name": "Kalpataru Vian", "url": "https://www.prophuntllp.com/new-projects-in-andheri-west/kalpataru-vian"}, {"@type": "ListItem", "position": 3, "name": "Runwal Rare", "url": "https://www.prophuntllp.com/new-projects-in-andheri-west/runwal-rare"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which new residential projects are launching in Andheri West?", "acceptedAnswer": {"@type": "Answer", "text": "Three new projects with MahaRERA registration and published unit details are DLF The Westpark Phase 2 in Oshiwara, Kalpataru Vian on Lokhandwala Back Road, and Runwal Rare near DN Nagar Metro. Other launches in the area are still awaiting MahaRERA registration."}}, {"@type": "Question", "name": "How do I check a project's MahaRERA registration?", "acceptedAnswer": {"@type": "Answer", "text": "Search the registration number on maharera.maharashtra.gov.in. The record shows the promoter, the registered carpet areas, the approved plans and the completion date the developer has committed to."}}, {"@type": "Question", "name": "Which project suits a 3 BHK buyer in Andheri West?", "acceptedAnswer": {"@type": "Answer", "text": "Compare the RERA carpet area, not the marketing size, and the possession date against when you need to move. Runwal Rare's 3 BHK is 1,101 to 1,216 sq ft near DN Nagar Metro, and DLF The Westpark Phase 2's 3 BHK is 1,261 sq ft in Oshiwara. Kalpataru Vian offers 3, 4 and 4.5 BHK homes on Lokhandwala Back Road from Rs 5.95 Cr. An advisor can share current price sheets for all three."}}, {"@type": "Question", "name": "Is there a fee for using PROPHUNT LLP?", "acceptedAnswer": {"@type": "Answer", "text": "No. PROPHUNT LLP is a MahaRERA-registered agent (A52100037156). The developer pays our fee, so buyers pay the developer's price and nothing extra to us."}}]}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <meta name="theme-color" content="#C8362B">
 <link rel="stylesheet" href="/css/vendor.css">
@@ -38,25 +38,32 @@
 <script src="/js/clarity.js" defer></script>
 <style>
 .cmp-intro{font-size:1.02rem;line-height:1.8;color:var(--gray-600);max-width:760px;margin-bottom:1.5rem}
+.cmp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+@media(max-width:1024px){.cmp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.cmp-grid{grid-template-columns:minmax(0,1fr)}}
+.cmp-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.cmp-card:hover{box-shadow:0 12px 32px rgba(0,0,0,.08);transform:translateY(-2px)}
+.cmp-img{position:relative;display:block;aspect-ratio:16/9;background:var(--gray-100);overflow:hidden}
+.cmp-img img{width:100%;height:100%;object-fit:cover}
+.cmp-badge{position:absolute;left:12px;top:12px;background:rgba(17,17,17,.82);color:#fff;font-size:.8rem;font-weight:600;padding:.3rem .7rem;border-radius:999px}
+.cmp-body{padding:1.25rem 1.5rem 1.5rem;display:flex;flex-direction:column;flex:1}
+.cmp-dev{font-size:.85rem;color:var(--gray-600);margin-bottom:.25rem}
+.cmp-body h3{margin-bottom:.4rem}
+.cmp-body h3 a{color:inherit}
+.cmp-loc{font-size:.9rem;color:var(--gray-600);margin-bottom:1rem}
+.cmp-loc i{color:var(--red)}
+.cmp-card dl{display:grid;grid-template-columns:minmax(0,104px) minmax(0,1fr);gap:.5rem 1rem;font-size:.9rem;padding:1rem 0;border-top:1px solid var(--gray-200);margin-bottom:1rem}
+.cmp-card dt{color:var(--gray-600)}
+.cmp-card dd{margin:0;font-weight:600}
+.cmp-sub{display:block;font-weight:400;font-size:.8rem;color:var(--gray-600)}
+.cmp-actions{margin-top:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.6rem}
+.cmp-actions .btn{justify-content:center;white-space:nowrap;padding-left:.75rem;padding-right:.75rem}
 .cmp-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden;min-width:880px}
 .cmp-table th,.cmp-table td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--gray-200);vertical-align:top;line-height:1.5}
 .cmp-table thead th{background:var(--gray-100);color:var(--gray-600);font-size:12px;font-weight:600}
 .cmp-table tr:last-child td{border-bottom:0}
-.cmp-note{font-size:.85rem;color:var(--gray-600);max-width:760px;margin:.75rem 0 2.5rem}
-.cmp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
-@media(max-width:1024px){.cmp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){.cmp-grid{grid-template-columns:minmax(0,1fr)}}
-.cmp-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;display:flex;flex-direction:column}
-.cmp-dev{font-size:.85rem;color:var(--gray-600);margin-bottom:.25rem}
-.cmp-card h3{margin-bottom:.4rem}
-.cmp-loc{font-size:.9rem;color:var(--gray-600);margin-bottom:1rem}
-.cmp-loc i{color:var(--red)}
-.cmp-card dl{display:grid;grid-template-columns:minmax(0,104px) minmax(0,1fr);gap:.5rem 1rem;font-size:.9rem;padding:1rem 0;border-top:1px solid var(--gray-200);margin-bottom:.75rem}
-.cmp-card dt{color:var(--gray-600)}
-.cmp-card dd{margin:0;font-weight:600}
-.cmp-sub{display:block;font-weight:400;font-size:.8rem;color:var(--gray-600)}
-.cmp-srcline{font-size:.8rem;color:var(--gray-600);margin-bottom:1rem}
-.cmp-btn{margin-top:auto;justify-content:center}
+.cmp-table a{color:var(--red)}
+.cmp-note{font-size:.85rem;color:var(--gray-600);max-width:760px;margin:.75rem 0 0}
 .cmp-steps{list-style:none;counter-reset:s;display:grid;gap:1rem;max-width:760px;padding:0}
 .cmp-steps li{counter-increment:s;padding-left:2.5rem;position:relative;line-height:1.7;color:var(--gray-700)}
 .cmp-steps li::before{content:counter(s);position:absolute;left:0;top:0;width:1.75rem;height:1.75rem;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:.85rem;font-weight:700}
@@ -131,52 +138,63 @@
 
 <section class="section">
   <div class="container">
-    <p class="cmp-intro">Andheri West has several new launches in Oshiwara, Lokhandwala and near DN Nagar. The table below covers the projects that already have a MahaRERA registration and published unit details. Every figure comes from MahaRERA or the developer&rsquo;s own website, as of 31 October 2026. Launches still awaiting registration are left out.</p>
-    <h2 class="section-title">Andheri West launches side by side</h2>
-    <div style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>Project</th><th>Developer</th><th>Location</th><th>Homes</th><th>RERA carpet area</th><th>MahaRERA</th><th>Possession</th><th>Price</th></tr></thead><tbody><tr><td><strong>DLF The Westpark Phase 2</strong></td><td>DLF with Trident Realty</td><td>Oshiwara, Andheri West</td><td>3 &amp; 4 BHK</td><td>3 BHK 1,261 sq ft; 4 BHK 2,067 sq ft (Tower 7A)</td><td>PR1181012602591</td><td>Not yet published</td><td>On request</td></tr><tr><td><strong>Kalpataru Vian</strong></td><td>Kalpataru</td><td>Back Road, Lokhandwala, Andheri West</td><td>3, 4 &amp; 4.5 BHK</td><td>Not published by the developer</td><td>PR1180002600863</td><td>June 2032 (current RERA timeline)</td><td>From &#8377;5.61 Cr* (developer, indicative)</td></tr><tr><td><strong>Runwal Rare</strong></td><td>Runwal</td><td>Near DN Nagar Metro, Andheri West</td><td>2 &amp; 3 BHK</td><td>2 BHK 859 sq ft; 3 BHK 1,101 to 1,216 sq ft</td><td>P51800034594</td><td>2026, per RERA</td><td>On request</td></tr></tbody></table></div>
-    <p class="cmp-note">*Indicative price as published by the developer, excluding stamp duty, registration and GST. &ldquo;On request&rdquo; means the developer has not published a price. Verify every registration on maharera.maharashtra.gov.in before booking.</p>
     <div class="cmp-grid">
       <article class="cmp-card">
-        <p class="cmp-dev">DLF with Trident Realty</p>
-        <h3>DLF The Westpark Phase 2</h3>
-        <p class="cmp-loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Oshiwara, Andheri West</p>
-        <dl>
-          <dt>Homes</dt><dd>3 &amp; 4 BHK</dd>
-          <dt>RERA carpet</dt><dd>3 BHK 1,261 sq ft; 4 BHK 2,067 sq ft (Tower 7A)</dd>
-          <dt>MahaRERA</dt><dd>PR1181012602591<span class="cmp-sub">registered as The Westpark Phase-1B, 30 Oct 2026</span></dd>
-          <dt>Possession</dt><dd>Not yet published</dd>
-          <dt>Price</dt><dd>On request</dd>
-        </dl>
-        <p class="cmp-srcline">Source: MahaRERA certificate and DLF&rsquo;s Phase-1B plans</p>
-        <button type="button" class="btn btn-primary cmp-btn" data-pick="DLF The Westpark Phase 2">Get details &amp; site visit</button>
+        <a class="cmp-img" href="/dlf-westpark-andheri-west"><img src="/images/landing-pages/dlf-westpark/towers-sunset.webp" alt="DLF The Westpark towers, Oshiwara, Andheri West (artist&rsquo;s impression)" loading="lazy" width="600" height="338"><span class="cmp-badge">Phase 1 sold out in a week</span></a>
+        <div class="cmp-body">
+          <p class="cmp-dev">DLF with Trident Realty</p>
+          <h3><a href="/dlf-westpark-andheri-west">DLF The Westpark Phase 2</a></h3>
+          <p class="cmp-loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Oshiwara, Andheri West</p>
+          <dl>
+            <dt>Homes</dt><dd>3 &amp; 4 BHK</dd>
+            <dt>RERA carpet</dt><dd>3 BHK 1,261 sq ft; 4 BHK 2,067 sq ft (Tower 7A)</dd>
+            <dt>MahaRERA</dt><dd>PR1181012602591<span class="cmp-sub">registered as The Westpark Phase-1B, 30 Oct 2026</span></dd>
+            <dt>Possession</dt><dd>Not yet published</dd>
+            <dt>Price</dt><dd>On request</dd>
+          </dl>
+          <div class="cmp-actions">
+            <a class="btn btn-primary" href="/dlf-westpark-andheri-west">View details</a>
+            <button type="button" class="btn btn-outline" data-pick="DLF The Westpark Phase 2">Get price sheet</button>
+          </div>
+        </div>
       </article>
       <article class="cmp-card">
-        <p class="cmp-dev">Kalpataru</p>
-        <h3>Kalpataru Vian</h3>
-        <p class="cmp-loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Back Road, Lokhandwala, Andheri West</p>
-        <dl>
-          <dt>Homes</dt><dd>3, 4 &amp; 4.5 BHK</dd>
-          <dt>RERA carpet</dt><dd>Not published by the developer</dd>
-          <dt>MahaRERA</dt><dd>PR1180002600863<span class="cmp-sub">registered as Kalpataru Hrushikesh</span></dd>
-          <dt>Possession</dt><dd>June 2032 (current RERA timeline)</dd>
-          <dt>Price</dt><dd>From &#8377;5.61 Cr* (developer, indicative)</dd>
-        </dl>
-        <p class="cmp-srcline">Source: kalpataru.com</p>
-        <button type="button" class="btn btn-primary cmp-btn" data-pick="Kalpataru Vian">Get details &amp; site visit</button>
+        <a class="cmp-img" href="/new-projects-in-andheri-west/kalpataru-vian"><img src="/images/landing-pages/andheri-compare/kalpataru-vian-deck-view.webp" alt="Kalpataru Vian deck view over the mangroves (artist&rsquo;s impression)" loading="lazy" width="600" height="338"><span class="cmp-badge">About 4-acre corner plot</span></a>
+        <div class="cmp-body">
+          <p class="cmp-dev">Kalpataru</p>
+          <h3><a href="/new-projects-in-andheri-west/kalpataru-vian">Kalpataru Vian</a></h3>
+          <p class="cmp-loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Back Road, Lokhandwala, Andheri West</p>
+          <dl>
+            <dt>Homes</dt><dd>3, 4 &amp; 4.5 BHK</dd>
+            <dt>RERA carpet</dt><dd>Not published by the developer</dd>
+            <dt>MahaRERA</dt><dd>PR1180002600863<span class="cmp-sub">registered as Kalpataru Hrushikesh</span></dd>
+            <dt>Possession</dt><dd>June 2032</dd>
+            <dt>Price</dt><dd>From &#8377;5.95 Cr* (developer)</dd>
+          </dl>
+          <div class="cmp-actions">
+            <a class="btn btn-primary" href="/new-projects-in-andheri-west/kalpataru-vian">View details</a>
+            <button type="button" class="btn btn-outline" data-pick="Kalpataru Vian">Get price sheet</button>
+          </div>
+        </div>
       </article>
       <article class="cmp-card">
-        <p class="cmp-dev">Runwal</p>
-        <h3>Runwal Rare</h3>
-        <p class="cmp-loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Near DN Nagar Metro, Andheri West</p>
-        <dl>
-          <dt>Homes</dt><dd>2 &amp; 3 BHK</dd>
-          <dt>RERA carpet</dt><dd>2 BHK 859 sq ft; 3 BHK 1,101 to 1,216 sq ft</dd>
-          <dt>MahaRERA</dt><dd>P51800034594</dd>
-          <dt>Possession</dt><dd>2026, per RERA</dd>
-          <dt>Price</dt><dd>On request</dd>
-        </dl>
-        <p class="cmp-srcline">Source: runwalrealty.com</p>
-        <button type="button" class="btn btn-primary cmp-btn" data-pick="Runwal Rare">Get details &amp; site visit</button>
+        <a class="cmp-img" href="/new-projects-in-andheri-west/runwal-rare"><img src="/images/landing-pages/andheri-compare/runwal-rare-elevation.webp" alt="Runwal Rare tower at dusk (artist&rsquo;s impression)" loading="lazy" width="600" height="338"><span class="cmp-badge">Possession 2026 per RERA</span></a>
+        <div class="cmp-body">
+          <p class="cmp-dev">Runwal</p>
+          <h3><a href="/new-projects-in-andheri-west/runwal-rare">Runwal Rare</a></h3>
+          <p class="cmp-loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Near DN Nagar Metro, Andheri West</p>
+          <dl>
+            <dt>Homes</dt><dd>2 &amp; 3 BHK</dd>
+            <dt>RERA carpet</dt><dd>2 BHK 859 sq ft; 3 BHK 1,101 to 1,216 sq ft</dd>
+            <dt>MahaRERA</dt><dd>P51800034594<span class="cmp-sub">registered as Codename Rare by Runwal</span></dd>
+            <dt>Possession</dt><dd>2026, per RERA</dd>
+            <dt>Price</dt><dd>On request</dd>
+          </dl>
+          <div class="cmp-actions">
+            <a class="btn btn-primary" href="/new-projects-in-andheri-west/runwal-rare">View details</a>
+            <button type="button" class="btn btn-outline" data-pick="Runwal Rare">Get price sheet</button>
+          </div>
+        </div>
       </article>
     </div>
   </div>
@@ -184,17 +202,26 @@
 
 <section class="section section--tinted">
   <div class="container">
+    <h2 class="section-title">Andheri West launches side by side</h2>
+    <p class="cmp-intro">These are the Andheri West launches that already have a MahaRERA registration and published unit details. Every figure comes from MahaRERA or the developer&rsquo;s own website, as of 31 October 2026. Launches still awaiting registration are left out.</p>
+    <div style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>Project</th><th>Developer</th><th>Location</th><th>Homes</th><th>RERA carpet area</th><th>MahaRERA</th><th>Possession</th><th>Price</th></tr></thead><tbody><tr><td><a href="/dlf-westpark-andheri-west"><strong>DLF The Westpark Phase 2</strong></a></td><td>DLF with Trident Realty</td><td>Oshiwara, Andheri West</td><td>3 &amp; 4 BHK</td><td>3 BHK 1,261 sq ft; 4 BHK 2,067 sq ft (Tower 7A)</td><td>PR1181012602591</td><td>Not yet published</td><td>On request</td></tr><tr><td><a href="/new-projects-in-andheri-west/kalpataru-vian"><strong>Kalpataru Vian</strong></a></td><td>Kalpataru</td><td>Back Road, Lokhandwala, Andheri West</td><td>3, 4 &amp; 4.5 BHK</td><td>Not published by the developer</td><td>PR1180002600863</td><td>June 2032</td><td>From &#8377;5.95 Cr* (developer)</td></tr><tr><td><a href="/new-projects-in-andheri-west/runwal-rare"><strong>Runwal Rare</strong></a></td><td>Runwal</td><td>Near DN Nagar Metro, Andheri West</td><td>2 &amp; 3 BHK</td><td>2 BHK 859 sq ft; 3 BHK 1,101 to 1,216 sq ft</td><td>P51800034594</td><td>2026, per RERA</td><td>On request</td></tr></tbody></table></div>
+    <p class="cmp-note">*Starting price as published by the developer, excluding stamp duty, registration and GST. &ldquo;On request&rdquo; means the developer has not published a price. Images are the developers&rsquo; artist&rsquo;s impressions. Verify every registration on maharera.maharashtra.gov.in before booking.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <h2 class="section-title">How to compare launches in Andheri West</h2>
     <ol class="cmp-steps">
       <li><strong>Compare RERA carpet area, not the brochure size.</strong> Carpet area is what MahaRERA registers and what the agreement for sale states.</li>
-      <li><strong>Match the possession date to your move.</strong> Kalpataru Vian&rsquo;s current RERA timeline is June 2032; check each project&rsquo;s committed date on MahaRERA.</li>
+      <li><strong>Match the possession date to your move.</strong> Runwal Rare is due in 2026 as per RERA, Kalpataru Vian in June 2032; check each project&rsquo;s committed date on MahaRERA.</li>
       <li><strong>Ask for the all-inclusive price sheet.</strong> Stamp duty, registration and GST add to the base price, so compare the final figure.</li>
       <li><strong>Visit at the time of day you will live there.</strong> Traffic on Link Road and the Lokhandwala back road differs a lot between morning and evening.</li>
     </ol>
   </div>
 </section>
 
-<section class="section" id="enquire">
+<section class="section section--tinted" id="enquire">
   <div class="container">
     <h2 class="section-title" style="text-align:center">Get price sheets and book site visits</h2>
     <p class="cmp-intro" style="margin:0 auto 1.5rem;text-align:center">Tell us your budget. An advisor sends current price sheets and arranges visits, at no cost to you.</p>
@@ -218,13 +245,13 @@
   </div>
 </section>
 
-<section class="section section--tinted">
+<section class="section">
   <div class="container">
     <h2 class="section-title">Andheri West new projects: FAQs</h2>
     <div class="loc-faq-list">
       <details class="loc-faq-item"><summary>Which new residential projects are launching in Andheri West?</summary><p>Three new projects with MahaRERA registration and published unit details are DLF The Westpark Phase 2 in Oshiwara, Kalpataru Vian on Lokhandwala Back Road, and Runwal Rare near DN Nagar Metro. Other launches in the area are still awaiting MahaRERA registration.</p></details>
       <details class="loc-faq-item"><summary>How do I check a project's MahaRERA registration?</summary><p>Search the registration number on maharera.maharashtra.gov.in. The record shows the promoter, the registered carpet areas, the approved plans and the completion date the developer has committed to.</p></details>
-      <details class="loc-faq-item"><summary>Which project suits a 3 BHK buyer in Andheri West?</summary><p>Compare the RERA carpet area, not the marketing size, and the possession date against when you need to move. Runwal Rare's 3 BHK is 1,101 to 1,216 sq ft near DN Nagar Metro, and DLF The Westpark Phase 2's 3 BHK is 1,261 sq ft in Oshiwara. Kalpataru Vian offers 3, 4 and 4.5 BHK homes on Lokhandwala Back Road. An advisor can share current price sheets for all three.</p></details>
+      <details class="loc-faq-item"><summary>Which project suits a 3 BHK buyer in Andheri West?</summary><p>Compare the RERA carpet area, not the marketing size, and the possession date against when you need to move. Runwal Rare's 3 BHK is 1,101 to 1,216 sq ft near DN Nagar Metro, and DLF The Westpark Phase 2's 3 BHK is 1,261 sq ft in Oshiwara. Kalpataru Vian offers 3, 4 and 4.5 BHK homes on Lokhandwala Back Road from Rs 5.95 Cr. An advisor can share current price sheets for all three.</p></details>
       <details class="loc-faq-item"><summary>Is there a fee for using PROPHUNT LLP?</summary><p>No. PROPHUNT LLP is a MahaRERA-registered agent (A52100037156). The developer pays our fee, so buyers pay the developer's price and nothing extra to us.</p></details>
     </div>
   </div>
@@ -263,7 +290,7 @@
 
 <script>
 (function () {
-  // Each project's button picks that project in the form, then scrolls to it.
+  // "Get price sheet" on a card picks that project in the form, then scrolls to it.
   var sel = document.getElementById('cmpProject');
   document.querySelectorAll('[data-pick]').forEach(function (b) {
     b.addEventListener('click', function () {
