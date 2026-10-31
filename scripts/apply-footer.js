@@ -10,7 +10,7 @@ const { applyFooter } = require('./site-footer');
 const ROOT = path.join(__dirname, '..');
 const SKIP_DIRS = new Set(['node_modules', 'studio', 'admin', 'scripts']);
 // Self-contained ad landing pages with their own design (top level only; /projects/treetopia is a normal page).
-const SKIP_TOP = new Set(['treetopia']);
+const SKIP_TOP = new Set(['treetopia', 'dlf-westpark-andheri-west', 'thank-you-page-dlf-westpark']);
 
 function* htmlFiles(dir) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
