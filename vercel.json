@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/new-projects-in-andheri-west/runwal-rare",
+      "destination": "/new-projects-in-andheri-west",
+      "permanent": true
+    },
+    {
       "source": "/vanaha-verdant-bavdhan-pune",
       "destination": "/developer/shapoorji-pallonji",
       "permanent": true
