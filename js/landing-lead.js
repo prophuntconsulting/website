@@ -17,7 +17,7 @@
       var project = val('project');
       var payload = JSON.stringify({
         name: name, phone: phone, email: val('email'),
-        message: project ? 'Project: ' + project : '',
+        message: [project && 'Project: ' + project, val('budget') && 'Budget: ' + val('budget')].filter(Boolean).join(' | '),
         form_name: val('from_name') || ('Landing page' + (project ? ' - ' + project : '')),
         page_url: window.location.href
       });

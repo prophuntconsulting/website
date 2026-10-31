@@ -154,13 +154,15 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
 .form-card p.sub{font-size:.9rem;color:var(--ink-2);margin:8px 0 20px}
 .lead-form{display:grid;gap:12px}
 .lead-form label{font-size:.84rem;font-weight:500;color:var(--ink-2)}
-.lead-form input[type=text],.lead-form input[type=tel]{width:100%;height:48px;padding:0 16px;border:1px solid var(--field);border-radius:var(--r);background:var(--paper);font:inherit;font-size:1rem;color:var(--ink);transition:border-color .15s}
-.lead-form input:hover{border-color:var(--ink-2)}
-.lead-form input:focus-visible{outline:2px solid var(--cta);outline-offset:1px;border-color:var(--cta)}
+.lead-form input[type=text],.lead-form input[type=tel],.lead-form select{width:100%;height:48px;padding:0 16px;border:1px solid var(--field);border-radius:var(--r);background:var(--paper);font:inherit;font-size:1rem;color:var(--ink);transition:border-color .15s}
+.lead-form select{appearance:none;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:40px}
+.lead-form select:invalid{color:var(--ink-2)}
+.lead-form input:hover,.lead-form select:hover{border-color:var(--ink-2)}
+.lead-form input:focus-visible,.lead-form select:focus-visible{outline:2px solid var(--cta);outline-offset:1px;border-color:var(--cta)}
 .lead-form .f{display:grid;gap:4px}
 .lead-form .err{display:none;font-size:.8rem;color:var(--err)}
 .lead-form .f.bad .err{display:block}
-.lead-form .f.bad input{border-color:var(--err)}
+.lead-form .f.bad input,.lead-form .f.bad select{border-color:var(--err)}
 .lead-form .consent{display:flex;gap:8px;align-items:flex-start;font-size:.78rem;line-height:1.5;color:var(--ink-2);font-weight:400}
 .lead-form .consent input{margin-top:4px;accent-color:var(--cta)}
 .lead-form button{width:100%}
@@ -441,6 +443,7 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="f"><label for="h-name">Full name</label><input id="h-name" type="text" name="name" autocomplete="name" required><span class="err">Please enter your name.</span></div>
         <div class="f"><label for="h-phone">Mobile number</label><input id="h-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="10-digit mobile" required><span class="err">Please enter a valid mobile number.</span></div>
+        <div class="f"><label for="h-budget">Your budget</label><select id="h-budget" name="budget" required><option value="" selected disabled>Select your budget</option><option>Under ₹5 Cr</option><option>₹5 Cr to ₹8 Cr</option><option>₹8 Cr to ₹12 Cr</option><option>Above ₹12 Cr</option></select><span class="err">Please pick your budget.</span></div>
         <label class="consent"><input type="checkbox" checked required> I agree that PROPHUNT LLP may call, WhatsApp or email me about this project.</label>
         <button class="btn btn-cta" type="submit">Send Me the Price Sheet <svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </form>
@@ -692,6 +695,7 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="f"><label for="m-name">Full name</label><input id="m-name" type="text" name="name" autocomplete="name" required><span class="err">Please enter your name.</span></div>
       <div class="f"><label for="m-phone">Mobile number</label><input id="m-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="10-digit mobile" required><span class="err">Please enter a valid mobile number.</span></div>
+      <div class="f"><label for="m-budget">Your budget</label><select id="m-budget" name="budget" required><option value="" selected disabled>Select your budget</option><option>Under ₹5 Cr</option><option>₹5 Cr to ₹8 Cr</option><option>₹8 Cr to ₹12 Cr</option><option>Above ₹12 Cr</option></select><span class="err">Please pick your budget.</span></div>
       <label class="consent"><input type="checkbox" checked required> I agree that PROPHUNT LLP may call, WhatsApp or email me about this project.</label>
       <button class="btn btn-cta" type="submit">Send Me the Details</button>
     </form>
@@ -816,11 +820,14 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
 
   // Form checks before the native submit to Web3Forms (landing-lead.js copies the lead to the CRM).
   document.querySelectorAll('.lead-form').forEach(function (form) {
+    // Clear a field's error as soon as it is fixed.
+    form.addEventListener('input', function (e) { var f = e.target.closest('.f'); if (f) f.classList.remove('bad'); });
+    form.addEventListener('change', function (e) { var f = e.target.closest('.f'); if (f) f.classList.remove('bad'); });
     form.addEventListener('submit', function (e) {
       var ok = true;
-      var name = form.querySelector('[name="name"]'), phone = form.querySelector('[name="phone"]');
+      var name = form.querySelector('[name="name"]'), phone = form.querySelector('[name="phone"]'), budget = form.querySelector('[name="budget"]');
       var digits = phone.value.replace(/\D/g, '').replace(/^(91|0)(?=\d{10}$)/, '');
-      [[name, name.value.trim().length >= 2], [phone, /^[6-9]\d{9}$/.test(digits) || /^\d{8,15}$/.test(phone.value.replace(/\D/g, ''))]].forEach(function (c) {
+      [[budget, !!budget.value], [name, name.value.trim().length >= 2], [phone, /^[6-9]\d{9}$/.test(digits) || /^\d{8,15}$/.test(phone.value.replace(/\D/g, ''))]].forEach(function (c) {
         c[0].closest('.f').classList.toggle('bad', !c[1]);
         if (!c[1]) ok = false;
       });
