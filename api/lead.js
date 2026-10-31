@@ -15,6 +15,25 @@ function looksLikeSpam({ email, name, custom_fields }) {
   return random(name) || (custom_fields || []).some((f) => random(f.value));
 }
 
+// Same phone rules as js/lead-check.js: an Indian mobile is 10 digits starting
+// 6 to 9 (after an optional +91 / 91 / 0); anything else needs + and a country
+// code (8 to 15 digits). One repeated digit, two alternating digits or a
+// straight run (9876543210) is a made-up number.
+const RUNS = '01234567890123456789 98765432109876543210';
+const junkDigits = (d) => new Set(d).size <= 2 || RUNS.includes(d);
+function validPhone(raw) {
+  const s = String(raw || '').trim();
+  let d = s.replace(/\D/g, '');
+  const plus = /^\+/.test(s) || d.startsWith('00');
+  if (d.startsWith('00')) d = d.slice(2);
+  if (!plus || /^91\d{10}$/.test(d)) {
+    if (plus || (d.length === 12 && d.startsWith('91'))) d = d.slice(2);
+    else if (d.length === 11 && d[0] === '0') d = d.slice(1);
+    return /^[6-9]\d{9}$/.test(d) && !junkDigits(d);
+  }
+  return /^[1-9]\d{7,14}$/.test(d) && new Set(d.slice(-8)).size > 2;
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ ok: false, error: 'Method not allowed' });
 
@@ -40,6 +59,11 @@ module.exports = async (req, res) => {
   // The CRM shows `message` as the lead's requirements, so send only the
   // visitor's own words, not the whole "Label: value" form dump.
   const visitorMessage = freeText.join(' ').trim();
+
+  if (!validPhone(phone)) {
+    console.warn('[lead] dropped, invalid phone:', String(phone).replace(/\d(?=\d{3})/g, '*'));
+    return res.status(200).json({ ok: true });
+  }
 
   if (looksLikeSpam({ email, name, custom_fields })) {
     console.warn('[lead] dropped as spam:', String(email || '').slice(0, 40));

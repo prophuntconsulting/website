@@ -450,7 +450,7 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
     <div class="form-card" id="enquire">
       <h2>Get the Phase&nbsp;2 price sheet</h2>
       <p class="sub">Unit-wise prices, floor plans and the payment plan, sent to your WhatsApp.</p>
-      <form class="lead-form" action="https://api.web3forms.com/submit" method="post" novalidate>
+      <form class="lead-form" action="https://api.web3forms.com/submit" method="post" novalidate data-lead-check="own">
         <input type="hidden" name="access_key" value="acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9">
         <input type="hidden" name="subject" value="New lead - DLF The Westpark Phase 2 landing page">
         <input type="hidden" name="from_name" value="DLF Westpark Landing Page">
@@ -702,7 +702,7 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
     <button class="x" data-close aria-label="Close">&times;</button>
     <h2 id="mTitle">Get the Phase&nbsp;2 price sheet</h2>
     <p class="sub">Prices, floor plans and the payment plan, sent to your WhatsApp.</p>
-    <form class="lead-form" action="https://api.web3forms.com/submit" method="post" novalidate>
+    <form class="lead-form" action="https://api.web3forms.com/submit" method="post" novalidate data-lead-check="own">
       <input type="hidden" name="access_key" value="acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9">
       <input type="hidden" name="subject" value="New lead - DLF The Westpark Phase 2 landing page">
       <input type="hidden" name="from_name" value="DLF Westpark Landing Page">
@@ -842,19 +842,23 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
     form.addEventListener('input', function (e) { var f = e.target.closest('.f'); if (f) f.classList.remove('bad'); });
     form.addEventListener('change', function (e) { var f = e.target.closest('.f'); if (f) f.classList.remove('bad'); });
     form.addEventListener('submit', function (e) {
-      var ok = true;
+      var ok = true, chk = window.phLeadCheck;
       var name = form.querySelector('[name="name"]'), phone = form.querySelector('[name="phone"]'), budget = form.querySelector('[name="budget"]');
-      var digits = phone.value.replace(/\D/g, '').replace(/^(91|0)(?=\d{10}$)/, '');
-      [[budget, !!budget.value], [name, name.value.trim().length >= 2], [phone, /^[6-9]\d{9}$/.test(digits) || /^\d{8,15}$/.test(phone.value.replace(/\D/g, ''))]].forEach(function (c) {
-        c[0].closest('.f').classList.toggle('bad', !c[1]);
-        if (!c[1]) ok = false;
+      var n = chk ? chk.name(name.value) : { ok: name.value.trim().length >= 2, msg: 'Please enter your name.' };
+      var t = chk ? chk.phone(phone.value) : { ok: /^[6-9]\d{9}$/.test(phone.value.replace(/\D/g, '').slice(-10)), msg: 'Please enter a valid mobile number.' };
+      [[budget, { ok: !!budget.value, msg: 'Please pick your budget.' }], [name, n], [phone, t]].forEach(function (c) {
+        var f = c[0].closest('.f');
+        f.classList.toggle('bad', !c[1].ok);
+        if (!c[1].ok) { f.querySelector('.err').textContent = c[1].msg; ok = false; }
       });
-      if (!ok) { e.preventDefault(); e.stopImmediatePropagation(); return; }
+      if (!ok) { e.preventDefault(); e.stopImmediatePropagation(); (form.querySelector('.f.bad input') || form.querySelector('.f.bad .cs-trigger') || name).focus(); return; }
+      phone.value = t.value || phone.value;   // send one clean format, e.g. +919876543210
       var btn = form.querySelector('button[type=submit]'); btn.disabled = true; btn.textContent = 'Sending...';
     });
   });
 })();
 </script>
+<script src="/js/lead-check.js"></script>
 <script src="/js/custom-select.js" defer></script>
 <script src="/js/landing-lead.js" defer></script>
 </body>
