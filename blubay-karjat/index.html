@@ -194,6 +194,28 @@
 .js-rv .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.js-rv .rv{opacity:1;transform:none;transition:none}}
 .nudge-open .back-to-top,.nudge-open .wa-float{display:none!important}
+
+/* Hero: less white, more colour */
+.bb-badge{background:var(--red);border-color:var(--red);box-shadow:0 8px 20px rgba(200,54,43,.4)}
+.cmp-hero h1 em{font-style:normal;color:#F5B942}
+.bb-stats div{background:rgba(17,17,17,.55);border:1px solid rgba(245,185,66,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 12px 28px rgba(0,0,0,.35);transition:transform .25s ease,border-color .25s ease}
+.bb-stats div:hover{transform:translateY(-4px);border-color:#F5B942}
+.bb-stats b{color:#F5B942}
+.bb-stats span{color:rgba(255,255,255,.82)}
+.inf-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:1024px){.inf-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Cards: clear border all round, lift on hover/tap, stronger scroll reveal (phones too) */
+.inf-card,.cmp-card,.zone,.plot-card,.rera-box,.m3-facts,.loc-faq-item{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.inf-card{border:1.5px solid #D9CFC5!important;border-top:4px solid var(--red)!important;border-radius:16px;box-shadow:0 10px 26px rgba(17,17,17,.08)}
+.inf-card:hover,.inf-card:active{transform:translateY(-6px);border-color:var(--red)!important;box-shadow:0 22px 40px rgba(200,54,43,.16)}
+.cmp-card{border:1.5px solid #D9CFC5}
+.cmp-card:active{transform:translateY(-4px);box-shadow:0 22px 44px rgba(17,17,17,.14)}
+.zone{border:1.5px solid #D9CFC5;border-top:4px solid var(--red);box-shadow:0 10px 26px rgba(17,17,17,.07)}
+.zone:hover,.zone:active{transform:translateY(-5px);box-shadow:0 20px 38px rgba(17,17,17,.13)}
+.js-rv .rv{opacity:0;transform:translateY(42px) scale(.96);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js-rv .rv.in{opacity:1;transform:none}
+@media(max-width:760px){.inf-grid{grid-template-columns:minmax(0,1fr)!important}}
 </style>
 </head>
 <body>
@@ -245,9 +267,9 @@
     <div>
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><a href="/khopoli-plots">Plots near Khopoli</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">BluBay, Karjat</span></nav>
       <span class="bb-badge"><i class="fas fa-shield-alt" aria-hidden="true"></i> MahaRERA registered NA plots</span>
-      <h1>BluBay by ORA Land, Karjat</h1>
+      <h1>BluBay by ORA Land, <em>Karjat</em></h1>
       <p class="cmp-hero-lead">Villa plots of 1,500 to 3,500 sq ft on a 60-acre estate with its own 1.5-acre lagoon, 60 minutes from Mumbai via Atal Setu.</p>
-      <div class="bb-stats"><div><b>&#8377;74.99 L</b><span>onwards</span></div><div><b>1,500&ndash;3,500</b><span>sq ft villa plots</span></div><div><b>60 acres</b><span>325 plots</span></div><div><b>NA + 7/12</b><span>individual title</span></div></div>
+      <div class="bb-stats rv-hero"><div><b>&#8377;74.99 L</b><span>onwards</span></div><div><b>1,500&ndash;3,500</b><span>sq ft villa plots</span></div><div><b>60 acres</b><span>325 plots</span></div><div><b>NA + 7/12</b><span>individual title</span></div></div>
     </div>
     <div class="hero-form" id="top-form">
       <h2>Get the price sheet &amp; brochure</h2>
@@ -344,7 +366,7 @@
   <div class="container">
     <h2 class="section-title">Location and connectivity</h2>
     <p class="cmp-intro">BluBay sits on the Chowk to Karjat Phata stretch, near Karjat station. Atal Setu, the Navi Mumbai airport and the coming Panvel&ndash;Karjat rail corridor and Virar&ndash;Alibaug Multimodal Corridor bring it closer to Mumbai.</p>
-    <ul class="drive" aria-label="Travel times from BluBay"><li><b>3 min</b><span>Karjat station</span></li><li><b>10 min</b><span>ND Studios</span></li><li><b>40 min</b><span>Panvel</span></li><li><b>40 min</b><span>Navi Mumbai Airport</span></li><li><b>60 min</b><span>Mumbai via Atal Setu</span></li><li><b>90 min</b><span>Wakad, Pune</span></li></ul>
+    <ul class="drive" aria-label="Travel times from BluBay"><li class="rv"><b>3 min</b><span>Karjat station</span></li><li class="rv"><b>10 min</b><span>ND Studios</span></li><li class="rv"><b>40 min</b><span>Panvel</span></li><li class="rv"><b>40 min</b><span>Navi Mumbai Airport</span></li><li class="rv"><b>60 min</b><span>Mumbai via Atal Setu</span></li><li class="rv"><b>90 min</b><span>Wakad, Pune</span></li></ul>
     <div class="loc-row">
       <a class="btn btn-outline" href="https://maps.app.goo.gl/EJoupbnmUQZxySA76" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Open in Google Maps</a>
       <button type="button" class="btn btn-primary" data-enquire="Location - site visit">Book a site visit</button>
@@ -356,7 +378,7 @@
 <section class="section section--tinted">
   <div class="container">
     <h2 class="section-title">Registration</h2>
-    <div class="rera-box">
+    <div class="rera-box rv">
       <span class="rera-tag">MahaRERA</span>
       <div><b>PP1271012600752</b><p>BluBay &ndash; Phase 1, 177 plots, Haliwali, Karjat, Raigad 410201. Promoter: Opulent Real Asset Land Developers. Verify on maharera.maharashtra.gov.in.</p></div>
     </div>
@@ -368,14 +390,14 @@
   <div class="container">
     <h2 class="section-title">BluBay by ORA Land: FAQs</h2>
     <div class="loc-faq-list">
-      <details class="loc-faq-item"><summary>Where is BluBay by ORA Land?</summary><p>BluBay is at Haliwali, Karjat, Raigad 410201, on the Chowk to Karjat Phata stretch. ORA lists Karjat station about 3 minutes away, Panvel and Navi Mumbai International Airport about 40 minutes, and South Mumbai about 60 minutes via Atal Setu.</p></details>
-      <details class="loc-faq-item"><summary>What is the price of plots at BluBay?</summary><p>Villa plots at BluBay start from Rs 74.99 lakh. Plot-wise prices depend on size and position, so ask us for the current price sheet.</p></details>
-      <details class="loc-faq-item"><summary>What plot sizes are available at BluBay?</summary><p>BluBay has 325 NA villa plots of 1,500 to 3,500 sq ft across a 60-acre estate.</p></details>
-      <details class="loc-faq-item"><summary>Is BluBay RERA registered?</summary><p>Yes. BluBay - Phase 1 is registered with MahaRERA as PP1271012600752, covering 177 plots. You can check it on maharera.maharashtra.gov.in.</p></details>
-      <details class="loc-faq-item"><summary>Are the plots NA with individual 7/12?</summary><p>Yes. ORA states that every plot is NA converted and comes with its own 7/12 extract.</p></details>
-      <details class="loc-faq-item"><summary>What amenities does BluBay have?</summary><p>A 1.5-acre lagoon, a 4.2-acre Miyawaki forest and a 35,000 sq ft clubhouse, with more than 60 amenities across club, sports, lagoon and community zones.</p></details>
-      <details class="loc-faq-item"><summary>Can NRIs buy a plot at BluBay?</summary><p>Yes. NRIs and OCIs can buy residential NA plots in India. ORA also offers a virtual presentation for buyers outside Mumbai or India.</p></details>
-      <details class="loc-faq-item"><summary>Is there a fee for using PROPHUNT LLP?</summary><p>No. The developer pays our fee, so you pay the developer&rsquo;s price and nothing extra to us.</p></details>
+      <details class="loc-faq-item rv"><summary>Where is BluBay by ORA Land?</summary><p>BluBay is at Haliwali, Karjat, Raigad 410201, on the Chowk to Karjat Phata stretch. ORA lists Karjat station about 3 minutes away, Panvel and Navi Mumbai International Airport about 40 minutes, and South Mumbai about 60 minutes via Atal Setu.</p></details>
+      <details class="loc-faq-item rv"><summary>What is the price of plots at BluBay?</summary><p>Villa plots at BluBay start from Rs 74.99 lakh. Plot-wise prices depend on size and position, so ask us for the current price sheet.</p></details>
+      <details class="loc-faq-item rv"><summary>What plot sizes are available at BluBay?</summary><p>BluBay has 325 NA villa plots of 1,500 to 3,500 sq ft across a 60-acre estate.</p></details>
+      <details class="loc-faq-item rv"><summary>Is BluBay RERA registered?</summary><p>Yes. BluBay - Phase 1 is registered with MahaRERA as PP1271012600752, covering 177 plots. You can check it on maharera.maharashtra.gov.in.</p></details>
+      <details class="loc-faq-item rv"><summary>Are the plots NA with individual 7/12?</summary><p>Yes. ORA states that every plot is NA converted and comes with its own 7/12 extract.</p></details>
+      <details class="loc-faq-item rv"><summary>What amenities does BluBay have?</summary><p>A 1.5-acre lagoon, a 4.2-acre Miyawaki forest and a 35,000 sq ft clubhouse, with more than 60 amenities across club, sports, lagoon and community zones.</p></details>
+      <details class="loc-faq-item rv"><summary>Can NRIs buy a plot at BluBay?</summary><p>Yes. NRIs and OCIs can buy residential NA plots in India. ORA also offers a virtual presentation for buyers outside Mumbai or India.</p></details>
+      <details class="loc-faq-item rv"><summary>Is there a fee for using PROPHUNT LLP?</summary><p>No. The developer pays our fee, so you pay the developer&rsquo;s price and nothing extra to us.</p></details>
     </div>
   </div>
 </section>

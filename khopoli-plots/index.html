@@ -221,6 +221,18 @@
 .m3-facts dt{color:var(--gray-600)}
 .m3-facts dd{margin:0;font-weight:600}
 @media(max-width:860px){.m3{grid-template-columns:minmax(0,1fr)}}
+
+/* Cards: clear border all round, lift on hover/tap, stronger scroll reveal (phones too) */
+.inf-card,.cmp-card,.zone,.plot-card,.rera-box,.m3-facts,.loc-faq-item{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.inf-card{border:1.5px solid #D9CFC5!important;border-top:4px solid var(--red)!important;border-radius:16px;box-shadow:0 10px 26px rgba(17,17,17,.08)}
+.inf-card:hover,.inf-card:active{transform:translateY(-6px);border-color:var(--red)!important;box-shadow:0 22px 40px rgba(200,54,43,.16)}
+.cmp-card{border:1.5px solid #D9CFC5}
+.cmp-card:active{transform:translateY(-4px);box-shadow:0 22px 44px rgba(17,17,17,.14)}
+.zone{border:1.5px solid #D9CFC5;border-top:4px solid var(--red);box-shadow:0 10px 26px rgba(17,17,17,.07)}
+.zone:hover,.zone:active{transform:translateY(-5px);box-shadow:0 20px 38px rgba(17,17,17,.13)}
+.js-rv .rv{opacity:0;transform:translateY(42px) scale(.96);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js-rv .rv.in{opacity:1;transform:none}
+@media(max-width:760px){.inf-grid{grid-template-columns:minmax(0,1fr)!important}}
 </style>
 </head>
 <body>
@@ -318,7 +330,7 @@
       <article class="inf-card rv"><span class="inf-tag">Built</span><h3>IndoSpace logistics parks</h3><p>Two IndoSpace parks on the Khopoli&ndash;Pen Road (17 and 59 acres, about 14.7 lakh sq ft) bring warehousing jobs to Khalapur.</p></article>
       <article class="inf-card rv"><span class="inf-tag">Planned</span><h3>Virar&ndash;Alibaug Multimodal Corridor</h3><p>Land acquisition is under way; MSRDC says construction could start by March 2027. It is a longer-term catalyst.</p></article>
     </div>
-    <ul class="drive" aria-label="Drive times from NeoLiv Grand Forest"><li><b>2 min</b><span>Imagicaa</span></li><li><b>20 min</b><span>Lonavala</span></li><li><b>35 min</b><span>Panvel</span></li><li><b>45 min</b><span>Atal Setu, Chirle</span></li><li><b>60 min</b><span>Navi Mumbai Airport</span></li><li><b>60 min</b><span>Pune</span></li></ul>
+    <ul class="drive" aria-label="Drive times from NeoLiv Grand Forest"><li class="rv"><b>2 min</b><span>Imagicaa</span></li><li class="rv"><b>20 min</b><span>Lonavala</span></li><li class="rv"><b>35 min</b><span>Panvel</span></li><li class="rv"><b>45 min</b><span>Atal Setu, Chirle</span></li><li class="rv"><b>60 min</b><span>Navi Mumbai Airport</span></li><li class="rv"><b>60 min</b><span>Pune</span></li></ul>
     <p class="cmp-note">Drive times from NeoLiv Grand Forest, as published by NeoLiv. Infrastructure dates from MSRDC, MMRDA and published news reports.</p>
   </div>
 </section>
@@ -409,7 +421,7 @@
         <p>Khopoli is not one of those 124 villages. It sits further east in Khalapur taluka, where the Mumbai&ndash;Pune Expressway meets the ghat. What it shares with Mumbai 3.0 is the new road network: the Atal Setu connector runs through Chirle, about 45 minutes from Khopoli, and the Missing Link now shortens the drive to Pune.</p>
         <p>For a plot buyer, that means Khopoli is a plotted, low-density market next to a planned new city, rather than part of it.</p>
       </div>
-      <div class="m3-facts">
+      <div class="m3-facts rv">
         <dl>
           <dt>Official name</dt><dd>Karnala-Sai-Chirner (KSC) New Town</dd>
           <dt>Authority</dt><dd>MMRDA (notified October 2024)</dd>
@@ -472,13 +484,13 @@
   <div class="container">
     <h2 class="section-title">Plots in Khopoli: FAQs</h2>
     <div class="loc-faq-list">
-      <details class="loc-faq-item"><summary>Is Khopoli part of Mumbai 3.0?</summary><p>No. Mumbai 3.0, officially the Karnala-Sai-Chirner New Town, covers 124 villages in the Uran, Panvel and Pen talukas, with MMRDA as the planning authority. Khopoli is in Khalapur taluka, east of that area. It benefits from the same new roads, the Atal Setu connector via Chirle and the Missing Link, and developers list Atal Setu at Chirle about 45 minutes away.</p></details>
-      <details class="loc-faq-item"><summary>Which plotted projects are there near Khopoli?</summary><p>Shapoorji Pallonji Khopoli, a 900+ acre wellness-led plotted destination in pre-launch; BluBay by ORA Land, a 60-acre lagoon estate near Karjat station; NeoLiv Grand Forest, 43 acres near Imagicaa in Khalapur; and Kalpataru Aria on the Karjat-Khopoli Marg. Ask us for current availability and site visits for all four.</p></details>
-      <details class="loc-faq-item"><summary>What plot sizes are available in Khopoli?</summary><p>Shapoorji Pallonji's Khopoli plots start from 2,000 sq ft in a 900+ acre destination. BluBay by ORA Land has 325 plots of 1,500 to 3,500 sq ft on 60 acres. NeoLiv Grand Forest offers plots from 1,000 to 2,500 sq ft across 43 acres. Kalpataru Aria offers plots from 1,826 to 6,789 sq ft in an 88-acre gated township.</p></details>
-      <details class="loc-faq-item"><summary>What is the price of plots in Khopoli?</summary><p>Shapoorji Pallonji's Khopoli plots start from Rs 89 lakh in pre-launch, and Kalpataru Aria plots from Rs 96 lakh, as published by Kalpataru. NeoLiv Grand Forest plots start from Rs 70 lakh, and BluBay by ORA Land from Rs 74.99 lakh. Prices exclude stamp duty and registration, so compare the all-inclusive figure.</p></details>
-      <details class="loc-faq-item"><summary>Can NRIs buy NA plots in Khopoli?</summary><p>Yes. NRIs and OCIs can buy residential NA plots in India. They cannot buy agricultural land or farmhouses, so confirm the plot's NA order and the project's approvals first.</p></details>
-      <details class="loc-faq-item"><summary>How far is Khopoli from Mumbai and Pune?</summary><p>NeoLiv lists Pune and Navi Mumbai International Airport at about 60 minutes from its site, Panvel at 35 minutes and Lonavala at 20 minutes. Kalpataru describes Aria as about 90 minutes from Mumbai.</p></details>
-      <details class="loc-faq-item"><summary>Is there a fee for using PROPHUNT LLP?</summary><p>No. The developer pays our fee, so buyers pay the developer's price and nothing extra to us.</p></details>
+      <details class="loc-faq-item rv"><summary>Is Khopoli part of Mumbai 3.0?</summary><p>No. Mumbai 3.0, officially the Karnala-Sai-Chirner New Town, covers 124 villages in the Uran, Panvel and Pen talukas, with MMRDA as the planning authority. Khopoli is in Khalapur taluka, east of that area. It benefits from the same new roads, the Atal Setu connector via Chirle and the Missing Link, and developers list Atal Setu at Chirle about 45 minutes away.</p></details>
+      <details class="loc-faq-item rv"><summary>Which plotted projects are there near Khopoli?</summary><p>Shapoorji Pallonji Khopoli, a 900+ acre wellness-led plotted destination in pre-launch; BluBay by ORA Land, a 60-acre lagoon estate near Karjat station; NeoLiv Grand Forest, 43 acres near Imagicaa in Khalapur; and Kalpataru Aria on the Karjat-Khopoli Marg. Ask us for current availability and site visits for all four.</p></details>
+      <details class="loc-faq-item rv"><summary>What plot sizes are available in Khopoli?</summary><p>Shapoorji Pallonji's Khopoli plots start from 2,000 sq ft in a 900+ acre destination. BluBay by ORA Land has 325 plots of 1,500 to 3,500 sq ft on 60 acres. NeoLiv Grand Forest offers plots from 1,000 to 2,500 sq ft across 43 acres. Kalpataru Aria offers plots from 1,826 to 6,789 sq ft in an 88-acre gated township.</p></details>
+      <details class="loc-faq-item rv"><summary>What is the price of plots in Khopoli?</summary><p>Shapoorji Pallonji's Khopoli plots start from Rs 89 lakh in pre-launch, and Kalpataru Aria plots from Rs 96 lakh, as published by Kalpataru. NeoLiv Grand Forest plots start from Rs 70 lakh, and BluBay by ORA Land from Rs 74.99 lakh. Prices exclude stamp duty and registration, so compare the all-inclusive figure.</p></details>
+      <details class="loc-faq-item rv"><summary>Can NRIs buy NA plots in Khopoli?</summary><p>Yes. NRIs and OCIs can buy residential NA plots in India. They cannot buy agricultural land or farmhouses, so confirm the plot's NA order and the project's approvals first.</p></details>
+      <details class="loc-faq-item rv"><summary>How far is Khopoli from Mumbai and Pune?</summary><p>NeoLiv lists Pune and Navi Mumbai International Airport at about 60 minutes from its site, Panvel at 35 minutes and Lonavala at 20 minutes. Kalpataru describes Aria as about 90 minutes from Mumbai.</p></details>
+      <details class="loc-faq-item rv"><summary>Is there a fee for using PROPHUNT LLP?</summary><p>No. The developer pays our fee, so buyers pay the developer's price and nothing extra to us.</p></details>
     </div>
   </div>
 </section>
