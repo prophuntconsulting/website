@@ -61,7 +61,7 @@ const PROJECT_FACTS = {
   },
   // Group 3 (cityair.in, squareyards, reunionhq, housing, housiey, nobroker, 360realtors, developer sites)
   'anp-bizsquare': { registered: 'May 2024', promoter: 'Five Star Vighnesh Associates (AOP)', land: 'about 0.23 acres (944 sq m)', units: 'about 68', checked: '2026-10-28', source: SRC },
-  'ashokvillas': { units: '19 villas', checked: '2026-10-28', source: SRC },
+  'peninsula-ashok-villas-ravet': { units: '19 villas', checked: '2026-10-28', source: SRC },
   'kalpataru-blossoms': { possession: 'Mar 2029 (Towers 1 and 3)', checked: '2026-10-28', source: SRC },
   'kohinoor-westview-reserve': { possession: 'Dec 2028 (P52100048589 registration)', promoter: 'Goldway Realty', land: 'about 4.25 acres (17,214 sq m, P52100048589 registration)', units: 'about 782 (P52100048589 registration)', checked: '2026-10-28', source: SRC },
   'lodha-altero': { possession: 'Jun 2030', buildings: '3 towers', checked: '2026-10-28', source: SRC },

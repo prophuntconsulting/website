@@ -1,6 +1,46 @@
 {
   "redirects": [
     {
+      "source": "/projects/khopoli",
+      "destination": "/projects/shapoorji-pallonji-delphi-khopoli",
+      "permanent": true
+    },
+    {
+      "source": "/projects/khopoli/:path*",
+      "destination": "/projects/shapoorji-pallonji-delphi-khopoli/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/projects/treetopia",
+      "destination": "/projects/shapoorji-pallonji-treetopia-jadhavwadi",
+      "permanent": true
+    },
+    {
+      "source": "/projects/treetopia/:path*",
+      "destination": "/projects/shapoorji-pallonji-treetopia-jadhavwadi/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/projects/ashokvillas",
+      "destination": "/projects/peninsula-ashok-villas-ravet",
+      "permanent": true
+    },
+    {
+      "source": "/projects/ashokvillas/:path*",
+      "destination": "/projects/peninsula-ashok-villas-ravet/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/projects/mahindra-mahalunge",
+      "destination": "/projects/mahindra-rivenza-mahalunge",
+      "permanent": true
+    },
+    {
+      "source": "/projects/mahindra-mahalunge/:path*",
+      "destination": "/projects/mahindra-rivenza-mahalunge/:path*",
+      "permanent": true
+    },
+    {
       "source": "/new-projects-in-andheri-west/runwal-rare",
       "destination": "/new-projects-in-andheri-west",
       "permanent": true
@@ -42,22 +82,22 @@
     },
     {
       "source": "/treetopia-jadhavwadi",
-      "destination": "/projects/treetopia",
+      "destination": "/projects/shapoorji-pallonji-treetopia-jadhavwadi",
       "permanent": true
     },
     {
       "source": "/treetopia-jadhavwadi/",
-      "destination": "/projects/treetopia",
+      "destination": "/projects/shapoorji-pallonji-treetopia-jadhavwadi",
       "permanent": true
     },
     {
       "source": "/treetopia-jadhavwadi-plots",
-      "destination": "/projects/treetopia",
+      "destination": "/projects/shapoorji-pallonji-treetopia-jadhavwadi",
       "permanent": true
     },
     {
       "source": "/treetopia-jadhavwadi-plots/",
-      "destination": "/projects/treetopia",
+      "destination": "/projects/shapoorji-pallonji-treetopia-jadhavwadi",
       "permanent": true
     },
     {
@@ -92,12 +132,12 @@
     },
     {
       "source": "/treetopia-thank-you",
-      "destination": "/projects/treetopia",
+      "destination": "/projects/shapoorji-pallonji-treetopia-jadhavwadi",
       "permanent": true
     },
     {
       "source": "/treetopia-thank-you/",
-      "destination": "/projects/treetopia",
+      "destination": "/projects/shapoorji-pallonji-treetopia-jadhavwadi",
       "permanent": true
     }
   ],

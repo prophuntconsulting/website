@@ -15,7 +15,7 @@ const PROJECT_VIDEOS = {
     { id: '9GAjrYlKCq8', title: 'Kalpataru Blossoms: Luxurious Living in Pune, Manik Baug, Sinhagad Road', uploadDate: '2024-10-24T05:09:42-07:00',
       description: 'Video tour of Kalpataru Blossoms, 2 to 4.5 BHK homes by Kalpataru at Manik Baug, Sinhagad Road, Pune.' },
   ],
-  'khopoli': [
+  'shapoorji-pallonji-delphi-khopoli': [
     { id: '4rHIg9gLWIo', title: 'Premium Plots Near Khopoli | ~900-Acre Nature-Led Development by Shapoorji Pallonji', uploadDate: '2026-08-31T01:13:22-07:00',
       description: 'Overview of the Shapoorji Pallonji residential plots and private hamlets near Khopoli, Maharashtra.' },
   ],

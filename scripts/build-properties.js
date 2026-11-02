@@ -278,12 +278,14 @@ function shortConfig(p) {
 // branding), shown under the H1 as "Also known as". Real variants only.
 const ALSO_KNOWN_AS = {
   'kohinoor-satori-baner': ['Satori by Kohinoor'],
-  'mahindra-mahalunge': ['Mahindra Lifespaces Mahalunge'],
+  'mahindra-rivenza-mahalunge': ['Mahindra Mahalunge', 'Mahindra Lifespaces Mahalunge'],
+  'shapoorji-pallonji-delphi-khopoli': ['Shapoorji Pallonji Khopoli', 'Shapoorji Khopoli plots'],
+  'peninsula-ashok-villas-ravet': ['Ashok Villas by Peninsula Land', 'AshokVillas'],
   'city-avenue-wakad': ['City Avenue by Kolte Patil'],
   'eon-west-2': ['EON IT Park Wakad', 'Panchshil EON West'],
   'kolte-patil-qrious-life-republic': ['Life Republic Qrious'],
   'shapoorji-vanaha-verdant-bavdhan': ['Vanaha Bavdhan', 'Vanaha Verdant'],
-  'treetopia': ['SPRE Treetopia', 'Shapoorji Pallonji Jadhavwadi plots'],
+  'shapoorji-pallonji-treetopia-jadhavwadi': ['SPRE Treetopia', 'Shapoorji Treetopia', 'Shapoorji Pallonji Jadhavwadi plots'],
   'kohinoor-avantara': ['Avantara Wakad'],
   'lodha-bella-vita-nibm': ['Lodha NIBM'],
   'rohan-ekam-balewadi': ['Rohan Ekam Baner'],
@@ -385,7 +387,8 @@ function buildHeadBlock(p) {
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
           { '@type': 'ListItem', position: 2, name: 'Projects', item: `${SITE}/projects` },
-          { '@type': 'ListItem', position: 3, name: p.title || p.slug, item: url },
+          ...(CATEGORY_FOLDERS[p.category] ? [{ '@type': 'ListItem', position: 3, name: CATEGORY_LABELS[p.category], item: `${SITE}/projects/${CATEGORY_FOLDERS[p.category]}` }] : []),
+          { '@type': 'ListItem', position: CATEGORY_FOLDERS[p.category] ? 4 : 3, name: p.title || p.slug, item: url },
         ],
       },
       {
@@ -636,6 +639,23 @@ function buildPrerenderBlock(p, all) {
 
 const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.md')).sort();
 
+// A project slug must name the project, not a place or a listing page:
+// /projects/khopoli read as the Khopoli area page. Fail the build (the live
+// site stays as it is) when a slug equals an area, micro-market or category
+// folder, or is a single word; name it developer-project-area instead.
+const CATEGORY_FOLDERS = { apartment: 'apartments', villa: 'villas', plot: 'plots', commercial: 'commercial' };
+const CATEGORY_LABELS = { apartment: 'Apartments', villa: 'Villas', plot: 'Plots', commercial: 'Commercial' };
+{
+  const reserved = new Set([...Object.values(CATEGORY_FOLDERS), ...Object.keys(LOCALITY_CONTENT)]);
+  const locDir = path.join(__dirname, '..', 'location');
+  if (fs.existsSync(locDir)) fs.readdirSync(locDir).forEach(d => reserved.add(d.replace(/\.html$/, '')));
+  const bad = files.map(f => f.replace(/\.md$/, '')).filter(s => reserved.has(s) || !s.includes('-'));
+  if (bad.length) {
+    console.error(`build-properties: project slug(s) clash with an area or category, or are one word: ${bad.join(', ')}. Rename them in Sanity (developer-project-area) and add a redirect in vercel.json.`);
+    process.exit(1);
+  }
+}
+
 const properties = files.map(file => {
   const slug = file.replace(/\.md$/, '');
   const raw  = fs.readFileSync(path.join(postsDir, file), 'utf8');
@@ -741,6 +761,13 @@ if (fs.existsSync(templatePath)) {
       `const slug = '${p.slug}';`
     );
     html = html.replace(HEAD_MARKER, buildHeadBlock(p));
+    // Breadcrumb: Projects / <Category> / <Project>, in the HTML rather than filled in by script.
+    const folder = CATEGORY_FOLDERS[p.category];
+    html = html.replace(
+      '<span class="current" id="ph-crumb">Loading…</span>',
+      (folder ? `<a href="/projects/${folder}">${CATEGORY_LABELS[p.category]}</a>\n    <span class="sep">/</span>\n    ` : '')
+        + `<span class="current" id="ph-crumb">${escapeHtml(p.title || p.slug)}</span>`
+    );
     html = html.replace(LOADING_MARKER, buildPrerenderBlock(p, properties));
 
     fs.writeFileSync(path.join(outDir, 'index.html'), html);
