@@ -383,10 +383,13 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
   .loc iframe{min-height:280px}
   .lb{padding:56px 8px}
   .float-wa{display:none}
-  .mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:45;background:var(--ink);border-top:1px solid var(--on-dark-line)}
-  .mbar a,.mbar button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;color:var(--on-dark);text-decoration:none;font-weight:600;font-size:.92rem;background:transparent;border:0}
-  .mbar button{background:var(--cta)}
-  .mbar .wa{background:var(--wa)}
+  .mbar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--nav-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(0,0,0,.08)}
+  .mbar a,.mbar button{display:flex;align-items:center;justify-content:center;gap:8px;height:50px;border-radius:12px;font:inherit;font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;transition:transform .15s ease}
+  .mbar a:active,.mbar button:active{transform:scale(.97)}
+  .mbar button{flex:1;background:var(--cta);color:var(--on-dark);border:0;box-shadow:0 6px 16px var(--cta-glow)}
+  .mbar .call{width:112px;background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .mbar .ico{width:18px;height:18px}
+  body{padding-bottom:72px}
 }
 @media (max-width:360px){
   .nav-brand .ph{height:17px}
@@ -713,9 +716,8 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
 <a class="float-wa" href="https://wa.me/917447430431?text=Hi%2C%20I%27m%20interested%20in%20DLF%20The%20Westpark%20Phase%202%2C%20Andheri%20West.%20Please%20share%20the%20price%20sheet." target="_blank" rel="noopener" aria-label="WhatsApp PROPHUNT about The Westpark"><svg class="ico ico-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
 
 <nav class="mbar" aria-label="Quick contact">
-  <a href="tel:+917066880808">Call</a>
-  <button data-open="Mobile bar - Enquire">Get Price</button>
-  <a class="wa" href="https://wa.me/917447430431?text=Hi%2C%20I%27m%20interested%20in%20DLF%20The%20Westpark%20Phase%202%2C%20Andheri%20West.%20Please%20share%20the%20price%20sheet." target="_blank" rel="noopener">WhatsApp</a>
+  <button data-open="Mobile bar - Enquire">Get Price Sheet</button>
+  <a class="call" href="tel:+917066880808"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
 </nav>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
