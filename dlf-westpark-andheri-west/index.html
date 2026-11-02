@@ -183,6 +183,7 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
 .cs-option.cs-selected::after{content:'';width:6px;height:11px;border:solid var(--cta);border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px)}
 .lead-form .f.bad .cs-trigger{border-color:var(--err)}
 .lead-form .consent{display:flex;gap:8px;align-items:flex-start;font-size:.78rem;line-height:1.5;color:var(--ink-2);font-weight:400}
+.lead-form .opt{font-weight:400;opacity:.7}
 .lead-form .consent input{margin-top:4px;accent-color:var(--cta)}
 .lead-form button{width:100%}
 .form-alt{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-size:.84rem;color:var(--ink-2)}
@@ -443,7 +444,7 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
       <div class="hero-facts">
         <div><b>3, 4 &amp; 5 BHK</b><span>Towers 6 &amp; 7A</span></div>
         <div><b>1,365&ndash;2,957</b><span>sq ft, 2 homes per floor</span></div>
-        <div><b>&#8377;35 Lakh</b><span>Expression of interest</span></div>
+        <div><b>&#8377;6.83 Cr</b><span>Starting price</span></div>
       </div>
       <div class="hero-ctas">
         <button class="btn btn-cta pulse" data-open="Hero - Get price sheet">Get Price &amp; Plans <svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -465,7 +466,7 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="f"><label for="h-name">Full name</label><input id="h-name" type="text" name="name" autocomplete="name" required><span class="err">Please enter your name.</span></div>
         <div class="f"><label for="h-phone">Mobile number</label><input id="h-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="10-digit mobile" required><span class="err">Please enter a valid mobile number.</span></div>
-        <div class="f"><label for="h-budget">Your budget</label><select id="h-budget" name="budget" required><option value="" selected disabled>Select your budget</option><option>Under ₹5 Cr</option><option>₹5 Cr to ₹8 Cr</option><option>₹8 Cr to ₹12 Cr</option><option>Above ₹12 Cr</option></select><span class="err">Please pick your budget.</span></div>
+        <div class="f"><label for="h-budget">Your budget <span class="opt">(optional)</span></label><select id="h-budget" name="budget"><option value="" selected>Select your budget</option><option>Under ₹5 Cr</option><option>₹5 Cr to ₹8 Cr</option><option>₹8 Cr to ₹12 Cr</option><option>Above ₹12 Cr</option></select><span class="err">Please pick your budget.</span></div>
         <label class="consent"><input type="checkbox" checked required> I agree that PROPHUNT LLP may call, WhatsApp or email me about this project.</label>
         <button class="btn btn-cta" type="submit">Send Me the Price Sheet <svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </form>
@@ -532,7 +533,7 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
           <dt>Balcony &amp; dry yard</dt><dd>104 sq ft</dd>
           <dt>Total carpet area</dt><dd>1,365 sq ft</dd>
         </dl>
-        <div class="price"><b>On request</b><span>All-inclusive price sheet</span></div>
+        <div class="price"><b>From &#8377;6.83 Cr</b><span>Ask for the all-inclusive sheet</span></div>
         <button class="btn btn-cta" data-open="Residences - Tower 7A 3 BHK price">Get 3 BHK Price <svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </article>
       <article class="res-card rv">
@@ -736,7 +737,7 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="f"><label for="m-name">Full name</label><input id="m-name" type="text" name="name" autocomplete="name" required><span class="err">Please enter your name.</span></div>
       <div class="f"><label for="m-phone">Mobile number</label><input id="m-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="10-digit mobile" required><span class="err">Please enter a valid mobile number.</span></div>
-      <div class="f"><label for="m-budget">Your budget</label><select id="m-budget" name="budget" required><option value="" selected disabled>Select your budget</option><option>Under ₹5 Cr</option><option>₹5 Cr to ₹8 Cr</option><option>₹8 Cr to ₹12 Cr</option><option>Above ₹12 Cr</option></select><span class="err">Please pick your budget.</span></div>
+      <div class="f"><label for="m-budget">Your budget <span class="opt">(optional)</span></label><select id="m-budget" name="budget"><option value="" selected>Select your budget</option><option>Under ₹5 Cr</option><option>₹5 Cr to ₹8 Cr</option><option>₹8 Cr to ₹12 Cr</option><option>Above ₹12 Cr</option></select><span class="err">Please pick your budget.</span></div>
       <label class="consent"><input type="checkbox" checked required> I agree that PROPHUNT LLP may call, WhatsApp or email me about this project.</label>
       <button class="btn btn-cta" type="submit">Send Me the Details</button>
     </form>
@@ -869,7 +870,7 @@ html:not(.js) .hero-slides .s:not(:first-child){display:none}
       var name = form.querySelector('[name="name"]'), phone = form.querySelector('[name="phone"]'), budget = form.querySelector('[name="budget"]');
       var n = chk ? chk.name(name.value) : { ok: name.value.trim().length >= 2, msg: 'Please enter your name.' };
       var t = chk ? chk.phone(phone.value) : { ok: /^[6-9]\d{9}$/.test(phone.value.replace(/\D/g, '').slice(-10)), msg: 'Please enter a valid mobile number.' };
-      [[budget, { ok: !!budget.value, msg: 'Please pick your budget.' }], [name, n], [phone, t]].forEach(function (c) {
+      [[name, n], [phone, t]].forEach(function (c) {
         var f = c[0].closest('.f');
         f.classList.toggle('bad', !c[1].ok);
         if (!c[1].ok) { f.querySelector('.err').textContent = c[1].msg; ok = false; }
