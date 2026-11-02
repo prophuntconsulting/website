@@ -145,6 +145,8 @@
 
 .cmp-hero{background-image:url(/images/landing-pages/shapoorji-khopoli/khopoli-gallery-waterfall-sm.webp)}
 .hero-strip{grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+/* One shared set of rows (image, name, size, price, link) so every tile's lines sit level, whatever wraps */
+@supports (grid-template-rows:subgrid){.hero-strip{grid-template-rows:repeat(5,auto);row-gap:0}.hs-tile{display:grid;grid-row:span 5;grid-template-rows:subgrid;align-content:start}.hs-tile .hs-go{align-self:end}}
 .hs-tile{background:#fff;border:1px solid rgba(255,255,255,.9);color:var(--black);box-shadow:0 14px 34px rgba(0,0,0,.4);border-radius:14px;opacity:0;animation:hsIn .6s cubic-bezier(.2,.8,.2,1) forwards;transition:transform .25s ease,box-shadow .25s ease}
 .hs-tile:nth-child(2){animation-delay:.12s}.hs-tile:nth-child(3){animation-delay:.24s}
 @keyframes hsIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
