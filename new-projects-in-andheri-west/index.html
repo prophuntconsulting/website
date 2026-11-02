@@ -77,6 +77,27 @@
 .cmp-steps li{counter-increment:s;padding-left:2.5rem;position:relative;line-height:1.7;color:var(--gray-700)}
 .cmp-steps li::before{content:counter(s);position:absolute;left:0;top:0;width:1.75rem;height:1.75rem;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:.85rem;font-weight:700}
 .cmp-steps strong{color:var(--black)}
+.cmp-hero{position:relative;background:#111 url(/images/landing-pages/dlf-westpark/towers-sunset.webp) center/cover no-repeat}
+.cmp-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,17,.92) 0%,rgba(17,17,17,.75) 55%,rgba(17,17,17,.45) 100%)}
+.cmp-hero .page-hero-inner{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,400px);gap:2.5rem;align-items:center}
+.cmp-hero-points{list-style:none;padding:0;margin:1.25rem 0 0;display:grid;gap:.5rem;color:rgba(255,255,255,.85);font-size:.95rem}
+.cmp-hero-points li::before{content:'\2713';color:#fff;background:var(--red);border-radius:50%;display:inline-grid;place-items:center;width:1.3rem;height:1.3rem;font-size:.75rem;margin-right:.6rem}
+.hero-form{background:#fff;border-radius:var(--radius-lg);padding:1.5rem;box-shadow:0 20px 50px rgba(0,0,0,.35);color:var(--black)}
+.hero-form h2{font-size:1.25rem;margin-bottom:.25rem;color:var(--black)}
+.hero-form p.hf-sub{font-size:.88rem;color:var(--gray-600);margin-bottom:1rem}
+.hero-form .cmp-form{gap:.75rem}
+.hero-form .cmp-form input,.hero-form .cmp-form select{height:46px}
+@media(max-width:760px){.cmp-hero .breadcrumb{display:none}.cmp-hero h1{font-size:1.75rem;line-height:1.2}.cmp-hero.page-hero{padding-bottom:1.5rem}.hero-form{padding:1.1rem}.hero-form p.hf-sub{margin-bottom:.6rem}#top-form{scroll-margin-bottom:80px}}
+@media(max-width:900px){.cmp-hero .page-hero-inner{grid-template-columns:minmax(0,1fr);gap:1.25rem}.cmp-hero-points{display:none}.cmp-hero p.cmp-hero-lead{display:none}}
+.mbar{display:none}
+@media(max-width:760px){
+  .mbar{display:grid;grid-template-columns:1.4fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#111;box-shadow:0 -6px 20px rgba(0,0,0,.2)}
+  .mbar a,.mbar button{display:flex;align-items:center;justify-content:center;gap:.4rem;min-height:56px;color:#fff;font-weight:700;font-size:.92rem;border:0;background:transparent;text-decoration:none}
+  .mbar .mb-cta{background:var(--red)}
+  .mbar .mb-wa{background:#15803D}
+  body{padding-bottom:56px}
+  .wa-float,.back-to-top{display:none!important}
+}
 .cmp-form-wrap{max-width:560px;margin:0 auto;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:2rem}
 .cmp-form{display:grid;gap:1rem}
 .cmp-form label{display:grid;gap:.35rem;font-size:.9rem;font-weight:600;color:var(--gray-700)}
@@ -137,11 +158,37 @@
   </div>
 </div>
 
-<section class="page-hero">
+<section class="page-hero cmp-hero">
   <div class="container page-hero-inner">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">New projects in Andheri West</span></nav>
-    <h1>New Projects in Andheri West, Mumbai</h1>
-    <p>Three new launches compared on MahaRERA facts: carpet area, possession, price and developer.</p>
+    <div>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">New projects in Andheri West</span></nav>
+      <h1>New Projects in Andheri West, Mumbai</h1>
+      <p class="cmp-hero-lead">DLF The Westpark Phase 2, Kalpataru Vian and Viceroy Visava, compared on MahaRERA facts.</p>
+      <ul class="cmp-hero-points">
+        <li>Current price sheets from all three developers</li>
+        <li>Floor plans and payment plans on WhatsApp</li>
+        <li>Site visits arranged, no fee for buyers</li>
+      </ul>
+    </div>
+    <div class="hero-form" id="top-form">
+      <h2>Get all 3 price sheets</h2>
+      <p class="hf-sub">Prices, floor plans and payment plans, sent to your WhatsApp.</p>
+      <form class="cmp-form" action="https://api.web3forms.com/submit" method="post">
+        <input type="hidden" name="access_key" value="acfdfc58-e2e3-4c02-a9a0-a6e41ec51ee9">
+        <input type="hidden" name="subject" value="New lead - Andheri West new projects comparison">
+        <input type="hidden" name="from_name" value="Andheri West Comparison Page">
+        <input type="hidden" name="redirect" value="https://www.prophuntllp.com/thank-you-page-andheri-west/">
+        <input type="hidden" name="cta" value="Hero form">
+        <input type="hidden" name="ad_source" value="">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <label>Full name<input type="text" name="name" autocomplete="name" required></label>
+        <label>Mobile number<input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="10-digit mobile" required></label>
+        <label>Your budget<select name="budget" required><option value="" selected disabled>Select your budget</option><option>Under &#8377;5 Cr</option><option>&#8377;5 Cr to &#8377;8 Cr</option><option>&#8377;8 Cr to &#8377;12 Cr</option><option>Above &#8377;12 Cr</option></select></label>
+        <input type="hidden" name="project" value="All three (hero form)">
+        <label class="consent"><input type="checkbox" checked required> I agree that PROPHUNT LLP may call, WhatsApp or email me about these projects.</label>
+        <button type="submit" class="btn btn-primary">Send Me All 3 Price Sheets</button>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -311,6 +358,12 @@
 <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 <a href="https://wa.me/917447430431" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
+<nav class="mbar" aria-label="Quick contact">
+  <button type="button" class="mb-cta" data-top-form>Get Price Sheets</button>
+  <a class="mb-wa" href="https://wa.me/917447430431?text=Hi%2C%20please%20share%20price%20sheets%20for%20the%20new%20projects%20in%20Andheri%20West." target="_blank" rel="noopener">WhatsApp</a>
+  <a href="tel:+917066880808">Call</a>
+</nav>
+
 <script>
 (function () {
   // "Get price sheet" on a card picks that project in the form, then scrolls to it.
@@ -318,16 +371,23 @@
   document.querySelectorAll('[data-pick]').forEach(function (b) {
     b.addEventListener('click', function () {
       sel.value = b.dataset.pick;
-      document.querySelector('.cmp-form [name="cta"]').value = 'Card - ' + b.dataset.pick;
+      document.querySelector('#enquire .cmp-form [name="cta"]').value = 'Card - ' + b.dataset.pick;
       document.getElementById('enquire').scrollIntoView({ behavior: 'smooth' });
-      setTimeout(function () { document.querySelector('.cmp-form [name="name"]').focus({ preventScroll: true }); }, 500);
+      setTimeout(function () { document.querySelector('#enquire .cmp-form [name="name"]').focus({ preventScroll: true }); }, 500);
+    });
+  });
+  // Sticky bar: back to the form at the top.
+  document.querySelectorAll('[data-top-form]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.getElementById('top-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(function () { document.querySelector('#top-form [name="name"]').focus({ preventScroll: true }); }, 500);
     });
   });
   // Ad source (UTM tags and the ChatGPT click id) travels with the lead.
   var q = new URLSearchParams(location.search), keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'oppref'];
   var src = keys.filter(function (k) { return q.get(k); }).map(function (k) { return k + '=' + q.get(k); }).join('&');
   try { if (src) sessionStorage.setItem('cmp_src', src); src = sessionStorage.getItem('cmp_src') || src; } catch (e) {}
-  document.querySelector('.cmp-form [name="ad_source"]').value = src || (document.referrer ? 'referrer=' + document.referrer : 'direct');
+  document.querySelectorAll('.cmp-form [name="ad_source"]').forEach(function (i) { i.value = src || (document.referrer ? 'referrer=' + document.referrer : 'direct'); });
 })();
 </script>
 <script src="/js/nav.js"></script>
