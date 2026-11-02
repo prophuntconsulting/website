@@ -147,6 +147,13 @@
 .hero-strip{grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
 /* One shared set of rows (image, name, size, price, link) so every tile's lines sit level, whatever wraps */
 @supports (grid-template-rows:subgrid){.hero-strip{grid-template-rows:repeat(5,auto);row-gap:0}.hs-tile{display:grid;grid-row:span 5;grid-template-rows:subgrid;align-content:start}.hs-tile .hs-go{align-self:end}}
+/* Compact tiles: the page's 1.8 body line-height made every line tall */
+.hs-tile .hs-name,.hs-tile .hs-cfg,.hs-tile .hs-price,.hs-tile .hs-go{line-height:1.25}
+.hs-tile .hs-name{padding:.55rem .65rem 0}
+.hs-tile .hs-cfg{padding:.15rem .65rem 0}
+.hs-tile .hs-price{padding:.35rem .65rem 0}
+.hs-tile .hs-go{padding:.45rem .65rem .6rem}
+@media(max-width:760px){.hs-tile .hs-name,.hs-tile .hs-cfg,.hs-tile .hs-price,.hs-tile .hs-go{line-height:1.15}.hs-tile .hs-name{padding:.4rem .5rem 0;font-size:.78rem}.hs-tile .hs-cfg{padding:.1rem .5rem 0;font-size:.66rem}.hs-tile .hs-price{padding:.15rem .5rem 0;font-size:.82rem}.hs-tile .hs-go{padding:.25rem .5rem .45rem;font-size:.68rem}}
 .hs-tile{background:#fff;border:1px solid rgba(255,255,255,.9);color:var(--black);box-shadow:0 14px 34px rgba(0,0,0,.4);border-radius:14px;opacity:0;animation:hsIn .6s cubic-bezier(.2,.8,.2,1) forwards;transition:transform .25s ease,box-shadow .25s ease}
 .hs-tile:nth-child(2){animation-delay:.12s}.hs-tile:nth-child(3){animation-delay:.24s}
 @keyframes hsIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
