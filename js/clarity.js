@@ -19,4 +19,20 @@
   });
   try { sessionStorage.setItem('ph_utm', JSON.stringify(saved)); } catch (e) { /* storage blocked */ }
   if (/thank-you/.test(window.location.pathname)) window.clarity('event', 'lead_submitted');
+
+  // Approximate city, region and PIN code (from /api/geo, once per visit), because the ad
+  // platforms report location only by country. Filter on them under Custom tags.
+  var tagGeo = function (g) {
+    [['city', g.city], ['region', g.region], ['pin_code', g.postal]].forEach(function (p) { if (p[1]) window.clarity('set', p[0], p[1]); });
+  };
+  var geo = null;
+  try { geo = JSON.parse(sessionStorage.getItem('ph_geo') || 'null'); } catch (e) { /* storage blocked */ }
+  if (geo) tagGeo(geo);
+  else if (window.fetch) {
+    fetch('/api/geo').then(function (r) { return r.ok ? r.json() : null; }).then(function (g) {
+      if (!g) return;
+      tagGeo(g);
+      try { sessionStorage.setItem('ph_geo', JSON.stringify(g)); } catch (e) { /* storage blocked */ }
+    }).catch(function () {});
+  }
 })();

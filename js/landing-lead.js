@@ -23,7 +23,18 @@
 
       // CRM copy: one "Label: value" per line, so the CRM files each as its own field.
       var project = val('project');
+      // Pages with the OpenAI pixel: /api/lead also sends this lead to ChatGPT ads from the
+      // server. The thank-you page's pixel reuses the same event id, so it is counted once.
+      var oaiq;
+      if (window.oaiq) {
+        var get = function (k) { try { return sessionStorage.getItem(k) || ''; } catch (err) { return ''; } };
+        var leadId = 'lead_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+        try { sessionStorage.setItem('oaiq_lead_id', leadId); } catch (err) { /* storage blocked */ }
+        var ob = document.cookie.match(/(?:^|;\s*)__obref=([^;]+)/);
+        oaiq = { event_id: leadId, oppref: new URLSearchParams(location.search).get('oppref') || get('oaiq_oppref'), obref: ob ? decodeURIComponent(ob[1]) : '' };
+      }
       var payload = JSON.stringify({
+        oaiq: oaiq,
         name: name, phone: phone, email: val('email'),
         message: [project && 'Project: ' + project, val('budget') && 'Budget: ' + val('budget'),
                   val('cta') && 'Enquiry from: ' + val('cta'), val('ad_source') && 'Ad source: ' + val('ad_source')].filter(Boolean).join('\n'),

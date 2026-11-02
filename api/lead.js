@@ -1,3 +1,6 @@
+const crypto = require('crypto');
+const { geo } = require('./geo');
+
 // Bots have been filling every form here (3 Oct onwards: random-letter names,
 // a different dotted Gmail address per burst, gibberish in every field). Real
 // visitors never look like either of these, so such a submission is dropped:
@@ -34,10 +37,61 @@ function validPhone(raw) {
   return /^[1-9]\d{7,14}$/.test(d) && new Set(d.slice(-8)).size > 2;
 }
 
+// Digits with the country code and no "+", as OpenAI's Conversions API hashes phones
+// (an Indian 10-digit mobile becomes 91XXXXXXXXXX).
+function phoneDigits(raw) {
+  let d = String(raw || '').replace(/\D/g, '');
+  if (d.startsWith('00')) d = d.slice(2);
+  if (d.length === 11 && d[0] === '0') d = d.slice(1);
+  if (d.length === 10 && /^[6-9]/.test(d)) d = '91' + d;
+  return d.replace(/^0+/, '');
+}
+const sha256 = (v) => crypto.createHash('sha256').update(v, 'utf8').digest('hex');
+
+// Server copy of the lead for ChatGPT ads (OpenAI Conversions API). The browser sends
+// `oaiq` only from pages that carry the OpenAI pixel; its event_id is the same one the
+// thank-you page's pixel uses, so OpenAI counts the lead once. Skipped until
+// OPENAI_ADS_CONVERSION_KEY and OPENAI_ADS_PIXEL_ID are set in Vercel.
+async function sendOpenAILead(req, { phone, email, page_url, oaiq }, where) {
+  const key = process.env.OPENAI_ADS_CONVERSION_KEY, pixel = process.env.OPENAI_ADS_PIXEL_ID;
+  if (!oaiq || !oaiq.event_id || !key || !pixel) return;
+  const user = { phone_numbers_sha256: [sha256(phoneDigits(phone))] };
+  const mail = String(email || '').trim().toLowerCase();
+  if (/^\S+@\S+\.\S+$/.test(mail)) user.emails_sha256 = [sha256(mail)];
+  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  if (ip) user.ip_address = ip;
+  if (req.headers['user-agent']) user.user_agent = String(req.headers['user-agent']);
+  if (where.city) user.cities = [where.city];
+  if (where.region) user.regions = [where.region];
+  if (where.postal) user.postal_codes = [where.postal];
+  if (where.country) user.countries = [where.country];
+  if (oaiq.obref) user.obref = String(oaiq.obref);
+  const event = {
+    id: String(oaiq.event_id).slice(0, 100),
+    type: 'lead_created',
+    timestamp_ms: Date.now(),
+    action_source: 'web',
+    source_url: page_url || '',
+    data: { type: 'customer_action' },
+    user,
+  };
+  if (oaiq.oppref) event.oppref = String(oaiq.oppref);
+  try {
+    const r = await fetch(`https://bzr.openai.com/v1/events?pid=${encodeURIComponent(pixel)}`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ events: [event] }),
+    });
+    if (!r.ok) console.error('[lead] OpenAI conversion rejected:', r.status, (await r.text()).slice(0, 300));
+  } catch (e) {
+    console.error('[lead] OpenAI conversion request threw:', e.message);
+  }
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ ok: false, error: 'Method not allowed' });
 
-  const { name, phone, email, message, form_name, page_url } = req.body || {};
+  const { name, phone, email, message, form_name, page_url, oaiq } = req.body || {};
   if (!String(name || '').trim() || !String(phone || '').trim()) {
     return res.status(400).json({ ok: false, error: 'name and phone are required' });
   }
@@ -56,6 +110,11 @@ module.exports = async (req, res) => {
     if (SKIP.test(label) || /^not (provided|specified)$/i.test(value)) continue;
     custom_fields.push({ fieldKey: label, label, value });
   }
+  // Approximate location from the visitor's IP (Vercel), as its own CRM fields.
+  const where = geo(req);
+  [['City', where.city], ['Region', where.region], ['PIN code', where.postal], ['Country', where.country]]
+    .forEach(([label, value]) => { if (value) custom_fields.push({ fieldKey: label, label, value }); });
+
   // The CRM shows `message` as the lead's requirements, so send only the
   // visitor's own words, not the whole "Label: value" form dump.
   const visitorMessage = freeText.join(' ').trim();
@@ -74,7 +133,10 @@ module.exports = async (req, res) => {
   // (Web3Forms emails the same lead), so a failure never blocks the visitor.
   // Return a real error status though, so failures show up in Vercel's logs
   // and request metrics instead of hiding behind a 200.
+  const openAILead = sendOpenAILead(req, { phone, email, page_url, oaiq }, where);
+
   if (!process.env.ARTHALEADS_TOKEN) {
+    await openAILead;
     console.error('[lead] ARTHALEADS_TOKEN is not set in this environment');
     return res.status(500).json({ ok: false, error: 'CRM not configured' });
   }
@@ -97,12 +159,16 @@ module.exports = async (req, res) => {
     });
     if (!crmRes.ok) {
       console.error('[lead] ArthaLeads rejected the lead:', crmRes.status, await crmRes.text());
+      await openAILead;
       return res.status(502).json({ ok: false, error: 'CRM rejected the lead' });
     }
   } catch (e) {
     console.error('[lead] ArthaLeads request threw:', e.message);
+    await openAILead;
     return res.status(502).json({ ok: false, error: 'CRM unreachable' });
   }
 
+  // Vercel may stop the function once it responds, so finish the OpenAI copy first.
+  await openAILead;
   res.status(200).json({ ok: true });
 };
