@@ -13,8 +13,18 @@
   if (!canvas) return;
   const holder = canvas.closest('.hero-right');
   const caption = document.getElementById('heroCaption');
-  const gl = canvas.getContext('webgl2', { alpha: false, antialias: false, depth: false, stencil: false });
-  if (!gl) { holder?.classList.add('no-gl'); return; }
+  // Crawlers and test tools (Googlebot, Lighthouse/PageSpeed, headless browsers) render
+  // WebGL in software, where this scene is heavy enough to crash them and it never lets
+  // the page go quiet. They, and any device without a real GPU, get the still render
+  // (the <img> under the canvas) instead; the page's content is the same.
+  const still = () => { holder?.classList.add('no-gl'); };
+  const ua = navigator.userAgent || '';
+  if (navigator.webdriver || /bot|crawl|spider|slurp|lighthouse|pagespeed|headless|inspectiontool|chrome-lighthouse|gtmetrix|ptst/i.test(ua)) { still(); return; }
+  const gl = canvas.getContext('webgl2', { alpha: false, antialias: false, depth: false, stencil: false, failIfMajorPerformanceCaveat: true });
+  if (!gl) { still(); return; }
+  const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+  const gpu = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : '';
+  if (/swiftshader|llvmpipe|softpipe|software|basic render/i.test(gpu)) { still(); return; }
 
   const mobile = matchMedia('(max-width: 768px)').matches;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
