@@ -312,6 +312,6 @@
 
 /* Pre-filled WhatsApp messages on every page (js/wa-message.js). */
 (function () {
-  if (window.__phWaMessage || document.querySelector('script[src$="/js/wa-message.js"]')) return;
+  if (window.__phWaMessage || document.querySelector('script[src*="/js/wa-message.js"]')) return;
   var s = document.createElement('script'); s.src = '/js/wa-message.js'; s.defer = true; document.head.appendChild(s);
 })();
