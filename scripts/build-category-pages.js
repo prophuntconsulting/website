@@ -8,6 +8,9 @@
 
 const fs = require('fs');
 const { FOOTER_HTML } = require('./site-footer');
+// The same header as every other generated page (dropdown, hamburger), with Projects marked current.
+const CATEGORY_NAV = require('./hub-shared').NAV_HTML.trim()
+  .replace('<a href="/projects" class="nav-link">', '<a href="/projects" class="nav-link active" aria-current="page">');
 const { INDEX_GUIDES, renderGuide } = require('./area-guides');
 const path = require('path');
 
@@ -231,29 +234,7 @@ function buildPage(category, matches) {
 </style>
 </head>
 <body>
-<nav class="navbar" id="navbar">
-  <div class="nav-container">
-    <a href="/" class="nav-logo"><img src="/images/logo-black.png" alt="PROPHUNT LLP"></a>
-    <div class="nav-menu">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/projects" class="nav-link active">Projects</a>
-      <a href="/services" class="nav-link">Services</a>
-      <a href="/about" class="nav-link">About</a>
-      <a href="/blog" class="nav-link">Blog</a>
-      <a href="/contact" class="nav-link">Contact</a>
-    </div>
-    <a href="/contact" class="btn btn-primary nav-cta">Book a Site Visit</a>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-overlay" id="mobileOverlay"></div>
-  <div class="mobile-menu-panel">
-    <div class="mobile-menu-header"><img src="/images/logo-black.png" alt="PROPHUNT LLP"><button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button></div>
-    <div class="mobile-menu-links"><a href="/" class="mobile-nav-link">Home</a><a href="/projects" class="mobile-nav-link active">Projects</a><a href="/services" class="mobile-nav-link">Services</a><a href="/about" class="mobile-nav-link">About</a><a href="/blog" class="mobile-nav-link">Blog</a><a href="/contact" class="mobile-nav-link">Contact</a></div>
-    <div class="mobile-menu-footer"><a href="/contact" class="btn btn-primary">Enquire Now</a><a href="tel:+917066880808" class="btn btn-ghost">Call Us</a></div>
-  </div>
-</div>
+${CATEGORY_NAV}
 
 <section class="page-hero">
   <div class="container page-hero-inner">
