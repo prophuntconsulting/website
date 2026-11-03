@@ -153,6 +153,9 @@
             </div>
           </nav>`;
         document.body.appendChild(root);
+        // The menu's WhatsApp link takes the page's pre-filled message from a link the build already filled.
+        const waFilled = document.querySelector('a[href*="wa.me/917447430431?text="]');
+        if (waFilled) root.querySelectorAll('a[href="https://wa.me/917447430431"]').forEach(a => { a.href = waFilled.href; });
         document.documentElement.classList.add('has-cnav');
 
         const panel = root.querySelector('.cnav-panel');
