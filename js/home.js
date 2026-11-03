@@ -24,62 +24,6 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObs.observe(el));
 
-    /* ── HERO SCROLL FRAME SEQUENCE — Video scrub ── */
-    const video       = document.getElementById('heroFrame');
-    const heroWrapper = document.getElementById('heroWrapper');
-    const heroScroll  = document.getElementById('heroScroll');
-    const loader      = document.getElementById('heroLoader');
-
-    if (video && heroWrapper) {
-        let raf = null;
-        let lastSeekTime = 0;
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
-        const THROTTLE = isMobile ? 40 : 0; // ~25fps cap on mobile
-
-        video.addEventListener('canplay', () => {
-            if (loader) { loader.style.opacity = '0'; setTimeout(() => { loader.style.display = 'none'; }, 400); }
-        }, { once: true });
-
-        function onScroll() {
-            const into     = Math.max(0, window.scrollY - heroWrapper.offsetTop);
-            const scrollH  = heroWrapper.offsetHeight - window.innerHeight;
-            const progress = scrollH > 0 ? Math.min(into / scrollH, 1) : 0;
-
-            if (heroScroll) heroScroll.style.opacity = into > 60 ? '0' : '1';
-
-            if (raf) cancelAnimationFrame(raf);
-            raf = requestAnimationFrame(() => {
-                if (video.readyState < 1) return;
-                const now = performance.now();
-                if (now - lastSeekTime < THROTTLE) return;
-                if (video.seeking) return;
-                lastSeekTime = now;
-                video.currentTime = Math.min(progress * video.duration, video.duration - 0.05);
-            });
-        }
-
-        window.addEventListener('scroll', onScroll, { passive: true });
-        video.addEventListener('loadedmetadata', () => { video.currentTime = 0; });
-
-        // Attach the source only after the page has loaded, so a multi-MB video
-        // can't starve the critical CSS/font/image requests on slow connections.
-        // Data-saver and 2G visitors keep the poster frame and skip the download.
-        const conn = navigator.connection || {};
-        const skipVideo = conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '');
-        const attachVideo = () => {
-            if (skipVideo || video.getAttribute('src')) return;
-            video.src = (isMobile && video.dataset.srcMobile) || video.dataset.src;
-            video.preload = 'auto';
-            video.load();
-        };
-        if (skipVideo && loader) loader.style.display = 'none';
-        // Wait for load, then a further beat, so the multi-hundred-KB video never
-        // competes with first paint / LCP (the poster frame covers the gap).
-        const attachLater = () => setTimeout(attachVideo, 2000);
-        if (document.readyState === 'complete') attachLater();
-        else window.addEventListener('load', attachLater, { once: true });
-    }
-
     /* ── FEATURED PROJECTS GRID (loads from /properties/posts.json) ── */
     const grid      = document.getElementById('featuredGrid');
     const filtBtns  = document.querySelectorAll('.filt-btn');
