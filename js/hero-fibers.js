@@ -33,9 +33,10 @@
   // image (0..1 from left, 0..1 from bottom) to keep in view.
   const SLIDES = [
     { slug: 'nyati-emerald', name: 'Nyati Emerald', place: 'Baner', focus: [0.6, 0.5], phone: [0.75, 0.5] },
-    { slug: 'joyville-sensorium-hinjewadi', name: 'Joyville Sensorium', place: 'Hinjewadi', focus: [0.8, 0.55], phone: [0.82, 0.55] },
-    { slug: 'kohinoor-abhimaan-shirgaon', name: 'Kohinoor Abhimaan Homes', place: 'Talegaon', focus: [0.5, 0.55], phone: [0.45, 0.55] },
-    { slug: 'rohan-harita-tathawade', name: 'Rohan Harita', place: 'Tathawade', focus: [0.32, 0.55], phone: [0.25, 0.55] }
+    { slug: 'lodha-massimo', name: 'Lodha Massimo', place: 'Baner Hills', focus: [0.55, 0.5], phone: [0.48, 0.55] },
+    { slug: 'lodha-altero', name: 'Lodha Altero', place: 'Wakad', focus: [0.4, 0.6], phone: [0.27, 0.6] },
+    { slug: 'kohinoor-regalia-towers', name: 'Kohinoor Regalia Towers', place: 'Wakad', focus: [0.42, 0.5], phone: [0.52, 0.5] },
+    { slug: 'majestique-elements', name: 'Majestique Elements', place: 'Baner', focus: [0.5, 0.5], phone: [0.45, 0.5] }
   ];
 
   const CAMERA = 7.5, FOV = 0.56, DEPTH = 0.75;
@@ -674,13 +675,17 @@ void main() {
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) wake(); }).observe(canvas);
   document.addEventListener('visibilitychange', wake);
 
-  next().then(() => {
-    // Start on the finished render, the same image as the still under the canvas,
-    // so the switch is invisible. After a short beat that render breaks into fibers
-    // and re-forms itself: the motion starts at once, without waiting for the second
-    // render to download (it arrives on the next change). Reduced motion: just the render.
-    if (reduce) state.t = CHANGE;
-    else { state.from = state.to; state.t = -FIRST_HOLD; }
+  // The first depth map is preloaded by the page and the first photo is the still
+  // already on screen, so fetch the next project now: the first dissolve then
+  // doesn't wait for a second download after the animation is up.
+  const first = next();
+  if (!reduce) load(SLIDES[1 % SLIDES.length]).catch(() => {});
+  first.then(() => {
+    // Start on the finished render, the same image as the still under the canvas, so
+    // the switch is invisible, and dissolve straight into the next project, fetched
+    // above, so this normally happens at once; if it is still on its
+    // way, the render holds until it arrives. Reduced motion: just the render.
+    state.t = reduce ? CHANGE : CHANGE + HOLD - FIRST_HOLD;
     holder?.classList.add('is-live');
     wake();
   }).catch(() => holder?.classList.add('no-gl'));
