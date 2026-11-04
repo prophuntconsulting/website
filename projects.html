@@ -443,6 +443,27 @@
 .proj-empty p { font-size:.875rem; color:var(--gray-400); }
 @media(max-width:1024px){ .proj-grid{grid-template-columns:repeat(2,1fr);} }
 @media(max-width:600px){ .proj-grid{grid-template-columns:1fr;} .proj-search{min-width:0;} }
+/* Pagination: 12 cards a page. Before the script runs only the first 12 show. */
+.proj-grid:not(.is-paged) > .prop-card:nth-child(n+13) { display:none; }
+.proj-grid > .prop-card[hidden] { display:none; }
+.proj-pager { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:.6rem; margin-top:3rem; }
+.proj-pager[hidden] { display:none; }
+.proj-pager button { font:600 .95rem/1 'Rubik',sans-serif; color:var(--black); background:#fff; border:1.5px solid var(--gray-200); cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center; gap:.45rem; transition:border-color .2s, color .2s, background .2s, transform .15s; }
+.proj-pager button:hover { border-color:var(--red); color:var(--red); }
+.proj-pager button:active { transform:translateY(1px); }
+.proj-pager button:focus-visible { outline:2px solid var(--red); outline-offset:2px; }
+.pg-num { width:46px; height:46px; border-radius:50%; }
+.pg-num.is-current, .pg-num.is-current:hover { background:var(--red); border-color:var(--red); color:#fff; cursor:default; box-shadow:0 6px 18px rgba(200,50,40,.28); }
+.pg-step { height:46px; padding:0 1.2rem; border-radius:999px; }
+.pg-step svg { width:16px; height:16px; }
+.pg-gap { color:var(--gray-400); font-weight:600; padding:0 .15rem; }
+@media(max-width:480px){
+  .proj-pager { gap:.4rem; margin-top:2.25rem; }
+  .pg-num { width:40px; height:40px; font-size:.88rem; }
+  .pg-step { width:40px; height:40px; padding:0; }
+  .pg-step span { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+}
 </style>
 </head>
 <body>
@@ -1699,6 +1720,8 @@
       <h3>No projects found</h3>
       <p>Try adjusting your filters or <button class="btn-clear" style="display:inline;color:var(--red);background:none;border:none;cursor:pointer;font-weight:600;" onclick="document.getElementById('clearFilters').click()">clear all filters</button></p>
     </div>
+
+    <nav class="proj-pager" id="projPager" aria-label="Project pages" hidden></nav>
   </div>
 </section>
 

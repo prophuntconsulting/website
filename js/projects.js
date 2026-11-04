@@ -23,6 +23,14 @@
     const clearBtn    = document.getElementById('clearFilters');
     const searchBtn   = document.getElementById('projFinderBtn');
     const emptyState  = document.getElementById('projEmpty');
+    const pager       = document.getElementById('projPager');
+
+    // 12 cards a page: four full rows of three on desktop, six of two on tablets.
+    // Every card stays in the page (the rest are hidden), so all project links
+    // remain crawlable; the page number lives in ?page= so Back and shared links work.
+    const PER_PAGE = 12;
+    let page = 1;
+    let shown = [];
 
     let ALL_PROJECTS  = [];
     let activeType    = 'all';
@@ -133,7 +141,69 @@
         return list;
     }
 
-    function applyFilters() {
+    const pageCount = () => Math.max(1, Math.ceil(shown.length / PER_PAGE));
+
+    // Page numbers to offer: always the first and last, and the current one with its neighbours.
+    function pageList(total) {
+        const want = new Set([1, total, page - 1, page, page + 1].filter(n => n >= 1 && n <= total));
+        const out = [];
+        [...want].sort((a, b) => a - b).forEach((n, i, arr) => {
+            if (i && n - arr[i - 1] > 1) out.push(n - arr[i - 1] === 2 ? n - 1 : '…');
+            out.push(n);
+        });
+        return out;
+    }
+
+    function renderPager() {
+        if (!pager) return;
+        const total = pageCount();
+        pager.hidden = total < 2;
+        if (total < 2) { pager.innerHTML = ''; return; }
+        const arrowL = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3m4-4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        const arrowR = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        pager.innerHTML =
+            (page > 1 ? `<button type="button" class="pg-step" data-page="${page - 1}" aria-label="Previous page">${arrowL}<span>Previous</span></button>` : '') +
+            pageList(total).map(n => n === '…'
+                ? '<span class="pg-gap" aria-hidden="true">…</span>'
+                : `<button type="button" class="pg-num${n === page ? ' is-current' : ''}" data-page="${n}"${n === page ? ' aria-current="page"' : ''} aria-label="Page ${n}">${n}</button>`).join('') +
+            (page < total ? `<button type="button" class="pg-step" data-page="${page + 1}" aria-label="Next page"><span>Next</span>${arrowR}</button>` : '');
+    }
+
+    function showPage(scroll) {
+        page = Math.min(Math.max(1, page), pageCount());
+        const from = (page - 1) * PER_PAGE;
+        shown.forEach((card, i) => { card.hidden = i < from || i >= from + PER_PAGE; });
+        grid?.classList.add('is-paged');
+        renderPager();
+        const url = new URL(window.location.href);
+        if (page > 1) url.searchParams.set('page', page); else url.searchParams.delete('page');
+        if (url.href !== window.location.href) history.replaceState(history.state, '', url);
+        if (scroll && grid) {
+            const nav = document.getElementById('navbar');
+            const top = grid.getBoundingClientRect().top + window.scrollY - (nav ? nav.offsetHeight : 0) - 24;
+            window.scrollTo({ top, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        }
+    }
+
+    function goTo(n) {
+        if (n === page) return;
+        page = n;
+        const url = new URL(window.location.href);
+        if (page > 1) url.searchParams.set('page', page); else url.searchParams.delete('page');
+        history.pushState({ page }, '', url);
+        showPage(true);
+    }
+
+    pager?.addEventListener('click', e => {
+        const b = e.target.closest('button[data-page]');
+        if (b) goTo(+b.dataset.page);
+    });
+    window.addEventListener('popstate', () => {
+        page = +new URLSearchParams(window.location.search).get('page') || 1;
+        showPage(true);
+    });
+
+    function applyFilters(keepPage) {
         const search   = activeSearch.toLowerCase();
         const filtered = ALL_PROJECTS.filter(p => {
             const typeMatch     = activeType === 'all' || p.category === activeType;
@@ -146,6 +216,9 @@
         const sorted = sortList(filtered);
 
         if (grid) grid.innerHTML = sorted.length ? sorted.map(renderCard).join('') : '';
+        shown = grid ? [...grid.children] : [];
+        if (keepPage !== true) page = 1;
+        showPage(false);
         if (countEl) countEl.textContent = sorted.length;
         if (emptyState) emptyState.hidden = sorted.length > 0;
         if (clearBtn) clearBtn.hidden = !activeLocation && !activeDev && !activeBudget && !activeSearch
@@ -191,8 +264,9 @@
         if (locationParam && locSelect)  { locSelect.value = locationParam;  activeLocation = locationParam; }
         if (budgetParam && budgetSelect) { budgetSelect.value = budgetParam; activeBudget = budgetParam; }
         if (searchParam && searchInput)   { searchInput.value = searchParam;   activeSearch = searchParam; }
+        page = +params.get('page') || 1;
 
-        applyFilters();
+        applyFilters(true);
     }
 
     fetch('/properties/posts.json')
