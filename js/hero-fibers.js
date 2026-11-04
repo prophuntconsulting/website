@@ -29,7 +29,7 @@
       box.style.cssText = 'position:fixed;left:8px;right:8px;top:8px;z-index:2147483646;margin:0;padding:10px;background:rgba(0,0,0,.85);color:#9f9;font:12px/1.4 monospace;white-space:pre-wrap;word-break:break-all;border-radius:8px';
       document.body.appendChild(box);
     }
-    box.textContent += msg + String.fromCharCode(10);
+    box.insertBefore(document.createTextNode(msg + String.fromCharCode(10)), document.getElementById('heroDebugLive'));
   };
   const still = why => { holder?.classList.add('no-gl'); report('STILL IMAGE: ' + why); };
   const ua = navigator.userAgent || '';
@@ -442,7 +442,7 @@ void main() {
       decode(`/images/hero/${slide.slug}${mobile ? '-m' : ''}.webp`),
       decode(`/images/hero/${slide.slug}-depth.jpg`)
     ]).then(([photo, depth]) => { slide.bitmaps = [photo, depth]; slide.aspect = photo.width / photo.height; return slide; })
-      .catch(err => { slide.decoded = null; throw err; });
+      .catch(err => { slide.decoded = null; report('load failed ' + slide.slug + ': ' + (err && (err.message || err.name))); throw err; });
     return slide.decoded;
   };
   const upload = slide => {
@@ -714,6 +714,17 @@ void main() {
   // doesn't wait for a second download after the animation is up.
   const first = next();
   if (!reduce) load(SLIDES[1 % SLIDES.length]).catch(() => {});
+  if (debug) {
+    const live = document.createElement('div');
+    live.id = 'heroDebugLive';
+    live.style.color = '#ff9';
+    report('');
+    document.getElementById('heroDebug')?.appendChild(live);
+    setInterval(() => {
+      live.textContent = 'now: t=' + state.t.toFixed(1) + 's frames=' + state.frame + ' showing=' + (state.to ? state.to.slug : '-') +
+        ' visible=' + visible + ' hidden=' + document.hidden + ' class=' + (holder ? holder.className : '');
+    }, 500);
+  }
   first.then(() => {
     // Start on the finished render, the same image as the still under the canvas, so
     // the switch is invisible, and dissolve straight into the next project, fetched
