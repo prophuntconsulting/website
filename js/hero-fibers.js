@@ -17,14 +17,38 @@
   // WebGL in software, where this scene is heavy enough to crash them and it never lets
   // the page go quiet. They, and any device without a real GPU, get the still render
   // (the <img> under the canvas) instead; the page's content is the same.
-  const still = () => { holder?.classList.add('no-gl'); };
+  // ?herodebug=1 shows on screen why the animation is (not) running, for checking a phone.
+  const debug = /[?&]herodebug/.test(location.search);
+  let gpu = '';
+  const report = msg => {
+    if (!debug) return;
+    let box = document.getElementById('heroDebug');
+    if (!box) {
+      box = document.createElement('pre');
+      box.id = 'heroDebug';
+      box.style.cssText = 'position:fixed;left:8px;right:8px;top:8px;z-index:2147483646;margin:0;padding:10px;background:rgba(0,0,0,.85);color:#9f9;font:12px/1.4 monospace;white-space:pre-wrap;word-break:break-all;border-radius:8px';
+      document.body.appendChild(box);
+    }
+    box.textContent += msg + String.fromCharCode(10);
+  };
+  const still = why => { holder?.classList.add('no-gl'); report('STILL IMAGE: ' + why); };
   const ua = navigator.userAgent || '';
-  if (navigator.webdriver || /bot|crawl|spider|slurp|lighthouse|pagespeed|headless|inspectiontool|chrome-lighthouse|gtmetrix|ptst/i.test(ua)) { still(); return; }
+  report('UA: ' + ua);
+  report('screen ' + innerWidth + 'x' + innerHeight + ' dpr ' + devicePixelRatio + ' | reduced motion: ' + matchMedia('(prefers-reduced-motion: reduce)').matches);
+  if (navigator.webdriver || /bot|crawl|spider|slurp|lighthouse|pagespeed|headless|inspectiontool|chrome-lighthouse|gtmetrix|ptst/i.test(ua)) { still('looks like a bot / test tool'); return; }
   const gl = canvas.getContext('webgl2', { alpha: false, antialias: false, depth: false, stencil: false, failIfMajorPerformanceCaveat: true });
-  if (!gl) { still(); return; }
+  if (!gl) {
+    if (debug) {
+      const probe = document.createElement('canvas');
+      const any = probe.getContext('webgl2'), v1 = !any && probe.getContext('webgl');
+      report('webgl2 without the performance check: ' + !!any + ' | webgl1: ' + !!(any || v1));
+    }
+    still(debug ? 'no WebGL2 (or the browser flags this GPU as slow)' : ''); return;
+  }
   const dbg = gl.getExtension('WEBGL_debug_renderer_info');
-  const gpu = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : '';
-  if (/swiftshader|llvmpipe|softpipe|software|basic render/i.test(gpu)) { still(); return; }
+  gpu = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : '';
+  report('GPU: ' + (gpu || '(hidden)') + ' | max texture ' + gl.getParameter(gl.MAX_TEXTURE_SIZE));
+  if (/swiftshader|llvmpipe|softpipe|software|basic render/i.test(gpu)) { still('software GPU'); return; }
 
   const mobile = matchMedia('(max-width: 768px)').matches;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -327,14 +351,14 @@ void main() {
     const make = (type, src) => {
       const s = gl.createShader(type);
       gl.shaderSource(s, src); gl.compileShader(s);
-      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { console.warn(gl.getShaderInfoLog(s)); return null; }
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { console.warn(gl.getShaderInfoLog(s)); report('shader error: ' + gl.getShaderInfoLog(s)); return null; }
       return s;
     };
     const v = make(gl.VERTEX_SHADER, vs), f = make(gl.FRAGMENT_SHADER, fs);
     if (!v || !f) return null;
     const p = gl.createProgram();
     gl.attachShader(p, v); gl.attachShader(p, f); gl.linkProgram(p);
-    if (!gl.getProgramParameter(p, gl.LINK_STATUS)) { console.warn(gl.getProgramInfoLog(p)); return null; }
+    if (!gl.getProgramParameter(p, gl.LINK_STATUS)) { console.warn(gl.getProgramInfoLog(p)); report('link error: ' + gl.getProgramInfoLog(p)); return null; }
     const u = {};
     const n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
     for (let i = 0; i < n; i++) { const name = gl.getActiveUniform(p, i).name; u[name] = gl.getUniformLocation(p, name); }
@@ -348,7 +372,7 @@ void main() {
   const upProg = link(FULLSCREEN, UP_FRAG);
   const compProg = link(FULLSCREEN, COMPOSITE_FRAG);
   const maskProg = link(FULLSCREEN, MASK_FRAG);
-  if (![photoProg, partProg, dustProg, brightProg, downProg, upProg, compProg, maskProg].every(Boolean)) { holder?.classList.add('no-gl'); return; }
+  if (![photoProg, partProg, dustProg, brightProg, downProg, upProg, compProg, maskProg].every(Boolean)) { still('a shader failed to compile'); return; }
 
   const floatTargets = !!gl.getExtension('EXT_color_buffer_float');
   const target = hdr => ({ tex: null, fb: gl.createFramebuffer(), w: 0, h: 0, hdr });
@@ -698,5 +722,6 @@ void main() {
     state.t = reduce ? CHANGE : CHANGE + HOLD - FIRST_HOLD;
     holder?.classList.add('is-live');
     wake();
-  }).catch(() => holder?.classList.add('no-gl'));
+    report(reduce ? 'RUNNING (reduced motion: first render only, no changes)' : 'RUNNING');
+  }).catch(e => still('renders failed to load: ' + (e && e.message)));
 })();
