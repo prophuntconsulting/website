@@ -1354,7 +1354,6 @@ html,body{margin:0!important;padding:0!important}
     var slow = cn.saveData || /(^|-)2g$/.test(cn.effectiveType || '');
     var vloaded = false;
     function loadVid() { if (vloaded) return; vloaded = true; if (C.videoPoster) vid.poster = C.videoPoster; vid.src = C.video; }
-    if (C.videoPoster) { vid.setAttribute('poster', C.videoPoster); }
     if ('IntersectionObserver' in window) {
       /* the video file is only requested when the player is about to be seen; with Data Saver / 2G it waits for a tap */
       new IntersectionObserver(function (en, ob) {
