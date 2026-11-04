@@ -43,39 +43,12 @@
   <div class="ty-actions"><a class="ty-btn project" href="/mahindra-citadel">View Project Details</a><a class="ty-btn wa" href="https://wa.me/917447430431?text=Hi%2C%20I%20just%20submitted%20my%20enquiry%20for%20Mahindra%20Citadel.%20Please%20share%20more%20details." target="_blank" rel="noopener">WhatsApp Us</a></div>
   <p class="ty-note">Redirecting to project page in <strong id="countdown">5</strong> seconds</p>
 </main>
-<footer class="ty-foot"><strong>PropHunt LLP</strong><a href="tel:+917066880808">+91 70668 80808</a><a href="https://wa.me/917447430431" target="_blank" rel="noopener">WhatsApp</a></footer>
+<footer class="ty-foot"><strong>PropHunt LLP</strong><a href="tel:+917066880808">+91 70668 80808</a><a href="https://wa.me/917447430431?text=Hi+PROPHUNT%2C+I+just+sent+an+enquiry+for+Mahindra+Citadel+on+your+website.+Please+share+the+details.%0A%0A%28prophuntllp.com%2Fthank-you-page-mahindra-citadel%29" target="_blank" rel="noopener">WhatsApp</a></footer>
 <script>
 if(typeof gtag==='function'){gtag('event','generate_lead',{form_name:'Mahindra Citadel landing page',project:'Mahindra Citadel'});}
 let seconds=5;const el=document.getElementById('countdown');const timer=setInterval(()=>{seconds-=1;el.textContent=seconds;if(seconds<=0){clearInterval(timer);window.location.href='../mahindra-citadel/';}},1000);
 </script>
-<script>
-(function(){
-  function loadVoiceWidget(){
-    var s = document.createElement('script');
-    s.src = 'https://voice-production-2950.up.railway.app/widget.js';
-    s.setAttribute('data-site-key','av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY');
-    s.setAttribute('data-api-base','https://voice-production-2950.up.railway.app');
-    s.setAttribute('data-position','bottom-right');
-    s.setAttribute('data-label','Talk to us');
-    document.body.appendChild(s);
-  }
-  // Floating chat bubble — not needed for first paint, and was previously the
-  // single biggest item in the critical network path (config fetch alone took 1.5s+).
-  // Now deferred until the visitor first interacts (or 20s of idle). The
-  // widget ships a ~10MB orb video, so loading it on every page view cost
-  // ~10MB of bandwidth on mobile before anyone had asked to talk to us.
-  var voiceLoaded = false;
-  function loadOnce(){
-    if (voiceLoaded) return; voiceLoaded = true;
-    ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.removeEventListener(e, loadOnce); });
-    // Start it a moment after the first touch so it never stalls the
-    // menu or scroll animation that same touch kicked off.
-    setTimeout(loadVoiceWidget, 1500);
-  }
-  ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.addEventListener(e, loadOnce, {passive:true, once:true}); });
-  window.addEventListener('load', function(){ setTimeout(loadOnce, 20000); });
-})();
-</script>
+<script src="/js/voice-widget.js"></script>
 <script src="/js/wa-message.js" defer></script>
 </body>
 </html>

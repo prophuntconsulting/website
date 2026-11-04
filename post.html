@@ -44,33 +44,6 @@
 </head>
 <body>
 <p>Redirecting to the blog...</p>
-<script>
-(function(){
-  function loadVoiceWidget(){
-    var s = document.createElement('script');
-    s.src = 'https://voice-production-2950.up.railway.app/widget.js';
-    s.setAttribute('data-site-key','av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY');
-    s.setAttribute('data-api-base','https://voice-production-2950.up.railway.app');
-    s.setAttribute('data-position','bottom-right');
-    s.setAttribute('data-label','Talk to us');
-    document.body.appendChild(s);
-  }
-  // Floating chat bubble — not needed for first paint, and was previously the
-  // single biggest item in the critical network path (config fetch alone took 1.5s+).
-  // Now deferred until the visitor first interacts (or 20s of idle). The
-  // widget ships a ~10MB orb video, so loading it on every page view cost
-  // ~10MB of bandwidth on mobile before anyone had asked to talk to us.
-  var voiceLoaded = false;
-  function loadOnce(){
-    if (voiceLoaded) return; voiceLoaded = true;
-    ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.removeEventListener(e, loadOnce); });
-    // Start it a moment after the first touch so it never stalls the
-    // menu or scroll animation that same touch kicked off.
-    setTimeout(loadVoiceWidget, 1500);
-  }
-  ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.addEventListener(e, loadOnce, {passive:true, once:true}); });
-  window.addEventListener('load', function(){ setTimeout(loadOnce, 20000); });
-})();
-</script>
+<script src="/js/voice-widget.js"></script>
 </body>
 </html>

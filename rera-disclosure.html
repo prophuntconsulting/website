@@ -259,7 +259,7 @@
         <a href="/" class="footer-logo"><img src="/images/logo-black.png" alt="PROPHUNT LLP" width="140" height="34" loading="lazy"></a>
         <div class="footer-tagline"><span class="sanskrit">भूमिं मृगयध्वम्</span><span class="translation">Hunt the Land</span></div>
         <p class="footer-about-text">MahaRERA-registered real estate advisors in Baner, Pune. We help buyers compare RERA-registered projects from trusted developers, at no cost to buyers.</p>
-        <div class="footer-social"><a href="https://www.facebook.com/PropHuntLLP" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/prophunt_llp/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/company/prophunt-llp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.youtube.com/channel/UCX9xvRLtAiDhEqrbSgl5IFg" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a><a href="https://wa.me/917447430431" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="footer-social"><a href="https://www.facebook.com/PropHuntLLP" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/prophunt_llp/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/company/prophunt-llp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.youtube.com/channel/UCX9xvRLtAiDhEqrbSgl5IFg" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a><a href="https://wa.me/917447430431?text=Hi+PROPHUNT%2C+I%27d+like+help+finding+a+property+in+Pune.%0A%0A%28prophuntllp.com%2Frera-disclosure%29" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
       </div>
       <nav class="footer-col" aria-label="Explore"><h2 class="footer-h">Explore</h2><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/projects">All Projects</a></li><li><a href="/developers">Developers</a></li><li><a href="/services">Services</a></li><li><a href="/about">About Us</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li></ul></nav>
       <nav class="footer-col" aria-label="Find a home"><h2 class="footer-h">Find a Home</h2><ul class="footer-links"><li><a href="/projects/apartments">Apartments</a></li><li><a href="/projects/plots">Plots</a></li><li><a href="/projects/villas">Villas</a></li><li><a href="/projects/commercial">Commercial</a></li><li><a href="/location">Browse by Location</a></li><li><a href="/developer">Browse by Developer</a></li><li><a href="/stamp-duty-calculator-pune">Stamp Duty Calculator</a></li></ul></nav>
@@ -281,36 +281,9 @@
 </footer>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
-<a href="https://wa.me/917447430431" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/917447430431?text=Hi+PROPHUNT%2C+I%27d+like+help+finding+a+property+in+Pune.%0A%0A%28prophuntllp.com%2Frera-disclosure%29" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <script src="js/nav.js"></script>
-<script>
-(function(){
-  function loadVoiceWidget(){
-    var s = document.createElement('script');
-    s.src = 'https://voice-production-2950.up.railway.app/widget.js';
-    s.setAttribute('data-site-key','av_live_cDDuYuSqRmgrarST8_gjwM3G860CAuyY');
-    s.setAttribute('data-api-base','https://voice-production-2950.up.railway.app');
-    s.setAttribute('data-position','bottom-right');
-    s.setAttribute('data-label','Talk to us');
-    document.body.appendChild(s);
-  }
-  // Floating chat bubble — not needed for first paint, and was previously the
-  // single biggest item in the critical network path (config fetch alone took 1.5s+).
-  // Now deferred until the visitor first interacts (or 20s of idle). The
-  // widget ships a ~10MB orb video, so loading it on every page view cost
-  // ~10MB of bandwidth on mobile before anyone had asked to talk to us.
-  var voiceLoaded = false;
-  function loadOnce(){
-    if (voiceLoaded) return; voiceLoaded = true;
-    ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.removeEventListener(e, loadOnce); });
-    // Start it a moment after the first touch so it never stalls the
-    // menu or scroll animation that same touch kicked off.
-    setTimeout(loadVoiceWidget, 1500);
-  }
-  ['scroll','pointerdown','keydown','touchstart'].forEach(function(e){ window.addEventListener(e, loadOnce, {passive:true, once:true}); });
-  window.addEventListener('load', function(){ setTimeout(loadOnce, 20000); });
-})();
-</script>
+<script src="/js/voice-widget.js"></script>
 </body>
 </html>
 

@@ -41,6 +41,7 @@
   const CAMERA = 7.5, FOV = 0.56, DEPTH = 0.75;
   const FOCAL = 1 / (2 * Math.tan(FOV / 2));
   const HOLD = 3;                                   // seconds a render stays on screen
+  const FIRST_HOLD = 0.8;                           // the first one, which the visitor already saw as the still
   const DEPART = 1.9, ARRIVE_AT = 4.4, ARRIVE = 2.2, SETTLE = 0.35;
   const CHANGE = ARRIVE_AT + ARRIVE + SETTLE;      // length of one change
   const GRID = mobile ? [210, 150] : [380, 210];   // particles across × down
@@ -674,7 +675,10 @@ void main() {
   document.addEventListener('visibilitychange', wake);
 
   next().then(() => {
-    if (reduce) state.t = CHANGE;                   // reduced motion: just the render, no changes
+    // Start on the finished render, the same image as the still under the canvas,
+    // so the switch is invisible; the first dissolve follows after a short beat
+    // (or as soon as the next render has downloaded). Reduced motion: just the render.
+    state.t = reduce ? CHANGE : CHANGE + HOLD - FIRST_HOLD;
     holder?.classList.add('is-live');
     wake();
   }).catch(() => holder?.classList.add('no-gl'));

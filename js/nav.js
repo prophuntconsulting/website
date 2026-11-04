@@ -5,46 +5,6 @@
 (function () {
     'use strict';
 
-    /* Keep floating conversion tools useful without covering page content. */
-    function tuneVoiceWidget() {
-        const host = document.getElementById('vistrow-voice-widget-host');
-        if (!host) return false;
-
-        // Phones: a small 52px button above the back-to-top button (and above the
-        // project pages' sticky Enquire bar), instead of hiding the widget.
-        const cta = document.querySelector('.ph-mobile-cta');
-        const ctaShown = cta && getComputedStyle(cta).display !== 'none';
-        host.style.display = '';
-        // Clear the 72px Enquire bar on project pages, or the 48px back-to-top button elsewhere.
-        host.style.setProperty('--ph-av-bottom', 'calc(' + (ctaShown ? 84 : 90) + 'px + env(safe-area-inset-bottom))');
-        const root = host.shadowRoot;
-        if (root && !root.getElementById('prophunt-widget-tuning')) {
-            const style = document.createElement('style');
-            style.id = 'prophunt-widget-tuning';
-            style.textContent = '.av-greeting,.av-proof-pill{display:none!important}' +
-                // "Talk to us" label above the button; hidden while the panel is open.
-                '.av-button-wrap::before{content:"Talk to us";position:absolute;bottom:100%;right:0;margin-bottom:10px;' +
-                'background:#fff;color:#111;font:600 13px/1 Rubik,system-ui,sans-serif;padding:7px 12px;border-radius:999px;' +
-                'box-shadow:0 4px 14px rgba(0,0,0,.18);white-space:nowrap;pointer-events:none}' +
-                '.av-button-wrap:has(.av-button[aria-expanded="true"])::before{display:none}' +
-                // Phones: scale the whole button as one piece so the orb, glow and badge stay aligned.
-                '@media (max-width:768px){' +
-                '.av-root{bottom:var(--ph-av-bottom,84px)!important;right:16px!important}' +
-                '.av-button-wrap{transform:scale(.78);transform-origin:bottom right}' +
-                '.av-button-wrap::before{font-size:15px;padding:8px 13px}}';
-            root.appendChild(style);
-        }
-        return true;
-    }
-
-    if (!tuneVoiceWidget()) {
-        const widgetObserver = new MutationObserver(() => {
-            if (tuneVoiceWidget()) widgetObserver.disconnect();
-        });
-        widgetObserver.observe(document.documentElement, { childList: true, subtree: true });
-    }
-    window.addEventListener('resize', tuneVoiceWidget, { passive: true });
-
     /* Keep the visible copyright year current across all static pages. */
     document.querySelectorAll('.footer-bottom span').forEach(el => {
         el.childNodes.forEach(node => {
