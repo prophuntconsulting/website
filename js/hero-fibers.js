@@ -41,7 +41,8 @@
 
   const CAMERA = 7.5, FOV = 0.56, DEPTH = 0.75;
   const FOCAL = 1 / (2 * Math.tan(FOV / 2));
-  const HOLD = 3;                                   // seconds a render stays on screen
+  const HOLD = 1.8;                                 // seconds a render stays on screen
+  const GHOST = 0.32;                               // strength of the faint renders behind the fibers mid-change
   const FIRST_HOLD = 0;                             // the first one, which the visitor already saw as the still
   const DEPART = 1.9, ARRIVE_AT = 4.4, ARRIVE = 2.2, SETTLE = 0.35;
   const CHANGE = ARRIVE_AT + ARRIVE + SETTLE;      // length of one change
@@ -101,13 +102,14 @@ void main() {
   const PHOTO_FRAG = `${HEAD}
 ${NOISE}
 uniform sampler2D uPhoto;
-uniform float uT, uMode, uAlpha;  // mode 0: leaving render, 1: arriving render
+uniform float uT, uMode, uAlpha;  // mode 0: leaving render, 1: arriving render, 2: faint ghost (uAlpha)
 in vec2 vUv;
 out vec4 outColor;
 void main() {
   vec3 c = texture(uPhoto, vUv).rgb;
-  float a = uMode < 0.5 ? clamp((leaveAt(vUv) - uT) / 0.18, 0.0, 1.0)
-                        : smoothstep(arriveAt(vUv), arriveAt(vUv) + ${SETTLE.toFixed(2)}, uT);
+  float a = uMode > 1.5 ? 1.0
+          : uMode < 0.5 ? clamp((leaveAt(vUv) - uT) / 0.18, 0.0, 1.0)
+          : smoothstep(arriveAt(vUv), arriveAt(vUv) + ${SETTLE.toFixed(2)}, uT);
   // Soft edges wherever the render does not reach the edge of the screen.
   a *= smoothstep(0.0, 0.16, vUv.x) * smoothstep(1.0, 0.94, vUv.x) * smoothstep(0.0, 0.05, vUv.y) * smoothstep(1.0, 0.96, vUv.y);
   a *= uAlpha;
@@ -150,7 +152,7 @@ vec3 ribbon(float s, float v, float n, int r) {
   vec3 b0 = cross(tg, n0);
   float th = 1.2 * 0.483 * x + t * 0.15 + pl.w * 0.6 + 0.5 * sin(x * 0.26 + t * 0.27 + pl.w);
   vec3 across = cos(th) * n0 + sin(th) * b0, sheet = -sin(th) * n0 + cos(th) * b0;
-  float hw = 0.62 * (0.78 + 0.22 * cos(s * 3.14159));
+  float hw = 0.78 * (0.78 + 0.22 * cos(s * 3.14159));
   return uOrient * ((c0 + across * v * hw + sheet * n * hw) * uScale);
 }
 
@@ -533,14 +535,22 @@ void main() {
     gl.uniformMatrix4fv(photoProg.u.uViewProj, false, viewProj);
     gl.uniform1f(photoProg.u.uT, t);
     gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, maskT.tex); gl.uniform1i(photoProg.u.uMask, 2);
-    const drawPhoto = (slide, mode) => {
+    const drawPhoto = (slide, mode, alpha = 1) => {
       gl.uniform4fv(photoProg.u.uPlane, planeFor(slide));
       gl.uniform1f(photoProg.u.uMode, mode);
-      gl.uniform1f(photoProg.u.uAlpha, 1);
+      gl.uniform1f(photoProg.u.uAlpha, alpha);
       gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, slide.photo); gl.uniform1i(photoProg.u.uPhoto, 0);
       gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, slide.depth); gl.uniform1i(photoProg.u.uDepth, 1);
       gl.drawElements(gl.TRIANGLES, MESH[0] * MESH[1] * 6, gl.UNSIGNED_INT, 0);
     };
+    // While the fibers are in the air, a faint ghost of the renders keeps the hero from
+    // going empty: the old one fades down as it breaks away, the next one fades up
+    // before its fibers land. The full-strength layers are drawn over it.
+    if (changing && !reduce) {
+      const ease = (a, b, x) => { const k = Math.min(Math.max((x - a) / (b - a), 0), 1); return k * k * (3 - 2 * k); };
+      if (state.from) drawPhoto(state.from, 2, GHOST * (1 - ease(DEPART * 0.5, ARRIVE_AT - 0.6, t)));
+      if (state.to) drawPhoto(state.to, 2, GHOST * ease(DEPART, ARRIVE_AT + 0.4, t));
+    }
     if (state.from && changing) drawPhoto(state.from, 0);
     if (state.to) drawPhoto(state.to, 1);
 
