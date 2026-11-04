@@ -43,7 +43,7 @@
   const FOCAL = 1 / (2 * Math.tan(FOV / 2));
   const HOLD = 3;                                   // seconds a render stays on screen
   const FIRST_HOLD = 0;                             // the first one, which the visitor already saw as the still
-  const DEPART = 1.9, ARRIVE_AT = 4.4, ARRIVE = 2.2, SETTLE = 0.35;
+  const DEPART = 1.9, ARRIVE_AT = 2.4, ARRIVE = 2.2, SETTLE = 0.35;
   const CHANGE = ARRIVE_AT + ARRIVE + SETTLE;      // length of one change
   const GRID = mobile ? [210, 150] : [380, 210];   // particles across × down
   const COUNT = GRID[0] * GRID[1];
