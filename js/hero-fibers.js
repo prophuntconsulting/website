@@ -42,7 +42,7 @@
   const CAMERA = 7.5, FOV = 0.56, DEPTH = 0.75;
   const FOCAL = 1 / (2 * Math.tan(FOV / 2));
   const HOLD = 1.8;                                 // seconds a render stays on screen
-  const GHOST = 0.32;                               // strength of the faint renders behind the fibers mid-change
+  const GHOST = 0.14;                               // strength of the faint renders behind the fibers mid-change
   const FIRST_HOLD = 0;                             // the first one, which the visitor already saw as the still
   const DEPART = 1.9, ARRIVE_AT = 4.4, ARRIVE = 2.2, SETTLE = 0.35;
   const CHANGE = ARRIVE_AT + ARRIVE + SETTLE;      // length of one change
