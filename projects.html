@@ -443,8 +443,9 @@
 .proj-empty p { font-size:.875rem; color:var(--gray-400); }
 @media(max-width:1024px){ .proj-grid{grid-template-columns:repeat(2,1fr);} }
 @media(max-width:600px){ .proj-grid{grid-template-columns:1fr;} .proj-search{min-width:0;} }
-/* Pagination: 12 cards a page. Before the script runs only the first 12 show. */
+/* Pagination: 12 cards a page (6 on phones). Before the script runs only those show. */
 .proj-grid:not(.is-paged) > .prop-card:nth-child(n+13) { display:none; }
+@media(max-width:600px){ .proj-grid:not(.is-paged) > .prop-card:nth-child(n+7) { display:none; } }
 .proj-grid > .prop-card[hidden] { display:none; }
 .proj-pager { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:.6rem; margin-top:3rem; }
 .proj-pager[hidden] { display:none; }

@@ -25,10 +25,13 @@
     const emptyState  = document.getElementById('projEmpty');
     const pager       = document.getElementById('projPager');
 
-    // 12 cards a page: four full rows of three on desktop, six of two on tablets.
-    // Every card stays in the page (the rest are hidden), so all project links
-    // remain crawlable; the page number lives in ?page= so Back and shared links work.
-    const PER_PAGE = 12;
+    // 12 cards a page on desktop and tablets (full rows of three or two); 6 on
+    // phones, where the single column makes each card a screen tall. Every card
+    // stays in the page (the rest are hidden), so all project links remain
+    // crawlable; the page number lives in ?page= so Back and shared links work.
+    const phoneQuery = window.matchMedia('(max-width: 600px)');
+    const perPage = () => phoneQuery.matches ? 6 : 12;
+    let PER_PAGE = perPage();
     let page = 1;
     let shown = [];
 
@@ -197,6 +200,13 @@
     pager?.addEventListener('click', e => {
         const b = e.target.closest('button[data-page]');
         if (b) goTo(+b.dataset.page);
+    });
+    // Crossing the phone breakpoint (rotation, resize): keep the first visible project on screen.
+    phoneQuery.addEventListener('change', () => {
+        const first = (page - 1) * PER_PAGE;
+        PER_PAGE = perPage();
+        page = Math.floor(first / PER_PAGE) + 1;
+        showPage(false);
     });
     window.addEventListener('popstate', () => {
         page = +new URLSearchParams(window.location.search).get('page') || 1;
