@@ -743,8 +743,9 @@ body :is(.office-tile, .bl-hero-img .bl-media, .ph-photo-grid-inner, .bl-body im
 .cs-trigger,.home-finder-field select{border-color:var(--field-edge)}
 .btn:active,.filt-btn:active,.cs-trigger:active,.cnav-menu:active,.cnav-cta:active{transform:translateY(1px);filter:brightness(.94)}
 .btn-lg{padding:.8rem 2rem}
-h1,h2,h3{text-wrap:balance}
-p{text-wrap:pretty}
+/* Not on h1 or p: balancing the hero heading and "pretty" paragraphs held back the
+   first paint by ~0.4 s on a throttled phone (Nov 2026 A/B on the ad landing pages). */
+h2,h3{text-wrap:balance}
 .newsletter-form input{border-color:rgba(255,255,255,.45)}
 .newsletter-form input::placeholder{color:var(--gray-400)}
 .btn-sm,.cs-trigger,.newsletter-form input{min-height:44px}

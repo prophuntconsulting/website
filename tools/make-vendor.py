@@ -57,11 +57,17 @@ def subset(src, dst):
     unicodes = ','.join('U+%04X' % c for c in cps)
     subprocess.check_call([sys.executable, '-m', 'fontTools.subset', src, '--unicodes=' + unicodes, '--flavor=woff2',
                            '--layout-features=', '--no-hinting', '--desubroutinize', '--output-file=' + dst])
-sizes = {}
+# /fonts is cached for a year as immutable, so each subset's file name carries a
+# hash of its content: a new icon gives a new URL instead of a stale cached font.
+import hashlib
+sizes, files = {}, {}
 for name in ('fa-solid-900', 'fa-regular-400', 'fa-brands-400'):
-    dst = os.path.join(FONTS, name + '-subset.woff2')
-    subset(os.path.join(SP, 'fa', name + '.woff2'), dst)
-    sizes[name] = os.path.getsize(dst)
+    tmp = os.path.join(SP, name + '-subset.woff2')
+    subset(os.path.join(SP, 'fa', name + '.woff2'), tmp)
+    data = open(tmp, 'rb').read()
+    files[name] = '%s-subset-%s.woff2' % (name, hashlib.md5(data).hexdigest()[:8])
+    open(os.path.join(FONTS, files[name]), 'wb').write(data)
+    sizes[name] = len(data)
 print('subset sizes (bytes):', sizes)
 
 # ---- rebuild the FA css: keep everything except unused icon rules and the v4 shim ----
@@ -94,7 +100,7 @@ for blk in split_top(css):
         mapping = {'Font Awesome 6 Brands': ('brands', 'fa-brands-400', 400), 'Font Awesome 6 Free': None}
         weight = re.search(r'font-weight:(\d+)', b).group(1)
         fname = {'Font Awesome 6 Brands': 'fa-brands-400', 'Font Awesome 6 Free': 'fa-solid-900' if weight == '900' else 'fa-regular-400'}[fam]
-        kept.append('@font-face{font-family:"%s";font-style:normal;font-weight:%s;font-display:block;src:url(/fonts/%s-subset.woff2) format("woff2")}' % (fam, weight, fname))
+        kept.append('@font-face{font-family:"%s";font-style:normal;font-weight:%s;font-display:block;src:url(/fonts/%s) format("woff2")}' % (fam, weight, files[fname]))
         continue
     m = rule_re.fullmatch(b)
     if m:
