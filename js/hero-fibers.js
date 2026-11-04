@@ -66,6 +66,9 @@
   const CAMERA = 7.5, FOV = 0.56, DEPTH = 0.75;
   const FOCAL = 1 / (2 * Math.tan(FOV / 2));
   const HOLD = 1.8;                                 // seconds a render stays on screen
+  // Reduced motion (an OS setting; on Xiaomi phones battery saver turns it on): no fibers,
+  // dust or camera movement, just a slow cross-fade between the renders.
+  const FADE = 1.6, CALM_HOLD = 4.5;
   const GHOST = 0.14;                               // strength of the faint renders behind the fibers mid-change
   const FIRST_HOLD = 0;                             // the first one, which the visitor already saw as the still
   const DEPART = 1.9, ARRIVE_AT = 4.4, ARRIVE = 2.2, SETTLE = 0.35;
@@ -540,10 +543,10 @@ void main() {
     const W = canvas.width, H = canvas.height, aspect = width / height;
     const { look } = state;
     const drift = reduce ? 0 : Math.sin(state.time * 0.11) * 0.12;
-    const eye = [look.x * 0.9 + drift, look.y * 0.45, CAMERA - Math.min(state.t, 30) * 0.008];
+    const eye = [look.x * 0.9 + drift, look.y * 0.45, reduce ? CAMERA : CAMERA - Math.min(state.t, 30) * 0.008];
     const viewProj = multiply(frustum(aspect), lookAt(eye, [look.x * 0.15, look.y * 0.08, 0]));
     const t = state.t;
-    const changing = t < CHANGE;
+    const changing = t < (reduce ? FADE : CHANGE);
 
     allocate(photoT, W, H); allocate(sceneT, W, H);
 
@@ -575,8 +578,13 @@ void main() {
       if (state.from) drawPhoto(state.from, 2, GHOST * (1 - ease(DEPART * 0.5, ARRIVE_AT - 0.6, t)));
       if (state.to) drawPhoto(state.to, 2, GHOST * ease(DEPART, ARRIVE_AT + 0.4, t));
     }
-    if (state.from && changing) drawPhoto(state.from, 0);
-    if (state.to) drawPhoto(state.to, 1);
+    if (reduce) {
+      if (state.from && changing) drawPhoto(state.from, 2, 1);
+      if (state.to) drawPhoto(state.to, 2, changing && state.from ? (k => k * k * (3 - 2 * k))(Math.min(t / FADE, 1)) : 1);
+    } else {
+      if (state.from && changing) drawPhoto(state.from, 0);
+      if (state.to) drawPhoto(state.to, 1);
+    }
 
     // 2. Particles and dust, additive, in HDR.
     gl.bindFramebuffer(gl.FRAMEBUFFER, sceneT.fb);
@@ -586,7 +594,7 @@ void main() {
     gl.bindVertexArray(emptyVao);
     const introEase = 1 - Math.pow(1 - Math.min(state.intro / 1.2, 1), 3);
     const maxCoc = mobile ? 6 : 10;
-    if (changing && state.to) {
+    if (changing && state.to && !reduce) {
       const u = partProg.u, from = state.from || state.to, to = state.to;
       gl.useProgram(partProg.p);
       gl.uniformMatrix4fv(u.uViewProj, false, viewProj);
@@ -614,6 +622,7 @@ void main() {
       gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, COUNT);
     }
     const d = dustProg.u;
+    if (!reduce) {
     gl.useProgram(dustProg.p);
     gl.uniformMatrix4fv(d.uViewProj, false, viewProj);
     gl.uniform2f(d.uViewport, W, H);
@@ -625,6 +634,7 @@ void main() {
     gl.uniform1f(d.uIntro, introEase);
     gl.uniform3fv(d.uGlow, glow); gl.uniform3fv(d.uSecondary, secondary); gl.uniform3fv(d.uLine, line);
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, mobile ? 120 : 240);
+    }
     gl.disable(gl.BLEND);
 
     // 3. Bloom on the particles only.
@@ -686,8 +696,8 @@ void main() {
       const k = Math.min(dt, 0.05);
       look.vx += (30 * (lx - look.x) - 11 * look.vx) * k; look.vy += (30 * (ly - look.y) - 11 * look.vy) * k;
       look.x += look.vx * k; look.y += look.vy * k;
-      if (state.t > CHANGE + 0.5) upload(SLIDES[state.index]);
-      if (!reduce && !advancing && state.t > CHANGE + HOLD) {
+      if (state.t > (reduce ? FADE : CHANGE) + 0.5) upload(SLIDES[state.index]);
+      if (!advancing && state.t > (reduce ? FADE + CALM_HOLD : CHANGE + HOLD)) {
         advancing = true;
         next().catch(() => {}).finally(() => { advancing = false; });
       }
@@ -713,7 +723,7 @@ void main() {
   // already on screen, so fetch the next project now: the first dissolve then
   // doesn't wait for a second download after the animation is up.
   const first = next();
-  if (!reduce) load(SLIDES[1 % SLIDES.length]).catch(() => {});
+  load(SLIDES[1 % SLIDES.length]).catch(() => {});
   if (debug) {
     const live = document.createElement('div');
     live.id = 'heroDebugLive';
@@ -729,10 +739,10 @@ void main() {
     // Start on the finished render, the same image as the still under the canvas, so
     // the switch is invisible, and dissolve straight into the next project, fetched
     // above, so this normally happens at once; if it is still on its
-    // way, the render holds until it arrives. Reduced motion: just the render.
-    state.t = reduce ? CHANGE : CHANGE + HOLD - FIRST_HOLD;
+    // way, the render holds until it arrives. Reduced motion: a slow cross-fade instead.
+    state.t = reduce ? FADE + CALM_HOLD - 3 : CHANGE + HOLD - FIRST_HOLD;
     holder?.classList.add('is-live');
     wake();
-    report(reduce ? 'RUNNING (reduced motion: first render only, no changes)' : 'RUNNING');
+    report(reduce ? 'RUNNING (reduced motion: slow cross-fade, no fibers)' : 'RUNNING');
   }).catch(e => still('renders failed to load: ' + (e && e.message)));
 })();
