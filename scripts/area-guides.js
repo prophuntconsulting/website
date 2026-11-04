@@ -64,7 +64,7 @@ const AREA_GUIDES = {
         `${KF} recorded Baner at about ₹16,418 to ₹16,987 per sq ft, up 4% over 12 months, against about ₹17,734 to ₹18,274 in neighbouring Aundh and ₹12,115 to ₹12,588 in Wakad. Prices vary widely by road, tower and view, so compare projects on the full cost sheet, not the rate per sq ft.`,
       ] },
       { h: 'Connectivity', p: [
-        'Baner Road and the Baner–Pashan link road connect the area to Aundh, the university and central Pune, and the Expressway is close by for Mumbai and Hinjewadi. Pune Metro Line 3, from Hinjewadi to Shivajinagar, has stations at Balewadi Phata, Baner Gaon and Baner, but these are among the six stations due to open after the first section on the Hinjewadi side. Our [Metro Line 3 guide](/blog/pune-metro-line-3-property) explains what it means for property.',
+        'Baner Road and the Baner–Pashan link road connect the area to Aundh, the university and central Pune, and the Expressway is close by for Mumbai and Hinjewadi. Pune Metro Line 3, from Hinjewadi to Shivajinagar, opened on 4 November 2026, but its stations nearest Baner are not running yet: Balewadi Phata is expected by the end of November 2026, and Baner Gaon and Baner–Pashan Link Road by January 2027. Until then the nearest open stations are Aundh and R K Laxman Museum Balewadi. Our [Metro Line 3 guide](/blog/pune-metro-line-3-property) explains what it means for property.',
       ] },
       { h: 'Who Baner suits', list: [
         'Professionals working in Baner, Balewadi, Aundh or Hinjewadi who want an established neighbourhood with good restaurants, shops and schools.',
@@ -79,7 +79,7 @@ const AREA_GUIDES = {
     ],
     faqs: [
       { q: 'What are property prices in Baner in 2026?', a: 'Knight Frank India recorded Baner at about ₹16,418 to ₹16,987 per sq ft in H1 2026, up 4% over 12 months. New launches on Pan Card Club Road and other premium projects are often priced above that range.' },
-      { q: 'When will the Baner metro stations open?', a: 'Baner’s stations on Metro Line 3, at Balewadi Phata, Baner Gaon and Baner, are among the six stations due to open after the first section, which runs from Maan in Hinjewadi to Balewadi. Check the latest status before relying on them.' },
+      { q: 'When will the Baner metro stations open?', a: 'Metro Line 3 opened on 4 November 2026 at 17 stations from Maan to District Court, but Baner’s stations are not open yet. Balewadi Phata is expected by the end of November 2026, and Baner Gaon and Baner–Pashan Link Road in stages by January 2027. These are PMRDA targets, so check before relying on them.' },
     ],
   },
   'wakad': {
@@ -91,7 +91,7 @@ const AREA_GUIDES = {
         `${KF} recorded Wakad at about ₹12,115 to ₹12,588 per sq ft, unchanged over 12 months, after a strong 2025. Heavy new supply in and around Wakad is being absorbed, which gives buyers more choice and more room to negotiate than a year ago. It remains well below Baner, at about ₹16,418 to ₹16,987.`,
       ] },
       { h: 'Connectivity', p: [
-        'Wakad’s draw is its position: the Hinjewadi IT parks on one side, the highway towards Mumbai, Bengaluru and the rest of Pune on the other. Pune Metro Line 3 has a Wakad Chowk station in its first section, from Maan to Balewadi. The flip side is traffic: Bhumkar Chowk and the Wakad flyover are among Hinjewadi’s best-known choke points at peak hours.',
+        'Wakad’s draw is its position: the Hinjewadi IT parks on one side, the highway towards Mumbai, Bengaluru and the rest of Pune on the other. Pune Metro Line 3, open since 4 November 2026, has a Wakad Chowk station, with trains to Hinjewadi one way and to Aundh and District Court the other. The flip side is traffic: Bhumkar Chowk and the Wakad flyover are among Hinjewadi’s best-known choke points at peak hours.',
       ] },
       { h: 'Who Wakad suits', list: [
         'IT professionals working in Hinjewadi who want an established neighbourhood rather than a newer one further out.',
@@ -116,7 +116,7 @@ const AREA_GUIDES = {
         'Much of the newer development here follows the PMRDA’s Mahalunge–Maan "Hi-Tech City" town planning scheme, about 250 hectares of planned roads and plots. That planned layout is the main reason large developers have launched here.',
       ] },
       { h: 'Connectivity and jobs', p: [
-        'The Hinjewadi IT parks are the main employer, with the offices of Baner and Balewadi just across the Expressway. Pune Metro Line 3 runs from Hinjewadi through Wakad and Balewadi towards Shivajinagar; its first stations, from Maan to Balewadi, received safety clearance in 2026. Day to day, the Hinjewadi junctions are the bottleneck to plan around.',
+        'The Hinjewadi IT parks are the main employer, with the offices of Baner and Balewadi just across the Expressway. Pune Metro Line 3 runs from Hinjewadi through Wakad and Balewadi towards Shivajinagar; it opened on 4 November 2026 at 17 stations, from Maan to District Court. Day to day, the Hinjewadi junctions are the bottleneck to plan around.',
       ] },
       { h: 'What it costs and who it suits', p: [
         `Knight Frank names Mahalunge among West Pune’s leading residential micro-markets in ${KF}. It suits buyers who work in Hinjewadi or Baner, want a newer planned neighbourhood and are prepared to wait for its roads and services to mature. Buyers who want an established neighbourhood today will find more of that in [Baner](/location/baner).`,
@@ -355,12 +355,13 @@ const TYPE_GUIDES = {
 };
 // Sources: Embassy REIT / CRISIL / IIFL (Embassy TechZone), CapitaLand (BlueRidge 3),
 // Wikipedia + Punekar News + Free Press Journal (Metro Line 3, Hinjewadi roads),
-// Maha-Metro via The Metro Rail Guy (PCMC line). Checked 27 Oct 2026.
+// Maha-Metro via The Metro Rail Guy (PCMC line). Checked 27 Oct 2026; Line 3 opening (4 Nov 2026) from
+// Free Press Journal and Transclew.
 const HINJEWADI_COMMUTE = {
   h: 'Getting around: traffic and Metro Line 3',
   p: [
     'Hinjewadi traffic is the biggest day-to-day issue for anyone living or working here. The usual choke points are the Wakad flyover, Bhumkar Chowk and the Tathawade–Punawale underpass, and heavy rain in September 2026 waterlogged roads across the IT park, Wakad and Punawale. In September 2026 the Pune Collector picked six Hinjewadi roads for priority widening, but these were announcements, not finished work, so judge a commute by driving it at peak hours.',
-    'Pune Metro Line 3, an elevated line from Maan through the Hinjewadi phases, Wakad Chowk and Balewadi to Shivajinagar, is the change to watch. The first 12 stations, Maan to Balewadi, received safety clearance in July 2026 and 17 of 23 by late September. See our [Metro Line 3 guide](/blog/pune-metro-line-3-property) for what it means for property, and check the current opening status before you rely on it for a commute.',
+    'Pune Metro Line 3, an elevated line from Maan through the Hinjewadi phases, Wakad Chowk and Balewadi to Shivajinagar, opened on 4 November 2026 at 17 of its 23 stations, from Maan to District Court. Trains run from 6 am, every 6 minutes at peak times, and the full ride takes about 45 minutes. The Baner stations, Bhosale Nagar and Shivajinagar open later. See our [Metro Line 3 guide](/blog/pune-metro-line-3-property) for timings, fares and what it means for property, and check the walk from a project to its station before you rely on it.',
   ],
 };
 const LANDMARK_GUIDES = {
@@ -383,7 +384,7 @@ const LANDMARK_GUIDES = {
     ],
     faqs: [
       { q: 'Which companies are at Embassy TechZone in Hinjewadi?', a: 'Embassy TechZone, an Embassy Office Parks REIT campus in Hinjewadi Phase 2, has occupiers including Infosys BPM, Volkswagen Group Technology Solutions and NICE Interactive, among others.' },
-      { q: 'Will Metro Line 3 help people who work at Embassy TechZone?', a: 'Yes. Line 3 has stations in Hinjewadi Phase 2, and the first 12 stations from Maan to Balewadi received safety clearance in July 2026. Check the current opening status, because the launch date has moved several times.' },
+      { q: 'Will Metro Line 3 help people who work at Embassy TechZone?', a: 'Yes. Line 3 opened on 4 November 2026 and has two stations in Hinjewadi Phase 2, Hinjawadi Phase II Circle I and Circle II. Check the walk from a project to the nearest station, and how you would get there at peak times.' },
     ],
   },
   'office-space-near-blue-ridge-sez': {
