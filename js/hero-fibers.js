@@ -49,7 +49,6 @@
   const COUNT = GRID[0] * GRID[1];
   const BLOOM_LEVELS = mobile ? 4 : 5;
   const RIBBON_LENGTH = 24;
-  const THREADS = 18;                               // threads per ribbon; fewer, denser threads read as continuous lines
   const PLACES = [[0, 0, 0, 0], [1.9, -4.6, -0.08, 2.4], [-1.05, 2.0, 0.12, 4.1]];
 
   /* ── Shaders ──────────────────────────────────────────────── */
@@ -171,10 +170,9 @@ void main() {
   // Which ribbon, and where on it: the picture is laid out along the fiber sheet.
   int r = int(mod(cell.y, 3.0));
   float s = fract(uv.x * 0.9 + uTime * 0.018 + seed * 0.04) - 0.5;
-  float thread = floor(uv.y * ${THREADS.toFixed(1)});
-  float v = ((thread + 0.5) / ${THREADS.toFixed(1)}) * 2.0 - 1.0 + (hash12(vec2(thread, 4.0)) - 0.5) * 0.015;
-  float across = (hash12(vec2(thread, 9.0)) - 0.5) * 0.25;
-  vec3 R = ribbon(s, v, across, r);
+  float thread = floor(uv.y * 40.0);
+  float v = ((thread + 0.5) / 40.0) * 2.0 - 1.0 + (hash12(vec2(thread, 4.0)) - 0.5) * 0.015;
+  vec3 R = ribbon(s, v, (hash12(vec2(thread, 9.0)) - 0.5) * 0.25, r);
   vec3 A = uHasFrom > 0.5 ? onPlane(uPlaneA, uDepthA, uv) : R;
   vec3 B = onPlane(uPlaneB, uDepthB, uv);
   vec3 world = mix(mix(A, R, lift), B, land);
@@ -189,7 +187,7 @@ void main() {
   vec4 clip = uViewProj * vec4(world, 1.0);
   float depth = clip.w;
   vec2 px = (clip.xy / clip.w * 0.5 + 0.5) * uViewport;
-  float base = max(0.5 * 1.4 * uDpr * ${CAMERA.toFixed(1)} / max(depth, 0.1), 0.6 * uDpr);
+  float base = max(0.5 * 1.25 * uDpr * ${CAMERA.toFixed(1)} / max(depth, 0.1), 0.42);
   float rest = uCell * 0.62;                       // on the picture, dots tile it
   base = mix(rest, base, air);
   float coc = min(uDof * abs(1.0 - uFocus / max(depth, 0.1)) * uViewport.y * 0.035, uMaxCoc * uDpr) * air;
@@ -200,31 +198,15 @@ void main() {
   float visible = smoothstep(leave - 0.18, leave, uT) * (1.0 - smoothstep(arrive, arrive + ${SETTLE.toFixed(2)}, uT));
   float twinkle = pow(max(sin(uTime * (1.2 + 2.6 * seed) * 3.0 + seed * 61.0), 0.0), 36.0);
   float spark = exp(-pow((uT - leave) / 0.12, 2.0)) * uHasFrom;   // embers as the picture breaks away
-  float intensity = energy * edgeFade * visible * uIntro * mix(0.95, 2.1, air) * (1.0 + twinkle * 4.0 * air + spark * 1.2);
+  float intensity = energy * edgeFade * visible * uIntro * mix(0.95, 1.6, air) * (1.0 + twinkle * 4.0 * air + spark * 1.2);
   float highlight = clamp(twinkle * air + spark, 0.0, 1.0);
 
-  // In flight, each particle is a short segment along its thread, reaching a little past
-  // its neighbours, so the threads read as continuous lines instead of dotted ones.
-  // (One extra point on the ribbon, and only while the particle is in the air.)
-  vec2 ax = vec2(1.0, 0.0);
-  float halfLen = 0.0;
-  if (air > 0.001) {
-    vec4 cr = uViewProj * vec4(R, 1.0);
-    vec4 cb = uViewProj * vec4(ribbon(s + 0.9 / uGrid.x * 0.75, v, across, r), 1.0);
-    vec2 dir = ((cb.xy / max(cb.w, 0.1)) - (cr.xy / max(cr.w, 0.1))) * 0.5 * uViewport;
-    float span = length(dir);
-    if (span > 1e-4) ax = dir / span;
-    halfLen = min(span, 30.0) * air;
-  }
-  vec2 ay = vec2(-ax.y, ax.x);
   vec2 corner = vec2(gl_VertexID == 1 || gl_VertexID == 3 ? 1.0 : 0.0, gl_VertexID >= 2 ? 1.0 : 0.0) * 2.0 - 1.0;
-  vec2 local = vec2(corner.x * (halfLen + radius), corner.y * radius);
-  vec2 position = px + ax * local.x + ay * local.y;
-  vLocal = local;
+  vec2 position = px + corner * radius;
+  vLocal = corner * radius;
   vRadius = radius;
-  vSegment = halfLen;
-  // Spread a particle's light along its segment instead of adding it, so lines don't burn out.
-  vLight = vec3(intensity * radius / (radius + halfLen), highlight, coc / max(radius, 1e-3));
+  vSegment = 0.0;
+  vLight = vec3(intensity, highlight, coc / max(radius, 1e-3));
   if (intensity < 0.002) position = vec2(-1e4);
   gl_Position = vec4(position / uViewport * 2.0 - 1.0, 0.0, 1.0);
 }`;
@@ -271,7 +253,7 @@ in vec3 vLight;
 in vec3 vColor;
 out vec4 outColor;
 void main() {
-  float rho = length(vec2(max(abs(vLocal.x) - vSegment, 0.0), vLocal.y)) / max(vRadius, 1e-3);
+  float rho = length(vLocal) / max(vRadius, 1e-3);
   if (rho > 1.0) discard;
   float soft = clamp(2.6 / max(vRadius, 1e-3), 0.14, 1.0);
   float disk = 1.0 - smoothstep(1.0 - soft, 1.0, rho);
@@ -569,7 +551,7 @@ void main() {
     gl.blendFunc(gl.ONE, gl.ONE);
     gl.bindVertexArray(emptyVao);
     const introEase = 1 - Math.pow(1 - Math.min(state.intro / 1.2, 1), 3);
-    const maxCoc = mobile ? 4 : 6;
+    const maxCoc = mobile ? 6 : 10;
     if (changing && state.to) {
       const u = partProg.u, from = state.from || state.to, to = state.to;
       gl.useProgram(partProg.p);
@@ -580,7 +562,7 @@ void main() {
       gl.uniform1f(u.uT, t);
       gl.uniform1f(u.uHasFrom, state.from ? 1 : 0);
       gl.uniform1f(u.uFocus, CAMERA);
-      gl.uniform1f(u.uDof, 0.05);
+      gl.uniform1f(u.uDof, 0.08);
       gl.uniform1f(u.uMaxCoc, maxCoc);
       gl.uniform1f(u.uIntro, introEase);
       const pa = planeFor(from), pb = planeFor(to);
