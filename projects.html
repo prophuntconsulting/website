@@ -448,13 +448,18 @@
 .proj-grid > .prop-card[hidden] { display:none; }
 .proj-pager { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:.6rem; margin-top:3rem; }
 .proj-pager[hidden] { display:none; }
-.proj-pager button { font:600 .95rem/1 'Rubik',sans-serif; color:var(--black); background:#fff; border:1.5px solid var(--gray-200); cursor:pointer;
-  display:inline-flex; align-items:center; justify-content:center; gap:.45rem; transition:border-color .2s, color .2s, background .2s, transform .15s; }
-.proj-pager button:hover { border-color:var(--red); color:var(--red); }
-.proj-pager button:active { transform:translateY(1px); }
-.proj-pager button:focus-visible { outline:2px solid var(--red); outline-offset:2px; }
+.proj-pager button { font:600 .95rem/1 'Rubik',sans-serif; color:var(--black); background:#fff; cursor:pointer;
+  border:1px solid var(--card-border); box-shadow:0 1px 3px rgba(17,17,17,.08), 0 4px 12px rgba(60,40,30,.12);
+  display:inline-flex; align-items:center; justify-content:center; gap:.45rem;
+  transition:border-color .25s var(--ease), color .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease); }
+/* Same language as the cards: red edge and glow, slight lift */
+.proj-pager button:hover { border-color:var(--card-border-hover); color:var(--red); transform:translateY(-2px);
+  box-shadow:0 0 0 1px rgba(200,54,43,.40), 0 0 12px rgba(200,54,43,.20), 0 6px 16px rgba(17,17,17,.10); }
+.proj-pager button:active { transform:translateY(0); }
+.proj-pager button:focus-visible { outline:2px solid var(--red); outline-offset:3px; }
 .pg-num { width:46px; height:46px; border-radius:50%; }
-.pg-num.is-current, .pg-num.is-current:hover { background:var(--red); border-color:var(--red); color:#fff; cursor:default; box-shadow:0 6px 18px rgba(200,50,40,.28); }
+.pg-num.is-current, .pg-num.is-current:hover { background:var(--red); border-color:var(--red); color:#fff; cursor:default; transform:none;
+  box-shadow:0 0 0 1px rgba(200,54,43,.40), 0 0 12px rgba(200,54,43,.28), 0 4px 10px rgba(200,54,43,.22); }
 .pg-step { height:46px; padding:0 1.2rem; border-radius:999px; }
 .pg-step svg { width:16px; height:16px; }
 .pg-gap { color:var(--gray-400); font-weight:600; padding:0 .15rem; }
