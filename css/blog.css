@@ -227,7 +227,7 @@
   .bl-body th, .bl-body td { padding: 10px; }
   .bl-body td:first-child, .bl-body th:first-child { min-width: 110px; }
   .bl-share a, .bl-share button { width: 44px; height: 44px; }
-  .bl-toc li { padding: 0; }
+  .bl-toc li { padding: 0; align-items: baseline; }
   .bl-toc a { display: block; padding: 12px 0; }
   .bl-chip { min-height: 44px; }
   .bl-crumbs a, a.bl-pill { display: inline-flex; align-items: center; min-height: 44px; }
@@ -237,5 +237,23 @@
 @media (min-width: 641px) and (max-width: 1080px) {
   .bl-side { display: grid; grid-template-columns: 1fr 1fr; align-items: start; }
   /* an odd last card in a two-column grid spans the row instead of sitting alone */
-  .bl-related .bl-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
+
+/* "In this article": a collapsible list under the cover image below 1080px (the sidebar copy
+   would otherwise only appear after the whole article); the sidebar keeps it on desktop. */
+.bl-toc-mobile { display: none; }
+@media (max-width: 1080px) {
+  .bl-side .bl-side-toc { display: none; }
+  .bl-toc-mobile { display: block; margin: 0 0 28px; border: 1px solid var(--card-border); border-radius: 14px; background: var(--white); box-shadow: var(--card-shadow); }
+  .bl-toc-mobile summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; padding: 0 var(--bl-pad); cursor: pointer; list-style: none; font: 700 15px var(--font-head); color: var(--bl-ink); }
+  .bl-toc-mobile summary::-webkit-details-marker { display: none; }
+  .bl-toc-mobile summary span { font: 600 12px var(--font-head); color: var(--bl-muted); }
+  .bl-toc-mobile summary::after { content: '+'; font-size: 22px; color: var(--red); }
+  .bl-toc-mobile[open] summary::after { content: '\2212'; }
+  .bl-toc-mobile .bl-toc { padding: 0 var(--bl-pad) 10px; border-top: 1px solid var(--bl-line); }
+  .bl-toc-mobile .bl-toc li { align-items: baseline; }
+}
+
+/* A lone card on the last row sits in the middle instead of stranded on the left. */
+@media (min-width: 961px) { .bl-grid > :last-child:nth-child(3n+1):not(:first-child) { grid-column: 2; } }
+@media (min-width: 641px) and (max-width: 960px) { .bl-grid > :last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 12px); } }

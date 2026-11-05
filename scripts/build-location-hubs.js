@@ -262,6 +262,7 @@ ${more.length ? `
 <section class="section section--tinted">
   <div class="container">
     <h2 class="section-title">More Areas We Cover</h2>
+    <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>
     ${more.map(g => `
     <h3 style="margin:2rem 0 1rem">${g.page ? `<a href="${g.page}">Flats in ${escapeHtml(g.name)}</a>` : escapeHtml(g.name)}</h3>
     <div class="loc-grid">${g.matches.map(renderHubCard).join('')}</div>`).join('')}

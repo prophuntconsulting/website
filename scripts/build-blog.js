@@ -382,6 +382,7 @@ function buildPrerenderBlock(p, ctx) {
         </div>
         ${p.excerpt ? `<p class="bl-lead">${escapeHtml(p.excerpt)}</p>` : ''}
         ${p.cover ? `<figure class="bl-hero-img">${mediaHtml(p.cover, p.cover_alt || p.title, { eager: true })}</figure>` : ''}
+        ${toc.length ? `<details class="bl-toc-mobile"><summary>In this article <span>${toc.length} sections</span></summary><ol class="bl-toc">${toc.map((h, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span><a href="#${h.id}">${escapeHtml(h.text)}</a></li>`).join('')}</ol></details>` : ''}
         <div class="bl-body">${markdownToHtml(p.body || '')}</div>
         ${renderFaqs(p.faqs)}
         ${renderProjectCards(ctx.projects)}
@@ -404,8 +405,8 @@ function buildPrerenderBlock(p, ctx) {
             <option value="/blog">All categories (${ctx.total})</option>
             ${Object.entries(LISTING_CAT_LABELS).filter(([k]) => ctx.catCounts[k] || k === p.category).map(([k, v]) => `<option value="/blog?cat=${k}"${k === p.category ? ' selected' : ''}>${escapeHtml(v)} (${ctx.catCounts[k] || 0})</option>`).join('')}
           </select>
-          ${toc.length ? `<div class="bl-side-sub">In this article</div>
-          <ol class="bl-toc">${toc.map((h, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span><a href="#${h.id}">${escapeHtml(h.text)}</a></li>`).join('')}</ol>` : ''}
+          ${toc.length ? `<div class="bl-side-sub bl-side-toc">In this article</div>
+          <ol class="bl-toc bl-side-toc">${toc.map((h, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span><a href="#${h.id}">${escapeHtml(h.text)}</a></li>`).join('')}</ol>` : ''}
           ${ctx.related.length ? `<div class="bl-side-sub">Suggested reading</div>
           <div class="bl-side-list">${ctx.related.map(r => `<a href="${r.url}"><small>${escapeHtml(CAT_LABELS[r.category] || 'Article')}</small><strong>${escapeHtml(r.title)}</strong><em>${r.readTime} min read</em></a>`).join('')}</div>` : ''}
         </div>

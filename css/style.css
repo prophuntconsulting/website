@@ -637,7 +637,7 @@ html { overflow-x:clip; }
 /* Long-form area / category / landmark guides (scripts/area-guides.js) */
 .area-guide { max-width:820px; }
 .area-guide h3 { font-size:1.15rem; margin:2rem 0 .6rem; color:var(--black); }
-.area-guide h3:first-of-type { margin-top:1.5rem; }
+.area-guide .ph-divider + h3 { margin-top:0; }
 .area-guide p { color:var(--gray-800); line-height:1.75; margin:0 0 .9rem; }
 .area-guide ul { list-style:disc; margin:.25rem 0 1rem 1.2rem; padding-left:.4rem; display:flex; flex-direction:column; gap:.45rem; }
 .area-guide li::marker { color:var(--red); }
@@ -696,6 +696,12 @@ body :is(.loc-sibling-pill, .loc-cat-pill, .ph-related-searches a, .bl-chip:not(
 body :is(.filt-btn:not(.active), .ph-share-btn, .ph-view-all-link, .ph-rel-card-link, .ph-nearby-card-brochure, .ph-price-pill, .sdc-seg input:not(:checked) + span, .loc-landmark-chip):not(:hover) {
     border-color:var(--card-border);
 }
+
+/* Card grids: a lone card on the last row sits in the middle instead of stranded on the left. */
+@media (min-width:1025px) { :is(.loc-grid, .cat-grid) > :last-child:nth-child(3n+1):not(:first-child) { grid-column:2; } }
+@media (min-width:601px) and (max-width:1024px) { :is(.loc-grid, .cat-grid) > :last-child:nth-child(odd):not(:first-child) { grid-column:1 / -1; justify-self:center; width:calc(50% - .75rem); } }
+@media (min-width:901px) { .loc-hub-grid > :last-child:nth-child(3n+1):not(:first-child) { grid-column:2; } }
+@media (min-width:561px) and (max-width:900px) { .loc-hub-grid > :last-child:nth-child(odd):not(:first-child) { grid-column:1 / -1; justify-self:center; width:calc(50% - .75rem); } }
 
 /* Stand-alone photos: framed edge and soft shadow */
 body :is(.office-tile, .bl-hero-img .bl-media, .ph-photo-grid-inner, .bl-body img) {

@@ -41,6 +41,7 @@ function renderGuide(title, sections, label = 'Area guide') {
     <div class="area-guide">
       <span class="section-label"><i class="fas fa-book-open"></i> ${esc(label)}</span>
       <h2 class="section-title">${esc(title)}</h2>
+      <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>
       ${sections.map(s => `
       <h3>${esc(s.h)}</h3>
       ${(s.p || []).map(p => `<p>${inline(p)}</p>`).join('\n      ')}
