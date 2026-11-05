@@ -254,7 +254,7 @@ ${compare.length ? `
 <section class="section section--tinted">
   <div class="container" style="max-width:900px">
     ${sectionHead('table', 'Compare', `${bhkLabel(n)} in ${p.title} vs other ${bhkLabel(n)} projects in ${loc}`)}
-    <div style="overflow-x:auto"><table class="ph-snapshot"><thead><tr><th>Project</th><th>${bhkLabel(n)} size</th><th>${bhkLabel(n)} price</th></tr></thead><tbody>
+    <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>${bhkLabel(n)} size</th><th>${bhkLabel(n)} price</th></tr></thead><tbody>
       <tr><td><strong>${escapeHtml(p.title)}</strong></td><td>${escapeHtml(sizeTxt || 'On request')}</td><td>${escapeHtml(priceTxt || 'On request')}</td></tr>
       ${compare.map(c => `<tr><td><a href="${(projectBhkPages[c.q.slug] || []).find(x => x.n === n)?.url || c.q.url}">${escapeHtml(c.q.title)}</a></td><td>${escapeHtml(c.size || 'On request')}</td><td>${escapeHtml(c.price || 'On request')}</td></tr>`).join('')}
     </tbody></table></div>
@@ -377,7 +377,7 @@ for (const pg of locBhkPages) {
     ${aboutBlurb ? `<p class="loc-about">${escapeHtml(aboutBlurb)}</p>` : ''}
     ${AREA_RATE[mm] ? `<p class="loc-about"><strong>${bhkLabel(n)} flat prices in ${escapeHtml(loc.name)}:</strong> Knight Frank India's H1 2026 report puts ${escapeHtml(loc.name)} at about ${AREA_RATE[mm]} per sq ft. Individual projects vary with tower, floor and view, so ask each developer for a cost sheet, and add stamp duty, registration and GST with our <a href="/stamp-duty-calculator-pune">stamp duty calculator</a>.</p>` : ''}
     ${sectionHead('table', 'Compare', `${bhkLabel(n)} Size & Price by Project`)}
-    <div style="overflow-x:auto;margin-bottom:.75rem"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Developer</th><th>${bhkLabel(n)} size</th><th>${bhkLabel(n)} price</th></tr></thead><tbody>${sorted.map(p => {
+    <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Developer</th><th>${bhkLabel(n)} size</th><th>${bhkLabel(n)} price</th></tr></thead><tbody>${sorted.map(p => {
       const r = rowsFor(p);
       return `<tr><td><a href="${(projectBhkPages[p.slug] || []).find(x => x.n === n)?.url || p.url}">${escapeHtml(p.title)}</a>${p.status === 'coming-soon' ? ' <small>(new launch)</small>' : ''}</td><td>${escapeHtml(p.developer || '')}</td><td>${escapeHtml(r.size)}</td><td>${escapeHtml(r.price)}</td></tr>`;
     }).join('')}</tbody></table></div>
@@ -469,7 +469,7 @@ for (const pg of nearPages) {
 <section class="section">
   <div class="container">
     ${sectionHead('route', 'By Distance', `Projects near ${lm.short_name || lm.name}`)}
-    <div style="overflow-x:auto;margin-bottom:.75rem"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Locality</th><th>Configuration</th><th>Approx. distance</th></tr></thead><tbody>${matches.map(m =>
+    <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Locality</th><th>Configuration</th><th>Approx. distance</th></tr></thead><tbody>${matches.map(m =>
       `<tr><td><a href="${m.p.url}">${escapeHtml(m.p.title)}</a></td><td>${escapeHtml(localityName(m.p))}</td><td>${escapeHtml(m.p.config || '')}</td><td>${kmText(m.km)}</td></tr>`).join('')}</tbody></table></div>
     <p class="loc-note">Approximate straight-line distance from each project's map location to ${escapeHtml(lm.name)}. Road distance is longer.</p>
     <div class="loc-grid">${ps.map(renderHubCard).join('')}</div>
@@ -581,7 +581,7 @@ for (const a of AREA_PAGES) {
   <div class="container">
     <p class="loc-about">${escapeHtml(a.intro)}</p>
     ${sectionHead('table', 'Compare', `Projects ${a.slug.includes('-on-') ? 'on' : 'in'} ${short}`)}
-    <div style="overflow-x:auto;margin-bottom:.75rem"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Developer</th><th>Configuration</th><th>Starting price</th></tr></thead><tbody>${sorted.map(p =>
+    <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Developer</th><th>Configuration</th><th>Starting price</th></tr></thead><tbody>${sorted.map(p =>
       `<tr><td><a href="${p.url}">${escapeHtml(p.title)}</a>${p.status === 'coming-soon' ? ' <small>(new launch)</small>' : ''}</td><td>${escapeHtml(p.developer || '')}</td><td>${escapeHtml(p.config || '')}</td><td>${escapeHtml(p.price > 0 ? (p.price >= 100 ? '₹' + (p.price / 100).toFixed(2).replace(/\.?0+$/, '') + ' Cr' : '₹' + p.price + ' L') : 'On request')}</td></tr>`).join('')}</tbody></table></div>
     <p class="loc-note">Indicative, as listed in ${escapeHtml(todayLabel)}; excludes taxes and charges.</p>
     <div class="loc-grid">${sorted.map(renderHubCard).join('')}</div>

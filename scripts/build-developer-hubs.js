@@ -166,7 +166,7 @@ function buildDeveloperPage({ dev, slug, matches, todayLabel, otherDevs }) {
     <span class="section-label"><i class="fas fa-shield-halved"></i> Registration</span>
     <h2 class="section-title">${escapeHtml(dev)} — MahaRERA Numbers</h2>
     <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>
-    <div style="overflow-x:auto"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Location</th><th>Configuration</th><th>Price</th><th>MahaRERA no.</th></tr></thead><tbody>${reraRows}</tbody></table></div>
+    <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Location</th><th>Configuration</th><th>Price</th><th>MahaRERA no.</th></tr></thead><tbody>${reraRows}</tbody></table></div>
     <p class="ph-disclaimer" style="margin-top:14px;font-size:.85rem;color:var(--gray-500,#777)">Registration numbers are shown as provided for each project. Buyers should independently verify every project on the <a href="${MAHARERA_URL}" target="_blank" rel="noopener" style="color:var(--red)">MahaRERA portal</a> before purchase.</p>
   </div>
 </section>
