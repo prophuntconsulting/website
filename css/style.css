@@ -749,3 +749,5 @@ h2,h3{text-wrap:balance}
 .newsletter-form input{border-color:rgba(255,255,255,.45)}
 .newsletter-form input::placeholder{color:var(--gray-400)}
 .btn-sm,.cs-trigger,.newsletter-form input{min-height:44px}
+/* Links inside service copy read as links */
+.service-card p a,.service-highlight p a{color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:2px}
