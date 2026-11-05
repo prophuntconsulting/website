@@ -112,7 +112,8 @@
 <link rel="stylesheet" href="css/pages.css">
 <style>
 .service-detail { display:grid; grid-template-columns:2fr 3fr; gap:5rem; align-items:start; padding:4rem 0; border-bottom:1px solid var(--gray-200); }
-.service-detail:last-child { border-bottom:none; }
+.service-detail:first-child { padding-top:0; }
+.service-detail:last-child { border-bottom:none; padding-bottom:0; }
 .service-detail.reverse { direction:rtl; }
 .service-detail.reverse > * { direction:ltr; }
 .service-icon-wrap { position:sticky; top:calc(var(--nav-h) + 2rem); }

@@ -92,7 +92,7 @@ p { color:var(--gray-800); }
 
 /* ── Buttons ── */
 .btn {
-    display:inline-flex; align-items:center; gap:.5rem;
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
     font-size:.9rem; font-weight:600; letter-spacing:.02em;
     padding:.75rem 1.75rem; border-radius:var(--radius-sm);
     transition:all .28s var(--ease); white-space:nowrap; cursor:pointer;
@@ -401,6 +401,8 @@ p { color:var(--gray-800); }
 .prop-card-title { font-size:1.05rem; font-weight:700; font-family:var(--font-head); color:var(--black); margin-bottom:.35rem; }
 .prop-card-loc { font-size:.82rem; color:var(--gray-600); display:flex; align-items:center; gap:.35rem; margin-bottom:.85rem; }
 .prop-card-loc i { color:var(--red); font-size:.75rem; }
+/* fixed icon width so the text after every icon starts at the same x */
+.prop-card-loc i, .prop-card-specs i { width:14px; text-align:center; flex-shrink:0; }
 .prop-card-specs { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1rem; }
 .prop-card-specs span { font-size:.8rem; color:var(--gray-600); display:flex; align-items:center; gap:.3rem; }
 .prop-card-specs i { color:var(--gray-400); font-size:.75rem; }
@@ -693,6 +695,10 @@ body :is(.office-tile, .bl-hero-img .bl-media, .ph-photo-grid-inner, .bl-body im
 @media (max-width:768px){
   .nav-actions .btn-sm{min-height:44px}
   .breadcrumb a{display:inline-flex;align-items:center;min-height:44px}
+  .footer-links a,.prop-card-enquire,.prop-card-link{display:inline-flex;align-items:center;min-height:44px}
+  .legal-toc a{display:flex;align-items:center;min-height:44px}
+  .footer-social a{width:44px;height:44px}
+  .hiw-card{padding-left:1.25rem;padding-right:1.25rem}
 }
 
 /* ── Phone menu: card navigation ─────────────────────────────────────────
@@ -742,7 +748,8 @@ body :is(.office-tile, .bl-hero-img .bl-media, .ph-photo-grid-inner, .bl-body im
    Labels in sentence case, untracked; readable field edges; every control
    gets a pressed state; heads wrap evenly. Layout and copy unchanged. */
 .section-label,.ph-section-label{text-transform:none;letter-spacing:0;font-size:.85rem;font-weight:600}
-.cs-trigger,.home-finder-field select{border-color:var(--field-edge)}
+.cs-trigger,.home-finder-field select,.form-control{border-color:var(--field-edge)}
+.form-control{min-height:44px}
 .btn:active,.filt-btn:active,.cs-trigger:active,.cnav-menu:active,.cnav-cta:active{transform:translateY(1px);filter:brightness(.94)}
 .btn-lg{padding:.8rem 2rem}
 /* Not on h1 or p: balancing the hero heading and "pretty" paragraphs held back the

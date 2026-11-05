@@ -50,12 +50,12 @@
 .sdc-hint{font-size:.8rem;color:var(--gray-600)}
 .sdc-hint a{color:var(--red)}
 .sdc-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem}
-.sdc-chips button{border:1px solid var(--gray-200);border-radius:999px;padding:.3rem .8rem;font-size:.8rem;color:var(--gray-800);background:var(--gray-100)}
+.sdc-chips button{min-height:44px;border:1px solid var(--card-border);border-radius:999px;padding:.3rem .9rem;font-size:.8rem;color:var(--gray-800);background:var(--gray-100)}
 .sdc-chips button:hover{border-color:var(--red);color:var(--red)}
 .sdc-field{border:none;margin:1.1rem 0 0;padding:0;min-width:0}
 .sdc-field legend.sdc-label{margin-top:0}
 .sdc-seg{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem}
-.sdc-seg label{flex:1 1 auto;cursor:pointer}
+.sdc-seg label{flex:1 1 0;cursor:pointer}
 .sdc-seg input{position:absolute;opacity:0;pointer-events:none}
 .sdc-seg span{display:block;text-align:center;border:1.5px solid var(--gray-200);border-radius:10px;padding:.6rem .7rem;font-size:.85rem;font-weight:600;color:var(--gray-800);transition:all .15s}
 .sdc-seg input:checked+span{border-color:var(--red);background:var(--red-light);color:var(--red)}
@@ -85,7 +85,7 @@
 .sdc-cta .btn{flex-shrink:0}
 .sdc-info{max-width:820px;margin-top:3.5rem}
 .sdc-info h2{font-size:1.4rem;margin-bottom:1rem}
-.sdc-info ul{margin:1rem 0 1rem 1.2rem;display:flex;flex-direction:column;gap:.45rem}
+.sdc-info ul{margin:1rem 0 1rem 1.2rem;list-style:disc;padding-left:.2rem;display:flex;flex-direction:column;gap:.45rem}
 .sdc-info li,.sdc-info p{font-size:.93rem;color:var(--gray-800);line-height:1.7}
 .sdc-info a{color:var(--red)}
 .sdc-rates{width:100%;border-collapse:collapse;font-size:.88rem}

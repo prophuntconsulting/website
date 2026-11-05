@@ -35,12 +35,12 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/pages.css">
 <style>
-.legal-layout { display:grid; grid-template-columns:1fr 280px; gap:3rem; align-items:start; }
+.legal-layout { display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:3rem; align-items:start; }
 .legal-content h2 { font-size:1.3rem; color:var(--black); margin:2.5rem 0 .75rem; padding-top:2.5rem; border-top:1px solid var(--gray-200); }
 .legal-content h2:first-child { border-top:none; padding-top:0; margin-top:0; }
 .legal-content h3 { font-size:1rem; font-weight:700; color:var(--black); margin:1.5rem 0 .5rem; }
 .legal-content p { font-size:.9rem; color:var(--gray-700); line-height:1.8; margin-bottom:.85rem; }
-.legal-content ul,.legal-content ol { margin:.5rem 0 1rem 1.25rem; display:flex; flex-direction:column; gap:.4rem; }
+.legal-content ul,.legal-content ol { margin:.5rem 0 1rem 1.25rem; list-style:disc; padding-left:.2rem; display:flex; flex-direction:column; gap:.4rem; }
 .legal-content li { font-size:.9rem; color:var(--gray-700); line-height:1.65; }
 .legal-content a { color:var(--red); }
 .legal-sidebar { position:sticky; top:calc(var(--nav-h) + 1.5rem); }
@@ -51,7 +51,7 @@
 .legal-toc a:hover { color:var(--red); }
 .highlight-box { background:var(--red-light); border:1px solid rgba(200,54,43,.2); border-radius:var(--radius-md); padding:1.25rem 1.5rem; margin:1.25rem 0; }
 .highlight-box p { font-size:.875rem; color:var(--gray-800); margin:0; line-height:1.65; }
-@media(max-width:1024px){ .legal-layout{grid-template-columns:1fr;} .legal-sidebar{position:static;} }
+@media(max-width:1024px){ .legal-layout{grid-template-columns:minmax(0,1fr);} .legal-sidebar{position:static;} }
 </style>
 </head>
 <body>

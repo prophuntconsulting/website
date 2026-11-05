@@ -32,7 +32,7 @@
 .page-hero h1 { color: var(--white); margin-bottom: .85rem; }
 .page-hero p { color: rgba(255,255,255,.65); font-size: 1.1rem; max-width: 600px; line-height: 1.7; }
 .page-hero-meta {
-    display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;
+    display: flex; gap: .75rem 2rem; margin-top: 2rem; flex-wrap: wrap;
 }
 .page-hero-meta-item {
     display: flex; align-items: center; gap: .5rem;
