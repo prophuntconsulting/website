@@ -185,7 +185,11 @@ function buildHeadBlock(p, ctx) {
   const canonical = p.canonical_url || url;
   const ogTitle = p.og_title || base;
   const ogDesc  = p.og_description || desc;
-  const ogImage = absUrl(p.og_image || p.cover);
+  // Use the exact URL of the picture shown on the page (the hero image) as the share and
+  // structured-data image, so Google sees one image, not two crops of the same asset.
+  const sameAsset = (a, b) => a && b && a.replace(/\?.*$/, '') === b.replace(/\?.*$/, '');
+  const pageImage = src => /^https:\/\/cdn\.sanity\.io\/images\//.test(src || '') ? `${src.replace(/\?.*$/, '')}?w=1200&h=630&fit=crop&auto=format&q=80` : src;
+  const ogImage = absUrl(!p.og_image || sameAsset(p.og_image, p.cover) ? pageImage(p.cover) : p.og_image);
   const ogAlt   = p.og_image ? p.og_image_alt : (p.cover_alt || p.title);
   const twTitle = p.twitter_title || ogTitle;
   const twDesc  = p.twitter_description || ogDesc;
@@ -201,7 +205,7 @@ function buildHeadBlock(p, ctx) {
       '@type': p.schema_type,
       headline: p.title,
       description: desc,
-      ...(p.cover || p.og_image ? { image: ogImage } : {}),
+      ...(p.cover || p.og_image ? { image: { '@type': 'ImageObject', url: ogImage, width: 1200, height: 630 } } : {}),
       datePublished: published,
       dateModified: modified,
       ...(keywords.length ? { keywords: keywords.join(', ') } : {}),
@@ -235,7 +239,7 @@ function buildHeadBlock(p, ctx) {
 ${keywords.length ? `<meta name="keywords" content="${escapeHtml(keywords.join(', '))}">\n` : ''}<meta id="ph-og-title"  property="og:title" content="${escapeHtml(ogTitle)}">
 <meta id="ph-og-desc"  property="og:description" content="${escapeHtml(ogDesc)}">
 <meta id="ph-og-img"   property="og:image" content="${escapeHtml(ogImage)}">
-${ogAlt ? `<meta property="og:image:alt" content="${escapeHtml(ogAlt)}">\n` : ''}<meta property="og:type" content="article">
+${ogImage && ogImage.includes('w=1200&h=630') ? `<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n` : ''}${ogAlt ? `<meta property="og:image:alt" content="${escapeHtml(ogAlt)}">\n` : ''}<meta property="og:type" content="article">
 <meta property="og:url" content="${escapeHtml(canonical)}">
 <meta property="og:site_name" content="PROPHUNT LLP">
 <meta property="og:locale" content="en_IN">
