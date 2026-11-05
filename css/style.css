@@ -681,6 +681,22 @@ body :is(.info-card, .testi-card, .sdc-card, .bl-faq, .bl-author-box, .bl-side-c
 body :is(.prop-card-img, .blog-card-img, .bl-card .bl-media, .ph-rel-card-img, .ph-nearby-card-img) {
     border-bottom:1px solid var(--card-border);
 }
+/* Pills and chips: crisp edge and a small shadow, like the /projects pager (the pale
+   --gray-200 border measured 1.26:1 against white and bled into the page). The body
+   prefix outranks the same selectors in page <style> blocks that load later. */
+body :is(.loc-sibling-pill, .loc-cat-pill, .ph-related-searches a, .bl-chip:not(.active), .sdc-chips button, .bl-tags span) {
+    border:1px solid var(--card-border);
+    background-color:var(--white);
+    box-shadow:0 1px 3px rgba(17,17,17,.08), 0 4px 12px rgba(60,40,30,.10);
+}
+body :is(.loc-sibling-pill, .loc-cat-pill, .ph-related-searches a, .bl-chip:not(.active), .sdc-chips button):hover {
+    border-color:var(--card-border-hover); color:var(--red);
+}
+/* Smaller outlined controls with the same pale edge: crisp edge colour only */
+body :is(.filt-btn:not(.active), .ph-share-btn, .ph-view-all-link, .ph-rel-card-link, .ph-nearby-card-brochure, .ph-price-pill, .sdc-seg input:not(:checked) + span, .loc-landmark-chip):not(:hover) {
+    border-color:var(--card-border);
+}
+
 /* Stand-alone photos: framed edge and soft shadow */
 body :is(.office-tile, .bl-hero-img .bl-media, .ph-photo-grid-inner, .bl-body img) {
     box-shadow:var(--img-edge);

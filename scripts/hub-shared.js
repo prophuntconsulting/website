@@ -102,6 +102,7 @@ const SHARED_STYLE = `
 .ph-snapshot tr:last-child td{border-bottom:0}
 .ph-snapshot thead th{background:var(--gray-100);color:var(--gray-600);font-size:12px;letter-spacing:.5px;text-transform:uppercase}
 .ph-snapshot td a{color:var(--red);font-weight:600}
+@media(max-width:768px){.ph-snapshot td a{display:inline-flex;align-items:center;min-height:44px}}
 .loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 @media(max-width:1024px){.loc-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.loc-grid{grid-template-columns:1fr}}

@@ -216,13 +216,13 @@ function buildPage({ slug, url, meta, locality, bucket, matches }) {
 @media(max-width:600px){.loc-grid{grid-template-columns:1fr}}
 .loc-about{font-size:1.02rem;line-height:1.8;color:var(--gray-600);max-width:760px;margin-bottom:2.5rem}
 .loc-faq-list{max-width:760px}
-.loc-faq-item{border-bottom:1px solid var(--gray-200);padding:16px 2px}
+.loc-faq-item{border-bottom:1px solid var(--gray-200);padding:6px 0}
 .loc-faq-item:last-child{border-bottom:none}
-.loc-faq-item summary{font-family:var(--font-head);font-size:14.5px;font-weight:700;color:var(--black);cursor:pointer;list-style:none}
+.loc-faq-item summary{display:block;padding:10px 0;min-height:44px;font-family:var(--font-head);font-size:14.5px;font-weight:700;color:var(--black);cursor:pointer;list-style:none}
 .loc-faq-item summary::-webkit-details-marker{display:none}
 .loc-faq-item summary::after{content:'+';float:right;color:var(--red);font-weight:700}
 .loc-faq-item[open] summary::after{content:'−'}
-.loc-faq-item p{margin-top:10px;font-size:13.5px;color:var(--gray-600);line-height:1.7}
+.loc-faq-item p{margin:0 0 12px;font-size:13.5px;color:var(--gray-600);line-height:1.7}
 .loc-landmarks-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.25rem}
 .loc-landmark-chip{font-size:12.5px;color:var(--gray-700);background:var(--gray-100);border:1px solid var(--gray-200);border-radius:4px;padding:6px 12px}
 .loc-landmark-cat-title{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--black);margin-bottom:.6rem}

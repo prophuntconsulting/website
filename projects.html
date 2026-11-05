@@ -420,6 +420,8 @@
 .proj-finder-card { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-lg); box-shadow:0 8px 40px rgba(0,0,0,.08); padding:1.5rem 2rem; margin-bottom:2rem; }
 .proj-finder-label { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--red-deeper); border-left:2px solid var(--red); padding-left:.7rem; margin-bottom:1rem; }
 .proj-finder-fields { display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-end; }
+.proj-finder-btn,.proj-search { min-height:44px; }
+@media(max-width:1024px){ .proj-finder-btn{flex:1 0 100%;justify-content:center;} }
 .proj-finder-field { display:flex; flex-direction:column; gap:.3rem; flex:1; min-width:150px; }
 .proj-finder-field label { font-size:.72rem; font-weight:600; color:var(--gray-600); text-transform:uppercase; letter-spacing:.06em; display:flex; align-items:center; gap:.35rem; }
 .proj-finder-field label i { color:var(--red); font-size:.7rem; }
@@ -466,8 +468,8 @@
 .pg-gap { color:var(--gray-400); font-weight:600; padding:0 .15rem; }
 @media(max-width:480px){
   .proj-pager { gap:.4rem; margin-top:2.25rem; }
-  .pg-num { width:40px; height:40px; font-size:.88rem; }
-  .pg-step { width:40px; height:40px; padding:0; }
+  .pg-num { width:44px; height:44px; font-size:.88rem; }
+  .pg-step { width:44px; height:44px; padding:0; }
   .pg-step span { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
 }
 </style>
@@ -604,7 +606,7 @@
           <div class="prop-card-img">
             <div><img src="/images/thumbs/shapoorji-pallonji-delphi-khopoli.webp" alt="Shapoorji Pallonji Delphi Khopoli" width="600" height="372" loading="lazy" decoding="async"></div>
             <div class="prop-card-badge"><span class="badge badge-red">Shapoorji Pallonji</span></div>
-            <div class="prop-card-price">₹80 L*</div>
+            <div class="prop-card-price">₹89 L*</div>
           </div>
           <div class="prop-card-body">
             <div class="prop-card-dev">Shapoorji Pallonji</div>
@@ -1304,7 +1306,7 @@
           <div class="prop-card-img">
             <div><img src="/images/thumbs/neoliv-grand-forest-prive.webp" alt="Neoliv Grand Forest Privé" width="600" height="372" loading="lazy" decoding="async"></div>
             <div class="prop-card-badge"><span class="badge badge-red">Neoliv</span></div>
-            <div class="prop-card-price">₹60 L*</div>
+            <div class="prop-card-price">₹70 L*</div>
           </div>
           <div class="prop-card-body">
             <div class="prop-card-dev">Neoliv</div>
