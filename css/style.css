@@ -656,19 +656,19 @@ html { overflow-x:clip; }
 }
 /* Clickable cards: border + resting shadow, red glow and lift on hover */
 body :is(.card, .prop-card, .blog-card, .bl-card, .dev-card, .loc-hub-card, .ph-rel-card, .ph-nearby-card,
-         .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured, .capability-card) {
+         .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured, .capability-card, .bl-proj) {
     border:1px solid var(--card-border);
     box-shadow:var(--card-shadow);
     transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
 }
 body :is(.card, .prop-card, .blog-card, .bl-card, .dev-card, .loc-hub-card, .ph-rel-card, .ph-nearby-card,
-         .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured, .capability-card):hover {
+         .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured, .capability-card, .bl-proj):hover {
     border-color:var(--card-border-hover);
     box-shadow:var(--card-glow);
     transform:translateY(-5px);
 }
 /* Static panels (forms, sidebars, info boxes): border + resting shadow only */
-body :is(.info-card, .testi-card, .sdc-card, .bl-side-card, .bl-search-card,
+body :is(.info-card, .testi-card, .sdc-card, .bl-faq, .bl-author-box, .bl-side-card, .bl-search-card,
          .ph-price-card, .ph-enq-card, .ph-quick-card, .ph-side-card) {
     border:1px solid var(--card-border);
     box-shadow:var(--card-shadow);
@@ -684,7 +684,7 @@ body :is(.office-tile, .bl-hero-img .bl-media, .ph-photo-grid-inner, .bl-body im
 .bl-body img { border-radius:12px; }
 @media (hover: none) {
     body :is(.card, .prop-card, .blog-card, .bl-card, .dev-card, .loc-hub-card, .ph-rel-card, .ph-nearby-card,
-             .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured):hover { transform:none; }
+             .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured, .capability-card, .bl-proj):hover { transform:none; }
 }
 
 /* Phone tap targets: header CTA and breadcrumbs at least 44px tall */

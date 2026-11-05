@@ -50,7 +50,7 @@
 .bl-stats span { font-size: 13px; color: var(--bl-muted); }
 
 .bl-chips-bar { position: sticky; top: var(--nav-h, 72px); z-index: 20; background: rgba(255, 255, 255, .94); backdrop-filter: blur(8px); border-top: 1px solid var(--bl-line); border-bottom: 1px solid var(--bl-line); }
-.bl-chips { display: flex; align-items: center; gap: 10px; overflow-x: auto; padding: 14px 0; scrollbar-width: none; }
+.bl-chips { display: flex; align-items: center; gap: 10px; overflow-x: auto; padding-block: 14px; scrollbar-width: none; }
 .bl-chips::-webkit-scrollbar { display: none; }
 .bl-chips-label { font: 700 12px var(--font-head); letter-spacing: .14em; text-transform: uppercase; color: var(--bl-muted); margin-right: 6px; flex: none; }
 .bl-chip { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--bl-line); background: var(--white); color: var(--bl-ink); font: 600 14px var(--font-head); cursor: pointer; transition: background .15s, border-color .15s, color .15s; }
@@ -79,7 +79,7 @@
 .bl-card:hover .bl-media img { transform: scale(1.04); }
 .bl-card .bl-media { border-radius: 0; }
 .bl-card-num { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border-radius: 50%; background: rgba(15, 27, 45, .82); color: var(--white); font: 700 12px/34px var(--font-head); text-align: center; }
-.bl-card-body { display: flex; flex-direction: column; gap: 10px; padding: 18px 20px 20px; flex: 1; }
+.bl-card-body { display: flex; flex-direction: column; gap: 10px; padding: var(--bl-pad); flex: 1; }
 .bl-card-top { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; }
 .bl-card-cat { font: 700 12px var(--font-head); letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
 .bl-card-read { color: var(--bl-muted); }
@@ -145,27 +145,27 @@
 .bl-faqs, .bl-projects, .bl-tags, .bl-author-box { margin-top: 44px; }
 .bl-faqs h2, .bl-projects h2 { font: 800 24px var(--font-head); margin: 0 0 16px; color: var(--bl-ink); }
 .bl-faq { border: 1px solid var(--bl-line); border-radius: 12px; margin-bottom: 10px; background: var(--white); }
-.bl-faq summary { cursor: pointer; list-style: none; padding: 16px 48px 16px 18px; font: 700 16px/1.4 var(--font-head); position: relative; }
+.bl-faq summary { cursor: pointer; list-style: none; padding: 16px 48px 16px var(--bl-pad); font: 700 16px/1.4 var(--font-head); position: relative; }
 .bl-faq summary::-webkit-details-marker { display: none; }
 .bl-faq summary::after { content: '+'; position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--red); }
 .bl-faq[open] summary::after { content: '\2212'; }
-.bl-faq p { margin: 0; padding: 0 18px 16px; color: #37404f; line-height: 1.7; }
+.bl-faq p { margin: 0; padding: 0 var(--bl-pad) 16px; color: #37404f; line-height: 1.7; }
 .bl-proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
 .bl-proj { display: flex; flex-direction: column; border: 1px solid var(--bl-line); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; transition: box-shadow .2s, transform .2s; }
-.bl-proj:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .bl-proj .bl-media { border-radius: 0; }
-.bl-proj-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.bl-proj-body { padding: 14px var(--bl-pad); display: flex; flex-direction: column; gap: 4px; }
 .bl-proj-body strong { font: 700 16px var(--font-head); color: var(--bl-ink); }
 .bl-proj-body span { font-size: 13px; color: var(--bl-muted); }
 .bl-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .bl-tags span { padding: 6px 12px; border-radius: 999px; background: var(--bl-soft); font-size: 13px; color: #37404f; }
-.bl-author-box { display: flex; gap: 16px; padding: 22px; border: 1px solid var(--bl-line); border-radius: 16px; background: var(--bl-soft); }
+.bl-author-box { display: flex; gap: 16px; padding: var(--bl-pad); border: 1px solid var(--bl-line); border-radius: 16px; background: var(--bl-soft); }
 .bl-author-box strong { display: block; font: 700 16px var(--font-head); margin-bottom: 6px; }
 .bl-author-box p { margin: 0; font-size: 14.5px; line-height: 1.65; color: #37404f; }
 
 /* Sidebar */
-.bl-side { position: sticky; top: calc(var(--nav-h, 72px) + 20px); display: flex; flex-direction: column; gap: 18px; }
-.bl-side-card { border: 1px solid var(--bl-line); border-radius: 18px; padding: 20px; background: var(--white); }
+.bl-side { position: static; align-self: stretch; display: flex; flex-direction: column; gap: 18px; }
+.bl-side-form { position: sticky; top: calc(var(--nav-h, 72px) + 20px); }
+.bl-side-card { border: 1px solid var(--bl-line); border-radius: 18px; padding: var(--bl-pad); background: var(--white); }
 .bl-side-card h2, .bl-side-title { font: 700 12px var(--font-head); letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin: 0 0 14px; }
 .bl-side-sub { font: 700 13px var(--font-head); color: var(--bl-ink); margin: 18px 0 10px; }
 .bl-side select { width: 100%; padding: 12px 14px; border: 1px solid var(--bl-line); border-radius: 10px; font: inherit; font-size: 14px; background: var(--white); }
@@ -212,3 +212,30 @@
 .bl-author .bl-avatar { color: var(--white); font-size: 14px; }
 /* A divider right before a section heading would double its top rule. */
 .bl-body hr + h2 { border-top: 0; padding-top: 0; margin-top: 0; }
+
+/* One inner padding for article panels (cards, FAQs, project cards, author box, sidebar). */
+:root { --bl-pad: 20px; }
+@media (max-width: 640px) { :root { --bl-pad: 16px; } }
+
+/* FAQ rows answer to hover like the other article panels. */
+.bl-faq { transition: border-color .2s; }
+.bl-faq:hover { border-color: var(--card-border-hover); }
+
+/* Phones: tables stay readable, tap targets at least 44px. */
+@media (max-width: 640px) {
+  .bl-body table { font-size: 14px; line-height: 1.5; }
+  .bl-body th, .bl-body td { padding: 10px; }
+  .bl-body td:first-child, .bl-body th:first-child { min-width: 110px; }
+  .bl-share a, .bl-share button { width: 44px; height: 44px; }
+  .bl-toc li { padding: 0; }
+  .bl-toc a { display: block; padding: 12px 0; }
+  .bl-chip { min-height: 44px; }
+  .bl-crumbs a, a.bl-pill { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+/* Tablets: the stacked sidebar uses two columns instead of stretching one card to 700px. */
+@media (min-width: 641px) and (max-width: 1080px) {
+  .bl-side { display: grid; grid-template-columns: 1fr 1fr; align-items: start; }
+  /* an odd last card in a two-column grid spans the row instead of sitting alone */
+  .bl-related .bl-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
