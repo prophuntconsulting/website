@@ -128,6 +128,11 @@
 .nudge .cmp-form input{height:44px}
 .nudge .cmp-form label{font-size:.82rem}
 @media(max-width:760px){.nudge{left:12px;right:12px;bottom:12px;width:auto}}
+.nudge.mini{padding:.75rem 3rem .75rem 1rem}
+.nudge.mini .nd-sub,.nudge.mini .cmp-form{display:none}
+.nudge.mini h2{display:flex;align-items:center;gap:.75rem;margin:0;font-size:.95rem;line-height:1.3;cursor:pointer}
+.nudge.mini h2::after{content:'\2191';flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-size:1rem;margin-left:auto}
+.nudge.mini .nd-x{top:50%;transform:translateY(-50%)}
 .cmp-form-wrap{max-width:560px;margin:0 auto;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:2rem}
 .cmp-form{display:grid;gap:1rem}
 .cmp-form label{display:grid;gap:.35rem;font-size:.9rem;font-weight:600;color:var(--gray-700)}
@@ -575,7 +580,7 @@
       setTimeout(function () { document.querySelector('#top-form [name="name"]').focus({ preventScroll: true }); }, 500);
     });
   });
-  // One slide-up prompt per session: at 40% scroll or 25 s, never once they've used a form.
+  // One slide-up prompt per session: at 40% scroll (or 25 s on wider screens), never once they've used a form.
   var nudge = document.getElementById('nudge'), engaged = false, shown = false;
   function seen() { try { return sessionStorage.getItem('cmp_nudge'); } catch (e) { return null; } }
   document.addEventListener('focusin', function (e) { if (e.target.closest('.cmp-form') && !e.target.closest('#nudge')) engaged = true; });
@@ -589,7 +594,14 @@
   }
   function closeNudge() { nudge.classList.remove('open'); nudge.setAttribute('aria-hidden', 'true'); if (mbar) mbar.style.visibility = ''; }
   nudge.querySelector('.nd-x').addEventListener('click', closeNudge);
-  setTimeout(openNudge, 25000);
+  // Phones: no timer, since a half-screen form over the project tiles drove visitors away.
+  // There it opens folded to a one-line bar and unfolds when the heading is tapped.
+  var phone = window.matchMedia('(max-width:760px)').matches, ndH = nudge.querySelector('h2');
+  if (phone) { nudge.classList.add('mini'); ndH.setAttribute('role', 'button'); ndH.tabIndex = 0; }
+  function unfold() { if (!nudge.classList.contains('mini')) return; nudge.classList.remove('mini'); ndH.removeAttribute('role'); ndH.removeAttribute('tabindex'); if (typeof window.clarity === 'function') window.clarity('event', 'nudge_unfolded'); }
+  ndH.addEventListener('click', unfold);
+  ndH.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); unfold(); } });
+  if (!phone) setTimeout(openNudge, 25000);
   window.addEventListener('scroll', function () {
     var h = document.documentElement.scrollHeight - innerHeight;
     if (h > 0 && scrollY / h > 0.4) openNudge();
