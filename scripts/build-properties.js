@@ -313,6 +313,7 @@ function buyerGuides(p) {
   const homes = p.category === 'apartment' || p.category === 'villa';
   const wanted = [
     'stamp-duty-in-pune-2026',
+    'property-registration-process-in-pune',
     'how-to-check-maharera-registration-pune',
     p.category === 'plot' && 'na-plots-near-pune-checklist',
     'nri-guide-to-buying-property-in-pune',
