@@ -237,8 +237,12 @@
             const pool = ALL_PROJECTS.filter(p => matches(p, key));
             Array.prototype.forEach.call(select.options, opt => {
                 if (opt.dataset.label === undefined) opt.dataset.label = opt.textContent;
-                const n = pool.filter(p => f.test(p, opt.value)).length;
-                const text = `${opt.dataset.label} (${n})`;
+                // "All types", "Any budget"...: no count. It would be the number of projects, which
+                // next to "Developers" reads as a developer count, and the budget ranges don't add
+                // up to it (projects with no published price are in no range).
+                const isAll = opt.value === '' || opt.value === 'all';
+                const n = isAll ? pool.length : pool.filter(p => f.test(p, opt.value)).length;
+                const text = isAll ? opt.dataset.label : `${opt.dataset.label} (${n})`;
                 if (opt.textContent !== text) opt.textContent = text;
                 const empty = n === 0 && opt.value !== select.value ? '1' : '';
                 if ((opt.dataset.empty || '') !== empty) {
