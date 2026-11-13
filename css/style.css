@@ -491,6 +491,7 @@ textarea.form-control { resize:vertical; min-height:120px; }
 .cs-option { padding:.6rem .9rem; font-size:.85rem; color:var(--gray-800); cursor:pointer; transition:background .12s; }
 .cs-option:hover, .cs-option.cs-active { background:var(--gray-100); }
 .cs-option.cs-selected { color:var(--red); font-weight:600; }
+.cs-option.cs-option-empty, .cs-option.cs-option-empty:hover { color:var(--gray-400); background:none; cursor:not-allowed; }
 
 /* ═══════════════════════════════════════════════
    ANIMATIONS

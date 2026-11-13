@@ -213,16 +213,44 @@
         showPage(true);
     });
 
-    function applyFilters(keepPage) {
-        const search   = activeSearch.toLowerCase();
-        const filtered = ALL_PROJECTS.filter(p => {
-            const typeMatch     = activeType === 'all' || p.category === activeType;
-            const locationMatch = !activeLocation || getMicroMarket(p.location) === activeLocation;
-            const devMatch      = !activeDev   || p.developer === activeDev;
-            const budgetMatch   = matchBudget(p.price, activeBudget);
-            const searchMatch   = !search || `${p.title} ${p.developer} ${p.location} ${p.config}`.toLowerCase().includes(search);
-            return typeMatch && locationMatch && devMatch && budgetMatch && searchMatch;
+    // Each filter as its own test, so a dropdown can be counted with every other filter applied.
+    const FACETS = {
+        type:     { select: () => typeSelect,   active: () => activeType,     test: (p, v) => v === 'all' || p.category === v },
+        location: { select: () => locSelect,    active: () => activeLocation, test: (p, v) => !v || getMicroMarket(p.location) === v },
+        dev:      { select: () => devSelect,    active: () => activeDev,      test: (p, v) => !v || p.developer === v },
+        budget:   { select: () => budgetSelect, active: () => activeBudget,   test: (p, v) => matchBudget(p.price, v) },
+    };
+    function matches(p, skip) {
+        const search = activeSearch.toLowerCase();
+        if (search && !`${p.title} ${p.developer} ${p.location} ${p.config}`.toLowerCase().includes(search)) return false;
+        return Object.entries(FACETS).every(([k, f]) => k === skip || f.test(p, f.active()));
+    }
+
+    // Smarter filters: every option shows how many projects it would give with the other
+    // filters as they are, and options that would give none are greyed out (custom-select.js
+    // shows them but won't select them), so a combination like "Plots in Baner" can't lead
+    // to an empty page. The option already chosen always stays selectable.
+    function updateFacetCounts() {
+        Object.entries(FACETS).forEach(([key, f]) => {
+            const select = f.select();
+            if (!select) return;
+            const pool = ALL_PROJECTS.filter(p => matches(p, key));
+            Array.prototype.forEach.call(select.options, opt => {
+                if (opt.dataset.label === undefined) opt.dataset.label = opt.textContent;
+                const n = pool.filter(p => f.test(p, opt.value)).length;
+                const text = `${opt.dataset.label} (${n})`;
+                if (opt.textContent !== text) opt.textContent = text;
+                const empty = n === 0 && opt.value !== select.value ? '1' : '';
+                if ((opt.dataset.empty || '') !== empty) {
+                    if (empty) opt.dataset.empty = '1'; else delete opt.dataset.empty;
+                }
+            });
         });
+    }
+
+    function applyFilters(keepPage) {
+        const filtered = ALL_PROJECTS.filter(p => matches(p));
+        updateFacetCounts();
         const sorted = sortList(filtered);
 
         if (grid) grid.innerHTML = sorted.length ? sorted.map(renderCard).join('') : '';

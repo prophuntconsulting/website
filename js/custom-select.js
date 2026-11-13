@@ -96,6 +96,13 @@
             else if (o.offsetTop + o.offsetHeight > panel.scrollTop + panel.clientHeight) panel.scrollTop = o.offsetTop + o.offsetHeight - panel.clientHeight;
         }
 
+        // Arrow keys skip options that can't be chosen.
+        function step(d) {
+            let i = active + d;
+            while (options[i] && options[i].classList.contains('cs-option-empty')) i += d;
+            if (options[i]) setActive(i);
+        }
+
         function open() {
             closeAll(wrap);
             wrap.classList.add('open');
@@ -114,7 +121,7 @@
 
         function choose(i) {
             const o = options[i];
-            if (!o) return;
+            if (!o || o.classList.contains('cs-option-empty')) return;
             if (select.value !== o.dataset.value) {
                 select.value = o.dataset.value;
                 select.dispatchEvent(new Event('change', { bubbles: true }));
@@ -134,6 +141,8 @@
                 o.setAttribute('role', 'option');
                 o.textContent = opt.textContent;
                 o.dataset.value = opt.value;
+                // No matching projects with the other filters (js/projects.js): shown, not selectable.
+                if (opt.dataset.empty) { o.classList.add('cs-option-empty'); o.setAttribute('aria-disabled', 'true'); }
                 const n = options.length;
                 o.addEventListener('click', e => { e.stopPropagation(); choose(n); trigger.focus(); });
                 o.addEventListener('mousemove', () => { if (active !== n) setActive(n); });
@@ -152,8 +161,8 @@
         trigger.addEventListener('keydown', e => {
             const isOpen = wrap.classList.contains('open');
             switch (e.key) {
-                case 'ArrowDown': e.preventDefault(); isOpen ? setActive(active + 1) : open(); break;
-                case 'ArrowUp': e.preventDefault(); isOpen ? setActive(active - 1) : open(); break;
+                case 'ArrowDown': e.preventDefault(); isOpen ? step(1) : open(); break;
+                case 'ArrowUp': e.preventDefault(); isOpen ? step(-1) : open(); break;
                 case 'Home': if (isOpen) { e.preventDefault(); setActive(0); } break;
                 case 'End': if (isOpen) { e.preventDefault(); setActive(options.length - 1); } break;
                 case 'Enter': case ' ': e.preventDefault(); isOpen ? choose(active) : open(); break;
@@ -177,7 +186,8 @@
 
         // Some pages (e.g. the projects filter bar) append <option> elements
         // after a fetch resolves — keep the custom list in sync when that happens.
-        new MutationObserver(renderOptions).observe(select, { childList: true });
+        // ...and when their labels or availability change (the projects page shows counts).
+        new MutationObserver(renderOptions).observe(select, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['data-empty'] });
     }
 
     function init() {
