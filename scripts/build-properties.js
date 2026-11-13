@@ -272,7 +272,10 @@ function shortLocation(p) {
 function shortConfig(p) {
   const m = String(p.config || '').match(/^[\d.,&+\s]+BHK\+?/i);
   if (m && m[0].length <= 16) return m[0].replace(/\s+/g, ' ').trim();
-  return { plot: 'Plots', villa: 'Villas', commercial: 'Office Space' }[p.category] || '';
+  // Commercial projects with shops are searched as "commercial" (Search Console, Nov 2026:
+  // "city avenue by kolte patil - commercial market"); office-only ones keep "Office Space".
+  if (p.category === 'commercial') return /shop|retail/i.test(p.config || '') ? 'Commercial Shops & Offices' : 'Office Space';
+  return { plot: 'Plots', villa: 'Villas' }[p.category] || '';
 }
 // Other names buyers search a project by (Search Console and developer
 // branding), shown under the H1 as "Also known as". Real variants only.
@@ -360,8 +363,9 @@ function pageTitle(p) {
   // "<project> possession date" is a common search; claim it only when the
   // page shows a MahaRERA completion date.
   const poss = p.rera_possession ? 'Possession' : '';
-  const kw = p.rera ? (poss ? `Price, ${poss} & RERA` : cfg ? `Price, ${cfg} & RERA` : 'Price & RERA') : (cfg ? `${cfg} Price & Details` : 'Price & Details');
-  const kwShort = p.rera ? (poss ? 'Price & Possession' : 'Price & RERA') : (cfg ? `${cfg} Price` : 'Price & Details');
+  const shops = cfg === 'Commercial Shops & Offices';
+  const kw = p.rera ? (poss ? `Price, ${poss} & RERA` : shops ? `${cfg}, Price & RERA` : cfg ? `Price, ${cfg} & RERA` : 'Price & RERA') : (cfg ? `${cfg} Price & Details` : 'Price & Details');
+  const kwShort = p.rera ? (poss ? 'Price & Possession' : shops ? cfg : 'Price & RERA') : (cfg ? `${cfg} Price` : 'Price & Details');
   return fitTitle([`${head} | ${kw} | PROPHUNT LLP`, `${head} | ${kw} | PROPHUNT`, `${head} | ${kw}`, `${head} | ${kwShort} | PROPHUNT`, `${head} | ${kwShort}`, `${name} | ${kwShort}`, `${head}: Price & RERA`]);
 }
 

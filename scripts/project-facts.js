@@ -44,6 +44,14 @@ const PROJECT_FACTS = {
     registered: 'Aug 2017',
     checked: '2026-10-28', source: SRC,
   },
+  // 13 Nov 2026: possession Mar 2032 and land ~35,067 sq m agree across listing
+  // sites republishing the MahaRERA filing (dwello.in, nobrokerage.com,
+  // bookmywing.com); unit totals disagree (618 / 1,250 / 1,301), so left out.
+  'kohinoor-avantara': {
+    possession: 'Mar 2032',
+    land: 'about 8.7 acres (35,067 sq m)',
+    checked: '2026-11-13', source: SRC,
+  },
   'western-avenue-wakad': {
     promoter: 'Kolte-Patil Developers Ltd',
     land: 'about 13.4 acres (54,205 sq m)',
