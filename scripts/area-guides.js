@@ -62,7 +62,7 @@ const AREA_GUIDES = {
         'Much of the newest supply is in premium 3, 4 and 5 BHK towers, especially along [Pan Card Club Road](/blog/pan-card-club-road-baner) at the foot of the hills, while older parts of Baner and Balewadi offer more 2 and 3 BHK homes.',
       ] },
       { h: 'Prices', p: [
-        `${KF} recorded Baner at about ₹16,418 to ₹16,987 per sq ft, up 4% over 12 months, against about ₹17,734 to ₹18,274 in neighbouring Aundh and ₹12,115 to ₹12,588 in Wakad. Prices vary widely by road, tower and view, so compare projects on the full cost sheet, not the rate per sq ft.`,
+        `${KF} recorded Baner at about ₹16,418 to ₹16,987 per sq ft, up 4% over 12 months, against about ₹17,734 to ₹18,274 in neighbouring Aundh and ₹12,115 to ₹12,588 in Wakad. Prices vary widely by road, tower and view, so compare projects on the full cost sheet, not the rate per sq ft. For the citywide picture, see our [Pune real estate market 2026 report](/blog/pune-real-estate-market-2026).`,
       ] },
       { h: 'Connectivity', p: [
         'Baner Road and the Baner–Pashan link road connect the area to Aundh, the university and central Pune, and the Expressway is close by for Mumbai and Hinjewadi. Pune Metro Line 3, from Hinjewadi to Shivajinagar, opened on 4 November 2026, but its stations nearest Baner are not running yet: Balewadi Phata is expected by the end of November 2026, and Baner Gaon and Baner–Pashan Link Road by January 2027. Until then the nearest open stations are Aundh and R K Laxman Museum Balewadi. Our [Metro Line 3 guide](/blog/pune-metro-line-3-property) explains what it means for property.',
@@ -89,7 +89,7 @@ const AREA_GUIDES = {
         'Wakad lies in West Pune, between the Hinjewadi IT parks and the Mumbai–Bengaluru highway, and falls under the Pimpri-Chinchwad Municipal Corporation (PCMC). Its location, a short drive from Hinjewadi with quick highway access, made it one of the city’s fastest-growing residential areas, with large gated projects, the Phoenix Mall of the Millennium and a wide choice of schools and hospitals.',
       ] },
       { h: 'Prices: a pause after a strong run', p: [
-        `${KF} recorded Wakad at about ₹12,115 to ₹12,588 per sq ft, unchanged over 12 months, after a strong 2025. Heavy new supply in and around Wakad is being absorbed, which gives buyers more choice and more room to negotiate than a year ago. It remains well below Baner, at about ₹16,418 to ₹16,987.`,
+        `${KF} recorded Wakad at about ₹12,115 to ₹12,588 per sq ft, unchanged over 12 months, after a strong 2025. Heavy new supply in and around Wakad is being absorbed, which gives buyers more choice and more room to negotiate than a year ago. It remains well below Baner, at about ₹16,418 to ₹16,987. For the citywide picture, see our [Pune real estate market 2026 report](/blog/pune-real-estate-market-2026).`,
       ] },
       { h: 'Connectivity', p: [
         'Wakad’s draw is its position: the Hinjewadi IT parks on one side, the highway towards Mumbai, Bengaluru and the rest of Pune on the other. Pune Metro Line 3, open since 4 November 2026, has a Wakad Chowk station, with trains to Hinjewadi one way and to Aundh and District Court the other. The flip side is traffic: Bhumkar Chowk and the Wakad flyover are among Hinjewadi’s best-known choke points at peak hours.',
@@ -200,7 +200,7 @@ const AREA_GUIDES = {
         'Hadapsar is East Pune’s largest residential hub, on the Pune–Solapur highway, and includes Magarpatta City, Amanora and the Saswad Road belt towards Jadhavwadi. It grew with the IT offices of Magarpatta and nearby Kharadi and now has its own malls, schools and hospitals.',
       ] },
       { h: 'Prices', p: [
-        `${KF} recorded Hadapsar at about ₹11,510 to ₹11,822 per sq ft, up 8% over 12 months, one of the stronger gains in the city. Unsold stock in East Pune rose 34% over the year, the fastest of any zone, so buyers here have choice and room to negotiate.`,
+        `${KF} recorded Hadapsar at about ₹11,510 to ₹11,822 per sq ft, up 8% over 12 months, one of the stronger gains in the city. Unsold stock in East Pune rose 34% over the year, the fastest of any zone, so buyers here have choice and room to negotiate. For the citywide picture, see our [Pune real estate market 2026 report](/blog/pune-real-estate-market-2026).`,
       ] },
       { h: 'Connectivity and what is coming', list: [
         '**Rail:** Hadapsar is being developed as a satellite railway terminal, with long-distance trains starting from it in 2026.',
@@ -442,7 +442,7 @@ const INDEX_GUIDES = {
   location: {
     sections: [
       { h: 'How Pune’s housing market divides up', p: [
-        `${KF} splits Pune into five zones. **West Pune** (Baner, Aundh, Wakad, Hinjewadi) is the largest market and the most expensive outside the centre, driven by the Hinjewadi IT parks. **East Pune** (Kharadi, Hadapsar, Wagholi) has grown around its own IT hubs. **North Pune**, which takes in Pimpri-Chinchwad and Moshi, is the most affordable large market and was the tightest in 2026. **South Pune** (Sinhgad Road, Undri, Kondhwa) is popular with families, and **Central Pune** is the smallest and costliest.`,
+        `${KF} splits Pune into five zones. **West Pune** (Baner, Aundh, Wakad, Hinjewadi) is the largest market and the most expensive outside the centre, driven by the Hinjewadi IT parks. **East Pune** (Kharadi, Hadapsar, Wagholi) has grown around its own IT hubs. **North Pune**, which takes in Pimpri-Chinchwad and Moshi, is the most affordable large market and was the tightest in 2026. **South Pune** (Sinhgad Road, Undri, Kondhwa) is popular with families, and **Central Pune** is the smallest and costliest. For the citywide picture, see our [Pune real estate market 2026 report](/blog/pune-real-estate-market-2026).`,
       ] },
       { h: 'Choosing an area: start with your commute', list: [
         'Work out where you, and anyone else in the household, will travel to every day, and drive it at peak hours.',
