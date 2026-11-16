@@ -324,6 +324,31 @@ const TYPE_GUIDES = {
     ],
     faqs: [{"q":"Is the Missing Link open near Khopoli?","a":"Yes. The Mumbai–Pune Expressway Missing Link, from Khopoli to Kusgaon near Lonavala, opened on 1 May 2026 and saves around 20 to 30 minutes by bypassing the ghat section."},{"q":"What should I check before buying a plot in Khopoli?","a":"The NA order, 7/12 extract and mutation entries, a 30-year title search, the project’s MahaRERA registration, and whether any part of the land is forest or hill-slope land."}],
   },
+  'hadapsar:apartment': {
+    sections: [
+      { h: 'Where the apartments are', p: [
+        'Flats in Hadapsar fall into three groups: the established townships of Magarpatta City and Amanora, close to the IT offices; older housing societies along the Pune–Solapur highway; and newer gated projects on the edges, such as Shapoorji Pallonji Wildernest in SP Kingstown at Shewalewadi, in the Hadapsar Annexe area. The edges usually give more space and amenities for the money, while Magarpatta and Amanora are closer to work and already fully developed.',
+      ] },
+      { h: 'Prices in 2026', p: [
+        `${KF} recorded Hadapsar at about ₹11,510 to ₹11,822 per sq ft, up 8% over 12 months, one of the stronger gains in Pune, but still well below Baner. Unsold stock in East Pune rose 34% over the year, the fastest of any zone, so buyers have choice and room to negotiate, especially on projects that have been selling slowly. For the citywide picture, see our [Pune real estate market 2026 report](/blog/pune-real-estate-market-2026).`,
+      ] },
+      { h: 'Who a flat in Hadapsar suits', p: [
+        'People who work in Magarpatta, Kharadi or along the Solapur highway, and families who want a larger home in East Pune for a lower price per square foot than West Pune. If you commute to Hinjewadi or Baner every day, the drive across the city is long, so weigh that before buying here.',
+      ] },
+      { h: 'What to check before you book', list: [
+        '**Distance from the Uruli Devachi–Fursungi garbage depot**, especially for projects towards Fursungi and Saswad Road.',
+        '**Peak-hour traffic** on the Solapur highway and around Magarpatta.',
+        '**Water supply**: ask whether the society relies on tankers in summer.',
+        '**MahaRERA registration and possession date**: read our guide to [checking MahaRERA registration](/blog/how-to-check-maharera-registration-pune).',
+        '**The full cost**: stamp duty, registration and GST on top of the agreement value; work it out with our [stamp duty calculator](/stamp-duty-calculator-pune).',
+      ] },
+    ],
+    faqs: [
+      { q: 'What is the price of flats in Hadapsar?', a: 'Knight Frank India recorded Hadapsar at about ₹11,510 to ₹11,822 per sq ft in H1 2026, up 8% over 12 months. Prices vary by project, size and location within Hadapsar, so ask for a current cost sheet.' },
+      { q: 'Is Hadapsar a good place to buy a flat?', a: 'It suits people who work in Magarpatta, Kharadi or East Pune and want more space for the money than West Pune offers. Unsold stock in East Pune rose 34% in 2026, so there is room to negotiate. Check the commute, water supply and distance from the Uruli Devachi garbage depot before you buy.' },
+      { q: 'Which new apartment projects are in Hadapsar?', a: 'PROPHUNT lists Shapoorji Pallonji Wildernest in SP Kingstown, Shewalewadi, in the Hadapsar Annexe area. Our advisors can arrange site visits and compare it with other options in East Pune.' },
+    ],
+  },
   'hadapsar:plot': {
     sections: [
       { h: 'Plots in the Hadapsar belt', p: [
