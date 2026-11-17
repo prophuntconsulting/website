@@ -314,6 +314,28 @@ function priceLakh(txt) {
   return parseFloat(m[1]) * (/cr/i.test(m[2]) ? 100 : 1);
 }
 
+// Every figure in a price string, in lakh: "Rs 1.45 - 1.6 Cr" -> [145, 160], "₹2.20 Cr+ / ₹2.75 Cr+" -> [220, 275].
+function priceFigures(txt) {
+  const out = [];
+  for (const m of String(txt || '').matchAll(/([\d.]+)\s*(?:-|–|to)\s*([\d.]+)\s*(Cr|L)\b|([\d.]+)\s*(Cr|L)\b/gi)) {
+    const unit = m[3] || m[5]; const k = /cr/i.test(unit) ? 100 : 1;
+    (m[1] ? [m[1], m[2]] : [m[4]]).forEach(v => { const x = parseFloat(v); if (x) out.push(x * k); });
+  }
+  return out;
+}
+const fmtLakh = l => l >= 100 ? `₹${+(l / 100).toFixed(2)} crore` : `₹${+l.toFixed(2)} lakh`;
+// One-line answer to "N BHK price in <area>": lowest and highest published prices.
+function priceRangeLine(n, area, priced, priceOf) {
+  if (!priced.length) return '';
+  const rows = priced.map(p => ({ p, f: priceFigures(priceOf(p)), open: /\+|onwards/i.test(priceOf(p)) })).filter(r => r.f.length);
+  if (!rows.length) return '';
+  const lo = rows.reduce((a, r) => Math.min(...r.f) < Math.min(...a.f) ? r : a);
+  const hi = rows.reduce((a, r) => Math.max(...r.f) > Math.max(...a.f) ? r : a);
+  const min = Math.min(...lo.f), max = Math.max(...hi.f);
+  if (rows.length === 1 || lo === hi || max === min) return `${bhkLabel(n)} prices in ${area} start at about ${fmtLakh(min)} (${lo.p.title}), based on developers' published prices.`;
+  return `${bhkLabel(n)} prices in ${area} start at about ${fmtLakh(min)} (${lo.p.title}) and go up to ${fmtLakh(max)}${hi.open ? ' and above' : ''} (${hi.p.title}), based on developers' published prices.`;
+}
+
 // Knight Frank India, Pune residential H1 2026 (same figures as the area guides).
 const AREA_RATE = { baner: '₹16,418 to ₹16,987', wakad: '₹12,115 to ₹12,588', hadapsar: '₹11,510 to ₹11,822' };
 const AREA_SEARCH_ALIAS = { 'pimpri-chinchwad': 'PCMC' };
@@ -335,6 +357,7 @@ for (const pg of locBhkPages) {
   // Cheapest published price first ("budget 3 bhk wakad"), then the rest by name.
   const sorted = [...projects].sort((a, b) => (a.status === 'coming-soon') - (b.status === 'coming-soon')
     || priceLakh(rowsFor(a).price) - priceLakh(rowsFor(b).price) || a.title.localeCompare(b.title));
+  const rangeLine = priceRangeLine(n, loc.name, pricedProjects, p => rowsFor(p).price);
   const building = projects.filter(p => /under construction|nearing|new launch|launched/i.test(p.tagline || '') || p.status === 'coming-soon');
   const ready = projects.filter(p => /ready to move|ready possession|oc received/i.test(p.tagline || ''));
   const reraCount = projects.filter(p => p.rera).length;
@@ -345,7 +368,7 @@ for (const pg of locBhkPages) {
   const faqs = [
     { q: `How many ${bhkLabel(n)} projects are available in ${loc.name}?`, a: `PROPHUNT LLP currently lists ${projects.length} projects in ${loc.name} offering ${bhkLabel(n)} homes: ${projects.map(p => p.title).join(', ')}.` },
     { q: `What is the price of a ${bhkLabel(n)} flat in ${loc.name}?`, a: pricedProjects.length
-      ? `Published ${bhkLabel(n)} prices in ${loc.name}: ${pricedProjects.map(p => `${p.title} ${rowsFor(p).price}`).join('; ')} (indicative, excluding taxes). For the other projects the developer shares pricing on request; our advisors can get you the current cost sheets.`
+      ? `${rangeLine} Published ${bhkLabel(n)} prices in ${loc.name}: ${pricedProjects.map(p => `${p.title} ${rowsFor(p).price}`).join('; ')} (indicative, excluding taxes). For the other projects the developer shares pricing on request; our advisors can get you the current cost sheets.`
       : `Developers in ${loc.name} share ${bhkLabel(n)} pricing on request. PROPHUNT LLP can get you current cost sheets for all ${projects.length} projects at no charge.` },
     ...(pricedProjects.length ? [{ q: `What is the most affordable ${bhkLabel(n)} flat in ${loc.name}?`, a: `Among the projects PROPHUNT LLP lists, the lowest published ${bhkLabel(n)} price in ${loc.name} is at ${pricedProjects[0].title}: ${rowsFor(pricedProjects[0]).price} (indicative, excluding stamp duty, registration and GST). ${pricedProjects.length > 1 ? `Next: ${pricedProjects.slice(1, 3).map(p => `${p.title} at ${rowsFor(p).price}`).join('; ')}. ` : ''}Other developers share prices on request.` }] : []),
     ...(AREA_RATE[mm] ? [{ q: `What is the price per sq ft for flats in ${loc.name}?`, a: `Knight Frank India's H1 2026 report puts ${loc.name} at about ${AREA_RATE[mm]} per sq ft. Rates differ by project, tower, floor and view, so compare cost sheets on carpet area.` }] : []),
@@ -368,14 +391,14 @@ for (const pg of locBhkPages) {
     ${breadcrumbHtml(crumbs)}
     <span class="section-label"><i class="fas fa-building"></i> ${escapeHtml(loc.name)}, Pune</span>
     <h1>${escapeHtml(`${bhkLabel(n)} Flats & Apartments in ${loc.name}${alias}, Pune`)}</h1>
-    <p>${projects.length} new projects offering ${bhkLabel(n)} homes in ${escapeHtml(loc.name)}, from ${escapeHtml(developersText(projects))}.</p>
+    <p>${projects.length} new projects offering ${bhkLabel(n)} homes in ${escapeHtml(loc.name)}, from ${escapeHtml(developersText(projects))}.${rangeLine ? ' ' + escapeHtml(rangeLine) : ''}</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     ${aboutBlurb ? `<p class="loc-about">${escapeHtml(aboutBlurb)}</p>` : ''}
-    ${AREA_RATE[mm] ? `<p class="loc-about"><strong>${bhkLabel(n)} flat prices in ${escapeHtml(loc.name)}:</strong> Knight Frank India's H1 2026 report puts ${escapeHtml(loc.name)} at about ${AREA_RATE[mm]} per sq ft. Individual projects vary with tower, floor and view, so ask each developer for a cost sheet, and add stamp duty, registration and GST with our <a href="/stamp-duty-calculator-pune">stamp duty calculator</a>.</p>` : ''}
+    ${AREA_RATE[mm] ? `<p class="loc-about"><strong>${bhkLabel(n)} flat prices in ${escapeHtml(loc.name)}:</strong> ${rangeLine ? escapeHtml(rangeLine) + ' ' : ''}Knight Frank India's H1 2026 report puts ${escapeHtml(loc.name)} at about ${AREA_RATE[mm]} per sq ft. Individual projects vary with tower, floor and view, so ask each developer for a cost sheet, and add stamp duty, registration and GST with our <a href="/stamp-duty-calculator-pune">stamp duty calculator</a>.</p>` : ''}
     ${sectionHead('table', 'Compare', `${bhkLabel(n)} Size & Price by Project`)}
     <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Developer</th><th>${bhkLabel(n)} size</th><th>${bhkLabel(n)} price</th></tr></thead><tbody>${sorted.map(p => {
       const r = rowsFor(p);
