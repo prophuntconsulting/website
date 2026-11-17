@@ -1,7 +1,7 @@
 /**
- * Run daily by .github/workflows/sanity-maintenance.yml.
+ * Run by .github/workflows/sanity-maintenance.yml (every 15 minutes, 10:00-12:45 IST).
  *
- *   node scripts/sanity-maintenance.js due          deploy if a scheduled blog post became due in the last 24h
+ *   node scripts/sanity-maintenance.js due          deploy if a scheduled blog post became due since the live build
  *   node scripts/sanity-maintenance.js backup DIR   (Sundays, or a manual run) export all published
  *                                                   content and the asset list to DIR as JSON
  *
@@ -14,6 +14,7 @@ const path = require('path');
 
 const PROJECT_ID = process.env.SANITY_PROJECT_ID || '9cgq9uxv';
 const DATASET = process.env.SANITY_DATASET || 'production';
+const SITE = process.env.SITE_URL || 'https://www.prophuntllp.com';
 const API = `https://${PROJECT_ID}.api.sanity.io/v2025-02-19/data/query/${DATASET}`;
 const [cmd, outDir] = process.argv.slice(2);
 
@@ -24,10 +25,18 @@ async function query(q, params = {}) {
   return (await res.json()).result;
 }
 
+// Deploys when a post's "Publish at" time has passed since the live site was
+// built (build-info.json), so the job can run every 15 minutes without
+// redeploying: once the due post is live, builtAt is later than its time.
 async function due() {
   const now = new Date();
-  const dayAgo = new Date(now.getTime() - 24 * 3600e3);
-  const posts = await query('*[_type == "blogPost" && publishedAt > $from && publishedAt <= $to]{title, publishedAt}', { from: dayAgo.toISOString(), to: now.toISOString() });
+  let from = new Date(now.getTime() - 24 * 3600e3);
+  try {
+    const res = await fetch(`${SITE}/build-info.json?t=${now.getTime()}`, { cache: 'no-store' });
+    if (res.ok) from = new Date((await res.json()).builtAt);
+  } catch (e) { console.log('Could not read build-info.json, using the last 24 hours:', e.message); }
+  console.log('Live site built at', from.toISOString());
+  const posts = await query('*[_type == "blogPost" && publishedAt > $from && publishedAt <= $to]{title, publishedAt}', { from: from.toISOString(), to: now.toISOString() });
   if (!posts.length) { console.log('No scheduled posts became due.'); return; }
   console.log('Due:', posts.map(p => `${p.title} (${p.publishedAt})`).join('; '));
   if (!process.env.VERCEL_DEPLOY_HOOK) throw new Error('VERCEL_DEPLOY_HOOK secret is not set, so the due posts cannot go live');
