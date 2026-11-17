@@ -5,8 +5,9 @@
  * marks no-store, so it is still loaded late: after the visitor's first scroll
  * or tap (or 20 s idle), and never during page load, where it used to be the
  * biggest item on the critical path. So the button doesn't look missing until
- * then, a 4 KB stand-in with the same orb and label shows straight away; a tap
- * on it loads the widget at once and opens it.
+ * then, a small stand-in drawn like the widget's "Talk to us" pill (orb, green
+ * dot, label) shows straight away; a tap on it loads the widget at once and
+ * opens it. The widget draws its own label, so we add none.
  *
  * Placement: bottom-right, level with the WhatsApp button bottom-left; the
  * back-to-top arrow sits above it.
@@ -15,7 +16,7 @@
     'use strict';
 
     const API = 'https://voice-production-2950.up.railway.app';
-    const SIZE = 68;                       // the widget's button
+    const SIZE = 56;                       // the widget's pill button (height)
     const PHONE = '(max-width: 768px)';    // where the widget is scaled to .78
     const phone = () => window.matchMedia(PHONE).matches;
 
@@ -30,9 +31,16 @@
         return {
             bottom: Math.max(cs ? parseFloat(cs.bottom) : 20, ctaTop),
             side: cs ? parseFloat(cs.left) : (phone() ? 16 : 32),
-            size,
-            label: phone() ? 31 : 27       // the "Talk to us" pill above the button
+            size
         };
+    }
+
+    // Width of the pill on screen: the real widget's once loaded, else the stand-in's.
+    function pillWidth() {
+        const host = document.getElementById('vistrow-voice-widget-host');
+        const real = host && host.shadowRoot && host.shadowRoot.querySelector('.av-button');
+        const el = real && real.offsetWidth ? real : document.querySelector('.ph-voice:not(.is-gone)');
+        return el ? el.getBoundingClientRect().width : (phone() ? 112 : 143);
     }
 
     function place() {
@@ -41,11 +49,11 @@
         root.setProperty('--ph-voice-bottom', s.bottom + 'px');
         root.setProperty('--ph-voice-side', s.side + 'px');
         root.setProperty('--ph-voice-size', s.size + 'px');
-        // Back-to-top: above the button and its label, centred on the button.
+        // Back-to-top: above the pill, centred on it.
         const btt = document.getElementById('backToTop');
         if (btt) {
-            btt.style.setProperty('bottom', (s.bottom + s.size + 10 + s.label + 12) + 'px', 'important');
-            btt.style.setProperty('right', (s.side + (s.size - btt.offsetWidth) / 2) + 'px', 'important');
+            btt.style.setProperty('bottom', (s.bottom + s.size + 14) + 'px', 'important');
+            btt.style.setProperty('right', (s.side + (pillWidth() - btt.offsetWidth) / 2) + 'px', 'important');
         }
         const host = document.getElementById('vistrow-voice-widget-host');
         if (host) {
@@ -58,17 +66,16 @@
     const css = document.createElement('style');
     css.textContent =
         '.ph-voice{position:fixed;z-index:2147483001;bottom:var(--ph-voice-bottom,20px);right:var(--ph-voice-side,16px);' +
-        'width:var(--ph-voice-size,68px);height:var(--ph-voice-size,68px);padding:0;border:0;border-radius:50%;' +
-        'background:#000 url(/images/voice-orb.webp) center/cover;cursor:pointer;' +
-        'box-shadow:0 0 0 0 rgba(168,85,247,.45);animation:ph-voice-ring 2.6s ease-out infinite;transition:opacity .3s,transform .15s}' +
-        '.ph-voice:hover{transform:scale(1.06)}' +
-        '.ph-voice::before{content:"Talk to us";position:absolute;bottom:100%;right:0;margin-bottom:10px;' +
-        'background:#fff;color:#111;font:600 13px/1 Rubik,system-ui,sans-serif;padding:7px 12px;border-radius:999px;' +
-        'box-shadow:0 4px 14px rgba(0,0,0,.18);white-space:nowrap;pointer-events:none}' +
+        'display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 20px 0 8px;border:0;border-radius:9999px;' +
+        'background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;font:700 14.5px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;' +
+        'box-shadow:0 10px 28px rgba(76,29,149,.4),0 2px 6px rgba(0,0,0,.25);cursor:pointer;transform-origin:bottom right;transition:opacity .3s,transform .15s}' +
+        '.ph-voice:hover{transform:scale(1.04)}' +
+        '.ph-voice-orb{position:relative;width:40px;height:40px;border-radius:50%;background:#000 url(/images/voice-orb.webp) center/cover;box-shadow:0 0 0 2px rgba(255,255,255,.9)}' +
+        '.ph-voice-orb::after{content:"";position:absolute;left:28px;top:28px;width:11px;height:11px;border-radius:50%;background:#22c55e}' +
         '.ph-voice.is-loading{animation:ph-voice-wait 1s ease-in-out infinite}' +
         '.ph-voice.is-gone{opacity:0;pointer-events:none}' +
-        '@media ' + PHONE + '{.ph-voice::before{font-size:15px;padding:8px 13px}}' +
-        '@keyframes ph-voice-ring{0%{box-shadow:0 0 0 0 rgba(168,85,247,.45)}70%,100%{box-shadow:0 0 0 14px rgba(168,85,247,0)}}' +
+        // Phones: same .78 scale the real widget gets below.
+        '@media ' + PHONE + '{.ph-voice{transform:scale(.78)}.ph-voice:hover{transform:scale(.8)}}' +
         '@keyframes ph-voice-wait{50%{opacity:.6}}';
     document.head.appendChild(css);
 
@@ -76,6 +83,7 @@
     standIn.type = 'button';
     standIn.className = 'ph-voice';
     standIn.setAttribute('aria-label', 'Talk to us');
+    standIn.innerHTML = '<span class="ph-voice-orb" aria-hidden="true"></span><span>Talk to us</span>';
     document.body.appendChild(standIn);
 
     let wantOpen = false;
@@ -114,14 +122,8 @@
         style.id = 'prophunt-widget-tuning';
         style.textContent = '.av-greeting,.av-proof-pill{display:none!important}' +
             '.av-root{bottom:var(--ph-av-bottom,20px)!important;right:var(--ph-av-side,16px)!important;left:auto!important}' +
-            // "Talk to us" label above the button; hidden while the panel is open.
-            '.av-button-wrap::before{content:"Talk to us";position:absolute;bottom:100%;right:0;margin-bottom:10px;' +
-            'background:#fff;color:#111;font:600 13px/1 Rubik,system-ui,sans-serif;padding:7px 12px;border-radius:999px;' +
-            'box-shadow:0 4px 14px rgba(0,0,0,.18);white-space:nowrap;pointer-events:none}' +
-            '.av-button-wrap:has(.av-button[aria-expanded="true"])::before{display:none}' +
             // Phones: scale the whole button as one piece so the orb, glow and badge stay aligned.
-            '@media ' + PHONE + '{.av-button-wrap{transform:scale(.78);transform-origin:bottom right}' +
-            '.av-button-wrap::before{font-size:15px;padding:8px 13px}}';
+            '@media ' + PHONE + '{.av-button-wrap{transform:scale(.78);transform-origin:bottom right}}';
         root.appendChild(style);
     }
 
