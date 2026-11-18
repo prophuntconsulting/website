@@ -320,5 +320,15 @@
         }
       ]
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/publish-due",
+      "schedule": "0 4 * * *"
+    },
+    {
+      "path": "/api/publish-due",
+      "schedule": "0 5 * * *"
+    }
   ]
 }

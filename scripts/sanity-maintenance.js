@@ -1,5 +1,5 @@
 /**
- * Run by .github/workflows/sanity-maintenance.yml (every 15 minutes, 10:00-12:45 IST).
+ * Run by .github/workflows/sanity-maintenance.yml (backup to Vercel Cron in api/publish-due.js).
  *
  *   node scripts/sanity-maintenance.js due          deploy if a scheduled blog post became due since the live build
  *   node scripts/sanity-maintenance.js backup DIR   (Sundays, or a manual run) export all published

@@ -3,19 +3,18 @@ name: Sanity maintenance
 # Content lives in Sanity and Vercel builds the site from it on every deploy
 # (publishing in the Studio calls the Vercel deploy hook). This job covers
 # the two things a publish does not:
-#  1. Scheduled blog posts: posts are scheduled for 10:00 IST. From 10:00 to
-#     12:45 IST this checks every 15 minutes and triggers a deploy when a post's
-#     "Publish at" time has passed since the live build. GitHub often starts
-#     scheduled runs late (a 00:30 UTC run started 4-7 hours late in Nov 2026),
-#     so several runs make sure one lands soon after 10:00; repeat runs don't
-#     redeploy. The 15:30 IST run is a late fallback.
+#  1. Scheduled blog posts (backup): posts are scheduled for 09:30 IST and
+#     Vercel Cron (vercel.json -> api/publish-due.js) publishes them between
+#     09:30 and 10:30 IST. GitHub starts scheduled runs late (4-14 hours in
+#     Nov 2026), so this repeats the same check every 15 minutes from 09:30
+#     and at 15:30 IST; it deploys only if a post became due after the live
+#     build, so repeat runs don't redeploy.
 #  2. Backups: every Sunday, export all published content to a workflow
 #     artifact (kept 90 days). No git commits.
 # Needs the repository secret VERCEL_DEPLOY_HOOK (the deploy hook URL).
 on:
   schedule:
-    - cron: '30,45 4 * * *'     # 10:00 and 10:15 IST
-    - cron: '*/15 5-6 * * *'    # 10:30 to 12:15 IST
+    - cron: '*/15 4-6 * * *'    # 09:30 to 12:15 IST
     - cron: '0 10 * * *'        # 15:30 IST fallback
   workflow_dispatch:
 
