@@ -105,10 +105,12 @@
     const contrast = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
     const safeUrl = u => /^https:\/\/[^\s"'<>`\\()]{1,490}$/.test(u || '') ? u : '';
 
+    let themed = false;   // painted with a dashboard colour: wait for the real widget to apply it too
     function paint(cfg) {
         const t = (cfg && cfg.theme) || {};
         const a = hexRgb(t.color);
         if (a) {
+            themed = true;
             const on = contrast(a, [255, 255, 255]) >= 3.5 || contrast(a, [255, 255, 255]) >= contrast(a, [17, 17, 17]) ? '#ffffff' : '#111111';
             standIn.style.setProperty('--phv-a', rgbHex(a));
             standIn.style.setProperty('--phv-b', mix(a, [0, 0, 0], lum(a) > .8 ? .06 : .25));
@@ -157,9 +159,21 @@
 
     /* ── Load the real widget ── */
     let started = false;
+    // Fetch the widget script early (no execution) as soon as there's intent; load() then reuses it.
+    let preloaded = false;
+    function preload() {
+        if (preloaded) return;
+        preloaded = true;
+        const l = document.createElement('link');
+        l.rel = 'preload'; l.as = 'script'; l.href = API + '/widget.js';
+        document.head.appendChild(l);
+    }
+    ['pointerenter', 'touchstart', 'focus'].forEach(e => standIn.addEventListener(e, preload, { passive: true, once: true }));
+
     function load(delay) {
         if (started) return;
         started = true;
+        preload();
         ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(e => window.removeEventListener(e, onFirstTouch));
         setTimeout(() => {
             const s = document.createElement('script');
@@ -189,10 +203,15 @@
         root.appendChild(style);
     }
 
+    let firstSeen = 0;
     function swap(host) {
         const root = host.shadowRoot;
         const button = root && root.querySelector('.av-button');
         if (!button) return false;
+        // The widget first renders its default purple and applies the dashboard theme a moment
+        // later (it fetches the same site-config). Keep the stand-in on top until it has, or 3 s.
+        if (!firstSeen) firstSeen = Date.now();
+        if (themed && !host.hasAttribute('data-accent') && Date.now() - firstSeen < 3000) return false;
         const video = button.querySelector('video');
         let done = false;
         const finish = () => {
@@ -216,11 +235,14 @@
         const host = document.getElementById('vistrow-voice-widget-host');
         if (!host) return;
         watch.disconnect();
-        let tries = 0;
+        // Slow connections can take well over 15 s to deliver the widget, so keep checking
+        // (cheap) until it's ready; giving up used to leave the stand-in stuck over the widget.
+        const started = Date.now();
         const poll = setInterval(() => {
             if (host.shadowRoot) { tune(host); place(); }
-            if (swap(host) || ++tries > 75) clearInterval(poll);
-        }, 200);
+            if (swap(host)) clearInterval(poll);
+            else if (Date.now() - started > 120000) { clearInterval(poll); standIn.remove(); }
+        }, 150);
     });
     watch.observe(document.body, { childList: true, subtree: true });
 
