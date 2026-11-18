@@ -101,14 +101,13 @@
 .timeline-desc { font-size:.875rem; color:var(--gray-600); line-height:1.6; }
 .office-gallery { display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:280px; gap:1rem; }
 .office-tile { position:relative; margin:0; overflow:hidden; border-radius:var(--radius-md); background:var(--gray-200); }
-.office-tile--team { grid-column:span 4; }
-.office-tile--awards { grid-column:span 2; }
+.office-tile--team { grid-column:1 / -1; grid-row:span 2; }
 .office-tile--half { grid-column:span 3; }
 .office-tile img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s var(--ease); }
 .office-tile:hover img { transform:scale(1.04); }
 .office-tile figcaption { position:absolute; left:0; right:0; bottom:0; padding:2.5rem 1.1rem .9rem; font-size:.85rem; font-weight:600; color:#fff; background:linear-gradient(to top, rgba(17,17,17,.78), rgba(17,17,17,0)); }
 @media(max-width:1024px){ .about-story{grid-template-columns:1fr;gap:2.5rem;} .mission-grid{grid-template-columns:1fr 1fr;} .mission-grid>:last-child:nth-child(odd){grid-column:1/-1;} .about-story-img-float{right:1rem;bottom:-1.5rem;} .office-gallery{grid-auto-rows:240px;} }
-@media(max-width:600px){ .mission-grid{grid-template-columns:1fr;} .office-gallery{grid-template-columns:1fr;grid-auto-rows:220px;} .office-tile--team,.office-tile--awards,.office-tile--half{grid-column:auto;} .about-story-img-float{display:none;} }
+@media(max-width:600px){ .mission-grid{grid-template-columns:1fr;} .office-gallery{grid-template-columns:1fr;grid-auto-rows:220px;} .office-tile--team,.office-tile--half{grid-column:auto;grid-row:auto;} .about-story-img-float{display:none;} }
 </style>
 </head>
 <body>
@@ -277,12 +276,8 @@
     </div>
     <div class="office-gallery">
       <figure class="office-tile office-tile--team" data-reveal>
-        <img src="/images/office/team-at-work.webp" srcset="/images/office/team-at-work-sm.webp 760w, /images/office/team-at-work.webp 1360w" sizes="(max-width:768px) 100vw, 66vw" width="1360" height="628" loading="lazy" decoding="async" alt="PROPHUNT advisors working at their desks in the Baner office">
+        <img src="/images/office/team-at-work.webp" srcset="/images/office/team-at-work-sm.webp 760w, /images/office/team-at-work.webp 1360w" sizes="(max-width:768px) 100vw, 1200px" width="1360" height="628" loading="lazy" decoding="async" alt="PROPHUNT advisors working at their desks in the Baner office">
         <figcaption>Our advisory team at work</figcaption>
-      </figure>
-      <figure class="office-tile office-tile--awards" data-reveal data-reveal-delay="100">
-        <img src="/images/office/awards.webp" srcset="/images/office/awards-sm.webp 760w, /images/office/awards.webp 1400w" sizes="(max-width:768px) 100vw, 33vw" width="1400" height="790" loading="lazy" decoding="async" alt="Framed certificates of appreciation awarded to PROPHUNT LLP by developer partners">
-        <figcaption>Recognition from our developer partners</figcaption>
       </figure>
       <figure class="office-tile office-tile--half" data-reveal>
         <img src="/images/office/workspace.webp" srcset="/images/office/workspace-sm.webp 760w, /images/office/workspace.webp 1400w" sizes="(max-width:768px) 100vw, 50vw" width="1400" height="790" loading="lazy" decoding="async" alt="Open-plan advisory workspace with desks and pendant lights">
