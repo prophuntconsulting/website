@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
     if (!r.ok) throw new Error(`Sanity query failed: ${r.status}`);
     const posts = (await r.json()).result || [];
 
-    if (!posts.length) return res.status(200).json({ builtAt: from, due: [], deployed: false });
+    if (!posts.length) return res.status(200).json({ builtAt: from, due: [], deployed: false, hookSet: Boolean(process.env.VERCEL_DEPLOY_HOOK) });
     if (!process.env.VERCEL_DEPLOY_HOOK) throw new Error('VERCEL_DEPLOY_HOOK is not set');
     const hook = await fetch(process.env.VERCEL_DEPLOY_HOOK, { method: 'POST' });
     console.log('Due:', posts.map(p => p.title).join('; '), '- deploy hook', hook.status);
