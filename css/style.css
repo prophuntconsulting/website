@@ -663,6 +663,7 @@ html { overflow-x:clip; }
 body :is(.card, .prop-card, .blog-card, .bl-card, .dev-card, .loc-hub-card, .ph-rel-card, .ph-nearby-card,
          .service-card, .value-card, .hiw-card, .mission-card, .partner-service-card, .bl-featured, .capability-card, .bl-proj) {
     border:1px solid var(--card-border);
+    border-radius:var(--radius-md);
     box-shadow:var(--card-shadow);
     transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
 }
@@ -674,9 +675,15 @@ body :is(.card, .prop-card, .blog-card, .bl-card, .dev-card, .loc-hub-card, .ph-
 }
 /* Static panels (forms, sidebars, info boxes): border + resting shadow only */
 body :is(.info-card, .testi-card, .sdc-card, .bl-faq, .bl-author-box, .bl-side-card, .bl-search-card,
-         .ph-price-card, .ph-enq-card, .ph-quick-card, .ph-side-card) {
+         .ph-price-card, .ph-enq-card, .ph-quick-card, .ph-side-card, .proj-finder-card, .contact-form-card) {
     border:1px solid var(--card-border);
+    border-radius:var(--radius-md);
     box-shadow:var(--card-shadow);
+}
+/* FAQ questions: one style on every page (home, services, contact, hubs, BHK pages,
+   project pages, blog). Each page's own FAQ CSS sets layout; this sets the type. */
+body :is(.faq-item summary, .loc-faq-item summary, .ph-faq-q, .bl-faq summary) {
+    font-family:var(--font-head); font-weight:700; font-size:16px; color:var(--black);
 }
 /* A hairline between a card's photo and its text, so bright photos don't melt into the card */
 body :is(.prop-card-img, .blog-card-img, .bl-card .bl-media, .ph-rel-card-img, .ph-nearby-card-img) {
