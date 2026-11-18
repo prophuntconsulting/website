@@ -115,7 +115,7 @@ const SHARED_STYLE = `
 .loc-faq-list{max-width:820px}
 .loc-faq-item{border-bottom:1px solid var(--gray-200);padding:6px 0}
 .loc-faq-item:last-child{border-bottom:none}
-.loc-faq-item summary{display:block;padding:10px 0;min-height:44px;font-family:var(--font-head);font-size:14.5px;font-weight:700;color:var(--black);cursor:pointer;list-style:none}
+.loc-faq-item summary{display:block;padding:10px 0;min-height:44px;font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--black);cursor:pointer;list-style:none}
 .loc-faq-item summary::-webkit-details-marker{display:none}
 .loc-faq-item summary::after{content:'+';float:right;color:var(--red);font-weight:700}
 .loc-faq-item[open] summary::after{content:'−'}
