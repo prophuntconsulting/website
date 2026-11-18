@@ -150,9 +150,16 @@
         })
         .catch(() => { clearTimeout(fallback); reveal(); });
 
+    // Tell the homepage hero (js/hero-fibers.js) to pause its WebGL loop while the widget is
+    // opening or open: on integrated GPUs the two fight for the GPU and the panel stutters.
+    const busy = on => window.dispatchEvent(new CustomEvent('ph-voice-busy', { detail: { busy: on } }));
+
     let wantOpen = false;
     standIn.addEventListener('click', () => {
         wantOpen = true;
+        busy(true);
+        // If the widget never arrives (network), don't leave the hero frozen.
+        setTimeout(() => { if (document.querySelector('.ph-voice')) busy(false); }, 15000);
         standIn.classList.add('is-loading');
         load(0);
     });
@@ -169,6 +176,14 @@
         document.head.appendChild(l);
     }
     ['pointerenter', 'touchstart', 'focus'].forEach(e => standIn.addEventListener(e, preload, { passive: true, once: true }));
+    // Also fetch it (download only, nothing runs) once the page has fully loaded and gone quiet, so
+    // a tap opens the widget straight away. The server sends widget.js as no-store, so this only
+    // helps the current page view. Skipped for visitors on Data Saver or 2G.
+    window.addEventListener('load', () => {
+        const c = navigator.connection;
+        if (c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || ''))) return;
+        setTimeout(() => (window.requestIdleCallback || (f => f()))(preload, { timeout: 3000 }), 4000);
+    });
 
     function load(delay) {
         if (started) return;
@@ -211,13 +226,22 @@
         // The widget first renders its default purple and applies the dashboard theme a moment
         // later (it fetches the same site-config). Keep the stand-in on top until it has, or 3 s.
         if (!firstSeen) firstSeen = Date.now();
-        if (themed && !host.hasAttribute('data-accent') && Date.now() - firstSeen < 3000) return false;
+        const waited = Date.now() - firstSeen;
+        if (themed && !host.hasAttribute('data-accent') && waited < 3000) return false;
+        const photo = button.querySelector('img');
+        if (photo && !(photo.complete && photo.naturalWidth) && waited < 3000) return false;
         const video = button.querySelector('video');
         let done = false;
         const finish = () => {
             if (done) return;
             done = true;
+            place();
+            host.style.removeProperty('visibility');      // hidden since it was added (see watch)
+            // Keep the hero paused while the panel is open; resume when it closes.
+            new MutationObserver(() => busy(button.getAttribute('aria-expanded') === 'true'))
+                .observe(button, { attributes: true, attributeFilter: ['aria-expanded'] });
             if (wantOpen) button.click();
+            else busy(false);
             standIn.classList.add('is-gone');
             setTimeout(() => standIn.remove(), 400);
         };
@@ -235,13 +259,17 @@
         const host = document.getElementById('vistrow-voice-widget-host');
         if (!host) return;
         watch.disconnect();
+        // The widget first paints its default purple at its own default position, which showed
+        // beside the stand-in. Keep it invisible until it's positioned, themed and has its photo.
+        host.style.setProperty('visibility', 'hidden', 'important');
+        if (host.shadowRoot) tune(host);
         // Slow connections can take well over 15 s to deliver the widget, so keep checking
         // (cheap) until it's ready; giving up used to leave the stand-in stuck over the widget.
         const started = Date.now();
         const poll = setInterval(() => {
             if (host.shadowRoot) { tune(host); place(); }
             if (swap(host)) clearInterval(poll);
-            else if (Date.now() - started > 120000) { clearInterval(poll); standIn.remove(); }
+            else if (Date.now() - started > 120000) { clearInterval(poll); host.style.removeProperty('visibility'); standIn.remove(); busy(false); }
         }, 150);
     });
     watch.observe(document.body, { childList: true, subtree: true });

@@ -682,9 +682,13 @@ void main() {
 
   let advancing = false;
   const bar = caption?.querySelector('.hsc-bar');
+  // Paused while the "Talk to us" voice widget is opening or open (js/voice-widget.js), so it
+  // gets the GPU to itself on low-end machines; picks up where it left off afterwards.
+  let paused = false;
+  window.addEventListener('ph-voice-busy', e => { paused = !!(e.detail && e.detail.busy); if (!paused) wake(); });
   const frame = now => {
     raf = 0;
-    if (!visible || document.hidden) { last = 0; return; }
+    if (!visible || document.hidden || paused) { last = 0; return; }
     // Real time (only long pauses are clipped), so a slow GPU never puts the loop in slow motion.
     const dt = last ? Math.min((now - last) / 1000, 0.25) : 1 / 60;
     last = now;
@@ -706,7 +710,7 @@ void main() {
     } catch (e) { /* skip this frame, keep the loop alive */ }
     raf = requestAnimationFrame(frame);
   };
-  const wake = () => { if (!raf && visible && !document.hidden) raf = requestAnimationFrame(frame); };
+  const wake = () => { if (!raf && visible && !document.hidden && !paused) raf = requestAnimationFrame(frame); };
 
   resize();
   window.addEventListener('resize', resize);
