@@ -22,8 +22,8 @@
 <link rel="canonical" id="ph-canonical" href="https://www.prophuntllp.com/projects/">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <meta name="theme-color" content="#C8362B">
-<link rel="stylesheet" href="/css/vendor.css">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/vendor.css?v=62568fe9">
+<link rel="stylesheet" href="/css/style.css?v=602c6b9d">
 <style>
 /* ── RESET & TOKENS ──────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -100,6 +100,8 @@ html.has-cnav .ph-subnav{top:calc(var(--nav-h,72px) - 8px)}
 .ph-subnav-inner{max-width:var(--container);margin:0 auto;padding:0 var(--gap);display:flex;gap:0;white-space:nowrap}
 .ph-subnav a{display:inline-block;padding:14px 20px;font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;color:var(--gray-600);border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .18s,border-color .18s}
 .ph-subnav a:hover,.ph-subnav a.active{color:var(--red);border-color:var(--red)}
+/* Desktop: tabs span the full layout width, first tab flush with the content edge and last with the sidebar edge. */
+@media(min-width:961px){.ph-subnav-inner{justify-content:space-between;gap:24px}.ph-subnav a{padding:14px 0}}
 
 /* ── MAIN LAYOUT ─────────────────────────────────── */
 .ph-layout{max-width:var(--container);margin:0 auto;padding:48px var(--gap) 88px;display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start}
@@ -437,7 +439,9 @@ h2.ph-section-label,h2.ph-section-title{margin-top:0}
         <div class="dropdown" role="menu">
           <a href="/projects" class="dropdown-link" role="menuitem"><i class="fas fa-th"></i> All Projects</a>
           <a href="/projects/apartments" class="dropdown-link" role="menuitem"><i class="fas fa-building"></i> Apartments</a>
-          <a href="/projects/plots" class="dropdown-link" role="menuitem"><i class="fas fa-map"></i> Plots</a><a href="/projects/villas" class="dropdown-link" role="menuitem"><i class="fas fa-home"></i> Villas</a><a href="/projects/commercial" class="dropdown-link" role="menuitem"><i class="fas fa-store"></i> Commercial</a>
+          <a href="/projects/plots" class="dropdown-link" role="menuitem"><i class="fas fa-map"></i> Plots</a>
+          <a href="/projects/villas" class="dropdown-link" role="menuitem"><i class="fas fa-home"></i> Villas</a>
+          <a href="/projects/commercial" class="dropdown-link" role="menuitem"><i class="fas fa-store"></i> Commercial</a>
         </div>
       </li>
       <li class="nav-item"><a href="/developers" class="nav-link">Developers</a></li>
@@ -459,7 +463,15 @@ h2.ph-section-label,h2.ph-section-title{margin-top:0}
   <div class="mobile-menu-inner">
     <ul class="mobile-nav-links">
       <li><a href="/" class="mobile-nav-link">Home</a></li>
-      <li><a href="/projects" class="mobile-nav-link active">Projects</a></li>
+      <li>
+        <a href="/projects" class="mobile-nav-link active">Projects</a>
+        <div class="mobile-sub">
+          <a href="/projects/apartments" class="mobile-sub-link">Apartments</a>
+          <a href="/projects/plots" class="mobile-sub-link">Plots</a>
+          <a href="/projects/villas" class="mobile-sub-link">Villas</a>
+          <a href="/projects/commercial" class="mobile-sub-link">Commercial</a>
+        </div>
+      </li>
       <li><a href="/developers" class="mobile-nav-link">Developers</a></li>
       <li><a href="/services" class="mobile-nav-link">Services</a></li>
       <li><a href="/about" class="mobile-nav-link">About</a></li>
@@ -467,8 +479,13 @@ h2.ph-section-label,h2.ph-section-title{margin-top:0}
       <li><a href="/contact" class="mobile-nav-link">Contact</a></li>
     </ul>
     <div class="mobile-menu-footer">
-      <a href="/contact" class="btn btn-primary">Enquire Now</a>
+      <a href="/contact" class="btn btn-primary">Book a Site Visit</a>
       <a href="tel:+917066880808" class="btn btn-ghost">Call Us</a>
+      <div class="mobile-contact-info">
+        <a href="tel:+917066880808"><i class="fas fa-phone"></i> +91 70668 80808</a>
+        <a href="mailto:info@prophuntllp.com"><i class="fas fa-envelope"></i> info@prophuntllp.com</a>
+        <a href="https://wa.me/917447430431?text=Hi+PROPHUNT%2C+I%27d+like+help+finding+a+property+in+Pune.%0A%0A%28prophuntllp.com%29" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      </div>
     </div>
   </div>
 </div>
@@ -1337,7 +1354,7 @@ function buildPage(prop, allProps) {
       }
     });
   }, { rootMargin: '-30% 0px -60% 0px' });
-  document.querySelectorAll('#overview,#pricing,#emi,#amenities,#enquiry,#nearby-projects,#faqs').forEach(el => el && observer.observe(el));
+  document.querySelectorAll('#overview,#pricing,#emi,#amenities,#enquiry,#nearby-projects,#before-you-book,#faqs').forEach(el => el && observer.observe(el));
 
   /* ── Sliding carousel (3 visible on desktop, 2 tablet, 1 mobile) — used
      for both "Discover Nearby Projects" and "Recommended Projects" ── */
@@ -1606,8 +1623,8 @@ Promise.all([
       </div>`;
   });
 </script>
-<script src="/js/nav.js"></script>
-<script src="/js/voice-widget.js"></script>
-<script src="/js/lead-check.js" defer></script>
+<script src="/js/nav.js?v=90e5dc28"></script>
+<script src="/js/voice-widget.js?v=52fa2150"></script>
+<script src="/js/lead-check.js?v=95a4c700" defer></script>
 </body>
 </html>
