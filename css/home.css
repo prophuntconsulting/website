@@ -45,12 +45,12 @@
 .hero-right.no-gl .hero-frame { display: none; }
 /* Which project is on screen; the bar fills while it stays. */
 .hero-slide-caption {
-    position: absolute; z-index: 2; right: max(5%, calc((100% - var(--container)) / 2 + var(--gap))); bottom: 2.25rem;
+    position: absolute; z-index: 2; right: max(5%, calc((100% - var(--container)) / 2 + var(--gap))); bottom: 7rem; /* clear of the "Talk to us" button */
     display: grid; gap: .15rem; min-width: 11rem; padding-bottom: .6rem;
     color: #fff; text-decoration: none; opacity: 0; transform: translateY(6px);
     transition: opacity .6s var(--ease), transform .6s var(--ease);
 }
-.hero-right.is-live .hero-slide-caption.is-shown { opacity: 1; transform: none; }
+.hero-slide-caption.is-shown { opacity: 1; transform: none; }
 .hsc-name { font-weight: 600; font-size: .95rem; letter-spacing: .01em; }
 .hsc-name::after { content: ' \2192'; opacity: .7; }
 .hsc-place { font-size: .8rem; color: rgba(255,255,255,.65); }
@@ -80,7 +80,7 @@
         transparent 100%
     );
 }
-.hero-inner { max-width: 560px; }
+.hero-inner { max-width: 660px; }
 
 .hero-tagline {
     display: inline-flex;
