@@ -74,6 +74,8 @@
 .bl-more { font: 700 14px var(--font-head); color: var(--red); margin-top: 4px; }
 
 .bl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+/* Cards and sections are display:flex/grid, which beats the [hidden] attribute the filter sets. */
+.bl-card[hidden], .bl-featured[hidden], .bl-block[hidden], .bl-empty[hidden] { display: none !important; }
 .bl-card { position: relative; display: flex; flex-direction: column; border: 1px solid var(--bl-line); border-radius: 18px; overflow: hidden; background: var(--white); text-decoration: none; color: inherit; transition: transform .2s var(--ease), box-shadow .2s; }
 .bl-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .bl-card:hover .bl-media img { transform: scale(1.04); }

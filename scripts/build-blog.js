@@ -489,7 +489,7 @@ function buildListingBlock(listed, catCounts) {
     </section>` : ''}
 
     <section class="bl-block" style="padding-top:0">
-      <div class="bl-section-head"><span class="bl-eyebrow">All guides</span><h2>Keep exploring</h2></div>
+      <div class="bl-section-head"><span class="bl-eyebrow" id="blGridEyebrow">All guides</span><h2 id="blGridTitle">Keep exploring</h2></div>
       <div class="bl-grid" id="blogGrid">
         ${rest.map((p, i) => postCard(p, i + 2)).join('\n        ')}
         <p class="bl-empty" id="blEmpty" hidden>No articles match that yet. Try another topic, or <a href="/contact">ask our advisors</a>.</p>
