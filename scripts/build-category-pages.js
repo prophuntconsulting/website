@@ -9,7 +9,8 @@
 const fs = require('fs');
 const { FOOTER_HTML } = require('./site-footer');
 // The same header as every other generated page (dropdown, hamburger), with Projects marked current.
-const CATEGORY_NAV = require('./hub-shared').NAV_HTML.trim()
+const { headBoilerplate, sectionHead, ctaHtml } = require('./hub-shared');
+const CATEGORY_NAV = ''
   .replace('<a href="/projects" class="nav-link">', '<a href="/projects" class="nav-link active" aria-current="page">');
 const { INDEX_GUIDES, renderGuide } = require('./area-guides');
 const path = require('path');
@@ -160,6 +161,14 @@ function faqAccordion(faqs) {
     </details>`).join('');
 }
 
+// Only what category pages add on top of the shared hub styles (scripts/hub-shared.js).
+const CATEGORY_STYLE = `
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media(max-width:1024px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cat-grid{grid-template-columns:1fr}}
+.cat-intro{font-size:1.02rem;line-height:1.8;color:var(--gray-600);max-width:780px;margin-bottom:1rem}
+.cat-note{font-size:.9rem;line-height:1.7;color:var(--gray-500);max-width:780px;margin-bottom:2.5rem}`;
+
 function buildPage(category, matches, all) {
   const meta = CATEGORY_META[category];
   const sorted = [...matches].sort((a, b) => statusWeight(a) - statusWeight(b) || String(a.title).localeCompare(String(b.title)));
@@ -213,74 +222,7 @@ function buildPage(category, matches, all) {
     ],
   };
 
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-YR6CRE6BNN');
-  // gtag.js (~170KB) loads after the page has finished loading so it can't compete with
-  // first paint; the calls above queue in dataLayer and are sent when it arrives.
-  (function(){
-    var load = function(){ var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YR6CRE6BNN'; document.head.appendChild(s); };
-    if (document.readyState === 'complete') setTimeout(load, 1500);
-    else window.addEventListener('load', function(){ setTimeout(load, 1500); });
-  })();
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${escapeHtml(title)}</title>
-<meta name="description" content="${escapeHtml(desc)}">
-<link rel="canonical" href="${canonical}">
-<meta property="og:type" content="website">
-<meta property="og:url" content="${canonical}">
-<meta property="og:title" content="${escapeHtml(title)}">
-<meta property="og:description" content="${escapeHtml(desc)}">
-<meta property="og:image" content="${ogImage}">
-<meta property="og:site_name" content="PROPHUNT LLP">
-<meta property="og:locale" content="en_IN">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${escapeHtml(title)}">
-<meta name="twitter:description" content="${escapeHtml(desc)}">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
-<meta name="theme-color" content="#C8362B">
-<link rel="stylesheet" href="/css/vendor.css">
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/pages.css">
-<style>
-/* Comparison table: same look as the area and BHK pages (scripts/hub-shared.js). */
-.ph-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--card-border);border-radius:var(--radius);background:#fff;margin-bottom:.75rem}
-.ph-snapshot{width:100%;border-collapse:collapse;font-size:14px;background:#fff}
-@media(max-width:600px){.ph-snapshot{min-width:560px}.ph-snapshot th,.ph-snapshot td{padding:10px 12px}}
-.ph-snapshot th,.ph-snapshot td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--gray-200);vertical-align:top;line-height:1.5}
-.ph-snapshot tr:last-child td{border-bottom:0}
-.ph-snapshot thead th{background:var(--gray-100);color:var(--gray-600);font-size:12px;letter-spacing:.5px;text-transform:uppercase}
-.ph-snapshot td a{color:var(--red);font-weight:600}
-@media(max-width:768px){.ph-snapshot td a{display:inline-flex;align-items:center;min-height:44px}}
-.loc-sibling-pills{display:flex;flex-wrap:wrap;gap:.6rem}
-.loc-sibling-pill{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1.1rem;border:1.5px solid var(--gray-200);border-radius:999px;font-size:.82rem;font-weight:600;color:var(--gray-700);transition:border-color .2s,color .2s}
-.loc-sibling-pill:hover{border-color:var(--red);color:var(--red)}
-.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-@media(max-width:1024px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.cat-grid{grid-template-columns:1fr}}
-.cat-intro{font-size:1.02rem;line-height:1.8;color:var(--gray-600);max-width:780px;margin-bottom:1rem}
-.cat-note{font-size:.9rem;line-height:1.7;color:var(--gray-500);max-width:780px;margin-bottom:2.5rem}
-.loc-faq-list{max-width:760px}
-.loc-faq-item{border-bottom:1px solid var(--gray-200);padding:6px 0}
-.loc-faq-item:last-child{border-bottom:none}
-.loc-faq-item summary{display:block;padding:10px 0;min-height:44px;font-family:var(--font-head);font-size:14.5px;font-weight:700;color:var(--black);cursor:pointer;list-style:none}
-.loc-faq-item summary::-webkit-details-marker{display:none}
-.loc-faq-item summary::after{content:'+';float:right;color:var(--red);font-weight:700}
-.loc-faq-item[open] summary::after{content:'-'}
-.loc-faq-item p{margin:0 0 12px;font-size:13.5px;color:var(--gray-600);line-height:1.7}
-</style>
-</head>
-<body>
-${CATEGORY_NAV}
+  return headBoilerplate({ title, desc, canonical, jsonLd, ogImage, extraStyle: CATEGORY_STYLE }) + `
 
 <section class="page-hero">
   <div class="container page-hero-inner">
@@ -301,9 +243,7 @@ ${CATEGORY_NAV}
 ${unitRows.length ? `
 <section class="section section--tinted">
   <div class="container">
-    <span class="section-label"><i class="fas fa-table"></i> Compare</span>
-    <h2 class="section-title">${escapeHtml(meta.h1.split(':')[0])}: Sizes, Prices and MahaRERA</h2>
-    <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>
+    ${sectionHead('table', 'Compare', `${meta.h1.split(':')[0]}: Sizes, Prices and MahaRERA`)}
     <p class="cat-intro">Every ${escapeHtml(meta.unitLabel)} option we list around Pune, including those inside larger projects, with the size and starting price the developer publishes.</p>
     <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Location</th><th>Type</th><th>Size</th><th>Developer price</th><th>MahaRERA no.</th></tr></thead><tbody>${unitRows.map(r => `<tr><td><a href="${escapeHtml(r.p.url)}">${escapeHtml(r.p.title)}</a></td><td>${escapeHtml((r.p.location || '').replace(/, (Pune|Maharashtra)$/, ''))}</td><td>${escapeHtml(r.type)}</td><td>${escapeHtml(r.area)}</td><td>${escapeHtml(r.price)}</td><td>${escapeHtml(r.p.rera || 'Not listed')}</td></tr>`).join('')}</tbody></table></div>
     <p class="cat-note">Developer-published figures, excluding taxes and charges; "On request" means the developer shares the price only on enquiry. Confirm the current price sheet and MahaRERA details before booking.</p>
@@ -312,31 +252,19 @@ ${unitRows.length ? `
 ${(meta.links || []).filter(([u]) => pageExists(u)).length ? `
 <section class="section">
   <div class="container">
-    <span class="section-label"><i class="fas fa-link"></i> Related</span>
-    <h2 class="section-title">Guides and Areas</h2>
-    <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>
+    ${sectionHead('link', 'Related', 'Guides and Areas')}
     <div class="loc-sibling-pills">${meta.links.filter(([u]) => pageExists(u)).map(([u, t]) => `<a class="loc-sibling-pill" href="${u}">${escapeHtml(t)}</a>`).join('')}</div>
   </div>
 </section>` : ''}
 
 <section class="section section--tinted">
   <div class="container">
-    <span class="section-label"><i class="fas fa-circle-question"></i> FAQs</span>
-    <h2 class="section-title">${escapeHtml(meta.label)} in Pune — Frequently Asked Questions</h2>
-    <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>
+    ${sectionHead('circle-question', 'FAQs', `${meta.label} in Pune: Frequently Asked Questions`)}
     <div class="loc-faq-list">${faqAccordion(faqs)}</div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div style="background:var(--black);border-radius:8px;padding:2rem;color:#fff;text-align:center">
-      <h3 style="color:#fff;font-family:var(--font-head);font-size:1.5rem;margin-bottom:.5rem">Need help comparing ${escapeHtml(meta.lower)}?</h3>
-      <p style="color:rgba(255,255,255,.72);margin-bottom:1.25rem">Talk to a PROPHUNT advisor for pricing clarity, site-visit planning and shortlist support.</p>
-      <a href="/contact" class="btn btn-primary">Talk to an Advisor</a>
-    </div>
-  </div>
-</section>
+${ctaHtml(`Need help comparing ${meta.lower}?`, 'Talk to a PROPHUNT advisor for pricing clarity, site-visit planning and a shortlist that fits your budget, free for buyers.', `Hi PROPHUNT LLP, I'd like help comparing ${meta.lower} in Pune.`)}
 ${renderGuide(`Buying ${meta.lower} in Pune: what to know`, (INDEX_GUIDES[category] || {}).sections, 'Buyer guide')}
 
 ${FOOTER_HTML}

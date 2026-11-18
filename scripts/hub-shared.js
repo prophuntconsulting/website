@@ -194,7 +194,7 @@ ${SITE_FOOTER}
 </html>
 `;
 
-function headBoilerplate({ title, desc, canonical, jsonLd, ogImage }) {
+function headBoilerplate({ title, desc, canonical, jsonLd, ogImage, extraStyle = '' }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -233,7 +233,7 @@ function headBoilerplate({ title, desc, canonical, jsonLd, ogImage }) {
 <link rel="stylesheet" href="/css/vendor.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/pages.css">
-<style>${SHARED_STYLE}</style>
+<style>${SHARED_STYLE}${extraStyle}</style>
 </head>
 <body>
 ${NAV_HTML}
@@ -255,7 +255,27 @@ function fitTitle(candidates, max = 65) {
   return list.find(c => c.length <= max) || list[list.length - 1];
 }
 
+// Section heading and enquiry band used by every generated hub, BHK and category page.
+const sectionHead = (icon, label, title) => `<span class="section-label"><i class="fas fa-${icon}"></i> ${escapeHtml(label)}</span>
+    <h2 class="section-title">${escapeHtml(title)}</h2>
+    <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>`;
+
+const ctaHtml = (heading, text, waMsg) => `
+<section class="section">
+  <div class="container">
+    <div class="loc-cta">
+      <h3>${escapeHtml(heading)}</h3>
+      <p>${escapeHtml(text)}</p>
+      <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+        <a href="/contact" class="btn btn-primary">Book a Free Site Visit</a>
+        <a href="https://wa.me/917447430431?text=${encodeURIComponent(waMsg)}" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fab fa-whatsapp"></i> WhatsApp an Advisor</a>
+      </div>
+    </div>
+  </div>
+</section>`;
+
 module.exports = {
+  sectionHead, ctaHtml,
   fitTitle, SITE, CATEGORY_META, escapeHtml, priceLabel, fmtLakhCr, priceRangeText, developersText,
   lifecycle, renderHubCard, faqAccordion, SHARED_STYLE, NAV_HTML, FOOTER_HTML, headBoilerplate,
   DEV_HUB_MIN, developerSlug,

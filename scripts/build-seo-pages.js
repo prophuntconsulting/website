@@ -29,6 +29,7 @@ const { LOCALITY_CONTENT } = require('./locality-content');
 const {
   SITE, escapeHtml, priceRangeText, developersText, renderHubCard, faqAccordion,
   headBoilerplate, FOOTER_HTML, fitTitle,
+  sectionHead, ctaHtml,
 } = require('./hub-shared');
 
 const ROOT = path.join(__dirname, '..');
@@ -122,23 +123,7 @@ const breadcrumbHtml = crumbs => `<nav class="breadcrumb" aria-label="Breadcrumb
 const pillLinks = links => links.length
   ? `<div class="loc-sibling-pills">${links.map(l => `<a href="${l.url}" class="loc-sibling-pill">${escapeHtml(l.label)}</a>`).join('')}</div>` : '';
 
-const sectionHead = (icon, label, title) => `<span class="section-label"><i class="fas fa-${icon}"></i> ${escapeHtml(label)}</span>
-    <h2 class="section-title">${escapeHtml(title)}</h2>
-    <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>`;
 
-const ctaHtml = (heading, text, waMsg) => `
-<section class="section">
-  <div class="container">
-    <div class="loc-cta">
-      <h3>${escapeHtml(heading)}</h3>
-      <p>${escapeHtml(text)}</p>
-      <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
-        <a href="/contact" class="btn btn-primary">Book a Free Site Visit</a>
-        <a href="https://wa.me/917447430431?text=${encodeURIComponent(waMsg)}" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fab fa-whatsapp"></i> WhatsApp an Advisor</a>
-      </div>
-    </div>
-  </div>
-</section>`;
 
 const todayLabel = new Date().toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
 const ogImg = p => p && p.cover ? (p.cover.startsWith('http') ? p.cover : SITE + p.cover) : SITE + '/images/og-home.jpg';
