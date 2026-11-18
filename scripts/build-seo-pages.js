@@ -340,6 +340,25 @@ function priceRangeLine(n, area, priced, priceOf) {
 const AREA_RATE = { baner: '₹16,418 to ₹16,987', wakad: '₹12,115 to ₹12,588', hadapsar: '₹11,510 to ₹11,822' };
 const AREA_SEARCH_ALIAS = { 'pimpri-chinchwad': 'PCMC' };
 
+// Pimpri-Chinchwad (PCMC) also takes in Wakad and Tathawade, which have their own pages here.
+// On the PCMC pages, list those projects too, so "3 bhk in pimpri chinchwad" searchers see the full city.
+const PCMC_ALSO = { 'pimpri-chinchwad': ['wakad'] };
+function pcmcMoreHtml(mm, n) {
+  const more = (PCMC_ALSO[mm] || []).flatMap(b => live.filter(p => p.micro_market === b && specificRows(p, n).length));
+  if (!more.length) return '';
+  const rows = more.map(p => { const r = specificRows(p, n)[0]; return { p, size: r.area || 'On request', price: hasPrice(r.price) ? cleanPrice(r.price) : 'On request' }; })
+    .sort((a, b) => priceLakh(a.price) - priceLakh(b.price) || a.p.title.localeCompare(b.p.title));
+  const pages = (PCMC_ALSO[mm] || []).map(b => locBhkUrl(b, n)).filter(Boolean);
+  return `
+<section class="section section--tinted">
+  <div class="container">
+    ${sectionHead('building', 'Also in PCMC', `${bhkLabel(n)} Flats Elsewhere in Pimpri-Chinchwad`)}
+    <p class="loc-about">Pimpri-Chinchwad Municipal Corporation also covers Wakad and Tathawade. These projects there have published ${bhkLabel(n)} sizes${pages.length ? `; see the full <a href="${pages[0]}">${bhkLabel(n)} flats in Wakad</a> page for more` : ''}.</p>
+    <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Location</th><th>${bhkLabel(n)} size</th><th>${bhkLabel(n)} price</th><th>MahaRERA no.</th></tr></thead><tbody>${rows.map(({ p, size, price }) => `<tr><td><a href="${p.url}">${escapeHtml(p.title)}</a></td><td>${escapeHtml(shortLoc(p))}</td><td>${escapeHtml(size)}</td><td>${escapeHtml(price)}</td><td>${escapeHtml(p.rera || 'Not listed')}</td></tr>`).join('')}</tbody></table></div>
+  </div>
+</section>`;
+}
+
 for (const pg of locBhkPages) {
   const { mm, n, projects, url } = pg;
   const loc = LOCALITY_CONTENT[mm];
@@ -361,7 +380,7 @@ for (const pg of locBhkPages) {
   const building = projects.filter(p => /under construction|nearing|new launch|launched/i.test(p.tagline || '') || p.status === 'coming-soon');
   const ready = projects.filter(p => /ready to move|ready possession|oc received/i.test(p.tagline || ''));
   const reraCount = projects.filter(p => p.rera).length;
-  const title = fitTitle([`${label}${alias}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`, `${label}${alias}, Pune: ${projects.length} New Projects & Prices`, `${label}${alias}: ${projects.length} New Projects & Prices`, `${label}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`, `${label}, Pune: ${projects.length} New Projects & Prices`, `${label}, Pune: ${projects.length} New Projects | PROPHUNT`, `${label}: ${projects.length} New Projects & Prices`]);
+  const title = fitTitle([...(projects.length < 4 ? [`${label}${alias}, Pune: Prices, Sizes & RERA | PROPHUNT LLP`, `${label}${alias}, Pune: Prices, Sizes & RERA`, `${label}${alias}: Prices, Sizes & RERA`] : []), `${label}${alias}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`, `${label}${alias}, Pune: ${projects.length} New Projects & Prices`, `${label}${alias}: ${projects.length} New Projects & Prices`, `${label}, Pune: ${projects.length} New Projects & Prices | PROPHUNT LLP`, `${label}, Pune: ${projects.length} New Projects & Prices`, `${label}, Pune: ${projects.length} New Projects | PROPHUNT`, `${label}: ${projects.length} New Projects & Prices`]);
   const desc = `Compare ${projects.length} new ${bhkLabel(n)} flat projects in ${loc.name}, Pune from ${developersText(projects)}.` +
     (pricedProjects.length ? ` ${bhkLabel(n)} prices from ${rowsFor(pricedProjects[0]).price}.` : '') + ' Sizes, MahaRERA numbers and free site visits with PROPHUNT LLP.';
   const crumbs = [{ name: 'Home', url: '/' }, { name: 'Locations', url: '/location' }, { name: loc.name, url: `/location/${mm}` }, { name: label, url }];
@@ -400,15 +419,15 @@ for (const pg of locBhkPages) {
     ${aboutBlurb ? `<p class="loc-about">${escapeHtml(aboutBlurb)}</p>` : ''}
     ${AREA_RATE[mm] ? `<p class="loc-about"><strong>${bhkLabel(n)} flat prices in ${escapeHtml(loc.name)}:</strong> ${rangeLine ? escapeHtml(rangeLine) + ' ' : ''}Knight Frank India's H1 2026 report puts ${escapeHtml(loc.name)} at about ${AREA_RATE[mm]} per sq ft. Individual projects vary with tower, floor and view, so ask each developer for a cost sheet, and add stamp duty, registration and GST with our <a href="/stamp-duty-calculator-pune">stamp duty calculator</a>.</p>` : ''}
     ${sectionHead('table', 'Compare', `${bhkLabel(n)} Size & Price by Project`)}
-    <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Developer</th><th>${bhkLabel(n)} size</th><th>${bhkLabel(n)} price</th></tr></thead><tbody>${sorted.map(p => {
+    <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Developer</th><th>${bhkLabel(n)} size</th><th>${bhkLabel(n)} price</th><th>MahaRERA no.</th><th>MahaRERA completion</th></tr></thead><tbody>${sorted.map(p => {
       const r = rowsFor(p);
-      return `<tr><td><a href="${(projectBhkPages[p.slug] || []).find(x => x.n === n)?.url || p.url}">${escapeHtml(p.title)}</a>${p.status === 'coming-soon' ? ' <small>(new launch)</small>' : ''}</td><td>${escapeHtml(p.developer || '')}</td><td>${escapeHtml(r.size)}</td><td>${escapeHtml(r.price)}</td></tr>`;
+      return `<tr><td><a href="${(projectBhkPages[p.slug] || []).find(x => x.n === n)?.url || p.url}">${escapeHtml(p.title)}</a>${p.status === 'coming-soon' ? ' <small>(new launch)</small>' : ''}</td><td>${escapeHtml(p.developer || '')}</td><td>${escapeHtml(r.size)}</td><td>${escapeHtml(r.price)}</td><td>${escapeHtml(p.rera || 'Not listed')}</td><td>${escapeHtml(p.rera_possession || '—')}</td></tr>`;
     }).join('')}</tbody></table></div>
-    <p class="loc-note">Indicative, as listed in ${escapeHtml(todayLabel)}; excludes taxes and charges. "Not published" means the developer gives one size range for all configurations, shown in brackets, not a ${bhkLabel(n)}-specific size.</p>
+    <p class="loc-note">Indicative, as listed in ${escapeHtml(todayLabel)}; excludes taxes and charges. MahaRERA completion is the date the developer registered with MahaRERA; check the project's MahaRERA page for extensions. "Not published" means the developer gives one size range for all configurations, shown in brackets, not a ${bhkLabel(n)}-specific size.</p>
     <div class="loc-grid">${sorted.map(renderHubCard).join('')}</div>
   </div>
 </section>
-
+${pcmcMoreHtml(mm, n)}
 <section class="section section--tinted">
   <div class="container">
     ${sectionHead('circle-question', 'FAQs', `${label}: Frequently Asked Questions`)}

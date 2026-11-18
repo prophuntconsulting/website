@@ -33,6 +33,12 @@ const CATEGORY_META = {
     singular: 'villa',
     icon: 'home',
     intro: 'Explore limited villa and row-house opportunities listed by PROPHUNT LLP, with configuration, pricing and project context in one place.',
+    // Searchers type "villa projects in pune" / "villas in pune" (Search Console, Keyword Planner Nov 2026).
+    seoTitle: 'Villa Projects in Pune (2026): Villas & Row Houses',
+    h1: 'Villa Projects in Pune: Villas, Row Houses and Townhouses',
+    unitMatch: /villa|row ?house|townhouse|villament|bungalow/i,
+    unitLabel: 'villa, row house and townhouse',
+    links: [['/villas-in-ravet-gahunje', 'Villas in Ravet–Gahunje'], ['/location/hadapsar', 'Hadapsar area guide'], ['/blog/luxury-apartments-in-pune-complete-buyer-s-guide-2026', 'Luxury homes in Pune: buyer guide'], ['/blog/pune-ring-road', 'Pune Ring Road'], ['/stamp-duty-calculator-pune', 'Stamp duty calculator']],
   },
   plot: {
     slug: 'plots',
@@ -41,6 +47,12 @@ const CATEGORY_META = {
     singular: 'plot',
     icon: 'map',
     intro: 'Browse curated plotted development and weekend-home opportunities around Pune, Khopoli and Karjat with advisory support before booking.',
+    // "plots in pune" gets 1K-10K searches a month (Keyword Planner, Nov 2026).
+    seoTitle: 'Plots in Pune (2026): NA & RERA Plot Projects for Sale',
+    h1: 'Plots for Sale in Pune: NA and RERA Plot Projects',
+    unitMatch: /plot/i,
+    unitLabel: 'plot',
+    links: [['/plots-in-hadapsar', 'Plots in Hadapsar'], ['/plots-in-khopoli', 'Plots in Khopoli'], ['/blog/na-plots-near-pune-checklist', 'NA plots near Pune: checklist'], ['/blog/7-12-utara-online', '7/12 utara online'], ['/blog/pmrda-zone-certificate', 'PMRDA zone certificate'], ['/blog/purandar-airport', 'Purandar airport'], ['/blog/pune-ring-road', 'Pune Ring Road']],
   },
   commercial: {
     slug: 'commercial',
@@ -86,6 +98,24 @@ function developersText(matches) {
   return devs.slice(0, 3).join(', ') + ' and more';
 }
 
+// Unit rows of one type across every listing, including villas or plots inside mixed
+// projects (Kalpataru Aria's townhouses and serviced plots, for example).
+function unitRowsFor(category, all) {
+  const meta = CATEGORY_META[category];
+  if (!meta.unitMatch) return [];
+  const rows = [];
+  for (const p of all) {
+    const units = [1, 2, 3].map(i => ({ type: p['unit_' + i + '_type'], area: p['unit_' + i + '_area'], price: p['unit_' + i + '_price'] })).filter(u => u.type);
+    const hits = units.filter(u => p.category === category || meta.unitMatch.test(u.type));
+    if (hits.length) hits.forEach(u => rows.push({ p, ...u }));
+    else if (p.category !== category && meta.unitMatch.test(p.config || '')) rows.push({ p, type: p.config, area: '', price: '' });
+  }
+  const lakh = t => { const m = String(t || '').match(/([\d.]+)\s*(Cr|L)/i); return m ? parseFloat(m[1]) * (/cr/i.test(m[2]) ? 100 : 1) : Infinity; };
+  return rows.map(r => ({ ...r, price: r.price && !/request/i.test(r.price) ? String(r.price).replace(/\*+/g, '').trim() : 'On request', area: r.area || 'On request' }))
+    .sort((a, b) => lakh(a.price) - lakh(b.price) || a.p.title.localeCompare(b.p.title));
+}
+const pageExists = url => fs.existsSync(path.join(ROOT, url.replace(/^\//, ''), 'index.html')) || fs.existsSync(path.join(ROOT, url.replace(/^\//, '') + '.html'));
+
 function statusWeight(p) {
   if (p.status === 'coming-soon') return 0;
   const tl = (p.tagline || '').toLowerCase();
@@ -130,13 +160,17 @@ function faqAccordion(faqs) {
     </details>`).join('');
 }
 
-function buildPage(category, matches) {
+function buildPage(category, matches, all) {
   const meta = CATEGORY_META[category];
   const sorted = [...matches].sort((a, b) => statusWeight(a) - statusWeight(b) || String(a.title).localeCompare(String(b.title)));
   const url = `/projects/${meta.slug}`;
   const canonical = `${SITE}${url}`;
-  const title = `${meta.label} for Sale in Pune: ${sorted.length} Project${sorted.length === 1 ? "" : "s"} | PROPHUNT LLP`;
-  const desc = `Browse ${sorted.length} curated ${meta.lower} in Pune from ${developersText(sorted)}. Prices ${priceRangeText(sorted)} with RERA-aware advisory from PROPHUNT LLP.`;
+  const unitRows = unitRowsFor(category, all || matches);
+  const unitProjects = new Set(unitRows.map(r => r.p.slug)).size;
+  const title = meta.seoTitle || `${meta.label} for Sale in Pune: ${sorted.length} Project${sorted.length === 1 ? "" : "s"} | PROPHUNT LLP`;
+  const desc = meta.seoTitle
+    ? `${meta.h1.split(':')[0]}: compare ${unitProjects} projects with ${meta.unitLabel} options, sizes, developer prices and MahaRERA numbers before you buy.`
+    : `Browse ${sorted.length} curated ${meta.lower} in Pune from ${developersText(sorted)}. Prices ${priceRangeText(sorted)} with RERA-aware advisory from PROPHUNT LLP.`;
   const ogImage = sorted[0] && sorted[0].cover ? (sorted[0].cover.startsWith('http') ? sorted[0].cover : SITE + sorted[0].cover) : SITE + '/images/og-home.jpg';
   const faqs = [
     {
@@ -218,6 +252,18 @@ function buildPage(category, matches) {
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/pages.css">
 <style>
+/* Comparison table: same look as the area and BHK pages (scripts/hub-shared.js). */
+.ph-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--card-border);border-radius:var(--radius);background:#fff;margin-bottom:.75rem}
+.ph-snapshot{width:100%;border-collapse:collapse;font-size:14px;background:#fff}
+@media(max-width:600px){.ph-snapshot{min-width:560px}.ph-snapshot th,.ph-snapshot td{padding:10px 12px}}
+.ph-snapshot th,.ph-snapshot td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--gray-200);vertical-align:top;line-height:1.5}
+.ph-snapshot tr:last-child td{border-bottom:0}
+.ph-snapshot thead th{background:var(--gray-100);color:var(--gray-600);font-size:12px;letter-spacing:.5px;text-transform:uppercase}
+.ph-snapshot td a{color:var(--red);font-weight:600}
+@media(max-width:768px){.ph-snapshot td a{display:inline-flex;align-items:center;min-height:44px}}
+.loc-sibling-pills{display:flex;flex-wrap:wrap;gap:.6rem}
+.loc-sibling-pill{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1.1rem;border:1.5px solid var(--gray-200);border-radius:999px;font-size:.82rem;font-weight:600;color:var(--gray-700);transition:border-color .2s,color .2s}
+.loc-sibling-pill:hover{border-color:var(--red);color:var(--red)}
 .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 @media(max-width:1024px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.cat-grid{grid-template-columns:1fr}}
@@ -240,7 +286,7 @@ ${CATEGORY_NAV}
   <div class="container page-hero-inner">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><a href="/projects">Projects</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span class="current">${escapeHtml(meta.label)}</span></nav>
     <span class="section-label"><i class="fas fa-${meta.icon}"></i> Project Category</span>
-    <h1>${escapeHtml(meta.label)} in Pune</h1>
+    <h1>${escapeHtml(meta.h1 || meta.label + ' in Pune')}</h1>
     <p>${sorted.length} curated ${sorted.length === 1 ? meta.singular : meta.lower} from ${escapeHtml(developersText(sorted))}. Prices ${escapeHtml(priceRangeText(sorted))}.</p>
   </div>
 </section>
@@ -252,6 +298,26 @@ ${CATEGORY_NAV}
     <div class="cat-grid">${sorted.map(renderProjectCard).join('')}</div>
   </div>
 </section>
+${unitRows.length ? `
+<section class="section section--tinted">
+  <div class="container">
+    <span class="section-label"><i class="fas fa-table"></i> Compare</span>
+    <h2 class="section-title">${escapeHtml(meta.h1.split(':')[0])}: Sizes, Prices and MahaRERA</h2>
+    <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>
+    <p class="cat-intro">Every ${escapeHtml(meta.unitLabel)} option we list around Pune, including those inside larger projects, with the size and starting price the developer publishes.</p>
+    <div class="ph-table-wrap"><table class="ph-snapshot"><thead><tr><th>Project</th><th>Location</th><th>Type</th><th>Size</th><th>Developer price</th><th>MahaRERA no.</th></tr></thead><tbody>${unitRows.map(r => `<tr><td><a href="${escapeHtml(r.p.url)}">${escapeHtml(r.p.title)}</a></td><td>${escapeHtml((r.p.location || '').replace(/, (Pune|Maharashtra)$/, ''))}</td><td>${escapeHtml(r.type)}</td><td>${escapeHtml(r.area)}</td><td>${escapeHtml(r.price)}</td><td>${escapeHtml(r.p.rera || 'Not listed')}</td></tr>`).join('')}</tbody></table></div>
+    <p class="cat-note">Developer-published figures, excluding taxes and charges; "On request" means the developer shares the price only on enquiry. Confirm the current price sheet and MahaRERA details before booking.</p>
+  </div>
+</section>` : ''}
+${(meta.links || []).filter(([u]) => pageExists(u)).length ? `
+<section class="section">
+  <div class="container">
+    <span class="section-label"><i class="fas fa-link"></i> Related</span>
+    <h2 class="section-title">Guides and Areas</h2>
+    <div class="ph-divider" style="width:36px;height:3px;background:var(--red);border-radius:2px;margin:10px 0 24px"></div>
+    <div class="loc-sibling-pills">${meta.links.filter(([u]) => pageExists(u)).map(([u, t]) => `<a class="loc-sibling-pill" href="${u}">${escapeHtml(t)}</a>`).join('')}</div>
+  </div>
+</section>` : ''}
 
 <section class="section section--tinted">
   <div class="container">
@@ -290,7 +356,7 @@ Object.entries(CATEGORY_META).forEach(([category, meta]) => {
   if (!matches.length) return;
   const outDir = path.join(ROOT, 'projects', meta.slug);
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, 'index.html'), buildPage(category, matches));
+  fs.writeFileSync(path.join(outDir, 'index.html'), buildPage(category, matches, active));
   generatedUrls.push(`/projects/${meta.slug}`);
   console.log(`  → projects/${meta.slug}/index.html (${matches.length} listing${matches.length === 1 ? '' : 's'})`);
 });
