@@ -71,6 +71,8 @@ const PROJECT_FACTS = {
   'anp-bizsquare': { registered: 'May 2024', promoter: 'Five Star Vighnesh Associates (AOP)', land: 'about 0.23 acres (944 sq m)', units: 'about 68', checked: '2026-10-28', source: SRC },
   'peninsula-ashok-villas-ravet': { units: '19 villas', checked: '2026-10-28', source: SRC },
   'kalpataru-blossoms': { possession: 'Mar 2029 (Towers 1 and 3)', checked: '2026-10-28', source: SRC },
+  // Registered 6 Nov 2026 (S. No. 31/32B Plot B, Wadgaon Bk; Blossoms is Plot A).
+  'kalpataru-aurevia': { registered: 'Nov 2026', promoter: 'Kalpataru Limited', units: '109 (Tower 5)', possession: 'Sep 2032', checked: '2026-11-19', source: SRC },
   'kohinoor-westview-reserve': { possession: 'Dec 2028 (P52100048589 registration)', promoter: 'Goldway Realty', land: 'about 4.25 acres (17,214 sq m, P52100048589 registration)', units: 'about 782 (P52100048589 registration)', checked: '2026-10-28', source: SRC },
   'lodha-altero': { possession: 'Jun 2030', buildings: '3 towers', checked: '2026-10-28', source: SRC },
   'merlin-ventana': { possession: 'Dec 2028', promoter: 'Merlin Bhingarwala Developers LLP', land: 'about 1.08 acres (4,378 sq m)', checked: '2026-10-28', source: SRC },
