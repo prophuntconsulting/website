@@ -173,6 +173,24 @@ const AREA_GUIDES = {
       { q: 'What is the red zone in Ravet?', a: 'It is a restricted area around the Dehu Road ammunition depot, notified under the Works of Defence Act, covering parts of Ravet, Kiwale, Nigdi, Chikhali and Mamurdi. Construction is prohibited inside it. Always confirm in writing that a project is outside the zone before you pay.' },
     ],
   },
+  'hinjewadi': {
+    sections: [
+      { h: 'Where Hinjewadi is', p: [
+        'Hinjewadi is in Mulshi taluka on Pune’s western edge, beyond Wakad and the Mumbai-Bengaluru highway. MIDC developed the Rajiv Gandhi Infotech Park here in three phases, and it is now one of the largest employment hubs in Pune.',
+        'Homes are spread across Hinjewadi village and the IT park itself, Maan beside Phase 3, and Marunji, where the Life Republic township sits. Many buyers who work here also look at Wakad and Tathawade, a short drive east.',
+      ] },
+      { h: 'Connectivity', p: [
+        'Pune Metro Line 3 starts at Megapolis Circle in Phase 3 and runs through the IT park to Shivajinagar, with 23 stations. It opened on 4 November 2026 with 17 stations, and trains run from 6:00 am to 11:40 pm. By road, Hinjewadi connects to the Mumbai-Bengaluru highway at Wakad and on to the Mumbai-Pune Expressway.',
+      ] },
+      { h: 'What to check', list: [
+        '**Commute.** Peak-hour traffic on the Hinjewadi roads is heavy. Time the drive from the project to your office, and check how far the nearest open metro station is.',
+        '**Approving authority.** Much of the area outside the IT park is planned by PMRDA rather than a municipal corporation, which affects approvals and services. Check who approved the building plan.',
+        '**Water.** Ask whether the society relies on a municipal connection, borewells or tankers, and what the developer has committed to.',
+        '**Monsoon drainage.** Some low-lying roads around Phase 1 have flooded in heavy rain. Visit in the monsoon if you can.',
+        '**MahaRERA.** Confirm the registration number and the possession date on the MahaRERA website before paying a booking amount.',
+      ] },
+    ],
+  },
   'sinhagad-road': {
     sections: [
       { h: 'Where Sinhagad Road is', p: [

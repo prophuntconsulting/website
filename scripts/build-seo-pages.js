@@ -25,7 +25,7 @@
 
 const fs   = require('fs');
 const path = require('path');
-const { LOCALITY_CONTENT } = require('./locality-content');
+const { LOCALITY_CONTENT, categoryUrl } = require('./locality-content');
 const {
   SITE, escapeHtml, priceRangeText, developersText, renderHubCard, faqAccordion,
   headBoilerplate, FOOTER_HTML, fitTitle,
@@ -385,7 +385,7 @@ for (const pg of locBhkPages) {
   ];
   const sameBhkElsewhere = locBhkPages.filter(x => x.n === n && x.mm !== mm).map(x => ({ label: `${bhkLabel(n)} flats in ${LOCALITY_CONTENT[x.mm].name}`, url: x.url }));
   const otherBhkHere = locBhkPages.filter(x => x.mm === mm && x.n !== n).sort((a, b) => a.n - b.n).map(x => ({ label: `${bhkLabel(x.n)} flats in ${loc.name}`, url: x.url }));
-  const hubLinks = [`/location/${mm}`, `/apartments-in-${mm}`].filter(u => existingUrls.has(u))
+  const hubLinks = [`/location/${mm}`, categoryUrl('apartment', mm)].filter(u => existingUrls.has(u))
     .map(u => ({ label: u.startsWith('/location') ? `All properties in ${loc.name}` : `All apartments in ${loc.name}`, url: u }));
   const aboutBlurb = loc.faqs && loc.faqs[0] ? loc.faqs[0].a : '';
 
@@ -560,7 +560,7 @@ const AREA_PAGES = [
     // Search Console (Oct 2026): "flats in hinjewadi phase 1", "3 bhk near
     // hinjewadi wakad" etc. were reaching the site with no page about Hinjewadi.
     // Listed by slug: "Baner-Hinjewadi Road" projects (Mahalunge) are not Hinjewadi.
-    slug: 'flats-in-hinjewadi', name: 'Hinjewadi', noun: 'Flats',
+    slug: 'flats-in-hinjewadi', name: 'Hinjewadi', parent: 'hinjewadi', noun: 'Flats',
     match: p => ['godrej-evergreen-square-hinjewadi', 'joyville-sensorium-hinjewadi', 'kolte-patil-qrious-life-republic'].includes(p.slug),
     intro: "Hinjewadi is home to the Rajiv Gandhi Infotech Park, spread across Phase 1, 2 and 3 in west Pune, and is one of the city's largest employment hubs. Housing here is spread across the IT park itself and the villages around it: Maan, next to Phase 3, and Marunji, home to the Life Republic township. Metro Line 3 links Hinjewadi to Shivajinagar.",
   },
@@ -582,7 +582,7 @@ for (const a of AREA_PAGES) {
   const label = `${a.noun} ${a.slug.includes('-on-') ? 'on' : 'in'} ${a.name}`;
   const title = fitTitle([`${label}, Pune: ${matches.length} New Projects & Prices | PROPHUNT LLP`, `${label}, Pune: ${matches.length} New Projects & Prices`, `${label}: ${matches.length} New Projects & Prices`, `${label}: ${matches.length} New Projects`]);
   const desc = `${matches.length} new residential projects ${a.slug.includes('-on-') ? 'on' : 'in'} ${a.name}, Pune from ${developersText(matches)}. ${bhks.map(bhkLabel).join(', ')} homes, prices ${priceRangeText(matches)}. MahaRERA details and free site visits.`;
-  const crumbs = [{ name: 'Home', url: '/' }, { name: 'Locations', url: '/location' }, ...(loc ? [{ name: loc.name, url: `/location/${a.parent}` }] : []), { name: short, url }];
+  const crumbs = [{ name: 'Home', url: '/' }, { name: 'Locations', url: '/location' }, ...(loc ? [{ name: loc.name, url: `/location/${a.parent}` }] : []), { name: loc && loc.name === short ? label : short, url }];
   const reraCount = matches.filter(p => p.rera).length;
   const faqs = [
     { q: `Which new projects are ${a.slug.includes('-on-') ? 'on' : 'in'} ${short}?`, a: `PROPHUNT LLP currently lists ${matches.length} projects: ${sorted.map(p => `${p.title} by ${p.developer}`).join('; ')}.` },
@@ -649,8 +649,7 @@ ${ctaHtml(`Looking for a home ${a.slug.includes('-on-') ? 'on' : 'in'} ${short}?
 for (const p of live) {
   const loc = LOCALITY_CONTENT[p.micro_market];
   if (loc) {
-    const catSlug = { apartment: 'apartments', plot: 'plots', villa: 'villas', commercial: 'commercial-properties' }[p.category];
-    const catUrl = `/${catSlug}-in-${p.micro_market}`;
+    const catUrl = categoryUrl(p.category, p.micro_market);
     if (existingUrls.has(catUrl)) addRelated(p.slug, `${{ apartment: 'Apartments', plot: 'Plots', villa: 'Villas', commercial: 'Commercial properties' }[p.category]} in ${loc.name}`, catUrl);
     if (existingUrls.has(`/location/${p.micro_market}`)) addRelated(p.slug, `New projects in ${loc.name}`, `/location/${p.micro_market}`);
   }

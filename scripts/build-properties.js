@@ -1,6 +1,6 @@
 const fs   = require('fs');
 const path = require('path');
-const { getMicroMarket, LOCALITY_CONTENT } = require('./locality-content');
+const { getMicroMarket, LOCALITY_CONTENT, categoryUrl } = require('./locality-content');
 const { DEV_HUB_MIN, developerSlug, fitTitle } = require('./hub-shared');
 const { PROJECT_FACTS } = require('./project-facts');
 const { PROJECT_VIDEOS } = require('./project-videos');
@@ -564,7 +564,7 @@ function categoryLink(p) {
   const c = CATEGORY_PAGE[p.category];
   if (!c || !p.micro_market || p.status === 'sold-out') return '';
   const loc = LOCALITY_CONTENT[p.micro_market];
-  return `<p><a href="/${c[0]}-in-${escapeHtml(p.micro_market)}" class="ph-browse-link">Browse all ${c[1]} in ${escapeHtml(loc ? loc.name : p.micro_market)} →</a></p>`;
+  return `<p><a href="${escapeHtml(categoryUrl(p.category, p.micro_market))}" class="ph-browse-link">Browse all ${c[1]} in ${escapeHtml(loc ? loc.name : p.micro_market)} →</a></p>`;
 }
 
 function buildPrerenderBlock(p, all) {
@@ -700,6 +700,7 @@ const properties = files.map(file => {
     ...merged,
     micro_market,
     locality_name: locality ? locality.name : '',
+    category_url: micro_market ? categoryUrl(merged.category, micro_market) : '',
     project_faqs: generateProjectFAQs(merged),
     locality_faqs: locality ? locality.faqs : [],
     nearby_landmarks: locality ? locality.landmarks : {},

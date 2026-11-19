@@ -31,7 +31,7 @@ const { SHARED_STYLE } = require('./hub-shared');
 const fs   = require('fs');
 const { FOOTER_HTML } = require('./site-footer');
 const path = require('path');
-const { LOCALITY_CONTENT } = require('./locality-content');
+const { LOCALITY_CONTENT, categoryUrl } = require('./locality-content');
 const { TYPE_GUIDES, renderGuide } = require('./area-guides');
 
 const SITE = 'https://www.prophuntllp.com';
@@ -345,6 +345,8 @@ Object.keys(CATEGORY_META).forEach(category => {
     const locality = LOCALITY_CONTENT[bucket];
     const slug = `${meta.slug}-in-${bucket}`;
     const url  = `/${slug}`;
+    // Built elsewhere under its searched name (e.g. /flats-in-hinjewadi).
+    if (categoryUrl(category, bucket) !== url) return;
 
     const html = buildPage({ slug, url, meta, locality, bucket, matches });
     const outDir = path.join(ROOT, slug);

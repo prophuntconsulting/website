@@ -26,7 +26,21 @@ const MICRO_MARKETS = [
   ['sinhagad',        'sinhagad-road'],
   ['hadapsar',        'hadapsar'],
   ['baner',           'baner'],
+  // After Baner, so "Baner–Hinjewadi Rd" (Godrej River Royale) stays in Baner.
+  ['hinjewadi',       'hinjewadi'],
+  ['marunji',         'hinjewadi'],
 ];
+
+// Category pages that already exist under a searched name: "flats in hinjewadi"
+// is built by build-seo-pages.js, so no separate /apartments-in-hinjewadi is
+// generated and every "Apartments in Hinjewadi" link points here instead.
+const CATEGORY_URL_OVERRIDES = {
+  'apartment|hinjewadi': '/flats-in-hinjewadi',
+};
+const CATEGORY_SLUG = { apartment: 'apartments', plot: 'plots', villa: 'villas', commercial: 'commercial-properties' };
+function categoryUrl(category, bucket) {
+  return CATEGORY_URL_OVERRIDES[`${category}|${bucket}`] || `/${CATEGORY_SLUG[category] || category}-in-${bucket}`;
+}
 
 function getMicroMarket(location) {
   const loc = (location || '').toLowerCase();
@@ -161,6 +175,21 @@ const LOCALITY_CONTENT = {
       transit:   ['Mumbai-Pune Expressway (NH48)', 'Mumbai-Pune rail corridor'],
     },
   },
+  'hinjewadi': {
+    name: 'Hinjewadi',
+    faqs: [
+      { q: 'Where is Hinjewadi and why do homebuyers look there?', a: 'Hinjewadi is in west Pune, beyond Wakad and the Mumbai-Bengaluru highway, and is home to the Rajiv Gandhi Infotech Park, spread across Phase 1, 2 and 3. Buyers look here to live close to work: housing is spread across the IT park and the villages around it, such as Maan next to Phase 3 and Marunji, home to the Life Republic township.' },
+      { q: 'Is Hinjewadi connected by metro?', a: 'Yes. Pune Metro Line 3 runs from Megapolis Circle in Hinjewadi Phase 3 to Shivajinagar, with 23 stations. It opened on 4 November 2026 with 17 stations; the rest, including some in Balewadi and Baner, open later. Trains run from 6:00 am to 11:40 pm.' },
+      { q: 'What are the main employers in Hinjewadi?', a: 'The Rajiv Gandhi Infotech Park houses large IT and services firms across its three phases, along with business parks such as Embassy TechZone and Embassy Quadron in Phase 2, Blue Ridge SEZ in Phase 1 and International Tech Park Pune.' },
+      { q: 'What should I check before buying a flat in Hinjewadi?', a: 'Commute time at peak hours (Hinjewadi traffic is heavy, so the metro station distance matters), the project\'s water source, which authority approved the plan, and the MahaRERA registration and possession date. Our advisors can share current cost sheets and arrange site visits at no charge.' },
+    ],
+    landmarks: {
+      business:  ['Rajiv Gandhi Infotech Park, Phase 1, 2 and 3', 'Embassy TechZone, Phase 2', 'Blue Ridge SEZ, Phase 1', 'International Tech Park Pune (ITPP)'],
+      education: ['Symbiosis Hinjewadi campus'],
+      hospital:  ['Ruby Hall Clinic, Hinjewadi'],
+      transit:   ['Megapolis Circle Metro Station (Line 3, Phase 3)', 'Hinjawadi (Shivaji Chowk) Metro Station', 'Mumbai-Bengaluru highway via Wakad'],
+    },
+  },
 };
 
-module.exports = { MICRO_MARKETS, getMicroMarket, LOCALITY_CONTENT };
+module.exports = { MICRO_MARKETS, getMicroMarket, LOCALITY_CONTENT, categoryUrl };

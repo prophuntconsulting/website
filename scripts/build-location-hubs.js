@@ -21,7 +21,7 @@
 
 const fs   = require('fs');
 const path = require('path');
-const { LOCALITY_CONTENT } = require('./locality-content');
+const { LOCALITY_CONTENT, categoryUrl } = require('./locality-content');
 const { AREA_GUIDES, INDEX_GUIDES, renderGuide } = require('./area-guides');
 const {
   SITE, CATEGORY_META, escapeHtml, fmtLakhCr, priceRangeText, developersText, lifecycle,
@@ -67,7 +67,7 @@ function categoryBreakdown(bucket, matches) {
   matches.forEach(p => { counts[p.category] = (counts[p.category] || 0) + 1; });
   return Object.keys(CATEGORY_META)
     .filter(cat => counts[cat] > 0)
-    .map(cat => ({ meta: CATEGORY_META[cat], count: counts[cat], url: `/${CATEGORY_META[cat].slug}-in-${bucket}` }));
+    .map(cat => ({ meta: CATEGORY_META[cat], count: counts[cat], url: categoryUrl(cat, bucket) }));
 }
 
 function buildHubPage({ bucket, locality, matches, todayLabel }) {
@@ -196,7 +196,6 @@ ${relatedPosts(locality).length ? `
 // them at all. They are grouped here by where they actually are (never folded
 // into a hub they are not in); anything unmatched falls into "Other areas".
 const MORE_AREAS = [
-  { name: 'Hinjewadi', page: '/flats-in-hinjewadi', test: /hinjewadi|maan|marunji|life republic/i },
   { name: 'Bavdhan', test: /bavdhan|lavale/i },
   { name: 'Talegaon', test: /talegaon|shirgaon|somatane/i },
   { name: 'East Pune: Keshav Nagar and NIBM', test: /keshav nagar|mundhwa|nibm|mohammadwadi/i },
