@@ -72,6 +72,15 @@
         ['sinhagad',        'sinhagad-road'],
         ['hadapsar',        'hadapsar'],
         ['baner',           'baner'],
+        // Checked after Baner so 'Baner–Hinjewadi Rd' stays in Baner.
+        ['hinjewadi',       'hinjewadi'],
+        ['marunji',         'hinjewadi'],
+        ['bavdhan',         'bavdhan'],
+        ['lavale',          'bavdhan'],
+        ['talegaon',        'talegaon'],
+        ['keshav nagar',    'keshav-nagar'],
+        ['mundhwa',         'keshav-nagar'],
+        ['nibm',            'nibm-road'],
     ];
     function getMicroMarket(location) {
         const loc = (location || '').toLowerCase();
@@ -220,9 +229,17 @@
         dev:      { select: () => devSelect,    active: () => activeDev,      test: (p, v) => !v || p.developer === v },
         budget:   { select: () => budgetSelect, active: () => activeBudget,   test: (p, v) => matchBudget(p.price, v) },
     };
+    // BHK sizes a project offers, from config text like '2, 2.5, 3 & 3.5 BHK Apartments'.
+    function bhkSizes(config) {
+        const m = String(config || '').match(/(?:[\d.\s,&\/-]|and)+(?=\s*BHK)/i);
+        return m ? m[0].split(/[^\d.]+/).filter(Boolean).map(Number) : [];
+    }
     function matches(p, skip) {
-        const search = activeSearch.toLowerCase();
-        if (search && !`${p.title} ${p.developer} ${p.location} ${p.config}`.toLowerCase().includes(search)) return false;
+        const search = activeSearch.toLowerCase().trim();
+        // '3 BHK' (the homepage Configuration filter) matches 3 and 3.5 BHK, not just the literal text.
+        const bhk = search.match(/^(\d)\s*bhk$/);
+        if (bhk) { if (!bhkSizes(p.config).some(x => Math.floor(x) === +bhk[1])) return false; }
+        else if (search && !`${p.title} ${p.developer} ${p.location} ${p.config}`.toLowerCase().includes(search)) return false;
         return Object.entries(FACETS).every(([k, f]) => k === skip || f.test(p, f.active()));
     }
 

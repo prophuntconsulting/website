@@ -63,7 +63,7 @@
         const badgeHtml = badge ? `<div class="prop-card-tag">${badge}</div>` : '';
         const priceLabel = priceText(p);
         const areaSpec = p.area ? `<span><i class="fas fa-ruler-combined"></i> ${p.area}</span>` : '';
-        const icon = p.category === 'plot' ? 'map' : p.category === 'villa' ? 'home' : 'building';
+        const icon = p.category === 'plot' ? 'map' : p.category === 'villa' ? 'home' : p.category === 'commercial' ? 'briefcase' : 'building';
         return `
         <article class="prop-card" data-category="${p.category}">
           <div class="prop-card-img">
