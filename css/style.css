@@ -675,7 +675,8 @@ body :is(.card, .prop-card, .blog-card, .bl-card, .dev-card, .loc-hub-card, .ph-
 }
 /* Static panels (forms, sidebars, info boxes): border + resting shadow only */
 body :is(.info-card, .testi-card, .sdc-card, .bl-faq, .bl-author-box, .bl-side-card, .bl-search-card,
-         .ph-price-card, .ph-enq-card, .ph-quick-card, .ph-side-card, .proj-finder-card, .contact-form-card) {
+         .ph-price-card, .ph-enq-card, .ph-quick-card, .ph-side-card, .proj-finder-card, .contact-form-card,
+         .ph-stat, .ph-emi-stat, .ph-snapshot) {
     border:1px solid var(--card-border);
     border-radius:var(--radius-md);
     box-shadow:var(--card-shadow);
