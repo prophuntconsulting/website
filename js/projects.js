@@ -81,6 +81,9 @@
         ['keshav nagar',    'keshav-nagar'],
         ['mundhwa',         'keshav-nagar'],
         ['nibm',            'nibm-road'],
+        ['kothrud',         'kothrud'],
+        ['dhanori',         'dhanori'],
+        ['charholi',        'charholi'],
     ];
     function getMicroMarket(location) {
         const loc = (location || '').toLowerCase();

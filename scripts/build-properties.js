@@ -346,8 +346,11 @@ function searchName(p) {
 // H1: the searched name plus the area, e.g. "Kolte Patil City Avenue, Wakad".
 function pageH1(p) {
   const name = searchName(p);
-  const loc = p.area_alias || shortLocation(p);
-  return loc && !name.toLowerCase().includes(loc.toLowerCase()) ? `${name}, ${loc}` : name;
+  // Alias plus locality when they differ ("Maan, Hinjewadi"), like the title.
+  const al = p.area_alias, ln = p.locality_name;
+  const loc = al && ln && !al.toLowerCase().includes(ln.toLowerCase()) && !ln.toLowerCase().includes(al.toLowerCase()) ? `${al}, ${ln}` : (al || shortLocation(p));
+  const rest = (loc || '').split(', ').filter(x => x && !name.toLowerCase().includes(x.toLowerCase())).join(', ');
+  return rest ? `${name}, ${rest}` : name;
 }
 function pageTitle(p) {
   // A hand-written title from the Studio (SEO tab) wins; brand added if it fits.
@@ -355,10 +358,12 @@ function pageTitle(p) {
   const name = searchName(p);
   // "Kohinoor Avantara tathawade" and "... wakad" are both searched: when the
   // area alias differs from the locality bucket, name both.
-  const loc = p.area_alias && p.locality_name && p.area_alias !== p.locality_name ? `${p.area_alias}, ${p.locality_name}` : (p.area_alias || shortLocation(p));
+  // ("Hinjewadi Phase 1" already names Hinjewadi, so no ", Hinjewadi" after it.)
+  const loc = p.area_alias && p.locality_name && !p.area_alias.toLowerCase().includes(p.locality_name.toLowerCase()) && !p.locality_name.toLowerCase().includes(p.area_alias.toLowerCase()) ? `${p.area_alias}, ${p.locality_name}` : (p.area_alias || shortLocation(p));
   // Skip appending the locality when the project name already names it
   // (e.g. "Mahindra Lifespaces Mahalunge") — avoids "Mahalunge, Mahalunge".
-  const head = loc && !name.toLowerCase().includes(loc.toLowerCase()) ? `${name}, ${loc}` : name;
+  const rest = (loc || '').split(', ').filter(x => x && !name.toLowerCase().includes(x.toLowerCase())).join(', ');
+  const head = rest ? `${name}, ${rest}` : name;
   const cfg = shortConfig(p);
   // "<project> possession date" is a common search; claim it only when the
   // page shows a MahaRERA completion date.
@@ -366,7 +371,7 @@ function pageTitle(p) {
   const shops = cfg === 'Commercial Shops & Offices';
   const kw = p.rera ? (poss ? `Price, ${poss} & RERA` : shops ? `${cfg}, Price & RERA` : cfg ? `Price, ${cfg} & RERA` : 'Price & RERA') : (cfg ? `${cfg} Price & Details` : 'Price & Details');
   const kwShort = p.rera ? (poss ? 'Price & Possession' : shops ? cfg : 'Price & RERA') : (cfg ? `${cfg} Price` : 'Price & Details');
-  return fitTitle([`${head} | ${kw} | PROPHUNT LLP`, `${head} | ${kw} | PROPHUNT`, `${head} | ${kw}`, `${head} | ${kwShort} | PROPHUNT`, `${head} | ${kwShort}`, `${name} | ${kwShort}`, `${head}: Price & RERA`]);
+  return fitTitle([`${head} | ${kw} | PROPHUNT LLP`, `${head} | ${kw} | PROPHUNT`, `${head} | ${kw}`, `${head} | ${kwShort} | PROPHUNT`, `${head} | ${kwShort}`, ...(p.rera ? [`${head} | Price & RERA`] : []), `${name} | ${kwShort}`, `${head}: Price & RERA`], 60);
 }
 
 // Head tags: real title/description/canonical + OG/Twitter + JSON-LD
@@ -626,7 +631,7 @@ function buildPrerenderBlock(p, all) {
 
   const prerenderBadges = [
     CAT_LABEL[p.category] ? `<span class="ph-tag-chip"><i class="fas fa-layer-group"></i>${CAT_LABEL[p.category]}</span>` : '',
-    p.rera ? `<span class="ph-tag-chip rera"><i class="fas fa-shield-halved"></i>RERA Registered</span>` : '',
+    p.rera ? `<span class="ph-tag-chip rera"><i class="fas fa-shield-halved"></i>${p.rera_verified && p.rera_checked ? `MahaRERA verified · ${formatVerified(p.rera_checked)}` : 'RERA Registered'}</span>` : '',
   ].filter(Boolean).join('');
 
   return `<div class="ph-prerender" style="max-width:900px;margin:0 auto;padding:32px 24px 24px">

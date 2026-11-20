@@ -185,6 +185,7 @@ h2.ph-section-label,h2.ph-section-title{margin-top:0}
 /* RERA */
 .ph-rera-box{background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px 20px;font-size:14px;color:var(--gray-600);display:flex;align-items:center;gap:12px}
 .ph-rera-box i{color:var(--red);font-size:20px}
+.ph-rera-checked{display:inline-block;font-size:13px;color:var(--gray-600);margin-top:2px}
 
 .ph-rera-preform{display:flex;align-items:center;gap:18px;background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius-card);padding:18px 22px;margin-bottom:18px}
 .ph-rera-qr{flex-shrink:0;width:88px;height:88px;background:#fff;border:1px solid var(--gray-200);border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -727,7 +728,7 @@ function buildPage(prop, allProps) {
   const chipList = [
     categoryLabel ? `<span class="ph-tag-chip"><i class="fas fa-layer-group"></i>${categoryLabel}</span>` : '',
     ...tagChips.map(t => `<span class="ph-tag-chip">${t}</span>`),
-    prop.rera ? `<span class="ph-tag-chip rera"><i class="fas fa-shield-halved"></i>RERA Registered</span>` : '',
+    prop.rera ? `<span class="ph-tag-chip rera"><i class="fas fa-shield-halved"></i>${prop.rera_verified && prop.rera_checked ? 'MahaRERA verified · ' + formatVerified(prop.rera_checked) : 'RERA Registered'}</span>` : '',
   ].filter(Boolean);
   const tagChipsHtml = chipList.length ? `<div class="ph-tag-chips">${chipList.join('')}</div>` : '';
 
@@ -924,7 +925,7 @@ function buildPage(prop, allProps) {
   /* ── RERA ── */
   const reraHtml = prop.rera
     ? `<div class="ph-rera-box"><i class="fas fa-shield-halved"></i>
-        <div><strong>MahaRERA Registered</strong><br>Registration No: ${prop.rera} - <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener" style="color:var(--red)">Verify on MahaRERA</a></div>
+        <div><strong>MahaRERA Registered</strong><br>Registration No: ${prop.rera} - <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener" style="color:var(--red)">Verify on MahaRERA</a>${prop.rera_verified && prop.rera_checked ? `<br><span class="ph-rera-checked">PROPHUNT checked this registration on the MahaRERA website on ${formatVerified(prop.rera_checked)}.</span>` : ''}</div>
       </div>` : '';
 
   /* RERA + QR strip shown right before the enquiry form, so the verification
@@ -937,6 +938,7 @@ function buildPage(prop, allProps) {
         <div class="ph-rera-preform-text">
           <strong><i class="fas fa-shield-halved"></i> MahaRERA Registered</strong>
           <span>Registration No: ${prop.rera}</span>
+          ${prop.rera_verified && prop.rera_checked ? `<span class="ph-rera-checked">Checked by PROPHUNT on MahaRERA: ${formatVerified(prop.rera_checked)}</span>` : ''}
           <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">Verify on MahaRERA →</a>
         </div>
       </div>` : '';

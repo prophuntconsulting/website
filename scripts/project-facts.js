@@ -134,4 +134,54 @@ for (const [slug, f] of Object.entries(NOV20)) {
   PROJECT_FACTS[slug] = { ...(PROJECT_FACTS[slug] || {}), ...f, checked: '2026-11-20', source: SRC };
 }
 
+// Every project whose MahaRERA number(s) we found on the MahaRERA search under
+// the project's own name on 20 Nov 2026. Pages show "MahaRERA verified" with
+// this date. Left out on purpose: numbers registered under another name or
+// promoter (greenfinity-wakad, majestique-elements, vtp-altitude) and projects
+// with no number yet.
+const VERIFIED_NOV20 = [
+  '24k-altura', 'anp-privado', 'joyville-sensorium-hinjewadi', 'kohinoor-abhimaan-shirgaon', 'kolte-patil-qrious-life-republic',
+  'lodha-bella-vita-nibm', 'merlin-ventana', 'regency-astra', 'shapoorji-pallonji-treetopia-jadhavwadi', 'tej-elevia',
+  'abil-imperial-atria', 'anp-retreat', 'godrej-aqua-vista-keshav-nagar', 'kalpataru-aria', 'kohinoor-avantara', 'kumar-panache',
+  'lodha-massimo', 'rohan-ekam-balewadi', 'shapoorji-vanaha-verdant-bavdhan', 'western-avenue-wakad',
+  'anp-bizsquare', 'anp-ultimus', 'godrej-evergreen-square-hinjewadi', 'kalpataru-aurevia', 'kohinoor-regalia-towers',
+  'kumar-parth-towers', 'mahindra-citadel', 'neoliv-grand-forest-prive', 'rohan-harita-tathawade', 'shapoorji-wildernest-hadapsar',
+  'the-balmoral-hillside', 'yashwin-urbo-centro',
+  'anp-landmark', 'bramha-sun-valley-bavdhan', 'godrej-river-royale', 'kalpataru-blossoms', 'kohinoor-satori-baner', 'livience-unione',
+  'mahindra-rivenza-mahalunge', 'nyati-emerald', 'rohan-viti', 'supreme-estia', 'the-ornate-baner',
+  'anp-memento', 'city-avenue-wakad', 'kings-county-wakad', 'kohinoor-westview-reserve', 'lodha-altero',
+  'peninsula-ashok-villas-ravet', 'supreme-villagio-somatane', 'venkatesh-tresor',
+];
+for (const slug of VERIFIED_NOV20) {
+  PROJECT_FACTS[slug] = { ...(PROJECT_FACTS[slug] || {}), checked: '2026-11-20', verified: true, source: (PROJECT_FACTS[slug] || {}).source || SRC };
+}
+
+// 20 Nov 2026: projects added from the Hinjewadi and high-demand research (MahaRERA search + cityair mirror).
+const NEW_NOV20 = {
+  "godrej-park-world-hinjewadi": {possession: "Mar 2029 (The Gale), Dec 2030 (The Greenfront, extended), Sep 2031 (The Aqua Retreat)",units: "4,471 registered units: The Aqua Retreat 1,864; The Greenfront 1,152; The Gale 1,455",promoter: "Maan-Hinje Township Developers Pvt Ltd (The Gale registered as Maan-Hinje Township Developers LLP)",registered: "Feb 2024 (The Gale), Feb 2025 (The Greenfront), Jun 2025 (The Aqua Retreat)",land: "about 8.67 acres (The Aqua Retreat) + 7.14 acres (The Greenfront) + 6.30 acres (The Gale), within the 50+ acre Godrej Park World"},
+  "lodha-sylvan-hinjewadi": {possession: "Dec 2030 (Tower 15, extended date on MahaRERA)",units: "124 (Tower 15)",promoter: "Bellissimo Infratech Pvt Ltd",registered: "Feb 2026",land: "about 14.9 acres (layout plot area shared by the Phase 3 registrations)"},
+  "lodha-panache-hinjewadi": {possession: "Jun 2027 (Hinjewadi Project & Tower 1), Jun 2028 (Towers 4 & 5), Jun 2031 (Towers A & B)",units: "1,573 across five registrations: Tower A 260, Tower B 263, Hinjewadi Project 427, Tower 1 212, Towers 4 & 5 411 (Tower 6 not confirmed)",promoter: "Lodha Developers Ltd",registered: "Mar 2023 (Hinjewadi Project), Jun 2023 (Towers 1, 4 & 5), Sep 2025 (Towers A & B)",land: "about 2.75 acres (Tower A & B registration)"},
+  "lodha-belmondo-gahunje": {possession: "Oct 2028 (Tower 32, extended), Aug 2030 (Townhouse 4)",units: "Tower 32: 85; Townhouse 4: 7",promoter: "Macrotech Developers Ltd (Lodha)",registered: "Mar 2019 (Tower 32), Aug 2026 (Townhouse 4)",land: "about 100+ acres"},
+  "shapoorji-vyomora-maan": {possession: "Apr 2031 (Phase 1), Aug 2031 (Phase 3), Dec 2031 (Phase 2)",units: "720 registered: Phase 1 330, Phase 2 60, Phase 3 330",promoter: "Joyville Shapoorji Housing Pvt Ltd",registered: "Jul 2026 (Phase 1), Oct 2026 (Phases 2 & 3)",land: "about 24.4 acres (MahaRERA); developer states 25 acres"},
+  "life-republic-canvas": {possession: "Sep 2029 (Phase I); Dec 2030 (Phase II)",units: "948 (487 Phase I + 461 Phase II)",promoter: "Kolte-Patil Developers Ltd",registered: "Jul 2024 (Phase I); Oct 2025 (Phase II)",land: "about 8.4 acres (2.16 Phase I + 6.25 Phase II)"},
+  "life-republic-echoes": {possession: "Dec 2030 (Phase 1)",units: "545",promoter: "Kolte-Patil Developers Ltd",registered: "Feb 2026"},
+  "life-republic-duet": {possession: "Dec 2029 (Phase I); Dec 2030 (Phase II)",units: "1,231 (388 Phase I + 843 Phase II)",promoter: "Kolte-Patil Developers Ltd",registered: "Mar 2025 (Phase I); Aug 2025 (Phase II)",land: "about 8.1 acres (2.38 Phase I + 5.69 Phase II)"},
+  "life-republic-atmos": {possession: "Oct 2027 (Phase I); Dec 2028 (Phase II)",units: "1,118 (635 Phase I + 483 Phase II)",promoter: "Kolte-Patil Developers Ltd",registered: "Jun 2023 (Phase I); May 2024 (Phase II)",land: "about 6.1 acres (4.04 Phase I + 2.03 Phase II)"},
+  "life-republic-aros": {possession: "Dec 2026 (Phase I); Jun 2028 (Phase II)",units: "1,439 (739 Phase I + 700 Phase II)",promoter: "Kolte-Patil Developers Ltd (Phase I); Kolte-Patil Integrated Townships Ltd (Phase II)",registered: "Dec 2022 (Phase I); Jan 2024 (Phase II)",land: "about 4.5 acres (2.27 Phase I + 2.26 Phase II)"},
+  "kolte-patil-little-earth-kiwale": {possession: "Jun 2028 (C13, C14); Jun 2029 (D1, D2)",units: "487 in D1 (170), D2 (149), C13 (84) and C14 (84); B7 not confirmed",promoter: "Kolte-Patil Developers Ltd",registered: "Jan 2024 (C13, C14); Jan 2025 (D1, D2)"},
+  "vtp-monarque-hinjewadi": {possession: "Dec 2029 (Phase 1 & Phase 2); Dec 2030 (Phase 3)",units: "1,086 (Phase 1: 504, Phase 2: 144, Phase 3: 438)",promoter: "Mexus Real Estate Developers LLP",registered: "Aug 2024 (Phase 1); Mar 2025 (Phase 2 & Phase 3)",land: "about 0.9 acres (Phase 2) and 4.83 acres (Phase 3); developer states 9 acres overall"},
+  "vtp-volare-hinjewadi": {possession: "Dec 2029",units: "739",promoter: "Mexus Real Estate Developers LLP",registered: "Sep 2024",land: "about 2.63 acres"},
+  "kohinoor-royale-towers-hinjewadi": {possession: "Dec 2030",units: "454",promoter: "Intofinity Promoters Pvt Ltd",registered: "Oct 2025",land: "about 2.59 acres"},
+  "gera-joy-on-the-treetops-hinjewadi": {possession: "Mar 2030 (Project A); Dec 2031 (Project B)",units: "1,050 registered",promoter: "Gera Projects Pvt Ltd",registered: "Oct 2024 (Project A); Dec 2025 (Project B)",land: "about 10.7 acres"},
+  "paranjape-the-ridges-41-hinjewadi": {possession: "Dec 2029",units: "632",promoter: "Aurigaa Realtors",registered: "Apr 2024",land: "about 2.29 acres"},
+  "nanded-city-saajgiri": {possession: "Aug 2029 (Saajgiri); Dec 2027 (Aalaap-I)",units: "648 homes in Saajgiri; 936 in Aalaap-I",promoter: "Nanded City Development & Construction Co. Ltd.",registered: "Nov 2025 (Saajgiri); Mar 2024 (Aalaap-I)",land: "about 8.3 acres (Saajgiri)"},
+  "pride-world-city-valencia": {possession: "Dec 2031 (Valencia D-E-F-G)",units: "449 homes",promoter: "Prime Centre & Developers Private Limited",registered: "Oct 2026",land: "about 7.8 acres"},
+  "amanora-gateway-towers": {possession: "Jun 2029 (Towers 102 & 103); Dec 2030 (Tower 101)",units: "485 homes (170 in Tower 101, 315 in Towers 102 & 103)",promoter: "City Corporation Limited",registered: "Mar 2025 (Towers 102 & 103); Sep 2025 (Tower 101)",land: "about 4.3 acres"},
+  "sukhwani-skylines-wakad": {possession: "Ready to move (MahaRERA status: completed)",units: "853 homes",promoter: "Sukhwani Chawla Developers",registered: "Jun 2019",land: "about 6.2 acres"},
+  "sobha-nesara-kothrud": {possession: "Mar 2027 (Block 3)",units: "293 apartments; Block 1: 92, Block 3: 111 (MahaRERA)",promoter: "SOBHA LIMITED",registered: "Mar 2019"},
+};
+for (const [slug, f] of Object.entries(NEW_NOV20)) {
+  PROJECT_FACTS[slug] = { ...f, checked: '2026-11-20', verified: true, source: SRC };
+}
+
 module.exports = { PROJECT_FACTS };

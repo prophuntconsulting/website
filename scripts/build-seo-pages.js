@@ -181,7 +181,7 @@ for (const p of live) {
     const intro = `${bhkLabel(n)} ${noun.toLowerCase()}s at ${p.title}, ${loc}${sizeTxt ? `, measure ${sizeTxt}` : ''}${priceTxt ? ` and are listed at ${priceTxt}` : ', with the price shared on request'}.` +
       (p.rera_possession ? ` MahaRERA completion date: ${p.rera_possession}.` : '') +
       (otherBhks.length > 1 ? ` The project also offers ${otherBhks.filter(x => x !== n).map(bhkLabel).join(', ')}.` : '');
-    const title = fitTitle([`${core} | PROPHUNT LLP`, `${core} | PROPHUNT`, core, `${p.title} ${bhkLabel(n)} Price | PROPHUNT`, `${p.title} ${bhkLabel(n)} Price`]);
+    const title = fitTitle([`${core} | PROPHUNT LLP`, `${core} | PROPHUNT`, core, `${p.title} ${bhkLabel(n)} Price & Floor Plan`, `${p.title} ${bhkLabel(n)} Price | PROPHUNT`, `${p.title} ${bhkLabel(n)} Price`], 60);
     const desc = `${bhkLabel(n)} ${noun.toLowerCase()}s at ${p.title} by ${p.developer} in ${loc}, Pune.` +
       (priceTxt ? ` Price ${priceTxt}.` : '') + (sizeTxt ? ` Size ${sizeTxt}.` : '') +
       (p.rera ? ' MahaRERA registered.' : '') + ' Get the cost sheet and book a site visit with PROPHUNT LLP.';
@@ -561,7 +561,7 @@ const AREA_PAGES = [
     // hinjewadi wakad" etc. were reaching the site with no page about Hinjewadi.
     // Listed by slug: "Baner-Hinjewadi Road" projects (Mahalunge) are not Hinjewadi.
     slug: 'flats-in-hinjewadi', name: 'Hinjewadi', parent: 'hinjewadi', noun: 'Flats',
-    match: p => ['godrej-evergreen-square-hinjewadi', 'joyville-sensorium-hinjewadi', 'kolte-patil-qrious-life-republic'].includes(p.slug),
+    match: p => p.micro_market === 'hinjewadi',
     intro: "Hinjewadi is home to the Rajiv Gandhi Infotech Park, spread across Phase 1, 2 and 3 in west Pune, and is one of the city's largest employment hubs. Housing here is spread across the IT park itself and the villages around it: Maan, next to Phase 3, and Marunji, home to the Life Republic township. Metro Line 3 links Hinjewadi to Shivajinagar.",
   },
 ];
