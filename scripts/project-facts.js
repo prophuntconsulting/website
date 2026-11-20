@@ -100,4 +100,38 @@ const PROJECT_FACTS = {
   'the-balmoral-hillside': { possession: 'Dec 2028 (Tower B)', checked: '2026-10-28', source: SRC },
 };
 
+// 20 Nov 2026 MahaRERA pass (registered-projects search + the cityair mirror).
+// Same rule as above: only proposed completion dates still ahead, and only
+// extensions MahaRERA itself shows (mirror-only "extended" dates are left out).
+const NOV20 = {
+  '24k-altura': { possession: 'Mar 2028 (Tower A/B), Mar 2029 (Tower D), Dec 2030 (Tower C)' },
+  'joyville-sensorium-hinjewadi': { possession: 'Dec 2026 (Phase VII)', units: '258 (Phase VII)' },
+  'kohinoor-abhimaan-shirgaon': { possession: 'Dec 2026 (Phase 3)', promoter: 'Rising Propcon LLP' },
+  'kolte-patil-qrious-life-republic': { possession: 'Apr 2030 (Phase 1), Dec 2030 (Phase 2)', units: '452 (Phase 1), 863 (Phase 2)' },
+  'lodha-bella-vita-nibm': { possession: 'Dec 2026 (Tower 10)' },
+  'regency-astra': { possession: 'Dec 2026 (Phase III), Dec 2028 (Phase V)' },
+  'shapoorji-pallonji-treetopia-jadhavwadi': { possession: 'Sep 2028 (Phases 2-6)' },
+  'godrej-aqua-vista-keshav-nagar': { possession: 'Mar 2032', units: 'about 1,582', land: 'about 42.9 acres' },
+  'kalpataru-aria': { possession: 'Dec 2026 (Phase D), Mar 2028 (Phase E)' },
+  'rohan-ekam-balewadi': { possession: 'Dec 2027 (Phase 1), Mar 2030 (Phase 2), Sep 2030 (Phase 3)', units: '414 (Phase 1), 100 (Phase 2), 104 (Phase 3)' },
+  'shapoorji-vanaha-verdant-bavdhan': { possession: 'Jun 2030 (Mahogany I & II), Dec 2030 (Elm I & II)', units: '363 (Mahogany), 240 (Elm)' },
+  'mahindra-citadel': { possession: 'Jun 2028 (Phase 1, Towers A-D), Jun 2029 (Bastion J, K), Mar 2030 (Bastion I), Aug 2031 (Phase 5)' },
+  'neoliv-grand-forest-prive': { possession: 'Sep 2030 (Privé 1-4)' },
+  'rohan-harita-tathawade': { possession: 'Dec 2027 (Phase 1)', units: '499 (Phase 1)' },
+  'shapoorji-wildernest-hadapsar': { possession: 'Jun 2027 to Mar 2028 (Towers 1-4)', units: '76 per tower' },
+  'the-balmoral-hillside': { possession: 'Dec 2028 (Tower B), Jun 2029 (Tower A)', units: '136 per tower' },
+  'bramha-sun-valley-bavdhan': { possession: 'Dec 2030 (Phase 1)', units: '411 (Phase 1)' },
+  'godrej-river-royale': { possession: 'Mar 2029', units: '370' },
+  'kalpataru-blossoms': { possession: 'Mar 2029 (Towers 1 and 2)' },
+  'kohinoor-satori-baner': { possession: 'Dec 2028', units: '652', land: 'about 6 acres' },
+  'mahindra-rivenza-mahalunge': { possession: 'Dec 2031 (Phases 1 and 2)', units: '612 (Phase 1), 654 (Phase 2)' },
+  'nyati-emerald': { possession: 'Feb 2027 (Phase II), May 2027 (Phase I), Aug 2028 (Phase III)' },
+  'supreme-villagio-somatane': { possession: 'Dec 2027 (Phase III)', promoter: 'Turquoise Housing LLP' },
+  'kohinoor-avantara': { units: 'about 1,373' },
+  'peninsula-ashok-villas-ravet': { possession: 'Dec 2029' },
+};
+for (const [slug, f] of Object.entries(NOV20)) {
+  PROJECT_FACTS[slug] = { ...(PROJECT_FACTS[slug] || {}), ...f, checked: '2026-11-20', source: SRC };
+}
+
 module.exports = { PROJECT_FACTS };
