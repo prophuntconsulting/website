@@ -39,7 +39,14 @@ function lastmodFor(loc) {
   const file = fileForUrl(loc);
   if (!file) return today();
   // Normalise line endings so a CRLF checkout hashes the same as LF.
-  const hash = crypto.createHash('sha1').update(fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n')).digest('hex');
+  // Hash the page's own content only: not the ?v= asset stamps, the shared nav and mobile menu, or the
+  // footer, which change site-wide (a new menu link or a CSS tweak) without the page's content changing.
+  const html = fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n')
+    .replace(/\?v=[0-9a-f]{6,}/g, '')
+    .replace(/<nav class="navbar[\s\S]*?<\/nav>/, '')
+    .replace(/<div class="mobile-menu"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/, '')
+    .replace(/<footer[\s\S]*?<\/footer>/, '');
+  const hash = crypto.createHash('sha1').update(html).digest('hex');
   const prev = lastmodState[loc];
   const date = prev && prev.hash === hash ? prev.date : today();
   nextLastmodState[loc] = { hash, date };
@@ -60,6 +67,9 @@ const STATIC_PAGES = [
   { loc: '/new-projects-in-andheri-west', changefreq: 'weekly', priority: '0.7' },
   { loc: '/new-projects-in-andheri-west/kalpataru-vian', changefreq: 'monthly', priority: '0.6' },
   { loc: '/new-projects-in-andheri-west/viceroy-visava', changefreq: 'monthly', priority: '0.6' },
+  { loc: '/how-we-research', changefreq: 'yearly', priority: '0.5' },
+  { loc: '/blog/authors', changefreq: 'monthly', priority: '0.5' },
+  ...Object.keys(require('./blog-authors').AUTHORS).map(n => ({ loc: require('./blog-authors').authorUrl(n), changefreq: 'weekly', priority: '0.5' })),
   { loc: '/rera-disclosure', changefreq: 'yearly', priority: '0.4' },
   { loc: '/privacy-policy',  changefreq: 'yearly', priority: '0.3' },
   { loc: '/terms',           changefreq: 'yearly', priority: '0.3' },

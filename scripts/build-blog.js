@@ -213,7 +213,7 @@ function buildHeadBlock(p, ctx) {
       inLanguage: 'en-IN',
       author: bylineFor(p.author) === DEFAULT_BYLINE
         ? { '@type': 'Organization', '@id': `${SITE}/#organization`, name: DEFAULT_BYLINE, url: `${SITE}/about` }
-        : { '@type': 'Person', name: bylineFor(p.author), ...(authorInfo(p.author) && authorInfo(p.author).role ? { jobTitle: authorInfo(p.author).role } : {}), ...(authorInfo(p.author) && authorInfo(p.author).photo ? { image: `${SITE}${authorInfo(p.author).photo}` } : {}), worksFor: { '@id': `${SITE}/#organization` } },
+        : { '@type': 'Person', name: bylineFor(p.author), ...(authorInfo(p.author) ? { url: `${SITE}${authorUrl(bylineFor(p.author))}` } : {}), ...(authorInfo(p.author) && authorInfo(p.author).role ? { jobTitle: authorInfo(p.author).role } : {}), ...(authorInfo(p.author) && authorInfo(p.author).photo ? { image: `${SITE}${authorInfo(p.author).photo}` } : {}), worksFor: { '@id': `${SITE}/#organization` } },
       publisher: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'PROPHUNT LLP', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/images/logo-black.png` } },
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
       ...(ctx.projects.length ? { about: ctx.projects.map(x => ({ '@type': 'Residence', name: x.title, url: `${SITE}${x.url}` })) } : {}),
@@ -269,14 +269,8 @@ function bylineFor(author) {
 
 const BLOG_AUTHOR_BIO = 'The PROPHUNT LLP advisory team helps homebuyers and investors in Pune shortlist developer-backed projects, compare pricing and verify approvals. PROPHUNT LLP is a MahaRERA-registered real estate channel partner (A52100037156). Articles are for general information; check current prices, approvals and registration details before you book.';
 
-// Named authors (Studio: Author field). Bios state only the role and the firm; no pronouns.
-const FIRM = 'PROPHUNT LLP, a MahaRERA-registered real estate channel partner (A52100037156) in Baner, Pune';
-const AUTHORS = {
-  'Saurabh Shedolkar': { role: 'Real Estate Consultant', photo: '/images/authors/saurabh-shedolkar.webp', bio: `Saurabh Shedolkar is a real estate consultant at ${FIRM}. Saurabh helps homebuyers and investors compare new projects across Pune, plan site visits and check pricing and MahaRERA details before booking. Articles are for general information; check current prices, approvals and registration details before you book.` },
-  'Sandeep Yadav': { role: 'Real Estate Consultant', bio: `Sandeep Yadav is a real estate consultant at ${FIRM}. Sandeep works with buyers on shortlisting homes by budget and location, comparing developers and negotiating the final deal. Articles are for general information; check current prices, approvals and registration details before you book.` },
-  'Abhishek Ghadge': { role: '', photo: '/images/authors/abhishek-ghadge.webp', bio: `Abhishek Ghadge is part of the team at ${FIRM}, and writes about property documents, taxes and the steps from booking to registration. Articles are for general information; check current prices, approvals and registration details before you book.` },
-  'Pranav Nair': { role: '', photo: '/images/authors/pranav-nair.webp', bio: `Pranav Nair is part of the team at ${FIRM}, and writes about planning rules, approvals and buyer rights in Pune real estate. Articles are for general information; check current prices, approvals and registration details before you book.` },
-};
+// Named authors live in scripts/blog-authors.js (shared with the author pages and sitemap).
+const { AUTHORS, FIRM, authorUrl } = require('./blog-authors');
 const authorInfo = name => AUTHORS[bylineFor(name)] || null;
 // Avatar: the author's photo where we have one, otherwise initials.
 const avatarHtml = name => { const a = authorInfo(name); return a && a.photo ? `<span class="bl-avatar bl-avatar-photo" aria-hidden="true"><img src="${a.photo}" alt="" width="56" height="56" loading="lazy" decoding="async"></span>` : `<span class="bl-avatar" aria-hidden="true">${initialsFor(name)}</span>`; };
@@ -382,7 +376,7 @@ function buildPrerenderBlock(p, ctx) {
         <div class="bl-byline">
           <div class="bl-author">
             ${avatarHtml(p.author)}
-            <div><strong>${escapeHtml(bylineFor(p.author))}${authorInfo(p.author) && authorInfo(p.author).role ? ` <em class="bl-author-role">· ${escapeHtml(authorInfo(p.author).role)}</em>` : ''}</strong>
+            <div><strong>${authorInfo(p.author) ? `<a class="bl-author-link" href="${authorUrl(bylineFor(p.author))}">${escapeHtml(bylineFor(p.author))}</a>` : escapeHtml(bylineFor(p.author))}${authorInfo(p.author) && authorInfo(p.author).role ? ` <em class="bl-author-role">· ${escapeHtml(authorInfo(p.author).role)}</em>` : ''}</strong>
             <span><time datetime="${escapeHtml(p.date)}">${escapeHtml(fmtDate(p.date))}</time>${p.updated && p.updated > p.date ? ` · Updated <time datetime="${escapeHtml(p.updated)}">${escapeHtml(fmtDate(p.updated))}</time>` : ''} · ${mins} min read</span></div>
           </div>
           <div class="bl-share" aria-label="Share this article">
@@ -394,6 +388,7 @@ function buildPrerenderBlock(p, ctx) {
           </div>
         </div>
         ${p.excerpt ? `<p class="bl-lead">${escapeHtml(p.excerpt)}</p>` : ''}
+        ${p.takeaways && p.takeaways.length ? `<aside class="bl-takeaways" aria-label="Key takeaways"><strong>Key takeaways</strong><ul>${p.takeaways.map(t => `<li>${renderInline(t)}</li>`).join('')}</ul></aside>` : ''}
         ${p.cover ? `<figure class="bl-hero-img">${mediaHtml(p.cover, p.cover_alt || p.title, { eager: true })}</figure>` : ''}
         ${toc.length ? `<details class="bl-toc-mobile"><summary>In this article <span>${toc.length} sections</span></summary><ol class="bl-toc">${toc.map((h, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span><a href="#${h.id}">${escapeHtml(h.text)}</a></li>`).join('')}</ol></details>` : ''}
         <div class="bl-body">${markdownToHtml(p.body || '')}</div>
@@ -402,7 +397,7 @@ function buildPrerenderBlock(p, ctx) {
         ${p.tags && p.tags.length ? `<div class="bl-tags"><strong style="font-size:13px">Tags:</strong>${p.tags.map(t => `<span>${escapeHtml(t)}</span>`).join('')}</div>` : ''}
         <div class="bl-author-box">
           ${avatarHtml(p.author)}
-          <div><strong>About ${escapeHtml(bylineFor(p.author))}${authorInfo(p.author) && authorInfo(p.author).role ? ` <em class="bl-author-role">· ${escapeHtml(authorInfo(p.author).role)}</em>` : ''}</strong><p>${escapeHtml(authorInfo(p.author) ? authorInfo(p.author).bio : BLOG_AUTHOR_BIO)}</p></div>
+          <div><strong>About ${escapeHtml(bylineFor(p.author))}${authorInfo(p.author) && authorInfo(p.author).role ? ` <em class="bl-author-role">· ${escapeHtml(authorInfo(p.author).role)}</em>` : ''}</strong><p>${escapeHtml(authorInfo(p.author) ? authorInfo(p.author).bio : BLOG_AUTHOR_BIO)}</p><p class="bl-author-links">${authorInfo(p.author) ? `<a href="${authorUrl(bylineFor(p.author))}">More by ${escapeHtml(bylineFor(p.author))} →</a> · ` : ''}<a href="/how-we-research">How we research and check our guides →</a></p></div>
         </div>
       </article>
 
@@ -457,6 +452,44 @@ function buildPrerenderBlock(p, ctx) {
   </div>`;
 }
 
+// Blog home sidebar: topic list (same filter as the chips), a start-here list, the stamp duty
+// calculator and a way to reach an advisor. Plain links only; no counters.
+const START_HERE = ['stamp-duty-in-pune-2026', 'how-to-check-maharera-registration-pune', 'pune-metro-line-3-property'];
+function listingSidebar(listed, catCounts) {
+  const start = START_HERE.map(slug => listed.find(p => p.urlSlug === slug)).filter(Boolean);
+  return `<aside class="bl-home-side" aria-label="Blog navigation">
+      <div class="bl-side-card"><h2>Topics</h2>
+        <ul class="bl-side-topics">
+          <li><button class="bl-chip bl-side-topic active" data-cat="all" type="button">All articles <span class="n">${listed.length}</span></button></li>
+          ${Object.entries(LISTING_CAT_LABELS).filter(([k]) => catCounts[k]).map(([k, v]) => `<li><button class="bl-chip bl-side-topic" data-cat="${k}" type="button">${escapeHtml(v)} <span class="n">${catCounts[k]}</span></button></li>`).join('\n          ')}
+        </ul>
+      </div>
+      ${start.length ? `<div class="bl-side-card"><h2>Start here</h2>
+        <ol class="bl-side-start">${start.map(p => `<li><a href="${p.url}">${escapeHtml(p.title.replace(/\s*\(20\d\d\)\s*$/, ''))}</a></li>`).join('')}</ol>
+      </div>` : ''}
+      <div class="bl-side-card"><h2>Tools</h2>
+        <a class="bl-side-tool" href="/stamp-duty-calculator-pune"><i class="fas fa-calculator" aria-hidden="true"></i><span>Pune stamp duty calculator</span></a>
+      </div>
+      <div class="bl-side-card bl-side-advisor"><h2>Talk to an advisor</h2>
+        <p>Free, no pressure: ask about a locality, a project or the paperwork.</p>
+        <a class="btn btn-primary" href="/contact">Book a free consultation</a>
+      </div>
+    </aside>`;
+}
+
+// "The advisors behind our guides": one card per author, linking to the author pages.
+function advisorsStrip() {
+  const { AUTHORS: R, authorUrl: aUrl } = require('./blog-authors');
+  const card = name => { const a = R[name]; const av = a.photo
+    ? `<span class="bl-avatar bl-avatar-photo" aria-hidden="true"><img src="${a.photo}" alt="" width="56" height="56" loading="lazy" decoding="async"></span>`
+    : `<span class="bl-avatar" aria-hidden="true">${name.split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase()}</span>`;
+    return `<a class="bl-advisor" href="${aUrl(name)}">${av}<span><strong>${escapeHtml(name)}</strong><small>${escapeHtml(a.role || 'PROPHUNT LLP')}: ${escapeHtml(a.topics.split(', ')[0])} and more</small></span></a>`; };
+  return `<section class="bl-advisors" aria-labelledby="blAdvisorsTitle">
+      <div class="bl-section-head"><span class="bl-eyebrow">The team</span><h2 id="blAdvisorsTitle">The advisors behind our guides</h2><p>Every guide has a named author. <a href="/how-we-research">How we research and check our guides</a> · <a href="/blog/authors">All authors</a></p></div>
+      <div class="bl-advisors-grid">${Object.keys(R).map(card).join('')}</div>
+    </section>`;
+}
+
 // /blog listing: hero + search, topic chips, featured story, card grid, CTA.
 function buildListingBlock(listed, catCounts) {
   const [first, ...rest] = listed;
@@ -497,6 +530,8 @@ function buildListingBlock(listed, catCounts) {
   </div>
 
   <div class="bl-wrap">
+    <div class="bl-home">
+    <div class="bl-home-main">
     ${first ? `<section class="bl-block" id="blFeatured">
       <div class="bl-section-head"><span class="bl-eyebrow">Latest</span><h2>Start with the latest</h2></div>
       <a class="bl-featured" href="${first.url}" data-cat="${escapeHtml(first.category)}" data-search="${escapeHtml([first.title, first.excerpt, ...(first.tags || [])].join(' ').toLowerCase())}">
@@ -536,6 +571,12 @@ function buildListingBlock(listed, catCounts) {
         <p class="bl-empty" id="blEmpty" hidden>No articles match that yet. Try another topic, or <a href="/contact">ask our advisors</a>.</p>
       </div>
     </section>
+    </div>
+
+    ${listingSidebar(listed, catCounts)}
+    </div>
+
+    ${advisorsStrip()}
 
     ${ctaBand()}
   </div>
@@ -661,6 +702,7 @@ const posts = files.map(filename => {
     redirect_url:       meta.redirect_url || '',
     related_projects:   Array.isArray(meta.related_projects) ? meta.related_projects : [],
     faqs:               parseFaqs(meta.faqs_json, fileSlug),
+    takeaways:          (() => { try { const a = JSON.parse(meta.takeaways_json || '[]'); return Array.isArray(a) ? a.filter(Boolean) : []; } catch { return []; } })(),
     // Left out of sitemap.xml: noindex, excluded by hand, or redirected away.
     in_sitemap: !/noindex/.test(meta.robots || '') && meta.exclude_from_sitemap !== 'true' && !meta.redirect_url,
     body,
@@ -792,4 +834,160 @@ if (fs.existsSync(listingPagePath)) {
 
   fs.writeFileSync(listingPagePath, html);
   console.log(`Prerendered blog/index.html — ${listed.length} article cards`);
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Editorial pages: /how-we-research, /blog/authors and one page per author.
+   Built with the shared page pieces (hub-shared.js) like the other
+   generated pages, plus blog.css for the blog components.
+   ───────────────────────────────────────────────────────────────────── */
+{
+  const HS = require('./hub-shared');
+  const { AUTHORS: ROSTER, authorSlug, authorUrl: aUrl, FIRM: FIRM_TEXT } = require('./blog-authors');
+  const esc = HS.escapeHtml;
+  const page = ({ title, desc, canonical, jsonLd, body }) => (HS.headBoilerplate({
+    title, desc, canonical, jsonLd, ogImage: `${SITE}/images/og-home.jpg`,
+  }).replace('</head>', '<link rel="stylesheet" href="/css/blog.css">\n</head>') + body + HS.FOOTER_HTML).replace(/[ \t]+$/gm, '');
+  const write = (rel, html) => { const dir = path.join(__dirname, '..', rel); fs.mkdirSync(dir, { recursive: true }); fs.writeFileSync(path.join(dir, 'index.html'), html); };
+  const crumbLd = items => ({ '@type': 'BreadcrumbList', itemListElement: items.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: `${SITE}${c.url}` })) });
+  const avatarBig = name => {
+    const a = ROSTER[name];
+    return a.photo
+      ? `<span class="bl-avatar bl-avatar-photo bl-avatar-lg" aria-hidden="true"><img src="${a.photo}" alt="" width="96" height="96" decoding="async"></span>`
+      : `<span class="bl-avatar bl-avatar-lg" aria-hidden="true">${name.split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase()}</span>`;
+  };
+  const byAuthor = name => listed.filter(p => bylineFor(p.author) === name);
+
+  // ── /how-we-research ────────────────────────────────────────────────
+  {
+    const url = '/how-we-research';
+    const crumbs = [{ name: 'Home', url: '/' }, { name: 'How we research', url }];
+    const sections = [
+      ['Who writes our guides', `<p>Every guide on the PROPHUNT blog is written by a named member of the team, with their name at the top and a short profile at the bottom. See <a href="/blog/authors">our authors</a>. We are ${esc(FIRM_TEXT)}.</p>`],
+      ['The sources we use', `<ul>
+        <li><strong>MahaRERA</strong> (maharera.maharashtra.gov.in) for project registration numbers, promoters, proposed completion dates and extension certificates.</li>
+        <li><strong>IGR Maharashtra</strong> for stamp duty, registration charges and ready reckoner rates.</li>
+        <li><strong>Government and authority sources</strong> such as PMC, PCMC, PMRDA, MIDC and the metro operators, for planning, infrastructure and timetable facts.</li>
+        <li><strong>The developer's own website</strong> for configurations, sizes and prices. We do not take prices from property portals or brokers.</li>
+        <li><strong>News reports</strong>, only when no official source exists. We name the outlet and the date in the article.</li>
+      </ul>`],
+      ['How we check project facts', `<p>Before a project is listed, we search for it on the MahaRERA website and check the registration number, the promoter and the proposed completion date. Project pages show <em>MahaRERA verified</em> with the date we last checked. If a number is registered under a different name or promoter than the one on the developer's material, we do not mark it verified until the developer confirms. Our guide <a href="/blog/how-to-check-maharera-registration-pune">How to check MahaRERA registration</a> shows the same steps for buyers.</p>`],
+      ['Dates and updates', `<p>Each article shows the date it was published. An <em>Updated</em> date appears only after we change the content of the article, for example when a station opens, a rate changes or a source is corrected. We do not change dates to make an article look fresh. Where sources disagree, we say so in the article.</p>`],
+      ['How we earn, and what that means for our guides', `<p>PROPHUNT LLP is a MahaRERA-registered real estate channel partner for the developers whose projects we list, and buyers pay no advisory fee. Our guides can mention projects we list; those mentions are shown in a separate "Projects mentioned" section so they are easy to tell apart from the guide itself.</p>`],
+      ['Corrections', `<p>If you find something that is out of date or wrong, write to <a href="mailto:info@prophuntllp.com">info@prophuntllp.com</a> or call <a href="tel:+917066880808">+91 70668 80808</a>. We check the point against the source and correct the article, and the <em>Updated</em> date changes.</p>`],
+      ['General information only', `<p>Our guides explain how things work in Pune and Maharashtra. They are not legal, tax or financial advice. Check current prices, approvals and registration details, and speak to a lawyer or chartered accountant for your own situation, before you book.</p>`],
+    ];
+    const body = `<main class="bl-page">
+  <div class="bl-wrap">
+    ${crumbsHtml(crumbs)}
+    <section class="bl-hero bl-hero-single">
+      <div>
+        <span class="bl-eyebrow"><i class="fas fa-shield-halved" aria-hidden="true"></i>Editorial standards</span>
+        <h1>How PROPHUNT researches and checks its guides</h1>
+        <p>Where our facts come from, how we check project registrations, and how we handle updates and corrections.</p>
+      </div>
+    </section>
+    <div class="bl-prose">
+      ${sections.map(([h, html]) => `<section><h2>${esc(h)}</h2>${html}</section>`).join('\n      ')}
+    </div>
+    ${ctaBand()}
+  </div>
+</main>
+`;
+    write('how-we-research', page({
+      title: 'How PROPHUNT Researches and Checks Its Guides',
+      desc: 'Where PROPHUNT LLP gets its facts: MahaRERA, IGR Maharashtra, official sources and developer websites. How we check projects, date updates and fix errors.',
+      canonical: `${SITE}${url}`,
+      jsonLd: { '@context': 'https://schema.org', '@graph': [crumbLd(crumbs), { '@type': 'AboutPage', name: 'How PROPHUNT researches and checks its guides', url: `${SITE}${url}`, inLanguage: 'en-IN', publisher: { '@id': `${SITE}/#organization` } }] },
+      body,
+    }));
+    console.log('  → how-we-research/index.html');
+  }
+
+  // ── /blog/authors (index) and /blog/authors/<name> ──────────────────
+  {
+    const names = Object.keys(ROSTER);
+    const idxCrumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: 'Authors', url: '/blog/authors' }];
+    const card = name => {
+      const a = ROSTER[name]; const n = byAuthor(name).length;
+      return `<a class="bl-card bl-author-card" href="${aUrl(name)}">
+        ${avatarBig(name)}
+        <span class="bl-card-body"><h3>${esc(name)}</h3>${a.role ? `<span class="bl-card-cat">${esc(a.role)}</span>` : ''}
+        <p>Writes about ${esc(a.topics)}.</p>
+        <span class="bl-card-foot"><span>${n} article${n === 1 ? '' : 's'}</span><span class="bl-more">View →</span></span></span>
+      </a>`;
+    };
+    write('blog/authors', page({
+      title: 'PROPHUNT Blog Authors: Pune Property Advisors',
+      desc: 'The PROPHUNT LLP advisors who write our Pune property guides: what each covers, and their articles on metro, MahaRERA, stamp duty, areas and buying.',
+      canonical: `${SITE}/blog/authors`,
+      jsonLd: { '@context': 'https://schema.org', '@graph': [crumbLd(idxCrumbs), { '@type': 'CollectionPage', name: 'PROPHUNT blog authors', url: `${SITE}/blog/authors`, inLanguage: 'en-IN' }] },
+      body: `<main class="bl-page"><div class="bl-wrap">
+    ${crumbsHtml(idxCrumbs)}
+    <section class="bl-hero bl-hero-single"><div>
+      <span class="bl-eyebrow"><i class="fas fa-user-group" aria-hidden="true"></i>The team</span>
+      <h1>The advisors behind our guides</h1>
+      <p>Every guide is written by a named PROPHUNT LLP advisor. Here is who covers what. See also <a href="/how-we-research">how we research and check our guides</a>.</p>
+    </div></section>
+    <section class="bl-block bl-block-tight"><div class="bl-grid bl-grid-4">
+      ${names.map(card).join('\n      ')}
+    </div></section>
+    ${ctaBand()}
+  </div></main>
+`,
+    }));
+    console.log('  → blog/authors/index.html');
+
+    names.forEach(name => {
+      const a = ROSTER[name]; const mine = byAuthor(name); const url = aUrl(name);
+      const crumbs = [...idxCrumbs, { name, url }];
+      write(`blog/authors/${authorSlug(name)}`, page({
+        title: `${name}${a.role ? `, ${a.role}` : ''}: PROPHUNT Authors`,
+        desc: `${name}${a.role ? `, ${a.role.toLowerCase()}` : ''} at PROPHUNT LLP. Writes about ${a.topics}. ${mine.length} article${mine.length === 1 ? '' : 's'} on the PROPHUNT blog.`.slice(0, 160),
+        canonical: `${SITE}${url}`,
+        jsonLd: { '@context': 'https://schema.org', '@graph': [crumbLd(crumbs), {
+          '@type': 'ProfilePage', url: `${SITE}${url}`, inLanguage: 'en-IN',
+          mainEntity: { '@type': 'Person', name, ...(a.role ? { jobTitle: a.role } : {}), ...(a.photo ? { image: `${SITE}${a.photo}` } : {}), description: a.bio, worksFor: { '@id': `${SITE}/#organization` }, knowsAbout: a.topics.split(/, | and /).map(t => t.trim()).filter(Boolean), url: `${SITE}${url}` },
+        }] },
+        body: `<main class="bl-page"><div class="bl-wrap">
+    ${crumbsHtml(crumbs)}
+    <section class="bl-author-hero">
+      ${avatarBig(name)}
+      <div>
+        <span class="bl-eyebrow">PROPHUNT author</span>
+        <h1>${esc(name)}</h1>
+        <p class="bl-author-hero-role">${a.role ? `${esc(a.role)}, PROPHUNT LLP` : 'PROPHUNT LLP'}</p>
+        <p>${esc(a.bio)}</p>
+        <p class="bl-author-hero-topics"><strong>Writes about:</strong> ${esc(a.topics)}.</p>
+        <p><a href="/how-we-research">How we research and check our guides →</a></p>
+      </div>
+    </section>
+    <section class="bl-block bl-block-tight">
+      <div class="bl-section-head"><span class="bl-eyebrow">Articles</span><h2>${mine.length} article${mine.length === 1 ? '' : 's'} by ${esc(name)}</h2></div>
+      <div class="bl-grid">
+        ${mine.map(p => postCard(p)).join('\n        ')}
+      </div>
+    </section>
+    ${ctaBand()}
+  </div></main>
+`,
+      }));
+      console.log(`  → blog/authors/${authorSlug(name)}/index.html (${mine.length} articles)`);
+    });
+  }
+
+  // ── llms.txt: keep the blog section in step with the published posts ──
+  {
+    const llmsPath = path.join(__dirname, '..', 'llms.txt');
+    if (fs.existsSync(llmsPath)) {
+      let txt = fs.readFileSync(llmsPath, 'utf8').replace(/\r\n/g, '\n');
+      const START = '<!-- BLOG-START -->', END = '<!-- BLOG-END -->';
+      const clip = s => String(s || '').replace(/\s+/g, ' ').trim().slice(0, 170);
+      const block = `${START}\n## Blog: guides by PROPHUNT LLP advisors\n\nEvery guide has a named author and a published date; see [how we research and check our guides](${SITE}/how-we-research) and [our authors](${SITE}/blog/authors).\n\n${listed.map(p => `- [${p.title}](${SITE}${p.url}): ${clip(p.excerpt)} (${bylineFor(p.author)}, ${p.date})`).join('\n')}\n${END}`;
+      if (txt.includes(START)) txt = txt.replace(new RegExp(`${START}[\\s\\S]*?${END}`), () => block);
+      else txt = txt.replace(/\n## Mumbai\n/, () => `\n${block}\n\n## Mumbai\n`);
+      fs.writeFileSync(llmsPath, txt);
+      console.log(`  → llms.txt blog section (${listed.length} posts)`);
+    }
+  }
 }

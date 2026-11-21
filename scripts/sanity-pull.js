@@ -50,7 +50,7 @@ const BLOG_MAP = [
   ['openGraphImageAlt', 'og_image_alt'], ['twitterCard', 'twitter_card'], ['twitterTitle', 'twitter_title'],
   ['twitterDescription', 'twitter_description'], ['twitterImage', 'twitter_image'], ['twitterImageAlt', 'twitter_image_alt'],
   ['canonicalUrl', 'canonical_url'], ['schemaType', 'schema_type'], ['robots', 'robots'], ['excludeFromSitemap', 'exclude_from_sitemap'],
-  ['redirectUrl', 'redirect_url'], ['redirectPermanent', 'redirect_permanent'], ['relatedProjects', 'related_projects'], ['faqsJson', 'faqs_json'],
+  ['redirectUrl', 'redirect_url'], ['redirectPermanent', 'redirect_permanent'], ['relatedProjects', 'related_projects'], ['faqsJson', 'faqs_json'], ['takeawaysJson', 'takeaways_json'],
 ];
 const DEFAULT_ROBOTS = 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
 
@@ -190,6 +190,8 @@ async function main() {
         faqsJson: (d.faqs || []).filter(f => f.question && f.answer).length
           ? JSON.stringify(d.faqs.filter(f => f.question && f.answer).map(f => ({ q: oneLine(f.question), a: oneLine(f.answer) }))).replace(/'/g, '’')
           : '',
+        takeawaysJson: (d.keyTakeaways || []).filter(Boolean).length
+          ? JSON.stringify(d.keyTakeaways.filter(Boolean).map(oneLine)).replace(/'/g, '’') : '',
         excludeFromSitemap: d.excludeFromSitemap ? true : '',
         redirectPermanent: d.redirectUrl ? d.redirectPermanent !== false : '',
         schemaType: d.schemaType && d.schemaType !== 'BlogPosting' ? d.schemaType : '',

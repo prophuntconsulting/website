@@ -52,6 +52,7 @@ export const blogPost = defineType({
       initialValue: () => new Date().toISOString(), validation: r => r.required(),
       description: 'The post appears on the website from this date (and only after you click Publish). Set a future date to schedule it: the site picks it up within 6 hours of that time. Reading time is worked out automatically.',
     }),
+    defineField({ name: 'keyTakeaways', title: 'Key takeaways', type: 'array', group: 'content', of: [defineArrayMember({ type: 'string' })], validation: r => r.max(5), description: '3 to 5 short lines that answer the main search question, shown in a box under the intro. Only facts the article itself states; no new claims.' }),
     defineField({ name: 'contentUpdated', title: 'Content last updated', type: 'date', group: 'content', description: 'Set this when you change the article itself. Shown as "Updated <date>" on the post when later than the publish date. Changing other fields (author, images, SEO) does not need a new date.' }),
     defineField({ name: 'imageBrief', title: 'Image brief', type: 'text', rows: 3, group: 'content', fieldset: 'imageBrief', description: 'What to find or create an image of for this post. 16:9, on-brand colours.' }),
     defineField({ name: 'imageAltSuggestion', title: 'Suggested Alt Text', type: 'string', group: 'content', fieldset: 'imageBrief', description: "Copy this into the Featured Image's alt text once you've added the image." }),

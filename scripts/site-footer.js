@@ -32,7 +32,7 @@ const FOOTER_HTML = `<footer class="footer" role="contentinfo">
         li('/stamp-duty-calculator-pune', 'Stamp Duty Calculator'),
       ].join('')}</ul></nav>
       <nav class="footer-col footer-legal" aria-label="Legal"><h2 class="footer-h">Legal</h2><ul class="footer-links">${[
-        li('/rera-disclosure', 'RERA Disclosure'), li('/privacy-policy', 'Privacy Policy'), li('/terms', 'Terms &amp; Conditions'),
+        li('/rera-disclosure', 'RERA Disclosure'), li('/how-we-research', 'How We Research'), li('/privacy-policy', 'Privacy Policy'), li('/terms', 'Terms &amp; Conditions'),
       ].join('')}</ul></nav>
       <div class="footer-newsletter"><h2 class="footer-h">Stay Updated</h2><p>New launches, price updates and market insights, in your inbox.</p>
         <form class="newsletter-form" id="newsletterForm" novalidate><input type="email" name="newsletterEmail" placeholder="Your email" aria-label="Email address" required><button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button></form>

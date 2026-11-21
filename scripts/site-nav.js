@@ -17,7 +17,7 @@ function sectionFor(urlPath) {
   if (/^\/about(\/|$)/.test(p)) return '/about';
   if (/^\/(blog|stamp-duty-calculator-pune)(\/|$)/.test(p)) return '/blog';
   if (/^\/contact(\/|$)/.test(p)) return '/contact';
-  if (/^\/(privacy-policy|terms|rera-disclosure)$/.test(p)) return '';
+  if (/^\/(privacy-policy|terms|rera-disclosure|how-we-research)$/.test(p)) return '';
   // Projects, categories, area, BHK and landmark pages all sit under Projects.
   return '/projects';
 }

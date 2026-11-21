@@ -1,6 +1,6 @@
 # PROPHUNT LLP
 
-> PROPHUNT LLP is a MahaRERA-registered real estate agent (A52100037156) in Baner, Pune, India. It helps homebuyers and NRIs compare new, RERA-registered projects from established developers across West Pune (Baner, Wakad, Hinjewadi, Mahalunge, Tathawade, Balewadi), Pimpri-Chinchwad, Hadapsar, Sinhagad Road, Ravet and second-home markets such as Karjat and Khopoli. There is no advisory fee for buyers.
+> PROPHUNT LLP is a real estate channel partner in Baner, Pune, India, registered with MahaRERA (A52100037156, under MahaRERA's real estate agent category). It helps homebuyers and NRIs compare new, RERA-registered projects from established developers across West Pune (Baner, Wakad, Hinjewadi, Mahalunge, Tathawade, Balewadi), Pimpri-Chinchwad, Hadapsar, Sinhagad Road, Ravet and second-home markets such as Karjat and Khopoli. There is no advisory fee for buyers.
 
 Office: Work Katta, 291/3, Pancard Club Road, Baner Gaon, Baner, Pune 411069. Phone +91 70668 80808. Email info@prophuntllp.com.
 
@@ -12,10 +12,37 @@ Project pages show the MahaRERA registration number, developer-published prices 
 - [Projects by location](https://www.prophuntllp.com/location): area guides with prices, connectivity and buyer checks
 - [Projects by developer](https://www.prophuntllp.com/developer)
 - [Stamp duty calculator, Pune](https://www.prophuntllp.com/stamp-duty-calculator-pune): stamp duty, metro cess, registration, GST and TDS for PMC and PCMC
-- [Blog](https://www.prophuntllp.com/blog): buyer guides (stamp duty, carpet area, MahaRERA checks, NA plots, market reports)
+- [Blog](https://www.prophuntllp.com/blog): buyer guides (stamp duty, carpet area, MahaRERA checks, NA plots, market reports), each with a named author
+- [How we research and check our guides](https://www.prophuntllp.com/how-we-research): sources used (MahaRERA, IGR Maharashtra, official sites, developer sites), how project facts are verified, dates and corrections
+- [Blog authors](https://www.prophuntllp.com/blog/authors)
 - [About PROPHUNT LLP](https://www.prophuntllp.com/about)
 - [RERA disclosure](https://www.prophuntllp.com/rera-disclosure)
 - [Contact](https://www.prophuntllp.com/contact)
+
+<!-- BLOG-START -->
+## Blog: guides by PROPHUNT LLP advisors
+
+Every guide has a named author and a published date; see [how we research and check our guides](https://www.prophuntllp.com/how-we-research) and [our authors](https://www.prophuntllp.com/blog/authors).
+
+- [Hinjewadi Phase 3: Company List, Metro Stations, Roads and Where to Live (2026)](https://www.prophuntllp.com/blog/hinjewadi-phase-3): Hinjewadi Phase 3 guide for 2026: where it is, the companies there, the three Metro Line 3 stations in Maan, road and flood fixes, the PCMC merger question and the best a (Saurabh Shedolkar, 2026-11-21)
+- [Pune Ring Road 2026: Route Map, Villages List, Status and Completion Date](https://www.prophuntllp.com/blog/pune-ring-road): Pune Ring Road explained: the 169 km MSRDC route, the villages list by taluka, construction status and completion dates, how it differs from the inner ring road and HCMTR (Saurabh Shedolkar, 2026-11-20)
+- [Pune Metro Line 3 Timings, Fares & Station List (Hinjewadi to Shivajinagar)](https://www.prophuntllp.com/blog/pune-metro-line-3-timings): Pune Metro Line 3 timings, fares and the full 23-station list from Hinjewadi to Shivajinagar, plus which stations are open now and when Balewadi High Street opens. (Saurabh Shedolkar, 2026-11-18)
+- [Pune Real Estate Market 2026: H1 Sales, Prices and Unsold Stock](https://www.prophuntllp.com/blog/pune-real-estate-market-2026): The Pune real estate market 2026 in numbers: Knight Frank's H1 data on sales, launches, prices and unsold stock, with locality prices, zone trends and what it means for b (Sandeep Yadav, 2026-11-14)
+- [Home Loan in Pune (2026): EMI, Eligibility and Tax Benefits](https://www.prophuntllp.com/blog/home-loan-in-pune-emi-eligibility-tax): Taking a home loan in Pune in 2026: rates after the RBI's October hike, how much you can borrow, EMI tables for ₹50 lakh to ₹1 crore, and tax benefits under the new Incom (Sandeep Yadav, 2026-11-12)
+- [Pan Card Club Road, Baner: Projects, Prices and What to Know (2026)](https://www.prophuntllp.com/blog/pan-card-club-road-baner): A buyer's guide to Pan Card Club Road in Baner: prices, connectivity, Metro Line 3, water and traffic, and the premium projects from Lodha, ANP, Majestique, Tejraj and AB (Sandeep Yadav, 2026-11-10)
+- [Property Registration Process in Pune (2026): Step-by-Step Guide](https://www.prophuntllp.com/blog/property-registration-process-in-pune): The property registration process in Pune explained step by step: documents, stamp duty payment, booking the sub-registrar slot, the new Aadhaar rule and what to do after (Abhishek Ghadge, 2026-11-07)
+- [Pune Metro Line 3 (Hinjewadi–Shivajinagar): What It Means for Property](https://www.prophuntllp.com/blog/pune-metro-line-3-property): What Pune Metro Line 3 means for property in Wakad, Balewadi, Baner and Hinjewadi, how to judge a project's metro advantage, and where the line stands. Timings and the st (Saurabh Shedolkar, 2026-11-04)
+- [NRI Guide to Buying Property in Pune (2026)](https://www.prophuntllp.com/blog/nri-guide-to-buying-property-in-pune): What NRIs and OCIs can buy in India, how to pay, TDS and capital gains tax, repatriation limits and how to buy through a power of attorney, explained for Pune buyers. (Pranav Nair, 2026-11-03)
+- [Tathawade vs Wakad: Which Is Better for Homebuyers in 2026?](https://www.prophuntllp.com/blog/tathawade-vs-wakad): Tathawade vs Wakad compared on location, prices, connectivity, Metro Line 3, traffic and water supply, with Knight Frank data and projects to look at in each area. (Saurabh Shedolkar, 2026-10-31)
+- [Ready-to-Move vs Under-Construction Flats in Pune: Which Should You Buy?](https://www.prophuntllp.com/blog/ready-to-move-vs-under-construction-flats-pune): Ready-to-move vs under-construction flats in Pune compared on GST, cost, RERA protection, home loans, tax and risk, with a checklist to compare two options fairly. (Sandeep Yadav, 2026-10-29)
+- [NA Plots Near Pune: The 2026 Checklist Before You Buy](https://www.prophuntllp.com/blog/na-plots-near-pune-checklist): What NA plots are, what changed in Maharashtra's NA rules in 2026, and the documents to check before buying a plot near Pune: 7/12, mutation entries, layout approval, tit (Pranav Nair, 2026-10-27)
+- [Carpet Area vs Built-Up vs Super Built-Up Area: What RERA Means for Buyers](https://www.prophuntllp.com/blog/carpet-area-vs-built-up-vs-super-built-up): Carpet, built-up and super built-up area explained: what RERA counts as carpet area, how loading works, a worked price-per-sq-ft example and what to check in your agreeme (Pranav Nair, 2026-10-25)
+- [Stamp Duty in Pune 2026: Registration Charges, GST and What You Actually Pay](https://www.prophuntllp.com/blog/stamp-duty-in-pune-2026): Stamp duty, metro cess, registration fees, GST and TDS for a home in Pune in 2026, explained with a worked example for a ₹1 crore flat and the other costs to budget for. (Abhishek Ghadge, 2026-10-23)
+- [How to Check MahaRERA Registration: Step-by-Step Guide (2026)](https://www.prophuntllp.com/blog/how-to-check-maharera-registration-pune): A step-by-step guide to checking a project's MahaRERA registration on the current portal: registration number formats, what to read on the project page, agent checks and  (Abhishek Ghadge, 2026-10-19)
+- [Baner vs Wakad vs Hinjewadi vs Tathawade: Where to Buy in 2026?](https://www.prophuntllp.com/blog/baner-vs-wakad-vs-hinjewadi-vs-tathawade-where-to-buy-in-2026): Compare Baner, Wakad, Hinjewadi and Tathawade for connectivity, lifestyle, projects and buyer fit before choosing your West Pune location. (Saurabh Shedolkar, 2026-09-08)
+- [Luxury Apartments in Pune: Complete Buyer's Guide 2026](https://www.prophuntllp.com/blog/luxury-apartments-in-pune-complete-buyer-s-guide-2026): Explore luxury apartments in Pune with expert insights on top locations, prices, amenities, investment potential, and smart buying tips from PropHunt LLP. (Sandeep Yadav, 2026-06-29)
+- [Pune Real Estate Market H1 2025: Price Trends, Top Micro-Markets & Outlook](https://www.prophuntllp.com/blog/pune-real-estate-market-h1-2025): Pune home sales held steady in H1 2025 while prices rose 6% and unsold stock grew 14%. Wakad led West Pune with 18% price growth; Baner and Hinjewadi rose about 7%. (Sandeep Yadav, 2025-06-27)
+<!-- BLOG-END -->
 
 ## Mumbai
 
@@ -25,6 +52,7 @@ Project pages show the MahaRERA registration number, developer-published prices 
 ## Area guides
 
 - [Baner](https://www.prophuntllp.com/location/baner)
+- [Hinjewadi](https://www.prophuntllp.com/location/hinjewadi): 17 projects in Hinjewadi, Maan and Marunji (Life Republic), with MahaRERA numbers and completion dates; see also [flats in Hinjewadi](https://www.prophuntllp.com/flats-in-hinjewadi), [2 BHK](https://www.prophuntllp.com/2-bhk-flats-in-hinjewadi) and [3 BHK](https://www.prophuntllp.com/3-bhk-flats-in-hinjewadi)
 - [Wakad](https://www.prophuntllp.com/location/wakad)
 - [Mahalunge](https://www.prophuntllp.com/location/mahalunge)
 - [Pimpri-Chinchwad](https://www.prophuntllp.com/location/pimpri-chinchwad)
