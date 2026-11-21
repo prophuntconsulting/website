@@ -112,6 +112,8 @@
 .bl-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--red); color: var(--white); display: flex; align-items: center; justify-content: center; font: 800 14px var(--font-head); flex: none; }
 .bl-author strong { display: block; font: 700 15px var(--font-head); }
 .bl-author span { font-size: 13px; color: var(--bl-muted); }
+.bl-avatar-photo { background: var(--gray-100); overflow: hidden; padding: 0; }
+.bl-avatar-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
 .bl-author-role { font: 500 13px var(--font-body); font-style: normal; color: var(--bl-muted); }
 .bl-share { display: flex; gap: 8px; }
 .bl-share a, .bl-share button { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--bl-line); background: var(--white); color: var(--bl-ink); display: inline-flex; align-items: center; justify-content: center; font-size: 15px; cursor: pointer; text-decoration: none; transition: border-color .15s, color .15s; }

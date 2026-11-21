@@ -213,7 +213,7 @@ function buildHeadBlock(p, ctx) {
       inLanguage: 'en-IN',
       author: bylineFor(p.author) === DEFAULT_BYLINE
         ? { '@type': 'Organization', '@id': `${SITE}/#organization`, name: DEFAULT_BYLINE, url: `${SITE}/about` }
-        : { '@type': 'Person', name: bylineFor(p.author), ...(authorInfo(p.author) && authorInfo(p.author).role ? { jobTitle: authorInfo(p.author).role } : {}), worksFor: { '@id': `${SITE}/#organization` } },
+        : { '@type': 'Person', name: bylineFor(p.author), ...(authorInfo(p.author) && authorInfo(p.author).role ? { jobTitle: authorInfo(p.author).role } : {}), ...(authorInfo(p.author) && authorInfo(p.author).photo ? { image: `${SITE}${authorInfo(p.author).photo}` } : {}), worksFor: { '@id': `${SITE}/#organization` } },
       publisher: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'PROPHUNT LLP', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/images/logo-black.png` } },
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
       ...(ctx.projects.length ? { about: ctx.projects.map(x => ({ '@type': 'Residence', name: x.title, url: `${SITE}${x.url}` })) } : {}),
@@ -272,12 +272,14 @@ const BLOG_AUTHOR_BIO = 'The PROPHUNT LLP advisory team helps homebuyers and inv
 // Named authors (Studio: Author field). Bios state only the role and the firm; no pronouns.
 const FIRM = 'PROPHUNT LLP, a MahaRERA-registered real estate channel partner (A52100037156) in Baner, Pune';
 const AUTHORS = {
-  'Saurabh Shedolkar': { role: 'Real Estate Consultant', bio: `Saurabh Shedolkar is a real estate consultant at ${FIRM}. Saurabh helps homebuyers and investors compare new projects across Pune, plan site visits and check pricing and MahaRERA details before booking. Articles are for general information; check current prices, approvals and registration details before you book.` },
+  'Saurabh Shedolkar': { role: 'Real Estate Consultant', photo: '/images/authors/saurabh-shedolkar.webp', bio: `Saurabh Shedolkar is a real estate consultant at ${FIRM}. Saurabh helps homebuyers and investors compare new projects across Pune, plan site visits and check pricing and MahaRERA details before booking. Articles are for general information; check current prices, approvals and registration details before you book.` },
   'Sandeep Yadav': { role: 'Real Estate Consultant', bio: `Sandeep Yadav is a real estate consultant at ${FIRM}. Sandeep works with buyers on shortlisting homes by budget and location, comparing developers and negotiating the final deal. Articles are for general information; check current prices, approvals and registration details before you book.` },
-  'Abhishek Ghadge': { role: '', bio: `Abhishek Ghadge is part of the team at ${FIRM}, and writes about property documents, taxes and the steps from booking to registration. Articles are for general information; check current prices, approvals and registration details before you book.` },
-  'Pranav Nair': { role: '', bio: `Pranav Nair is part of the team at ${FIRM}, and writes about planning rules, approvals and buyer rights in Pune real estate. Articles are for general information; check current prices, approvals and registration details before you book.` },
+  'Abhishek Ghadge': { role: '', photo: '/images/authors/abhishek-ghadge.webp', bio: `Abhishek Ghadge is part of the team at ${FIRM}, and writes about property documents, taxes and the steps from booking to registration. Articles are for general information; check current prices, approvals and registration details before you book.` },
+  'Pranav Nair': { role: '', photo: '/images/authors/pranav-nair.webp', bio: `Pranav Nair is part of the team at ${FIRM}, and writes about planning rules, approvals and buyer rights in Pune real estate. Articles are for general information; check current prices, approvals and registration details before you book.` },
 };
 const authorInfo = name => AUTHORS[bylineFor(name)] || null;
+// Avatar: the author's photo where we have one, otherwise initials.
+const avatarHtml = name => { const a = authorInfo(name); return a && a.photo ? `<span class="bl-avatar bl-avatar-photo" aria-hidden="true"><img src="${a.photo}" alt="" width="56" height="56" loading="lazy" decoding="async"></span>` : `<span class="bl-avatar" aria-hidden="true">${initialsFor(name)}</span>`; };
 const initialsFor = name => { const a = authorInfo(name); return a ? bylineFor(name).split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase() : 'PH'; };
 
 // Fixed-ratio image (css/blog.css: 1200 x 630). Sanity CDN images get a
@@ -379,7 +381,7 @@ function buildPrerenderBlock(p, ctx) {
         <h1>${escapeHtml(p.title)}</h1>
         <div class="bl-byline">
           <div class="bl-author">
-            <span class="bl-avatar" aria-hidden="true">${initialsFor(p.author)}</span>
+            ${avatarHtml(p.author)}
             <div><strong>${escapeHtml(bylineFor(p.author))}${authorInfo(p.author) && authorInfo(p.author).role ? ` <em class="bl-author-role">· ${escapeHtml(authorInfo(p.author).role)}</em>` : ''}</strong>
             <span><time datetime="${escapeHtml(p.date)}">${escapeHtml(fmtDate(p.date))}</time>${p.updated && p.updated > p.date ? ` · Updated <time datetime="${escapeHtml(p.updated)}">${escapeHtml(fmtDate(p.updated))}</time>` : ''} · ${mins} min read</span></div>
           </div>
@@ -399,7 +401,7 @@ function buildPrerenderBlock(p, ctx) {
         ${renderProjectCards(ctx.projects)}
         ${p.tags && p.tags.length ? `<div class="bl-tags"><strong style="font-size:13px">Tags:</strong>${p.tags.map(t => `<span>${escapeHtml(t)}</span>`).join('')}</div>` : ''}
         <div class="bl-author-box">
-          <span class="bl-avatar" aria-hidden="true">${initialsFor(p.author)}</span>
+          ${avatarHtml(p.author)}
           <div><strong>About ${escapeHtml(bylineFor(p.author))}${authorInfo(p.author) && authorInfo(p.author).role ? ` <em class="bl-author-role">· ${escapeHtml(authorInfo(p.author).role)}</em>` : ''}</strong><p>${escapeHtml(authorInfo(p.author) ? authorInfo(p.author).bio : BLOG_AUTHOR_BIO)}</p></div>
         </div>
       </article>
