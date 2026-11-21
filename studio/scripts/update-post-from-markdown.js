@@ -52,6 +52,8 @@ if (spec.faqs) patch.faqs = spec.faqs.map((f, i) => ({ _type: 'faq', _key: `faq$
 const links = (body || []).flatMap(b => b.markDefs || []).map(m => m._type === 'internalLink' ? `ref  ${m.reference._ref}` : `link ${m.href}`)
 console.log(`${spec.id}: ${body ? body.length + ' blocks, ' : ''}${links.length} links; setting ${Object.keys(patch).join(', ')}`)
 links.forEach(l => console.log('  ' + l))
+// A body change is a content update: record the date shown as "Updated" on the post.
+if (body) patch.contentUpdated = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10)
 if (DRY) {
   console.log('Dry run, nothing saved.')
 } else {

@@ -47,7 +47,7 @@ for (const def of body.flatMap(b => b.markDefs || [])) {
 const doc = {
   _id: `blog-${spec.slug}`, _type: 'blogPost',
   title: spec.title, slug: { _type: 'slug', current: spec.slug }, excerpt: spec.excerpt, category: spec.category,
-  author: spec.author || 'PROPHUNT Advisory Team', publishedAt: new Date(spec.publishedAt).toISOString(),
+  author: spec.author || 'PROPHUNT LLP', publishedAt: new Date(spec.publishedAt).toISOString(),
   tags: spec.tags, body,
   twitterCard: 'summary_large_image', schemaType: 'BlogPosting',
   robotsIndex: true, robotsFollow: true, robotsNoArchive: false, robotsNoImageIndex: false, robotsNoSnippet: false,

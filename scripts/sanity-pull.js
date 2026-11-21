@@ -178,7 +178,10 @@ async function main() {
         ...d,
         date: d.publishedAt ? istDate(d.publishedAt) : '',
         // Only after a real edit: the import set _createdAt and _updatedAt together.
-        updated: d._updatedAt && Date.parse(d._updatedAt) - Date.parse(d._createdAt) > 3600e3 ? istDate(d._updatedAt) : '',
+        // An explicit 'Content last updated' date wins, so edits to author, images or SEO
+        // fields don't show as an article update.
+        updated: d.contentUpdated ? d.contentUpdated
+          : d._updatedAt && Date.parse(d._updatedAt) - Date.parse(d._createdAt) > 3600e3 ? istDate(d._updatedAt) : '',
         featuredImageAlt: d.featuredImage && d.featuredImage.alt,
         openGraphImageAlt: d.openGraphImage && d.openGraphImage.alt,
         twitterImageAlt: d.twitterImage && d.twitterImage.alt,
