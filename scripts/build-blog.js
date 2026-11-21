@@ -460,6 +460,15 @@ function buildPrerenderBlock(p, ctx) {
 // /blog listing: hero + search, topic chips, featured story, card grid, CTA.
 function buildListingBlock(listed, catCounts) {
   const [first, ...rest] = listed;
+  // Like the ArthaLeads journal: latest story, three more recent ones, then each
+  // topic's newest guides that are not already shown above. Filtering and search
+  // switch to #blResults, which lists every article.
+  const recent = rest.slice(0, 3);
+  const shown = new Set([first, ...recent].filter(Boolean).map(p => p.url));
+  const topicSections = Object.entries(LISTING_CAT_LABELS).filter(([k]) => catCounts[k]).map(([key, label]) => ({
+    key, label, total: catCounts[key],
+    posts: listed.filter(p => p.category === key && !shown.has(p.url)).slice(0, 3),
+  })).filter(t => t.posts.length);
   const topics = Object.keys(LISTING_CAT_LABELS).filter(k => catCounts[k]).length;
   return `<!--BLOG-LISTING-START-->
 <main class="bl-page">
@@ -501,10 +510,29 @@ function buildListingBlock(listed, catCounts) {
       </a>
     </section>` : ''}
 
-    <section class="bl-block" style="padding-top:0">
-      <div class="bl-section-head"><span class="bl-eyebrow" id="blGridEyebrow">All guides</span><h2 id="blGridTitle">Keep exploring</h2></div>
+    <div id="blDefault">
+    ${recent.length ? `<section class="bl-block bl-block-tight">
+      <div class="bl-section-head"><span class="bl-eyebrow">Also recent</span></div>
+      <div class="bl-grid">
+        ${recent.map(p => postCard(p)).join('\n        ')}
+      </div>
+    </section>` : ''}
+
+    ${topicSections.length ? `<section class="bl-block bl-block-tight">
+      <div class="bl-section-head"><span class="bl-eyebrow">Browse by topic</span><h2>Guides by topic</h2><p>${listed.length} articles across ${topicSections.length} topics.</p></div>
+      ${topicSections.map(t => `<div class="bl-topic">
+        <div class="bl-topic-head"><h3>${escapeHtml(t.label)}</h3><a class="bl-see-all" href="/blog?cat=${t.key}" data-cat="${t.key}">See all ${t.total} →</a></div>
+        <div class="bl-grid">
+          ${t.posts.map(p => postCard(p)).join('\n          ')}
+        </div>
+      </div>`).join('\n      ')}
+    </section>` : ''}
+    </div>
+
+    <section class="bl-block bl-block-tight" id="blResults" hidden>
+      <div class="bl-section-head"><span class="bl-eyebrow" id="blGridEyebrow">Topic</span><h2 id="blGridTitle">Guides</h2></div>
       <div class="bl-grid" id="blogGrid">
-        ${rest.map((p, i) => postCard(p, i + 2)).join('\n        ')}
+        ${listed.map(p => postCard(p)).join('\n        ')}
         <p class="bl-empty" id="blEmpty" hidden>No articles match that yet. Try another topic, or <a href="/contact">ask our advisors</a>.</p>
       </div>
     </section>

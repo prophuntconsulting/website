@@ -76,7 +76,14 @@
 
 .bl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 /* Cards and sections are display:flex/grid, which beats the [hidden] attribute the filter sets. */
-.bl-card[hidden], .bl-featured[hidden], .bl-block[hidden], .bl-empty[hidden] { display: none !important; }
+.bl-card[hidden], .bl-featured[hidden], .bl-block[hidden], .bl-empty[hidden], #blDefault[hidden] { display: none !important; }
+/* Listing: "Also recent" and "Browse by topic" (one row of three per topic). */
+.bl-block-tight { padding: 0 0 56px; }
+.bl-topic + .bl-topic { margin-top: 44px; padding-top: 32px; border-top: 1px solid var(--bl-line); }
+.bl-topic-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 0 0 18px; }
+.bl-topic-head h3 { font: 800 clamp(20px, 2.4vw, 24px)/1.25 var(--font-head); margin: 0; color: var(--bl-ink); }
+.bl-see-all { font: 700 14px var(--font-head); color: var(--red); white-space: nowrap; }
+.bl-see-all:hover { color: var(--red-dark); }
 .bl-card { position: relative; display: flex; flex-direction: column; border: 1px solid var(--bl-line); border-radius: 18px; overflow: hidden; background: var(--white); text-decoration: none; color: inherit; transition: transform .2s var(--ease), box-shadow .2s; }
 .bl-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .bl-card:hover .bl-media img { transform: scale(1.04); }

@@ -476,48 +476,52 @@
 <script src="../js/nav.js"></script>
 <script src="../js/custom-select.js"></script>
 <script>
-// Topic chips + search on the prerendered cards (scripts/build-blog.js).
-// ?cat=legal and ?q=stamp+duty work as links too.
+// Blog listing (scripts/build-blog.js): default view = latest, also recent and one
+// row per topic; a topic chip, "See all", ?cat= or a search switches to #blResults.
 (function () {
   var chips = Array.prototype.slice.call(document.querySelectorAll('.bl-chip'));
-  var cards = Array.prototype.slice.call(document.querySelectorAll('#blFeatured .bl-featured, #blogGrid .bl-card'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#blogGrid .bl-card'));
   var search = document.getElementById('blSearch');
   var empty = document.getElementById('blEmpty');
+  var defView = document.getElementById('blDefault');
+  var feat = document.getElementById('blFeatured');
+  var results = document.getElementById('blResults');
+  var gridEyebrow = document.getElementById('blGridEyebrow');
+  var gridTitle = document.getElementById('blGridTitle');
   var params = new URLSearchParams(location.search);
   var state = { cat: params.get('cat') || 'all', q: (params.get('q') || '').toLowerCase().trim() };
   if (search && state.q) search.value = params.get('q');
-  var gridEyebrow = document.getElementById('blGridEyebrow');
-  var gridTitle = document.getElementById('blGridTitle');
   var labels = {};
   chips.forEach(function (c) { labels[c.dataset.cat] = c.childNodes[0].nodeValue.trim(); });
   function apply() {
-    var shown = 0, n = 0;
-    chips.forEach(function (c) { c.classList.toggle('active', c.dataset.cat === state.cat); c.setAttribute('aria-pressed', c.dataset.cat === state.cat); });
+    chips.forEach(function (c) { var on = c.dataset.cat === state.cat; c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
+    var filtered = state.cat !== 'all' || !!state.q;
+    if (defView) defView.hidden = filtered;
+    if (feat) feat.hidden = filtered;
+    if (results) results.hidden = !filtered;
+    if (!filtered) return;
+    var shown = 0;
     cards.forEach(function (c) {
       var ok = (state.cat === 'all' || c.dataset.cat === state.cat) && (!state.q || (c.dataset.search || '').indexOf(state.q) !== -1);
       c.hidden = !ok; if (ok) shown++;
-      // Number the visible cards 01, 02, ... so a filtered list reads as its own set.
-      var num = c.querySelector('.bl-card-num');
-      if (ok) { n++; if (num) num.textContent = String(n).padStart(2, '0'); }
     });
-    var feat = document.getElementById('blFeatured');
-    if (feat) feat.hidden = !!feat.querySelector('.bl-featured[hidden]');
-    if (feat && feat.hidden) { var k = 0; cards.forEach(function (c) { var num = c.querySelector('.bl-card-num'); if (!c.hidden && num) num.textContent = String(++k).padStart(2, '0'); }); }
-    var filtered = state.cat !== 'all' || state.q;
-    var inGrid = cards.filter(function (c) { return !c.hidden && c.classList.contains('bl-card'); }).length;
-    var word = (feat && !feat.hidden ? ' more ' : ' ') + (inGrid === 1 ? 'guide' : 'guides');
-    if (gridEyebrow) gridEyebrow.textContent = filtered ? (state.q ? 'Search results' : 'Topic') : 'All guides';
-    if (gridTitle) gridTitle.textContent = filtered
-      ? (state.q ? inGrid + word : labels[state.cat] + ': ' + inGrid + word)
-      : 'Keep exploring';
-    if (gridTitle) gridTitle.closest('.bl-block').hidden = filtered && inGrid === 0 && shown > 0;
+    var word = shown === 1 ? ' guide' : ' guides';
+    if (gridEyebrow) gridEyebrow.textContent = state.q ? 'Search results' : 'Topic';
+    if (gridTitle) gridTitle.textContent = state.q
+      ? shown + word + (state.cat !== 'all' ? ' in ' + labels[state.cat] : '')
+      : labels[state.cat] + ': ' + shown + word;
     if (empty) empty.hidden = shown > 0;
   }
-  chips.forEach(function (c) { c.addEventListener('click', function () {
-    state.cat = c.dataset.cat; apply();
-    var u = new URL(location.href); if (state.cat === 'all') u.searchParams.delete('cat'); else u.searchParams.set('cat', state.cat);
+  function setCat(cat, scroll) {
+    state.cat = cat; apply();
+    var u = new URL(location.href); if (cat === 'all') u.searchParams.delete('cat'); else u.searchParams.set('cat', cat);
     history.replaceState(null, '', u);
-  }); });
+    if (scroll) { var bar = document.querySelector('.bl-chips-bar'); if (bar) window.scrollTo({ top: bar.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { setCat(c.dataset.cat, false); }); });
+  Array.prototype.slice.call(document.querySelectorAll('.bl-see-all')).forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); setCat(a.dataset.cat, true); });
+  });
   if (search) search.addEventListener('input', function () { state.q = search.value.toLowerCase().trim(); apply(); });
   apply();
 })();
